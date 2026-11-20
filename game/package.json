@@ -8,7 +8,7 @@
     "build": "vite build && node scripts/prepare-sites-build.mjs",
     "preview": "vite preview",
     "test:sites": "node --test tests/sites-worker.test.mjs",
-    "test:flight": "node --test tests/flight.test.mjs tests/approach.test.mjs tests/physics.test.mjs tests/levels.test.mjs tests/terrain.test.mjs tests/comms.test.mjs tests/arrival-motion.test.mjs tests/stall-recovery.test.mjs tests/touch-and-go.test.mjs tests/emergency-radio.test.mjs tests/soundscape.test.mjs tests/i18n.test.mjs"
+    "test:flight": "node --test tests/flight.test.mjs tests/approach.test.mjs tests/physics.test.mjs tests/levels.test.mjs tests/terrain.test.mjs tests/comms.test.mjs tests/arrival-motion.test.mjs tests/stall-recovery.test.mjs tests/touch-and-go.test.mjs tests/emergency-radio.test.mjs tests/soundscape.test.mjs tests/i18n.test.mjs tests/urls.test.mjs"
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.1.10",
@@ -25,7 +25,7 @@
     "type": "git",
     "url": "https://github.com/renorzr/pilot-sim.git"
   },
-  "homepage": "https://flight.awsdev.renorzr.top/",
+  "homepage": "https://renorzr.github.io/pilot-sim/",
   "bugs": {
     "url": "https://github.com/renorzr/pilot-sim/issues"
   },

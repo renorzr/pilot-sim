@@ -1,6 +1,6 @@
 # Pilot Sim
 
-**[Play online](https://flight.awsdev.renorzr.top/) · [简体中文](README.zh-CN.md) · [MIT License](LICENSE)**
+**[Play online](https://renorzr.github.io/pilot-sim/) · [简体中文](README.zh-CN.md) · [MIT License](LICENSE)**
 
 An A320-inspired airliner game for the browser: a cockpit view, live instruments,
 real-time 3D scenery, simplified flight physics and 13 progressively harder lessons.
@@ -115,7 +115,7 @@ npm run test:sites
 npm run preview -- --host 127.0.0.1 --port 4173
 ```
 
-The flight suite currently contains **164 tests**, including complete lesson
+The flight suite currently contains **166 tests**, including complete lesson
 flights, failure persistence, terrain, controls, communications and localization.
 The static hosting adapter has four additional tests.
 
@@ -123,6 +123,11 @@ Deploy **`game/dist/client/`** to a static web host. The build also creates
 `dist/server/index.js` and `dist/.openai/hosting.json` for the optional hosting
 adapter. Deployment, browser checks and optional speech regeneration are
 covered in [Development](docs/DEVELOPMENT.md).
+
+The public playable site is hosted entirely on **GitHub Pages** at
+**https://renorzr.github.io/pilot-sim/**. Pushing `main` runs the Pages workflow:
+install, tests, a build using the project URL prefix, then deployment. Images,
+3D textures, both radio packs and the design gallery are served by GitHub.
 
 ## Project layout
 

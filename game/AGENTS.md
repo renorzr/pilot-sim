@@ -373,3 +373,13 @@ Commit runtime media and required regression fixtures; exclude dependencies,
 builds, credentials, local QA outputs and backup archives. A fresh clone must
 install, test and build without the original machine's qa/ folder. Preserve
 third-party notices and describe generated image/speech provenance accurately.
+
+## Public demo hosting
+
+The user requests GitHub-hosted gameplay rather than their test domain. The
+public demo is https://renorzr.github.io/pilot-sim/. Use the GitHub Pages
+workflow for public releases and keep README/package/demo helper links on that
+URL. Root hosting remains available for local development. All runtime asset,
+texture, audio and gallery URLs must respect Vite's BASE_URL through urls.js.
+Do not reintroduce the user's testing hostname in public documentation or
+defaults. Deployment reads the project prefix from configure-pages metadata.

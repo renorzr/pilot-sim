@@ -113,7 +113,26 @@ python3 ops/verify-radio-prefixes.py qa/radio-stage en
 
 The verifier also requires NumPy (`ops/requirements-tts.txt`).
 
-## Existing static-service deployment
+## GitHub Pages deployment
+
+The public demo is https://renorzr.github.io/pilot-sim/. The workflow in
+`.github/workflows/pages.yml` deploys on pushes to `main` or manual dispatch.
+It installs dependencies, runs flight tests, builds with the base path reported
+by `actions/configure-pages`, checks the hosting adapter and uploads only
+`game/dist/client/`. The repository's Pages source is GitHub Actions.
+
+Runtime images, Three.js textures, radio recordings and the gallery link use
+the same base URL. To build locally for a project subpath:
+
+```bash
+VITE_BASE_PATH=/pilot-sim/ npm --prefix game run build
+```
+
+With no `VITE_BASE_PATH`, local development and ordinary root-hosted builds
+use `/`. After forking, enable Pages with GitHub Actions; the workflow reads
+the new site's base path rather than requiring a hardcoded account URL.
+
+## Optional local static-service deployment
 
 `ops/publish-game.sh` is the deployment helper for the hosted demo:
 

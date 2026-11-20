@@ -1,4 +1,4 @@
-flight.awsdev.renorzr.top {
+flight.example.com {
 	bind 127.0.0.1
 	tls {
 		issuer acme {

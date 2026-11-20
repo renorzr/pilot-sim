@@ -1,6 +1,6 @@
 # Pilot Sim · 云际飞行
 
-**[在线体验](https://flight.awsdev.renorzr.top/) · [English](README.md) · [MIT License](LICENSE)**
+**[在线体验](https://renorzr.github.io/pilot-sim/) · [English](README.md) · [MIT License](LICENSE)**
 
 一个受 A320 启发的网页版客机飞行游戏：驾驶舱内视角、实时仪表、3D 外景、
 简化物理和 13 个由易到难的关卡。支持整体切换中英文，**包括飞行员和塔台录音**。
@@ -102,9 +102,13 @@ npm run test:sites
 npm run preview -- --host 127.0.0.1 --port 4173
 ```
 
-目前包含 **164 项飞行测试**和 **4 项静态托管适配测试**。
+目前包含 **166 项飞行测试**和 **4 项静态托管适配测试**。
 可将 `game/dist/client/` 部署到静态站点服务。
 更详细的部署、浏览器验证和录音生成方法见 [开发文档](docs/DEVELOPMENT.md)。
+
+可玩版本托管于 **GitHub Pages**：**https://renorzr.github.io/pilot-sim/**。
+推送 `main` 后会自动安装依赖、运行测试、按项目子路径构建并部署；图片、3D 纹理、
+中英文录音和设计画廊都由 GitHub 托管。
 
 ## 项目结构
 

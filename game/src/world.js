@@ -1,6 +1,7 @@
 import {sampleCabinMotion} from './sim/cabin-motion.js';
 import * as THREE from 'three';
 import {t,subscribeLanguage} from './i18n/index.js';
+import {siteUrl} from './urls.js';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { RUNWAY } from './sim/constants.js';
 import {TERRAIN,vertexHeight,coastline} from './terrain/heightfield.js';
@@ -38,7 +39,7 @@ export function createWorld(host, onReady, onError) {
   loading.onError = (url) => { loadError = true; onError('场景素材加载失败，请刷新页面重试。'); console.error('Asset load failed:', url); };
   const loader = new THREE.TextureLoader(loading);
   function texture(url, repeatX = 1, repeatY = 1) {
-    const t = loader.load(url);
+    const t = loader.load(siteUrl(url));
     t.colorSpace = THREE.SRGBColorSpace;
     t.wrapS = t.wrapT = THREE.RepeatWrapping;
     t.repeat.set(repeatX, repeatY);
@@ -47,7 +48,7 @@ export function createWorld(host, onReady, onError) {
   }
   const asphalt = texture('/assets/asphalt.jpg', 4, 150);
   const grass = texture('/assets/grass.jpg', 220, 700);
-  loader.load('/assets/sky.jpg', (t) => {
+  loader.load(siteUrl('assets/sky.jpg'), (t) => {
     t.colorSpace = THREE.SRGBColorSpace;
     t.mapping = THREE.EquirectangularReflectionMapping;
     skyTexture=t;scene.background = t;

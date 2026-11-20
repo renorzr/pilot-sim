@@ -34,4 +34,4 @@ cd "$project_dir"
 cp -a game/dist/client/assets/. public/assets/
 install -m 644 game/dist/client/index.html public/index.html.next
 mv public/index.html.next public/index.html
-echo 'Published: https://flight.awsdev.renorzr.top/'
+echo 'Built local static output in public/'

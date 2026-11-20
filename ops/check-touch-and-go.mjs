@@ -1,5 +1,5 @@
 import assert from'node:assert/strict';import{writeFile}from'node:fs/promises';import{connect}from'./cdp.mjs';
-const url=process.argv[2]||'https://flight.awsdev.renorzr.top/',b=await connect(url,800,500),samples={};
+const url=process.argv[2]||'https://renorzr.github.io/pilot-sim/',b=await connect(url,800,500),samples={};
 const snap=()=>b.evaluate('window.__flightSim.snapshot()'),sleep=ms=>new Promise(r=>setTimeout(r,ms)),tap=async(code,key=code)=>{await b.key(code,key);await b.key(code,key,'keyUp');},clamp=(v,a,c)=>Math.max(a,Math.min(c,v));let drag=false;
 async function stick(pitch,roll){const r=await b.evaluate('(()=>{const r=document.querySelector(".stick-pad").getBoundingClientRect();return{x:r.x,y:r.y,w:r.width,h:r.height}})()');await b.send('Input.dispatchMouseEvent',{type:drag?'mouseMoved':'mousePressed',x:r.x+(roll+1)*r.w/2,y:r.y+(pitch+1)*r.h/2,button:'left',buttons:1,clickCount:1});drag=true;}
 try{

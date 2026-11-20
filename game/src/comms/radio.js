@@ -5,6 +5,7 @@ import durations from './durations.json' with {type:'json'};
 import englishDurations from './durations.en.json' with {type:'json'};
 import englishScript from './script.en.json' with {type:'json'};
 import englishVersion from './voice-version.en.json' with {type:'json'};
+import {siteUrl} from '../urls.js';
 export const createRadio=()=>({language:'zh',fired:{},pending:[],active:null,readyAt:0,sequence:0,history:[],emergency:null,monitor:createEmergencyMonitor()});
 const clipDuration=(id,language)=>((language==='en'?englishDurations:durations)[id]||5)+.2;
 export function setRadioLanguage(s,language){
@@ -56,4 +57,4 @@ export function calloutClip(text=''){
 // Script changes must also invalidate previously cached voice files.
 let speechVersion=0;for(const char of JSON.stringify(script)+JSON.stringify(durations))speechVersion=(Math.imul(speechVersion,31)+char.charCodeAt(0))>>>0;
 let englishSpeechVersion=0;for(const char of JSON.stringify(englishScript)+JSON.stringify(englishDurations))englishSpeechVersion=(Math.imul(englishSpeechVersion,31)+char.charCodeAt(0))>>>0;
-export const clipUrl=(id,language='zh')=>language==='en'&&!id.startsWith('call-')?`/assets/radio/en/${id}.mp3?v=${englishSpeechVersion.toString(36)}-${englishVersion.fingerprint}`:`/assets/radio/${id}.mp3?v=${speechVersion.toString(36)}-${voiceVersion.fingerprint}`;
+export const clipUrl=(id,language='zh')=>language==='en'&&!id.startsWith('call-')?siteUrl(`assets/radio/en/${id}.mp3?v=${englishSpeechVersion.toString(36)}-${englishVersion.fingerprint}`):siteUrl(`assets/radio/${id}.mp3?v=${speechVersion.toString(36)}-${voiceVersion.fingerprint}`);

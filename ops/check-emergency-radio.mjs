@@ -1,6 +1,6 @@
 import voiceVersion from '../game/src/comms/voice-version.json' with {type:'json'};
 import assert from'node:assert/strict';import{writeFile}from'node:fs/promises';import{connect}from'./cdp.mjs';
-const url=process.argv[2]||'https://flight.awsdev.renorzr.top/',b=await connect(url,1000,625),samples={};const snap=()=>b.evaluate('window.__flightSim.snapshot()'),sleep=ms=>new Promise(r=>setTimeout(r,ms)),tap=async(code,key=code)=>{await b.key(code,key);await b.key(code,key,'keyUp');};
+const url=process.argv[2]||'https://renorzr.github.io/pilot-sim/',b=await connect(url,1000,625),samples={};const snap=()=>b.evaluate('window.__flightSim.snapshot()'),sleep=ms=>new Promise(r=>setTimeout(r,ms)),tap=async(code,key=code)=>{await b.key(code,key);await b.key(code,key,'keyUp');};
 async function choose(id){if(!await b.evaluate('!!document.querySelector(".level-select")'))await b.click('.level-menu-button');await b.evaluate(`document.querySelector('[data-level-id="${id}"]').scrollIntoView({block:'nearest'})`);await b.click(`[data-level-id="${id}"]`);await b.click('.enter-level');await b.waitFor('!document.querySelector(".flight-card .primary-button").disabled',60000);await b.evaluate('document.querySelector(".flight-card .primary-button").scrollIntoView({block:"nearest"})');await b.click('.flight-card .primary-button');}
 try{
  await b.waitFor('window.__flightSim&&!!document.querySelector(".level-select")',60000);

@@ -1,0 +1,98 @@
+import assert from 'node:assert/strict';
+import { writeFile } from 'node:fs/promises';
+import { connect } from './cdp.mjs';
+
+const url=process.argv[2]||'http://127.0.0.1:18083/';
+const b=await connect(url,1280,800);
+const snap=()=>b.evaluate('window.__flightSim.snapshot()');
+const tap=async(code,key)=>{await b.key(code,key);await b.key(code,key,'keyUp');};
+const samples={};
+async function padPoint(x,y){return b.evaluate(`(()=>{const r=document.querySelector('.stick-pad').getBoundingClientRect();return {x:r.left+r.width*${x},y:r.top+r.height*${y}};})()`);}
+try {
+  await b.waitFor('window.__flightSim && document.querySelector(".stick-pad") && !document.querySelector(".primary-button").disabled',30000);
+  await b.click('.flight-card .primary-button');
+  await b.key('ArrowRight','ArrowRight');
+  await b.waitFor('window.__flightSim.snapshot().roll>.08');
+  await b.key('ArrowRight','ArrowRight','keyUp');
+  samples.deflected=await snap();
+  await b.waitFor('window.__flightSim.snapshot().stickRoll===0');
+  const released=await snap();
+  await b.waitFor(`window.__flightSim.snapshot().time>${released.time+.5}`);
+  const settled=await snap();
+  assert(settled.roll>.15);assert(settled.roll<.57);
+  await b.waitFor(`window.__flightSim.snapshot().time>${settled.time+.3}`);
+  samples.neutralBank=await snap();
+  assert.equal(samples.neutralBank.stickRoll,0);
+  assert(Math.abs(samples.neutralBank.roll-settled.roll)<.005);
+  assert(samples.neutralBank.yaw>settled.yaw);
+  await b.waitFor(`document.querySelector('[data-stick-axis="roll"]').textContent==='0%'`);
+  await b.screenshot('qa/spring-neutral-bank.png');
+  await b.key('ShiftLeft','Shift');await b.key('ArrowLeft','ArrowLeft');
+  await b.waitFor('window.__flightSim.snapshot().roll<.07');
+  await b.key('ArrowLeft','ArrowLeft','keyUp');await b.key('ShiftLeft','Shift','keyUp');
+  const countered=await snap();
+  await b.waitFor(`window.__flightSim.snapshot().time>${countered.time+.5}`);
+  samples.levelled=await snap();
+  assert.equal(samples.levelled.stickRoll,0);
+  assert(Math.abs(samples.levelled.roll)<.1);
+  await b.screenshot('qa/spring-levelled.png');
+  console.log('Roll-in, spring return, continued turn and counter-roll verified.');
+
+  await b.click('.retry-button');
+  await b.key('ShiftLeft','Shift');await b.key('ArrowDown','ArrowDown');
+  await b.waitFor('window.__flightSim.snapshot().stickPitch>=.399');
+  samples.precise=await snap();assert(samples.precise.stickPitch<=.4);
+  await b.key('ArrowDown','ArrowDown','keyUp');await b.key('ShiftLeft','Shift','keyUp');
+  await b.waitFor('window.__flightSim.snapshot().stickPitch===0');
+  const pitched=await snap();
+  await b.waitFor(`window.__flightSim.snapshot().time>${pitched.time+.5}`);
+  samples.neutralPitch=await snap();assert(samples.neutralPitch.pitch>.04);
+
+  await b.click('.retry-button');
+  const start=await padPoint(.75,.75);
+  await b.send('Input.dispatchMouseEvent',{type:'mousePressed',...start,button:'left',clickCount:1});
+  await b.waitFor('window.__flightSim.snapshot().stickPitch>.35 && window.__flightSim.snapshot().stickRoll>.35');
+  const end=await padPoint(.2,.25);
+  await b.send('Input.dispatchMouseEvent',{type:'mouseMoved',...end,button:'left',buttons:1});
+  await b.waitFor('window.__flightSim.snapshot().stickPitch<-.35 && window.__flightSim.snapshot().stickRoll<-.4');
+  samples.mouseDrag=await snap();
+  await b.send('Input.dispatchMouseEvent',{type:'mouseReleased',...end,button:'left',clickCount:1});
+  await b.waitFor('window.__flightSim.snapshot().stickPitch===0 && window.__flightSim.snapshot().stickRoll===0');
+  console.log('Shift precision, independent pitch and draggable 2D stick verified.');
+
+  await b.click('.retry-button');
+  await b.key('ArrowRight','ArrowRight');await b.waitFor('window.__flightSim.snapshot().stickRoll>.2');
+  await tap('KeyP','p');samples.paused=await snap();
+  assert.equal(samples.paused.playing,false);assert.equal(samples.paused.stickRoll,0);
+  await new Promise(r=>setTimeout(r,250));
+  const frozen=await snap();assert.equal(frozen.roll,samples.paused.roll);assert.equal(frozen.time,samples.paused.time);
+  await b.key('ArrowRight','ArrowRight','keyUp');await tap('KeyP','p');
+  await b.waitFor('window.__flightSim.snapshot().playing');
+  assert.equal((await snap()).stickRoll,0);
+  await b.key('ArrowDown','ArrowDown');await b.waitFor('window.__flightSim.snapshot().stickPitch>.1');
+  await b.click('.toolbar-actions button[aria-label="操作说明"]');
+  const menu=await snap();assert.equal(menu.playing,false);assert.equal(menu.stickPitch,0);
+  await b.key('ArrowDown','ArrowDown','keyUp');await b.screenshot('qa/spring-help.png');
+  await b.click('.close-help');await b.click('.flight-card .primary-button');
+  await b.key('ArrowRight','ArrowRight');await b.waitFor('window.__flightSim.snapshot().stickRoll>.1');
+  await b.evaluate("window.dispatchEvent(new Event('blur'))");
+  const blurred=await snap();assert.equal(blurred.playing,false);assert.equal(blurred.stickRoll,0);
+  await b.key('ArrowRight','ArrowRight','keyUp');
+  console.log('Pause, menu and focus-loss centering verified.');
+
+  await b.click('.mode-switch button:nth-child(2)');
+  assert.equal((await snap()).stickPitch,0);assert.equal((await snap()).stickRoll,0);
+  await b.click('.flight-card .primary-button');
+  await b.send('Emulation.setTouchEmulationEnabled',{enabled:true,maxTouchPoints:1});
+  await b.waitFor('getComputedStyle(document.querySelector(".touch-controls")).display!=="none"');
+  const point=await padPoint(.7,.7);
+  await b.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{...point,id:11}]});
+  await b.waitFor('window.__flightSim.snapshot().stickPitch>.2 && window.__flightSim.snapshot().stickRoll>.2');
+  samples.touchDrag=await snap();
+  await b.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});
+  await b.waitFor('window.__flightSim.snapshot().stickPitch===0 && window.__flightSim.snapshot().stickRoll===0');
+  const errors=b.events.filter(e=>e.method==='Runtime.exceptionThrown'||(e.method==='Log.entryAdded'&&e.params.entry.level==='error'));
+  assert.deepEqual(errors,[]);
+  await writeFile('qa/spring-stick-check.json',JSON.stringify({url,viewport:{width:1280,height:800},samples,checks:['spring return on release','neutral stick retains ordinary bank and continued turn','opposite input rolls out','Shift fine control','pitch remains independent of rod position','real mouse drag and release','real touch drag and release','pause and menus centre stick without resetting attitude','focus-loss handler centres and pauses','reset and mode change clear input'],errors},null,2));
+  console.log('Spring-centred controls passed:',url);
+} finally { await b.close(); }

@@ -1,0 +1,30 @@
+# Dependencies, output, local diagnostics and editor state
+node_modules/
+dist/
+coverage/
+qa/
+__pycache__/
+*.py[cod]
+*.log
+.DS_Store
+.idea/
+.vscode/
+design-qa.md
+
+# The live service retains old bundles; a checkout builds its own entry point.
+/public/index.html
+/public/index.html.next
+/public/assets/index-*.js
+/public/assets/index-*.css
+
+# Local credentials and machine-specific environment
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+
+
+# Optional local Python environment
+.venv/

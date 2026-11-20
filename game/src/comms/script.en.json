@@ -1,0 +1,312 @@
+{
+  "takeoff": [
+    [
+      "tower",
+      "Skyline three two zero, runway two seven, cleared for takeoff."
+    ],
+    [
+      "pilot",
+      "Runway two seven, cleared for takeoff, Skyline three two zero."
+    ]
+  ],
+  "approach": [
+    [
+      "pilot",
+      "Tower, Skyline three two zero, approaching two seven."
+    ],
+    [
+      "tower",
+      "Skyline three two zero, continue approach. Monitor speed and configuration."
+    ]
+  ],
+  "crosswind": [
+    [
+      "pilot",
+      "Skyline three two zero, crosswind."
+    ],
+    [
+      "tower",
+      "Roger. Coastal circuit, one thousand five hundred feet. Remain clear of terrain."
+    ]
+  ],
+  "downwind": [
+    [
+      "pilot",
+      "Skyline three two zero, downwind, preparing to land."
+    ],
+    [
+      "tower",
+      "Roger. Maintain one thousand five hundred. Left base over the coast."
+    ]
+  ],
+  "base": [
+    [
+      "pilot",
+      "Skyline three two zero, base leg."
+    ],
+    [
+      "tower",
+      "Base altitude one thousand two hundred fifty feet. Runway two seven, cleared to land."
+    ]
+  ],
+  "final": [
+    [
+      "pilot",
+      "Skyline three two zero, final."
+    ],
+    [
+      "tower",
+      "Skyline three two zero, runway two seven, continue landing."
+    ]
+  ],
+  "goaround": [
+    [
+      "pilot",
+      "Skyline three two zero, going around."
+    ],
+    [
+      "tower",
+      "Roger. Runway heading, climb three thousand feet."
+    ]
+  ],
+  "engine": [
+    [
+      "pilot",
+      "MAYDAY, MAYDAY, MAYDAY. Tower, Skyline three two zero. Left engine failure after takeoff. Climbing on one engine. Request priority return."
+    ],
+    [
+      "tower",
+      "Skyline three two zero, Mayday acknowledged. Priority return approved. Ground services standing by."
+    ]
+  ],
+  "athr": [
+    [
+      "pilot",
+      "Skyline three two zero, autothrust failure. Taking manual thrust."
+    ],
+    [
+      "tower",
+      "Roger. Maintain speed. Go around if unstable."
+    ]
+  ],
+  "ils": [
+    [
+      "pilot",
+      "Skyline three two zero, ILS lost. Taking manual control."
+    ],
+    [
+      "tower",
+      "Roger. Continue visually if able, otherwise go around and return."
+    ]
+  ],
+  "flaps": [
+    [
+      "pilot",
+      "PAN PAN, PAN PAN, PAN PAN. Tower, Skyline three two zero. Flaps jammed at two. Approaching in actual configuration. Request priority landing."
+    ],
+    [
+      "tower",
+      "Skyline three two zero, urgency acknowledged. Continue in actual configuration. Priority landing. Ground services standing by."
+    ]
+  ],
+  "dual": [
+    [
+      "pilot",
+      "MAYDAY, MAYDAY, MAYDAY. Tower, Skyline three two zero. Both engines failed. Unpowered glide. Request priority landing, runway two seven."
+    ],
+    [
+      "tower",
+      "Skyline three two zero, Mayday acknowledged. Runway two seven available. Rescue services standing by."
+    ]
+  ],
+  "minimum": [
+    [
+      "pilot",
+      "Skyline three two zero, minimums, runway not in sight."
+    ],
+    [
+      "tower",
+      "Roger. Go around."
+    ]
+  ],
+  "wind": [
+    [
+      "pilot",
+      "Skyline three two zero, windshear, escaping."
+    ],
+    [
+      "tower",
+      "Roger. Maintain configuration. Monitor energy."
+    ]
+  ],
+  "clear": [
+    [
+      "pilot",
+      "Skyline three two zero, clear of windshear. Resuming climb."
+    ],
+    [
+      "tower",
+      "Roger. Accelerate safely. Climb three thousand feet."
+    ]
+  ],
+  "touchdown": [
+    [
+      "pilot",
+      "Skyline three two zero, touchdown, decelerating."
+    ],
+    [
+      "tower",
+      "Roger. Remain on runway. Ground services standing by."
+    ]
+  ],
+  "circuit-takeoff": [
+    [
+      "tower",
+      "Skyline three two zero, runway two seven, cleared for takeoff. Circuit altitude one thousand five hundred. Above one thousand one hundred, turn left over the coast. Avoid high terrain."
+    ],
+    [
+      "pilot",
+      "Two seven, cleared for takeoff. One thousand five hundred. Left turn over the coast above one thousand one hundred. Skyline three two zero."
+    ]
+  ],
+  "atc-low": [
+    [
+      "tower",
+      "Skyline three two zero, altitude low. Regain cleared altitude."
+    ],
+    [
+      "pilot",
+      "Roger, correcting altitude, Skyline three two zero."
+    ]
+  ],
+  "atc-high": [
+    [
+      "tower",
+      "Skyline three two zero, altitude high. Regain cleared altitude."
+    ],
+    [
+      "pilot",
+      "Roger, correcting altitude, Skyline three two zero."
+    ]
+  ],
+  "atc-route": [
+    [
+      "tower",
+      "Skyline three two zero, off route. Correct using navigation. Watch high terrain."
+    ],
+    [
+      "pilot",
+      "Roger, correcting track, Skyline three two zero."
+    ]
+  ],
+  "atc-heading": [
+    [
+      "tower",
+      "Skyline three two zero, check heading. Correct to clearance."
+    ],
+    [
+      "pilot",
+      "Roger, correcting heading, Skyline three two zero."
+    ]
+  ],
+  "atc-recovered": [
+    [
+      "tower",
+      "Skyline three two zero, back within clearance. Continue."
+    ],
+    [
+      "pilot",
+      "Roger, continuing, Skyline three two zero."
+    ]
+  ],
+  "atc-terrain": [
+    [
+      "tower",
+      "Skyline three two zero, high terrain ahead! Terrain avoidance first. Climb or turn toward lower ground."
+    ],
+    [
+      "pilot",
+      "Roger, terrain avoidance first, Skyline three two zero."
+    ]
+  ],
+  "atc-resume": [
+    [
+      "tower",
+      "Skyline three two zero, terrain conflict resolved. Resume current leg clearance."
+    ],
+    [
+      "pilot",
+      "Resuming current clearance, Skyline three two zero."
+    ]
+  ],
+  "atc-approach": [
+    [
+      "tower",
+      "Skyline three two zero, correct approach track. Go around if unstable."
+    ],
+    [
+      "pilot",
+      "Roger, correcting approach, Skyline three two zero."
+    ]
+  ],
+  "reapproach": [
+    [
+      "tower",
+      "Skyline three two zero, follow navigation, left turn over the coast. Descend and prepare for another approach."
+    ],
+    [
+      "pilot",
+      "Left turn over the coast, preparing another approach, Skyline three two zero."
+    ]
+  ],
+  "engine-stable": [
+    [
+      "pilot",
+      "PAN PAN, PAN PAN, PAN PAN. Tower, Skyline three two zero. Stable on one engine. Cancelling distress, continuing under urgency. Request priority return."
+    ],
+    [
+      "tower",
+      "Skyline three two zero, urgency acknowledged. Continue priority return. Ground services standing by."
+    ]
+  ],
+  "distress-wind": [
+    [
+      "pilot",
+      "MAYDAY, MAYDAY, MAYDAY. Tower, Skyline three two zero. Severe windshear. Emergency escape in progress. Request immediate assistance."
+    ],
+    [
+      "tower",
+      "Skyline three two zero, Mayday acknowledged. Escape has priority. Rescue services standing by."
+    ]
+  ],
+  "distress-terrain": [
+    [
+      "pilot",
+      "MAYDAY, MAYDAY, MAYDAY. Tower, Skyline three two zero. Terrain imminent. Emergency avoidance in progress. Request immediate assistance."
+    ],
+    [
+      "tower",
+      "Skyline three two zero, Mayday acknowledged. Terrain avoidance first. Rescue services standing by."
+    ]
+  ],
+  "distress-stall": [
+    [
+      "pilot",
+      "MAYDAY, MAYDAY, MAYDAY. Tower, Skyline three two zero. Low altitude stall warning, losing height. Recovering. Request immediate assistance."
+    ],
+    [
+      "tower",
+      "Skyline three two zero, Mayday acknowledged. Fly the aircraft. Rescue services standing by."
+    ]
+  ],
+  "distress-cancel": [
+    [
+      "pilot",
+      "Skyline three two zero, immediate danger resolved. Cancelling distress. Continuing under current clearance."
+    ],
+    [
+      "tower",
+      "Skyline three two zero, roger. Distress cancelled. Continue monitoring."
+    ]
+  ]
+}

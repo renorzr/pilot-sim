@@ -1,0 +1,10 @@
+flight.awsdev.renorzr.top {
+	bind 127.0.0.1
+	tls {
+		issuer acme {
+			disable_http_challenge
+		}
+	}
+	encode zstd gzip
+	reverse_proxy 127.0.0.1:18082
+}

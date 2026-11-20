@@ -1,0 +1,38 @@
+import assert from 'node:assert/strict';
+import {writeFile} from 'node:fs/promises';
+import {connect} from './cdp.mjs';
+const url=process.argv[2]||'http://127.0.0.1:18083/';
+const b=await connect(url,1280,800),samples={};
+const snap=()=>b.evaluate('window.__flightSim.snapshot()');
+const tap=async(code,key)=>{await b.key(code,key);await b.key(code,key,'keyUp');};
+try{
+ await b.waitFor('window.__flightSim && !document.querySelector(".primary-button").disabled',30000);
+ const initial=await snap();assert.equal(initial.engines.length,2);assert(initial.airData.tas>initial.speed);assert(initial.airData.groundSpeed<initial.airData.horizontal);
+ await b.click('.toolbar-actions [aria-label="操作说明"]');
+ assert.equal((await snap()).controls.rudderAssist,true);await b.click('.rudder-assist-toggle');assert.equal((await snap()).controls.rudderAssist,false);
+ await b.screenshot('qa/physics-help.png');
+ await b.click('.help-panel .primary-button');
+ await b.key('KeyE','e');await b.waitFor('window.__flightSim.snapshot().controls.rudder>.5 && window.__flightSim.snapshot().yawRate>0');
+ samples.rudderRight=await snap();await b.key('KeyE','e','keyUp');await b.waitFor('window.__flightSim.snapshot().controls.rudder===0');
+ await b.key('KeyQ','q');await b.waitFor('window.__flightSim.snapshot().controls.rudder<-.5 && window.__flightSim.snapshot().yawRate<0');
+ samples.rudderLeft=await snap();await b.key('KeyQ','q','keyUp');await b.waitFor('window.__flightSim.snapshot().controls.rudder===0');
+ await b.key('ArrowUp','ArrowUp');await b.waitFor('window.__flightSim.snapshot().stickPitch<-.2 && window.__flightSim.snapshot().pitchRate<0');samples.push=await snap();
+ await b.key('ArrowUp','ArrowUp','keyUp');await b.waitFor('window.__flightSim.snapshot().stickPitch===0');
+ await b.key('ArrowDown','ArrowDown');await b.waitFor('window.__flightSim.snapshot().stickPitch>.2 && window.__flightSim.snapshot().pitchRate>0');samples.pull=await snap();
+ await b.key('ArrowDown','ArrowDown','keyUp');await b.waitFor('window.__flightSim.snapshot().stickPitch===0');
+ await b.screenshot('qa/physics-active.png');
+ await tap('KeyP','p');assert.equal((await snap()).playing,false);assert.equal((await snap()).controls.rudder,0);
+ console.log('Actual Q/E rudder, assistance toggle, push/pull and spring return passed.');
+ await b.click('.mode-switch button:nth-child(2)');await b.click('.flight-card .primary-button');
+ await b.key('KeyW','w');
+ await b.waitFor('window.__flightSim.snapshot().speed*1.94384>125',90000);
+ await b.key('KeyW','w','keyUp');await b.key('ArrowDown','ArrowDown');
+ await b.waitFor('window.__flightSim.snapshot().pitch>.20',20000);await b.key('ArrowDown','ArrowDown','keyUp');
+ await b.waitFor('window.__flightSim.snapshot().airborne',30000);await tap('KeyG','g');
+ samples.liftoff=await snap();assert.equal(samples.liftoff.touchdown,null);
+ await b.waitFor('window.__flightSim.snapshot().result',90000);samples.takeoff=await snap();assert.equal(samples.takeoff.result?.title,'起飞成功');assert(samples.takeoff.result.success);assert.equal(samples.takeoff.touchdown,null);
+ await b.screenshot('qa/physics-takeoff.png');
+ const errors=b.events.filter(e=>e.method==='Runtime.exceptionThrown'||(e.method==='Log.entryAdded'&&e.params.entry.level==='error'));assert.deepEqual(errors,[]);
+ await writeFile('qa/physics-controls-check.json',JSON.stringify({url,viewport:{width:1280,height:800},samples,errors},null,2));
+ console.log('Force-model takeoff completed in browser:',samples.takeoff.result);
+}finally{await writeFile('qa/physics-controls-progress.json',JSON.stringify({url,samples},null,2));await b.close();}

@@ -94,19 +94,19 @@ export class FlightSoundscape {
   source.onended=()=>{this.impacts.delete(voice);source.disconnect();filter.disconnect();envelope.disconnect();osc.disconnect();tone.disconnect();};
   source.start(t);osc.start(t);source.stop(t+duration);osc.stop(t+duration);
  }
- update(s,audible,{duck=1}={}){
+ update(s,audible,{duck=1,exterior=false,distance=85,pan=1}={}){
   const t=this.context.currentTime,previousTime=this.contacts.last?.time;
   if(previousTime!==undefined&&s.time<previousTime)this.stopImpacts();
-  const events=this.contacts.update(s);this.targets=soundTargets(s);this.audible=audible;
+  const events=this.contacts.update(s);this.targets=soundTargets(s);this.audible=audible;const distanceGain=exterior?Math.min(1.35,80/Math.max(45,distance)):1;this.listener={exterior,distance,gain:distanceGain};
   target(this.master.gain,audible?.7*duck:0,t,.025);
-  target(this.engineGain.gain,audible?this.targets.engineGain*duck:0,t,audible?.2:.008);
+  target(this.engineGain.gain,audible?this.targets.engineGain*duck*distanceGain:0,t,audible?.2:.008);
   target(this.reverseGain.gain,this.targets.reverseBoost,t,.2);
   target(this.engineNoise.gain.gain,this.targets.engineNoise,t,this.targets.engineNoise<1?.08:.2);
   target(this.engineNoise.filter.frequency,this.targets.engineCutoff,t,.25);
   target(this.wind.gain.gain,this.targets.wind,t);target(this.ground.gain.gain,this.targets.ground,t);
   target(this.wind.filter.frequency,400+Math.max(0,s.speed||0)*5,t);
   this.engines.forEach((v,i)=>{const e=this.targets.engines[i];
-   target(v.tone.gain,e.fan,t,e.running?.3:.08);target(v.osc.frequency,e.frequency,t,.2);
+   target(v.panner.pan,(i?.65:-.65)*(exterior?pan:1),t,.1);target(v.tone.gain,e.fan,t,e.running?.3:.08);target(v.osc.frequency,e.frequency,t,.2);
   });
   if(!audible)this.stopImpacts();else events.forEach(event=>this.impact(event));
  }
@@ -121,6 +121,6 @@ export class FlightSoundscape {
  stats(){return {audible:!!this.audible,masterGain:this.master.gain.value,outputRms:rms(this.output),
   windRms:rms(this.wind.output),groundRms:rms(this.ground.output),engineNoiseRms:rms(this.engineNoise.output),engineGain:this.engineGain.gain.value,reverseBoost:this.reverseGain.gain.value,targets:this.targets,
   engines:this.engines.map(v=>({rms:rms(v.output),fanGain:v.tone.gain.value})),
-  contacts:{...this.counts},activeImpacts:this.impacts.size};}
+  listener:this.listener,contacts:{...this.counts},activeImpacts:this.impacts.size};}
  dispose(){this.reset();for(const source of this.sources){source.stop();source.disconnect();}this.engineGain.disconnect();this.reverseGain.disconnect();this.master.disconnect();this.limiter.disconnect();this.output.disconnect();}
 }

@@ -1,8 +1,10 @@
+import {RADIO_PACKS} from '../comms/radio-packs.js';
 import english from './en.json' with {type:'json'};
 import chineseRadio from '../comms/script.json' with {type:'json'};
 import englishRadio from '../comms/script.en.json' with {type:'json'};
 const dictionary={...english};
 for(const [key,lines]of Object.entries(chineseRadio))lines.forEach(([,text],i)=>{dictionary[text]=englishRadio[key][i][1];});
+for(const pack of Object.values(RADIO_PACKS))for(const [key,lines]of Object.entries(pack.zh))lines.forEach(([,text],i)=>{dictionary[text]=pack.en[key][i][1];});
 const han=/\p{Script=Han}/u,escape=value=>value.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
 const patterns=Object.entries(dictionary).filter(([key])=>/\{\d+\}/.test(key)).sort((a,b)=>b[0].replace(/\{\d+\}/g,'').length-a[0].replace(/\{\d+\}/g,'').length).map(([key,value])=>({
  expression:new RegExp('^'+key.split(/\{\d+\}/).map(escape).join('(.*?)')+'$'),value,

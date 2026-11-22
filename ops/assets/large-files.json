@@ -1,0 +1,104 @@
+{
+  "version": 1,
+  "partBytes": 33554432,
+  "files": [
+    {
+      "path": "public/assets/cities/lax/buildings-v2.bin.gz",
+      "bytes": 168222583,
+      "sha256": "58e6718b8ba82b2db40fe661b3b909d80c417c18a3dd27ce006b4544f4489dc9",
+      "parts": [
+        {
+          "path": "ops/assets/large-files/cities/lax/buildings-v2.bin.gz/000.part",
+          "bytes": 33554432,
+          "sha256": "88801b88d208d43bfbe385764e1d06ef11ce48cde6ec003ef8ba40ae3679af85"
+        },
+        {
+          "path": "ops/assets/large-files/cities/lax/buildings-v2.bin.gz/001.part",
+          "bytes": 33554432,
+          "sha256": "0ffbcc0d64620349e686f236a21c5c6a7f2378a6dab06c8c4354fa8f6621fe08"
+        },
+        {
+          "path": "ops/assets/large-files/cities/lax/buildings-v2.bin.gz/002.part",
+          "bytes": 33554432,
+          "sha256": "1320311c880ccc7b5cc6a6a954685caf4efedd8c219b1200e06303be66701745"
+        },
+        {
+          "path": "ops/assets/large-files/cities/lax/buildings-v2.bin.gz/003.part",
+          "bytes": 33554432,
+          "sha256": "c29a27290ee952e580624b3700e25354bc505b47b914f1dbb3c5f9c793a98d82"
+        },
+        {
+          "path": "ops/assets/large-files/cities/lax/buildings-v2.bin.gz/004.part",
+          "bytes": 33554432,
+          "sha256": "ed74c41284480154c568610dd884e636e0b02a752ad9a9d4252e4324aee04dea"
+        },
+        {
+          "path": "ops/assets/large-files/cities/lax/buildings-v2.bin.gz/005.part",
+          "bytes": 450423,
+          "sha256": "586d986f64b2ebaba97fb837ddc87ce6b57a6e80f8f2293fe922b26d565950ad"
+        }
+      ]
+    },
+    {
+      "path": "public/assets/cities/jfk/buildings-v1.bin.gz",
+      "bytes": 130188479,
+      "sha256": "9fdd5894c5fc70b64d6c8a22f3d07073c9e9ed9d3825b0300e03767336776a0b",
+      "parts": [
+        {
+          "path": "ops/assets/large-files/cities/jfk/buildings-v1.bin.gz/000.part",
+          "bytes": 33554432,
+          "sha256": "90361523b6c92bd44042a57521e181ac98e0486987dc45e1816a703c833afdd4"
+        },
+        {
+          "path": "ops/assets/large-files/cities/jfk/buildings-v1.bin.gz/001.part",
+          "bytes": 33554432,
+          "sha256": "a93a3c1581d0d4a272de6624ef695f1521eed7f6206d3c2eb735d8d03dd209d7"
+        },
+        {
+          "path": "ops/assets/large-files/cities/jfk/buildings-v1.bin.gz/002.part",
+          "bytes": 33554432,
+          "sha256": "5d6e29559ae727171db7bb52bf1adfc04d45b4ecb93c75edfb02773d9b02aa2b"
+        },
+        {
+          "path": "ops/assets/large-files/cities/jfk/buildings-v1.bin.gz/003.part",
+          "bytes": 29525183,
+          "sha256": "3af4870281c2f9ddac79feffeda288173a75e51d86e5be500d50ed3d6d72fc06"
+        }
+      ]
+    },
+    {
+      "path": "public/assets/cities/xiaoshan/buildings-v1.bin.gz",
+      "bytes": 56664449,
+      "sha256": "b391d4ce1e2d1658d6e155369321bc25f30a4be693bf60d124296da41d09a7de",
+      "parts": [
+        {
+          "path": "ops/assets/large-files/cities/xiaoshan/buildings-v1.bin.gz/000.part",
+          "bytes": 33554432,
+          "sha256": "5412f6421937b06fed30c506c31fae688da78df04a5d8e2b7914e0181ec75801"
+        },
+        {
+          "path": "ops/assets/large-files/cities/xiaoshan/buildings-v1.bin.gz/001.part",
+          "bytes": 23110017,
+          "sha256": "fe610fc2c5c5ce78fff2a444e430d29542113b09718e4ee458904bef4581a203"
+        }
+      ]
+    },
+    {
+      "path": "public/assets/cities/xiaoshan/buildings-v2.bin.gz",
+      "bytes": 55773941,
+      "sha256": "fd358f4ec43ad72a3a52a7c2257c0e2eac35ba932b559ea92cf690094f06c9fd",
+      "parts": [
+        {
+          "path": "ops/assets/large-files/cities/xiaoshan/buildings-v2.bin.gz/000.part",
+          "bytes": 33554432,
+          "sha256": "4bd58615767ae7d8ae35b2424f90061ba507940a457db6751c020fd624d53a85"
+        },
+        {
+          "path": "ops/assets/large-files/cities/xiaoshan/buildings-v2.bin.gz/001.part",
+          "bytes": 22219509,
+          "sha256": "932e308c3f60c39903a965538c810aab3cbe3c9518ca5bebe73a95b24c416d27"
+        }
+      ]
+    }
+  ]
+}

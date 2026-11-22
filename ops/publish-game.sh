@@ -29,7 +29,7 @@ if [[ -n "$radio_stage" ]]; then
   cp -a "$radio_stage/radio/." dist/client/assets/radio/
 fi
 cd "$project_dir"
-# Keep the original designs and generated source assets. Publish the entry
+# Keep the generated runtime assets. Publish the entry
 # point last so clients never receive an index with missing JS/CSS files.
 cp -a game/dist/client/assets/. public/assets/
 install -m 644 game/dist/client/index.html public/index.html.next

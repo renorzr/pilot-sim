@@ -1,9 +1,15 @@
+import {canSkipCruise,arrivalPreview} from '../src/missions/airline.js';
+import {skipCruise} from '../src/flight.js';
+import {groundPilot} from './ground-pilot.mjs';
 import {trimAlpha} from '../src/sim/aerodynamics.js';
 // Test pilot: observes flight/visual geometry and uses the public control path.
 // It does not assign aircraft position, velocity or a successful result.
 import {advanceFlight,radioAltitude,clamp,toggleGear,stepFlaps,setDetent,setLever,toggleAP,toggleApproach,confirmAction,confirmChecklist,beginGoAround,targetSpeed,KT} from '../src/flight.js';
 import {holdConfiguration} from '../src/missions/runtime.js';
 export function pilotInput(s){
+ if(arrivalPreview(s))return{};if(canSkipCruise(s)){skipCruise(s);return{};}
+ if(s.airline&&s.airborne&&s.mode==='takeoff'&&radioAltitude(s)>500&&s.throttle>.845)setDetent(s,'CL');
+ const ground=groundPilot(s,{skip:true});if(ground)return ground;
  const kind=s.mission?.kind,ra=radioAltitude(s),route=s.route,preFinal=route?.active&&!route.inFinal;
  if(s.mission?.fault&&!s.mission.acknowledged)confirmAction(s);
  if(!s.airborne&&!s.landed){if(s.throttle<.9)setDetent(s,'TOGA');return {pitch:s.speed*KT>=125&&s.pitch<.20?1:0};}

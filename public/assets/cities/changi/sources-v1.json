@@ -1,0 +1,224 @@
+{
+  "airportId": "changi",
+  "provenance": {
+    "imagery": {
+      "collection": "sentinel-2-l2a",
+      "catalog": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-2-l2a",
+      "sourceNativeGsdM": 10,
+      "license": "Copernicus Sentinel Data Legal Notice",
+      "licenseUrl": "https://sentinels.copernicus.eu/documents/247904/690755/Sentinel_Data_Legal_Notice",
+      "attribution": "Contains modified Copernicus Sentinel data (2025–2026), processed by ESA / Microsoft Planetary Computer; cloud-masked local composite",
+      "items": [
+        {
+          "itemId": "S2C_MSIL2A_20251205T032131_R118_T48NUG_20251205T065815",
+          "datetime": "2025-12-05T03:21:31.025000Z",
+          "cloudCoverPercent": 10.657708,
+          "assets": {
+            "visual": {
+              "href": "https://sentinel2l2a01.blob.core.windows.net/sentinel2-l2/48/N/UG/2025/12/05/S2C_MSIL2A_20251205T032131_N0511_R118_T48NUG_20251205T065815.SAFE/GRANULE/L2A_T48NUG_A006523_20251205T033614/IMG_DATA/R10m/T48NUG_20251205T032131_TCI_10m.tif",
+              "file": "S2C_MSIL2A_20251205T032131_R118_T48NUG_20251205T065815-visual.tif",
+              "bytes": 338511300,
+              "sha256": "443c18ddd95dfa4805aa3f628d67a0e815ea13d5c5d474e1b55c40ea047775c7"
+            },
+            "SCL": {
+              "href": "https://sentinel2l2a01.blob.core.windows.net/sentinel2-l2/48/N/UG/2025/12/05/S2C_MSIL2A_20251205T032131_N0511_R118_T48NUG_20251205T065815.SAFE/GRANULE/L2A_T48NUG_A006523_20251205T033614/IMG_DATA/R20m/T48NUG_20251205T032131_SCL_20m.tif",
+              "file": "S2C_MSIL2A_20251205T032131_R118_T48NUG_20251205T065815-SCL.tif",
+              "bytes": 2367752,
+              "sha256": "ca7a47ac725b5a2d8ac7463c2c489ba82983ddad0d4adf03ab716b25ff39ebaa"
+            }
+          },
+          "stacSha256": "6c523fd797dbf2cdb5218cf5fb938ea9be683642619acc9ef69e779405239d19"
+        },
+        {
+          "itemId": "S2C_MSIL2A_20251205T032131_R118_T48NVG_20251205T065815",
+          "datetime": "2025-12-05T03:21:31.025000Z",
+          "cloudCoverPercent": 7.675081,
+          "assets": {
+            "visual": {
+              "href": "https://sentinel2l2a01.blob.core.windows.net/sentinel2-l2/48/N/VG/2025/12/05/S2C_MSIL2A_20251205T032131_N0511_R118_T48NVG_20251205T065815.SAFE/GRANULE/L2A_T48NVG_A006523_20251205T033614/IMG_DATA/R10m/T48NVG_20251205T032131_TCI_10m.tif",
+              "file": "S2C_MSIL2A_20251205T032131_R118_T48NVG_20251205T065815-visual.tif",
+              "bytes": 164785572,
+              "sha256": "a469ce2a075dbb143ea23d064ce9b3480c29684f359589534b2a94ab3ee24746"
+            },
+            "SCL": {
+              "href": "https://sentinel2l2a01.blob.core.windows.net/sentinel2-l2/48/N/VG/2025/12/05/S2C_MSIL2A_20251205T032131_N0511_R118_T48NVG_20251205T065815.SAFE/GRANULE/L2A_T48NVG_A006523_20251205T033614/IMG_DATA/R20m/T48NVG_20251205T032131_SCL_20m.tif",
+              "file": "S2C_MSIL2A_20251205T032131_R118_T48NVG_20251205T065815-SCL.tif",
+              "bytes": 869507,
+              "sha256": "b166fa8616e55693ff491071fc5b92c786e4c2885a092dd65e21732cb608fe32"
+            }
+          },
+          "stacSha256": "4dc0de0fdf8604c5da4863126cf2bb54f3f9c5ae1cb56ddf75353eeeed599d0f"
+        },
+        {
+          "itemId": "S2B_MSIL2A_20260320T031539_R118_T48NUG_20260320T065916",
+          "datetime": "2026-03-20T03:15:39.024000Z",
+          "cloudCoverPercent": 11.122166,
+          "assets": {
+            "visual": {
+              "href": "https://sentinel2l2a01.blob.core.windows.net/sentinel2-l2/48/N/UG/2026/03/20/S2B_MSIL2A_20260320T031539_N0512_R118_T48NUG_20260320T065916.SAFE/GRANULE/L2A_T48NUG_A047191_20260320T033525/IMG_DATA/R10m/T48NUG_20260320T031539_TCI_10m.tif",
+              "file": "S2B_MSIL2A_20260320T031539_R118_T48NUG_20260320T065916-visual.tif",
+              "bytes": 355751456,
+              "sha256": "c2fc656e9d943823aa97ab02c4a6a2c9fc711000f0a342e5be7bcd237fa43de8"
+            },
+            "SCL": {
+              "href": "https://sentinel2l2a01.blob.core.windows.net/sentinel2-l2/48/N/UG/2026/03/20/S2B_MSIL2A_20260320T031539_N0512_R118_T48NUG_20260320T065916.SAFE/GRANULE/L2A_T48NUG_A047191_20260320T033525/IMG_DATA/R20m/T48NUG_20260320T031539_SCL_20m.tif",
+              "file": "S2B_MSIL2A_20260320T031539_R118_T48NUG_20260320T065916-SCL.tif",
+              "bytes": 2477464,
+              "sha256": "1c91eac9272da3b5fefb197d8d945dabd5f75d21f86c45a021d9f0d39e178513"
+            }
+          },
+          "stacSha256": "ae4786a74cf13e62e9c2e914fbd3b2e881abd3036671f1c92cf111b4f558abf4"
+        },
+        {
+          "itemId": "S2B_MSIL2A_20260320T031539_R118_T48NVG_20260320T065916",
+          "datetime": "2026-03-20T03:15:39.024000Z",
+          "cloudCoverPercent": 12.510546,
+          "assets": {
+            "visual": {
+              "href": "https://sentinel2l2a01.blob.core.windows.net/sentinel2-l2/48/N/VG/2026/03/20/S2B_MSIL2A_20260320T031539_N0512_R118_T48NVG_20260320T065916.SAFE/GRANULE/L2A_T48NVG_A047191_20260320T033525/IMG_DATA/R10m/T48NVG_20260320T031539_TCI_10m.tif",
+              "file": "S2B_MSIL2A_20260320T031539_R118_T48NVG_20260320T065916-visual.tif",
+              "bytes": 193608004,
+              "sha256": "2197d8589b9f80b2ee0f17223e8fb97640707ddcc1f96c347c6e4a7fe7851b3d"
+            },
+            "SCL": {
+              "href": "https://sentinel2l2a01.blob.core.windows.net/sentinel2-l2/48/N/VG/2026/03/20/S2B_MSIL2A_20260320T031539_N0512_R118_T48NVG_20260320T065916.SAFE/GRANULE/L2A_T48NVG_A047191_20260320T033525/IMG_DATA/R20m/T48NVG_20260320T031539_SCL_20m.tif",
+              "file": "S2B_MSIL2A_20260320T031539_R118_T48NVG_20260320T065916-SCL.tif",
+              "bytes": 1256817,
+              "sha256": "911994b22ebb23df5686cd040c44a4db53a23a8659700c0103ee1c6f35b7eea3"
+            }
+          },
+          "stacSha256": "2fd02cd39d3678e6013f32769e6889a3d172b2a28dba99989567b491608eba9c"
+        },
+        {
+          "itemId": "S2C_MSIL2A_20260325T031541_R118_T48NUG_20260325T082919",
+          "datetime": "2026-03-25T03:15:41.025000Z",
+          "cloudCoverPercent": 10.459683,
+          "assets": {
+            "visual": {
+              "href": "https://sentinel2l2a01.blob.core.windows.net/sentinel2-l2/48/N/UG/2026/03/25/S2C_MSIL2A_20260325T031541_N0512_R118_T48NUG_20260325T082919.SAFE/GRANULE/L2A_T48NUG_A008096_20260325T033123/IMG_DATA/R10m/T48NUG_20260325T031541_TCI_10m.tif",
+              "file": "S2C_MSIL2A_20260325T031541_R118_T48NUG_20260325T082919-visual.tif",
+              "bytes": 373232798,
+              "sha256": "5a6db0891ce640c319a8cc47b072452cdffffab7100326dceb1e3c2b0fff5a6e"
+            },
+            "SCL": {
+              "href": "https://sentinel2l2a01.blob.core.windows.net/sentinel2-l2/48/N/UG/2026/03/25/S2C_MSIL2A_20260325T031541_N0512_R118_T48NUG_20260325T082919.SAFE/GRANULE/L2A_T48NUG_A008096_20260325T033123/IMG_DATA/R20m/T48NUG_20260325T031541_SCL_20m.tif",
+              "file": "S2C_MSIL2A_20260325T031541_R118_T48NUG_20260325T082919-SCL.tif",
+              "bytes": 2093822,
+              "sha256": "abdaf30a0ba4eb81d2f5f8101d2f44ee903e8cdba8223ae04d53ce919731c44d"
+            }
+          },
+          "stacSha256": "27ac18bf93ee67ce7a2433c69f9e10492802dc2fb198de005588e90bb6416c20"
+        },
+        {
+          "itemId": "S2C_MSIL2A_20260325T031541_R118_T48NVG_20260325T082919",
+          "datetime": "2026-03-25T03:15:41.025000Z",
+          "cloudCoverPercent": 24.49629,
+          "assets": {
+            "visual": {
+              "href": "https://sentinel2l2a01.blob.core.windows.net/sentinel2-l2/48/N/VG/2026/03/25/S2C_MSIL2A_20260325T031541_N0512_R118_T48NVG_20260325T082919.SAFE/GRANULE/L2A_T48NVG_A008096_20260325T033123/IMG_DATA/R10m/T48NVG_20260325T031541_TCI_10m.tif",
+              "file": "S2C_MSIL2A_20260325T031541_R118_T48NVG_20260325T082919-visual.tif",
+              "bytes": 194119305,
+              "sha256": "501f002fcc9d12ce8d717dff8bd13c2f3e11de236376410c8f86bde1ff88c5ed"
+            },
+            "SCL": {
+              "href": "https://sentinel2l2a01.blob.core.windows.net/sentinel2-l2/48/N/VG/2026/03/25/S2C_MSIL2A_20260325T031541_N0512_R118_T48NVG_20260325T082919.SAFE/GRANULE/L2A_T48NVG_A008096_20260325T033123/IMG_DATA/R20m/T48NVG_20260325T031541_SCL_20m.tif",
+              "file": "S2C_MSIL2A_20260325T031541_R118_T48NVG_20260325T082919-SCL.tif",
+              "bytes": 1097217,
+              "sha256": "bce2394f2f7acfec908ba1de759400272d89b87b852df80a5331035bded2f773"
+            }
+          },
+          "stacSha256": "a877f971f7b6c2dc3f3ae21b89ce6e2f4cf43a7eb40f14aad38e85eeda4f1442"
+        },
+        {
+          "itemId": "S2C_MSIL2A_20260822T031541_R118_T48NUG_20260822T082210",
+          "datetime": "2026-08-22T03:15:41.025000Z",
+          "cloudCoverPercent": 13.097046,
+          "assets": {
+            "visual": {
+              "href": "https://sentinel2l2a01.blob.core.windows.net/sentinel2-l2/48/N/UG/2026/08/22/S2C_MSIL2A_20260822T031541_N0512_R118_T48NUG_20260822T082210.SAFE/GRANULE/L2A_T48NUG_A010241_20260822T032919/IMG_DATA/R10m/T48NUG_20260822T031541_TCI_10m.tif",
+              "file": "S2C_MSIL2A_20260822T031541_R118_T48NUG_20260822T082210-visual.tif",
+              "bytes": 336769771,
+              "sha256": "c845ae7d088ba6648f5a9ce8b22381873221ce40f51de45fb200dcdf4038a281"
+            },
+            "SCL": {
+              "href": "https://sentinel2l2a01.blob.core.windows.net/sentinel2-l2/48/N/UG/2026/08/22/S2C_MSIL2A_20260822T031541_N0512_R118_T48NUG_20260822T082210.SAFE/GRANULE/L2A_T48NUG_A010241_20260822T032919/IMG_DATA/R20m/T48NUG_20260822T031541_SCL_20m.tif",
+              "file": "S2C_MSIL2A_20260822T031541_R118_T48NUG_20260822T082210-SCL.tif",
+              "bytes": 2672054,
+              "sha256": "9abd06a2b767ff89e01d0e4ded1a55dc893a9bf198d15fe5a4ba24e6ef505fff"
+            }
+          },
+          "stacSha256": "d0144dff6a8cba6360e34c9830ace775a52cf10668e04d424300ebd537e3092d"
+        },
+        {
+          "itemId": "S2C_MSIL2A_20260822T031541_R118_T48NVG_20260822T082210",
+          "datetime": "2026-08-22T03:15:41.025000Z",
+          "cloudCoverPercent": 2.786671,
+          "assets": {
+            "visual": {
+              "href": "https://sentinel2l2a01.blob.core.windows.net/sentinel2-l2/48/N/VG/2026/08/22/S2C_MSIL2A_20260822T031541_N0512_R118_T48NVG_20260822T082210.SAFE/GRANULE/L2A_T48NVG_A010241_20260822T032919/IMG_DATA/R10m/T48NVG_20260822T031541_TCI_10m.tif",
+              "file": "S2C_MSIL2A_20260822T031541_R118_T48NVG_20260822T082210-visual.tif",
+              "bytes": 181333935,
+              "sha256": "e8a001894930bb494c0728264b13b4d3b072db22317644ee5e954128c9869b33"
+            },
+            "SCL": {
+              "href": "https://sentinel2l2a01.blob.core.windows.net/sentinel2-l2/48/N/VG/2026/08/22/S2C_MSIL2A_20260822T031541_N0512_R118_T48NVG_20260822T082210.SAFE/GRANULE/L2A_T48NVG_A010241_20260822T032919/IMG_DATA/R20m/T48NVG_20260822T031541_SCL_20m.tif",
+              "file": "S2C_MSIL2A_20260822T031541_R118_T48NVG_20260822T082210-SCL.tif",
+              "bytes": 734921,
+              "sha256": "1263b8488ccd0c5178d9ad174780076898bd988a9cd7a89bbed9dab001ffa562"
+            }
+          },
+          "stacSha256": "9d333c499afcc2c58c7291d39aa9ec443591196c758d8d46a190b1bbabeef111"
+        }
+      ]
+    },
+    "osm": {
+      "source": "https://download.geofabrik.de/asia/malaysia-singapore-brunei/malaysia-singapore-brunei-261120.osm.pbf",
+      "sha256": "47118e02f24fe2ca388b02197a84bbbae17090c5e892c696b2d387eba3eb585d",
+      "snapshot": "2026-11-20",
+      "license": "ODbL-1.0",
+      "attribution": "© OpenStreetMap contributors / ODbL"
+    }
+  },
+  "buildingManifest": "assets/cities/changi/buildings-v1.json",
+  "buildingDatabase": "assets/cities/changi/buildings-v1.bin.gz",
+  "imageryManifest": "assets/cities/changi/imagery-v1.json",
+  "airportSource": "assets/maps/changi-source.json",
+  "notes": "Source footprint/contact geometry is retained. Repeated houses use shared estimated architectural templates, other ordinary buildings use shared mid-distance boxes and source-derived district proxies in the far distance. Heights/colours are source fields or deterministic estimates, not guaranteed surveys.",
+  "architecture": {
+    "region": "Singapore / eastern Johor",
+    "flatTemplateMaxHeight": 160,
+    "facadePalette": [
+      [
+        202,
+        199,
+        187
+      ],
+      [
+        190,
+        199,
+        195
+      ],
+      [
+        211,
+        201,
+        184
+      ],
+      [
+        186,
+        193,
+        200
+      ],
+      [
+        207,
+        193,
+        185
+      ],
+      [
+        196,
+        203,
+        187
+      ]
+    ],
+    "heightInference": "OSM height/floors first; missing values use stable local height hints and coherent apartment-estate, landed-house or logistics estimates. Not surveyed heights."
+  }
+}

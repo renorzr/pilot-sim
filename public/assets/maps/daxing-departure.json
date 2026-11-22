@@ -1,0 +1,231 @@
+{
+  "schemaVersion": 1,
+  "airportId": "daxing",
+  "runwayId": "17L",
+  "coordinateFrame": "Metres in the active 17L local tangent plane: x runway-right, z approach side, y above threshold; yaw 0 follows 17L forward (-z).",
+  "stand": {
+    "ref": "107",
+    "sourceId": "way/864124042",
+    "longitude": 116.4045319,
+    "latitude": 39.5110457,
+    "x": -618.314,
+    "z": -858.641,
+    "yaw": -2.639454013470512,
+    "headingDegLocal": -151.23,
+    "headingDegTrue": 21.828,
+    "nose": {
+      "x": -625.533,
+      "z": -845.493
+    },
+    "cgSetbackM": 15,
+    "note": "The source parking-position line endpoint anchors stand 107. The game aircraft reference is set back 15 m along the final lead-in direction; this is a visual airframe offset, not a surveyed stand-stop position."
+  },
+  "handoff": {
+    "x": -514.984,
+    "z": -1014.655,
+    "yaw": 1.570909242455823,
+    "sourceId": "way/864124042",
+    "note": "The apron-side beginning of stand 107 lead-in, within 0.63 m of source taxiway Y7. Automatic departure preparation omits the detailed pushback/reposition sequence; player control starts stationary facing Y7 toward G."
+  },
+  "taxiPoints": [
+    {
+      "x": -514.984,
+      "z": -1014.655,
+      "sourceId": "way/864124042",
+      "name": "107",
+      "kind": "source-vertex"
+    },
+    {
+      "x": -514.984,
+      "z": -1015.279,
+      "sourceId": "way/775438985",
+      "name": "Y7",
+      "kind": "projected-on-source-segment"
+    },
+    {
+      "x": -226.832,
+      "z": -1015.246,
+      "sourceId": "way/775438985",
+      "name": "Y7",
+      "kind": "projected-on-source-segment"
+    },
+    {
+      "x": -226.832,
+      "z": -1015.14,
+      "sourceId": "way/729424170",
+      "name": "Y7 / G",
+      "kind": "source-vertex"
+    },
+    {
+      "x": -202.461,
+      "z": -1003.29,
+      "sourceId": "way/729424170",
+      "name": "Y7 / G",
+      "kind": "source-vertex"
+    },
+    {
+      "x": -189.297,
+      "z": -978.968,
+      "sourceId": "way/729424170",
+      "name": "Y7 / G",
+      "kind": "source-vertex"
+    },
+    {
+      "x": -189.971,
+      "z": -978.968,
+      "sourceId": "way/610758107",
+      "name": "G",
+      "kind": "projected-on-source-segment"
+    },
+    {
+      "x": -190.063,
+      "z": -60.654,
+      "sourceId": "way/610758107",
+      "name": "G",
+      "kind": "source-vertex"
+    },
+    {
+      "x": -187.349,
+      "z": -44.074,
+      "sourceId": "way/729423705",
+      "name": "G / E13",
+      "kind": "source-vertex"
+    },
+    {
+      "x": -178.407,
+      "z": -29.349,
+      "sourceId": "way/729423705",
+      "name": "G / E13",
+      "kind": "source-vertex"
+    },
+    {
+      "x": -165.525,
+      "z": -18.91,
+      "sourceId": "way/729423705",
+      "name": "G / E13",
+      "kind": "source-vertex"
+    },
+    {
+      "x": -146.022,
+      "z": -11.837,
+      "sourceId": "way/729423705",
+      "name": "G / E13",
+      "kind": "source-vertex"
+    },
+    {
+      "x": -110,
+      "z": -12.201,
+      "sourceId": "way/775439623",
+      "name": "17L HOLD",
+      "kind": "game-holding-point"
+    }
+  ],
+  "hold": {
+    "x": -110,
+    "z": -12.201,
+    "yaw": 1.5606760639113013,
+    "sourceId": "way/775439623",
+    "isPublishedHoldingPosition": false,
+    "note": "Game-defined stop on source C8/E13 outside the operational 17L pavement. No claim of matching a published holding-position marking or live clearance."
+  },
+  "entryPoints": [
+    {
+      "x": -110,
+      "z": -12.201,
+      "sourceId": "way/775439623",
+      "name": "17L HOLD",
+      "kind": "game-holding-point"
+    },
+    {
+      "x": -87.946,
+      "z": -12.424,
+      "sourceId": "way/729423701",
+      "name": "G9",
+      "kind": "source-vertex"
+    },
+    {
+      "x": -63.824,
+      "z": -23.752,
+      "sourceId": "way/729423701",
+      "name": "G9",
+      "kind": "source-vertex"
+    },
+    {
+      "x": -12.823,
+      "z": -75.788,
+      "sourceId": "way/729423701",
+      "name": "G9",
+      "kind": "source-vertex"
+    },
+    {
+      "x": -4.397,
+      "z": -88.791,
+      "sourceId": "way/729423701",
+      "name": "G9",
+      "kind": "source-vertex"
+    },
+    {
+      "x": 0.299,
+      "z": -107.821,
+      "sourceId": "way/729423701",
+      "name": "G9",
+      "kind": "source-vertex"
+    },
+    {
+      "x": 0,
+      "z": -175,
+      "sourceId": "OurAirports:17L/35R",
+      "name": "17L",
+      "kind": "runway-centerline"
+    }
+  ],
+  "lineup": {
+    "x": 0,
+    "z": -175,
+    "yaw": 0,
+    "sourceId": "OurAirports:17L/35R",
+    "remainingRunwayM": 3635.238,
+    "note": "A gameplay lineup target interpolated along the same threshold-based centerline used by flight dynamics; player must align manually."
+  },
+  "taxiDistanceM": 1370.004,
+  "entryDistanceM": 223.841,
+  "routeReferences": [
+    "107",
+    "Y7",
+    "G",
+    "E13 / C8",
+    "G9",
+    "17L"
+  ],
+  "sourceFeatureIds": [
+    "way/864124042",
+    "way/775438985",
+    "way/729424170",
+    "way/610758107",
+    "way/729423705",
+    "way/610758120",
+    "way/775439623",
+    "way/729423701"
+  ],
+  "sources": [
+    {
+      "name": "OpenStreetMap contributors",
+      "license": "ODbL-1.0",
+      "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
+      "dataFile": "daxing.json",
+      "dataFetchedAt": "2026-11-20T15:41:09.890424+00:00"
+    },
+    {
+      "name": "OurAirports",
+      "license": "Unlicense / public domain",
+      "dataFile": "daxing.json"
+    }
+  ],
+  "notes": [
+    "This is a curated game taxi route selected from the bundled OSM snapshot. It is not a published current Daxing taxi clearance.",
+    "No source way was shortened or moved to reduce taxi distance. Connections onto long source segments are projected and joined only where the source geometry agrees within 3 m.",
+    "The real Y7-to-G curved connector is used rather than a sharp invented right-angle turn.",
+    "The game holding point and lineup target are explicitly synthetic safety/gameplay positions derived from the source taxiway and runway geometry.",
+    "The complete manual taxi is approximately 1.37 km; skipping may transfer only to the stationary runway-external holding point, never grant entry or takeoff permission."
+  ]
+}

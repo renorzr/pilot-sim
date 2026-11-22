@@ -26,7 +26,7 @@ try{
  await tap('KeyC','c');assert.equal((await snap()).landingChecklistConfirmed,true);
  await b.screenshot(`${prefix}-ils.png`);
  samples.configured=await snap();
- await b.click('.time-scale');assert.equal((await snap()).timeScale,2);
+ await tap('KeyX','x');assert.equal((await snap()).timeScale,2);
  console.log('APPR/ILS, FCU speed, timed flaps/gear, checklist and 2x verified.');
  await b.waitFor('window.__flightSim.snapshot().gates.some(g=>g.height===1000)',240000);
  await b.waitFor('window.__flightSim.snapshot().timeScale===1');

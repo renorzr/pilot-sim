@@ -19,7 +19,7 @@ export function updateRecovery(s,dt,{emit,checkpoint}){
   }
   return;
  }
- if(s.touchAndGo?.active&&s.airborne&&!s.touchAndGo.coastalTurn&&(s.y-RUNWAY.ground)*FT>=1100){s.touchAndGo.coastalTurn=true;s.goAroundHeading=-Math.PI/2;emit(s,'触地复飞 · 1100 ft 已通过，按 FD 左转海侧继续爬升','','action');}
+ if(s.touchAndGo?.active&&s.airborne&&!s.touchAndGo.coastalTurn&&(s.y-RUNWAY.ground)*FT>=1100){s.touchAndGo.coastalTurn=true;s.goAroundHeading=-Math.PI/2;emit(s,s.airportId!=='training'?'触地复飞 · 1100 ft 已通过，按 FD 左转继续爬升':'触地复飞 · 1100 ft 已通过，按 FD 左转海侧继续爬升','','action');}
  const maxFlaps=s.systems.flapsJammed?s.systems.jammedPosition:1;
  const stable=s.goAround&&s.airborne&&!s.terrain.level&&(m.kind!=='windshear'||m.clear||m.avoided)&&(s.y-RUNWAY.ground)*FT>=2970&&s.gearPosition<.02&&s.flapPosition<=maxFlaps+.05&&s.speed*KT>=150&&s.speed*KT<=220&&s.verticalSpeed>-.5&&Math.abs(s.roll)<12*RAD&&!s.airData.stalled;
  r.stableSeconds=stable?r.stableSeconds+dt:0;s.mission.stableSeconds=r.stableSeconds;
@@ -30,7 +30,7 @@ export function updateRecovery(s,dt,{emit,checkpoint}){
  s.selectedAltitude=3000;s.apprArmed=s.locCaptured=s.gsCaptured=s.gsCaptureEligible=false;
  s.landingChecklistConfirmed=false;s.gates=[];s.unstableSeconds=0;s.spokenHeights=[];s.previousRA=(s.y-RUNWAY.ground)*FT;
  routeTarget(s);clearRadioEvents(s,'atc-');queueRadio(s,'reapproach');
- emit(s,'复飞稳定 · 本关尚未完成，按 ND 海侧返场并着陆停稳','','info');checkpoint(s,'复飞后 · 海侧返场');
+ emit(s,s.airportId!=='training'?'复飞稳定 · 按 ND 左侧返场，最终着陆停稳':'复飞稳定 · 本关尚未完成，按 ND 海侧返场并着陆停稳','','info');checkpoint(s,s.airportId!=='training'?'复飞后 · 左侧返场':'复飞后 · 海侧返场');
 }
 export function recoveryInstruction(s){
  if(s.mission?.fault&&!s.mission.acknowledged)return null;

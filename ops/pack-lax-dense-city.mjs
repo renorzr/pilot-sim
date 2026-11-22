@@ -1,0 +1,22 @@
+import{readFile,writeFile}from'node:fs/promises';
+import{createHash}from'node:crypto';
+import{gzipSync}from'node:zlib';
+import{LAX,seaAt}from'../game/src/airports/registry.js';
+import{surfaceHeight}from'../game/src/terrain/heightfield.js';
+import{DENSE_MAGIC,DENSE_STRIDE,DENSE_TILE_SIZE}from'../game/src/airports/dense-city-data.js';
+const source=JSON.parse(await readFile('/dev/shm/pilot-lax-dense-source.json','utf8')),records=[];
+for(const r of source.records){const ring=r[7][0],xs=ring.map(p=>p[0]),zs=ring.map(p=>p[1]),cx=(Math.min(...xs)+Math.max(...xs))/2,cz=(Math.min(...zs)+Math.max(...zs))/2;if(seaAt('lax',cx,cz))continue;records.push({r,cx,cz,tile:Math.floor(cx/DENSE_TILE_SIZE)+':'+Math.floor(cz/DENSE_TILE_SIZE)});}
+records.sort((a,b)=>a.tile.localeCompare(b.tile)||a.r[0].localeCompare(b.r[0]));
+const ringCount=records.reduce((s,b)=>s+b.r[7].length,0),pointCount=records.reduce((s,b)=>s+b.r[7].reduce((n,r)=>n+r.length,0),0),ringOffset=32+records.length*DENSE_STRIDE,pointOffset=ringOffset+(ringCount+1)*4,buffer=new ArrayBuffer(pointOffset+pointCount*4),v=new DataView(buffer),offsets=new Uint32Array(buffer,ringOffset,ringCount+1),points=new Int16Array(buffer,pointOffset,pointCount*2),tiles=new Map(),heightSources=[0,0,0];
+[DENSE_MAGIC,2,records.length,ringCount,pointCount,DENSE_STRIDE,0,0].forEach((n,i)=>v.setUint32(i*4,n,true));let ri=0,pi=0;
+for(const[i,b]of records.entries()){
+ const[id,height,kind,hSource,seed,roof,wall,rings]=b.r,all=rings.flat(),xs=all.map(p=>p[0]),zs=all.map(p=>p[1]),minX=Math.min(...xs),maxX=Math.max(...xs),minZ=Math.min(...zs),maxZ=Math.max(...zs),grade=surfaceHeight(b.cx,b.cz,'lax'),base=Math.min(grade,...rings[0].map(p=>surfaceHeight(...p,'lax')))-.05,offset=32+i*DENSE_STRIDE,[type,num,part]=id.split('/'),flags=kind|(hSource<<2)|(type==='relation'?16:0)|((Number(part)||0)<<8);
+ v.setFloat64(offset,Number(num),true);v.setUint32(offset+8,flags,true);v.setUint32(offset+12,seed,true);
+ for(const[k,n]of[[16,minX],[20,maxX],[24,minZ],[28,maxZ],[32,base],[36,grade+height],[56,b.cx],[60,b.cz]])v.setFloat32(offset+k,n,true);
+ v.setUint32(offset+40,ri,true);v.setUint32(offset+44,rings.length,true);v.setUint32(offset+48,roof[0]<<16|roof[1]<<8|roof[2],true);v.setUint32(offset+52,wall[0]<<16|wall[1]<<8|wall[2],true);
+ for(const ring of rings){offsets[ri++]=pi;for(const[x,z]of ring){points[pi*2]=Math.round((x-b.cx)*50);points[pi*2+1]=Math.round((z-b.cz)*50);pi++;}}
+ heightSources[hSource]++;if(!tiles.has(b.tile))tiles.set(b.tile,{id:b.tile,start:i,count:0,minX,maxX,minZ,maxZ,topY:grade+height});const t=tiles.get(b.tile);t.count++;t.minX=Math.min(t.minX,minX);t.maxX=Math.max(t.maxX,maxX);t.minZ=Math.min(t.minZ,minZ);t.maxZ=Math.max(t.maxZ,maxZ);t.topY=Math.max(t.topY,grade+height);
+}
+offsets[ri]=pi;
+const raw=Buffer.from(buffer),compressed=gzipSync(raw,{level:9}),path='assets/cities/lax/buildings-v1.bin.gz',manifest={version:1,formatVersion:2,pointQuantizationMetres:.02,airportId:'lax',frame:{runway:'25R',threshold:LAX.unproject(0,0),heading:LAX.runway.heading},sourceSha256:source.sourceSha256,sourceSnapshot:'2026-11-14',sourcePbf:JSON.parse(await readFile(new URL('../game/src/airports/data/lax-city.json',import.meta.url))).provenance.osm,modelNotes:'Source heights are not guaranteed surveyed; missing heights and facade colours use deterministic estimates. Source polygons/courtyards are preserved near the camera; distant silhouettes are simplified. Render and contact share decoded source data; roof slopes use conservative full-height contact proxies.',imagery:'USDA NAIP 2022',license:'ODbL-1.0',attribution:'© OpenStreetMap contributors / ODbL',selection:source.selection,deduplicated:source.deduplicated,buildings:records.length,heightSources:{tagged:heightSources[0],levels:heightSources[1],estimated:heightSources[2]},colourMethod:'NAIP roof-internal multi-point median, vegetation/shadow rejection; neutral facade colours with stable source-ID variation; roof and facade appearance are estimates',path,bytes:compressed.length,uncompressedBytes:raw.length,sha256:createHash('sha256').update(compressed).digest('hex'),geometrySha256:createHash('sha256').update(raw).digest('hex'),tileSize:DENSE_TILE_SIZE,tiles:[...tiles.values()]};
+await writeFile(new URL('../public/'+path,import.meta.url),compressed);await writeFile(new URL('../public/assets/cities/lax/buildings-v1.json',import.meta.url),JSON.stringify(manifest));console.log(JSON.stringify({...manifest,tiles:manifest.tiles.length},null,2));

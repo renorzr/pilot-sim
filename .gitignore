@@ -16,6 +16,16 @@ design-qa.md
 /public/index.html.next
 /public/assets/index-*.js
 /public/assets/index-*.css
+/public/assets/lax-city-world-*.js
+/public/assets/*-city-world-*.js
+/public/assets/maps/daxing-source.json
+
+# Reconstructed from checked-in 32 MiB parts by ops/large-assets.mjs.
+/public/assets/cities/lax/buildings-v2.bin.gz
+/public/assets/cities/jfk/buildings-v1.bin.gz
+/public/assets/cities/xiaoshan/buildings-v1.bin.gz
+/public/assets/cities/xiaoshan/buildings-v2.bin.gz
+/public/assets/cities/**/*.restore-*
 
 # Local credentials and machine-specific environment
 .env

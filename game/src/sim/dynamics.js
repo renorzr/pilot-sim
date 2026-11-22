@@ -26,7 +26,10 @@ export function stepDynamics(s,dt){
  }else{
   const mu=s.weather.runwayFriction;
   const steer=clamp(s.stickRoll+s.controls.rudder,-1,1),ground=a.groundSpeed;
-  s.yawRate+=(steer*.13*clamp(ground/35,0,1)-s.yawRate)*smooth(dt,.15)+yawAccel*dt;
+  const taxi=!!s.ground&&!s.ground.takeoffCleared;
+  const desired=taxi?clamp(ground/12*Math.tan(steer*.65),-.35,.35):steer*.13*clamp(ground/35,0,1);
+  if(taxi)s.ground.steering=steer;
+  s.yawRate+=(desired-s.yawRate)*smooth(dt,.15)+yawAccel*dt;
   s.yaw+=s.yawRate*dt;
   s.spoilersDeployed=s.landed&&!s.goAround&&s.spoilersArmed&&(s.throttle<.025||s.reverse);
   s.autoBrakeActive=s.landed&&s.spoilersDeployed&&s.autoBrake!=='OFF'&&!s.brake;
@@ -42,7 +45,7 @@ export function stepDynamics(s,dt){
   // pull a stopped aircraft backwards. Reverse is a stopping aid in this game.
   const forward=s.velocity.x*heading.x+s.velocity.z*heading.z;
   if((ground<.15&&thrust<resistance+16000)||(forward<0&&thrust<=resistance))s.velocity.x=s.velocity.z=0;
-  if((!s.landed||s.goAround)&&s.pitch>.05&&force.y>m*G*.01){
+  if((!s.ground||s.ground.takeoffCleared)&&(!s.landed||s.goAround)&&s.pitch>.05&&force.y>m*G*.01){
    s.airborne=true;s.landed=false;s.noseWheelDown=false;s.y=RUNWAY.ground+.04;s.velocity.y=.15;
    if(s.touchAndGo&&s.touchAndGo.liftOffAt===null){s.touchAndGo.liftOffAt=s.time;s.touchdown=null;s.cabin.noseAt=null;}
   }

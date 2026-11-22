@@ -1,0 +1,78 @@
+import assert from 'node:assert/strict';
+import {writeFile}from 'node:fs/promises';
+import {connect}from './cdp.mjs';
+import {createViewState}from '../game/src/views/view-state.js';
+import {groundTarget,departureOf}from '../game/src/missions/ground.js';
+import {AIRPORTS}from '../game/src/airports/registry.js';
+import {getLevel}from '../game/src/missions/catalog.js';
+import {canSkipCruise}from '../game/src/missions/airline.js';
+const url=process.argv[2]||'http://127.0.0.1:18084/',mode=process.argv[3]||'smoke',requestedView=createViewState(process.argv[5]||'cockpit').mode,routeId=process.argv[4]||'pkx-hgh',destination=getLevel(routeId)?.destination||getLevel(routeId)?.airportId||'xiaoshan',b=await connect(url,mode==='smoke'?1280:mode==='resume'?400:800,mode==='smoke'?800:mode==='resume'?300:500,process.argv[6]||null),samples={},sleep=ms=>new Promise(r=>setTimeout(r,ms)),clamp=(n,a,z)=>Math.max(a,Math.min(z,n));
+const snap=()=>b.evaluate('window.__flightSim.snapshot()'),tap=async(code,key)=>{await b.key(code,key);await b.key(code,key,'keyUp');};
+async function noChinese(){assert.deepEqual(await b.evaluate('document.body.innerText.split("\\n").filter(s=>/\\p{Script=Han}/u.test(s))'),[]);assert.deepEqual(await b.evaluate('window.__flightSim.missingTranslations()'),[]);}
+async function scroll(selector){await b.evaluate(`document.querySelector(${JSON.stringify(selector)}).scrollIntoView({block:'nearest'})`);}
+async function openAirline(){if(!await b.evaluate('!!document.querySelector(".level-select")'))await b.click('.level-menu-button');await b.click('[data-stage-id="airline"]');}
+async function practice(id){await openAirline();await b.click('[data-airline-mode="practice"]');await scroll(`[data-level-id="${id}"]`);await b.evaluate('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))');await b.click(`[data-level-id="${id}"]`);await b.waitFor('document.querySelector('+JSON.stringify(`[data-level-id="${id}"]`)+').classList.contains("selected")');await scroll('.enter-level');await b.click('.enter-level');await ready();}
+async function ready(){await b.waitFor('!!document.querySelector(".flight-card .primary-button")&&!document.querySelector(".flight-card .primary-button").disabled',60000);}
+let drag=false,box,lastThrottle=-1,braking=false;
+async function release(){if(drag){await b.send('Input.dispatchMouseEvent',{type:'mouseReleased',x:box.x+box.w/2,y:box.y+box.h/2,button:'left',buttons:0,clickCount:1});drag=false;}}
+async function stick(pitch,roll){box??=await b.evaluate('(()=>{const r=document.querySelector(".stick-pad").getBoundingClientRect();return{x:r.x,y:r.y,w:r.width,h:r.height}})()');await b.send('Input.dispatchMouseEvent',{type:drag?'mouseMoved':'mousePressed',x:box.x+(roll+1)*box.w/2,y:box.y+(pitch+1)*box.h/2,button:'left',buttons:1,clickCount:1});drag=true;}
+async function throttle(value){const pct=Math.round(clamp(value,0,.18)*100);if(pct===lastThrottle)return;await release();const r=await b.evaluate('(()=>{const r=document.querySelector("#throttle").getBoundingClientRect();return{x:r.x,y:r.y,w:r.width,h:r.height,thumb:document.querySelector(".stage").dataset.activeView!=="cockpit"?15:document.querySelector(".stage").getBoundingClientRect().width*.0175}})()');const x=r.x+r.w/2,y=r.y+r.thumb/2+(r.h-r.thumb)*(1-pct/18);await b.send('Input.dispatchMouseEvent',{type:'mousePressed',x,y,button:'left',buttons:1,clickCount:1});await b.send('Input.dispatchMouseEvent',{type:'mouseReleased',x,y,button:'left',buttons:0,clickCount:1});lastThrottle=pct;}
+async function brake(on){if(on===braking)return;await b.key('Space',' ',on?'keyDown':'keyUp');braking=on;}
+try{
+ if(mode!=='resume')await b.waitFor('!!window.__flightSim&&!!document.querySelector(".stage-tabs")',60000);if(await b.evaluate('document.documentElement.lang!=="en"'))await b.click('.language-switch');if(mode!=='resume')await openAirline();await noChinese();
+ if(mode==='smoke'){
+  assert.equal(await b.evaluate('document.querySelector(".enter-flight").dataset.routeId'),'pkx-hgh');await b.click('[data-airport-id="xiaoshan"]');assert.equal(await b.evaluate('document.querySelector(".enter-flight").dataset.routeId'),'hgh-pkx');await b.click('.swap-airports');assert.equal(await b.evaluate('document.querySelector(".enter-flight").dataset.routeId'),'pkx-hgh');
+  await b.click('.map-zoom');assert(await b.evaluate('document.querySelector(".world-route-map").viewBox.baseVal.width>100'));await b.screenshot('qa/airline-world-map.png');await b.click('.map-zoom');await b.screenshot('qa/airline-map-prod.png');
+  assert(await b.evaluate('(()=>{const a=document.querySelector(".enter-flight").getBoundingClientRect(),p=document.querySelector(".airline-select").getBoundingClientRect();return a.bottom<=p.bottom+1})()'));
+  await b.click('.enter-flight');await ready();samples.routeBriefing=await snap();assert.equal(samples.routeBriefing.levelId,'pkx-hgh');await noChinese();await b.screenshot('qa/airline-briefing.png');
+  await practice('xiaoshan-takeoff');await noChinese();assert.equal((await snap()).ground.stand,'251');await scroll('.flight-card .primary-button');await b.click('.flight-card .primary-button');await b.waitFor('window.__flightSim.snapshot().time>1');await b.screenshot('qa/xiaoshan-intro-prod.png');samples.xiaoshan=await snap();samples.audio=await b.evaluate('window.__flightSim.audioStats()');assert(samples.audio.radioSrc.includes('/en/xiaoshan-preparation-'));assert(samples.audio.radioEffect&&!samples.audio.blocked);assert((await b.evaluate('window.__flightSim.stats()')).calls<130);await tap('KeyP','p');const paused=(await snap()).time;await sleep(400);assert.equal((await snap()).time,paused);
+  await practice('xiaoshan-landing');const initial=await snap();assert(!initial.gear&&initial.flapPosition===0&&initial.x!==0&&!initial.autoPilot&&!initial.apprArmed);await noChinese();await b.screenshot('qa/xiaoshan-approach-briefing.png');
+  await openAirline();await b.click('[data-airline-mode="practice"]');assert.equal(await b.evaluate('document.querySelectorAll("[data-level-id]").length'),AIRPORTS.length*2);await noChinese();await b.click('[data-stage-id="history"]');assert(await b.evaluate('!!document.querySelector(".history-coming-soon")&&!document.querySelector(".enter-flight")'));await noChinese();await b.click('[data-stage-id="training"]');assert.equal(await b.evaluate('document.querySelectorAll("[data-level-id]").length'),13);
+  await b.send('Emulation.setDeviceMetricsOverride',{width:844,height:390,deviceScaleFactor:1,mobile:false});await openAirline();await noChinese();await b.screenshot('qa/airline-map-mobile.png');await scroll('.enter-flight');await b.screenshot('qa/airline-map-mobile-start.png');assert(await b.evaluate('(()=>{const r=document.querySelector(".enter-flight").getBoundingClientRect();return r.top>=0&&r.bottom<=innerHeight})()'));await b.click('.language-switch');await b.screenshot('qa/airline-map-mobile-zh.png');
+ }else{
+  if(mode==='landing'){await b.send('Emulation.setDeviceMetricsOverride',{width:800,height:500,deviceScaleFactor:.5,mobile:false});await practice(routeId);samples.initial=await snap();await b.click('[data-view-mode="'+requestedView+'"]');await b.send('Emulation.setDeviceMetricsOverride',{width:400,height:300,deviceScaleFactor:.5,mobile:false});await b.evaluate('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))');await scroll('.flight-card .primary-button');await b.click('.flight-card .primary-button');await b.waitFor('window.__flightSim.snapshot().playing');box=null;}else if(mode!=='resume'){
+  if(routeId!=='pkx-hgh'){const codes=Object.fromEntries(AIRPORTS.map(ap=>[ap.iata.toLowerCase(),ap.id])),[o,d]=routeId.split('-');await b.click('[data-airport-id="'+codes[o]+'"] circle:last-of-type');await b.click('[data-airport-id="'+codes[d]+'"] circle:last-of-type');}
+  await scroll('.enter-flight');await b.click('.enter-flight');await ready();samples.initial=await snap();if(requestedView!=='cockpit')await b.click('[data-view-mode="'+requestedView+'"]');await scroll('.flight-card .primary-button');await b.send('Emulation.setDeviceMetricsOverride',{width:480,height:300,deviceScaleFactor:1,mobile:false});await b.evaluate('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))');await scroll('.flight-card .primary-button');await b.click('.flight-card .primary-button');await b.waitFor('window.__flightSim.snapshot().ground.stage==="taxi"',180000);await b.click('.skip-taxi');await b.waitFor('window.__flightSim.snapshot().ground.stage==="holding"',30000);samples.hold=await snap();assert(!samples.hold.ground.entryCleared);
+  await b.send('Emulation.setDeviceMetricsOverride',{width:480,height:300,deviceScaleFactor:1,mobile:false});box=null;}else{samples.initial=await snap();assert.equal(samples.initial.airline.origin,getLevel(routeId).origin);assert.equal(samples.initial.airportId,destination);assert(samples.initial.airline.departureEvidence&&samples.initial.airline.cruiseSkipped);samples.destinationAudio=await b.evaluate('window.__flightSim.audioStats()');assert(samples.destinationAudio.radioSrc.includes(destination+'-'));}
+  let lastStage='',lastLog=-1,arrivalSeen=mode==='resume',radioSeen=mode==='resume',cruiseClicked=mode==='resume',finalShot=false;const deadline=Date.now()+1800000;
+  while(Date.now()<deadline){const s=await snap();if(s.result)break;assert(s.playing);const phase=s.airline?.phase||'approach',g=s.ground,ra=(s.y-2.8)*3.28084,kt=s.speed*1.94384,stage=g&&!g.takeoffCleared?g.stage:phase;
+   if(stage!==lastStage){lastStage=stage;lastThrottle=-1;console.log(stage,Math.round(s.time),Math.round(ra),'ft',s.airportId);samples[stage]=s;if(requestedView!=='cockpit'){await b.waitFor('!!window.__flightSim.aircraftStats()&&window.__flightSim.viewStats().mode==='+JSON.stringify(requestedView),60000);samples[stage+'Visual']=await b.evaluate('({camera:window.__flightSim.viewStats(),aircraft:window.__flightSim.aircraftStats()})');assert.equal(samples[stage+'Visual'].camera.mode,requestedView);assert(samples[stage+'Visual'].aircraft.visible);}await noChinese();}
+   if(s.airportId===destination&&s.radio.active?.clip.startsWith(destination+'-')){radioSeen=true;samples.destinationAudio=await b.evaluate('window.__flightSim.audioStats()');}
+   if(g&&!g.takeoffCleared){
+    if(g.arrival){
+     if(g.stage==='taxi-in'){await release();await brake(false);await scroll('.skip-arrival-taxi');await b.click('.skip-arrival-taxi');samples.taxiSkip=await snap();}
+     else if(g.stage==='runway-exit'){const target=groundTarget(s),distance=Math.hypot(s.x-g.stop.x,s.z-g.stop.z),speed=s.airData.groundSpeed,desired=Math.atan2(target.x-s.x,-(target.z-s.z)),error=Math.atan2(Math.sin(desired-s.yaw),Math.cos(desired-s.yaw)),exitAhead=g.routeIndex===1&&Math.abs(s.z-g.points[1].z)>120,speedTarget=(exitAhead?14:6)/1.94384,demand=(.25+speed*.006+clamp((speedTarget-speed)*.65,-1,1))*s.weight*1000/Math.max(s.propulsion.availableThrustN,1);await throttle(demand);await brake(speed>speedTarget+.8);await stick(0,clamp(error*1.9-s.yawRate*1.2,-.85,.85));}
+     else{await release();await brake(true);}
+    }else if(g.stage==='lineup'){
+     const d=departureOf(s),target=groundTarget(s),distance=Math.hypot(d.lineup.x-s.x,d.lineup.z-s.z),speed=s.airData.groundSpeed,desired=distance<12?0:Math.atan2(target.x-s.x,-(target.z-s.z)),error=Math.atan2(Math.sin(desired-s.yaw),Math.cos(desired-s.yaw)),speedTarget=Math.min(6/1.94384,Math.sqrt(Math.max(0,distance-4)*.65)),demand=(.25+speed*.006+clamp((speedTarget-speed)*.65,-1,1))*s.weight*1000/Math.max(s.propulsion.availableThrustN,1);
+     await throttle(demand);await brake(distance<8||speed>speedTarget+.8);await stick(0,clamp(error*1.9-s.yawRate*1.2,-.85,.85));
+    }else{await release();await brake(true);}
+   }else if(['departure','climb','cruise-ready'].includes(phase)){
+    await brake(false);if(!s.airborne){if(s.throttle<.9)await tap('KeyT','t');await stick(kt>=125&&s.pitch<.2?1:0,clamp(-s.x*.035-s.velocity.x*.12-s.yaw*.8,-.5,.5));}
+    else{
+     if(s.verticalSpeed>.5&&s.gear)await tap('KeyG','g');if(ra>500&&s.throttle>.845)await tap('KeyL','l');
+     if(ra>200&&!s.autoPilot){await release();await tap('KeyA','a');}else if(!s.autoPilot)await stick(clamp((s.guidance.pitch-s.pitch)*8-s.pitchRate*3,-.5,.5),clamp((s.guidance.roll-s.roll)*3-s.rollRate*2,-.4,.4));
+     if(ra>1100&&s.timeScale===1)await tap('KeyX','x');
+     if(canSkipCruise(s)&&!cruiseClicked){await release();await scroll('.skip-cruise');await b.click('.skip-cruise');cruiseClicked=true;box=null;}
+    }
+   }else if(phase==='arrival-preview'){
+    await release();await brake(false);assert.equal(s.airportId,destination);assert(!s.gear&&s.flapPosition===0&&!s.autoPilot&&!s.apprArmed);if(!arrivalSeen&&s.time-s.airline.previewStarted>1){arrivalSeen=true;await b.screenshot('qa/airline-destination-intro.png');samples.arrivalAudio=await b.evaluate('window.__flightSim.audioStats()');assert(samples.arrivalAudio.radioEffect&&!samples.arrivalAudio.blocked);}
+   }else if(phase==='arrival'){
+    await release();await brake(false);if(!s.autoPilot)await tap('KeyA','a');if(ra>1100&&s.timeScale===1)await tap('KeyX','x');
+   }else if(phase==='approach'){
+    if(!s.apprArmed)await tap('KeyI','i');if(!s.spoilersArmed)await tap('KeyB','b');if(s.autoBrake!=='MED'){await tap('KeyM','m');}
+    if(ra>400&&!s.autoPilot){await release();await tap('KeyA','a');}if(ra>1100&&s.timeScale===1)await tap('KeyX','x');
+    if(s.flaps===0&&s.z<19500&&kt<228)await tap('KeyF','f');if(s.flaps===1&&s.z<14800&&kt<198)await tap('KeyF','f');if(!s.gear&&s.z<11000)await tap('KeyG','g');if(s.flaps<3&&s.z<9250&&kt<184)await tap('KeyF','f');if(s.flaps<s.landingConfig&&s.z<7400&&kt<176)await tap('KeyF','f');if(s.gearPosition>.98&&Math.abs(s.flapPosition-s.landingConfig)<.05&&!s.landingChecklistConfirmed)await tap('KeyC','c');
+    if(s.landed){await brake(true);await stick(0,clamp(-s.x*.03-s.velocity.x*.12-s.yaw*.5,-.4,.4));}
+    else if(!s.autoPilot&&ra<=400){const pitch=ra<30?Math.max(.10,s.guidance.pitch):s.guidance.pitch;await stick(clamp((pitch-s.pitch)*8-s.pitchRate*3,-.6,.6),clamp((s.guidance.roll-s.roll)*2-s.rollRate*1.5,-.2,.2));}
+    if(ra<20&&s.throttle!==0)await tap('KeyZ','z');
+    if(!finalShot&&s.z<3200){finalShot=true;await b.screenshot(`qa/airline-${destination}-final.png`);}
+   }
+   if(Math.floor(s.time/30)!==lastLog){lastLog=Math.floor(s.time/30);console.log('progress',Math.round(s.time),Math.round(ra),'ft',Math.round(kt),'kt',Math.round(s.z),'m');}
+   await sleep(80);
+  }
+  samples.finished=await snap();assert(samples.finished.result?.levelCleared,JSON.stringify({result:samples.finished.result,airline:samples.finished.airline}));if(mode!=='landing')assert(cruiseClicked&&arrivalSeen&&radioSeen);else assert(radioSeen);assert.equal(samples.finished.airportId,destination);assert(samples.finished.landed&&samples.finished.gates.every(g=>g.passed&&!g.preset));assert(!samples.finished.terrain.events.some(e=>e.level>0));assert(samples.destinationAudio.radioEffect&&samples.destinationAudio.contextState==='running');await noChinese();await b.screenshot('qa/airline-result.png');
+ }
+ samples.errors=b.events.filter(e=>e.method==='Runtime.exceptionThrown'||e.method==='Log.entryAdded'&&e.params.entry.level==='error');assert.deepEqual(samples.errors,[]);console.log('Airline',mode,'passed');
+}catch(e){samples.failure={message:e.message,state:await snap().catch(()=>null),events:b.events};await b.screenshot(`qa/airline-${mode}-failure.png`).catch(()=>{});throw e;}
+finally{await release().catch(()=>{});await brake(false).catch(()=>{});await writeFile(`qa/airline-${mode}-browser.json`,JSON.stringify(samples,null,2));await b.close();}

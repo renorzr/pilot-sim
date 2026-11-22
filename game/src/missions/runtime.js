@@ -5,6 +5,7 @@ import {initializeExpanded,beforeExpanded,afterExpanded,expandedChecks,expandedI
 import {getLevel} from './catalog.js';
 import {FT,KT,RAD,RUNWAY,clamp,wrap} from '../sim/constants.js';
 import {setEngineStatus} from '../sim/engines.js';
+import {runwayHeading} from '../airports/registry.js';
 
 export function initializeLevel(s,level){
  s.levelId=level.id;
@@ -59,7 +60,7 @@ export function levelChecks(s){
  const expanded=expandedChecks(s);if(expanded)return expanded;
  const m=s.mission,l=getLevel(s.levelId);if(!m||!l)return [];
  const ra=height(s),heading=Math.abs(wrap(s.yaw-m.initialHeading))/RAD;
- if(m.kind==='takeoff')return[{label:'空速保持 125–230 kt',ok:s.speed*KT>=125&&s.speed*KT<=230},{label:'离地并保持正爬升',ok:s.airborne&&s.verticalSpeed>.5},{label:'起落架收起到位',ok:s.gearPosition<.02},{label:'高度达到 500 ft',ok:ra>=500},{label:'航向保持 270° ±15°',ok:Math.abs(s.yaw)<15*RAD},{label:'保持稳定 3 秒',ok:m.stableSeconds>=3}];
+ if(m.kind==='takeoff')return[{label:'空速保持 125–230 kt',ok:s.speed*KT>=125&&s.speed*KT<=230},{label:'离地并保持正爬升',ok:s.airborne&&s.verticalSpeed>.5},{label:'起落架收起到位',ok:s.gearPosition<.02},{label:'高度达到 500 ft',ok:ra>=500},{label:`航向保持 ${Math.round(runwayHeading(s))}° ±15°`,ok:Math.abs(s.yaw)<15*RAD},{label:'保持稳定 3 秒',ok:m.stableSeconds>=3}];
  if(m.kind==='engine-out')return[{label:'识别 ENG 1 失效',ok:m.triggered},{label:'C 确认故障提示',ok:m.acknowledged},{label:'剩余发动机提供推力',ok:s.engines[1].thrustN>50000},{label:'正爬升、起落架收起',ok:s.gearPosition<.02&&s.verticalSpeed>.5},{label:'1000 ft / 145–230 kt / 航向 ±15°',ok:ra>=1000&&s.speed*KT>=145&&s.speed*KT<=230&&heading<15},{label:'保持稳定 5 秒',ok:m.stableSeconds>=5}];
  if(m.kind==='windshear'&&s.mission.recovery?.stage==='return'&&s.route?.inFinal)return[{label:'已脱离 / 避让风切变',ok:m.clear||m.avoided},{label:'实际着陆构型与检查',ok:s.gearPosition>.98&&Math.abs(s.flapPosition-s.landingConfig)<.05&&s.landingChecklistConfirmed},{label:'着陆并制动至停稳',ok:s.landed&&s.airData.groundSpeed<.6}];
  if(m.kind==='windshear'&&s.mission.recovery?.stage==='return')return[{label:'已脱离 / 避让风切变',ok:m.clear||m.avoided},{label:'按 ND 海侧返场',ok:true},{label:'最终落地停稳',ok:false}];
@@ -75,6 +76,7 @@ export function levelChecks(s){
 }
 function finish(s,title,detail,score){s.result={success:true,title,detail,score:Math.round(clamp(score,25,100)),levelCleared:!s.mission.practice};}
 export function afterLevelPhysics(s,dt){
+ if(s.mission?.kind==='airline')return;
  if(isExpanded(s)){afterExpanded(s,dt);return;}
  if(!s.mission)return;
  const m=s.mission,l=getLevel(s.levelId),ra=height(s),heading=Math.abs(wrap(s.yaw-m.initialHeading))/RAD;
@@ -92,7 +94,7 @@ export function afterLevelPhysics(s,dt){
  if(m.kind==='landing')return;
  const stable=s.airborne&&s.verticalSpeed>-.5&&Math.abs(s.roll)<12*RAD&&!s.airData.stalled;
  let eligible=false,seconds=3;
- if(m.kind==='takeoff')eligible=stable&&s.verticalSpeed>.5&&ra>=500&&s.gearPosition<.02&&Math.abs(s.yaw)<15*RAD&&s.speed*KT>=125&&s.speed*KT<=230;
+ if(m.kind==='takeoff')eligible=(!s.ground||(s.ground.heldShort&&s.ground.lineupComplete&&s.ground.takeoffCleared))&&stable&&s.verticalSpeed>.5&&ra>=500&&s.gearPosition<.02&&Math.abs(s.yaw)<15*RAD&&s.speed*KT>=125&&s.speed*KT<=230;
  if(m.kind==='engine-out'){seconds=5;eligible=stable&&m.triggered&&m.acknowledged&&ra>=1000&&s.gearPosition<.02&&s.flapPosition<=1.05&&s.speed*KT>=145&&s.speed*KT<=230&&heading<15&&s.verticalSpeed>.5&&s.engines[0].status==='failed'&&s.engines[1].thrustN>50000;}
  if(m.kind==='goaround'){seconds=3;eligible=stable&&s.goAround&&(m.triggered||m.avoided)&&(m.kind!=='windshear'||m.clear)&&ra>=l.targetAltitude-30&&s.gearPosition<.02&&s.flapPosition<=1.05&&s.speed*KT>=150&&s.speed*KT<=220;}
  m.stableSeconds=eligible?m.stableSeconds+dt:0;

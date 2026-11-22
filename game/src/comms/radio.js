@@ -1,3 +1,4 @@
+import {AIRPORT_RADIO,RADIO_PACKS} from './radio-packs.js';
 import voiceVersion from './voice-version.json' with {type:'json'};
 import {emergencyLevels,emergencyPriority,createEmergencyMonitor} from './emergency.js';
 import script from './script.json' with {type:'json'};
@@ -6,24 +7,32 @@ import englishDurations from './durations.en.json' with {type:'json'};
 import englishScript from './script.en.json' with {type:'json'};
 import englishVersion from './voice-version.en.json' with {type:'json'};
 import {siteUrl} from '../urls.js';
+const dialogue=(s,key)=>{
+ if(s.airline&&RADIO_PACKS.airline.zh[key])return{lines:RADIO_PACKS.airline.zh[key],prefix:'airline-'};
+ const pack=AIRPORT_RADIO[s.airportId];if(pack?.zh[key])return{lines:pack.zh[key],prefix:s.airportId+'-'};
+ if(s.ground&&RADIO_PACKS.ground.zh[key])return{lines:RADIO_PACKS.ground.zh[key],prefix:'ground-'};
+ return{lines:script[key],prefix:''};
+};
+const clipPack=id=>RADIO_PACKS[id.split('-')[0]];
 export const createRadio=()=>({language:'zh',fired:{},pending:[],active:null,readyAt:0,sequence:0,history:[],emergency:null,monitor:createEmergencyMonitor()});
-const clipDuration=(id,language)=>((language==='en'?englishDurations:durations)[id]||5)+.2;
+const clipDuration=(id,language)=>(clipPack(id)?.durations[language]?.[id]||(language==='en'?englishDurations:durations)[id]||5)+.2;
 export function setRadioLanguage(s,language){
  const r=s.radio;if(!r||!['en','zh'].includes(language)||r.language===language)return;
  r.language=language;
  if(r.active){r.active.started=s.time;r.active.until=s.time+clipDuration(r.active.clip,language);}
 }
 function enqueue(s,key,priority=0,ttl=60){
- const r=s.radio;if(!r||!script[key])return false;
+ const r=s.radio;if(!r||!dialogue(s,key).lines)return false;
  if(r.active?.event===key||r.pending.some(line=>line.event===key))return false;
  if(priority&&priority>=Math.max(r.active?.priority||0,...r.pending.map(line=>line.priority||0))){
   r.pending=r.pending.filter(line=>(line.priority||0)>priority);r.active=null;r.readyAt=s.time+(priority>=3?2.6:priority===2?1.5:.35);
  }
- const lines=script[key].map(([role,text],i)=>({clip:`${key}-${i}`,event:key,role,text,priority,emergency:emergencyLevels[key]||null,expires:s.time+ttl}));
+ const custom=dialogue(s,key);
+ const lines=custom.lines.map(([role,text],i)=>({clip:`${custom.prefix}${key}-${i}`,event:key,role,text,priority,emergency:emergencyLevels[key]||null,expires:s.time+ttl}));
  r.pending.push(...lines);r.pending.sort((a,b)=>(b.priority||0)-(a.priority||0));return true;
 }
 export function queueRadio(s,key,priority=false){
- const r=s.radio;if(!r||r.fired[key]||!script[key])return false;
+ const r=s.radio;if(!r||r.fired[key]||!dialogue(s,key).lines)return false;
  const severity=emergencyLevels[key];
  if(key==='engine-stable'&&r.emergency?.event!=='engine')return false;
  if(severity==='distress'&&r.emergency?.level==='distress'&&key.startsWith('distress-'))return false;
@@ -57,4 +66,7 @@ export function calloutClip(text=''){
 // Script changes must also invalidate previously cached voice files.
 let speechVersion=0;for(const char of JSON.stringify(script)+JSON.stringify(durations))speechVersion=(Math.imul(speechVersion,31)+char.charCodeAt(0))>>>0;
 let englishSpeechVersion=0;for(const char of JSON.stringify(englishScript)+JSON.stringify(englishDurations))englishSpeechVersion=(Math.imul(englishSpeechVersion,31)+char.charCodeAt(0))>>>0;
-export const clipUrl=(id,language='zh')=>language==='en'&&!id.startsWith('call-')?siteUrl(`assets/radio/en/${id}.mp3?v=${englishSpeechVersion.toString(36)}-${englishVersion.fingerprint}`):siteUrl(`assets/radio/${id}.mp3?v=${speechVersion.toString(36)}-${voiceVersion.fingerprint}`);
+export const clipUrl=(id,language='zh')=>{
+ const english=language==='en'&&!id.startsWith('call-'),version=clipPack(id)?.version||(english?englishSpeechVersion.toString(36)+'-'+englishVersion.fingerprint:speechVersion.toString(36)+'-'+voiceVersion.fingerprint);
+ return siteUrl(`assets/radio/${english?'en/':''}${id}.mp3?v=${version}`);
+};

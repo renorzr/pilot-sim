@@ -1,0 +1,113 @@
+{
+  "notes": "Fixed source anchors preserve v1 geography/heights while native Sentinel RGB recovers roof class. These anchors are not fabricated buildings.",
+  "samples": [
+    {
+      "id": "way/154103579",
+      "roofClass": "red",
+      "nativeRgb": [
+        108,
+        91,
+        77
+      ],
+      "cx": -1840.2049560546875,
+      "cz": 3827.1650390625,
+      "baseY": 3.0633254051208496,
+      "topY": 14.731943130493164,
+      "firstPoint": [
+        -1776.625,
+        3756.905029296875
+      ],
+      "previousRoof": 7101001
+    },
+    {
+      "id": "way/154103590",
+      "roofClass": "blue",
+      "nativeRgb": [
+        79,
+        103,
+        128
+      ],
+      "cx": -2945.429931640625,
+      "cz": 5379.39013671875,
+      "baseY": 2.674781084060669,
+      "topY": 15.119575500488281,
+      "firstPoint": [
+        -2934.22998046875,
+        5327.25
+      ],
+      "previousRoof": 10197135
+    },
+    {
+      "id": "way/154103592",
+      "roofClass": "red",
+      "nativeRgb": [
+        104,
+        84,
+        63
+      ],
+      "cx": -1749.8050537109375,
+      "cz": 3857.510009765625,
+      "baseY": 3.1151278018951416,
+      "topY": 14.326828956604004,
+      "firstPoint": [
+        -1698.625,
+        3786.830078125
+      ],
+      "previousRoof": 6903102
+    },
+    {
+      "id": "way/402786850",
+      "roofClass": "blue",
+      "nativeRgb": [
+        148,
+        178,
+        209
+      ],
+      "cx": 10663.4404296875,
+      "cz": 3154.739990234375,
+      "baseY": 1.0796523094177246,
+      "topY": 12.341141700744629,
+      "firstPoint": [
+        10613.9599609375,
+        3190.280029296875
+      ],
+      "previousRoof": 10726599
+    },
+    {
+      "id": "way/402786880",
+      "roofClass": "red",
+      "nativeRgb": [
+        142,
+        96,
+        80
+      ],
+      "cx": 7556.31494140625,
+      "cz": 5957.5400390625,
+      "baseY": 3.5812363624572754,
+      "topY": 12.575596809387207,
+      "firstPoint": [
+        7519.23486328125,
+        5967.240234375
+      ],
+      "previousRoof": 8481110
+    },
+    {
+      "id": "way/402786931",
+      "roofClass": "blue",
+      "nativeRgb": [
+        137,
+        150,
+        226
+      ],
+      "cx": 9214.099609375,
+      "cz": 4092.580078125,
+      "baseY": 1.5371195077896118,
+      "topY": 13.182689666748047,
+      "firstPoint": [
+        9141.580078125,
+        4113.85986328125
+      ],
+      "previousRoof": 9541851
+    }
+  ]
+}

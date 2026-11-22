@@ -1,0 +1,328 @@
+{
+  "schemaVersion": 1,
+  "airportId": "lax",
+  "runwayId": "25R",
+  "coordinateFrame": "Metres in active25R local tangentplane: x runwayright, z approachside, y aboveactive threshold; yaw0 follows25R forward(-z).",
+  "stand": {
+    "ref": "86B",
+    "sourceId": "way/1096142912",
+    "longitude": -118.3974889,
+    "latitude": 33.9404048,
+    "x": 251.754,
+    "z": -1628.51,
+    "yaw": 2.72784234886644,
+    "headingDegLocal": 156.294,
+    "headingDegTrue": 59.267,
+    "nose": {
+      "x": 257.785,
+      "z": -1614.775
+    },
+    "cgSetbackM": 15,
+    "note": "Source86Bparkingway anchorsrealTerminal8stand. GameCG set15mbehindnosealonglead-in; no staticaircraftoccupiesstand."
+  },
+  "handoff": {
+    "x": 237.762,
+    "z": -1687.107,
+    "yaw": -1.8567986515648027,
+    "sourceId": "way/19658969",
+    "note": "Automaticcrewpreparation abstracts pushback/apron reposition to adjacentactualC6sourcevertex (~27m fromlead-inapronendpoint); manualtaxistartsstationary onsource network."
+  },
+  "taxiPoints": [
+    {
+      "x": 237.762,
+      "z": -1687.107,
+      "sourceId": "way/19658969",
+      "name": "C6",
+      "kind": "source-vertex"
+    },
+    {
+      "x": 230.046,
+      "z": -1684.838,
+      "sourceId": "way/872785977",
+      "name": "C6",
+      "kind": "source-vertex"
+    },
+    {
+      "x": 223.642,
+      "z": -1682.38,
+      "sourceId": "way/872785977",
+      "name": "C6",
+      "kind": "source-vertex"
+    },
+    {
+      "x": 218.948,
+      "z": -1679.609,
+      "sourceId": "way/872785977",
+      "name": "C6",
+      "kind": "source-vertex"
+    },
+    {
+      "x": 213.802,
+      "z": -1675.712,
+      "sourceId": "way/872785977",
+      "name": "C6",
+      "kind": "source-vertex"
+    },
+    {
+      "x": 210.686,
+      "z": -1672.634,
+      "sourceId": "way/872785977",
+      "name": "C6",
+      "kind": "source-vertex"
+    },
+    {
+      "x": 207.469,
+      "z": -1668.918,
+      "sourceId": "way/872785977",
+      "name": "C6",
+      "kind": "source-vertex"
+    },
+    {
+      "x": 204.33,
+      "z": -1664.112,
+      "sourceId": "way/872785977",
+      "name": "C6",
+      "kind": "source-vertex"
+    },
+    {
+      "x": 202.165,
+      "z": -1659.373,
+      "sourceId": "way/872785977",
+      "name": "C6",
+      "kind": "source-vertex"
+    },
+    {
+      "x": 200.41,
+      "z": -1654.695,
+      "sourceId": "way/872785977",
+      "name": "C6",
+      "kind": "source-vertex"
+    },
+    {
+      "x": 198.953,
+      "z": -1648.966,
+      "sourceId": "way/872785977",
+      "name": "C6",
+      "kind": "source-vertex"
+    },
+    {
+      "x": 198.014,
+      "z": -1641.352,
+      "sourceId": "way/872785977",
+      "name": "C6",
+      "kind": "source-vertex"
+    },
+    {
+      "x": 197.844,
+      "z": -1639.974,
+      "sourceId": "way/159858554",
+      "name": "C",
+      "kind": "source-vertex"
+    },
+    {
+      "x": 198.831,
+      "z": -1409.017,
+      "sourceId": "way/159858554",
+      "name": "C",
+      "kind": "source-vertex"
+    },
+    {
+      "x": 198.84,
+      "z": -1024.264,
+      "sourceId": "way/159858554",
+      "name": "C",
+      "kind": "source-vertex"
+    },
+    {
+      "x": 198.362,
+      "z": -989.54,
+      "sourceId": "way/159858554",
+      "name": "C",
+      "kind": "source-vertex"
+    },
+    {
+      "x": 196.839,
+      "z": -978.366,
+      "sourceId": "way/159858554",
+      "name": "C",
+      "kind": "source-vertex"
+    },
+    {
+      "x": 195.786,
+      "z": -973.462,
+      "sourceId": "way/159858554",
+      "name": "C",
+      "kind": "source-vertex"
+    },
+    {
+      "x": 189.562,
+      "z": -949.719,
+      "sourceId": "way/159858554",
+      "name": "C",
+      "kind": "source-vertex"
+    },
+    {
+      "x": 188.648,
+      "z": -941.029,
+      "sourceId": "way/159858554",
+      "name": "C",
+      "kind": "source-vertex"
+    },
+    {
+      "x": 148.658,
+      "z": -941.361,
+      "sourceId": "way/857253617",
+      "name": "C3",
+      "kind": "source-vertex"
+    },
+    {
+      "x": 110.001,
+      "z": -940.927,
+      "sourceId": "way/857253617",
+      "name": "25R HOLD",
+      "kind": "game-holding-point"
+    }
+  ],
+  "hold": {
+    "x": 110.001,
+    "z": -940.927,
+    "yaw": -1.5819660343760822,
+    "sourceId": "way/857253617",
+    "sourceHoldingNodeId": "node/7992560258",
+    "isPublishedHoldingPosition": false,
+    "note": "GameCGholdingpoint onactualC3outside25R protectedstrip, behind sourceB3holdingnode. Not aliveclearance."
+  },
+  "entryPoints": [
+    {
+      "x": 110.001,
+      "z": -940.927,
+      "sourceId": "way/857253617",
+      "name": "25R HOLD",
+      "kind": "game-holding-point"
+    },
+    {
+      "x": 107.281,
+      "z": -940.897,
+      "sourceId": "way/138935854",
+      "name": "B3",
+      "kind": "source-vertex"
+    },
+    {
+      "x": 54.815,
+      "z": -941.566,
+      "sourceId": "way/138935854",
+      "name": "B3",
+      "kind": "source-vertex"
+    },
+    {
+      "x": 47.826,
+      "z": -943.191,
+      "sourceId": "way/138935854",
+      "name": "B3",
+      "kind": "source-vertex"
+    },
+    {
+      "x": 38.79,
+      "z": -946.045,
+      "sourceId": "way/138935854",
+      "name": "B3",
+      "kind": "source-vertex"
+    },
+    {
+      "x": 31.095,
+      "z": -951.227,
+      "sourceId": "way/138935854",
+      "name": "B3",
+      "kind": "source-vertex"
+    },
+    {
+      "x": 22.776,
+      "z": -958.171,
+      "sourceId": "way/138935854",
+      "name": "B3",
+      "kind": "source-vertex"
+    },
+    {
+      "x": 15.97,
+      "z": -967.747,
+      "sourceId": "way/138935854",
+      "name": "B3",
+      "kind": "source-vertex"
+    },
+    {
+      "x": 9.595,
+      "z": -978.722,
+      "sourceId": "way/138935854",
+      "name": "B3",
+      "kind": "source-vertex"
+    },
+    {
+      "x": 4.726,
+      "z": -992.452,
+      "sourceId": "way/138935854",
+      "name": "B3",
+      "kind": "source-vertex"
+    },
+    {
+      "x": 0.441,
+      "z": -1028.573,
+      "sourceId": "way/138935854",
+      "name": "B3",
+      "kind": "source-runway-entry-arc"
+    },
+    {
+      "x": 0,
+      "z": -1088.573,
+      "sourceId": "OurAirports:7L/25R",
+      "name": "25R",
+      "kind": "runway-centerline"
+    }
+  ],
+  "lineup": {
+    "x": 0,
+    "z": -1088.573,
+    "yaw": 0,
+    "sourceId": "OurAirports:7L/25R",
+    "remainingRunwayM": 2847.07,
+    "note": "ManualsourceB3entry with60mstraightcenterlineafter nativearc."
+  },
+  "taxiDistanceM": 845.688,
+  "entryDistanceM": 227.339,
+  "routeReferences": [
+    "86B",
+    "C6",
+    "C",
+    "C3",
+    "B3",
+    "25R"
+  ],
+  "sourceFeatureIds": [
+    "way/1096142912",
+    "way/19658969",
+    "way/872785977",
+    "way/159858554",
+    "way/857253617",
+    "way/138935854",
+    "node/7992560258"
+  ],
+  "sources": [
+    {
+      "name": "OpenStreetMap contributors",
+      "license": "ODbL-1.0",
+      "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
+      "dataFile": "lax.json",
+      "dataFetchedAt": "2026-11-21T11:12:31.960501+00:00"
+    },
+    {
+      "name": "OurAirports",
+      "license": "Unlicense / public domain",
+      "dataFile": "lax.json"
+    }
+  ],
+  "notes": [
+    "RealTerminal8stand86B andactualC6/C/C3/B3connectednetwork aretheplannedroute; thisisgame routing, notpublishedtaxiclearance.",
+    "Automaticpreparation includesa27mapronrepositiontoC6; noplayerpushback/tugcontrols.",
+    "SourceB3has native gradualentryarc. Final60mcenterlinesegment usesOurAirportsendpointaxis andretains~2.85kmremainingrunway.",
+    "Optionaltaxiskipstopsoutside runway; entry/lineup/stopping andseparatetakeoff clearance remainmanual."
+  ]
+}

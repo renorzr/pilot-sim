@@ -1,0 +1,157 @@
+{
+  "zh": {
+    "preparation": [
+      [
+        "pilot",
+        "大兴地面，云际三二零，一零七机位，请求推出开车。"
+      ],
+      [
+        "tower",
+        "云际三二零，同意推出开车，完成后报告。"
+      ]
+    ],
+    "taxi": [
+      [
+        "tower",
+        "云际三二零，沿指示路线滑行至一七左跑道外等待。"
+      ],
+      [
+        "pilot",
+        "沿指示路线滑行，一七左跑道外等待，云际三二零。"
+      ]
+    ],
+    "holding": [
+      [
+        "pilot",
+        "云际三二零，一七左跑道外等待点，已停稳。"
+      ],
+      [
+        "tower",
+        "云际三二零，联系塔台，继续跑道外等待。"
+      ]
+    ],
+    "lineup": [
+      [
+        "tower",
+        "云际三二零，一七左，进跑道等待。"
+      ],
+      [
+        "pilot",
+        "一七左，进跑道等待，云际三二零。"
+      ]
+    ],
+    "ground-speed": [
+      [
+        "tower",
+        "云际三二零，滑行速度过快，减速。"
+      ],
+      [
+        "pilot",
+        "减速滑行，云际三二零。"
+      ]
+    ],
+    "ground-stop": [
+      [
+        "tower",
+        "云际三二零，尚未许可进入跑道，立即停住。"
+      ],
+      [
+        "pilot",
+        "收到，立即停止，云际三二零。"
+      ]
+    ]
+  },
+  "en": {
+    "preparation": [
+      [
+        "pilot",
+        "Daxing Ground, Skyline three two zero, stand one zero seven. Request pushback and start."
+      ],
+      [
+        "tower",
+        "Skyline three two zero, pushback and start approved. Report when ready."
+      ]
+    ],
+    "taxi": [
+      [
+        "tower",
+        "Skyline three two zero, taxi via the marked route. Hold short of runway one seven left."
+      ],
+      [
+        "pilot",
+        "Taxi via the marked route. Hold short of one seven left, Skyline three two zero."
+      ]
+    ],
+    "holding": [
+      [
+        "pilot",
+        "Skyline three two zero, stopped at the holding point, runway one seven left."
+      ],
+      [
+        "tower",
+        "Skyline three two zero, contact Tower. Continue holding short."
+      ]
+    ],
+    "lineup": [
+      [
+        "tower",
+        "Skyline three two zero, runway one seven left, line up and wait."
+      ],
+      [
+        "pilot",
+        "One seven left, line up and wait, Skyline three two zero."
+      ]
+    ],
+    "ground-speed": [
+      [
+        "tower",
+        "Skyline three two zero, taxi speed excessive. Reduce speed."
+      ],
+      [
+        "pilot",
+        "Reducing taxi speed, Skyline three two zero."
+      ]
+    ],
+    "ground-stop": [
+      [
+        "tower",
+        "Skyline three two zero, not cleared to enter the runway. Stop immediately."
+      ],
+      [
+        "pilot",
+        "Stopping immediately, Skyline three two zero."
+      ]
+    ]
+  },
+  "durations": {
+    "zh": {
+      "ground-preparation-0": 4.584,
+      "ground-preparation-1": 3.648,
+      "ground-taxi-0": 4.392,
+      "ground-taxi-1": 4.416,
+      "ground-holding-0": 3.864,
+      "ground-holding-1": 3.696,
+      "ground-lineup-0": 3.192,
+      "ground-lineup-1": 3.384,
+      "ground-ground-speed-0": 3.192,
+      "ground-ground-speed-1": 2.688,
+      "ground-ground-stop-0": 3.792,
+      "ground-ground-stop-1": 3.336
+    },
+    "en": {
+      "ground-preparation-0": 5.904,
+      "ground-preparation-1": 5.136,
+      "ground-taxi-0": 6.144,
+      "ground-taxi-1": 5.352,
+      "ground-holding-0": 4.272,
+      "ground-holding-1": 4.992,
+      "ground-lineup-0": 4.512,
+      "ground-lineup-1": 3.696,
+      "ground-ground-speed-0": 5.064,
+      "ground-ground-speed-1": 3.168,
+      "ground-ground-stop-0": 5.328,
+      "ground-ground-stop-1": 2.976
+    }
+  },
+  "version": "62a9e3082ea321a7edff"
+}

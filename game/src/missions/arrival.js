@@ -5,10 +5,13 @@ const profiles={
  'ils-approach':{x:-1400,z:22000,altitude:3000,speed:210,heading:12},
  'goaround':{x:-700,z:11000,altitude:1500,speed:195,heading:12},
  'dual-glide':{x:-650,z:10500,altitude:2800,speed:185,heading:10},
+ 'changi-landing':{x:-1500,z:22000,altitude:3000,speed:210,heading:12},
+ 'xiaoshan-landing':{x:-1500,z:22000,altitude:3000,speed:210,heading:12},
+ 'daxing-landing':{x:-1500,z:22000,altitude:3000,speed:210,heading:12},
 };
 export function initializeArrival(s,level){
  if(level.mode!=='landing')return;
- const p=profiles[level.id]||{x:-900,z:12000,altitude:1500,speed:200,heading:12};
+ const p=profiles[level.id]||(level.airportId?{x:-1500,z:22000,altitude:3000,speed:210,heading:12}:{x:-900,z:12000,altitude:1500,speed:200,heading:12});
  s.arrival={...p,requiresPreparation:true};s.x=p.x;s.z=p.z;s.y=RUNWAY.ground+p.altitude/FT;s.yaw=p.heading*RAD;s.speed=p.speed/KT;s.verticalSpeed=0;
  s.gear=false;s.gearPosition=0;s.flaps=s.flapPosition=0;s.spoilersArmed=false;s.autoBrake='OFF';s.landingChecklistConfirmed=false;
  s.apprArmed=s.locCaptured=s.gsCaptured=s.gsCaptureEligible=false;s.autoPilot=false;s.selectedAltitude=p.altitude;s.selectedSpeed=p.speed;

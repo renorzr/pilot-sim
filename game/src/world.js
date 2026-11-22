@@ -1,3 +1,13 @@
+import {createLoadingProgress}from './loading-progress.js';
+import {loadAircraftVisual} from './aircraft/visual.js';
+import {FlightCameraRig} from './views/camera-rig.js';
+import {cameraObstacles} from './views/camera-obstacles.js';
+import {placeAircraft} from './views/aircraft-pose.js';
+import {createContactShadow} from './views/contact-shadow.js';
+import {createViewState} from './views/view-state.js';
+import {cityRay}from './terrain/city-obstacles.js';
+import {surfaceHeight} from './terrain/heightfield.js';
+import {departureOf} from './missions/ground.js';
 import {sampleCabinMotion} from './sim/cabin-motion.js';
 import * as THREE from 'three';
 import {t,subscribeLanguage} from './i18n/index.js';
@@ -5,10 +15,14 @@ import {siteUrl} from './urls.js';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { RUNWAY } from './sim/constants.js';
 import {TERRAIN,vertexHeight,coastline} from './terrain/heightfield.js';
+import {airportOf} from './airports/registry.js';
+import {buildRealAirportWorld} from './airports/real-airport-world.js';
+import {configureLaxLighting,LAX_LIGHTING}from './airports/lax-lighting.js';
 
 const rand = (seed) => { let n = seed; return () => { n = (n * 1664525 + 1013904223) >>> 0; return n / 4294967296; }; };
 
-export function createWorld(host, onReady, onError) {
+export function createWorld(host, onReady, onError, airportId='training',onProgress=()=>{}) {
+  const airport=airportOf(airportId),realAirport=!!airport.data;
   let renderer;
   try {
     renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
@@ -24,7 +38,11 @@ export function createWorld(host, onReady, onError) {
   const label=()=>renderer.domElement.setAttribute('aria-label',t('实时 3D 机场外景'));
   label();const stopLanguage=subscribeLanguage(label);
   const scene = new THREE.Scene();
-  let dirty = true, lastView = '',skyTexture=null;
+  const hasMappedCity=['lax','xiaoshan','changi','jfk'].includes(airportId);
+  let dirty = true, lastView = '',skyTexture=null,disposed=false,aircraft=null,aircraftReady=false,texturesReady=false,readyReported=false,lastAnimationTime=null,visualOffset=0,city=null,cityReady=!hasMappedCity,cityTerrain=null;
+  const progress=createLoadingProgress(value=>{if(!disposed)onProgress(value);},{hasCity:hasMappedCity});progress.update('assets',0);
+  const defaultView=createViewState();
+  const reportReady=()=>{if(!disposed&&aircraftReady&&texturesReady&&cityReady&&!loadError&&!readyReported){readyReported=true;progress.complete();onReady();}};
   scene.background = new THREE.Color('#a4c6e0');
   scene.fog = new THREE.FogExp2('#bccfda', .000047);
   const camera = new THREE.PerspectiveCamera(36, 1, .7, 30000);
@@ -32,11 +50,15 @@ export function createWorld(host, onReady, onError) {
   const sun = new THREE.DirectionalLight('#fff0d7', 2.9);
   sun.position.set(-2000, 4000, 1500);
   const ambient=new THREE.HemisphereLight('#d5e9ff', '#77745b', 2.1);scene.add(sun,ambient);
+  const lightLevels=hasMappedCity?LAX_LIGHTING:{sun:2.9,ambient:2.1,environment:.35};
+  if(hasMappedCity)configureLaxLighting({THREE,renderer,scene,sun,airport});
 
   const loading = new THREE.LoadingManager();
   let loadError = false;
-  loading.onLoad = () => { dirty = true; if (!loadError) onReady(); };
+  loading.onProgress=(_url,completed,total)=>progress.update('assets',completed/total);
+  loading.onLoad = () => { dirty = true;texturesReady=true;progress.update('assets',1);reportReady(); };
   loading.onError = (url) => { loadError = true; onError('场景素材加载失败，请刷新页面重试。'); console.error('Asset load failed:', url); };
+  loadAircraftVisual({THREE,loadingManager:loading}).then(visual=>{if(disposed){visual.dispose();return;}aircraft=visual;scene.add(aircraft.group);aircraftReady=true;progress.update('aircraft',1);dirty=true;reportReady();}).catch(error=>{if(!disposed){loadError=true;onError('飞机模型加载失败，请刷新页面重试。');console.error('Aircraft asset load failed:',error);}});
   const loader = new THREE.TextureLoader(loading);
   function texture(url, repeatX = 1, repeatY = 1) {
     const t = loader.load(siteUrl(url));
@@ -54,7 +76,7 @@ export function createWorld(host, onReady, onError) {
     skyTexture=t;scene.background = t;
     scene.backgroundIntensity = .9;
     scene.environment = t;
-    scene.environmentIntensity = .35;
+    scene.environmentIntensity = lightLevels.environment;
   });
   const mat = (color, options = {}) => new THREE.MeshStandardMaterial({ color, roughness: .88, ...options });
   const white = mat('#e1e0d9');
@@ -76,6 +98,12 @@ export function createWorld(host, onReady, onError) {
     return mesh;
   }
 
+  let runwayMat;
+  const papi=[];
+  if(realAirport){
+    const built=buildRealAirportWorld({scene,asphalt,grass,mat,airport,departurePlan:departureOf(airport.id)});runwayMat=built.runwayMat;cityTerrain=built.terrain;cityTerrain.receiveShadow=hasMappedCity;papi.push(...built.papi);
+  }else{
+
   // One small coastal airport, with a smooth continuous terrain mesh. The flat
   // infield and runway use the same world coordinates as the flight model.
   const terrainGeo = new THREE.PlaneGeometry(TERRAIN.width,TERRAIN.depth,TERRAIN.columns,TERRAIN.rows);
@@ -94,10 +122,10 @@ export function createWorld(host, onReady, onError) {
   terrainGeo.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
   terrainGeo.computeVertexNormals();
   const terrain = new THREE.Mesh(terrainGeo, new THREE.MeshStandardMaterial({ map: grass, vertexColors: true, roughness: 1 }));
-  scene.add(terrain);
+  terrain.name='shared-DEM-terrain';scene.add(terrain);
   ground(40000, 60000, new THREE.MeshPhysicalMaterial({ color: '#39798d', roughness: .22, metalness: .16, clearcoat: .8, clearcoatRoughness: .25 }), -20000, 0, TERRAIN.waterLevel);
 
-  const runwayMat = new THREE.MeshStandardMaterial({ map: asphalt, color: '#c3c7c8', roughness: .94 });
+  runwayMat = new THREE.MeshStandardMaterial({ map: asphalt, color: '#c3c7c8', roughness: .94 });
   ground(72, RUNWAY.length + 100, mat('#a6a698', { map: asphalt }), 0, -RUNWAY.length / 2, .015);
   ground(RUNWAY.width, RUNWAY.length, runwayMat, 0, -RUNWAY.length / 2, .035);
   const taxiMap = texture('/assets/asphalt.jpg', 2, 90);
@@ -136,7 +164,6 @@ export function createWorld(host, onReady, onError) {
     for (const x of [-4, 0, 4]) { const lamp = new THREE.Mesh(lightGeo, lightWhite); lamp.position.set(x, 1.3, z); scene.add(lamp); }
   }
   // PAPI gives a visible approach cue without covering the windscreen.
-  const papi = [];
   for (let i = 0; i < 4; i++) {
     box(1.5, .55, 1.1, white, -52 - i * 4, .15, -180);
     const light = new THREE.Mesh(new THREE.PlaneGeometry(1.2, .35), new THREE.MeshBasicMaterial({ color: i < 2 ? '#ff5544' : '#fff5ce' }));
@@ -209,25 +236,37 @@ export function createWorld(host, onReady, onError) {
   for (let i=0;i<22;i++) {
     const z=-3500+i*240; box(.25,12,.25,darkRoof,820,0,z);
   }
+  }
 
   // Batch static surfaces that share a material. Hundreds of runway stripes,
   // lights and terminal pieces become a handful of GPU submissions.
   scene.updateMatrixWorld(true);
-  const batches=new Map();
+  const originalObstruction=cameraObstacles(scene),obstruction=(a,b)=>{const original=originalObstruction(a,b),cityHit=cityRay(a,b,airportId);return cityHit&&(!original||cityHit.distance<original.distance)?cityHit:original;},cameraRig=new FlightCameraRig(camera,{obstruction});
+  const batches=new Map(),sourceGeometries=new Set();
   scene.traverse(o=>{
+    if(o.geometry)sourceGeometries.add(o.geometry);
     if(!o.isMesh||o.isInstancedMesh||Array.isArray(o.material)||papi.includes(o))return;
     if(!batches.has(o.material))batches.set(o.material,[]);
     batches.get(o.material).push(o);
   });
   for(const [material,meshes] of batches){
     if(meshes.length<2)continue;
-    const parts=meshes.map(m=>m.geometry.clone().applyMatrix4(m.matrixWorld));
+    const parts=meshes.map(m=>{
+      const clone=m.geometry.index?m.geometry.toNonIndexed():m.geometry.clone();clone.applyMatrix4(m.matrixWorld);
+      for(const name of Object.keys(clone.attributes))if(!['position','normal',...(material.map?['uv']:[])].includes(name))clone.deleteAttribute(name);
+      if(!clone.attributes.normal)clone.computeVertexNormals();
+      if(material.map&&!clone.attributes.uv)clone.setAttribute('uv',new THREE.Float32BufferAttribute(new Float32Array(clone.attributes.position.count*2),2));
+      return clone;
+    });
     const merged=mergeGeometries(parts,false);
-    if(merged){meshes.forEach(m=>m.removeFromParent());scene.add(new THREE.Mesh(merged,material));}
+    if(merged){const batch=new THREE.Mesh(merged,material);batch.renderOrder=meshes[0].renderOrder;batch.castShadow=meshes.some(m=>m.castShadow);batch.receiveShadow=meshes.some(m=>m.receiveShadow);meshes.forEach(m=>m.removeFromParent());scene.add(batch);}
     parts.forEach(g=>g.dispose());
   }
 
-  let width = 0, height = 0, disposed = false;
+  if(hasMappedCity)(airportId==='lax'?import('./airports/lax-city-world.js').then(m=>m.loadLaxCity):airportId==='xiaoshan'?import('./airports/xiaoshan-city-world.js').then(m=>m.loadXiaoshanCity):airportId==='changi'?import('./airports/changi-city-world.js').then(m=>m.loadChangiCity):import('./airports/jfk-city-world.js').then(m=>m.loadJfkCity)).then(loadCity=>loadCity({scene,terrain:cityTerrain,airport,camera,loadingManager:loading,onProgress:detail=>progress.update('city',detail.fraction,detail),isCurrent:()=>!disposed,onChange:()=>{dirty=true;},maxAnisotropy:renderer.capabilities.getMaxAnisotropy()})).then(value=>{if(disposed){value.dispose();return;}city=value;city.activate?.();cityReady=true;dirty=true;reportReady();}).catch(error=>{if(!disposed){loadError=true;onError('城市场景加载失败，请刷新页面重试。');console.error('City scene load failed:',error);}});
+
+  const contactShadow=createContactShadow(scene);
+  let width = 0, height = 0;
   function resize() {
     const rect = host.getBoundingClientRect();
     if (rect.width !== width || rect.height !== height) {
@@ -244,30 +283,33 @@ export function createWorld(host, onReady, onError) {
   const rain=new THREE.LineSegments(rainGeometry,rainMaterial);camera.add(rain);scene.add(camera);
   const cloudSky=new THREE.Color('#82919c');
   return {
-    update(s,motion=sampleCabinMotion(s)) {
+    update(s,motion=sampleCabinMotion(s),{cinematic=false,cinematicTime=null,view=defaultView,dt=.016}={}) {
       if(disposed)return;
-      const key=[s.time,s.x,s.y,s.z,s.pitch,s.yaw,s.roll,s.weather.visibility,s.weather.rain,s.weather.overcast,motion.x,motion.y,motion.roll,motion.cameraY].join(',');
-      if(!dirty&&key===lastView)return;
+      const cameraChanged=cameraRig.update(s,view,dt,{motion,cinematic,cinematicTime,airport,visualOffset});
+      city?.update(camera);
+      const key=[cinematic,cinematicTime,view.mode,view.revision,view.resetSerial,s.time,s.x,s.y,s.z,s.pitch,s.yaw,s.roll,s.weather.visibility,s.weather.rain,s.weather.overcast,motion.x,motion.y,motion.roll,motion.cameraY].join(',');
+      if(!dirty&&key===lastView&&!cameraChanged)return;
       dirty=false;lastView=key;
       const overcast=s.weather.overcast||0;
       scene.background=overcast>.2?cloudSky:skyTexture||new THREE.Color('#a4c6e0');
       scene.fog.color.set(overcast>.2?'#a4afb6':'#bccfda');cloudSky.copy(scene.fog.color);scene.fog.density=1.978/Math.max(150,s.weather.visibility||42000);
-      sun.intensity=2.9*(1-.78*overcast);ambient.intensity=2.1*(1-.35*overcast);scene.environmentIntensity=.35*(1-.7*overcast);
-      runwayMat.roughness=.94-(s.weather.rain||0)*.45;runwayMat.color.setScalar(1-(s.weather.rain||0)*.25);
+      sun.intensity=lightLevels.sun*(1-.78*overcast);ambient.intensity=lightLevels.ambient*(1-.35*overcast);scene.environmentIntensity=lightLevels.environment*(1-.7*overcast);
+      runwayMat.roughness=.94-(s.weather.rain||0)*.45;runwayMat.color.set(realAirport?'#747b7b':'#ffffff').multiplyScalar(1-(s.weather.rain||0)*.25);
       rain.visible=(s.weather.rain||0)>0;rainMaterial.opacity=(s.weather.rain||0)*.45;
       if(rain.visible){drops.forEach((drop,i)=>{const y=((drop.y-s.time*9)%12+12)%12-6;rainData.set([drop.x,y,drop.z,drop.x+.07,y-.7,drop.z],i*6);});rainGeometry.attributes.position.needsUpdate=true;}
-      shake.set(motion.x*4,motion.cameraY,motion.y*2);
-      camera.position.set(s.x,s.y,s.z).add(shake);
-      camera.rotation.set(s.pitch-.021+motion.cameraPitch,-s.yaw,-s.roll+motion.roll,'YXZ');
-      const pathAngle=Math.atan2(s.y,Math.max(s.z+180,1))*180/Math.PI;
+      if(aircraft){const simDt=lastAnimationTime===null?0:Math.max(0,Math.min(.1,s.time-lastAnimationTime));lastAnimationTime=s.time;aircraft.update(s,simDt);visualOffset=placeAircraft(aircraft.group,s,aircraft.anchors,surfaceHeight);aircraft.group.visible=cinematic||view.mode!=='cockpit';}
+      contactShadow.update(s,cinematic||view.mode!=='cockpit');
+      const pathAngle=Math.atan2(s.y-airport.runway.ground,Math.max(s.z+(realAirport?300:180),1))*180/Math.PI;
       const reds=pathAngle>3.4?0:pathAngle>3.1?1:pathAngle>2.7?2:pathAngle>2.3?3:4;
       papi.forEach((p,i)=>p.material.color.set(i<reds?'#ff5544':'#fff5ce'));
       renderer.render(scene,camera);
     },
-    stats() { return { calls:renderer.info.render.calls,triangles:renderer.info.render.triangles }; },
+    viewStats() {return{...cameraRig.stats(),distance:camera.position.distanceTo(new THREE.Vector3(...cameraRig.stats().target)),visualOffset};},
+    aircraftStats() {return aircraft?{...aircraft.stats(),position:aircraft.group.position.toArray(),rotation:[aircraft.group.rotation.x,aircraft.group.rotation.y,aircraft.group.rotation.z],visible:aircraft.group.visible}:null;},
+    stats() { return { calls:renderer.info.render.calls,triangles:renderer.info.render.triangles,city:city?.stats()??null }; },
     dispose() {
-      stopLanguage();disposed=true;resizeObserver.disconnect();
-      const geometries=new Set(), materials=new Set(), textures=new Set();
+      stopLanguage();disposed=true;resizeObserver.disconnect();contactShadow.dispose();aircraft?.dispose();city?.dispose();
+      const geometries=new Set(sourceGeometries), materials=new Set(), textures=new Set();
       scene.traverse(o=>{if(o.geometry)geometries.add(o.geometry);if(o.material){for(const m of Array.isArray(o.material)?o.material:[o.material])materials.add(m);}});
       materials.forEach(m=>{for(const value of Object.values(m))if(value?.isTexture)textures.add(value);m.dispose();});
       geometries.forEach(g=>g.dispose());textures.forEach(t=>t.dispose());

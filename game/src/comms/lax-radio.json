@@ -1,0 +1,253 @@
+{
+  "zh": {
+    "preparation": [
+      [
+        "pilot",
+        "洛杉矶地面，云际三二零，八六布拉沃机位，请求推出开车。"
+      ],
+      [
+        "tower",
+        "云际三二零，同意推出开车，完成后报告。"
+      ]
+    ],
+    "taxi": [
+      [
+        "tower",
+        "云际三二零，沿指示路线滑行至二五右跑道外等待。"
+      ],
+      [
+        "pilot",
+        "沿指示路线滑行，二五右跑道外等待，云际三二零。"
+      ]
+    ],
+    "holding": [
+      [
+        "pilot",
+        "云际三二零，二五右跑道外等待点，已停稳。"
+      ],
+      [
+        "tower",
+        "云际三二零，联系塔台，继续跑道外等待。"
+      ]
+    ],
+    "lineup": [
+      [
+        "tower",
+        "云际三二零，二五右，进跑道等待。"
+      ],
+      [
+        "pilot",
+        "二五右，进跑道等待，云际三二零。"
+      ]
+    ],
+    "ground-speed": [
+      [
+        "tower",
+        "云际三二零，滑行速度过快，减速。"
+      ],
+      [
+        "pilot",
+        "减速滑行，云际三二零。"
+      ]
+    ],
+    "ground-stop": [
+      [
+        "tower",
+        "云际三二零，尚未许可进入跑道，立即停住。"
+      ],
+      [
+        "pilot",
+        "收到，立即停止，云际三二零。"
+      ]
+    ],
+    "takeoff": [
+      [
+        "tower",
+        "云际三二零，洛杉矶塔台，跑道二五右，可以起飞。"
+      ],
+      [
+        "pilot",
+        "跑道二五右，可以起飞，云际三二零。"
+      ]
+    ],
+    "approach": [
+      [
+        "pilot",
+        "洛杉矶塔台，云际三二零，进近二五右。"
+      ],
+      [
+        "tower",
+        "云际三二零，洛杉矶塔台，继续进近二五右，检查速度和构型。"
+      ]
+    ],
+    "reapproach": [
+      [
+        "tower",
+        "云际三二零，按导航左转返场，准备再次进近二五右。"
+      ],
+      [
+        "pilot",
+        "左转返场，准备再次进近二五右，云际三二零。"
+      ]
+    ],
+    "final": [
+      [
+        "pilot",
+        "洛杉矶塔台，云际三二零，二五右五边。"
+      ],
+      [
+        "tower",
+        "云际三二零，跑道二五右，可以着陆。"
+      ]
+    ]
+  },
+  "en": {
+    "preparation": [
+      [
+        "pilot",
+        "Los Angeles Ground, Skyline three two zero, stand eight six Bravo. Request pushback and start."
+      ],
+      [
+        "tower",
+        "Skyline three two zero, pushback and start approved. Report when ready."
+      ]
+    ],
+    "taxi": [
+      [
+        "tower",
+        "Skyline three two zero, taxi via the marked route. Hold short of runway two five right."
+      ],
+      [
+        "pilot",
+        "Taxi via the marked route. Hold short of two five right, Skyline three two zero."
+      ]
+    ],
+    "holding": [
+      [
+        "pilot",
+        "Skyline three two zero, stopped at the holding point, runway two five right."
+      ],
+      [
+        "tower",
+        "Skyline three two zero, contact Tower. Continue holding short."
+      ]
+    ],
+    "lineup": [
+      [
+        "tower",
+        "Skyline three two zero, runway two five right, line up and wait."
+      ],
+      [
+        "pilot",
+        "Two five right, line up and wait, Skyline three two zero."
+      ]
+    ],
+    "ground-speed": [
+      [
+        "tower",
+        "Skyline three two zero, taxi speed excessive. Reduce speed."
+      ],
+      [
+        "pilot",
+        "Reducing taxi speed, Skyline three two zero."
+      ]
+    ],
+    "ground-stop": [
+      [
+        "tower",
+        "Skyline three two zero, not cleared to enter the runway. Stop immediately."
+      ],
+      [
+        "pilot",
+        "Stopping immediately, Skyline three two zero."
+      ]
+    ],
+    "takeoff": [
+      [
+        "tower",
+        "Skyline three two zero, Los Angeles Tower. Runway two five right, cleared for takeoff."
+      ],
+      [
+        "pilot",
+        "Runway two five right, cleared for takeoff, Skyline three two zero."
+      ]
+    ],
+    "approach": [
+      [
+        "pilot",
+        "Los Angeles Tower, Skyline three two zero, approaching runway two five right."
+      ],
+      [
+        "tower",
+        "Skyline three two zero, Los Angeles Tower. Continue approach runway two five right. Check speed and configuration."
+      ]
+    ],
+    "reapproach": [
+      [
+        "tower",
+        "Skyline three two zero, turn left following navigation for another approach, runway two five right."
+      ],
+      [
+        "pilot",
+        "Left turn for another approach, runway two five right, Skyline three two zero."
+      ]
+    ],
+    "final": [
+      [
+        "pilot",
+        "Los Angeles Tower, Skyline three two zero, final runway two five right."
+      ],
+      [
+        "tower",
+        "Skyline three two zero, runway two five right, cleared to land."
+      ]
+    ]
+  },
+  "durations": {
+    "zh": {
+      "lax-preparation-0": 4.896,
+      "lax-preparation-1": 3.648,
+      "lax-taxi-0": 4.344,
+      "lax-taxi-1": 4.44,
+      "lax-holding-0": 3.912,
+      "lax-holding-1": 3.696,
+      "lax-lineup-0": 3.216,
+      "lax-lineup-1": 3.288,
+      "lax-ground-speed-0": 3.192,
+      "lax-ground-speed-1": 2.688,
+      "lax-ground-stop-0": 3.792,
+      "lax-ground-stop-1": 3.336,
+      "lax-takeoff-0": 4.296,
+      "lax-takeoff-1": 3.312,
+      "lax-approach-0": 3.744,
+      "lax-approach-1": 5.376,
+      "lax-reapproach-0": 4.584,
+      "lax-reapproach-1": 4.104,
+      "lax-final-0": 3.768,
+      "lax-final-1": 3.192
+    },
+    "en": {
+      "lax-preparation-0": 6.048,
+      "lax-preparation-1": 5.136,
+      "lax-taxi-0": 6.024,
+      "lax-taxi-1": 5.184,
+      "lax-holding-0": 4.176,
+      "lax-holding-1": 4.992,
+      "lax-lineup-0": 4.368,
+      "lax-lineup-1": 3.504,
+      "lax-ground-speed-0": 5.064,
+      "lax-ground-speed-1": 3.168,
+      "lax-ground-stop-0": 5.328,
+      "lax-ground-stop-1": 2.976,
+      "lax-takeoff-0": 6.192,
+      "lax-takeoff-1": 3.792,
+      "lax-approach-0": 4.392,
+      "lax-approach-1": 8.112,
+      "lax-reapproach-0": 6.12,
+      "lax-reapproach-1": 4.344,
+      "lax-final-0": 4.272,
+      "lax-final-1": 4.224
+    }
+  },
+  "version": "8d37d450a621b22bb3fb"
+}

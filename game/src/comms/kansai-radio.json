@@ -1,0 +1,253 @@
+{
+  "zh": {
+    "preparation": [
+      [
+        "pilot",
+        "关西地面，云际三二零，三三机位，请求推出开车。"
+      ],
+      [
+        "tower",
+        "云际三二零，同意推出开车，完成后报告。"
+      ]
+    ],
+    "taxi": [
+      [
+        "tower",
+        "云际三二零，沿指示路线滑行至零六右跑道外等待。"
+      ],
+      [
+        "pilot",
+        "沿指示路线滑行，零六右跑道外等待，云际三二零。"
+      ]
+    ],
+    "holding": [
+      [
+        "pilot",
+        "云际三二零，零六右跑道外等待点，已停稳。"
+      ],
+      [
+        "tower",
+        "云际三二零，联系塔台，继续跑道外等待。"
+      ]
+    ],
+    "lineup": [
+      [
+        "tower",
+        "云际三二零，零六右，进跑道等待。"
+      ],
+      [
+        "pilot",
+        "零六右，进跑道等待，云际三二零。"
+      ]
+    ],
+    "ground-speed": [
+      [
+        "tower",
+        "云际三二零，滑行速度过快，减速。"
+      ],
+      [
+        "pilot",
+        "减速滑行，云际三二零。"
+      ]
+    ],
+    "ground-stop": [
+      [
+        "tower",
+        "云际三二零，尚未许可进入跑道，立即停住。"
+      ],
+      [
+        "pilot",
+        "收到，立即停止，云际三二零。"
+      ]
+    ],
+    "takeoff": [
+      [
+        "tower",
+        "云际三二零，关西塔台，跑道零六右，可以起飞。"
+      ],
+      [
+        "pilot",
+        "跑道零六右，可以起飞，云际三二零。"
+      ]
+    ],
+    "approach": [
+      [
+        "pilot",
+        "关西塔台，云际三二零，进近零六右。"
+      ],
+      [
+        "tower",
+        "云际三二零，关西塔台，继续进近零六右，检查速度和构型。"
+      ]
+    ],
+    "reapproach": [
+      [
+        "tower",
+        "云际三二零，按导航左转返场，准备再次进近零六右。"
+      ],
+      [
+        "pilot",
+        "左转返场，准备再次进近零六右，云际三二零。"
+      ]
+    ],
+    "final": [
+      [
+        "pilot",
+        "关西塔台，云际三二零，零六右五边。"
+      ],
+      [
+        "tower",
+        "云际三二零，跑道零六右，可以着陆。"
+      ]
+    ]
+  },
+  "en": {
+    "preparation": [
+      [
+        "pilot",
+        "Kansai Ground, Skyline three two zero, stand three three. Request pushback and start."
+      ],
+      [
+        "tower",
+        "Skyline three two zero, pushback and start approved. Report when ready."
+      ]
+    ],
+    "taxi": [
+      [
+        "tower",
+        "Skyline three two zero, taxi via the marked route. Hold short of runway zero six right."
+      ],
+      [
+        "pilot",
+        "Taxi via the marked route. Hold short of zero six right, Skyline three two zero."
+      ]
+    ],
+    "holding": [
+      [
+        "pilot",
+        "Skyline three two zero, stopped at the holding point, runway zero six right."
+      ],
+      [
+        "tower",
+        "Skyline three two zero, contact Tower. Continue holding short."
+      ]
+    ],
+    "lineup": [
+      [
+        "tower",
+        "Skyline three two zero, runway zero six right, line up and wait."
+      ],
+      [
+        "pilot",
+        "Zero six right, line up and wait, Skyline three two zero."
+      ]
+    ],
+    "ground-speed": [
+      [
+        "tower",
+        "Skyline three two zero, taxi speed excessive. Reduce speed."
+      ],
+      [
+        "pilot",
+        "Reducing taxi speed, Skyline three two zero."
+      ]
+    ],
+    "ground-stop": [
+      [
+        "tower",
+        "Skyline three two zero, not cleared to enter the runway. Stop immediately."
+      ],
+      [
+        "pilot",
+        "Stopping immediately, Skyline three two zero."
+      ]
+    ],
+    "takeoff": [
+      [
+        "tower",
+        "Skyline three two zero, Kansai Tower. Runway zero six right, cleared for takeoff."
+      ],
+      [
+        "pilot",
+        "Runway zero six right, cleared for takeoff, Skyline three two zero."
+      ]
+    ],
+    "approach": [
+      [
+        "pilot",
+        "Kansai Tower, Skyline three two zero, approaching runway zero six right."
+      ],
+      [
+        "tower",
+        "Skyline three two zero, Kansai Tower. Continue approach runway zero six right. Check speed and configuration."
+      ]
+    ],
+    "reapproach": [
+      [
+        "tower",
+        "Skyline three two zero, turn left following navigation for another approach, runway zero six right."
+      ],
+      [
+        "pilot",
+        "Left turn for another approach, runway zero six right, Skyline three two zero."
+      ]
+    ],
+    "final": [
+      [
+        "pilot",
+        "Kansai Tower, Skyline three two zero, final runway zero six right."
+      ],
+      [
+        "tower",
+        "Skyline three two zero, runway zero six right, cleared to land."
+      ]
+    ]
+  },
+  "durations": {
+    "zh": {
+      "kansai-preparation-0": 4.512,
+      "kansai-preparation-1": 3.648,
+      "kansai-taxi-0": 4.392,
+      "kansai-taxi-1": 4.392,
+      "kansai-holding-0": 3.864,
+      "kansai-holding-1": 3.696,
+      "kansai-lineup-0": 3.192,
+      "kansai-lineup-1": 3.384,
+      "kansai-ground-speed-0": 3.192,
+      "kansai-ground-speed-1": 2.688,
+      "kansai-ground-stop-0": 3.792,
+      "kansai-ground-stop-1": 3.336,
+      "kansai-takeoff-0": 4.104,
+      "kansai-takeoff-1": 3.384,
+      "kansai-approach-0": 3.648,
+      "kansai-approach-1": 5.136,
+      "kansai-reapproach-0": 4.632,
+      "kansai-reapproach-1": 4.272,
+      "kansai-final-0": 3.576,
+      "kansai-final-1": 3.192
+    },
+    "en": {
+      "kansai-preparation-0": 5.664,
+      "kansai-preparation-1": 5.136,
+      "kansai-taxi-0": 6.144,
+      "kansai-taxi-1": 5.256,
+      "kansai-holding-0": 4.32,
+      "kansai-holding-1": 4.992,
+      "kansai-lineup-0": 4.56,
+      "kansai-lineup-1": 3.648,
+      "kansai-ground-speed-0": 5.064,
+      "kansai-ground-speed-1": 3.168,
+      "kansai-ground-stop-0": 5.328,
+      "kansai-ground-stop-1": 2.976,
+      "kansai-takeoff-0": 6.216,
+      "kansai-takeoff-1": 3.96,
+      "kansai-approach-0": 4.32,
+      "kansai-approach-1": 8.088,
+      "kansai-reapproach-0": 6.216,
+      "kansai-reapproach-1": 4.464,
+      "kansai-final-0": 4.2,
+      "kansai-final-1": 4.392
+    }
+  },
+  "version": "079d2832607e9a7e9f0f"
+}

@@ -1,0 +1,3054 @@
+{
+  "airportId": "jfk",
+  "provenance": {
+    "imagery": {
+      "collection": "naip",
+      "catalog": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/naip",
+      "catalogSha256": "22ea565efdf4877f9fb01329276852bebee27c395c631bc987d437fed5fb8b62",
+      "sourceNativeGsdM": 0.6,
+      "workingGsdM": [
+        1.2,
+        2.4
+      ],
+      "license": "Public Domain with Attribution",
+      "licenseUrl": "https://registry.opendata.aws/naip/",
+      "attribution": "USDA Farm Service Agency / NAIP 2022; local RGB derivatives",
+      "items": [
+        {
+          "id": "nj_m_4007301_ne_18_060_20220710",
+          "datetime": "2022-07-10T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.940668,
+            40.935261,
+            -73.87177,
+            41.002239
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40073/m_4007301_ne_18_060_20220710.tif",
+          "stacSha256": "0775f0f47ecb4013b8d347980af95774862e7d8a2a56ba2ccb3ba7c7547227cc",
+          "workingFile": "nj_m_4007301_ne_18_060_20220710.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "4e0192ed2aa2d1b0a2e48b45a295dd7a069de1c9cf9f56b49684488da277523a",
+          "workingBytes": 14630519
+        },
+        {
+          "id": "nj_m_4007301_nw_18_060_20220710",
+          "datetime": "2022-07-10T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.003109,
+            40.935299,
+            -73.93433,
+            41.002202
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40073/m_4007301_nw_18_060_20220710.tif",
+          "stacSha256": "c4522b7040e116053070c73b4e16b09462a6f8b2f5d734f3704051794832623c",
+          "workingFile": "nj_m_4007301_nw_18_060_20220710.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "b1f65b1342cbc563c47c3d83ff429e2a24f0283223eff2037d35d4f091542811",
+          "workingBytes": 17367707
+        },
+        {
+          "id": "nj_m_4007301_se_18_060_20220710",
+          "datetime": "2022-07-10T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.940668,
+            40.872765,
+            -73.871773,
+            40.939737
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40073/m_4007301_se_18_060_20220710.tif",
+          "stacSha256": "93ecff910e4748effb57ed4e725eb040131f459edd788e1a144bd207381d83fe",
+          "workingFile": "nj_m_4007301_se_18_060_20220710.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "0563b9ce868d49c305b3d4273679ad0fe911c638d90d3f9a30002fd03899a9af",
+          "workingBytes": 16117064
+        },
+        {
+          "id": "nj_m_4007301_sw_18_060_20220710",
+          "datetime": "2022-07-10T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.003107,
+            40.872796,
+            -73.934331,
+            40.9397
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40073/m_4007301_sw_18_060_20220710.tif",
+          "stacSha256": "f413804aff718e5c6bcf9621347b87bfa7415b4b97987b776ec1a3d4edb5c387",
+          "workingFile": "nj_m_4007301_sw_18_060_20220710.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "6c987c5094c4947c99cb6eb88ff8d6192a5f437092c1d2377d9613ac64f9256d",
+          "workingBytes": 17841950
+        },
+        {
+          "id": "nj_m_4007309_nw_18_060_20220710",
+          "datetime": "2022-07-10T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.003097,
+            40.810299,
+            -73.934337,
+            40.877203
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40073/m_4007309_nw_18_060_20220710.tif",
+          "stacSha256": "1a6b1239e96cf96764597636282be81f584faef82d96731d649782bcdc80ff56",
+          "workingFile": "nj_m_4007309_nw_18_060_20220710.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "28f0531e875633dd749e52736f66e51e05409db38b51f3c5b87059ed82079c0a",
+          "workingBytes": 17853736
+        },
+        {
+          "id": "nj_m_4007309_sw_18_060_20220710",
+          "datetime": "2022-07-10T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.003093,
+            40.747795,
+            -73.934342,
+            40.8147
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40073/m_4007309_sw_18_060_20220710.tif",
+          "stacSha256": "205f5a43728f19c2ef03c5c85d9914ca728030d5e6e71bcc3d029f5a80bac5b2",
+          "workingFile": "nj_m_4007309_sw_18_060_20220710.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "db8b839ccae99eaa81c354538c1d3c63371af02f6e0c5f60e2d8455c85174337",
+          "workingBytes": 18090221
+        },
+        {
+          "id": "nj_m_4007333_nw_18_060_20220722",
+          "datetime": "2022-07-22T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.003076,
+            40.4353,
+            -73.934361,
+            40.502202
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40073/m_4007333_nw_18_060_20220722.tif",
+          "stacSha256": "f513d62e0d7f8d748487c5349f9eb3f3d63e222e9a500aa69de145ffb9584364",
+          "workingFile": "nj_m_4007333_nw_18_060_20220722.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "0c42c6ede8c5922470fd10448468cbc89ff40b1b8613dbe2ce7496310dc9cfea",
+          "workingBytes": 9609175
+        },
+        {
+          "id": "nj_m_4007333_sw_18_060_20220722",
+          "datetime": "2022-07-22T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.003072,
+            40.372798,
+            -73.934365,
+            40.439701
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40073/m_4007333_sw_18_060_20220722.tif",
+          "stacSha256": "f321ccd76cd13649089a1aba625bcf5d1c28438e32d3a3fe4ac197501764b473",
+          "workingFile": "nj_m_4007333_sw_18_060_20220722.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "1c55d2ca8d8de4527d0a6075bb49a08cea89833b3579466811d53eaec877f4d5",
+          "workingBytes": 11719137
+        },
+        {
+          "id": "nj_m_4007341_nw_18_060_20220722",
+          "datetime": "2022-07-22T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.003067,
+            40.310301,
+            -73.934368,
+            40.377198
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40073/m_4007341_nw_18_060_20220722.tif",
+          "stacSha256": "27f3e12bc9672c4d5361bf782ee5a4f1e5104044d0808a93fdb8b3cc1d855868",
+          "workingFile": "nj_m_4007341_nw_18_060_20220722.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "334f6a6d7d0e30f0b9975152bbfda823130c98beaed272c65625e81af22a03ca",
+          "workingBytes": 13232503
+        },
+        {
+          "id": "nj_m_4007341_sw_18_060_20220722",
+          "datetime": "2022-07-22T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.00306,
+            40.247798,
+            -73.934377,
+            40.314701
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40073/m_4007341_sw_18_060_20220722.tif",
+          "stacSha256": "5df8a66615cc2888325052bbf6e1a9597afa6c414e6c2a189fe059c6f160a2b3",
+          "workingFile": "nj_m_4007341_sw_18_060_20220722.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "327cd4684d1861994d389925c7cf5cd9c8becd98dcb222bf7295c2d1375ee35a",
+          "workingBytes": 10619574
+        },
+        {
+          "id": "nj_m_4007406_ne_18_060_20220720",
+          "datetime": "2022-07-20T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.31531,
+            40.935474,
+            -74.247133,
+            41.002025
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007406_ne_18_060_20220720.tif",
+          "stacSha256": "3e159970f1966db6be3a8df10e822c8f5a1d9c61b5075d39b0c4541699ad9601",
+          "workingFile": "nj_m_4007406_ne_18_060_20220720.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "4fe950ca5595c49aabe336c60a7318f155536b625209f45d2463efaf85a1bea1",
+          "workingBytes": 4750655
+        },
+        {
+          "id": "nj_m_4007406_se_18_060_20220720",
+          "datetime": "2022-07-20T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.315306,
+            40.872971,
+            -74.247137,
+            40.939528
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007406_se_18_060_20220720.tif",
+          "stacSha256": "1fa8ae1da901a2820b85b8368d2a63061162e22fc37f3b94fbe615896525fdaa",
+          "workingFile": "nj_m_4007406_se_18_060_20220720.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "63535394aab532a68170cf0161f02aa7676c8465fd500d87b736a53644ec86f0",
+          "workingBytes": 5281019
+        },
+        {
+          "id": "nj_m_4007407_ne_18_060_20220710",
+          "datetime": "2022-07-10T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.190426,
+            40.935402,
+            -74.122011,
+            41.002095
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007407_ne_18_060_20220710.tif",
+          "stacSha256": "dab55f5953ddc63a274c51e5d9d4a9eef39a32468422646a61e8bff33317f47b",
+          "workingFile": "nj_m_4007407_ne_18_060_20220710.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "9117bf72fff3841fc4aebfba6c5872dd9827f1eb88854a9b3b381df8a2a6b463",
+          "workingBytes": 18754629
+        },
+        {
+          "id": "nj_m_4007407_nw_18_060_20220720",
+          "datetime": "2022-07-20T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.252868,
+            40.935439,
+            -74.184572,
+            41.002063
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007407_nw_18_060_20220720.tif",
+          "stacSha256": "abe9cc670385e6bdc810320079f33b8d5b10d3d1a803a77e134cb77289958295",
+          "workingFile": "nj_m_4007407_nw_18_060_20220720.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "d66af0b3aab76f69fcf406770f3823daf4cd600f45045c7f1be05bf35f1b10cf",
+          "workingBytes": 16620690
+        },
+        {
+          "id": "nj_m_4007407_se_18_060_20220710",
+          "datetime": "2022-07-10T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.190426,
+            40.872905,
+            -74.122013,
+            40.939598
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007407_se_18_060_20220710.tif",
+          "stacSha256": "9efb5fd5a30b924b52ea8db2fb6179d73d237c1d77f09546c83a2d0338fe2208",
+          "workingFile": "nj_m_4007407_se_18_060_20220710.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "89c9b38cec6d9e5e9f9b2334237ea347f6a5395cf57161d019882c18f686a38e",
+          "workingBytes": 18758637
+        },
+        {
+          "id": "nj_m_4007407_sw_18_060_20220720",
+          "datetime": "2022-07-20T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.252866,
+            40.872936,
+            -74.184571,
+            40.939561
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007407_sw_18_060_20220720.tif",
+          "stacSha256": "c8e9a20fad4e8ae9b82bc15815b451e1efa30b9f57f6a7e14e9d3f07b11c3236",
+          "workingFile": "nj_m_4007407_sw_18_060_20220720.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "8989b59b06815217ecf9b4282bd0c1e01a9005dca59b7efd3e0b29d0ec9ce4f5",
+          "workingBytes": 17951935
+        },
+        {
+          "id": "nj_m_4007408_ne_18_060_20220710",
+          "datetime": "2022-07-10T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.06555,
+            40.935335,
+            -73.99689,
+            41.002164
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007408_ne_18_060_20220710.tif",
+          "stacSha256": "02e376266401ae75fa557a84dba8ac758b7577c659a4f5cb3d1af5c4a722b94c",
+          "workingFile": "nj_m_4007408_ne_18_060_20220710.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "95724768b77768f907cbcbc24824daa9bfaca69db9a557be09a0d6f07fe9063f",
+          "workingBytes": 17968302
+        },
+        {
+          "id": "nj_m_4007408_nw_18_060_20220710",
+          "datetime": "2022-07-10T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.127985,
+            40.935369,
+            -74.059451,
+            41.00213
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007408_nw_18_060_20220710.tif",
+          "stacSha256": "e539b344ff2b8ca3110d829a66f735122e270403756365e4f07527780811195c",
+          "workingFile": "nj_m_4007408_nw_18_060_20220710.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "6d511f016b2e8b8ee9a1d2ec7f9e6b2a0723535c571811c2f4175d551c438126",
+          "workingBytes": 18538337
+        },
+        {
+          "id": "nj_m_4007408_se_18_060_20220710",
+          "datetime": "2022-07-10T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.065547,
+            40.872832,
+            -73.996896,
+            40.939668
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007408_se_18_060_20220710.tif",
+          "stacSha256": "5d2a66101b73c6307b0f5093243b6364de9a260fe327164ac556d45fa94417fc",
+          "workingFile": "nj_m_4007408_se_18_060_20220710.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "eac8550bb8c17ebd36f7ee0742d978436c90c917314f59da2637820166320cdb",
+          "workingBytes": 18830840
+        },
+        {
+          "id": "nj_m_4007408_sw_18_060_20220710",
+          "datetime": "2022-07-10T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.127987,
+            40.872866,
+            -74.059454,
+            40.939634
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007408_sw_18_060_20220710.tif",
+          "stacSha256": "06a143d1eb21b0ca7b6bb450f7f20041924be3cf79120005c8dd380933562fee",
+          "workingFile": "nj_m_4007408_sw_18_060_20220710.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "851ae5232a4ee49ba588cbf84af0de6c658b4ef53cdba6b9cd20d600c9b3f58f",
+          "workingBytes": 18823034
+        },
+        {
+          "id": "nj_m_4007414_ne_18_060_20220720",
+          "datetime": "2022-07-20T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.315302,
+            40.810473,
+            -74.247141,
+            40.877025
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007414_ne_18_060_20220720.tif",
+          "stacSha256": "704d3885504bdfc9161840d74ce913e545a1d1a30619f615aa48f11647f3fd0b",
+          "workingFile": "nj_m_4007414_ne_18_060_20220720.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "2a50ae078b2cac1435bb2e870b0fbb7ccef507f7934f0fb8b2c3452c53cd1767",
+          "workingBytes": 5470736
+        },
+        {
+          "id": "nj_m_4007414_se_18_060_20220720",
+          "datetime": "2022-07-20T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.315297,
+            40.747974,
+            -74.247143,
+            40.814526
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007414_se_18_060_20220720.tif",
+          "stacSha256": "fc30f119eb24c0a3d0992c68d02947f1056148e816feb1202b133e9fef3ad75c",
+          "workingFile": "nj_m_4007414_se_18_060_20220720.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "7f582063798c9bfebdb1d182162dd01ffe14c0e4746b5a1e8539d971a6c2d637",
+          "workingBytes": 5834402
+        },
+        {
+          "id": "nj_m_4007415_ne_18_060_20220710",
+          "datetime": "2022-07-10T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.190418,
+            40.810401,
+            -74.12202,
+            40.877095
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007415_ne_18_060_20220710.tif",
+          "stacSha256": "e925b3dad20ae24b98cd83ebdc6215f0e25bf0e94ed0be6751325e08544d8ce2",
+          "workingFile": "nj_m_4007415_ne_18_060_20220710.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "268e3e5a8c3cd237f92b5277e07ea592a5f60d2268aede708018b9a72c35e5cf",
+          "workingBytes": 18841313
+        },
+        {
+          "id": "nj_m_4007415_nw_18_060_20220720",
+          "datetime": "2022-07-20T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.252857,
+            40.810438,
+            -74.184577,
+            40.877063
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007415_nw_18_060_20220720.tif",
+          "stacSha256": "b80d941c70d990a6fe685471b6ef564299e5c7e6136a53439e7169e71cf91722",
+          "workingFile": "nj_m_4007415_nw_18_060_20220720.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "670855c08b636e0e9f0b3aa66c73ec9a4c95b8ce0ad4bef1a2e41c42063a6230",
+          "workingBytes": 17570365
+        },
+        {
+          "id": "nj_m_4007415_se_18_060_20220710",
+          "datetime": "2022-07-10T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.190416,
+            40.747903,
+            -74.122019,
+            40.814597
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007415_se_18_060_20220710.tif",
+          "stacSha256": "c2245dbc3141d212c9121938a7fb070685be9a3721936a2126c20435a63a7c37",
+          "workingFile": "nj_m_4007415_se_18_060_20220710.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "d65379621b326060b3938c60440c090d09bc690c0ebedcd470cf834720226f02",
+          "workingBytes": 18673090
+        },
+        {
+          "id": "nj_m_4007415_sw_18_060_20220720",
+          "datetime": "2022-07-20T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.252853,
+            40.747939,
+            -74.184581,
+            40.81456
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007415_sw_18_060_20220720.tif",
+          "stacSha256": "fe72aaadb15d0f7471d504c8f513a7539ad56caa51c96d62638154b9815c89dd",
+          "workingFile": "nj_m_4007415_sw_18_060_20220720.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "b1c98a7596eafd6bd31ca11402772bf1c7b99648f4499a0216fa27d94edc2a70",
+          "workingBytes": 18254163
+        },
+        {
+          "id": "nj_m_4007416_ne_18_060_20220710",
+          "datetime": "2022-07-10T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.065542,
+            40.810335,
+            -73.9969,
+            40.877165
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007416_ne_18_060_20220710.tif",
+          "stacSha256": "ad07e616a8afb962e4480243952359a420f714ceb664b9eba1f8cdf4c8931f40",
+          "workingFile": "nj_m_4007416_ne_18_060_20220710.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "a91e7388c6cf91fbbece524a9deb47a20a89931e73ea2c9b88d15f0bd6b5b664",
+          "workingBytes": 17432930
+        },
+        {
+          "id": "nj_m_4007416_nw_18_060_20220710",
+          "datetime": "2022-07-10T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.12798,
+            40.810369,
+            -74.059456,
+            40.877131
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007416_nw_18_060_20220710.tif",
+          "stacSha256": "5970789812796fde3f37db2a02c4ae2fe5a060900fbcf0961856b2193c32ff0b",
+          "workingFile": "nj_m_4007416_nw_18_060_20220710.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "c4240bd477e81c281bfb900b1b466cfab72a2d102afe3e426e11e4e55edcf2df",
+          "workingBytes": 18405067
+        },
+        {
+          "id": "nj_m_4007416_se_18_060_20220710",
+          "datetime": "2022-07-10T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.065537,
+            40.747831,
+            -73.996903,
+            40.814667
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007416_se_18_060_20220710.tif",
+          "stacSha256": "8fc45655d9fb228532951afd397b2163ed6c1b2aa27425c9f9240510857e5694",
+          "workingFile": "nj_m_4007416_se_18_060_20220710.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "f68cee1101a28292d8994c8b30a81712be0609fb22c3e9f0e3d06af2bce7a88a",
+          "workingBytes": 17602406
+        },
+        {
+          "id": "nj_m_4007416_sw_18_060_20220710",
+          "datetime": "2022-07-10T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.127973,
+            40.74787,
+            -74.059457,
+            40.814633
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007416_sw_18_060_20220710.tif",
+          "stacSha256": "b511b9cc61023e33441e3871d54a646033db12760399f75484dc2aeff7a3c520",
+          "workingFile": "nj_m_4007416_sw_18_060_20220710.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "e68a1c8c6c7fbf70a682d19ccce46dac772c9413ab825aa556c25331b2e447c6",
+          "workingBytes": 15635815
+        },
+        {
+          "id": "nj_m_4007422_ne_18_060_20220720",
+          "datetime": "2022-07-20T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.315291,
+            40.685474,
+            -74.247145,
+            40.752027
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007422_ne_18_060_20220720.tif",
+          "stacSha256": "66493df8a35afb68a7807e677fc69a1ddd47c4957e6f7eb52fbfb6aeb444632a",
+          "workingFile": "nj_m_4007422_ne_18_060_20220720.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "c58824e7ddebd777bffb8fb315c0773e63dfb054306fd7cc17d2b250c244eb1f",
+          "workingBytes": 6225553
+        },
+        {
+          "id": "nj_m_4007422_se_18_060_20220720",
+          "datetime": "2022-07-20T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.315291,
+            40.622974,
+            -74.247146,
+            40.689528
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007422_se_18_060_20220720.tif",
+          "stacSha256": "1eadb0760fe5529933d7cdf32a856fc5d3d22abf6b74c7567d19674148977c92",
+          "workingFile": "nj_m_4007422_se_18_060_20220720.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "3fe52ffd34ccc62d2227d96a714c9c6aa46d691cbdb29a43b89f3dcfd64a6e86",
+          "workingBytes": 6561578
+        },
+        {
+          "id": "nj_m_4007423_ne_18_060_20220710",
+          "datetime": "2022-07-10T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.190413,
+            40.685403,
+            -74.122025,
+            40.752098
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007423_ne_18_060_20220710.tif",
+          "stacSha256": "7778404eafab6ff34fa9dd34fb619ec4610f4d8e77ab3373453f891db1040457",
+          "workingFile": "nj_m_4007423_ne_18_060_20220710.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "37c9e0a71a2bc32465f66fee3be9af1f65325e3a9823dbbabcad272e4815187f",
+          "workingBytes": 17354537
+        },
+        {
+          "id": "nj_m_4007423_nw_18_060_20220720",
+          "datetime": "2022-07-20T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.252856,
+            40.68544,
+            -74.184585,
+            40.752061
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007423_nw_18_060_20220720.tif",
+          "stacSha256": "8668690f5f3c3310f5d5942722c6e3a0c19bb9e6afdd512fc3d2b5353d55f8a8",
+          "workingFile": "nj_m_4007423_nw_18_060_20220720.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "400c92d48342954a95d05b6ba82b267dfe08ed2296ff80cd54178c329bbae922",
+          "workingBytes": 18533722
+        },
+        {
+          "id": "nj_m_4007423_se_18_060_20220710",
+          "datetime": "2022-07-10T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.19041,
+            40.622903,
+            -74.122029,
+            40.689593
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007423_se_18_060_20220710.tif",
+          "stacSha256": "6f41a05f0edb7c953d1912c2ad24bef1396f9ab2ed40e152e32f407d27b98f57",
+          "workingFile": "nj_m_4007423_se_18_060_20220710.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "4c7edbd314aa93e45490065de3be9b7fce9eb30a5b518cbc1dfef3a4f86d9a1a",
+          "workingBytes": 15294951
+        },
+        {
+          "id": "nj_m_4007423_sw_18_060_20220720",
+          "datetime": "2022-07-20T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.25285,
+            40.622939,
+            -74.184587,
+            40.689561
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007423_sw_18_060_20220720.tif",
+          "stacSha256": "c71e2fa6475c68b2ac47b714818dc76cc2d391dbb56c2d9369e7b2e280b9b885",
+          "workingFile": "nj_m_4007423_sw_18_060_20220720.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "7b3665e48d12bb6fd1f6a80a747111847effe706fa23fb31734535c6bccb85cd",
+          "workingBytes": 18060457
+        },
+        {
+          "id": "nj_m_4007424_ne_18_060_20220710",
+          "datetime": "2022-07-10T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.06553,
+            40.685332,
+            -73.996905,
+            40.752163
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007424_ne_18_060_20220710.tif",
+          "stacSha256": "ac8e25f351d18a082efc8c52538960f9efb52f07baf2e74ded55e6a871b5f825",
+          "workingFile": "nj_m_4007424_ne_18_060_20220710.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "e6accec58ca578eaed431ffa6e0a5881ba0b84f1ac40569984fa9c543f4318ff",
+          "workingBytes": 16167346
+        },
+        {
+          "id": "nj_m_4007424_nw_18_060_20220710",
+          "datetime": "2022-07-10T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.127971,
+            40.685366,
+            -74.059465,
+            40.752129
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007424_nw_18_060_20220710.tif",
+          "stacSha256": "f6f132a8333e8e3faa49534601e10d874fcebf92f39f13554480786abf7e11b0",
+          "workingFile": "nj_m_4007424_nw_18_060_20220710.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "efb3f0a130e694539be3fe2c48d39454c9b2e8de422cd6ebd87187b89d783b55",
+          "workingBytes": 16105559
+        },
+        {
+          "id": "nj_m_4007424_sw_18_060_20220710",
+          "datetime": "2022-07-10T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.127969,
+            40.622866,
+            -74.059471,
+            40.68963
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007424_sw_18_060_20220710.tif",
+          "stacSha256": "b9fedaebd35a69d69f9120b145de3393a7a1e2607aef39f4f562f485ddbb80ba",
+          "workingFile": "nj_m_4007424_sw_18_060_20220710.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "b3b937a63fc55b67eb6a75ee12c21b265a82f3b7926e585f6e091c5c6271890a",
+          "workingBytes": 15308029
+        },
+        {
+          "id": "nj_m_4007430_ne_18_060_20220720",
+          "datetime": "2022-07-20T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.315283,
+            40.560473,
+            -74.247153,
+            40.627027
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007430_ne_18_060_20220720.tif",
+          "stacSha256": "7219f14854c39fe267f5acf600a53908cb3d09edc7a6b193b768c38818e29ecd",
+          "workingFile": "nj_m_4007430_ne_18_060_20220720.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "450f30a314b51bee43d6320c15d51cfd6046fda4369644d5fccd08167e59c09c",
+          "workingBytes": 6297299
+        },
+        {
+          "id": "nj_m_4007430_se_18_060_20220720",
+          "datetime": "2022-07-20T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.315282,
+            40.497972,
+            -74.247152,
+            40.564526
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007430_se_18_060_20220720.tif",
+          "stacSha256": "72619ef477f970cfd0b0d21bdd20af23cc4a0caf57c19e1f0caf404cc2ed2bbb",
+          "workingFile": "nj_m_4007430_se_18_060_20220720.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "7911018f02d95f4d104a85c794c086d59c330f88d50667242a0dca10b442cf1d",
+          "workingBytes": 5851651
+        },
+        {
+          "id": "nj_m_4007431_nw_18_060_20220720",
+          "datetime": "2022-07-20T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.252844,
+            40.560439,
+            -74.184589,
+            40.627061
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007431_nw_18_060_20220720.tif",
+          "stacSha256": "5e76ee53146a266c77e7e145f7755c7c7c4579f1d3270fc92971ad3d044c6035",
+          "workingFile": "nj_m_4007431_nw_18_060_20220720.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "ff3d5653189f6481132c0e28f01c2ede9f3855ed2ea9e1d47e0f95889f533e89",
+          "workingBytes": 16552652
+        },
+        {
+          "id": "nj_m_4007431_sw_18_060_20220720",
+          "datetime": "2022-07-20T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.252844,
+            40.497937,
+            -74.184597,
+            40.56456
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007431_sw_18_060_20220720.tif",
+          "stacSha256": "96c4f2647ae4aaca6e1600a00d8d3840ea61f2bc12e2e5f1783d0b04f3589e63",
+          "workingFile": "nj_m_4007431_sw_18_060_20220720.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "865022609b679aca1e44ca7f5aa647dd77996ec8089c99d78b86ff679e2505a6",
+          "workingBytes": 15539403
+        },
+        {
+          "id": "nj_m_4007438_ne_18_060_20220720",
+          "datetime": "2022-07-20T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.31528,
+            40.435475,
+            -74.247157,
+            40.502024
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007438_ne_18_060_20220720.tif",
+          "stacSha256": "fac655780e9d62a5dc2cf1203ab93d245d24c4b5c9f5213349c4cdc875d84c21",
+          "workingFile": "nj_m_4007438_ne_18_060_20220720.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "d4c4c29b1fd7a9389ac34164b2c44729647027ef3b45cf19d82f3729e8240a87",
+          "workingBytes": 4584506
+        },
+        {
+          "id": "nj_m_4007438_se_18_060_20220720",
+          "datetime": "2022-07-20T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.315276,
+            40.372972,
+            -74.247162,
+            40.439527
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007438_se_18_060_20220720.tif",
+          "stacSha256": "9eee5eaa0da0a35d25bf8c277356c0904e906e6e905b51e3f5e669716e97d05e",
+          "workingFile": "nj_m_4007438_se_18_060_20220720.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "2914319d43c70d22aa1ba3db8c91e714e571c9f90eaf0f5dbb29d60ee7144798",
+          "workingBytes": 6603511
+        },
+        {
+          "id": "nj_m_4007439_ne_18_060_20220720",
+          "datetime": "2022-07-20T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.190399,
+            40.435405,
+            -74.122042,
+            40.502096
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007439_ne_18_060_20220720.tif",
+          "stacSha256": "80b474c1e92aa66104251e865bd1b00d022da680e9fb6944dfbed3094f1f93a8",
+          "workingFile": "nj_m_4007439_ne_18_060_20220720.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "04279e68aa573b885f5a75a95a4bf98f9d63e0ac500fe64a4ba62e64f994bb62",
+          "workingBytes": 9590654
+        },
+        {
+          "id": "nj_m_4007439_nw_18_060_20220720",
+          "datetime": "2022-07-20T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.252836,
+            40.43544,
+            -74.184596,
+            40.502058
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007439_nw_18_060_20220720.tif",
+          "stacSha256": "8f957500e831a11e5a4057d02b4c466bc1259c773564be86f25256d03c6d010d",
+          "workingFile": "nj_m_4007439_nw_18_060_20220720.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "3b7010ca7f149ca645d7ad57e5fa579dcd06082660907ffb73cdf02a6bea42c1",
+          "workingBytes": 8889118
+        },
+        {
+          "id": "nj_m_4007439_se_18_060_20220720",
+          "datetime": "2022-07-20T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.190391,
+            40.372902,
+            -74.122043,
+            40.439594
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007439_se_18_060_20220720.tif",
+          "stacSha256": "5dd94ef3225f0cea6f2f63639c529f0422b2aa6b6f9f15162ca4f5f390b690ff",
+          "workingFile": "nj_m_4007439_se_18_060_20220720.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "4d3438205d90df839638869f3dfd60b7d54bce5466947d79fdd81b040f430540",
+          "workingBytes": 17476847
+        },
+        {
+          "id": "nj_m_4007439_sw_18_060_20220720",
+          "datetime": "2022-07-20T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.252834,
+            40.372938,
+            -74.184602,
+            40.439561
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007439_sw_18_060_20220720.tif",
+          "stacSha256": "1ff93558a6bb5f13b22d35d71c732a6005e43d7fec2df01112ded2ef55535862",
+          "workingFile": "nj_m_4007439_sw_18_060_20220720.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "e0c34ef83c8a4eb0efc199df537b15b0bb6748df9affe55c4875c1bcef5ac483",
+          "workingBytes": 17742236
+        },
+        {
+          "id": "nj_m_4007440_ne_18_060_20220722",
+          "datetime": "2022-07-22T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.065519,
+            40.435335,
+            -73.996921,
+            40.502163
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007440_ne_18_060_20220722.tif",
+          "stacSha256": "88b1f68ff9a7b3af9fc871b324c94aafeec5e2945db2569d3412a95757b6cf45",
+          "workingFile": "nj_m_4007440_ne_18_060_20220722.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "1c2563163e30261f6d79211c8883024fac5dc18d8fc07ce82e83dce62df37d1c",
+          "workingBytes": 8598532
+        },
+        {
+          "id": "nj_m_4007440_nw_18_060_20220720",
+          "datetime": "2022-07-20T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.127956,
+            40.435368,
+            -74.059482,
+            40.502128
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007440_nw_18_060_20220720.tif",
+          "stacSha256": "40a5d349b2073660a66251ab7bebb0a4b35ff47eb8c21b1ab0bd0415a3e2c779",
+          "workingFile": "nj_m_4007440_nw_18_060_20220720.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "0240ca5858b462af7f4d84dbc3b0de2084ce3368bb88d9433ee030100dddb3eb",
+          "workingBytes": 8733635
+        },
+        {
+          "id": "nj_m_4007440_se_18_060_20220722",
+          "datetime": "2022-07-22T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.065514,
+            40.372832,
+            -73.996924,
+            40.439667
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007440_se_18_060_20220722.tif",
+          "stacSha256": "3f8b8b6894536db22a56b1e5509f4d77c6ec7dbeb48a059b3fc480ed4156b9c2",
+          "workingFile": "nj_m_4007440_se_18_060_20220722.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "aa7454dcd5541b74e7403531d901a30f062007201df91cf5bccee198d79d7fca",
+          "workingBytes": 13882281
+        },
+        {
+          "id": "nj_m_4007440_sw_18_060_20220720",
+          "datetime": "2022-07-20T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.127956,
+            40.372871,
+            -74.059483,
+            40.439631
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007440_sw_18_060_20220720.tif",
+          "stacSha256": "1b136405247ba6d1354a70b5a6cfb0d24ea9549822eb6eb89891ab9bcc79abfd",
+          "workingFile": "nj_m_4007440_sw_18_060_20220720.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "185ec57355cc633bec333b49892081e8c20b3f0f40512a37d4e931d0ee73b4c3",
+          "workingBytes": 16991584
+        },
+        {
+          "id": "nj_m_4007446_ne_18_060_20220720",
+          "datetime": "2022-07-20T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.315273,
+            40.310474,
+            -74.247165,
+            40.377024
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007446_ne_18_060_20220720.tif",
+          "stacSha256": "0901d8ea5000d723b08a7b0ad2b3eeb39cda87b46176ae349f70cad882ca6f78",
+          "workingFile": "nj_m_4007446_ne_18_060_20220720.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "57b52ffec0a71bff998813b662cee5e069426ca2440a8f4ac7e5bfc030a6aa06",
+          "workingBytes": 6974624
+        },
+        {
+          "id": "nj_m_4007446_se_18_060_20220720",
+          "datetime": "2022-07-20T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.315268,
+            40.247975,
+            -74.247168,
+            40.314526
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007446_se_18_060_20220720.tif",
+          "stacSha256": "73a33d930b1df6ebfb8f1f7abc89999a17fbc5d59c4edaf6fbbcd1f255fe18c3",
+          "workingFile": "nj_m_4007446_se_18_060_20220720.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "2157060ed5cc2dc00554abecf5dd8bbc7264524bf633379738ac17e73b245f8d",
+          "workingBytes": 5390423
+        },
+        {
+          "id": "nj_m_4007447_ne_18_060_20220720",
+          "datetime": "2022-07-20T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.19039,
+            40.310404,
+            -74.122049,
+            40.377097
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007447_ne_18_060_20220720.tif",
+          "stacSha256": "e219935b62e02f54bab59859becb86cfd290fb99bddf877b5272c5d814dc7e3d",
+          "workingFile": "nj_m_4007447_ne_18_060_20220720.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "4ff9e2019fd866ca0cd1a29aa3912b22b73150b9ebdf7c17db785fa97a655b08",
+          "workingBytes": 16594805
+        },
+        {
+          "id": "nj_m_4007447_nw_18_060_20220720",
+          "datetime": "2022-07-20T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.252831,
+            40.31044,
+            -74.184607,
+            40.377058
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007447_nw_18_060_20220720.tif",
+          "stacSha256": "94efc8f6623a7c326bb3f3705a4a3bc264b25785e8e1fc82730119de72bdbbe0",
+          "workingFile": "nj_m_4007447_nw_18_060_20220720.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "e49c0cba97e50ca16c834604a629eb7348df190906a66e34a9d5703b290e638c",
+          "workingBytes": 16724283
+        },
+        {
+          "id": "nj_m_4007447_se_18_060_20220720",
+          "datetime": "2022-07-20T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.190387,
+            40.247906,
+            -74.122054,
+            40.314593
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007447_se_18_060_20220720.tif",
+          "stacSha256": "1fd2401aeebfc36b2f38e2c5259ddea1226eff5ae39812cfe55411f5b897f75b",
+          "workingFile": "nj_m_4007447_se_18_060_20220720.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "edfe9a7867f7a7224b9a36d7705a4726ba51a5e80fac939a4bec0d4beea3ef90",
+          "workingBytes": 11999779
+        },
+        {
+          "id": "nj_m_4007447_sw_18_060_20220720",
+          "datetime": "2022-07-20T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.252828,
+            40.247941,
+            -74.184611,
+            40.31456
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007447_sw_18_060_20220720.tif",
+          "stacSha256": "71e7bd51b62dc0fc60aec8aa7d5d45ecc2377cb2f7c689e62ca0b78692d1023e",
+          "workingFile": "nj_m_4007447_sw_18_060_20220720.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "ce97b4c916325e44d52590af2f87a67e046d43db750f0c9b9673cc0bdac4f5a4",
+          "workingBytes": 12790797
+        },
+        {
+          "id": "nj_m_4007448_ne_18_060_20220722",
+          "datetime": "2022-07-22T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.065508,
+            40.310335,
+            -73.996933,
+            40.377164
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007448_ne_18_060_20220722.tif",
+          "stacSha256": "9624e665a85d13eb7f07fa462e3833cf5dd935297a421123e06e6f95e8c0c50d",
+          "workingFile": "nj_m_4007448_ne_18_060_20220722.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "1181ec52ed9a2b85174b94cd0e1d1f754ef56850c47d8c2c97f3818e2540cdb7",
+          "workingBytes": 16253117
+        },
+        {
+          "id": "nj_m_4007448_nw_18_060_20220720",
+          "datetime": "2022-07-20T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.127949,
+            40.310368,
+            -74.05949,
+            40.377128
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007448_nw_18_060_20220720.tif",
+          "stacSha256": "a71864e26cbb3319c50ddc109f724fe58d7c37a0529c4cb01df0a547dbd03bad",
+          "workingFile": "nj_m_4007448_nw_18_060_20220720.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "705c424374e2f0833cb0805d73d1da0f40758952c7f1af517b3110fdd9eca60f",
+          "workingBytes": 16761507
+        },
+        {
+          "id": "nj_m_4007448_se_18_060_20220722",
+          "datetime": "2022-07-22T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.065507,
+            40.247837,
+            -73.996933,
+            40.314666
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007448_se_18_060_20220722.tif",
+          "stacSha256": "de7912014c4034c7f6c000414c905c870df3c40042de67705b392cfe43674fca",
+          "workingFile": "nj_m_4007448_se_18_060_20220722.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "5924d63a495bc85db8e390eb04fc64b40812605072f9d3c771ea169ad78487db",
+          "workingBytes": 13650707
+        },
+        {
+          "id": "nj_m_4007448_sw_18_060_20220720",
+          "datetime": "2022-07-20T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.127947,
+            40.247869,
+            -74.05949,
+            40.314631
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/40074/m_4007448_sw_18_060_20220720.tif",
+          "stacSha256": "8997249a286cabd442695a25dbe96a864eaf0fa2869901020903690ce8140ef9",
+          "workingFile": "nj_m_4007448_sw_18_060_20220720.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "e9058fb45e88977665dcac2aef30a8e9fc337ec0a4c611e24b7b9c4649fc300e",
+          "workingBytes": 12550141
+        },
+        {
+          "id": "nj_m_4107357_se_18_060_20220710",
+          "datetime": "2022-07-10T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.940674,
+            40.997763,
+            -73.87176,
+            41.064734
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/41073/m_4107357_se_18_060_20220710.tif",
+          "stacSha256": "3121f10e2056c98c9ab56e28feac570451f21f520526e33bff74b9ca489f2c69",
+          "workingFile": "nj_m_4107357_se_18_060_20220710.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "9c9a64ae210268e2b6fab45ee48dee7534fd9fba26b32f0eed67736981b55753",
+          "workingBytes": 9094072
+        },
+        {
+          "id": "nj_m_4107357_sw_18_060_20220710",
+          "datetime": "2022-07-10T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.00311,
+            40.997795,
+            -73.934322,
+            41.064703
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/41073/m_4107357_sw_18_060_20220710.tif",
+          "stacSha256": "ff134586e3a72d3c3317d26419ba362224c965a8d141e8b13bf830b87e7abaea",
+          "workingFile": "nj_m_4107357_sw_18_060_20220710.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "96ae4a139173b2b58ee1b488203d7a8155d7771e599e04268d419e24a4551786",
+          "workingBytes": 11290676
+        },
+        {
+          "id": "nj_m_4107462_se_18_060_20220720",
+          "datetime": "2022-07-20T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.315313,
+            40.997971,
+            -74.247127,
+            41.064527
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/41074/m_4107462_se_18_060_20220720.tif",
+          "stacSha256": "399f3f26b4e73596df058f67f91c13af37ba8a2bcebc24718f04a49add521fa4",
+          "workingFile": "nj_m_4107462_se_18_060_20220720.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "d1d7ffe2916f391451a0cd7be1b9faa8ab06c7f7300b028a8330d8f7b3972c99",
+          "workingBytes": 3190534
+        },
+        {
+          "id": "nj_m_4107463_se_18_060_20220710",
+          "datetime": "2022-07-10T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.190433,
+            40.997904,
+            -74.122009,
+            41.064596
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/41074/m_4107463_se_18_060_20220710.tif",
+          "stacSha256": "49c778c86187376f1b916cfe95fd6d68fc1060c0804521100bcd974388b81165",
+          "workingFile": "nj_m_4107463_se_18_060_20220710.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "cc61fac660b4aad7300114542d810970f5477a45d2fa0433294920d72ba0808a",
+          "workingBytes": 12518004
+        },
+        {
+          "id": "nj_m_4107463_sw_18_060_20220720",
+          "datetime": "2022-07-20T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.252869,
+            40.997936,
+            -74.184564,
+            41.06456
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/41074/m_4107463_sw_18_060_20220720.tif",
+          "stacSha256": "b37984b55a66259976f9bd1f0097fa32131325b7e3506c2e7b1c12de8ff0b037",
+          "workingFile": "nj_m_4107463_sw_18_060_20220720.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "a23b048c56b91d2aff4efc005f940bb109a3f556fcf9064077656db15d61c76c",
+          "workingBytes": 11873196
+        },
+        {
+          "id": "nj_m_4107464_se_18_060_20220710",
+          "datetime": "2022-07-10T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.065553,
+            40.997831,
+            -73.996884,
+            41.064666
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/41074/m_4107464_se_18_060_20220710.tif",
+          "stacSha256": "bdee98890cdfc1100a876da4805b7630f14eeb231f4ceea84d0941ca6bba4f13",
+          "workingFile": "nj_m_4107464_se_18_060_20220710.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "9d8357de402f72315a04aa3d02437963f31bfe4bd527dae8445c60c20cc3aa2b",
+          "workingBytes": 11758426
+        },
+        {
+          "id": "nj_m_4107464_sw_18_060_20220710",
+          "datetime": "2022-07-10T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.127989,
+            40.997865,
+            -74.059446,
+            41.064632
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/nj/2022/nj_060cm_2022/41074/m_4107464_sw_18_060_20220710.tif",
+          "stacSha256": "70a1869eb97ee060f0eacdd6d766d3427bac3f794e9782a3ba3afacd173810b5",
+          "workingFile": "nj_m_4107464_sw_18_060_20220710.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "308213777faa9e9748f77dc2c8952ab44d2718e5307d008f2a3022c105b38798",
+          "workingBytes": 12202992
+        },
+        {
+          "id": "ny_m_4007301_ne_18_060_20220719",
+          "datetime": "2022-07-19T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.940914,
+            40.935061,
+            -73.87151,
+            41.002448
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007301_ne_18_060_20220719.tif",
+          "stacSha256": "0b0f0b13dd945475339cf73082001aba96bcb7b6f7eced1f571724ba3315a4f9",
+          "workingFile": "ny_m_4007301_ne_18_060_20220719.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "b7b51e56bbc20b31a9a5d91c0ef7e71e2552bbbc22c9ac184caa0228f5a4da6c",
+          "workingBytes": 17223534
+        },
+        {
+          "id": "ny_m_4007301_se_18_060_20220719",
+          "datetime": "2022-07-19T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.940913,
+            40.87258,
+            -73.871506,
+            40.939914
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007301_se_18_060_20220719.tif",
+          "stacSha256": "c3d53b277dafcdd3f693e11503fc73feabb9665b02308467005e0d3e73b7d9d3",
+          "workingFile": "ny_m_4007301_se_18_060_20220719.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "3a4f62d2c8b5ce721f4dda4bf81e62ba458a8deff3f6e06a0329691bf698bb95",
+          "workingBytes": 17152291
+        },
+        {
+          "id": "ny_m_4007302_ne_18_060_20220915",
+          "datetime": "2022-09-15T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.816046,
+            40.935014,
+            -73.746377,
+            41.002473
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007302_ne_18_060_20220915.tif",
+          "stacSha256": "1fdd9640421f16629d66644dc5217d6d052011cc92a0ef46763259022fa61d5b",
+          "workingFile": "ny_m_4007302_ne_18_060_20220915.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "83a05a611446fe886b8b020cb2a6f9ed4af24bf4015433b97700c71e31baf302",
+          "workingBytes": 19330607
+        },
+        {
+          "id": "ny_m_4007302_nw_18_060_20220915",
+          "datetime": "2022-09-15T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.87848,
+            40.935027,
+            -73.808944,
+            41.002451
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007302_nw_18_060_20220915.tif",
+          "stacSha256": "14de85b5b71562047b5e4e016099a0340e573eedb70b704ee5b133f699d38d2a",
+          "workingFile": "ny_m_4007302_nw_18_060_20220915.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "c06dfcd8f5dd33bcd7f265055aabe7a587bf7ef90b1add31e9fd6e2fa7e4525a",
+          "workingBytes": 19510994
+        },
+        {
+          "id": "ny_m_4007302_se_18_060_20220915",
+          "datetime": "2022-09-15T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.816022,
+            40.87248,
+            -73.746419,
+            40.939994
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007302_se_18_060_20220915.tif",
+          "stacSha256": "6272949a06d13f6658c25649eda9cda166c1d9b691808889867a899a5e8c4fba",
+          "workingFile": "ny_m_4007302_se_18_060_20220915.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "d4f6fa1dbf697b14c423bd76b47485a603d648041547cbb11225c836b734ab09",
+          "workingBytes": 17705371
+        },
+        {
+          "id": "ny_m_4007302_sw_18_060_20220915",
+          "datetime": "2022-09-15T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.878467,
+            40.872546,
+            -73.808927,
+            40.939971
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007302_sw_18_060_20220915.tif",
+          "stacSha256": "007bda189fd656e8dca77ea9ef0ba214f6e5a4a6badcde3b2ee3913362f95ec5",
+          "workingFile": "ny_m_4007302_sw_18_060_20220915.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "553fb2f93ecb18d48d7903635bcb0ce108534217459ba3dd89bf9256c3655391",
+          "workingBytes": 19782261
+        },
+        {
+          "id": "ny_m_4007303_ne_18_060_20220803",
+          "datetime": "2022-08-03T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.69118,
+            40.934939,
+            -73.621243,
+            41.00258
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007303_ne_18_060_20220803.tif",
+          "stacSha256": "dcf020a7e3f7d682118e72a939ef2cc97570876ac38e74f28363616ec05a1114",
+          "workingFile": "ny_m_4007303_ne_18_060_20220803.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "330a69f36f919830330fe441811effde7dc061b1062cd874e269c75dcc7f636e",
+          "workingBytes": 10978631
+        },
+        {
+          "id": "ny_m_4007303_nw_18_060_20220915",
+          "datetime": "2022-09-15T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.753613,
+            40.934966,
+            -73.68381,
+            41.002516
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007303_nw_18_060_20220915.tif",
+          "stacSha256": "6311ad1f265adaab29198c1079ab69529e5d705cbddb46f43a71ff052b1e0f0b",
+          "workingFile": "ny_m_4007303_nw_18_060_20220915.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "b3ff604adbdd6b2dfa5379aacc09598d5cab4bbfec35dd7053bb4b6eb2fc7240",
+          "workingBytes": 18705160
+        },
+        {
+          "id": "ny_m_4007303_se_18_060_20220803",
+          "datetime": "2022-08-03T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.69113,
+            40.87246,
+            -73.621262,
+            40.940046
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007303_se_18_060_20220803.tif",
+          "stacSha256": "3434deeae1277a348126c75e391d10f28b202de6891d0aeb262d4e7d356803c6",
+          "workingFile": "ny_m_4007303_se_18_060_20220803.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "7b68f2bb13d02313e9956beb23141f967123e68f095176938c7007f44fb396c5",
+          "workingBytes": 10193370
+        },
+        {
+          "id": "ny_m_4007303_sw_18_060_20220915",
+          "datetime": "2022-09-15T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.753575,
+            40.872487,
+            -73.68384,
+            40.940037
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007303_sw_18_060_20220915.tif",
+          "stacSha256": "a61daeb5ccef2964d58e15fa4d6ae88f7e0101b7d4c8358659dc3dfe3c65647c",
+          "workingFile": "ny_m_4007303_sw_18_060_20220915.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "f29fa84ff1953589a9fba242f58011d852e20fe5167a9c28a3c95ae88d111dba",
+          "workingBytes": 12777444
+        },
+        {
+          "id": "ny_m_4007304_se_18_060_20220803",
+          "datetime": "2022-08-03T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.566311,
+            40.872359,
+            -73.496176,
+            40.940126
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007304_se_18_060_20220803.tif",
+          "stacSha256": "bdf1fce60e5911b4e0bcc949e270fe3d86fc9c90eeecfd593ba02fd15b17721d",
+          "workingFile": "ny_m_4007304_se_18_060_20220803.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "ff04bf982cf0e867fbcfeb7bbadbc36f5bd1f7db275283ddf9489ffdc59c1967",
+          "workingBytes": 11345407
+        },
+        {
+          "id": "ny_m_4007304_sw_18_060_20220803",
+          "datetime": "2022-08-03T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.628685,
+            40.8724,
+            -73.558755,
+            40.940075
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007304_sw_18_060_20220803.tif",
+          "stacSha256": "9d29e73e1adb3d8ebeef4b09bf83e6b60ab10cd151fbce760132c0c95f2c1eb6",
+          "workingFile": "ny_m_4007304_sw_18_060_20220803.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "9dfcdf7ff98c474921d4e38a24c59ab9f37903bd718719d18e576e0d779bef7f",
+          "workingBytes": 12622760
+        },
+        {
+          "id": "ny_m_4007305_ne_18_060_20220803",
+          "datetime": "2022-08-03T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.441378,
+            40.934817,
+            -73.371052,
+            41.002709
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007305_ne_18_060_20220803.tif",
+          "stacSha256": "e2c959bd1edaadfcaa741a0683020e41476dd9e458a7674fb00d246c2be44c20",
+          "workingFile": "ny_m_4007305_ne_18_060_20220803.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "8147332f1d556dd0c42fa6aed7fe34dd39ea422493334c9aa69735ffe6e61a4c",
+          "workingBytes": 7184081
+        },
+        {
+          "id": "ny_m_4007305_nw_18_060_20220803",
+          "datetime": "2022-08-03T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.503811,
+            40.934817,
+            -73.433617,
+            41.002673
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007305_nw_18_060_20220803.tif",
+          "stacSha256": "ac81aaf32ba5e511599e80e7412f540702a27156ee8512011984620d7d14e0ae",
+          "workingFile": "ny_m_4007305_nw_18_060_20220803.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "cee47d83d24ab842e1976483ab205b4d0c73629f1d8333250802bf0df1f17d4e",
+          "workingBytes": 6543729
+        },
+        {
+          "id": "ny_m_4007305_se_18_060_20220803",
+          "datetime": "2022-08-03T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.441422,
+            40.872284,
+            -73.37102,
+            40.940231
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007305_se_18_060_20220803.tif",
+          "stacSha256": "ffc80e5a89a1d6bbf443478ffe17a2c5075e30f40ecd73a49179fe82725ffabb",
+          "workingFile": "ny_m_4007305_se_18_060_20220803.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "4c398f398e92efab43b3397930b2779135f1fef1f01aa65fabf70a9de8b63ff2",
+          "workingBytes": 14224025
+        },
+        {
+          "id": "ny_m_4007305_sw_18_060_20220803",
+          "datetime": "2022-08-03T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.503866,
+            40.872338,
+            -73.433598,
+            40.940195
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007305_sw_18_060_20220803.tif",
+          "stacSha256": "015a4041edb40222695f0abf562e99fcaa88cc4b77123ee4d594d3221fd1ba52",
+          "workingFile": "ny_m_4007305_sw_18_060_20220803.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "9df73be878024ea330da5e7559b8f8a76c03d14a5b1512fdacc7207aa39c9434",
+          "workingBytes": 15167579
+        },
+        {
+          "id": "ny_m_4007306_nw_18_060_20220730",
+          "datetime": "2022-07-30T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.378946,
+            40.934782,
+            -73.308486,
+            41.002764
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007306_nw_18_060_20220730.tif",
+          "stacSha256": "30db64c210d74624ad0550dc5528aed535eba4ab99f0cd53e6da8a96b1161ed9",
+          "workingFile": "ny_m_4007306_nw_18_060_20220730.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "89fe60c11e3fc00792e7fdb3fc5fd280388a5a68c61144237cdd8bb0f12f8b87",
+          "workingBytes": 11102819
+        },
+        {
+          "id": "ny_m_4007306_se_18_060_20220730",
+          "datetime": "2022-07-30T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.316533,
+            40.872236,
+            -73.245938,
+            40.940255
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007306_se_18_060_20220730.tif",
+          "stacSha256": "5f6431f38fe40078acf213bc35a46dff6dc9a3eddea4c84bad5c001872e254e9",
+          "workingFile": "ny_m_4007306_se_18_060_20220730.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "5d01af5a0631ed5d5825c329c0c483e09206287ab498fa3b7c75195231a6247f",
+          "workingBytes": 16257650
+        },
+        {
+          "id": "ny_m_4007306_sw_18_060_20220730",
+          "datetime": "2022-07-30T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.378977,
+            40.872249,
+            -73.308444,
+            40.940233
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007306_sw_18_060_20220730.tif",
+          "stacSha256": "a11d7429f30e3ee82d32d6b0e11b6ea72cae609480c741f05ba4ef5ffaf98b89",
+          "workingFile": "ny_m_4007306_sw_18_060_20220730.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "9de47b13e12806d2b6e732aec74454502d568add8edd94a50ce76b46b96cae0c",
+          "workingBytes": 17337124
+        },
+        {
+          "id": "ny_m_4007309_ne_18_060_20220719",
+          "datetime": "2022-07-19T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.940912,
+            40.810099,
+            -73.8715,
+            40.877433
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007309_ne_18_060_20220719.tif",
+          "stacSha256": "61c0e04b4b02784d2b638bc446b68cb9c0555959a4b263864fe99d95c1c8eb0e",
+          "workingFile": "ny_m_4007309_ne_18_060_20220719.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "20d25ab1cfe95c7de2e31e7e81a88722eb78a72f49a6cde1f74117a022a5dfcd",
+          "workingBytes": 19290987
+        },
+        {
+          "id": "ny_m_4007309_nw_18_060_20220719",
+          "datetime": "2022-07-19T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.003371,
+            40.810098,
+            -73.934092,
+            40.877396
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007309_nw_18_060_20220719.tif",
+          "stacSha256": "0f36480b9622f9b5665e31ca549f028da1d768977243b7a47e28360f3cfbef66",
+          "workingFile": "ny_m_4007309_nw_18_060_20220719.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "3fd00186009dbc31a516a45dee8f6b7e073b143276f4523f0a12b161e0ee963b",
+          "workingBytes": 18654047
+        },
+        {
+          "id": "ny_m_4007309_se_18_060_20220719",
+          "datetime": "2022-07-19T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.940909,
+            40.747564,
+            -73.871564,
+            40.814898
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007309_se_18_060_20220719.tif",
+          "stacSha256": "33bb4a0f5cd81c0999ebdeeb1c89ed6bfa748fdf26763c93a314512b42a7241f",
+          "workingFile": "ny_m_4007309_se_18_060_20220719-hires.tif",
+          "workingGsdM": 1.2,
+          "workingSha256": "e8c87955e1d25d322d4527e63596bb93cc9b8859055826c559b227265c4e73f5",
+          "workingBytes": 73209254
+        },
+        {
+          "id": "ny_m_4007309_sw_18_060_20220719",
+          "datetime": "2022-07-19T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.003309,
+            40.747616,
+            -73.934097,
+            40.814915
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007309_sw_18_060_20220719.tif",
+          "stacSha256": "ac57e6e2067428647302db5640a56442842430d5d0b292565f3b8e41ff61d13d",
+          "workingFile": "ny_m_4007309_sw_18_060_20220719.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "03193fde53e8f4b4109bebe9dbd976d6e7d594c5ce25e4ee109a662b2d574bfd",
+          "workingBytes": 19068988
+        },
+        {
+          "id": "ny_m_4007310_ne_18_060_20220915",
+          "datetime": "2022-09-15T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.815995,
+            40.809999,
+            -73.746388,
+            40.877513
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007310_ne_18_060_20220915.tif",
+          "stacSha256": "b84a0e7ebf5d73b57381d31922580307106aa0eff34157f403d1cc78db4746b1",
+          "workingFile": "ny_m_4007310_ne_18_060_20220915.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "903f43abcae90b4f82a95157617c227793d58c5213d795bae5dd3ef4355ac67d",
+          "workingBytes": 13457266
+        },
+        {
+          "id": "ny_m_4007310_nw_18_060_20220915",
+          "datetime": "2022-09-15T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.878454,
+            40.810012,
+            -73.80898,
+            40.877436
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007310_nw_18_060_20220915.tif",
+          "stacSha256": "c9b74e957a42d29e8e07f4ea58cf03c4b8453cea2d1b0116c73c521a43fe0af7",
+          "workingFile": "ny_m_4007310_nw_18_060_20220915.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "284985f15b29253f5bdc61fbc62a1a2762abb198d31fd540a4dcc2be6ed7cec6",
+          "workingBytes": 18952614
+        },
+        {
+          "id": "ny_m_4007310_se_18_060_20220915",
+          "datetime": "2022-09-15T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.816038,
+            40.747518,
+            -73.746428,
+            40.814979
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007310_se_18_060_20220915.tif",
+          "stacSha256": "f39bfa5d5ef5501e3651ce58541f6b9aed3926746fe9cf9c3dd438bb6f45f8d7",
+          "workingFile": "ny_m_4007310_se_18_060_20220915-hires.tif",
+          "workingGsdM": 1.2,
+          "workingSha256": "d26b35bf922def71f50204be200e44162e388e74fc4e5f92e53e8f0bc3831be0",
+          "workingBytes": 70726462
+        },
+        {
+          "id": "ny_m_4007310_sw_18_060_20220915",
+          "datetime": "2022-09-15T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.878438,
+            40.74753,
+            -73.80896,
+            40.814955
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007310_sw_18_060_20220915.tif",
+          "stacSha256": "089d33156f16ab099b545e6121f3ee302209a04bbc55bcfa794e2d6213ae8a0f",
+          "workingFile": "ny_m_4007310_sw_18_060_20220915-hires.tif",
+          "workingGsdM": 1.2,
+          "workingSha256": "4fa64a651b37fc017b914e54e82b9a18736a52be9bd39b78623d3739e3e8a013",
+          "workingBytes": 65670512
+        },
+        {
+          "id": "ny_m_4007311_ne_18_060_20220803",
+          "datetime": "2022-08-03T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.69115,
+            40.809926,
+            -73.621278,
+            40.877566
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007311_ne_18_060_20220803.tif",
+          "stacSha256": "e11ea53c69aa35322f60c11da219fc45a4571e1b246f4d156898d43e531539d5",
+          "workingFile": "ny_m_4007311_ne_18_060_20220803.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "534dec9cc7cd086dcd2e5e50a3763468499eef3909c9699fc9b378979196ebfd",
+          "workingBytes": 17313801
+        },
+        {
+          "id": "ny_m_4007311_nw_18_060_20220915",
+          "datetime": "2022-09-15T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.753608,
+            40.809953,
+            -73.683868,
+            40.877557
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007311_nw_18_060_20220915.tif",
+          "stacSha256": "632934cef3a8d0afcd742985aa7152d4e6c9bfd6d2bf4f76de1ef9cb56bc60aa",
+          "workingFile": "ny_m_4007311_nw_18_060_20220915.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "f7be49bf971af27b3e13d07baf1d1481d8b0e3f09fbd81597987f01e84a33e8a",
+          "workingBytes": 16361284
+        },
+        {
+          "id": "ny_m_4007311_se_18_060_20220803",
+          "datetime": "2022-08-03T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.691168,
+            40.747445,
+            -73.621291,
+            40.815086
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007311_se_18_060_20220803.tif",
+          "stacSha256": "0f510f2d482dcde3bc04058f690907be600de34dd1bc8986eb4cb0cf7a884de5",
+          "workingFile": "ny_m_4007311_se_18_060_20220803-hires.tif",
+          "workingGsdM": 1.2,
+          "workingSha256": "5e0b9945fb4df0b24b4e3374d6716230417d307cb37a0d0e7727c0a482742b20",
+          "workingBytes": 77600437
+        },
+        {
+          "id": "ny_m_4007311_sw_18_060_20220915",
+          "datetime": "2022-09-15T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.753567,
+            40.747471,
+            -73.683824,
+            40.815022
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007311_sw_18_060_20220915.tif",
+          "stacSha256": "2c6d3378073ee814e52f79638e13eb925de13940f03b4cdf8373baa8a2f7774d",
+          "workingFile": "ny_m_4007311_sw_18_060_20220915-hires.tif",
+          "workingGsdM": 1.2,
+          "workingSha256": "97a307a3e7a4fb84c386ee272bf9d261baf879922d3a65482ce29b7506653fee",
+          "workingBytes": 76336612
+        },
+        {
+          "id": "ny_m_4007312_ne_18_060_20220803",
+          "datetime": "2022-08-03T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.566305,
+            40.809879,
+            -73.496167,
+            40.877646
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007312_ne_18_060_20220803.tif",
+          "stacSha256": "50ca38fa63cd69f9c444f3aa5d78d447d45810b612ef87c602f9bf055102f066",
+          "workingFile": "ny_m_4007312_ne_18_060_20220803.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "ea1e15ffff598d1499b34b360465062f7f0fd0aec18c917c27d3d727ffa141e5",
+          "workingBytes": 18712869
+        },
+        {
+          "id": "ny_m_4007312_nw_18_060_20220803",
+          "datetime": "2022-08-03T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.628692,
+            40.80992,
+            -73.558758,
+            40.877596
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007312_nw_18_060_20220803.tif",
+          "stacSha256": "699671b557a5e9bbdaf925d0281c01807accfc835da5c181832c15f5ec8e6223",
+          "workingFile": "ny_m_4007312_nw_18_060_20220803.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "fda4445e3365a530badf355eac0435d84b3b896d718eb8a3908cd0a57baa57dd",
+          "workingBytes": 19276189
+        },
+        {
+          "id": "ny_m_4007312_se_18_060_20220803",
+          "datetime": "2022-08-03T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.566299,
+            40.747344,
+            -73.496158,
+            40.815112
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007312_se_18_060_20220803.tif",
+          "stacSha256": "23b8e9419cd0af33c281ed23d08c5a48a1f8b63e4086166e78eb7f775c99239d",
+          "workingFile": "ny_m_4007312_se_18_060_20220803.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "03c03971850df4b3328fa6d331898b941368ebb9b909aa9841f5d54bb08b2107",
+          "workingBytes": 19429260
+        },
+        {
+          "id": "ny_m_4007312_sw_18_060_20220803",
+          "datetime": "2022-08-03T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.628698,
+            40.747385,
+            -73.55876,
+            40.815116
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007312_sw_18_060_20220803.tif",
+          "stacSha256": "cb08ceb349c3dd79f9797d14693811c685c121c546628a6b6f711487965ddb3f",
+          "workingFile": "ny_m_4007312_sw_18_060_20220803-hires.tif",
+          "workingGsdM": 1.2,
+          "workingSha256": "2fec30de295f3d0678a0cff69fa1cc0899ad723d16978d5acf998cba2942f5f9",
+          "workingBytes": 75852381
+        },
+        {
+          "id": "ny_m_4007313_ne_18_060_20220803",
+          "datetime": "2022-08-03T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.441391,
+            40.809805,
+            -73.371059,
+            40.877698
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007313_ne_18_060_20220803.tif",
+          "stacSha256": "2fc67fd403e661094ac3b7b106465b11c49808145add57761d57919fd890db6d",
+          "workingFile": "ny_m_4007313_ne_18_060_20220803.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "b399512b0c01c74ef0bf7465c2ca0e2a0677931aeb1ae11a967dfc8c1c2096dd",
+          "workingBytes": 19180586
+        },
+        {
+          "id": "ny_m_4007313_nw_18_060_20220803",
+          "datetime": "2022-08-03T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.503849,
+            40.809804,
+            -73.433578,
+            40.877662
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007313_nw_18_060_20220803.tif",
+          "stacSha256": "23b06e7acdcc32c978223d123e86ff2da04f57ca661b035a20a1599d5ebce335",
+          "workingFile": "ny_m_4007313_nw_18_060_20220803.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "c18fad2823f5f86514fc7694d2307be1b3be03de7b520a92c0c02bde6df3880b",
+          "workingBytes": 18244097
+        },
+        {
+          "id": "ny_m_4007313_se_18_060_20220803",
+          "datetime": "2022-08-03T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.44136,
+            40.747271,
+            -73.371024,
+            40.815218
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007313_se_18_060_20220803.tif",
+          "stacSha256": "0ba116889e8d2560cbae3b97283b1f745e36207d101373fe43e7bfaed735677d",
+          "workingFile": "ny_m_4007313_se_18_060_20220803.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "64c467d3ee29f534362929bf75fd9ed68062eb4eb495acdddac3205e4ec6cbf3",
+          "workingBytes": 18873205
+        },
+        {
+          "id": "ny_m_4007313_sw_18_060_20220803",
+          "datetime": "2022-08-03T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.503829,
+            40.747325,
+            -73.433626,
+            40.815182
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007313_sw_18_060_20220803.tif",
+          "stacSha256": "6a3e01b7823604e5370224c014c6e3cef9565c91926da8f1ab6166247bf4b5ba",
+          "workingFile": "ny_m_4007313_sw_18_060_20220803.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "d95de4b74877d307da52a322d5dbd6ee3efcfae7784706c04c3136c728b1af14",
+          "workingBytes": 19359853
+        },
+        {
+          "id": "ny_m_4007314_ne_18_060_20220730",
+          "datetime": "2022-07-30T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.316479,
+            40.809704,
+            -73.245951,
+            40.877776
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007314_ne_18_060_20220730.tif",
+          "stacSha256": "ac583b69ce5fb2139205f3137d72300e3ac4e087cab8ee6db87880e8a84658d6",
+          "workingFile": "ny_m_4007314_ne_18_060_20220730.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "4a44e1514ab7c59d3270229260dab0dd4fca853f5b18eedce819a005a1b74bd1",
+          "workingBytes": 19560638
+        },
+        {
+          "id": "ny_m_4007314_nw_18_060_20220730",
+          "datetime": "2022-07-30T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.378934,
+            40.809771,
+            -73.308469,
+            40.877754
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007314_nw_18_060_20220730.tif",
+          "stacSha256": "f459275e610c824a2eb320eb073dd1335a2619832c6588d1f5c465388340ec22",
+          "workingFile": "ny_m_4007314_nw_18_060_20220730.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "4c579bb3f5bc52da81c933306a7a0f849d41aed552270849deedaeaa24a77254",
+          "workingBytes": 19473979
+        },
+        {
+          "id": "ny_m_4007314_se_18_060_20220730",
+          "datetime": "2022-07-30T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.316492,
+            40.747225,
+            -73.245962,
+            40.815297
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007314_se_18_060_20220730.tif",
+          "stacSha256": "684e90ac2a9fac56d55223b6e03bc2fd8c2834bd6a87faa4b877150450bf50f0",
+          "workingFile": "ny_m_4007314_se_18_060_20220730.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "e64ce651ad03b9806eb2beef9c7c3fda93ad8cfc12cf92a5c94a50499a56b4a2",
+          "workingBytes": 18886150
+        },
+        {
+          "id": "ny_m_4007314_sw_18_060_20220730",
+          "datetime": "2022-07-30T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.378962,
+            40.747237,
+            -73.308494,
+            40.815221
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007314_sw_18_060_20220730.tif",
+          "stacSha256": "f57f10559ee62b8a55873ba1326ab39008d97c150b10d85f1f7108bc13e31437",
+          "workingFile": "ny_m_4007314_sw_18_060_20220730.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "58a5aadac7e6ed6f1b87d5081760e0a92ea76e0c2cf9be12e6a71c7a828dca3b",
+          "workingBytes": 19684976
+        },
+        {
+          "id": "ny_m_4007317_ne_18_060_20220719",
+          "datetime": "2022-07-19T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.940905,
+            40.685081,
+            -73.871555,
+            40.752416
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007317_ne_18_060_20220719.tif",
+          "stacSha256": "6879904db99d07f79cc23e170005579fd8ea3fb74bdf0f489def65c814bc77a8",
+          "workingFile": "ny_m_4007317_ne_18_060_20220719-hires.tif",
+          "workingGsdM": 1.2,
+          "workingSha256": "c2cd760a36aa134259abe8bca27ad4bb1831196636398e7e13216bf77ea97612",
+          "workingBytes": 74888496
+        },
+        {
+          "id": "ny_m_4007317_nw_18_060_20220719",
+          "datetime": "2022-07-19T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.003318,
+            40.685134,
+            -73.934101,
+            40.752378
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007317_nw_18_060_20220719.tif",
+          "stacSha256": "6294fdce56f607b0a78e4992167e2211c4e2bf150306afdad86a3c06f6ee09cb",
+          "workingFile": "ny_m_4007317_nw_18_060_20220719.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "abc853320e6de8e98e1ea067fade19d4e11724a7f077e3193e4d632673db8695",
+          "workingBytes": 19339859
+        },
+        {
+          "id": "ny_m_4007317_se_18_060_20220719",
+          "datetime": "2022-07-19T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.9409,
+            40.622598,
+            -73.871545,
+            40.689933
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007317_se_18_060_20220719.tif",
+          "stacSha256": "099ac0a48df7a096d4005ed6d3de6b8453f9d6293826dfa5c6f18ae0faa995e4",
+          "workingFile": "ny_m_4007317_se_18_060_20220719-hires.tif",
+          "workingGsdM": 1.2,
+          "workingSha256": "5516cff7a3de0a91bb3f5a3a7d84c608dd12e2bb86ef6190327c882e798b29f8",
+          "workingBytes": 75598395
+        },
+        {
+          "id": "ny_m_4007317_sw_18_060_20220719",
+          "datetime": "2022-07-19T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.003326,
+            40.622597,
+            -73.934103,
+            40.689896
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007317_sw_18_060_20220719.tif",
+          "stacSha256": "38a5c8c142c4b9787a8858c73d98453eb9bd19f430d3e33e2fcd7fe9f1ac9275",
+          "workingFile": "ny_m_4007317_sw_18_060_20220719.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "fb60b17d7411b03fee0e2baa4c8472d1c48a76758524dd0ef35acbe7638702c4",
+          "workingBytes": 19663229
+        },
+        {
+          "id": "ny_m_4007318_ne_18_060_20220915",
+          "datetime": "2022-09-15T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.816009,
+            40.684981,
+            -73.746394,
+            40.752497
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007318_ne_18_060_20220915.tif",
+          "stacSha256": "c73baae4812fba31afeea0478c260d29384e839c19c4dc471ac3c3e73faed9af",
+          "workingFile": "ny_m_4007318_ne_18_060_20220915-hires.tif",
+          "workingGsdM": 1.2,
+          "workingSha256": "b618d843ac37bb8e8f089c4865eb55573b85a77e6e6259d561886fd2476bf141",
+          "workingBytes": 78995415
+        },
+        {
+          "id": "ny_m_4007318_nw_18_060_20220915",
+          "datetime": "2022-09-15T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.878492,
+            40.685049,
+            -73.80901,
+            40.752474
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007318_nw_18_060_20220915.tif",
+          "stacSha256": "f4cb6054a9e9e2fc2d0eeea570d5017b70906c85f56a398a69a740bc306143b5",
+          "workingFile": "ny_m_4007318_nw_18_060_20220915-hires.tif",
+          "workingGsdM": 1.2,
+          "workingSha256": "2a243dda3e5ce4a0b0c5d79e21a2e6bee02c7a3cf766827247caaeba8ca7d46f",
+          "workingBytes": 78269747
+        },
+        {
+          "id": "ny_m_4007318_se_18_060_20220915",
+          "datetime": "2022-09-15T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.81605,
+            40.622499,
+            -73.74643,
+            40.690015
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007318_se_18_060_20220915.tif",
+          "stacSha256": "1324eea32761ce3eff2f6e20539afd26e47f0f69e334f5bc1ee9c6fa32829690",
+          "workingFile": "ny_m_4007318_se_18_060_20220915-hires.tif",
+          "workingGsdM": 1.2,
+          "workingSha256": "f8546e0dd8dcd49a5b8beeb8fd2c57f7c182b4eb26b445f2fd17846ccf55c62a",
+          "workingBytes": 67500075
+        },
+        {
+          "id": "ny_m_4007318_sw_18_060_20220915",
+          "datetime": "2022-09-15T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.878474,
+            40.622565,
+            -73.808988,
+            40.689937
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007318_sw_18_060_20220915.tif",
+          "stacSha256": "737bc3b99f0c718f92898b000339c4073725e825f3c94b84c4d1da351ff56adc",
+          "workingFile": "ny_m_4007318_sw_18_060_20220915-hires.tif",
+          "workingGsdM": 1.2,
+          "workingSha256": "0fa14bd46ce5a131c696bb22affda5f808bb89e4f48125807d9ceebd70413847",
+          "workingBytes": 66358197
+        },
+        {
+          "id": "ny_m_4007319_ne_18_060_20220803",
+          "datetime": "2022-08-03T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.691114,
+            40.684909,
+            -73.621305,
+            40.752551
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007319_ne_18_060_20220803.tif",
+          "stacSha256": "083967a4b087c41b5fa1a85b3d44a5d8f1b912689f21b99dc8d2a2e5fd113dcf",
+          "workingFile": "ny_m_4007319_ne_18_060_20220803-hires.tif",
+          "workingGsdM": 1.2,
+          "workingSha256": "bb49a6a410a6dc0bcd6de71df15b5430915e956c555a250ad2a1bfec14c962ec",
+          "workingBytes": 77594092
+        },
+        {
+          "id": "ny_m_4007319_nw_18_060_20220915",
+          "datetime": "2022-09-15T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.753596,
+            40.684989,
+            -73.683849,
+            40.752541
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007319_nw_18_060_20220915.tif",
+          "stacSha256": "8c512d4f704caf7b6a8e986c57401c622ea4058ac4164d7f2b18c1c6522b4f5e",
+          "workingFile": "ny_m_4007319_nw_18_060_20220915-hires.tif",
+          "workingGsdM": 1.2,
+          "workingSha256": "269aa16698c493cb44458508c96589ba6af6c8e0359418ffd7406f6318f8378a",
+          "workingBytes": 78205937
+        },
+        {
+          "id": "ny_m_4007319_se_18_060_20220803",
+          "datetime": "2022-08-03T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.691129,
+            40.622427,
+            -73.621316,
+            40.690069
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007319_se_18_060_20220803.tif",
+          "stacSha256": "e03455c6e652425bbec490a9f5b8720151734ed97fbf2d8e082bc685e2629240",
+          "workingFile": "ny_m_4007319_se_18_060_20220803-hires.tif",
+          "workingGsdM": 1.2,
+          "workingSha256": "9aaf9d5bc6491800d98432f781de4d2e3a38cd9f3e94243c83b43fee408b9c20",
+          "workingBytes": 76225491
+        },
+        {
+          "id": "ny_m_4007319_sw_18_060_20220915",
+          "datetime": "2022-09-15T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.753554,
+            40.622453,
+            -73.683873,
+            40.690005
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007319_sw_18_060_20220915.tif",
+          "stacSha256": "36859cc2ed58b55501d69917f7365a5a505ed11022fabacf0357848f3a8aa04a",
+          "workingFile": "ny_m_4007319_sw_18_060_20220915-hires.tif",
+          "workingGsdM": 1.2,
+          "workingSha256": "da6c3dcb7f51fa4b791f6c86d1c5ef191e6236c85f5331d13bd7b6d515251c7b",
+          "workingBytes": 76330544
+        },
+        {
+          "id": "ny_m_4007320_ne_18_060_20220803",
+          "datetime": "2022-08-03T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.56629,
+            40.684863,
+            -73.496145,
+            40.752632
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007320_ne_18_060_20220803.tif",
+          "stacSha256": "4133c0a3621121a48c727f5389b569a3f0417874bf8e8183b1c172ba09d58016",
+          "workingFile": "ny_m_4007320_ne_18_060_20220803.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "41938c5ef39d64fe903333c888c3757f2774d476cce5181e3146336391a43468",
+          "workingBytes": 19874430
+        },
+        {
+          "id": "ny_m_4007320_nw_18_060_20220803",
+          "datetime": "2022-08-03T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.628702,
+            40.684904,
+            -73.558761,
+            40.752581
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007320_nw_18_060_20220803.tif",
+          "stacSha256": "cfeebbb9ad369f3f3db0ef0c7174e561f45ff1df48ff2a807af1418464d2f35c",
+          "workingFile": "ny_m_4007320_nw_18_060_20220803-hires.tif",
+          "workingGsdM": 1.2,
+          "workingSha256": "f32f164e139bf8155c82ff02936c0b5599f75ae44418a103b257f99d69323662",
+          "workingBytes": 76703268
+        },
+        {
+          "id": "ny_m_4007320_se_18_060_20220803",
+          "datetime": "2022-08-03T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.56628,
+            40.622382,
+            -73.496202,
+            40.69015
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007320_se_18_060_20220803.tif",
+          "stacSha256": "c7a4688dd27469360eaca2c58aedb950cfeeae0cfaac80b934ed38d7914ea2d9",
+          "workingFile": "ny_m_4007320_se_18_060_20220803.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "bd5051ecc3b9a65c60060c8ef3f363982e1802d9dad650881efd89d17ba45c5e",
+          "workingBytes": 17707339
+        },
+        {
+          "id": "ny_m_4007320_sw_18_060_20220803",
+          "datetime": "2022-08-03T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.628704,
+            40.622422,
+            -73.558759,
+            40.6901
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007320_sw_18_060_20220803.tif",
+          "stacSha256": "9156ffdc68733eed34573f7381799f93d1264947ad765d01ef4f805b25c178f3",
+          "workingFile": "ny_m_4007320_sw_18_060_20220803-hires.tif",
+          "workingGsdM": 1.2,
+          "workingSha256": "cf0a86fa647be6ff89417be5761290261b2fecde3d4ce2f5f27d99f68640786d",
+          "workingBytes": 76350496
+        },
+        {
+          "id": "ny_m_4007321_ne_18_060_20220803",
+          "datetime": "2022-08-03T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.441397,
+            40.684791,
+            -73.371059,
+            40.752684
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007321_ne_18_060_20220803.tif",
+          "stacSha256": "aea730ec2963062e00ba3801c927d63f9ac2a7cb54ee542b9b0d5fb797db7fca",
+          "workingFile": "ny_m_4007321_ne_18_060_20220803.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "7b31d5bca3bef96c0e238e08d0d0298413133f71fd7859e7ad912b290d9b6e4c",
+          "workingBytes": 19387642
+        },
+        {
+          "id": "ny_m_4007321_nw_18_060_20220803",
+          "datetime": "2022-08-03T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.503807,
+            40.684844,
+            -73.433602,
+            40.752647
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007321_nw_18_060_20220803.tif",
+          "stacSha256": "5116d206d1d1cfd67032bda8dc1a6d070759925781d7274239c5df92d33fe0e6",
+          "workingFile": "ny_m_4007321_nw_18_060_20220803.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "0a57846e2c8a1ae2e70d189ef47aaf51b5db50dd70fd78211a306aecc5647fc3",
+          "workingBytes": 19816537
+        },
+        {
+          "id": "ny_m_4007321_se_18_060_20220803",
+          "datetime": "2022-08-03T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.441361,
+            40.62231,
+            -73.37109,
+            40.690203
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007321_se_18_060_20220803.tif",
+          "stacSha256": "5a08436d01ca843a17a0e3f943bf24ccf7b0d4cfc4a303de9d2de5bee80ce9ee",
+          "workingFile": "ny_m_4007321_se_18_060_20220803.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "ff3884a45ed3f934839b543b5be10e4a6b7514815b81d142675da0759439b412",
+          "workingBytes": 15830801
+        },
+        {
+          "id": "ny_m_4007321_sw_18_060_20220803",
+          "datetime": "2022-08-03T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.503785,
+            40.622309,
+            -73.433646,
+            40.690166
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007321_sw_18_060_20220803.tif",
+          "stacSha256": "d79ff8054ae16c5b0d1950ea03497b7ac8e7c2face7eef8561ecdc8a89bfd291",
+          "workingFile": "ny_m_4007321_sw_18_060_20220803.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "59ab3bb6c01016783c201c163780201257626bc70833f4a67cd56fe9e38b25b1",
+          "workingBytes": 16303215
+        },
+        {
+          "id": "ny_m_4007322_ne_18_060_20220730",
+          "datetime": "2022-07-30T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.316504,
+            40.684744,
+            -73.245901,
+            40.752764
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007322_ne_18_060_20220730.tif",
+          "stacSha256": "4ce0eca34235d6b1b0840f8155dc49631583c7c734f61368ca812d65bc8a266d",
+          "workingFile": "ny_m_4007322_ne_18_060_20220730.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "03786f23641e45964105a762850530661ba87976a4e8dbbf1d867ef6b755883e",
+          "workingBytes": 18160492
+        },
+        {
+          "id": "ny_m_4007322_nw_18_060_20220730",
+          "datetime": "2022-07-30T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.378915,
+            40.684758,
+            -73.308515,
+            40.752741
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007322_nw_18_060_20220730.tif",
+          "stacSha256": "5379aadec01d95b9837922525d76dfb142f1c2d3ebce40a4d87c59fb094a8001",
+          "workingFile": "ny_m_4007322_nw_18_060_20220730.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "2fba7a4cd376ed779cac83fb93f61d209c1a83bdc8fcbb1129b79480f563425a",
+          "workingBytes": 19825204
+        },
+        {
+          "id": "ny_m_4007322_se_18_060_20220803",
+          "datetime": "2022-08-03T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.316515,
+            40.622209,
+            -73.245908,
+            40.690284
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007322_se_18_060_20220803.tif",
+          "stacSha256": "fc690e76810ff33cb5cf383dec2ca216f278ff3cd7217535b950368cd2493e49",
+          "workingFile": "ny_m_4007322_se_18_060_20220803.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "2b28d4e718688baae2543705f590207e72487b118a1bb9abfd97f3e818059f64",
+          "workingBytes": 12745609
+        },
+        {
+          "id": "ny_m_4007322_sw_18_060_20220730",
+          "datetime": "2022-07-30T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.378937,
+            40.622277,
+            -73.308534,
+            40.690261
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007322_sw_18_060_20220730.tif",
+          "stacSha256": "9d42f6c9ffcc29aeab342ff0eae246ff9873f3829f488d82deed7f363c09894e",
+          "workingFile": "ny_m_4007322_sw_18_060_20220730.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "a3c0c110112a998d28f92e7d7a4ab2aa0924430b739fb8a986c6287c80cb4cd2",
+          "workingBytes": 15696279
+        },
+        {
+          "id": "ny_m_4007325_ne_18_060_20220719",
+          "datetime": "2022-07-19T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.940894,
+            40.56006,
+            -73.871533,
+            40.62745
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007325_ne_18_060_20220719.tif",
+          "stacSha256": "57803f5a799ac22430409f093567d6b74c4ffaf16ee359ec5bc5db23342077be",
+          "workingFile": "ny_m_4007325_ne_18_060_20220719-hires.tif",
+          "workingGsdM": 1.2,
+          "workingSha256": "2f442a2ea7914d1cc413c934b144b40e8f7bb750b062052a888a789e43abf092",
+          "workingBytes": 67689400
+        },
+        {
+          "id": "ny_m_4007325_nw_18_060_20220719",
+          "datetime": "2022-07-19T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.003332,
+            40.560113,
+            -73.934104,
+            40.627412
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007325_nw_18_060_20220719.tif",
+          "stacSha256": "a5ef2fe14645b485f3d116d8137ab19f0dac6a5e8ae34ccf95b29e83258589af",
+          "workingFile": "ny_m_4007325_nw_18_060_20220719.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "dd02c38e2e40e8871b9055153d888f7b2060f077f1650d6cc3ce4d5616decaec",
+          "workingBytes": 18422969
+        },
+        {
+          "id": "ny_m_4007325_se_18_060_20220719",
+          "datetime": "2022-07-19T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.940886,
+            40.497576,
+            -73.871521,
+            40.564912
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007325_se_18_060_20220719.tif",
+          "stacSha256": "c1af5b34d62861c282ab33a7701f2bbc42e5e6fc003c2727b3dd89e5116db266",
+          "workingFile": "ny_m_4007325_se_18_060_20220719-hires.tif",
+          "workingGsdM": 1.2,
+          "workingSha256": "40c9a490cf83fc4196bbd31019d6ba93de204b79d7531e3e55a924286603cdc7",
+          "workingBytes": 65218768
+        },
+        {
+          "id": "ny_m_4007325_sw_18_060_20220719",
+          "datetime": "2022-07-19T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.003337,
+            40.497628,
+            -73.934105,
+            40.564874
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007325_sw_18_060_20220719.tif",
+          "stacSha256": "dfe8c90175d23a306fe5bd08a62f7e276a52a1d62403bc03e04e517914c6a600",
+          "workingFile": "ny_m_4007325_sw_18_060_20220719.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "e316e4edbdcd36ec65c17812263c4b5966a9d43f5bac1d8605c9d2979bee4f4e",
+          "workingBytes": 16220648
+        },
+        {
+          "id": "ny_m_4007326_ne_18_060_20220915",
+          "datetime": "2022-09-15T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.816017,
+            40.560016,
+            -73.746394,
+            40.627478
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007326_ne_18_060_20220915.tif",
+          "stacSha256": "22e1093f161440c20d9ccd84d50a1d8ab9854ab35bf00ded6a779ce0c9b74a56",
+          "workingFile": "ny_m_4007326_ne_18_060_20220915-hires.tif",
+          "workingGsdM": 1.2,
+          "workingSha256": "cc167fd9c0725af5a86a2d3bed23c965bee592fc11d33d422d4ec874b0af67b8",
+          "workingBytes": 58142673
+        },
+        {
+          "id": "ny_m_4007326_nw_18_060_20220915",
+          "datetime": "2022-09-15T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.878456,
+            40.560028,
+            -73.808964,
+            40.627454
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007326_nw_18_060_20220915.tif",
+          "stacSha256": "e50a94b9e1aa875e6b4fde4a3ce7afb56cb8767bcaa04d3d5296ac7f642bed44",
+          "workingFile": "ny_m_4007326_nw_18_060_20220915-hires.tif",
+          "workingGsdM": 1.2,
+          "workingSha256": "b9a4f52661576d6635006c53d2c66d18304383eb4e961af05f065332e0ea2d8f",
+          "workingBytes": 50936764
+        },
+        {
+          "id": "ny_m_4007327_ne_18_060_20220803",
+          "datetime": "2022-08-03T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.691142,
+            40.559945,
+            -73.621325,
+            40.627587
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007327_ne_18_060_20220803.tif",
+          "stacSha256": "a26208ed75ead4490063d4c335d5f5a858394a4254d55ad930843ff2cdef11b5",
+          "workingFile": "ny_m_4007327_ne_18_060_20220803-hires.tif",
+          "workingGsdM": 1.2,
+          "workingSha256": "daae19a3c6a86a5d71dfe12e9dde64f73eb0a7759198c6b3141eb6e09d7ed475",
+          "workingBytes": 52844092
+        },
+        {
+          "id": "ny_m_4007327_nw_18_060_20220915",
+          "datetime": "2022-09-15T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.75358,
+            40.55997,
+            -73.683895,
+            40.627522
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007327_nw_18_060_20220915.tif",
+          "stacSha256": "5787cb9023d3fafbfc432493b56dfc13eb123d6461599f1700deae0840d3567a",
+          "workingFile": "ny_m_4007327_nw_18_060_20220915-hires.tif",
+          "workingGsdM": 1.2,
+          "workingSha256": "56b96053a9c844e23fe7cfc531fc0c33abc2d95cf265cac9d93c8d68075bce05",
+          "workingBytes": 60655714
+        },
+        {
+          "id": "ny_m_4007328_ne_18_060_20220803",
+          "datetime": "2022-08-03T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.566268,
+            40.559846,
+            -73.496187,
+            40.627614
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007328_ne_18_060_20220803.tif",
+          "stacSha256": "e016e12c88f6967899a5041f9e55d81672022ec4e3cfeb96eceecd4f869e80ae",
+          "workingFile": "ny_m_4007328_ne_18_060_20220803.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "89a72e3c9d5a4474dba7dc636d7bad687212dce442c520e7a667fa085d77fc87",
+          "workingBytes": 11517437
+        },
+        {
+          "id": "ny_m_4007328_nw_18_060_20220803",
+          "datetime": "2022-08-03T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.628705,
+            40.559885,
+            -73.558755,
+            40.627617
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007328_nw_18_060_20220803.tif",
+          "stacSha256": "c16f90a02d86ed87a9c360fd8c725476ca3644337278aee9bccbd3768c1c4891",
+          "workingFile": "ny_m_4007328_nw_18_060_20220803-hires.tif",
+          "workingGsdM": 1.2,
+          "workingSha256": "4c65bb2fb45600a9f0dc27e6517506ed8f52f930e1ed2de4b6e7dfec3b74e4b6",
+          "workingBytes": 49200799
+        },
+        {
+          "id": "ny_m_4007329_ne_18_060_20220803",
+          "datetime": "2022-08-03T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.441395,
+            40.559774,
+            -73.371049,
+            40.627723
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007329_ne_18_060_20220803.tif",
+          "stacSha256": "668f278d6d7b3cbd0b449b52a3ac327ff58b8fb862bef9719c5b1e5d51cf1179",
+          "workingFile": "ny_m_4007329_ne_18_060_20220803.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "3936fe32fb886b25be2ff964c247baa582557dd36f11f5c94679239a0440d456",
+          "workingBytes": 8795867
+        },
+        {
+          "id": "ny_m_4007329_nw_18_060_20220803",
+          "datetime": "2022-08-03T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.503831,
+            40.559827,
+            -73.433618,
+            40.627685
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007329_nw_18_060_20220803.tif",
+          "stacSha256": "1cda18fe93a30c3888cc99f5c77fbfb060ac991c8fbb973ac30b98ac41886ffa",
+          "workingFile": "ny_m_4007329_nw_18_060_20220803.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "2a7b28210de12c569cf24d1167fbe6e73e199dbe8a826639e90f773397fe7fdf",
+          "workingBytes": 9261103
+        },
+        {
+          "id": "ny_m_4007330_ne_18_060_20220803",
+          "datetime": "2022-08-03T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.316522,
+            40.559728,
+            -73.245914,
+            40.627749
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007330_ne_18_060_20220803.tif",
+          "stacSha256": "61412cd7f79da1219f0107b1a319ffdcb0cc680d2d72acc581ce1e5aab5abdf3",
+          "workingFile": "ny_m_4007330_ne_18_060_20220803.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "b97b62594fdb65fdb9af43c9c5428180d5f3b20e52b07283ea4234d474269e1b",
+          "workingBytes": 9829335
+        },
+        {
+          "id": "ny_m_4007330_nw_18_060_20220730",
+          "datetime": "2022-07-30T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.378959,
+            40.559741,
+            -73.308482,
+            40.627726
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40073/m_4007330_nw_18_060_20220730.tif",
+          "stacSha256": "18e57536d292d2baf3ad19cae6478f4e8714d955c8a99575ada05647b1b7eea3",
+          "workingFile": "ny_m_4007330_nw_18_060_20220730.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "dfbeaa5140e9f222f342c48ed9f9e04cb428017aa2b9ea0fcf07d8b5e01768b9",
+          "workingBytes": 12834846
+        },
+        {
+          "id": "ny_m_4007416_se_18_060_20220719",
+          "datetime": "2022-07-19T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.065781,
+            40.747635,
+            -73.99663,
+            40.814844
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40074/m_4007416_se_18_060_20220719.tif",
+          "stacSha256": "081b9439cf31f013a39b83f11adfb7894314373268fc1e15bfecec9d570a58c3",
+          "workingFile": "ny_m_4007416_se_18_060_20220719.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "e4be97620a881f2642985cd52e94f97a724d87a1aedb1187ecd8bca6d6c59511",
+          "workingBytes": 18265339
+        },
+        {
+          "id": "ny_m_4007423_se_18_060_20220915",
+          "datetime": "2022-09-15T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.190675,
+            40.622714,
+            -74.121778,
+            40.689797
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40074/m_4007423_se_18_060_20220915.tif",
+          "stacSha256": "dff28151ea6e4755bfc09f13e998ba8401e3004ba485dfad72cb170ba30d17c0",
+          "workingFile": "ny_m_4007423_se_18_060_20220915.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "1f95734df2ba474dc2089b32510bfe6596a6342a4ca982e3b9f59ae2e4dfa37e",
+          "workingBytes": 15808809
+        },
+        {
+          "id": "ny_m_4007423_sw_18_060_20221007",
+          "datetime": "2022-10-07T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.253101,
+            40.622739,
+            -74.184337,
+            40.689732
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40074/m_4007423_sw_18_060_20221007.tif",
+          "stacSha256": "3ef24f9908f0929869cf11d78ab71b1d7ef691915a2990d6dc37c847ff3eaff0",
+          "workingFile": "ny_m_4007423_sw_18_060_20221007.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "20f40139a237596fbf374767ff160d515bc3d72d6be53ddc06f668132eb6b039",
+          "workingBytes": 18689852
+        },
+        {
+          "id": "ny_m_4007424_ne_18_060_20220719",
+          "datetime": "2022-07-19T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.065802,
+            40.685153,
+            -73.996646,
+            40.752362
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40074/m_4007424_ne_18_060_20220719.tif",
+          "stacSha256": "fbb7bf1223c1e76f86ae24db201836de6611a3e1263f08f82a50213aa4fb7de8",
+          "workingFile": "ny_m_4007424_ne_18_060_20220719.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "cd593b6bcd533438e3e59be2d30a8492f0ff2bf186c65104bb746500309514ee",
+          "workingBytes": 17688806
+        },
+        {
+          "id": "ny_m_4007424_se_18_060_20220719",
+          "datetime": "2022-07-19T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.065751,
+            40.622669,
+            -73.996661,
+            40.689878
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40074/m_4007424_se_18_060_20220719.tif",
+          "stacSha256": "3a699c0e856f9506f9799fe1af9160c6fbcd7870f2a5b44cf0461ba906361b6c",
+          "workingFile": "ny_m_4007424_se_18_060_20220719.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "e3a41a235a2d642899439e8845418efbeae24f1a01c97f8e01effe586f18d514",
+          "workingBytes": 14081134
+        },
+        {
+          "id": "ny_m_4007424_sw_18_060_20220915",
+          "datetime": "2022-09-15T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.128249,
+            40.622654,
+            -74.05922,
+            40.689828
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40074/m_4007424_sw_18_060_20220915.tif",
+          "stacSha256": "68e9159d9f193c9a0833c47cd0b3799e473f469fb826b15009632a10d9632bd8",
+          "workingFile": "ny_m_4007424_sw_18_060_20220915.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "980ff89608046cd7478bddf06e689d46615b45d33c35de4a96c4473c029ef816",
+          "workingBytes": 15642555
+        },
+        {
+          "id": "ny_m_4007430_se_18_060_20221007",
+          "datetime": "2022-10-07T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.315525,
+            40.497761,
+            -74.246881,
+            40.564718
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40074/m_4007430_se_18_060_20221007.tif",
+          "stacSha256": "5ca2c0919f0fa0b3ff04c9d2a7cdf4469e8ebe89eae63da59eb688b70fd717a7",
+          "workingFile": "ny_m_4007430_se_18_060_20221007.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "0ab4527c93f9770b9940af04ee17c4d6ca9d2f636573bfac245e7787feeeb9dc",
+          "workingBytes": 6018434
+        },
+        {
+          "id": "ny_m_4007431_ne_18_060_20220915",
+          "datetime": "2022-09-15T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.190648,
+            40.56023,
+            -74.121817,
+            40.627259
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40074/m_4007431_ne_18_060_20220915.tif",
+          "stacSha256": "7abb4fd378ddaea5ef02eb5ac988a7e5bdabe3dc349e0812d45d7fadd49ac86e",
+          "workingFile": "ny_m_4007431_ne_18_060_20220915.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "5f370366c17f83ccef685cd2691d5f01963bdf6878a7b242b57ed9f5277e8d1c",
+          "workingBytes": 18696275
+        },
+        {
+          "id": "ny_m_4007431_nw_18_060_20221007",
+          "datetime": "2022-10-07T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.253087,
+            40.560254,
+            -74.184317,
+            40.627248
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40074/m_4007431_nw_18_060_20221007.tif",
+          "stacSha256": "0b9efb398c298d01dcb84dbf95cc060a2ccd5c28fb0335efd044494133ded9fe",
+          "workingFile": "ny_m_4007431_nw_18_060_20221007.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "26e01181c0439b10d8e6c4bfbc2dff0c3477305e2a91d1135a1d1db27a8adde6",
+          "workingBytes": 17210078
+        },
+        {
+          "id": "ny_m_4007431_se_18_060_20220915",
+          "datetime": "2022-09-15T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.190621,
+            40.49769,
+            -74.121784,
+            40.564774
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40074/m_4007431_se_18_060_20220915.tif",
+          "stacSha256": "ff80dc728ffcf7f464246c59de462c58ebe3cf56c9453f8cb41fcd72bf4de317",
+          "workingFile": "ny_m_4007431_se_18_060_20220915.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "0c29c0b734017ea9d6d162ae8520bc8ff2838ccc74f4e85b24860993606a8e35",
+          "workingBytes": 13348681
+        },
+        {
+          "id": "ny_m_4007431_sw_18_060_20221007",
+          "datetime": "2022-10-07T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.253072,
+            40.497769,
+            -74.184368,
+            40.564763
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40074/m_4007431_sw_18_060_20221007.tif",
+          "stacSha256": "d7212b621f2ef96a8927e5e5567597abaadf50c22464023ca7588e3313f1823c",
+          "workingFile": "ny_m_4007431_sw_18_060_20221007.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "e24fa9afdefbd9d902526d1f4e983bea8db143f76e5e85c57457f428b7fa34aa",
+          "workingBytes": 16302791
+        },
+        {
+          "id": "ny_m_4007432_ne_18_060_20220719",
+          "datetime": "2022-07-19T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.065771,
+            40.560131,
+            -73.996675,
+            40.627341
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40074/m_4007432_ne_18_060_20220719.tif",
+          "stacSha256": "15541c076f4142ef0b37f6e4cdad666d5a2d81d2c574d5910084027d5b2a6e6e",
+          "workingFile": "ny_m_4007432_ne_18_060_20220719.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "8104c3c967b22cb6e8293dfdc25e3731c35845d90cd59ff9ab47539a68b89be9",
+          "workingBytes": 14580055
+        },
+        {
+          "id": "ny_m_4007432_nw_18_060_20220915",
+          "datetime": "2022-09-15T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.128209,
+            40.56017,
+            -74.059246,
+            40.627344
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40074/m_4007432_nw_18_060_20220915.tif",
+          "stacSha256": "d95ccee08bf8df3826cc0c45ed092df3b321aad1920c14ef8c00156c8ebd3314",
+          "workingFile": "ny_m_4007432_nw_18_060_20220915.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "1fdb0f0381af907b22833eea6b5a93179a6d4d875cc2863e8cc9fec0d455b29a",
+          "workingBytes": 17786965
+        },
+        {
+          "id": "ny_m_4007432_sw_18_060_20220915",
+          "datetime": "2022-09-15T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.12824,
+            40.497685,
+            -74.059201,
+            40.564805
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40074/m_4007432_sw_18_060_20220915.tif",
+          "stacSha256": "87aecf5bf9c25306d7509eaccf722d3cb7531c1e4b1ceaa7fc13c40ce68ea89a",
+          "workingFile": "ny_m_4007432_sw_18_060_20220915.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "1e804d82ac7deb95fa8459fd2bf33ae66db01549c8c6d9ee74e12ea8caa7f0ee",
+          "workingBytes": 9568147
+        },
+        {
+          "id": "ny_m_4007438_ne_18_060_20221007",
+          "datetime": "2022-10-07T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.315522,
+            40.435275,
+            -74.246943,
+            40.502233
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40074/m_4007438_ne_18_060_20221007.tif",
+          "stacSha256": "ec1a029e37b6ad0448aca24c8d8bc388d74da299f9f765760da8cdeceafc403c",
+          "workingFile": "ny_m_4007438_ne_18_060_20221007.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "9c5895a257130355ca5c43bf5e6a3d4a78f3ae6cd0306cb7d8e77f91687f3bdd",
+          "workingBytes": 4870127
+        },
+        {
+          "id": "ny_m_4007439_nw_18_060_20221007",
+          "datetime": "2022-10-07T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.253058,
+            40.435229,
+            -74.184347,
+            40.502223
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/40074/m_4007439_nw_18_060_20221007.tif",
+          "stacSha256": "f7406aad364cfd21c17b4e3c1afc6e022018846bf03840c85f4d01b60894c7d3",
+          "workingFile": "ny_m_4007439_nw_18_060_20221007.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "5dbeee93b2fc2df6069589a5d148d9088b3772ec88267b11612a99fc120d8c5d",
+          "workingBytes": 9917656
+        },
+        {
+          "id": "ny_m_4107357_se_18_060_20220719",
+          "datetime": "2022-07-19T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.940912,
+            40.997594,
+            -73.871514,
+            41.064927
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/41073/m_4107357_se_18_060_20220719.tif",
+          "stacSha256": "40d1e29cc8fb7448f221ba636b684e057afd825ab5e730738d7f81af8a680bf2",
+          "workingFile": "ny_m_4107357_se_18_060_20220719.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "e3e93bb2dc2f0ae4c9cfeef6c5636c9c4428ae302ff2597723a7a6634ed3369f",
+          "workingBytes": 10987929
+        },
+        {
+          "id": "ny_m_4107357_sw_18_060_20220719",
+          "datetime": "2022-07-19T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.003334,
+            40.997594,
+            -73.934069,
+            41.06489
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/41073/m_4107357_sw_18_060_20220719.tif",
+          "stacSha256": "14cfa3b26d5f3d9b9cab4e3741db427f5b9d3fbd3b869974173cc5d1f3b67594",
+          "workingFile": "ny_m_4107357_sw_18_060_20220719.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "159bb27d071cd0eff8637f02bb6f8c56d896d044803c824f6d7f5943a4aaae13",
+          "workingBytes": 12368781
+        },
+        {
+          "id": "ny_m_4107358_se_18_060_20220915",
+          "datetime": "2022-09-15T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.81607,
+            40.997493,
+            -73.746404,
+            41.065007
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/41073/m_4107358_se_18_060_20220915.tif",
+          "stacSha256": "30f0b1b2cd48981d7e6240c5c9f3d8483672e9ca742baeede945a7c67abcfe66",
+          "workingFile": "ny_m_4107358_se_18_060_20220915.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "c34e9824757904c45f215405e288f2fee46e76e225826695deb88e25893ba82e",
+          "workingBytes": 12223121
+        },
+        {
+          "id": "ny_m_4107358_sw_18_060_20220915",
+          "datetime": "2022-09-15T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.878491,
+            40.997561,
+            -73.808959,
+            41.064984
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/41073/m_4107358_sw_18_060_20220915.tif",
+          "stacSha256": "bf3bc400dfd89d1a19c9006b27baa4ef7ac67c43b961536922615e1cc22ba94f",
+          "workingFile": "ny_m_4107358_sw_18_060_20220915.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "fdfb99f24779ec0d748143fe1a38e2fea60629f186ad940a3eed3515eed351d3",
+          "workingBytes": 12153452
+        },
+        {
+          "id": "ny_m_4107359_se_18_060_20220803",
+          "datetime": "2022-08-03T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.691157,
+            40.997419,
+            -73.621296,
+            41.065058
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/41073/m_4107359_se_18_060_20220803.tif",
+          "stacSha256": "11b539fc80e8a75dfc0df5c453ba1cf44c901ad8516ce8157c1eb845a6746b9f",
+          "workingFile": "ny_m_4107359_se_18_060_20220803.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "24b6daa226a5874ee226e81f2bdef44f55150ae589c3df946e7ec2fddf73f7dc",
+          "workingBytes": 11581068
+        },
+        {
+          "id": "ny_m_4107359_sw_18_060_20220915",
+          "datetime": "2022-09-15T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -73.753578,
+            40.997446,
+            -73.68385,
+            41.065049
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/41073/m_4107359_sw_18_060_20220915.tif",
+          "stacSha256": "d17cfdc1a034ddbc46c7f0683e64acf62ac14135a348c30bab682c66bcbce861",
+          "workingFile": "ny_m_4107359_sw_18_060_20220915.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "bb5b9d2c8a18504c3a9b17ed0c3f41db3b4ab6994956ba0d53d17132b2eebdb0",
+          "workingBytes": 11828345
+        },
+        {
+          "id": "ny_m_4107464_se_18_060_20220719",
+          "datetime": "2022-07-19T16:00:00Z",
+          "gsdM": 0.6,
+          "bbox": [
+            -74.065827,
+            40.997668,
+            -73.996624,
+            41.064875
+          ],
+          "href": "https://naipeuwest.blob.core.windows.net/naip/v002/ny/2022/ny_060cm_2022/41074/m_4107464_se_18_060_20220719.tif",
+          "stacSha256": "0c3921f587618954991ea6cefe1850f6ef026fe40b5e7ae9a861463b2e874fb1",
+          "workingFile": "ny_m_4107464_se_18_060_20220719.tif",
+          "workingGsdM": 2.4,
+          "workingSha256": "aa3166147708c132cc4edb7c17882bcae8d3257512074b6937b6990e8409d336",
+          "workingBytes": 12548523
+        }
+      ]
+    },
+    "osm": {
+      "sources": [
+        {
+          "region": "New York",
+          "source": "https://download.geofabrik.de/north-america/us/new-york/new-york-261120.osm.pbf",
+          "file": "/tmp/pilot-sim-jfk-data/new-york-261120.osm.pbf",
+          "snapshot": "2026-11-20",
+          "sha256": "f36fd79b6305ea0709e3c228e668e6b35752127e4e7735266eae2284a855ee72",
+          "bytes": 499207558,
+          "license": "ODbL-1.0",
+          "attribution": "© OpenStreetMap contributors / ODbL"
+        },
+        {
+          "region": "New Jersey",
+          "source": "https://download.geofabrik.de/north-america/us/new-jersey/new-jersey-261120.osm.pbf",
+          "file": "/tmp/pilot-jfk-city/new-jersey-261120.osm.pbf",
+          "snapshot": "2026-11-20",
+          "sha256": "31d1b4d9ee0d3ad2abb9a54e4b7a5991e2b95c7708a1d36959f5de2b09f7fb23",
+          "bytes": 165553438,
+          "license": "ODbL-1.0",
+          "attribution": "© OpenStreetMap contributors / ODbL"
+        }
+      ],
+      "snapshot": "2026-11-20",
+      "license": "ODbL-1.0",
+      "attribution": "© OpenStreetMap contributors / ODbL"
+    }
+  },
+  "buildingManifest": "assets/cities/jfk/buildings-v1.json",
+  "buildingDatabase": "assets/cities/jfk/buildings-v1.bin.gz",
+  "imageryManifest": "assets/cities/jfk/imagery-v1.json",
+  "airportSource": "assets/maps/jfk-source.json",
+  "notes": "Source footprint/contact geometry is retained. Repeated houses use shared estimated architectural templates, other ordinary buildings use shared mid-distance boxes and source-derived district proxies in the far distance. Heights/colours are source fields or deterministic estimates, not guaranteed surveys.",
+  "architecture": {
+    "region": "Queens / Brooklyn / New York metro",
+    "flatTemplateMaxHeight": 180,
+    "homeRoofStyles": [
+      "gable",
+      "gable",
+      "flat",
+      "hip",
+      "gable"
+    ],
+    "facadePalette": [
+      [
+        151,
+        118,
+        95
+      ],
+      [
+        167,
+        146,
+        119
+      ],
+      [
+        187,
+        173,
+        149
+      ],
+      [
+        150,
+        147,
+        137
+      ],
+      [
+        163,
+        132,
+        109
+      ],
+      [
+        175,
+        163,
+        143
+      ]
+    ],
+    "heightInference": "OSM height/floors first; missing values use stable neighbourhood/footprint/type estimates. Source high-rise heights retained up to 650 m, never capped to a house template. Not surveyed heights."
+  }
+}

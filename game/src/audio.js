@@ -12,12 +12,12 @@ export class EngineAudio {
     }
     if (this.context.state === 'suspended') await this.context.resume();
   }
-  update(state, playing,rate=1) {
+  update(state, playing,rate=1,listener={}) {
     this.comms.update(state,playing,this.muted,rate);
     if (!this.context) return;
     const safety=!this.comms.callout.paused&&!this.comms.callout.ended;
     const radio=!this.comms.radio.paused&&!this.comms.radio.ended;
-    this.soundscape.update(state,playing&&!this.muted,{duck:safety?.42:radio?.72:1});
+    this.soundscape.update(state,playing&&!this.muted,{duck:safety?.42:radio?.72:1,...listener});
   }
   say(text) {
     if(this.comms.say(text))return;

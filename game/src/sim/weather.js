@@ -2,11 +2,11 @@ import {airPocket} from './cabin-motion.js';
 import {KT,RAD,AIRFRAME,clamp} from './constants.js';
 
 export function createWeather(options={}){
- return {ambientTurbulence:options.ambientTurbulence??0,visibility:options.visibility??42000,cloudBase:options.cloudBase??10000,rain:options.rain??0,overcast:options.overcast??0,disturbances:structuredClone(options.disturbances||[]),wind:{speedKt:5,directionDeg:270,vertical:0,...options.wind},gust:{amplitude:0,period:8,seed:27,...options.gust},shear:options.shear?structuredClone(options.shear):null,runwayFriction:clamp(options.runwayFriction??1,.1,1)};
+ return {referenceHeading:options.referenceHeading??270,ambientTurbulence:options.ambientTurbulence??0,visibility:options.visibility??42000,cloudBase:options.cloudBase??10000,rain:options.rain??0,overcast:options.overcast??0,disturbances:structuredClone(options.disturbances||[]),wind:{speedKt:5,directionDeg:270,vertical:0,...options.wind},gust:{amplitude:0,period:8,seed:27,...options.gust},shear:options.shear?structuredClone(options.shear):null,runwayFriction:clamp(options.runwayFriction??1,.1,1)};
 }
 // Analytic fields are reproducible at any position/time: no frame-based randomness.
 export function sampleWeather(weather,position,time){
- const w=weather.wind,angle=(w.directionDeg-270)*RAD,v=w.speedKt/KT;
+ const w=weather.wind,angle=(w.directionDeg-(weather.referenceHeading??270))*RAD,v=w.speedKt/KT;
  const wind={x:-Math.sin(angle)*v,y:w.vertical,z:Math.cos(angle)*v};
  const gust=weather.gust,phase=time*2*Math.PI/Math.max(gust.period,1)+gust.seed;
  wind.x+=gust.amplitude*Math.sin(phase)*.8;
@@ -34,13 +34,13 @@ export function sampleWeather(weather,position,time){
 export function setWeather(s,patch){
  const old=s.weather;
  s.weather=createWeather({...old,...patch,wind:{...old.wind,...patch.wind},gust:{...old.gust,...patch.gust}});
- s.headwind=s.weather.wind.speedKt*Math.cos((s.weather.wind.directionDeg-270)*RAD);
+ s.headwind=s.weather.wind.speedKt*Math.cos((s.weather.wind.directionDeg-(s.weather.referenceHeading??270))*RAD);
  s.windDirection=s.weather.wind.directionDeg;
 }
 
 // Convert the local world-vector back to the compass bearing it comes from.
-export function windReadout(wind){
+export function windReadout(wind,referenceHeading=270){
  const speedKt=Math.hypot(wind.x,wind.z)*KT;
- const directionDeg=speedKt<.01?0:(270+Math.atan2(-wind.x,wind.z)/RAD+360)%360;
+ const directionDeg=speedKt<.01?0:(referenceHeading+Math.atan2(-wind.x,wind.z)/RAD+360)%360;
  return {speedKt,directionDeg,verticalFpm:wind.y*196.85};
 }

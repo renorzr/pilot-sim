@@ -1,0 +1,3 @@
+const linear=Array.from({length:256},(_,i)=>Math.round(255*(i/255<=.04045?i/255/12.92:((i/255+.055)/1.055)**2.4)));
+export const channels=rgb=>[linear[rgb>>>16&255],linear[rgb>>>8&255],linear[rgb&255]];
+export function facadeColor(b,customPalette){const palette=customPalette||[[185,174,151],[169,172,165],[172,155,135],[194,182,158],[153,159,154],[181,166,153]],block=((Math.floor(b.cx/180)*73856093)^(Math.floor(b.cz/180)*19349663))>>>0,p=palette[block%palette.length],rgb=[b.wallColor>>>16&255,b.wallColor>>>8&255,b.wallColor&255],variation=.93+(b.seed%13)/100;return rgb.map((v,i)=>linear[Math.min(255,Math.max(0,Math.round((v*.4+p[i]*.6)*variation)))]);}

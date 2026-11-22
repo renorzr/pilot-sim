@@ -1,0 +1,7 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {createPolygonMask}from '../src/airports/polygon-mask.js';
+import {AIRPORTS}from '../src/airports/registry.js';
+const brute=(p,x,z)=>{let hit=false;for(let i=0,j=p.length-1;i<p.length;j=i++){const a=p[i],b=p[j];if((a.z>z)!==(b.z>z)&&x<(b.x-a.x)*(z-a.z)/(b.z-a.z)+a.x)hit=!hit;}return hit;};
+test('indexed shoreline keeps concave bays, island holes and boundary decisions',()=>{const ring=[[0,0],[100,0],[100,100],[60,100],[60,40],[40,40],[40,100],[0,100],[0,0]].map(([x,z])=>({x,z})),hole=[[10,10],[30,10],[30,30],[10,30],[10,10]].map(([x,z])=>({x,z})),mask=createPolygonMask([{outer:ring,holes:[hole]}]);for(let z=-10;z<=110;z++)for(let x=-10;x<=110;x++)assert.equal(mask(x,z),brute(ring,x,z)&&!brute(hole,x,z));assert(mask(80,80)&&!mask(50,80)&&!mask(20,20));});
+test('indexed sea classifications agree with original ray crossings across all source coastlines',()=>{let seed=3;const random=()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296;};for(const a of AIRPORTS.filter(a=>a.coastal)){const polygons=a.data.osm.features.filter(f=>f.tags?.water==='sea').map(f=>({outer:f.geometry.map(p=>a.project(...p)),holes:(f.holes||[]).map(r=>r.map(p=>a.project(...p)))})),mask=createPolygonMask(polygons);for(let i=0;i<160;i++){const x=(random()-.5)*60000,z=(random()-.5)*60000,expected=polygons.some(p=>brute(p.outer,x,z)&&!p.holes.some(h=>brute(h,x,z)));assert.equal(mask(x,z),expected,`${a.id} ${x},${z}`);}}});

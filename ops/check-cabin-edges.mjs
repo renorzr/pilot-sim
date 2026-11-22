@@ -5,7 +5,7 @@ async function coverage(){return b.evaluate(`(()=>{const rig=document.querySelec
 try{
  await b.waitFor('window.__flightSim&&!!document.querySelector(".level-select")',60000);await b.click('[data-level-id="crosswind"]');await b.click('.enter-level');await b.waitFor('!document.querySelector(".flight-card .primary-button").disabled',60000);await b.evaluate('document.querySelector(".flight-card .primary-button").scrollIntoView({block:"nearest"})');await b.click('.flight-card .primary-button');await b.waitFor('window.__flightSim.motionStats().sources.weather>0');await tap('KeyP','p');
  const hud=await b.evaluate('(()=>{const r=document.querySelector(".toolbar").getBoundingClientRect();return{x:r.x,y:r.y}})()');
- for(const [name,width,height,dpr] of[['desktop',1280,800,1],['small',640,400,1],['phone',390,844,2]]){
+ for(const [name,width,height,dpr] of[['desktop',1280,800,1],['small',640,400,1],['phone',844,390,2]]){
   await b.send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:dpr,mobile:false});await new Promise(r=>setTimeout(r,400));samples[name]=[];
   for(const x of[-.003,.003])for(const y of[-.0065,.0065])for(const roll of[-.002,.002]){
    await b.evaluate(`(()=>{let style=document.querySelector('#edge-stress');if(!style){style=document.createElement('style');style.id='edge-stress';document.head.appendChild(style);}style.textContent='.cockpit-rig{transform:translate(${x*100}cqw,${y*100}cqw) rotate(${roll}rad) scale(var(--cockpit-overscan))!important}';})()`);

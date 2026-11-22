@@ -1,0 +1,186 @@
+{
+  "airportId": "xiaoshan",
+  "provenance": {
+    "footprints": {
+      "title": "A first high-quality vector data of buildings in East Asian countries based on a comprehensive large-scale mapping framework",
+      "doi": "10.5281/zenodo.8174931",
+      "url": "https://zenodo.org/records/8174931",
+      "license": "CC-BY-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "attribution": "Qian Shi, Jiajun Zhu, Zhengyu Liu, Haonan Guo, Mengxi Liu, Zihong Liu and Xiaoping Liu (2023), East Asian building footprints",
+      "sourceDate": "2023-07-22",
+      "archiveMd5": "md5:d356f487b19eaa13c6e12eb42ac3ca53",
+      "files": [
+        {
+          "member": "China/Zhejiang/Hangzhou.cpg",
+          "bytes": 5,
+          "compressedBytes": 5,
+          "crc32": "0e813c50",
+          "sha256": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824"
+        },
+        {
+          "member": "China/Zhejiang/Hangzhou.dbf",
+          "bytes": 114315392,
+          "compressedBytes": 12578102,
+          "crc32": "bc31a9cb",
+          "sha256": "a2167344ac037300b712d859ea9be1b3229c8f26604b23419ba2714aee445e62"
+        },
+        {
+          "member": "China/Zhejiang/Hangzhou.prj",
+          "bytes": 402,
+          "compressedBytes": 256,
+          "crc32": "91353ff9",
+          "sha256": "f091cc5695962ce8d7807e3c43aa152ee62e419212c0fab878c56782910f2080"
+        },
+        {
+          "member": "China/Zhejiang/Hangzhou.shp",
+          "bytes": 242651044,
+          "compressedBytes": 117065390,
+          "crc32": "7f078396",
+          "sha256": "808178cacde6ae9a5a96dcb92e088e63ba50b324df13d60cf3fec68e65e46c10"
+        },
+        {
+          "member": "China/Zhejiang/Hangzhou.shx",
+          "bytes": 13254036,
+          "compressedBytes": 3815587,
+          "crc32": "67130c34",
+          "sha256": "8055b842b2f5a159fd16a08254316ae269728af705314343096b41363f65d4fd"
+        },
+        {
+          "member": "China/Zhejiang/Jiaxing.cpg",
+          "bytes": 5,
+          "compressedBytes": 5,
+          "crc32": "0e813c50",
+          "sha256": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824"
+        },
+        {
+          "member": "China/Zhejiang/Jiaxing.dbf",
+          "bytes": 27639812,
+          "compressedBytes": 2815083,
+          "crc32": "7bac2188",
+          "sha256": "7c1190f50e335eff521a332f895ac4541595a5a872e8799ef2076459e6a0be12"
+        },
+        {
+          "member": "China/Zhejiang/Jiaxing.prj",
+          "bytes": 402,
+          "compressedBytes": 256,
+          "crc32": "91353ff9",
+          "sha256": "f091cc5695962ce8d7807e3c43aa152ee62e419212c0fab878c56782910f2080"
+        },
+        {
+          "member": "China/Zhejiang/Jiaxing.shp",
+          "bytes": 85148776,
+          "compressedBytes": 42170343,
+          "crc32": "5c23ce4b",
+          "sha256": "749ba5c5dd78714a2235ac9caf4a4daf4bee14c1ec6e474d57c18b97fb2748fa"
+        },
+        {
+          "member": "China/Zhejiang/Jiaxing.shx",
+          "bytes": 4422444,
+          "compressedBytes": 1262305,
+          "crc32": "12f6f157",
+          "sha256": "d4ffbe6d4c5514d1fcea61fdece6d4305021b6d6e105cfee503aba86d1ccaa3d"
+        },
+        {
+          "member": "China/Zhejiang/Shaoxing.cpg",
+          "bytes": 5,
+          "compressedBytes": 5,
+          "crc32": "0e813c50",
+          "sha256": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824"
+        },
+        {
+          "member": "China/Zhejiang/Shaoxing.dbf",
+          "bytes": 37045762,
+          "compressedBytes": 3935279,
+          "crc32": "e52accce",
+          "sha256": "c77f346602f68af8dfa7d895381bc53336a1672747fda23dbd6494c679b87c8f"
+        },
+        {
+          "member": "China/Zhejiang/Shaoxing.prj",
+          "bytes": 402,
+          "compressedBytes": 256,
+          "crc32": "91353ff9",
+          "sha256": "f091cc5695962ce8d7807e3c43aa152ee62e419212c0fab878c56782910f2080"
+        },
+        {
+          "member": "China/Zhejiang/Shaoxing.shp",
+          "bytes": 111742468,
+          "compressedBytes": 54540962,
+          "crc32": "6646198a",
+          "sha256": "4771755ea0acbfea5a9f47d6a096604ba65d13992f20ffa0289188b18bc60411"
+        },
+        {
+          "member": "China/Zhejiang/Shaoxing.shx",
+          "bytes": 5927396,
+          "compressedBytes": 1637077,
+          "crc32": "44451d0a",
+          "sha256": "8252cc7b8ee376f347315786586ac2932c475c058d6db15550d9a3b7446ac063"
+        }
+      ]
+    },
+    "imagery": {
+      "collection": "sentinel-2-l2a",
+      "catalog": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-2-l2a",
+      "itemId": "S2A_MSIL2A_20250916T024141_R089_T51RTP_20250916T063513",
+      "datetime": "2025-09-16T02:41:41.024000Z",
+      "cloudCoverPercent": 0.021493,
+      "sourceNativeGsdM": 10,
+      "href": "https://sentinel2l2a01.blob.core.windows.net/sentinel2-l2/51/R/TP/2025/09/16/S2A_MSIL2A_20250916T024141_N0511_R089_T51RTP_20250916T063513.SAFE/GRANULE/L2A_T51RTP_A053454_20250916T024634/IMG_DATA/R10m/T51RTP_20250916T024141_TCI_10m.tif",
+      "license": "Copernicus Sentinel Data Legal Notice",
+      "licenseUrl": "https://sentinels.copernicus.eu/documents/247904/690755/Sentinel_Data_Legal_Notice",
+      "attribution": "Contains modified Copernicus Sentinel data (2025), processed by ESA / Microsoft Planetary Computer; local rendering derivatives",
+      "bytes": 390810169,
+      "sha256": "df36c9eddbc5cf4bbfec42ed6ca9408d3533ffa277e6d8d0f4bfabcb84ecd61f",
+      "stacSha256": "c803a019111028db313b47096d8695ed6fa2b15fe6ae5d0545d510c8ca9db80b"
+    },
+    "osm": {
+      "source": "https://download.geofabrik.de/asia/china/zhejiang/zhejiang-261119.osm.pbf",
+      "sha256": "9f21a063174f7c4bf2001488dc40a1237c9e228b7c61a96b5ac468efeae6ba85",
+      "snapshot": "2026-11-19",
+      "license": "ODbL-1.0",
+      "attribution": "© OpenStreetMap contributors / ODbL"
+    }
+  },
+  "buildingManifest": "assets/cities/xiaoshan/buildings-v1.json",
+  "buildingDatabase": "assets/cities/xiaoshan/buildings-v1.bin.gz",
+  "imageryManifest": "assets/cities/xiaoshan/imagery-v1.json",
+  "airportSource": "assets/maps/xiaoshan-source.json",
+  "notes": "Source footprint/contact geometry is retained. Repeated houses use shared estimated architectural templates, other ordinary buildings use shared mid-distance boxes and source-derived district proxies in the far distance. Heights/colours are source fields or deterministic estimates, not guaranteed surveys.",
+  "architecture": {
+    "region": "Hangzhou / Xiaoshan",
+    "flatTemplateMaxHeight": 120,
+    "heightInference": "OSM height/floors first; otherwise stable neighbourhood/type/area estimates. Near-airport village/logistics prior applies only to missing heights. Not surveyed heights.",
+    "facadePalette": [
+      [
+        197,
+        196,
+        188
+      ],
+      [
+        187,
+        190,
+        187
+      ],
+      [
+        184,
+        182,
+        174
+      ],
+      [
+        205,
+        201,
+        190
+      ],
+      [
+        173,
+        180,
+        181
+      ],
+      [
+        194,
+        186,
+        175
+      ]
+    ]
+  }
+}

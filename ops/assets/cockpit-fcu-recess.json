@@ -1,0 +1,18 @@
+{
+  "width": 1586,
+  "height": 992,
+  "bounds": [
+    24,
+    444,
+    1563,
+    548
+  ],
+  "source": "ImageGen original project asset, 2026-11-22",
+  "usage": "Empty recessed bezel, registered by build-cockpit-fcu-frame.mjs; original cockpit pixels outside this aperture remain unchanged",
+  "interiorBounds": [
+    50,
+    463,
+    1539,
+    528
+  ]
+}

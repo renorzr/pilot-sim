@@ -379,3 +379,195 @@ Signal cadence trims only boundary silence, retains internal word pauses,
 and uses 1.10 atempo with 80 ms repeat gaps. This removes the old per-unit
 1.2 s silent tail while preserving speaker/pitch and all three call groups.
 Waveform QA measures the actual prefix completion time (<2.5 s).
+
+## Real airport scene: Daxing
+
+Training retains its original fictional coastal world and 13 lesson records.
+The second-stage airport exercises carry `airportId: daxing` in live state and
+checkpoints. Runway 17L's local frame is derived from OurAirports threshold
+endpoints, preserving x right / z approach / y up. Its approximately 3.8 km
+landing distance, painted identity, compass, wind, FD, selected heading and ATC
+share the same airport reference. Other civilian runways are scenic only.
+
+The game compass shows **true heading**, and flight/FCU altitudes remain
+**height above the airport**, rather than QNH-based MSL. Threshold elevation is
+used to express source DEM heights in that local frame. A documented airport
+platform is graded to zero with a smooth transition into the DEM. The same
+250 m rendering grid and triangle interpolation serve terrain queries, swept
+contact and predictive alerts. Source samples are roughly 700 m apart; this
+is not a surveyed obstacle database. Decorative buildings do not yet supply
+individual collision volumes.
+
+Inside the existing bounded, configured runway-arrival envelope, every raised
+terrain sample remains checked, while warning margins reduce with predicted
+height. The former fixed 150 m caution margin falsely identified small DEM
+undulations as hazards during normal descent. Imminent impact still warns;
+gear-up, undershoot, divergent flight and genuine elevated ridges retain their
+warnings. Tests include the real complete approach and synthetic ridge hazards.
+
+Daxing uses a synthetic 3-degree ILS-like profile and local left-side missed-
+approach return. It does not include a current SID/STAR, published ILS service,
+certified minima or complete Beijing restricted-airspace database. This is an
+airport takeoff/landing practice. City-to-city flights now connect all six airports.
+
+
+### Stand departure and ground control
+
+Daxing takeoff revision 2 starts stopped at real stand 107. An independent
+cinematic camera shows the airport while automatic crew dialogue prepares
+push/start and CONF 1. Tug geometry, pushback mechanics and detailed startup
+are abstracted. A labelled transition moves the stopped reference to the real
+lead-in's apron start. It does not claim to integrate a tug manoeuvre.
+
+The normal taxi remains force-integrated with engine spool, rolling resistance,
+wheel grip and manual brakes. Before takeoff clearance the lever and actual
+engine command are capped at 18%; pitch rotation is inhibited. Left/right stick
+plus rudder controls a simplified nosewheel bicycle yaw target, bounded to
+0.35 rad/s; the original high-speed runway steering remains after clearance.
+Groundspeed rather than IAS controls taxi limits. Sustained speeds above 25 kt,
+route deviation over 34 m and unauthorized protected-runway entry end the task;
+speeds above 18 kt receive automatic radio reminders. These are game limits.
+
+An explicit optional skip advances elapsed taxi time at a nominal 12 kt and
+places the aircraft stopped outside 17L, with zero lever/velocity and neutral
+controls. Engine failures, weather and other systems remain unchanged. It does
+not grant entry clearance or lineup completion. Actual manual travel, centerline
+position, heading, low speed and a stationary alignment interval are required
+before requesting takeoff clearance. The tower's entry transmission and later
+takeoff transmission separately unlock entry and full thrust. Snapshot retries
+preserve these permissions and are still marked practice. The normal takeoff
+completion also requires this ground sequence to have been completed.
+
+Daxing pavement/paint offsets are purely visual and share `ground-layers.js`.
+The highest pavement remains below paint at taxiway/runway intersections.
+Only paint uses a decal slope bias; pavement slope bias previously reversed
+visibility as the camera moved. Paint retains scenery depth tests, skips depth
+writes and renders after opaque geometry; material batches preserve that order.
+These offsets do not change wheel contact, terrain collision or runway scoring.
+
+
+## City-to-city phase transitions
+
+The airport registry constructs independent threshold-based local frames for
+Daxing 17L and Xiaoshan 07. Renderer geometry, contact/GPWS terrain triangles,
+wind reference, true heading, synthetic approach and taxi guidance select the
+same airport by state identity. Their DEM grids are cached independently.
+
+Normal route flights retain actual stand departure, manual ground permission,
+lineup and takeoff. `airline-navigation.js` computes independent great-circle
+initial and terminal bearings from airport coordinates, converts them to each
+runway-local frame, and supplies the same game waypoints to ND, FD/AP and ATC.
+Departure follows runway heading to the first route point and at least1200 ft
+before turning onto the outbound course. Clearance altitude is at least3000 ft
+and raised in500 ft steps when shared DEM samples along a900 m-wide route
+corridor require1500 ft terrain clearance. These are synthetic game values.
+A cruise cut requires the actual outbound leg, ground track within15 degrees
+of its course, cross-track under1500 m, gear retracted, flaps at1 or less,
+165–225 kt, bank under10 degrees, vertical speed within1.5 m/s, clearance
+altitude minus30/plus300 ft and3 seconds stable, with both engines available.
+Rejected requests never move the aircraft.
+
+The explicit cruise cut omits long cruise/most descent and changes the airport
+frame. The clean210 kt destination entry is28 km from the runway threshold on
+the origin-city radial; its incoming track uses the destination great-circle
+terminal bearing, not the departure bearing. Terrain-sampled arrival legs arc
+around the airport to an off-axis intercept and a heading-aligned final join.
+Route guidance commands bounded attitude through the ordinary force model.
+It never relocates the aircraft to advance a waypoint. APPR is available on
+final; turning/arrival does not preconfigure gear/flaps or fabricate gates.
+Mass, engine health/status/spool, system failures, language, practice state and
+departure evidence survive the cut. Time advances at an estimated830 km/h.
+
+Aerial previews alter only the camera and freeze physical motion during the
+briefing; pause freezes simulation and speech. At actual configured touchdown
+and deceleration to18 kt or less with idle levers, the landing assessment is
+saved independently of completion. Runway exit and taxi-in use the ordinary
+low-speed force integration/nosewheel steering. Each airport has bundled OSM
+exit-to-stand alternatives (`*-arrival.json`); the offline graph generator
+retains taxiway source IDs and local source endpoint connections. Curated
+apron handoffs and aircraft CG stop offsets remain labelled game estimates.
+ATC automatically clears the marked route, including other runway crossings
+where required. No ground traffic or real operational clearance is implied.
+The active landing runway is not re-entered after vacating.
+
+After the whole aircraft clears the landing runway corridor, an explicit
+optional taxi cut advances nominal12 kt elapsed time and parks at the assigned
+stand, preserving landing evidence and failed systems. Otherwise the player
+must stop within8 m, heading within12 degrees and GS below0.8 kt for0.7 seconds.
+Crew shutdown turns running engines off without repairing failed ones. The
+parking dialogue completes before the final result; a successful city-flight
+record requires both genuine stability gates, configured touchdown, origin
+permissions/cruise evidence and destination parking. Taxi cannot repair an
+invalid landing assessment. Retries remain practice. Existing training and
+standalone airport landing practices retain their previous completion rules.
+
+## Changi coastal surface
+
+WSSS / SIN uses its own 02L threshold tangent frame and the same 250 m triangle grid as the other real airports. Derived OSM sea polygons retain island holes; sea-grid vertices sit one metre below the physical waterline to avoid floating-point classification errors. The visible sea is flat at mean sea level relative to the active threshold, and the water contact plane uses that same airport-relative level. Land keeps its own DEM and airport grading. Closed rings are opened consistently before triangulation so island indices remain correct.
+
+A height below the airport reference alone does not create a runway touchdown. Touchdown requires the active runway footprint; off-runway terrain and sea use the swept body, wing and nose probes. This lets an aircraft fly below runway elevation over the sea, then stop at actual water contact. Both Changi practices and all four new city routes are verified using physical control inputs. The ground route approaches 02L from positive local x, with distinct entry and takeoff clearances and a 50 m straight segment after the final alignment turn.
+
+## Global airport frames and coastline performance
+
+Six airport frames use independent runway endpoints, DEMs and coastline derivatives. Thirty directed city flights retain their local-frame departure evidence and require a configured destination landing; direct-distance cruise-time estimation remains an explicit transition with no fuel/range model. The Pacific-centred world map unwraps longitudes, clips source land at its seam and samples great-circle arcs, including polar paths. Map geometry never controls aircraft dynamics.
+
+Marine masks cache shoreline edges in horizontal bands and reject island holes by their bounds. This preserves the original point-in-polygon decisions while avoiding a full traversal of tens of thousands of coastline vertices for each terrain vertex. Shared triangle collision and GPWS still use the same airport-specific grid. Independent source coastline derivatives use length-weighted offshore/onshore votes to classify closed faces, retaining real island and mainland geometry.
+
+## Exterior presentation
+
+Cockpit and exterior cameras share one unchanged physical aircraft. Camera
+state lives outside the simulation and never supplies attitude, velocity,
+terrain contact or mission completion. View changes release held input and
+centre the stick. Exterior view follows yaw with a level horizon; orbit gestures only
+move the camera. Pause freezes flight and actuator animation while allowing
+camera movement. Retry, airport changes and explicit phase cuts reset camera
+smoothing. Shared terrain-height samples and exact static building raycasts
+constrain external camera sightlines; these do not alter flight collision.
+
+The original exterior uses actual gear/flap/spoiler positions, servo commands,
+engine availability, N1 and negative thrust. Main-wheel anchors supply a
+render-only height correction during ground rotation so tyres meet the shared
+surface; physical position is unchanged. The aircraft mesh and contact shadow
+are presentation assets: existing swept flight collision probes remain the
+reduced-order contact model. Exterior sound changes only distance/pan gain
+on the restored engine source, leaving cockpit timbre and safety calls intact.
+
+## LAX city obstacles and the coastal surface
+
+A compact source-derived city layout supplies the same rotated boxes to
+instanced geometry, camera rays, swept aircraft contact and future obstacle
+closure. Landmark envelopes are generated by the same pure layout functions
+as their source-positioned meshes. Roofs do not enter the DEM or change runway
+altitude, stabilization gates or height callouts. The reduced-order building
+envelopes conservatively occupy a whole roof volume; they do not represent
+interior flying space or exact curved-surface contact. Unknown ordinary
+building heights and SoFi's45m canopy top are labelled visual estimates.
+
+City contact checks body, wing and nose/tail probes with continuous segment
+intersection. The earliest terrain/building contact wins; a wall strike freezes
+at its actual position rather than lifting the aircraft onto the roof. Separate
+30-second obstacle prediction uses a20m lateral/12m vertical closure
+margin and cannot be suppressed by gear/APPR or a terrain landing exemption.
+Independent engine/thrust, flight forces, navigation and mission logic remain
+unchanged. Other airports have no new city envelopes.
+
+LAX ocean contact uses the existing exact OSM sea predicate and flat airport-
+relative water level. A matching conservative grayscale sea mask hides coarse
+250m terrain triangles protruding inside that marine polygon; the actual sea
+mesh supplies the visible coastline. Land DEM samples and runway grading are
+unchanged. Aerial textures use geographic UVs on the existing terrain geometry,
+with feathered detail/boundaries, not a second elevated ground mesh.
+
+## Hold-to-fast-forward control
+
+The game-footer control uses a captured pointer: hold for 2x, drag upwards
+for 4x, and release to restore 1x. It also works on the ground and during low
+approaches while the game is playing. Pause, loss of focus/visibility or
+pointer capture, retries, airport loading and results cancel held acceleration.
+The original high-altitude X shortcut remains separate for compatibility.
+
+`sim/time-acceleration.js` feeds the existing `advanceSimulation` function in
+batches no larger than 0.5 simulation seconds. A slow rendered frame at 4x
+therefore still runs all 100 Hz force, engine, terrain contact and mission
+steps, rather than truncating the accumulated time or assigning a new pose.
+Recorded radio/callout playback receives the same selected rate.

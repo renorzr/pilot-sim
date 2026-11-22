@@ -1,0 +1,45 @@
+{
+  "revision": "inset-fit-4",
+  "artboard": {
+    "width": 1585,
+    "height": 992
+  },
+  "surface": {
+    "x": 392,
+    "y": 516,
+    "width": 858,
+    "height": 49
+  },
+  "aperture": {
+    "x": 418,
+    "y": 520,
+    "width": 804,
+    "height": 42
+  },
+  "targets": {
+    "x": 434,
+    "y": 529,
+    "width": 520,
+    "height": 24
+  },
+  "modes": {
+    "x": 977,
+    "y": 529,
+    "width": 230,
+    "height": 24
+  },
+  "lampErase": {
+    "x": 953,
+    "y": 514,
+    "width": 68,
+    "height": 40,
+    "sourceX": 1044,
+    "sourceY": 514
+  },
+  "interior": {
+    "x": 432,
+    "y": 528,
+    "width": 776,
+    "height": 25
+  }
+}

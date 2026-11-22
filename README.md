@@ -2,14 +2,59 @@
 
 **[Play online](https://renorzr.github.io/pilot-sim/) · [简体中文](README.zh-CN.md) · [MIT License](LICENSE)**
 
-An A320-inspired airliner game for the browser: a cockpit view, live instruments,
+An A320-inspired airliner game for the browser: cockpit and exterior views, live instruments,
 real-time 3D scenery, simplified flight physics and 13 progressively harder lessons.
 Switch the entire interface **and pilot/tower recordings** between Chinese and English.
 
 ![Cockpit, instruments and English radio captions](docs/images/cockpit.png)
 
-This is an entertainment prototype with fictional terrain and synthetic aircraft
-performance. It is not a certified simulator or a guide to operating a real aircraft.
+This is a browser flight game with synthetic aircraft performance. Training
+uses fictional terrain; the real airport scenes use public geography and simplified
+buildings/procedures. It is not a certified simulator or an aircraft operating guide.
+
+## Three stages
+
+- **Flight Training**: the existing 13 lessons and their saved scores.
+- **Airline Operations**: Six airports — Beijing Daxing, Hangzhou Xiaoshan, Singapore Changi, Osaka Kansai, New York Kennedy and Los Angeles — connected by 30 directional flights on an offline world map, plus 12 standalone airport practices.
+- **Historical Scenarios**: Coming Soon; not playable yet.
+
+Choose departure and destination on a Pacific-centred world map. Great-circle
+routes cross the date line correctly; route focus includes polar arcs. Flights
+start at a real stand with an airport aerial view and automatic crew preparation.
+Taxi manually or skip to the runway-external holding point; entry, lineup and
+takeoff still require separate clearances and manual control.
+
+| Airport | Code | Playable runway |
+| --- | --- | --- |
+| Beijing Daxing | ZBAD / PKX | 17L |
+| Hangzhou Xiaoshan | ZSHC / HGH | 07 |
+| Singapore Changi | WSSS / SIN | 02L |
+| Osaka Kansai | RJBB / KIX | 06R |
+| New York Kennedy | KJFK / JFK | 22R |
+| Los Angeles | KLAX / LAX | 25R |
+
+In a positive climb, retract the gear; above 500 ft select CL with L. Follow
+ND/FD along runway heading, then turn onto the destination route at the safe
+turn point. Stabilize at the displayed clearance altitude to unlock **Skip
+cruise**. After the destination showcase, arrive from the origin city direction
+at 210 kt, with gear up and flaps 0. Follow the arrival route to final, then arm
+APPR, configure and land. A go-around continues the same flight. Vacate at taxi
+speed and follow ground navigation to the assigned real stand, or choose
+**Skip remaining taxi** after clearing the runway. The crew handles shutdown;
+the flight ends on stand. AP1 is optional. Long cruise/most descent and optional
+taxi skips are explicit game transitions. Airport routes are simplified game
+procedures, not published SID/STAR or operational airport charts.
+
+Airport showcases play in both cockpit and exterior views. Standalone airport
+landing practice starts with a 10-second preview while flight physics stays
+paused. Pause or skip the preview, then return to your selected camera view.
+
+All six airports use real runway endpoints, OSM footprints and Mapzen/USGS terrain.
+Building detail and navigation procedures are simplified. Headings are true and
+altitudes are heights above the airport. Data keep their own licenses; see the
+[pack notes](game/src/airports/data/README.md) and
+[Xiaoshan data notes](game/src/airports/data/XIAOSHAN.md) and [Changi data notes](game/src/airports/data/CHANGI.md). Local source progress
+does not imply that the public game has been updated.
 
 ## Quick start
 
@@ -61,6 +106,8 @@ failed through a go-around and return.
 
 ## Controls
 
+Play in landscape. Portrait orientation pauses flight and shows a rotation prompt; return to landscape, then resume.
+
 | Input | Action |
 | --- | --- |
 | ↑ / ↓ | Push nose down / pull nose up |
@@ -77,6 +124,8 @@ failed through a go-around and return.
 | B / M | Arm ground spoilers / cycle autobrake |
 | C | Acknowledge a fault, then confirm the landing checklist |
 | V / Space | Reverse after touchdown / hold wheel brakes |
+| 1 / 2 | Cockpit / exterior view |
+| Drag empty scenery / wheel or pinch | Orbit camera / exterior camera distance |
 | P / H | Pause / help |
 | R / K | Restart whole lesson / retry phase |
 | X | 2× simulation above 1000 ft, outside a go-around |
@@ -84,8 +133,10 @@ failed through a go-around and return.
 Releasing the arrows centers the **stick**, not the aircraft attitude. Use
 opposite input to reduce bank. Pause, help and loss of focus clear held controls.
 
-## Cockpit, weather and sound
+## Aircraft views, weather and sound
 
+- **Exterior aircraft:** original animated airliner with actual gear, flaps, spoilers, steering, control surfaces and independent engines. Exterior view follows from behind with a level horizon by default; drag to orbit and double-click to return behind the tail, including while paused. View choice is saved.
+- **External instruments:** compact flight/engine/configuration data, the same physical controls, and optional live PFD/ND/FCU. Camera changes preserve the aircraft and mission.
 - **PFD / ND / ECAM / FCU:** live flight data, vertical speed, ILS deviations,
   engine N1, actual gear/flap positions, targets and autoflight controls.
 - **Shared terrain:** the displayed terrain also drives collision and terrain
@@ -115,7 +166,7 @@ npm run test:sites
 npm run preview -- --host 127.0.0.1 --port 4173
 ```
 
-The flight suite currently contains **166 tests**, including complete lesson
+The flight suite currently contains **357 tests**, including complete lesson
 flights, failure persistence, terrain, controls, communications and localization.
 The static hosting adapter has four additional tests.
 
@@ -127,19 +178,20 @@ covered in [Development](docs/DEVELOPMENT.md).
 The public playable site is hosted entirely on **GitHub Pages** at
 **https://renorzr.github.io/pilot-sim/**. Pushing `main` runs the Pages workflow:
 install, tests, a build using the project URL prefix, then deployment. Images,
-3D textures, both radio packs and the design gallery are served by GitHub.
+3D textures and both radio packs are served by GitHub.
 
 ## Project layout
 
 ```text
 game/src/                 React UI, Three.js world and Web Audio
+  aircraft/               Original animated airliner asset loader
+  views/                  Independent camera rig, terrain/building avoidance
   sim/                    Force-integrated aircraft, controls, engines and weather
   missions/               Lessons, circuit/return routes and completion criteria
   comms/                  Radio scripts, timing, playback, priority and ATC feedback
   i18n/                   Shared Chinese/English presentation layer
 game/tests/               Flight, hosting and localization tests + fixtures
-public/assets/            Runtime images and 145 speech clips (83 shared/ZH + 62 EN)
-public/designs/           Original generated design gallery
+public/assets/            Runtime images and 401 speech clips (211 shared/ZH + 190 EN)
 ops/                      Browser checks, speech generation and deployment helpers
 docs/                     Development guide and screenshots
 ```
@@ -152,6 +204,94 @@ or create thrust for failed engines.
 ## License and credits
 
 [MIT](LICENSE) © 2026 renorzr. Dependency notices are in
-[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md); generated image and speech
+[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md); original aircraft, generated image and speech
 provenance is documented in [ASSETS.md](ASSETS.md). This is an independent project
 and is not affiliated with Airbus or an airline.
+
+## Singapore Changi
+
+Fly Runway 02L from real T3 stand A16. The scene includes source-based terminal footprints, Jewel’s glass dome, the classic control tower, three runway strips and an island-aware coastline. Other runway strips are scenery. The short V / V9 / W8 departure keeps ground play compact. Airport procedures, clearances and the final lineup alignment are simplified game choices. See [Changi source notes](game/src/airports/data/CHANGI.md).
+
+## Global airport network
+
+Kansai adds its artificial airport islands and long silver terminal, Kennedy its
+terminal complex and Jamaica Bay coastline, and LAX its terminal area, Theme
+Building and Pacific coast. Each has an independently sourced DEM, real stand and
+curated ground route, two practices and 40 bilingual dialogue clips. See the
+[Kansai](game/src/airports/data/KANSAI.md), [JFK](game/src/airports/data/JFK.md) and
+[LAX](game/src/airports/data/LAX.md) data notes for source geometry, licenses and
+modelling estimates. All other runway strips remain scenery. The game uses a
+direct-distance cruise-time estimate and an explicit transition; fuel and
+long-haul range are not modelled.
+
+## Los Angeles city scenery
+
+LAX includes georeferenced USDA NAIP2022 orthophotos, Dockweiler beach,
+1,894,606 source buildings across the 60 km terrain, SoFi Stadium,
+Kia Forum and 14 original Downtown towers. Repeated nearby homes share
+flat/hip/gable templates with per-building dimensions, orientation and colours.
+Complex nearby buildings retain source outlines/courtyards; ordinary middle
+buildings share boxes, and distant low homes use source-derived district
+massing. Missing heights and architectural details use deterministic estimates.
+Nearby roofs share the terrain's bounded high-resolution NAIP cache.
+
+The 160.4 MiB building pack loads only at LAX. Its `buildings-v2.json` manifest
+records exact count, packed bytes,
+height provenance, spatial coverage and hashes. All middle/distant variants
+prepare before flight; detail warms 3.2 km around the camera in every direction.
+Prepared model objects/arrays persist until world disposal, so turns/revisits
+reuse them. Full source collision data remains resident independently of LOD.
+Regional imagery covers the terrain, with nineteen 2048² detail tiles.
+The terminal retains its curtain walls, roof services, jet bridges and shadows.
+The 2022 imagery and 2026 geometry have separate dates; this is a believable
+estimated scene, not a surveyed architectural model. See
+[city source notes](game/src/airports/data/LAX-CITY.md).
+
+## Hangzhou Xiaoshan city scenery
+
+Xiaoshan now includes781,740 source buildings across the60km terrain, with
+regional apartment/factory/village proportions, shared templates and persistent
+near/middle/distant model caches. Dated native10m Sentinel-2 imagery supplies
+ground colours, farmland and Qiantang River geography. The53.2MiB building pack
+and15.3MiB image levels are entirely self-hosted. Most building heights are
+programmatic estimates; the original07/stand251/terminal/DEM and scores remain.
+Airport-keyed source geometry feeds contact, camera rays and obstacle warnings.
+[Sources, dates and limitations](game/src/airports/data/XIAOSHAN-CITY.md).
+
+
+Xiaoshan revision 2 samples roof colours inside source footprints at native
+resolution, preserving blue/red panels. Conservative vegetation screening
+removes stale-looking EAB estimates; every retained footprint/frame/height is
+checked against v1. Native 10 m imagery remains a limit on individual roof detail.
+
+## Singapore Changi city scenery
+
+Changi adds 176,208 OSM source buildings across the 60 km terrain, including
+apartment estates, landed houses and logistics buildings. Source heights/floors
+take priority; missing values and facade colours use stable local estimates.
+Shared templates and persistent prepared models reduce repeated loading.
+The 13.7 MiB building pack loads only at Changi.
+
+The 12.3 MiB local imagery pack uses cloud-screened 2025–2026 Sentinel-2 RGB
+with 10 m native resolution, plus source coastline/island masks. It is a dated
+composite, not sub-metre aerial imagery. The original terminal/Jewel/tower plan,
+A16 departure and 02L remain intact, with glazed bridge detail and local shadows.
+[Source dates, interpretation and rebuilding](game/src/airports/data/CHANGI-CITY.md).
+
+## New York JFK city scenery
+
+Mapped-city airports persist processed building/contact arrays, prepared model
+arrays and visited imagery in browser IndexedDB. Later visits restore valid
+versions directly; unavailable storage falls back to ordinary loading. This
+reduces repeat downloads and CPU preparation while GPU uploads remain necessary.
+
+Large building packs are included as versioned data parts and automatically
+restored before tests/build. A fresh checkout needs no separate map downloads.
+
+JFK adds 1,759,833 source buildings across the 60 km terrain, including Queens
+housing, Brooklyn and Manhattan towers. Shared residential models, source
+heights and persistent prepared caches extend the existing city pipeline.
+The building download is 124.2 MiB. Local 2022 NAIP imagery totals 281.5 MiB:
+0.6 m native sources become approximately 1.4 m airport / 2.8 m regional detail.
+T4 roof services, rooflights and glazed bridges add original architectural detail.
+[Sources, resolution and rebuilding](game/src/airports/data/JFK-CITY.md).

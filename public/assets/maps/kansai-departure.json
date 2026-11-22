@@ -1,0 +1,631 @@
+{
+  "schemaVersion": 1,
+  "airportId": "kansai",
+  "runwayId": "06R",
+  "coordinateFrame": "Metres in the active 06R threshold tangent plane: x runway-right, z approach side, y above threshold; yaw0 follows06R(-z).",
+  "stand": {
+    "ref": "33",
+    "sourceId": "node/4961036074",
+    "sourceLeadInId": "way/506332718",
+    "longitude": 135.2380042,
+    "latitude": 34.4289727,
+    "x": -481.655,
+    "z": -1437.432,
+    "yaw": -0.5581382347684025,
+    "headingDegLocal": -31.979,
+    "headingDegTrue": 19.361,
+    "nose": {
+      "x": -489.599,
+      "z": -1450.155
+    },
+    "cgSetbackM": 15,
+    "note": "Real source parking node33 anchors the nose. CG is a15m visual setback along the mapped lead-in, not a published stand-stop reference."
+  },
+  "handoff": {
+    "x": -442.912,
+    "z": -1340.717,
+    "yaw": 1.5664836230260468,
+    "sourceId": "way/506247477",
+    "note": "Automatic push/start/reposition ends stationary on actual taxiwayR, about35m beyond the apron-side end of source stand33 lead-in. Unmapped apron movement is explicitly abstracted; no tug is simulated."
+  },
+  "taxiPoints": [
+    {
+      "x": -442.912,
+      "z": -1340.717,
+      "sourceId": "way/506247477",
+      "name": "R",
+      "kind": "source-vertex"
+    },
+    {
+      "x": -434.919,
+      "z": -1340.752,
+      "sourceId": "way/506247477",
+      "name": "R",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -428.262,
+      "z": -1340.78,
+      "sourceId": "way/506247477",
+      "name": "R",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -387.355,
+      "z": -1340.957,
+      "sourceId": "way/506247477",
+      "name": "R",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -335.323,
+      "z": -1341.185,
+      "sourceId": "way/506363521",
+      "name": "E9",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -315.449,
+      "z": -1328.214,
+      "sourceId": "way/506247575",
+      "name": "TAXI",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -310.264,
+      "z": -1323.666,
+      "sourceId": "way/506247576",
+      "name": "TAXI",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -305.673,
+      "z": -1318.534,
+      "sourceId": "way/506247576",
+      "name": "TAXI",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -301.711,
+      "z": -1312.884,
+      "sourceId": "way/506247576",
+      "name": "TAXI",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -298.457,
+      "z": -1306.811,
+      "sourceId": "way/506247576",
+      "name": "TAXI",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -295.955,
+      "z": -1300.388,
+      "sourceId": "way/506247576",
+      "name": "TAXI",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -294.231,
+      "z": -1293.704,
+      "sourceId": "way/506247576",
+      "name": "TAXI",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -293.321,
+      "z": -1286.883,
+      "sourceId": "way/506363546",
+      "name": "L",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -292.097,
+      "z": -1135.373,
+      "sourceId": "way/506363546",
+      "name": "L",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -291.194,
+      "z": -1129.159,
+      "sourceId": "way/506363546",
+      "name": "L",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -292.71,
+      "z": -1128.137,
+      "sourceId": "way/506363546",
+      "name": "L",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -291.643,
+      "z": -1078.818,
+      "sourceId": "way/506363546",
+      "name": "L",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -291.238,
+      "z": -1028.619,
+      "sourceId": "way/506363546",
+      "name": "L",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -289.142,
+      "z": -1023.096,
+      "sourceId": "way/506247609",
+      "name": "TAXI",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -287.185,
+      "z": -1017.72,
+      "sourceId": "way/506247609",
+      "name": "TAXI",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -284.764,
+      "z": -1012.549,
+      "sourceId": "way/506247609",
+      "name": "TAXI",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -281.876,
+      "z": -1007.605,
+      "sourceId": "way/506247609",
+      "name": "TAXI",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -278.569,
+      "z": -1002.936,
+      "sourceId": "way/506247609",
+      "name": "TAXI",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -274.859,
+      "z": -998.592,
+      "sourceId": "way/506247609",
+      "name": "TAXI",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -270.773,
+      "z": -994.594,
+      "sourceId": "way/506247609",
+      "name": "TAXI",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -266.339,
+      "z": -990.977,
+      "sourceId": "way/506247609",
+      "name": "TAXI",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -261.608,
+      "z": -987.767,
+      "sourceId": "way/506247609",
+      "name": "TAXI",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -256.607,
+      "z": -985.002,
+      "sourceId": "way/506247609",
+      "name": "TAXI",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -251.375,
+      "z": -982.686,
+      "sourceId": "way/506247609",
+      "name": "TAXI",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -245.96,
+      "z": -980.847,
+      "sourceId": "way/506247609",
+      "name": "TAXI",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -240.4,
+      "z": -979.492,
+      "sourceId": "way/506247609",
+      "name": "TAXI",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -233.872,
+      "z": -977.691,
+      "sourceId": "way/172651079",
+      "name": "TAXI",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -227.522,
+      "z": -975.328,
+      "sourceId": "way/172651079",
+      "name": "TAXI",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -221.467,
+      "z": -972.295,
+      "sourceId": "way/172651079",
+      "name": "TAXI",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -215.778,
+      "z": -968.626,
+      "sourceId": "way/172651079",
+      "name": "TAXI",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -210.518,
+      "z": -964.347,
+      "sourceId": "way/172651079",
+      "name": "TAXI",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -205.761,
+      "z": -959.53,
+      "sourceId": "way/172651079",
+      "name": "TAXI",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -201.553,
+      "z": -954.223,
+      "sourceId": "way/172651079",
+      "name": "TAXI",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -197.943,
+      "z": -948.489,
+      "sourceId": "way/172651079",
+      "name": "TAXI",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -194.975,
+      "z": -942.399,
+      "sourceId": "way/172651079",
+      "name": "TAXI",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -192.693,
+      "z": -936.021,
+      "sourceId": "way/172651079",
+      "name": "TAXI",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -191.105,
+      "z": -929.435,
+      "sourceId": "way/172651079",
+      "name": "TAXI",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -190.284,
+      "z": -922.71,
+      "sourceId": "way/506363551",
+      "name": "P",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -188.422,
+      "z": -690.835,
+      "sourceId": "way/506363551",
+      "name": "P",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -187.502,
+      "z": -684.054,
+      "sourceId": "way/506363551",
+      "name": "P",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -187.463,
+      "z": -571.805,
+      "sourceId": "way/506363551",
+      "name": "P",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -187.104,
+      "z": -527.304,
+      "sourceId": "way/89502399",
+      "name": "P",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -187.021,
+      "z": -516.979,
+      "sourceId": "way/89502399",
+      "name": "P",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -186.929,
+      "z": -505.557,
+      "sourceId": "way/89502399",
+      "name": "P",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -186.59,
+      "z": -463.416,
+      "sourceId": "way/89502399",
+      "name": "P",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -184.37,
+      "z": -187.647,
+      "sourceId": "way/89502399",
+      "name": "P",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -183.205,
+      "z": -180.589,
+      "sourceId": "way/506247634",
+      "name": "TAXI",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -181.237,
+      "z": -173.711,
+      "sourceId": "way/506247634",
+      "name": "TAXI",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -178.506,
+      "z": -167.093,
+      "sourceId": "way/506247634",
+      "name": "TAXI",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -175.041,
+      "z": -160.839,
+      "sourceId": "way/506247634",
+      "name": "TAXI",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -170.879,
+      "z": -155.029,
+      "sourceId": "way/506247634",
+      "name": "TAXI",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -166.077,
+      "z": -149.716,
+      "sourceId": "way/506247634",
+      "name": "TAXI",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -160.702,
+      "z": -144.994,
+      "sourceId": "way/506247634",
+      "name": "TAXI",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -154.827,
+      "z": -140.916,
+      "sourceId": "way/506247634",
+      "name": "TAXI",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -148.524,
+      "z": -137.532,
+      "sourceId": "way/506247634",
+      "name": "TAXI",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -141.879,
+      "z": -134.897,
+      "sourceId": "way/506247634",
+      "name": "TAXI",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -134.975,
+      "z": -133.031,
+      "sourceId": "way/506247634",
+      "name": "TAXI",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -127.899,
+      "z": -131.968,
+      "sourceId": "way/506247634",
+      "name": "TAXI",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -110.0,
+      "z": -132.069,
+      "sourceId": "way/506247592",
+      "name": "06R HOLD",
+      "kind": "game-holding-point"
+    }
+  ],
+  "hold": {
+    "x": -110.0,
+    "z": -132.069,
+    "yaw": 1.5651866641833698,
+    "sourceId": "way/506247592",
+    "isPublishedHoldingPosition": false,
+    "note": "Game CG stop on actual A13 outside the runway protected strip. Neither a current charted stop reference nor live clearance is claimed."
+  },
+  "entryPoints": [
+    {
+      "x": -110.0,
+      "z": -132.069,
+      "sourceId": "way/506247592",
+      "name": "06R HOLD",
+      "kind": "game-holding-point"
+    },
+    {
+      "x": -75.2,
+      "z": -132.264,
+      "sourceId": "way/506247592",
+      "name": "A13",
+      "kind": "source-vertex"
+    },
+    {
+      "x": -50.0,
+      "z": -132.416,
+      "sourceId": "way/506247592",
+      "name": "A13",
+      "kind": "source-vertex"
+    },
+    {
+      "x": -40.246,
+      "z": -133.377,
+      "sourceId": "OurAirports:06R/24L",
+      "name": "06R",
+      "kind": "game-lineup-arc"
+    },
+    {
+      "x": -30.866,
+      "z": -136.222,
+      "sourceId": "OurAirports:06R/24L",
+      "name": "06R",
+      "kind": "game-lineup-arc"
+    },
+    {
+      "x": -22.222,
+      "z": -140.843,
+      "sourceId": "OurAirports:06R/24L",
+      "name": "06R",
+      "kind": "game-lineup-arc"
+    },
+    {
+      "x": -14.645,
+      "z": -147.061,
+      "sourceId": "OurAirports:06R/24L",
+      "name": "06R",
+      "kind": "game-lineup-arc"
+    },
+    {
+      "x": -8.427,
+      "z": -154.638,
+      "sourceId": "OurAirports:06R/24L",
+      "name": "06R",
+      "kind": "game-lineup-arc"
+    },
+    {
+      "x": -3.806,
+      "z": -163.282,
+      "sourceId": "OurAirports:06R/24L",
+      "name": "06R",
+      "kind": "game-lineup-arc"
+    },
+    {
+      "x": -0.961,
+      "z": -172.662,
+      "sourceId": "OurAirports:06R/24L",
+      "name": "06R",
+      "kind": "game-lineup-arc"
+    },
+    {
+      "x": 0,
+      "z": -182.416,
+      "sourceId": "OurAirports:06R/24L",
+      "name": "06R",
+      "kind": "game-lineup-arc"
+    },
+    {
+      "x": 0,
+      "z": -232.416,
+      "sourceId": "OurAirports:06R/24L",
+      "name": "06R",
+      "kind": "runway-centerline"
+    }
+  ],
+  "lineup": {
+    "x": 0,
+    "z": -232.416,
+    "yaw": 0,
+    "sourceId": "OurAirports:06R/24L",
+    "remainingRunwayM": 3295.548,
+    "note": "Manual game alignment target on the threshold-derived centerline; source A13 is followed then a synthetic50m-radiusalignment arc and50m straight allow steering to settle."
+  },
+  "taxiDistanceM": 1433.43,
+  "entryDistanceM": 188.414,
+  "routeReferences": [
+    "33",
+    "R",
+    "E9",
+    "L",
+    "P",
+    "06R HOLD",
+    "A13",
+    "06R"
+  ],
+  "sourceFeatureIds": [
+    "node/4961036074",
+    "way/506332718",
+    "way/506247477",
+    "way/506363521",
+    "way/506247575",
+    "way/506247576",
+    "way/506363546",
+    "way/506247609",
+    "way/172651079",
+    "way/506363551",
+    "way/89502399",
+    "way/506247634",
+    "way/506247592"
+  ],
+  "sources": [
+    {
+      "name": "OpenStreetMap contributors",
+      "license": "ODbL-1.0",
+      "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
+      "dataFile": "kansai.json",
+      "dataFetchedAt": "2026-11-21T11:17:01.256846+00:00"
+    },
+    {
+      "name": "OurAirports",
+      "license": "Unlicense / public domain",
+      "dataFile": "kansai.json"
+    }
+  ],
+  "notes": [
+    "Stand33 at Terminal1 is a real parking_position node; the mapped lead-in is preserved as provenance.",
+    "Automatic crew preparation abstracts pushback/start and the35m unmarked-apron continuation to sourceR. Manual taxi uses only connected source taxiways.",
+    "The OurAirports active runway axis is about13m offset from the local OSM runway centerline. A13 is followed to x=-50 then an explicit synthetic alignment arc joins the game runway.",
+    "Ground routing, external holding and separate entry/takeoff clearances are game choices, not current published taxi or instrument procedures.",
+    "Optionaltaxi skip stops stationary outside the runway; lineup and takeoff remain manual and separately cleared."
+  ]
+}

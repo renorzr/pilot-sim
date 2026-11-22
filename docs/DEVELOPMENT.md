@@ -121,7 +121,7 @@ It installs dependencies, runs flight tests, builds with the base path reported
 by `actions/configure-pages`, checks the hosting adapter and uploads only
 `game/dist/client/`. The repository's Pages source is GitHub Actions.
 
-Runtime images, Three.js textures, radio recordings and the gallery link use
+Runtime images, Three.js textures and radio recordings use
 the same base URL. To build locally for a project subpath:
 
 ```bash
@@ -141,7 +141,7 @@ bash ops/publish-game.sh
 ```
 
 It runs flight tests, builds the application, copies assets and replaces
-`public/index.html` last. It preserves `public/designs/`. Serve `public/` through
+`public/index.html` last. Serve `public/` through
 your own HTTP server after publishing, or deploy `game/dist/client/` directly.
 
 For a reviewed staged voice pack, supply the directory containing `radio/`
@@ -158,3 +158,108 @@ bash ops/publish-game.sh --radio-stage qa/radio-stage
 demo host. Adjust their absolute paths, account, ports and domain before using
 them on another machine. The repository does not provision DNS, certificates,
 reverse proxies or a running service automatically.
+
+
+Changi uses the same mapped-city loader and persistent model templates as
+LAX/Xiaoshan. Runtime outputs are included; normal builds verify their hashes
+with `ops/check-changi-city-data.mjs` and need no Python or network. Optional
+acquisition, cloud screening, extraction and packing are documented in
+[Changi city notes](../game/src/airports/data/CHANGI-CITY.md). Browser inspection
+uses `ops/check-changi-city-scenes.mjs` (independent render cameras) and
+`ops/check-changi-city-game.mjs` (real UI/keyboard/pointer actions, external
+requests blocked). Both accept a local base URL and `PILOT_CDP_URL`. Keep
+local preview publication separate from any GitHub release.
+
+
+Xiaoshan appearance revision 2 uses `ops/city_roof_sampling.py` for native RGB
+footprint sampling and conservative EAB-only vegetation screening. Optional
+`--from-candidates` replays the preserved candidate stage without source downloads.
+`ops/check-xiaoshan-appearance.mjs` compares every retained building to the v1
+pack, including source rings, frames and physical heights. Keep both versioned
+packs so cached old previews stay usable. Independent planar registration can
+be inspected with `ops/check-xiaoshan-alignment.py`; visual scene checks include
+the `village` and `industry` shots and `PILOT_SCENE_PREFIX` for before/after files.
+
+JFK uses the same loader with NY/NJ OSM footprints and self-hosted NAIP 2022.
+Included output hashes are checked by `ops/check-jfk-city-data.mjs` during the
+normal offline build. Optional acquisition, source-context extraction, spatially
+bucketed roof sampling and packing are documented in
+[JFK city notes](../game/src/airports/data/JFK-CITY.md). The optional C sampler
+retains the Python algorithm; `ops/check-jfk-roof-sampling.py` compares real
+footprints. Source caches belong outside the checkout. Use
+`ops/check-jfk-city-scenes.mjs` for independent cameras and
+`ops/check-jfk-city-game.mjs` for real UI/keyboard/pointer checks. Both accept
+a local URL and `PILOT_CDP_URL`; browser checks block external requests.
+
+Airport loading feedback uses `src/loading-progress.js` to combine concurrent
+scene/aircraft work and mapped-city phases. Streamed building bytes, incremental
+source indexing and prepared model counts drive the display; weights describe
+work rather than estimated time. Progress stays below 100 until accepted-world
+readiness. Browser-inflated responses omit the compressed-size denominator.
+Disposed loads stop reporting, and source decoding yields between batches.
+`tests/loading-progress.test.mjs` covers source-format equivalence, streaming,
+cancellation, model preparation and readiness gating. With a local browser CDP,
+`ops/check-airport-loading.mjs` checks throttled downloads, both languages,
+switching away from an active load and an intentionally blocked transfer.
+The recorded browser run captured 597 JFK loading samples with every phase
+present, no progress regression, no flight-time advancement and no premature
+Start activation. Switching to Kansai reset progress and a blocked Changi
+transfer displayed the translated failure state. Evidence is saved in
+`qa/airport-loading-browser.json` and `qa/airport-loading-*.png`.
+
+Processed mapped-city data now persists in the browser's origin-scoped
+`pilot-sim-city-cache` IndexedDB database. `city-persistent-cache.js` stores
+decoded source headers, world-coordinate points and compact contact-index arrays
+in 4 MiB chunks, publishing their descriptor only after all writes commit.
+`dense-city-data.js` restores the source/contact accessors directly from these
+arrays. `city-model-cache.js` stores finished per-chunk/LOD geometry and instance
+arrays; shared template vertices, live materials, callbacks and GPU objects are
+recreated. Previously visited near variants are also saved. Used compressed
+images and small version manifests share the cache; manifests are checked online
+and can fall back to the last saved copy when unavailable.
+
+Source hashes, architecture and explicit source/model schema revisions determine
+cache identity. Bump the model revision when changing templates, facade colours,
+triangulation or serialization; bump the source revision for coordinate/index
+rules. Corrupt records rebuild independently. Old airport generations are
+pruned after the replacement prepares successfully. Storage denial, insufficient
+quota and interrupted writes fall back to ordinary online preparation and never
+change flight contacts, scores or geographic coverage. The progress UI reports
+local read/save phases; GPU residency remains bounded independently.
+
+`tests/city-persistent-cache.test.mjs` checks source/contact equivalence, model
+round trips, corruption, version isolation and unavailable storage. With a
+dedicated CDP browser, `ops/check-city-persistent-cache.mjs` checks cold/warm JFK
+in separate pages with HTTP cache disabled, blocks large files on the warm pass,
+repairs one damaged model and exercises storage denial. Its partial-write checks
+import the pure storage module from the existing local Vite server on 18083.
+
+Recorded local JFK preparation took 33.23 s cold and 18.09 s warm (both pages
+used disabled HTTP cache). The warm page restored all 1,412 prepared variants,
+built zero models, skipped source download/decompression/indexing and made zero
+large city-file requests while those URLs were blocked. Damaging one model
+rebuilt only that model. Real IndexedDB quota failure and cancellation tests
+left partial source writes unpublished; denied storage still loaded Changi.
+These timings describe this browser/environment, not a general performance
+guarantee. Evidence: `qa/city-persistent-cache-browser.json` and
+`qa/city-cache-warm-zh.png`. Native regression passed 342 tests and static
+hosting passed four tests.
+
+Large runtime databases are distributed in checked-in 32 MiB parts under
+`ops/assets/large-files/`; `ops/assets/large-files.json` records each part and
+assembled SHA-256. `npm run test:flight` and `npm run build` restore missing
+files before use. Their runtime URLs and bytes are unchanged, and the browser
+still downloads the ordinary gzip file. The parts stay outside `public/` so
+they do not duplicate the deployed site. A normal checkout needs no Git LFS,
+Python, source-data downloads or local QA folder to test and build.
+
+After intentionally rebuilding a registered database, run
+`node ops/large-assets.mjs pack` before committing. To register an additional
+large file, append its project-relative path to that command; existing entries
+are retained. Restoration rejects local mismatched files instead of silently
+overwriting new work. Partial or corrupt part sets never publish runtime files.
+
+The accumulated release was verified from a clean staged checkout without the
+local QA folder: all four large databases restored with original hashes, 357
+flight tests and four hosting tests passed, and a `/pilot-sim/` Pages build
+produced an approximately 836.5 MiB site. Repository blobs remain at most 32 MiB.

@@ -1,8 +1,11 @@
+import {groundActive,groundRoute,departureOf,remainingTaxiDistance} from './missions/ground.js';
+import {airlineNavigationActive,airlineTarget} from './missions/airline-navigation.js';
 import {terrainRadioAltitude} from './terrain/heightfield.js';
 import {glideInfo} from './missions/expanded.js';
 import {windReadout} from './sim/weather.js';
 import { useEffect, useRef } from 'react';
 import {t} from './i18n/index.js';
+import {runwayOf,runwayHeading} from './airports/registry.js';
 import {useLanguage} from './i18n/hooks.js';
 import {clamp,FLAPS,FLAP_LIMITS,KT,FT,NM,radioAltitude,targetSpeed,minimumSelectableSpeed} from './flight.js';
 const DEG=180/Math.PI;
@@ -85,22 +88,25 @@ function pfd(c,s,w,h) {
   text(c,s.mode==='takeoff'?'VR 125':'VAPP '+s.vapp,left+5,top+14,11,'#79d3f6');
 }
 function heading(c,s,w,h) {
+  if(groundActive(s)){groundNavigation(c,s,w,h);return;}
   c.fillStyle='#080f16';c.fillRect(0,0,w,h);
-  text(c,s.route?.active?'导航 · 训练航线':s.mission?.kind==='dual-glide'?'导航 · 滑翔':'导航 · ILS 27',12,22,15);text(c,String(Math.round((270+s.yaw*DEG+360)%360)).padStart(3,'0')+'°',w-12,22,17,green,'right');
-  const cx=w/2,py=243,range=s.route?.active?12:s.z/NM>5?12:5,scale=190/range;
+  const runway=runwayOf(s),airlineNav=airlineNavigationActive(s)?s.airline.navigation:null;
+  text(c,airlineNav?'导航 · 航班航路':s.route?.active?'导航 · 训练航线':s.mission?.kind==='dual-glide'?'导航 · 滑翔':`导航 · ILS ${runway.id}`,12,22,15);text(c,String(Math.round((runwayHeading(s)+s.yaw*DEG+360)%360)).padStart(3,'0')+'°',w-12,22,17,green,'right');
+  const cx=w/2,py=243,range=airlineNav?20:s.route?.active?12:s.z/NM>5?12:5,scale=190/range;
   function map(x,z){const dx=x-s.x,dz=s.z-z;return[cx+(dx*Math.cos(s.yaw)-dz*Math.sin(s.yaw))/NM*scale,py-(dx*Math.sin(s.yaw)+dz*Math.cos(s.yaw))/NM*scale];}
   c.save();c.beginPath();c.rect(8,45,w-16,218);c.clip();
   for(const r of [95,190]){c.beginPath();c.strokeStyle='#30414d';c.lineWidth=1;c.arc(cx,py,r,Math.PI,Math.PI*2);c.stroke();}
   for(const x of [cx-70,cx,cx+70])line(c,x,48,x,258,'#172b37');
   c.setLineDash([5,4]);const from=map(0,24000),to=map(0,0);line(c,...from,...to,s.locCaptured?'#84d993':'#d785de',1.5);c.setLineDash([]);
-  const rw0=map(0,0),rw1=map(0,-2600);line(c,...rw0,...rw1,white,5);text(c,'RW27',rw0[0]+10,rw0[1],12,white);
+  const rw0=map(0,0),rw1=map(0,-runway.length);line(c,...rw0,...rw1,white,5);text(c,'RW'+runway.id,rw0[0]+10,rw0[1],12,white);
   for(const[z,label]of [[18000,'IF'],[10000,'FAP'],[3700,'2 NM']]){const p=map(0,z);polygon(c,[[p[0],p[1]-4],[p[0]+4,p[1]],[p[0],p[1]+4],[p[0]-4,p[1]]],'#cf8bdb');text(c,label,p[0]+9,p[1],10,muted);}
   if(s.route?.active){const points=[s.route.origin,...s.route.points];for(let i=0;i<points.length-1;i++){line(c,...map(points[i].x,points[i].z),...map(points[i+1].x,points[i+1].z),i<s.route.index?'#7de862':i===s.route.index?'#79d3f6':'#687d91',2);const p=map(points[i+1].x,points[i+1].z);text(c,String(i+1),p[0]+6,p[1],11,'#79d3f6');}}
+  if(airlineNav){const ps=[airlineNav.origin,...airlineNav.points];for(let i=1;i<ps.length;i++){line(c,...map(ps[i-1].x,ps[i-1].z),...map(ps[i].x,ps[i].z),i-1<airlineNav.index?'#7de862':i-1===airlineNav.index?'#79d3f6':'#687d91',2);const p=map(ps[i].x,ps[i].z);text(c,String(i),p[0]+6,p[1],11,'#79d3f6');}}
   if(s.goAround){const p=map(s.x+Math.sin(s.goAroundHeading)*8000,s.z-Math.cos(s.goAroundHeading)*8000);c.setLineDash([5,3]);line(c,cx,py,...p,'#79d3f6',2);c.setLineDash([]);}
   polygon(c,[[cx,py-13],[cx-9,py+8],[cx,py+3],[cx+9,py+8]],yellow);
   c.restore();text(c,range+' NM',14,60,11,muted);
   text(c,'GS '+Math.round(s.airData.groundSpeed*KT)+' / TAS '+Math.round(s.airData.tas*KT),w-12,60,10,white,'right');
-  const localWind=windReadout(s.airData.wind);
+  const localWind=windReadout(s.airData.wind,runwayHeading(s));
   text(c,'WIND '+Math.round(localWind.directionDeg)+'° / '+Math.round(localWind.speedKt)+' KT',w-12,77,10,s.airData.disturbanceStrength>.045?'#ffbf78':muted,'right');
   if(Math.abs(localWind.verticalFpm)>30)text(c,'W/V '+Math.round(localWind.verticalFpm)+' FT/MIN',w-12,93,10,'#ffbf78','right');
   const drift=s.airData.groundTrack-s.yaw;line(c,cx,py,cx+Math.sin(drift)*35,py-Math.cos(drift)*35,'#79d3f6',1);
@@ -108,8 +114,26 @@ function heading(c,s,w,h) {
   text(c,'DIST',14,289,10,muted);text(c,s.z>0?(s.z/NM).toFixed(1)+' NM':s.landed?'滑跑':'跑道上空',w-14,289,16,green,'right');
   if(s.terrain?.level)text(c,'TERR '+Math.round(s.terrain.clearanceFt)+' FT / '+(s.terrain.timeToImpact?`${s.terrain.timeToImpact} S`:'AHEAD'),14,309,12,s.terrain.level===2?'#ff7368':'#ffce85');
   else if(s.mission?.kind==='dual-glide'){const reach=glideInfo(s);text(c,'估算可达 '+(reach.range/1000).toFixed(1)+' km',14,309,11,reach.margin>=0?green:'#ffbf78');}
+  else if(airlineNav){const t=airlineTarget(s);text(c,`${t.name} / ${Math.round(t.altitude)} FT`,14,309,10,'#79d3f6');}
   else if(s.route?.active)text(c,`${s.route.points[s.route.index].name} / ${Math.round(s.route.targetAltitude)} FT`,14,309,10,'#79d3f6');
   else{ text(c,s.systems.ils.localizer?'LOC '+s.locDeviation.toFixed(2):'LOC --',14,309,10,Math.abs(s.locDeviation)<.4?green:'#ffbf78');text(c,s.systems.ils.glideSlope?'G/S '+s.glideDeviation.toFixed(2):'G/S --',w-14,309,10,Math.abs(s.glideDeviation)<.6?green:'#ffbf78','right');}
+}
+function groundNavigation(c,s,w,h){
+  c.fillStyle='#080f16';c.fillRect(0,0,w,h);
+  const DEPARTURE=departureOf(s),rw=runwayOf(s).id,g=s.ground,entry=['lineup','takeoff-clearance'].includes(g.stage),range=entry?300:600,cx=w/2,py=242,scale=185/range;
+  text(c,'TAXI / '+rw,12,22,15);text(c,String(Math.round((runwayHeading(s)+s.yaw*DEG+360)%360)).padStart(3,'0')+'°',w-12,22,17,green,'right');
+  text(c,'GS '+(s.airData.groundSpeed*KT).toFixed(1)+' KT',12,53,14,green);text(c,range+' M',w-12,53,11,muted,'right');
+  const map=p=>{const dx=p.x-s.x,dz=s.z-p.z;return[cx+(dx*Math.cos(s.yaw)-dz*Math.sin(s.yaw))*scale,py-(dx*Math.sin(s.yaw)+dz*Math.cos(s.yaw))*scale];};
+  c.save();c.beginPath();c.rect(8,75,w-16,187);c.clip();
+  for(const r of[90,180]){c.beginPath();c.strokeStyle='#30414d';c.arc(cx,py,r,Math.PI,Math.PI*2);c.stroke();}
+  line(c,...map({x:0,z:100}),...map({x:0,z:-3810}),muted,9);
+  const points=groundRoute(s);for(let i=1;i<points.length;i++)line(c,...map(points[i-1]),...map(points[i]),'#e7c26b',3);
+  const hold=map(g.arrival?g.stop:DEPARTURE.hold);c.strokeStyle=g.arrival||g.entryCleared?green:'#f19c7d';c.lineWidth=3;c.beginPath();c.arc(...hold,6,0,Math.PI*2);c.stroke();text(c,g.arrival?g.stand:'HOLD',hold[0]+10,hold[1],10,white);
+  if(entry){const p=map(DEPARTURE.lineup);line(c,p[0]-7,p[1],p[0]+7,p[1],green,3);text(c,rw,p[0]+9,p[1],11,green);}
+  polygon(c,[[cx,py-13],[cx-9,py+8],[cx,py+3],[cx+9,py+8]],yellow);c.restore();
+  line(c,12,271,w-12,271,'#2c3b47');text(c,g.arrival?'TAXI TO STAND':entry?'LINE UP':'HOLD SHORT',12,289,12,g.arrival||g.entryCleared?green:'#ffbf78');
+  const distance=entry?Math.hypot(s.x-DEPARTURE.lineup.x,s.z-DEPARTURE.lineup.z):remainingTaxiDistance(s);text(c,Math.round(distance)+' M',w-12,289,14,green,'right');
+  text(c,g.arrival?g.runwayVacated?'RUNWAY VACATED':'VACATE VIA '+g.exit:g.entryCleared?'ENTRY CLEARED':'HOLD SHORT OF '+rw,12,309,10,g.arrival||g.entryCleared?green:'#ffbf78');
 }
 function engine(c,s,w,h) {
   c.fillStyle='#080f16';c.fillRect(0,0,w,h);text(c,'发动机 / 构型',w/2,20,16,white,'center');
@@ -130,7 +154,7 @@ function engine(c,s,w,h) {
 export function Instruments({state}) {
   return <>
     <Canvas className="instrument pfd" label={`主飞行仪表：空速 ${Math.round(state.speed*1.94384)} 节，高度 ${Math.round((state.y-2.8)*3.28084)} 英尺`} width={514} height={316} state={state} draw={pfd}/>
-    <Canvas className="instrument heading-display" label={`航向 ${Math.round((270+state.yaw*DEG+360)%360)} 度`} width={256} height={316} state={state} draw={heading}/>
+    <Canvas className="instrument heading-display" label={`航向 ${Math.round((runwayHeading(state)+state.yaw*DEG+360)%360)} 度`} width={256} height={316} state={state} draw={heading}/>
     <Canvas className="instrument engine-display" label={`发动机推力 ${Math.round(state.thrust*100)}%，起落架${state.gear?'放下':'收起'}`} width={259} height={316} state={state} draw={engine}/>
   </>;
 }

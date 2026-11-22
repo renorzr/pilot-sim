@@ -1,0 +1,253 @@
+{
+  "zh": {
+    "preparation": [
+      [
+        "pilot",
+        "樟宜地面，云际三二零，阿尔法一六机位，请求推出开车。"
+      ],
+      [
+        "tower",
+        "云际三二零，同意推出开车，完成后报告。"
+      ]
+    ],
+    "taxi": [
+      [
+        "tower",
+        "云际三二零，沿指示路线滑行至零二左跑道外等待。"
+      ],
+      [
+        "pilot",
+        "沿指示路线滑行，零二左跑道外等待，云际三二零。"
+      ]
+    ],
+    "holding": [
+      [
+        "pilot",
+        "云际三二零，零二左跑道外等待点，已停稳。"
+      ],
+      [
+        "tower",
+        "云际三二零，联系塔台，继续跑道外等待。"
+      ]
+    ],
+    "lineup": [
+      [
+        "tower",
+        "云际三二零，零二左，进跑道等待。"
+      ],
+      [
+        "pilot",
+        "零二左，进跑道等待，云际三二零。"
+      ]
+    ],
+    "ground-speed": [
+      [
+        "tower",
+        "云际三二零，滑行速度过快，减速。"
+      ],
+      [
+        "pilot",
+        "减速滑行，云际三二零。"
+      ]
+    ],
+    "ground-stop": [
+      [
+        "tower",
+        "云际三二零，尚未许可进入跑道，立即停住。"
+      ],
+      [
+        "pilot",
+        "收到，立即停止，云际三二零。"
+      ]
+    ],
+    "takeoff": [
+      [
+        "tower",
+        "云际三二零，樟宜塔台，跑道零二左，可以起飞。"
+      ],
+      [
+        "pilot",
+        "跑道零二左，可以起飞，云际三二零。"
+      ]
+    ],
+    "approach": [
+      [
+        "pilot",
+        "樟宜塔台，云际三二零，进近零二左。"
+      ],
+      [
+        "tower",
+        "云际三二零，樟宜塔台，继续进近零二左，检查速度和构型。"
+      ]
+    ],
+    "reapproach": [
+      [
+        "tower",
+        "云际三二零，按导航左转返场，准备再次进近零二左。"
+      ],
+      [
+        "pilot",
+        "左转返场，准备再次进近零二左，云际三二零。"
+      ]
+    ],
+    "final": [
+      [
+        "pilot",
+        "樟宜塔台，云际三二零，零二左五边。"
+      ],
+      [
+        "tower",
+        "云际三二零，跑道零二左，可以着陆。"
+      ]
+    ]
+  },
+  "en": {
+    "preparation": [
+      [
+        "pilot",
+        "Changi Ground, Skyline three two zero, stand Alpha one six. Request pushback and start."
+      ],
+      [
+        "tower",
+        "Skyline three two zero, pushback and start approved. Report when ready."
+      ]
+    ],
+    "taxi": [
+      [
+        "tower",
+        "Skyline three two zero, taxi via the marked route. Hold short of runway zero two left."
+      ],
+      [
+        "pilot",
+        "Taxi via the marked route. Hold short of zero two left, Skyline three two zero."
+      ]
+    ],
+    "holding": [
+      [
+        "pilot",
+        "Skyline three two zero, stopped at the holding point, runway zero two left."
+      ],
+      [
+        "tower",
+        "Skyline three two zero, contact Tower. Continue holding short."
+      ]
+    ],
+    "lineup": [
+      [
+        "tower",
+        "Skyline three two zero, runway zero two left, line up and wait."
+      ],
+      [
+        "pilot",
+        "Zero two left, line up and wait, Skyline three two zero."
+      ]
+    ],
+    "ground-speed": [
+      [
+        "tower",
+        "Skyline three two zero, taxi speed excessive. Reduce speed."
+      ],
+      [
+        "pilot",
+        "Reducing taxi speed, Skyline three two zero."
+      ]
+    ],
+    "ground-stop": [
+      [
+        "tower",
+        "Skyline three two zero, not cleared to enter the runway. Stop immediately."
+      ],
+      [
+        "pilot",
+        "Stopping immediately, Skyline three two zero."
+      ]
+    ],
+    "takeoff": [
+      [
+        "tower",
+        "Skyline three two zero, Changi Tower. Runway zero two left, cleared for takeoff."
+      ],
+      [
+        "pilot",
+        "Runway zero two left, cleared for takeoff, Skyline three two zero."
+      ]
+    ],
+    "approach": [
+      [
+        "pilot",
+        "Changi Tower, Skyline three two zero, approaching runway zero two left."
+      ],
+      [
+        "tower",
+        "Skyline three two zero, Changi Tower. Continue approach runway zero two left. Check speed and configuration."
+      ]
+    ],
+    "reapproach": [
+      [
+        "tower",
+        "Skyline three two zero, turn left following navigation for another approach, runway zero two left."
+      ],
+      [
+        "pilot",
+        "Left turn for another approach, runway zero two left, Skyline three two zero."
+      ]
+    ],
+    "final": [
+      [
+        "pilot",
+        "Changi Tower, Skyline three two zero, final runway zero two left."
+      ],
+      [
+        "tower",
+        "Skyline three two zero, runway zero two left, cleared to land."
+      ]
+    ]
+  },
+  "durations": {
+    "zh": {
+      "changi-preparation-0": 4.848,
+      "changi-preparation-1": 3.648,
+      "changi-taxi-0": 4.392,
+      "changi-taxi-1": 4.392,
+      "changi-holding-0": 3.768,
+      "changi-holding-1": 3.696,
+      "changi-lineup-0": 3.24,
+      "changi-lineup-1": 3.336,
+      "changi-ground-speed-0": 3.192,
+      "changi-ground-speed-1": 2.688,
+      "changi-ground-stop-0": 3.792,
+      "changi-ground-stop-1": 3.336,
+      "changi-takeoff-0": 4.056,
+      "changi-takeoff-1": 3.384,
+      "changi-approach-0": 3.576,
+      "changi-approach-1": 5.088,
+      "changi-reapproach-0": 4.56,
+      "changi-reapproach-1": 4.272,
+      "changi-final-0": 3.624,
+      "changi-final-1": 3.192
+    },
+    "en": {
+      "changi-preparation-0": 5.808,
+      "changi-preparation-1": 5.136,
+      "changi-taxi-0": 6.096,
+      "changi-taxi-1": 5.28,
+      "changi-holding-0": 4.248,
+      "changi-holding-1": 4.992,
+      "changi-lineup-0": 4.44,
+      "changi-lineup-1": 3.624,
+      "changi-ground-speed-0": 5.064,
+      "changi-ground-speed-1": 3.168,
+      "changi-ground-stop-0": 5.328,
+      "changi-ground-stop-1": 2.976,
+      "changi-takeoff-0": 6.072,
+      "changi-takeoff-1": 4.032,
+      "changi-approach-0": 4.224,
+      "changi-approach-1": 7.992,
+      "changi-reapproach-0": 6.192,
+      "changi-reapproach-1": 4.464,
+      "changi-final-0": 4.104,
+      "changi-final-1": 4.392
+    }
+  },
+  "version": "dac89625ebb435cd1c12"
+}

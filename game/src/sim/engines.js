@@ -24,7 +24,7 @@ export function stepEngines(s,targetSpeed,dt){
  const reverse=s.reverse&&s.landed&&s.throttle<.025;
  for(const e of s.engines){
   const running=e.status==='running',lever=e.lever??(s.systems.thrustLocked?s.systems.heldCommands[e.id]:demand);
-  e.command=running?clamp(reverse?.5:lever,0,1):0;
+  e.command=running?clamp(reverse?.5:lever,0,s.ground&&!s.ground.takeoffCleared?.18:1):0;
   e.spool+=(e.command-e.spool)*smooth(dt,running?1.8:1.2);
   e.maxThrustN=engineCapacity(s,e);
   e.thrustN=running?e.spool*e.maxThrustN*(reverse?-.65:1):0;

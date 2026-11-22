@@ -9,6 +9,7 @@ export function createRecoveryRoute(s){
  {x:-6500,z:far,alt:2200,name:'三边 · 返场下风'},
  {x:0,z:far,alt:baseAlt,name:'四边 · 返场截获'},
  {x:0,z:0,alt:50,name:'五边 · 再次进近'}];
+ if(s.airportId!=='training')r.points.forEach(p=>{p.name=p.name.replaceAll('海侧','左侧');});
  return r;
 }
 export function routeTarget(s){

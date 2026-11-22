@@ -1,0 +1,109 @@
+{
+  "zh": {
+    "takeoff": [
+      [
+        "tower",
+        "云际三二零，大兴塔台，跑道一七左，可以起飞。"
+      ],
+      [
+        "pilot",
+        "跑道一七左，可以起飞，云际三二零。"
+      ]
+    ],
+    "approach": [
+      [
+        "pilot",
+        "大兴塔台，云际三二零，进近一七左。"
+      ],
+      [
+        "tower",
+        "云际三二零，大兴塔台，继续进近一七左，检查速度和构型。"
+      ]
+    ],
+    "reapproach": [
+      [
+        "tower",
+        "云际三二零，按导航左转返场，准备再次进近一七左。"
+      ],
+      [
+        "pilot",
+        "左转返场，准备再次进近一七左，云际三二零。"
+      ]
+    ],
+    "final": [
+      [
+        "pilot",
+        "大兴塔台，云际三二零，一七左五边。"
+      ],
+      [
+        "tower",
+        "云际三二零，跑道一七左，可以着陆。"
+      ]
+    ]
+  },
+  "en": {
+    "takeoff": [
+      [
+        "tower",
+        "Skyline three two zero, Daxing Tower. Runway one seven left, cleared for takeoff."
+      ],
+      [
+        "pilot",
+        "Runway one seven left, cleared for takeoff, Skyline three two zero."
+      ]
+    ],
+    "approach": [
+      [
+        "pilot",
+        "Daxing Tower, Skyline three two zero, approaching runway one seven left."
+      ],
+      [
+        "tower",
+        "Skyline three two zero, Daxing Tower. Continue approach runway one seven left. Check speed and configuration."
+      ]
+    ],
+    "reapproach": [
+      [
+        "tower",
+        "Skyline three two zero, turn left following navigation for another approach, runway one seven left."
+      ],
+      [
+        "pilot",
+        "Left turn for another approach, runway one seven left, Skyline three two zero."
+      ]
+    ],
+    "final": [
+      [
+        "pilot",
+        "Daxing Tower, Skyline three two zero, final runway one seven left."
+      ],
+      [
+        "tower",
+        "Skyline three two zero, runway one seven left, cleared to land."
+      ]
+    ]
+  },
+  "durations": {
+    "zh": {
+      "daxing-takeoff-0": 4.176,
+      "daxing-takeoff-1": 3.288,
+      "daxing-approach-0": 3.624,
+      "daxing-approach-1": 5.208,
+      "daxing-reapproach-0": 4.584,
+      "daxing-reapproach-1": 4.104,
+      "daxing-final-0": 3.624,
+      "daxing-final-1": 3.192
+    },
+    "en": {
+      "daxing-takeoff-0": 6.12,
+      "daxing-takeoff-1": 4.056,
+      "daxing-approach-0": 4.344,
+      "daxing-approach-1": 8.04,
+      "daxing-reapproach-0": 6.216,
+      "daxing-reapproach-1": 4.464,
+      "daxing-final-0": 4.2,
+      "daxing-final-1": 4.416
+    }
+  },
+  "version": "aa6a7afc30f22e1af79b"
+}

@@ -5,10 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node scripts/prepare-sites-build.mjs",
+    "build": "node ../ops/large-assets.mjs restore && node ../ops/build-cockpit-fcu-frame.mjs && node ../ops/build-lax-city-layout.mjs && node ../ops/check-xiaoshan-city-data.mjs && node ../ops/check-changi-city-data.mjs && node ../ops/check-jfk-city-data.mjs && node scripts/prepare-map-sources.mjs && vite build && node scripts/prepare-sites-build.mjs",
     "preview": "vite preview",
     "test:sites": "node --test tests/sites-worker.test.mjs",
-    "test:flight": "node --test tests/flight.test.mjs tests/approach.test.mjs tests/physics.test.mjs tests/levels.test.mjs tests/terrain.test.mjs tests/comms.test.mjs tests/arrival-motion.test.mjs tests/stall-recovery.test.mjs tests/touch-and-go.test.mjs tests/emergency-radio.test.mjs tests/soundscape.test.mjs tests/i18n.test.mjs tests/urls.test.mjs"
+    "test:flight": "node ../ops/large-assets.mjs restore && node --test tests/flight.test.mjs tests/approach.test.mjs tests/physics.test.mjs tests/levels.test.mjs tests/terrain.test.mjs tests/comms.test.mjs tests/arrival-motion.test.mjs tests/stall-recovery.test.mjs tests/touch-and-go.test.mjs tests/emergency-radio.test.mjs tests/soundscape.test.mjs tests/i18n.test.mjs tests/urls.test.mjs tests/airports.test.mjs tests/ground.test.mjs tests/airline.test.mjs tests/changi.test.mjs tests/map-projection.test.mjs tests/coastal-mask.test.mjs tests/world-airports.test.mjs tests/views.test.mjs tests/airport-presentation.test.mjs tests/aircraft-visual.test.mjs tests/lax-city.test.mjs tests/xiaoshan-city.test.mjs tests/changi-city.test.mjs tests/jfk-city.test.mjs tests/button-interactions.test.mjs tests/time-acceleration.test.mjs tests/loading-progress.test.mjs tests/city-persistent-cache.test.mjs tests/journey.test.mjs tests/large-assets.test.mjs"
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.1.10",
@@ -18,7 +18,7 @@
     "three": "^0.187.0",
     "vite": "6.4.2"
   },
-  "description": "A cockpit-view airliner browser game with 13 lessons, bilingual radio and simplified flight physics.",
+  "description": "A cockpit and exterior-view browser flight game with 13 training lessons, six real airports, bilingual radio and city-to-city flights.",
   "license": "MIT",
   "author": "renorzr",
   "repository": {

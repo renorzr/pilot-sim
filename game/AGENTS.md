@@ -1,12 +1,12 @@
-# Prototype Instructions
+# Game Instructions
 
 Run the local server yourself and open the preview in the browser available to this environment. Do not give the user server-start instructions when you can run it.
 
-Before making substantial visual changes, use the Product Design plugin's `get-context` skill when the visual source is unclear or no longer matches the current goal. When the user gives durable prototype-specific design feedback, preferences, or decisions, record them in `AGENTS.md`.
+Before making substantial visual changes, use the Product Design plugin's `get-context` skill when the visual source is unclear or no longer matches the current goal. When the user gives durable game-specific design feedback, preferences, or decisions, record them in `AGENTS.md`.
 
 When implementing from a selected generated mock, treat that image as the source of truth for layout, component anatomy, density, spacing, color, typography, visible content, and hierarchy.
 
-Build app UI in `src/`. Keep `.openai/hosting.json`, `worker/index.js`, `scripts/prepare-sites-build.mjs`, and `tests/sites-worker.test.mjs` intact so the same local prototype can be handed to Sites. Before a Sites handoff, run `npm run build` and `npm run test:sites`; the build must leave `dist/client/index.html`, `dist/server/index.js`, and `dist/.openai/hosting.json`.
+Build app UI in `src/`. Keep `.openai/hosting.json`, `worker/index.js`, `scripts/prepare-sites-build.mjs`, and `tests/sites-worker.test.mjs` intact so the same local game can be handed to Sites. Before a Sites handoff, run `npm run build` and `npm run test:sites`; the build must leave `dist/client/index.html`, `dist/server/index.js`, and `dist/.openai/hosting.json`.
 
 ## Flight control preference
 
@@ -48,7 +48,7 @@ approach and must eventually land and stop. Flare deviations below 50 ft
 must not be counted as unstable approach by the pre-flare criteria. A retry
 restores the phase snapshot with neutral input and preserved prior gate history.
 Verify with `npm run test:flight` and browser input checks. Publish through
-the existing static HTTP service; preserve `/designs/`.
+the existing static HTTP service.
 
 
 ## Physics foundation
@@ -94,8 +94,7 @@ is valid. During an active encounter, hold gear/flaps until clear, keep an
 already-engaged recovery AP available, and reject new engagement; never
 replace the actual wind field with camera shake or automatically fly FD-only.
 Single-engine acknowledgement C confirms the alert, never repairs the engine.
-Expose speed/heading/height/stability requirements in the task UI. Preserve
-`/designs/` and publish through the existing static HTTP service.
+Expose speed/heading/height/stability requirements in the task UI. Publish through the existing static HTTP service.
 
 
 ## Expanded curriculum and automatic communications
@@ -374,12 +373,450 @@ builds, credentials, local QA outputs and backup archives. A fresh clone must
 install, test and build without the original machine's qa/ folder. Preserve
 third-party notices and describe generated image/speech provenance accurately.
 
-## Public demo hosting
+## Public game hosting
 
 The user requests GitHub-hosted gameplay rather than their test domain. The
-public demo is https://renorzr.github.io/pilot-sim/. Use the GitHub Pages
-workflow for public releases and keep README/package/demo helper links on that
+public game is https://renorzr.github.io/pilot-sim/. Use the GitHub Pages
+workflow for public releases and keep README/package/game helper links on that
 URL. Root hosting remains available for local development. All runtime asset,
 texture, audio and gallery URLs must respect Vite's BASE_URL through urls.js.
 Do not reintroduce the user's testing hostname in public documentation or
 defaults. Deployment reads the project prefix from configure-pages metadata.
+
+## Three stages and Daxing airport
+
+The user approved three stages: 飞行训练 / Flight Training (the existing 13
+lessons), 航线执飞 / Airline Operations (real airport/city-pair flying), and
+历史重现 / Historical Scenarios (Coming Soon; no playable history yet).
+The first second-stage deliverable is a clear-day Beijing Daxing airport
+scene: one operational runway, recognizable terminal, local geography,
+takeoff and an unconfigured, off-axis approach. Do not claim city-to-city
+flights are implemented by these two airport exercises.
+
+For this game the user explicitly requests LOCAL testing only. Do not
+commit, push or deploy to GitHub without a subsequent instruction. Serve the
+reviewed build through the existing local static HTTP service.
+
+Airport identity belongs to flight state and snapshots; never mutate shared
+training constants to switch airports. Daxing's playable runway is 17L using
+OurAirports threshold endpoints, not OSM centerline endpoints. Display true
+heading and airport-relative altitude explicitly as game simplifications.
+The synthetic three-degree approach and local missed-approach return are game
+procedures, not a current certified ILS/SID/STAR or live airspace database.
+Reuse actual terrain triangles for rendering, collision and GPWS. Preserve
+OSM/terrain attribution and a downloadable source database; map data retain
+their own licenses independently of MIT game code. Keep original training
+records, the 13-lesson order, Chinese/English and recorded radio intact.
+
+The user's Daxing colour references are these two specific images, which
+supersede the earlier muted/grey-copper interpretation:
+https://p1.img.cctvpic.com/cportal/img/2019/9/16/1568613858629_341_1000x1174.jpg
+https://img3.chinadaily.com.cn/images/201909/25/5d8afdfba31099ab43d18ba3.jpeg
+Match their orange-copper roof, golden sunlit reflections, red-brown shaded
+areas, neutral grey-white framing and dark blue-grey glazing. Keep visible
+metallic light/shade variation; avoid a uniform pale yellow or grey-brown roof.
+Verify under the game's sun/sky lighting and refresh the downloadable overview.
+
+## Real stand departure and optional taxi skip
+
+The user approved starting at a real parking stand and skipping a long ground
+route just like cruise. The current Daxing takeoff starts at OSM stand 107.
+Automatic crew preparation handles push/start and takeoff configuration; omit
+the tug and detailed pushback controls. Show an airport aerial introduction,
+with independent skip and pause, without moving the physical aircraft for the
+camera. Handoff to the apron-side beginning of the real stand lead-in is an
+explicit labelled stage transition, not a simulated tug manoeuvre.
+
+Taxi via the curated 107 / Y7 / G / E13 / G9 route from bundled OSM geometry.
+Use force-integrated low-speed motion and nosewheel steering (left/right),
+manual W/S thrust and Space brakes. Show steering deflection, groundspeed,
+route and runway permissions. Keep a heading-up, near-range ground ND as well
+as the route overview. Keep spring return. The optional skip stops
+outside 17L with zero speed/lever and neutral controls; it never grants runway
+entry or takeoff clearance and must retain engine/system failures. Manual
+runway entry, lineup and stopping remain mandatory. Entry permission and
+subsequent takeoff clearance are separate; only then allow full takeoff thrust.
+The holding marker and lineup target are game positions, not published charts.
+Fail sustained taxi overspeed, off-route driving and unauthorized runway entry.
+
+Retain the existing training lessons and Daxing landing entry. Invalidate only
+old runway-start Daxing takeoff records with mission revision 2. Ship matching
+Chinese/English ground radio with measured durations and normal radio DSP.
+Test both the complete taxi and optional skip through real controls and actual
+flight forces. Keep the existing local-only testing decision; no GitHub publish.
+
+## Stable ground markings
+
+The user reported ground lines appearing/disappearing during taxi. Keep apron,
+taxiway, runway and paint elevations in the shared ground-layers module. All
+paint must sit above the highest intersecting pavement, including G9's crossing
+onto 17L. Base pavements use constant depth units with no slope bias; reserve a
+small decal slope bias for paint. Draw paint after opaque scenery, retain depth
+testing against real occluders, and disable paint depth writes so overlapping
+markings cannot mask one another. Static batching must preserve renderOrder.
+Verify with the moving-camera GPU fixtures in ops/check-markings.mjs, including
+small cockpit height/pitch changes and an opaque occlusion counterexample.
+
+## Xiaoshan and city-to-city flights
+
+The user selected Hangzhou Xiaoshan as airport two and authorized continuing
+feature development. Stage two now includes both directions between Beijing
+Daxing and Hangzhou Xiaoshan. Use the offline world map to select departure and
+destination; keep the twelve airport-only practices in a separate practice tab.
+Keep the original 13 training lessons/records and Historical Scenarios Coming
+Soon. This remains local-only work; do not commit, push or deploy to GitHub.
+
+Airport frames, runway parameters, DEM grids, scene selection, taxi routes,
+stand/runway labels and recorded dialogue must follow live airportId. Never
+change the shared training RUNWAY. Xiaoshan's active runway is source 07, using
+its actual threshold endpoints and true heading; 06 is scenery. Start at source
+stand 251 with the source Z11 / B / B3 / A / A1 taxi route. Silver-white, gently
+curved terminal roofs and dark rooflights follow the source T4 footprint; never
+reuse Daxing's copper radial terminal. Geographic and modelling estimates are
+labelled in the airport's pack/asset notes and retain source licenses.
+
+A city flight must complete origin ground permissions and manual takeoff,
+then level near 3000 ft with gear up, flaps at 1 or less, speed165–225 kt,
+heading within15 degrees and stable for3 seconds. Only then unlock an explicit
+cruise-cut button. Cruise/most descent is deliberately omitted, not physically
+integrated across China. The cut installs the destination's documented clean,
+off-axis 3000 ft/210 kt approach preset, preserving mass, engine health/spool,
+failed capabilities, language, practice state and departure evidence. Engine
+failure inhibits the normal cruise cut. Never allow a rejected cut to move the
+plane. Airport aerial cameras are independent of physical pose. Destination
+preview holds physical motion and controls while automatic briefing plays;
+pause freezes its clock/audio and skipping the view does not configure landing.
+
+Origin climb alone and a destination go-around never finish a city flight.
+Require two genuine destination stability gates, actual configured touchdown
+and stopping. Retry stays in the correct airport frame and remains practice.
+Preserve the unlocked audio context/media effects across world reconstruction;
+loading pauses physics, clears held inputs and preserves the user's mute state.
+Verify both directions via physical controls, plus an actual browser flight
+through the world/audio switch and manual final. Retain stable ground markings.
+
+## Formal game and Changi
+
+The user regards this as the formal game. Do not call current gameplay a prototype/demo/小样. Retain accurate descriptions of simplified physics and procedures. Local testing only; no GitHub publication without a new request. Changi uses WSSS/SIN Runway 02L, stand A16, independent offline source data/DEM and coastline polygons with holes. Preserve existing airport and training progress. The original three airports remain connected by their original six directional city flights, within the expanded global network. Ground holding points can be on either side of the runway; never assume negative local x.
+
+## Six-airport global network
+
+The user requested Osaka Kansai (RJBB/KIX), New York Kennedy (KJFK/JFK) and Los Angeles (KLAX/LAX). They join Daxing, Xiaoshan and Changi in the formal game, with twelve airport practices and thirty directed city flights. Preserve the original six city IDs/order and all original scores/revisions. Each airport requires a real source stand/connected taxi route, its own DEM and actual coast geometry, distinctive source-based scene and measured bilingual recorded dialogue. Marine masks apply to every coastal airport, not just Changi. Aircraft identity and failure state must survive inter-airport cuts. The world map must unwrap longitude and clip land rings across the date line; draw great-circle routes, including polar arcs, with readable, non-overlapping airport labels. Keep local-only publication.
+
+Sea masks index shoreline edges by horizontal bands and reject holes by bounds; preserve strict point-in-polygon classifications and source island holes when optimizing. New source coast generators classify closed faces by source-length-weighted offshore/onshore samples, not one incidental sample. Verify actual sea mesh triangles as well as mask values at airport, mainland and open-water probes. Current regression: 286 flight/map/geometry/model/camera/city checks plus 4 hosting checks.
+
+## Exterior aircraft views
+
+The user approved cockpit/exterior views, a complete original A320-proportioned exterior with moving systems, external controls/instruments, mouse/touch camera gestures and camera collision avoidance. Keys1/2 select cockpit/exterior; V stays reverse and C stays confirmation. Flight commands remain in aircraft coordinates, spring-centred, irrespective of camera heading. View changes only release held controls/captures; preserve aircraft pose, inertia, failures, automation and mission progress. Paused exterior views allow camera movement with frozen flight and model animation. Reuse the existing cockpit image/panels in cockpit mode; external mode hides that rig and exposes IAS/ALT/RA/V/S/heading, engine/configuration status, stick, thrust/configuration controls and optional real PFD/ND/FCU.
+
+Aircraft visual joints follow actual gearPosition/flapPosition/spoilers/servo/engine states. No smoke or fire for ordinary engine failure. Use anchors and visual ground placement to seat main wheels during rotation without modifying flight physics. Camera rays use the same terrain plus static building geometry, keep outside the airframe, and reset smoothing on retry/teleport/airport changes. Exterior sound uses distance/pan gain on the original restored engine bed; cockpit sound timbre and critical radio/callouts remain intact. All assets are self-hosted/base-prefix-aware. Keep local testing only.
+
+External thrust controls need a real slider travel area even on compact English layouts; use explicit rows for the label, lever output, track and detent buttons. Do not let the flex track collapse behind the thumb. Browser flight checks must resize and settle layout, then scroll the briefing start control into view before clicking.
+
+Exterior camera smoothing follows aircraft translation immediately and smooths only the relative observer offset; high speed or slow rendering must not push the aircraft out of frame. Enforce at least42 m observer separation during fast orbit turns as well as the45 m zoom bound. Airport browser checks wait for the new model load before inspecting its state.
+
+The user explicitly requires LANDSCAPE ONLY, superseding the attempted portrait exterior layout. In portrait orientation, show a bilingual rotate-device/widen-window guard and block gameplay input. Entering portrait pauses flight/audio and releases held inputs without changing pose, failures or progress. Returning to landscape remains paused until the player resumes. Do not add a playable portrait layout.
+
+The user merged chase and orbit into ONE exterior view. Use only cockpit(1) and exterior(2), with no separate third view. Exterior starts directly behind/slightly above the aircraft (azimuth0, elevation.23, distance85), allows mouse/touch orbit and zoom, keeps the chosen relative angle while following heading/position, and double-click returns to the tail. Migrate saved chase/orbit preferences to exterior. Preserve landscape-only play and all physics/input invariants.
+
+## LAX city scenery, first pass
+
+The user approved the assessed first LAX city pass: regional urban ground/OSM building blocks, Dockweiler coast, SoFi Stadium/Kia Forum and a light Downtown LA skyline. Santa Monica Pier, Hollywood Sign/Griffith and other cities remain later work. Use real source coordinates/scale and original recognition meshes. Genuine USDA NAIP2022 imagery is a dated base, with current source-derived OSM geometry; disclose dates and public-domain/ODbL provenance, retain downloadable source/derivatives and self-host all runtime textures. City assets load only for LAX; preserve the six airport datasets, route/mission IDs/revisions, taxi routes and procedures. No old entrance pylons (LAWA began their removal in2026). Ground imagery must use georeferenced UVs on the same DEM triangles, not a second floating terrain plane. Airport pavement/paint and authoritative sea remain above terrain. Urban instance boxes and landmark envelopes feed visible geometry, camera avoidance, swept contact and separate obstacle prediction; never put roof heights into the DEM or suppress real hazards on final. Source-derived heights and visual estimates must be labelled, building contact freezes at the actual wall/roof contact without teleporting upward. Keep the two camera views, landscape-only guard, cockpit/audio/flight physics and local-only publication.
+
+## Aircraft belly shape
+
+The user approved repairing the existing original aircraft rather than replacing
+it with a static third-party model. Keep a subtle wing/body fairing blended
+into the pressure shell and wing roots; avoid a broad, low suspended slab.
+Gear doors and bay seams must sit on the lower wing skin. Preserve animated
+systems, tyre anchors and ground-rotation clearance. Verify underside and side
+views with gear both up and down; publish through the local HTTP service only.
+The user wants the entire fuselage belly white, matching the fairing and gear
+doors. Keep the side navy/teal cheatlines; do not restore the former grey belly.
+
+## Overlay presentation
+
+The user wants more transparent floating windows and buttons, with opaque
+labels and readable states. Exterior expanded instruments belong at bottom
+left, replacing the compact flight-data panel while open. Bound instrument
+and task heights so they cannot overlap on landscape screens. Remove the
+horizontal pitch/roll deflection bars in both views; keep the draggable 2D
+stick and adjacent labelled percentages, spring return and thrust slider.
+In the cockpit, stack Roll below Pitch beside the 2D stick. Retain the small
+rounded indicator painted into the cockpit background; keep the readouts away
+from it so it cannot be mistaken for a Roll control.
+The user approved integrating cockpit SPD/HDG/ALT and autoflight controls into
+an opaque physical-looking FCU on the glareshield: recessed illuminated
+windows, tactile selectors and status-lit keys. The cockpit virtual sidestick
+stays independent and translucent, with Roll below Pitch. Leave the painted
+indicator visible between the FCU and stick widget. Preserve actual mode,
+target and failure logic, compact exterior instruments and local-only hosting.
+The user rejected the raised rectangular FCU plate and decorative knobs as
+unconvincing. This supersedes the knob styling above: author an empty inset
+aperture into the cockpit background like the lower instrument bays, then put
+live targets, explicit +/- keys and flap-switch-style mode buttons inside it.
+Keep the original frame, windshield alpha, lower bays and amber indicator
+registered. The virtual stick remains separate. No nonfunctional rotary dials.
+
+## Aircraft texture preparation
+
+The user requested fixing UV preservation before further visual upgrades.
+Aircraft batching must retain authored UV channels, tangents and vertex
+colours, separating incompatible attribute layouts/formats instead of dropping
+data. Keep the original aircraft, moving-system hierarchy and contact anchors.
+UV unwrapping and texture artwork remain separate asset-authoring work.
+
+## LAX imagery loading
+
+The user explicitly changed their mind about Esri: use self-hosted NAIP imagery
+only, with no Esri integration, credentials or runtime external map service.
+Improve regional coverage and camera-prioritised detail loading while retaining
+the same DEM, coastline, building contacts, procedures and original aircraft.
+
+## Original terminal realism
+
+The user chose original modelling instead of buying terminal models, and
+prioritises believable visual realism over exact architectural reproduction.
+Keep the source airport layout and workable stand/taxi geometry, but use
+plausible original facade articulation, glazing, roof construction, equipment
+and jet-bridge detail. Document estimated details; do not turn reference photos
+or commercial models into distributed assets. Verify close ground views as
+well as aerial views, preserve flight/terrain behaviour and publish locally.
+
+## City building realism
+
+The user considers the current terminal sufficient and requested improving the
+remaining city buildings. Improve original residential, commercial, industrial
+and skyline architecture with metre-scaled facades and varied roof forms;
+retain the established terminal. Keep the existing source positions, heights
+and separate conservative collision envelopes. Do not manufacture additional
+source coverage or imply an exhaustive city model. All materials remain local.
+
+## Airport surface overlap
+
+The user reported road/taxiway flicker over runways in the aerial introduction.
+Keep lower road/taxi strips and their paint clipped outside the source runway
+plus shoulder footprints. Shoulders are rings with open runway interiors;
+never restore stacked full shoulder/runway rectangles or solve this by
+raising roads, disabling depth tests or changing physical ground heights.
+Verify aerial and grazing views, source taxi connectivity and runway markings.
+
+## Continuous city coverage
+
+The user finds sparse detailed 3D buildings over mostly flat aerial imagery
+visually inconsistent. They prefer continuous building massing with heights
+and colours matched to the map imagery. Prioritise contiguous source-footprint
+coverage and coherent roof colours over further isolated facade detail. The user has now authorised implementing this continuous city coverage. Distinguish source height fields from verified survey
+heights, and imagery roof colours from estimated facade colours.
+
+The user explicitly prioritises believable appearance over exact accuracy.
+Missing building heights and facade colours may be estimated and varied
+randomly within plausible bounds. Use coherent building-type/neighbourhood
+rules and stable per-building seeds, keeping generated geometry, collision
+and obstacle heights consistent. This supersedes treating missing attributes
+as a reason to omit a building or require exact surveyed replacements.
+
+## FCU fit and virtual stick position
+
+Keep the FCU readout aperture inside the original centre mounting plate,
+clear of the sloped left edge. The SVG and live target banks share source
+coordinates in views/fcu-layout.json. Target keys must fit the black interior,
+not merely their outer section. Mount AP1/FD/A/THR/APPR as separate physical
+keys beside the aperture, with green indicators reflecting their actual modes.
+The cockpit virtual stick belongs in the lower-left gutter, more transparent,
+with its 2D pad, Pitch and Roll arranged vertically. Keep it off the PFD.
+The user subsequently removed the decorative rounded amber lamp. Replace it
+with adjacent original panel texture and extend the aperture rightwards within
+the flat mounting plate, giving both target and illuminated mode keys enough
+space inside the recess. This supersedes preserving the painted lamp or
+placing mode keys outside the aperture.
+Check the measured black interior in ops/assets/cockpit-fcu-recess.json, not
+only the outer bezel. ops/check-fcu-fit.mjs compares real component bounds
+against source-art rectangles at five landscape sizes in both languages and
+checks the four mode buttons and indicators. Keep source/revision coordinates
+shared so an older cached frame cannot accompany new control positions.
+
+## Button interaction and retired gallery
+
+The user wants each FCU +/- pair stacked to the right of its number, plus
+above minus, in both cockpit and exterior controls. All buttons, including
+semantic map buttons, must skip Tab focus and must not retain pointer or
+programmatic focus; preserve actual click and pointer-capture actions.
+The Design Concepts link and the entire public/designs gallery are removed
+at the user's explicit request. Do not preserve or recreate that gallery;
+QA screenshots belong in the internal qa directory, outside published assets.
+
+## Hold-to-fast-forward game control
+
+The user kept the fast-forward control in its ORIGINAL FOOTER position,
+superseding the initial top-right request. Show a double-triangle icon: hold
+for 2x, drag upwards for 4x, release for the icon and normal time. Replace the
+old footer speed toggle in place. Pointer acceleration works during any
+active game phase, including ground/low approach; the legacy high-altitude X
+shortcut stays compatible and must not inhibit a held pointer. Cancel held
+acceleration on pointer loss/cancel, pause, hidden/blur, reset/retry, loading,
+airport change or result. Keep buttons non-focusing. Run every original 100 Hz
+physics tick at 4x by splitting long batches; never jump aircraft pose or skip
+contact/event calculations. Recorded communications use the actual time scale.
+
+
+LAX uses the dense source-footprint binary pack in spatial chunks;
+keep full collision data resident and build near/far render geometry by camera.
+Never fall back to sparse cell sampling for ordinary city appearance. Use the
+same decoded source heights and courtyard polygons for render/contact/camera
+and obstacle prediction. Dataset activation belongs to the accepted world,
+so an obsolete asynchronous load cannot overwrite the current collision index.
+Buildings and roof/facade inference are original programmatic estimates;
+roof imagery is shared with the bounded self-hosted NAIP stream.
+
+
+## Persistent city models and advance preparation
+
+The user explicitly requested advance building loading and retaining models
+when they leave the camera view. This supersedes the former12-tile/24MiB
+hidden model eviction policy. Prepare all middle/district city chunks before LAX is
+ready, then prepare near detail within3.2km in every direction, ahead of the
+2.2km display threshold. Cache all prepared LOD variants for the accepted world;
+rotations and revisits reuse the same mesh/geometry/attribute arrays without
+asynchronous reconstruction. Frustum exit only stops drawing. Release model
+arrays on world/airport disposal. Distant unused GPU buffers may be reclaimed
+under pressure while retaining model arrays for immediate synchronous upload.
+Never trade this retention preference for visible repeated building pop-in.
+
+## Shared residential templates and regional city coverage
+
+The user approved expanding continuous LAX city coverage and sharing repeated
+house models to reduce memory and rendering overhead. Use original shared
+flat/hip/gable templates with compact per-instance positions, oriented dimensions,
+source heights and stable roof/facade colours. Batch by spatial chunk and style;
+do not allocate a matrix or duplicate vertex arrays for every home. Preserve
+source outlines/courtyards for complex nearby buildings and original landmarks.
+Middle-distance ordinary buildings use shared boxes; very distant low buildings
+use source-derived district proxies, keeping towers individual. Do not replace
+real parks/ocean with random buildings or return to sparse cell selection.
+Extract source footprints across the whole 60 km terrain rather than a narrow
+approach strip. All middle/far chunks prepare before flight; nearby detail warms
+in every direction. All three prepared variants retain model identity until
+world disposal. Contact/camera/obstacle data remain independent of render LOD;
+visual templates are estimates, never verified architectural reconstructions.
+Preserve the terminal, aircraft, DEM, taxi/runway surfaces and flight behaviour.
+
+## Xiaoshan continuous city scenery
+
+The user approved the LAX result and requested the same scene improvement for
+Xiaoshan. Reuse shared templates, spatial LOD, advance preparation and persistent
+model caches, with local apartment/industrial/village proportions and colours.
+Use attributed self-hosted East Asian building footprints, OSM context and
+Copernicus Sentinel-2 imagery; NAIP is US-only and must not be presented as China
+imagery. Clearly state native image resolution and dataset dates. Preserve the
+original silver/white T4 terminal, stand251, runway07, taxi route, DEM and scores.
+City contact/camera/obstacle data must be keyed by airport and activate only for
+the accepted world. Keep rivers/parks/airport surfaces clear; no Esri/runtime
+external requests. Retain local-only publishing and both languages.
+
+## Airport presentation in either selected view
+
+The user requires airport showcases before takeoff/landing in exterior view as
+well as cockpit view. Existing gate departure and airline arrival previews must
+be view-independent. Standalone real-airport landing practice also gets a short
+10-second, skippable airport showcase before physics starts. Its UI-only clock
+must not move/configure the aircraft, advance flight time, missions or scores.
+Pause freezes the showcase; skip ends only the presentation. Keep the selected
+cockpit/exterior mode and exterior orbit/zoom settings, returning directly to
+that view afterwards. Hide flight/orbit controls during the showcase, retain
+pause/skip, and leave phase retries and training lessons unchanged.
+
+
+## Changi continuous city scenery
+
+The user requested Changi after approving LAX/Xiaoshan. Extend the same
+continuous city coverage, shared templates, advance preparation and retained
+model caches to Singapore. Use the pinned OSM source footprints and height/level
+tags; infer missing values with coherent HDB/apartment, landed-house and logistics
+priors. Use attributed self-hosted Sentinel-2 RGB with explicit native resolution
+and dated cloud/shadow screening; preserve coast/island holes and clear parks.
+Keep the original Changi terminals, Jewel and tower recognisable, stand A16,
+02L runway, taxi route, shared DEM, scores, physics, radio and both languages.
+No Esri or runtime external map service. Publish locally only.
+
+## Xiaoshan buildings / imagery agreement
+
+The user reported that Xiaoshan's surrounding buildings disagree with the ground
+image. Validate registration with independent planar footprint/RGB overlays;
+do not apply an unmeasured scene-wide shift. Keep source coordinates/heights
+for retained buildings, sample roof colours within the actual footprint at
+native image resolution, and preserve blue/red roof panels. Conservatively
+exclude only estimated EAB outlines with strong vegetation evidence in both
+footprint and neighbourhood; leave OSM outlines intact and label this screening
+as a visual estimate rather than verified demolition. Keep continuous coverage,
+shared/retained models, full contact consistency and existing airport gameplay.
+Publish a versioned pack atomically so older cached previews remain usable.
+
+
+## JFK continuous city scenery
+
+The user requested JFK after the LAX/Xiaoshan/Changi improvements. Apply the
+same continuous source-footprint coverage, shared residential templates,
+advance preparation and retained model identities. Use attributed self-hosted
+NAIP imagery and the pinned New York/New Jersey OSM sources, with coherent
+Queens/Brooklyn housing, brick facades, warehouses and source high-rise heights.
+State native versus working/rendered image resolution and acquisition dates.
+Retain blue/red roof pixels and source courtyard/river/island geometry.
+Preserve JFK stand 9, 22R, taxi permissions, shared DEM, T4/TWA/tower, aircraft,
+missions, scores and bilingual radio. No Esri runtime service, credentials or
+GitHub deployment; publish only to the existing local preview.
+
+## Airport loading feedback
+
+Show a progress bar when preparing airport data, both on the initial briefing
+and while switching airports during a flight. Report actual download bytes,
+indexing stages and prepared model counts. Keep progress monotonic within a
+world, reset it on airport changes and reach 100% only at accepted-world readiness.
+Do not simulate progress with a timer or continue stale-world updates. Keep
+loading/error states and start gating consistent in both languages.
+
+## Directional airline routing and destination parking
+
+The user approved implementing complete stage-two flights with origin-relative
+arrival, outbound course before cruise and optional arrival taxi. Use independent
+great-circle departure and terminal bearings; runway directions stay airport
+specific. ND, FD/AP, ATC and cruise qualification share the same game legs.
+Climb on runway heading before safe-altitude departure turns; sample shared DEM
+clearance and retain enough arrival distance for turns, clean preparation and
+ILS interception. Airport procedures are game simplifications, not published
+SID/STAR. Never advance normal flight by assigning pose/velocity.
+
+Save landing evidence before after-landing cleanup and continue to manual
+runway exit. Six source-derived exit/taxi routes connect to actual stands.
+After vacating, the player may taxi manually or explicitly skip remaining
+taxi to parked position; preserve failures, language, assessed landing and
+practice state. Automatic radio/crew work handles after-landing configuration
+and shutdown without extra system controls. Landing lessons and emergency
+completion rules stay unchanged. City flights end on stand after actual
+landing/clear-runway evidence; go-around and airborne skip never complete them.
+Keep local-only testing/publication. Verify all30 city pairs and physical
+manual taxi at all six airports as well as real browser inputs.
+
+## Persistent processed airport data
+
+The user approved IndexedDB persistence of processed data to avoid repeated
+download, source decoding/indexing and model generation across visits. Store
+derived source arrays/contact indices in bounded chunks and finished model
+arrays by spatial chunk/LOD, retaining shared templates. Version caches by
+source hash, architecture, processing and render schema. Publish source metadata
+only after complete chunk commits; reject corrupt/incomplete records and rebuild.
+Cache used compressed imagery independently of GPU residency. Storage denial,
+quota exhaustion and cancellation must not prevent normal online play or change
+physics, scores or city coverage. Show local read/save phases in both languages,
+and verify warm loads in a new page with HTTP cache disabled and large asset
+requests blocked. Keep local-only publication.
+
+## Commit and push the accumulated work
+
+The user explicitly authorized committing and pushing all current changes.
+This supersedes earlier local-only restrictions for this publication. Include
+source, runtime media, data attribution and regression fixtures; keep generated
+bundles, machine caches, credentials and QA outputs excluded. Large runtime
+databases use checked-in 32 MiB parts outside public/ and are restored and
+hash-verified before tests/build, keeping a fresh checkout self-contained and
+the existing runtime URLs intact.

@@ -1,0 +1,393 @@
+{
+  "schemaVersion": 1,
+  "airportId": "xiaoshan",
+  "runwayId": "07",
+  "coordinateFrame": "Metres in the active 07 local tangent plane: x runway-right, z approach side, y above threshold; yaw 0 follows 07 forward (-z).",
+  "stand": {
+    "ref": "251",
+    "sourceId": "way/1021965129",
+    "sourceNodeId": "node/9425630483",
+    "longitude": 120.4310447,
+    "latitude": 30.2340596,
+    "x": -598.919,
+    "z": -1729.113,
+    "yaw": 0.03546408020317058,
+    "headingDegLocal": 2.032,
+    "headingDegTrue": 64.858,
+    "nose": {
+      "x": -598.387,
+      "z": -1744.103
+    },
+    "cgSetbackM": 15,
+    "note": "Source parking-position node anchors actual stand 251. The game CG is set back 15 m along the source lead-in final segment; this is a visual airframe offset, not a surveyed stand-stop reference."
+  },
+  "handoff": {
+    "x": -569.428,
+    "z": -1661.724,
+    "yaw": 1.5695402376141214,
+    "sourceId": "way/1021965129",
+    "note": "Apron-side beginning of the actual stand 251 lead-in, on source taxiway Z11. The automatic departure preparation abstracts pushback/reposition; control starts stationary facing the cleared taxi route."
+  },
+  "taxiPoints": [
+    {
+      "x": -569.428,
+      "z": -1661.724,
+      "sourceId": "way/1021965129",
+      "name": "251",
+      "kind": "source-vertex"
+    },
+    {
+      "x": -388.446,
+      "z": -1661.952,
+      "sourceId": "way/160733025",
+      "name": "Z11",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -359.786,
+      "z": -1661.988,
+      "sourceId": "way/160733025",
+      "name": "Z11",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -326.389,
+      "z": -1661.6,
+      "sourceId": "way/160733026",
+      "name": "Z11",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -313.403,
+      "z": -1661.45,
+      "sourceId": "way/160733026",
+      "name": "Z11",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -286.48,
+      "z": -1643.493,
+      "sourceId": "way/858383477",
+      "name": "Z11 / B",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -279.394,
+      "z": -1627.231,
+      "sourceId": "way/858383477",
+      "name": "Z11 / B",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -279.394,
+      "z": -1625.986,
+      "sourceId": "way/154103749",
+      "name": "B",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -279.371,
+      "z": -1411.976,
+      "sourceId": "way/154103749",
+      "name": "B",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -279.371,
+      "z": -1410.775,
+      "sourceId": "way/154103749",
+      "name": "B",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -274.768,
+      "z": -1400.355,
+      "sourceId": "way/858378129",
+      "name": "B / B3",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -271.323,
+      "z": -1395.365,
+      "sourceId": "way/858378129",
+      "name": "B / B3",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -242.47,
+      "z": -1377.59,
+      "sourceId": "way/858378129",
+      "name": "B / B3",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -222.515,
+      "z": -1377.488,
+      "sourceId": "way/1541063935",
+      "name": "B3",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -198.145,
+      "z": -1363.68,
+      "sourceId": "way/858378128",
+      "name": "B3 / A",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -188.309,
+      "z": -1346.617,
+      "sourceId": "way/858378128",
+      "name": "B3 / A",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -188.159,
+      "z": -1012.574,
+      "sourceId": "way/160733008",
+      "name": "A",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -188.126,
+      "z": -941.266,
+      "sourceId": "way/160733008",
+      "name": "A",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -188.036,
+      "z": -739.282,
+      "sourceId": "way/160733008",
+      "name": "A",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -188.006,
+      "z": -674.57,
+      "sourceId": "way/160733008",
+      "name": "A",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -187.813,
+      "z": -245.328,
+      "sourceId": "way/160733008",
+      "name": "A",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -187.797,
+      "z": -209.974,
+      "sourceId": "way/160733008",
+      "name": "A",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -187.778,
+      "z": -166.659,
+      "sourceId": "way/160733008",
+      "name": "A",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -187.73,
+      "z": -60.679,
+      "sourceId": "way/160733008",
+      "name": "A",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -176.424,
+      "z": -33.856,
+      "sourceId": "way/1452924167",
+      "name": "A / A1",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -170.733,
+      "z": -26.295,
+      "sourceId": "way/1452924167",
+      "name": "A / A1",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -164.386,
+      "z": -20.572,
+      "sourceId": "way/1452924167",
+      "name": "A / A1",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -155.96,
+      "z": -16.095,
+      "sourceId": "way/1452924167",
+      "name": "A / A1",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -147.981,
+      "z": -12.431,
+      "sourceId": "way/1452924167",
+      "name": "A / A1",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -137.469,
+      "z": -10.621,
+      "sourceId": "way/1452924167",
+      "name": "A / A1",
+      "kind": "source-network-point"
+    },
+    {
+      "x": -109.997,
+      "z": -10.444,
+      "sourceId": "way/188883562",
+      "name": "07 HOLD",
+      "kind": "game-holding-point"
+    }
+  ],
+  "hold": {
+    "x": -109.997,
+    "z": -10.444,
+    "yaw": 1.5772384151099024,
+    "sourceId": "way/188883562",
+    "sourceHoldingNodeId": "node/8621929706",
+    "isPublishedHoldingPosition": false,
+    "note": "Game CG stop on A1 outside runway 07, about 20 m before the source holding-position node, retaining nose clearance. It does not claim a current published stop position or live clearance."
+  },
+  "entryPoints": [
+    {
+      "x": -109.997,
+      "z": -10.444,
+      "sourceId": "way/188883562",
+      "name": "07 HOLD",
+      "kind": "game-holding-point"
+    },
+    {
+      "x": -49.285,
+      "z": -10.053,
+      "sourceId": "way/188883562",
+      "name": "A1",
+      "kind": "source-vertex"
+    },
+    {
+      "x": -40.617,
+      "z": -11.117,
+      "sourceId": "way/188883562",
+      "name": "A1",
+      "kind": "source-vertex"
+    },
+    {
+      "x": -33.734,
+      "z": -12.947,
+      "sourceId": "way/188883562",
+      "name": "A1",
+      "kind": "source-vertex"
+    },
+    {
+      "x": -26.424,
+      "z": -17.022,
+      "sourceId": "way/188883562",
+      "name": "A1",
+      "kind": "source-vertex"
+    },
+    {
+      "x": -19.613,
+      "z": -22.954,
+      "sourceId": "way/188883562",
+      "name": "A1",
+      "kind": "source-vertex"
+    },
+    {
+      "x": -11.961,
+      "z": -31.352,
+      "sourceId": "way/188883562",
+      "name": "A1",
+      "kind": "source-vertex"
+    },
+    {
+      "x": -6.981,
+      "z": -38.516,
+      "sourceId": "way/188883562",
+      "name": "A1",
+      "kind": "source-vertex"
+    },
+    {
+      "x": -3.089,
+      "z": -46.659,
+      "sourceId": "way/188883562",
+      "name": "A1",
+      "kind": "source-vertex"
+    },
+    {
+      "x": 2.126,
+      "z": -66.104,
+      "sourceId": "way/188883562",
+      "name": "A1",
+      "kind": "source-vertex"
+    },
+    {
+      "x": 0,
+      "z": -175,
+      "sourceId": "OurAirports:07/25",
+      "name": "07",
+      "kind": "runway-centerline"
+    }
+  ],
+  "lineup": {
+    "x": 0,
+    "z": -175,
+    "yaw": 0,
+    "sourceId": "OurAirports:07/25",
+    "remainingRunwayM": 3425.76,
+    "note": "Gameplay lineup target on the threshold-based runway centerline. Entry to this point remains manual."
+  },
+  "taxiDistanceM": 2031.106,
+  "entryDistanceM": 252.13,
+  "routeReferences": [
+    "251",
+    "Z11",
+    "B",
+    "B3",
+    "A",
+    "A1",
+    "07"
+  ],
+  "sourceFeatureIds": [
+    "node/9425630483",
+    "way/1021965129",
+    "way/160733025",
+    "way/160733026",
+    "way/858383477",
+    "way/154103749",
+    "way/858378129",
+    "way/1541063935",
+    "way/858378128",
+    "way/160733008",
+    "way/1452924167",
+    "way/188883562",
+    "node/8621929706"
+  ],
+  "sources": [
+    {
+      "name": "OpenStreetMap contributors",
+      "license": "ODbL-1.0",
+      "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
+      "dataFile": "xiaoshan.json",
+      "dataFetchedAt": "2026-11-21T00:42:45.139437+00:00"
+    },
+    {
+      "name": "OurAirports",
+      "license": "Unlicense / public domain",
+      "dataFile": "xiaoshan.json"
+    }
+  ],
+  "notes": [
+    "This curated game taxi route selects actual stand 251 and source Z11 / B / B3 / A / A1 geometry from the bundled OSM snapshot; it is not a current published taxi clearance.",
+    "OSM parking point node/9425630483 provides the actual 251 ref. Its position exactly matches the end of parking lead-in way/1021965129.",
+    "All turns follow source taxiway curves. Intersections are split on the source segments, with only sub-metre endpoint joins for source rounding / simplification.",
+    "The game holding CG point lies on A1 about 20 m behind source holding-position node/8621929706. A CG 15 m behind the nose preserves a visual stop before the marker; no operational holding-position accuracy is claimed.",
+    "The optional long-taxi skip must stop outside runway 07. Manual runway entry, alignment and separate takeoff clearance remain mandatory."
+  ]
+}

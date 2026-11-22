@@ -1,3 +1,4 @@
+import {AIRPORTS} from '../airports/registry.js';
 // Fictional game curriculum. Speeds, heights and minima are task presets.
 const base={revision:1,mode:'landing',scenario:'short',kind:'landing',difficulty:2,category:'程序进阶',keys:'I 进近预位 · A AP1 · F / G 构型 · B / M / C 检查'};
 const entries=[
@@ -16,6 +17,27 @@ const entries=[
  {id:'dual-glide',title:'双发无动力着陆',kind:'dual-glide',landingConfig:1,difficulty:3,category:'应急挑战',duration:'约 3–4 分钟',goal:'管理有限的高度与速度，滑翔至跑道。',focus:'滑翔速度、可达性、构型时机',description:'从跑道侧方、收轮和襟翼 0 开始，需手动转向对正。两台发动机失效后，C 确认、Z 收杆，按滑翔 FD 保持约 185 kt。观察 ND 预计可达距离，约 3 km 放轮、2 km 放至 CONF 1 后目标 165 kt。接近 80 ft 时提前柔和拉平。没有推力、反推或复飞机会。此关简化应急电源并保留基本操纵。',objectives:['识别双发失效并保持滑翔速度','管理可达性，按时机放轮与襟翼','无动力接地，使用制动停稳'],keys:'C 确认 · Z IDLE · 手飞跟随 FD · G / F · 空格刹车'},
 ];
 export const LEVELS=entries.map((l,i)=>({...base,...l,requiresLanding:!['takeoff','goaround'].includes(l.kind),order:i+1}));
-export const getLevel=id=>LEVELS.find(l=>l.id===id)||null;
-export const nextLevel=id=>{const i=LEVELS.findIndex(l=>l.id===id);return i<0?null:LEVELS[i+1]||null;};
+export const AIRPORT_MISSIONS=[
+ {...base,id:'daxing-takeoff',revision:2,airportId:'daxing',stage:'airline',order:1,title:'大兴 · 17L 起飞',category:'真实机场练习',mode:'takeoff',kind:'takeoff',difficulty:1,targetAltitude:500,duration:'约 3–6 分钟',goal:'从真实 107 机位出发，滑行、对正并起飞。',focus:'自动离位、手动滑行与跑道许可',description:'先展示始发机场，自动完成离位与起飞构型准备，无需操纵牵引车。沿 Y7 / G 低速滑行，也可跳至 17L 外等待点。听到进入许可后，手动进入并对正跑道停稳；再等起飞许可，T 选择 TOGA，125 kt 后拉抬轮，正爬升后 G 收轮。',objectives:['在跑道外等待点停稳，取得进入许可','手动进入并对正 17L，等待起飞许可','正爬升收轮，500 ft 以上稳定 3 秒'],keys:'W / S 推力 · ← / → 转向 · 空格刹车 · T 起飞 · G 收轮',requiresLanding:false},
+ {...base,id:'daxing-landing',airportId:'daxing',stage:'airline',order:2,title:'大兴 · 17L 进近着陆',category:'真实机场练习',kind:'landing',scenario:'full',duration:'约 4–6 分钟',goal:'从跑道侧方建立进近，在大兴 17L 着陆停稳。',focus:'离轴截获、构型、手动着陆',description:'从 17L 北侧约 22 km、左侧 1500 m，机场以上 3000 ft / 210 kt 开始。起落架收起、襟翼 0。I 预位简化 ILS，逐级完成构型与检查；AP1 可选，200 ft 以下手动接管。复飞后按 ND 左侧返场，最终仍需落地停稳。',objectives:['截获 17L 进近，完成实际着陆构型','通过 1000 / 500 ft 稳定检查','手动接管，在 17L 接地并制动停稳'],requiresLanding:true},
+ {...base,id:'xiaoshan-takeoff',airportId:'xiaoshan',stage:'airline',order:3,title:'萧山 · 07 起飞',category:'真实机场练习',mode:'takeoff',kind:'takeoff',difficulty:1,targetAltitude:500,duration:'约 3–6 分钟',goal:'从萧山真实停机位出发，滑行、对正并起飞。',focus:'真实机场、地面导航与起飞许可',description:'从真实机位开始，自动完成离位和起飞构型准备。按地面导航滑行，或跳至 07 跑道外等待点。取得进入许可后手动进入、对正并停稳，等待起飞许可。T 选择 TOGA，125 kt 后拉，正爬升后 G 收轮。',objectives:['在跑道外停稳，取得进入许可','手动进入并对正 07，等待起飞许可','正爬升收轮，500 ft 以上稳定 3 秒'],keys:'W / S 推力 · ← / → 转向 · 空格刹车 · T 起飞 · G 收轮',requiresLanding:false},
+ {...base,id:'xiaoshan-landing',airportId:'xiaoshan',stage:'airline',order:4,title:'萧山 · 07 进近着陆',category:'真实机场练习',kind:'landing',scenario:'full',duration:'约 4–6 分钟',goal:'从跑道侧方建立进近，在萧山 07 着陆停稳。',focus:'钱塘江平原、离轴截获与手动着陆',description:'从 07 西侧约 22 km、跑道左侧 1500 m，机场以上 3000 ft / 210 kt 开始。初始收轮、襟翼 0。I 预位简化 ILS，逐级完成构型和检查；AP1 可选，200 ft 以下手动着陆。复飞后继续返场，最终落地停稳。',objectives:['截获 07 进近，完成实际着陆构型','通过 1000 / 500 ft 稳定检查','手动接管，在 07 接地并制动停稳'],requiresLanding:true},
+ {...base,id:'changi-takeoff',airportId:'changi',stage:'airline',order:5,title:'樟宜 · 02L 起飞',category:'真实机场练习',mode:'takeoff',kind:'takeoff',difficulty:1,targetAltitude:500,duration:'约 3–6 分钟',goal:'从樟宜真实机位出发，滑行、对正并起飞。',focus:'国际机场、地面许可与海岸离场',description:'机组自动准备离位和起飞构型。沿地面导航滑行，也可跳至 02L 跑道外等待点。听到进入许可后手动进入、对正并停稳；取得起飞许可后 T 选择 TOGA，125 kt 后拉，正爬升 G 收轮。',objectives:['在跑道外停稳，取得进入许可','手动进入并对正 02L，等待起飞许可','正爬升收轮，500 ft 以上稳定 3 秒'],keys:'W / S 推力 · ← / → 转向 · 空格刹车 · T 起飞 · G 收轮',requiresLanding:false},
+ {...base,id:'changi-landing',airportId:'changi',stage:'airline',order:6,title:'樟宜 · 02L 进近着陆',category:'真实机场练习',kind:'landing',scenario:'full',duration:'约 4–6 分钟',goal:'从跑道侧方建立进近，在樟宜 02L 着陆停稳。',focus:'海岸进近、构型与手动着陆',description:'从 02L 南侧约 22 km、跑道左侧 1500 m，机场以上 3000 ft / 210 kt 开始。起落架收起、襟翼 0。I 预位进近，完成构型和检查；AP1 可选，200 ft 以下手动接管。复飞后继续返场，最终着陆停稳。',objectives:['截获 02L 进近，完成实际着陆构型','通过 1000 / 500 ft 稳定检查','手动接管，在 02L 接地并制动停稳'],requiresLanding:true},
+];
+// Append airports without changing existing mission IDs, revisions or order.
+for(const ap of AIRPORTS.slice(3)){
+ const r=ap.runway.id;
+ AIRPORT_MISSIONS.push(
+ {...base,id:`${ap.id}-takeoff`,airportId:ap.id,stage:'airline',order:AIRPORT_MISSIONS.length+1,title:`${ap.shortName} · ${r} 起飞`,category:'真实机场练习',mode:'takeoff',kind:'takeoff',difficulty:1,targetAltitude:500,duration:'约 3–6 分钟',goal:`从${ap.name}真实机位出发，滑行、对正并起飞。`,focus:'真实机位、地面许可与手动起飞',description:`先观看机场展示，机组自动完成离位与起飞构型准备。沿指示路线滑行，也可略过至 ${r} 跑道外等待点。取得进入许可后手动进入、对正并停稳；等待单独的起飞许可，T 选择 TOGA，125 kt 后拉，正爬升 G 收轮。`,objectives:['在跑道外停稳，取得进入许可',`手动进入并对正 ${r}，等待起飞许可`,'正爬升收轮，500 ft 以上稳定 3 秒'],keys:'W / S 推力 · ← / → 转向 · 空格刹车 · T 起飞 · G 收轮',requiresLanding:false},
+ {...base,id:`${ap.id}-landing`,airportId:ap.id,stage:'airline',order:AIRPORT_MISSIONS.length+2,title:`${ap.shortName} · ${r} 进近着陆`,category:'真实机场练习',kind:'landing',scenario:'full',duration:'约 4–6 分钟',goal:`从跑道侧方建立进近，在${ap.name}着陆停稳。`,focus:'离轴截获、构型、手动着陆',description:`从 ${r} 进近侧约 22 km、跑道左侧 1500 m，机场以上 3000 ft / 210 kt 开始。起落架收起、襟翼 0。I 预位简化进近，逐级完成构型与检查；AP1 可选，200 ft 以下手动接管。复飞后继续返场，最终仍需着陆停稳。`,objectives:[`截获 ${r} 进近，完成实际着陆构型`,'通过 1000 / 500 ft 稳定检查',`手动接管，在 ${r} 接地并制动停稳`],requiresLanding:true}
+ );
+}
+const previousPairs=[['daxing','xiaoshan'],['xiaoshan','daxing'],['daxing','changi'],['xiaoshan','changi'],['changi','daxing'],['changi','xiaoshan']];
+const previousKeys=new Set(previousPairs.map(p=>p.join(':')));
+const orderedPairs=[...previousPairs,...AIRPORTS.flatMap(a=>AIRPORTS.filter(b=>a.id!==b.id&&!previousKeys.has(`${a.id}:${b.id}`)).map(b=>[a.id,b.id]))];
+export const AIRLINE_ROUTES=orderedPairs.map(([origin,destination])=>{const a=AIRPORTS.find(x=>x.id===origin),b=AIRPORTS.find(x=>x.id===destination);return[`${a.iata.toLowerCase()}-${b.iata.toLowerCase()}`,origin,destination,`${a.shortName} → ${b.shortName}`];}).map(([id,origin,destination,title],i)=>({...base,id,origin,destination,airportId:origin,stage:'airline',order:i+1,title,category:'城市间航班',mode:'takeoff',scenario:'full',kind:'airline',landingConfig:4,difficulty:2,duration:'约 12–20 分钟',goal:'从始发机位出发，在目的机场着陆并停靠机位。',focus:'离场转向、按来向到港、进近与到港滑行',description:'从真实停机位开始，离港滑行可跳过。取得许可后手动进入、对正并起飞。正爬升 G 收轮，500 ft 后 L 选择 CL；按 ND / FD 爬升至许可高度，再转入目的地航路。稳定后可跳过巡航。从始发城市方向进入目标机场区域，按导航绕至最后进近；提示后 I 预位，完成构型、检查与手动着陆。低速脱离跑道后滑行至机位，也可跳过剩余滑行。AP1 可选。',objectives:['完成地面许可与起飞，转入目的地航路','按始发来向到港，通过两个稳定进近检查点','实际着陆、脱离跑道并停靠机位，剩余滑行可跳过'],keys:'W / S · ← / → · 空格 · T 起飞 · G 收轮 · L CL · A 可选 · I / F / G / B / M / C 进近',requiresLanding:true,targetAltitude:3000}));
+export const ALL_MISSIONS=[...LEVELS,...AIRPORT_MISSIONS,...AIRLINE_ROUTES];
+export const getLevel=id=>ALL_MISSIONS.find(l=>l.id===id)||null;
+export const nextLevel=id=>{const list=AIRLINE_ROUTES.some(l=>l.id===id)?AIRLINE_ROUTES:AIRPORT_MISSIONS.some(l=>l.id===id)?AIRPORT_MISSIONS:LEVELS,i=list.findIndex(l=>l.id===id);return i<0?null:list[i+1]||null;};
 export const starsFor=score=>score>=90?3:score>=75?2:1;

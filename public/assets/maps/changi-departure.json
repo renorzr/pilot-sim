@@ -1,0 +1,288 @@
+{
+  "schemaVersion": 1,
+  "airportId": "changi",
+  "runwayId": "02L",
+  "coordinateFrame": "Metres in the active 02L local tangent plane: x runway-right, z approach side, y above threshold; yaw 0 follows 02L forward (-z).",
+  "stand": {
+    "ref": "A16",
+    "sourceId": "way/1302460669",
+    "sourceGateNodeId": "node/1838456044",
+    "longitude": 103.9819666,
+    "latitude": 1.3497014,
+    "x": 361.098,
+    "z": -244.965,
+    "yaw": 1.5237675382488018,
+    "headingDegLocal": 87.305,
+    "headingDegTrue": 110.017,
+    "nose": {
+      "x": 376.082,
+      "z": -245.67
+    },
+    "cgSetbackM": 15,
+    "note": "Source parking-position way anchors actual stand A16. The game CG is set back 15 m along the source lead-in final segment; this is a visual airframe offset, not a surveyed stand-stop reference."
+  },
+  "handoff": {
+    "x": 245.263,
+    "z": -239.513,
+    "yaw": 3.1383061592851886,
+    "sourceId": "way/1302460669",
+    "note": "Apron-side beginning of the actual stand A16 lead-in, on source taxiway V. The automatic departure preparation abstracts pushback/reposition; control starts stationary facing the cleared taxi route."
+  },
+  "taxiPoints": [
+    {
+      "x": 245.263,
+      "z": -239.513,
+      "sourceId": "way/1302460669",
+      "name": "A16",
+      "kind": "source-vertex"
+    },
+    {
+      "x": 245.481,
+      "z": -173.228,
+      "sourceId": "way/173010562",
+      "name": "V",
+      "kind": "source-network-point"
+    },
+    {
+      "x": 243.952,
+      "z": -160.44,
+      "sourceId": "way/173010614",
+      "name": "V / V9",
+      "kind": "source-network-point"
+    },
+    {
+      "x": 241.548,
+      "z": -153.327,
+      "sourceId": "way/173010614",
+      "name": "V / V9",
+      "kind": "source-network-point"
+    },
+    {
+      "x": 236.937,
+      "z": -145.81,
+      "sourceId": "way/173010614",
+      "name": "V / V9",
+      "kind": "source-network-point"
+    },
+    {
+      "x": 232.165,
+      "z": -139.541,
+      "sourceId": "way/173010614",
+      "name": "V / V9",
+      "kind": "source-network-point"
+    },
+    {
+      "x": 225.995,
+      "z": -133.845,
+      "sourceId": "way/173010614",
+      "name": "V / V9",
+      "kind": "source-network-point"
+    },
+    {
+      "x": 220.484,
+      "z": -129.921,
+      "sourceId": "way/173010614",
+      "name": "V / V9",
+      "kind": "source-network-point"
+    },
+    {
+      "x": 213.216,
+      "z": -126.59,
+      "sourceId": "way/173010614",
+      "name": "V / V9",
+      "kind": "source-network-point"
+    },
+    {
+      "x": 206.901,
+      "z": -124.815,
+      "sourceId": "way/173010614",
+      "name": "V / V9",
+      "kind": "source-network-point"
+    },
+    {
+      "x": 198.457,
+      "z": -123.574,
+      "sourceId": "way/173010614",
+      "name": "V / V9",
+      "kind": "source-network-point"
+    },
+    {
+      "x": 190.512,
+      "z": -123.387,
+      "sourceId": "way/741695442",
+      "name": "V9",
+      "kind": "source-network-point"
+    },
+    {
+      "x": 189.114,
+      "z": -123.64,
+      "sourceId": "way/741695442",
+      "name": "V9",
+      "kind": "source-network-point"
+    },
+    {
+      "x": 144.159,
+      "z": -123.96,
+      "sourceId": "way/741695442",
+      "name": "V9",
+      "kind": "source-network-point"
+    },
+    {
+      "x": 109.999,
+      "z": -124.203,
+      "sourceId": "way/741695442",
+      "name": "02L HOLD",
+      "kind": "game-holding-point"
+    }
+  ],
+  "hold": {
+    "x": 109.999,
+    "z": -124.203,
+    "yaw": -1.5637005978965617,
+    "sourceId": "way/741695442",
+    "sourceHoldingNodeId": "node/6373464905",
+    "isPublishedHoldingPosition": false,
+    "note": "Game CG stop on V9 before W8 outside runway 02L, about 47 m before the source holding-position node, retaining nose clearance. It does not claim a current published stop position or live clearance."
+  },
+  "entryPoints": [
+    {
+      "x": 109.999,
+      "z": -124.203,
+      "sourceId": "way/741695442",
+      "name": "02L HOLD",
+      "kind": "game-holding-point"
+    },
+    {
+      "x": 83.552,
+      "z": -124.391,
+      "sourceId": "way/741695442",
+      "name": "V9",
+      "kind": "source-vertex"
+    },
+    {
+      "x": 62.642,
+      "z": -124.57,
+      "sourceId": "way/173061512",
+      "name": "W8",
+      "kind": "source-vertex"
+    },
+    {
+      "x": 50.0,
+      "z": -124.702,
+      "sourceId": "way/173061512",
+      "name": "W8",
+      "kind": "source-vertex"
+    },
+    {
+      "x": 40.246,
+      "z": -125.669,
+      "sourceId": "OurAirports:02L/20R",
+      "name": "02L",
+      "kind": "game-lineup-arc"
+    },
+    {
+      "x": 30.866,
+      "z": -128.531,
+      "sourceId": "OurAirports:02L/20R",
+      "name": "02L",
+      "kind": "game-lineup-arc"
+    },
+    {
+      "x": 22.221,
+      "z": -133.179,
+      "sourceId": "OurAirports:02L/20R",
+      "name": "02L",
+      "kind": "game-lineup-arc"
+    },
+    {
+      "x": 14.645,
+      "z": -139.434,
+      "sourceId": "OurAirports:02L/20R",
+      "name": "02L",
+      "kind": "game-lineup-arc"
+    },
+    {
+      "x": 8.427,
+      "z": -147.056,
+      "sourceId": "OurAirports:02L/20R",
+      "name": "02L",
+      "kind": "game-lineup-arc"
+    },
+    {
+      "x": 3.806,
+      "z": -155.752,
+      "sourceId": "OurAirports:02L/20R",
+      "name": "02L",
+      "kind": "game-lineup-arc"
+    },
+    {
+      "x": 0.961,
+      "z": -165.187,
+      "sourceId": "OurAirports:02L/20R",
+      "name": "02L",
+      "kind": "game-lineup-arc"
+    },
+    {
+      "x": 0,
+      "z": -175,
+      "sourceId": "OurAirports:02L/20R",
+      "name": "02L",
+      "kind": "game-lineup-arc"
+    },
+    {
+      "x": 0,
+      "z": -225,
+      "sourceId": "OurAirports:02L/20R",
+      "name": "02L",
+      "kind": "runway-centerline"
+    }
+  ],
+  "lineup": {
+    "x": 0,
+    "z": -225,
+    "yaw": 0,
+    "sourceId": "OurAirports:02L/20R",
+    "remainingRunwayM": 3810.427,
+    "note": "Gameplay lineup target on the threshold-based runway centerline. Entry to this point remains manual."
+  },
+  "taxiDistanceM": 230.107,
+  "entryDistanceM": 188.648,
+  "routeReferences": [
+    "A16",
+    "V",
+    "V9",
+    "W8",
+    "02L"
+  ],
+  "sourceFeatureIds": [
+    "node/1838456044",
+    "way/1302460669",
+    "way/173010562",
+    "way/173010614",
+    "way/741695442",
+    "way/173061512",
+    "node/6373464905"
+  ],
+  "sources": [
+    {
+      "name": "OpenStreetMap contributors",
+      "license": "ODbL-1.0",
+      "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
+      "dataFile": "changi.json",
+      "dataFetchedAt": "2026-11-21T09:43:01.557406+00:00"
+    },
+    {
+      "name": "OurAirports",
+      "license": "Unlicense / public domain",
+      "dataFile": "changi.json"
+    }
+  ],
+  "notes": [
+    "Curated A16 / V / V9 / W8 departure uses actual OSM parking lead-in and connected taxiways. This is game routing, not a current published taxi clearance.",
+    "Stand A16 nose position is the terminal-side endpoint of parking way/1302460669; gate node/1838456044 identifies the associated passenger gate and is not used as a stand stop coordinate.",
+    "The source V-to-V9 turn retains native taxiway curve way/173010614. The graph splits actual source intersections and permits only sub-metre joins introduced by source precision.",
+    "The game holding CG is on V9 before W8, about 47 m behind source W8 holding node/6373464905. Its 15 m nose offset remains outside the game runway protected strip.",
+    "OSM's western runway centerline differs by about 55 m from this OurAirports endpoint-based frame. W8 is followed to x=50; an explicitly synthetic ~50 m radius alignment arc joins the game runway centerline at x=0,z=-175, followed by 50 m of straight alignment to the stop at z=-225. No published runway-entry accuracy is claimed.",
+    "Optional taxi skip stops outside the runway. Manual runway entry, alignment, stopping and separate takeoff permission remain required."
+  ]
+}

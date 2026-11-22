@@ -2,32 +2,38 @@
 // deviation; only actual recovery does. All tolerances are game presets.
 import {FT,RUNWAY,wrap,RAD} from '../sim/constants.js';
 import {repeatRadio,clearRadioEvents} from './radio.js';
+import {runwayOf,runwayHeading} from '../airports/registry.js';
+import {airlineTarget} from '../missions/airline-navigation.js';
 export const createATC=()=>({clearance:null,phaseKey:null,issuedAt:0,deviation:null,seconds:0,lastSent:-100,recoveredSeconds:0,notified:false,terrainPriority:false,terrainFloorFt:0,terrainClearSeconds:0,violations:[],history:[]});
 function nominalClearance(s){
- if(s.goAround){const coast=s.touchAndGo?.active&&s.touchAndGo.coastalTurn;return{key:coast?'goaround-coastal':'goaround',kind:'heading',turnGrace:coast?55:6,heading:(270+s.goAroundHeading/RAD+360)%360,altitude:s.selectedAltitude,climb:true,label:coast?'触地复飞 · 左转海侧爬升':'复飞 · 跑道方向'};}
+ if(s.goAround){const coast=s.touchAndGo?.active&&s.touchAndGo.coastalTurn;return{key:coast?'goaround-coastal':'goaround',kind:'heading',turnGrace:coast?55:6,heading:(runwayHeading(s)+s.goAroundHeading/RAD+360)%360,altitude:s.selectedAltitude,climb:true,label:coast?(s.airportId!=='training'?'触地复飞 · 左侧爬升':'触地复飞 · 左转海侧爬升'):'复飞 · 跑道方向'};}
+ const target=airlineTarget(s);
+ if(target){const n=s.airline.navigation;return{key:`airline-${n.kind}-${n.index}`,kind:'airline-route',altitude:Math.round(target.altitude/100)*100,climb:n.kind==='departure',turnGrace:40,label:`${target.name} · 按 ND 航路和高度飞行`};}
  if(s.route?.active){
   const r=s.route,leg=r.points[r.index];
-  return{key:`route-${r.index}`,kind:r.inFinal?'approach':'route',altitude:r.inFinal?null:leg.alt,leg:r.index,climb:r.index===0,label:r.inFinal?'五边 · 对正跑道':`${leg.name} · 海侧航线`};
+  return{key:`route-${r.index}`,kind:r.inFinal?'approach':'route',altitude:r.inFinal?null:leg.alt,leg:r.index,climb:r.index===0,label:r.inFinal?'五边 · 对正跑道':`${leg.name} · ${s.airportId!=='training'?'左侧返场':'海侧航线'}`};
  }
  if(s.mission?.kind==='dual-glide')return{key:'glide',kind:'glide',altitude:null,label:'应急滑翔 · 优先避障与落点'};
- if(s.mode==='landing')return{key:'approach',kind:'approach',altitude:null,label:'进近 · 跑道 27'};
- return{key:'departure',kind:'heading',heading:270,altitude:s.mission?.kind==='takeoff'?500:s.selectedAltitude,climb:true,label:'离场 · 保持跑道方向'};
+ if(s.mode==='landing')return{key:'approach',kind:'approach',altitude:null,label:`进近 · 跑道 ${runwayOf(s).id}`};
+ return{key:'departure',kind:'heading',heading:runwayHeading(s),altitude:s.airline&&!s.airline.cruiseSkipped?3000:s.mission?.kind==='takeoff'?500:s.selectedAltitude,climb:true,label:'离场 · 保持跑道方向'};
 }
 export function clearanceFor(s){const c=nominalClearance(s);return s.atc?.terrainFloorFt?{...c,altitude:Math.max(c.altitude||0,s.atc.terrainFloorFt),climb:true,label:'地形避让 · 临时安全高度'}:c;}
 function deviationFor(s,c){
  const altitude=(s.y-RUNWAY.ground)*FT;
- if(c.kind==='route'){
+ if(c.kind==='airline-route'){
+  const t=airlineTarget(s);if(t&&Math.abs(t.cross)>2500)return{type:'route',text:'偏离航班航路 · 根据 ND 修正航迹',clip:'atc-route'};
+ }else if(c.kind==='route'){
   if(c.leg===0){
    // Straight departure then a LEFT turn over the sea. Continuing straight
    // past the turn is a route deviation even if altitude is exactly 1500 ft.
-   if(Math.abs(s.x)>650||s.z< -7300)return{type:'route',text:'偏离海侧航线 · 按 ND 左转回航线',clip:'atc-route'};
+   if(Math.abs(s.x)>650||s.z< -7300)return{type:'route',text:s.airportId!=='training'?'偏离返场航线 · 按 ND 左转回航线':'偏离海侧航线 · 按 ND 左转回航线',clip:'atc-route'};
   }else{
    const r=s.route,b=r.points[r.index],p=r.index?r.points[r.index-1]:r.origin,dx=b.x-p.x,dz=b.z-p.z,length=Math.hypot(dx,dz);
    const along=((s.x-p.x)*dx+(s.z-p.z)*dz)/(length*length),cross=((s.x-p.x)*dz-(s.z-p.z)*dx)/length;
-   if(Math.abs(cross)>2000||along<-.35||along>1.35)return{type:'route',text:'偏离海侧航线 · 根据 ND 修正航迹',clip:'atc-route'};
+   if(Math.abs(cross)>2000||along<-.35||along>1.35)return{type:'route',text:s.airportId!=='training'?'偏离返场航线 · 根据 ND 修正航迹':'偏离海侧航线 · 根据 ND 修正航迹',clip:'atc-route'};
   }
  }else if(c.kind==='approach'&&(Math.abs(s.x)>Math.max(150,Math.max(s.z,0)*.08)||Math.abs(wrap(s.airData.groundTrack))>35*RAD))return{type:'approach',text:'偏离进近航迹 · 对正跑道，无法稳定时复飞',clip:'atc-approach'};
- else if(c.kind==='heading'&&Math.abs(wrap(s.yaw-(c.heading-270)*RAD))>25*RAD)return{type:'heading',text:`航向偏离许可 · 恢复 ${Math.round(c.heading)}°`,clip:'atc-heading'};
+ else if(c.kind==='heading'&&Math.abs(wrap(s.yaw-(c.heading-runwayHeading(s))*RAD))>25*RAD)return{type:'heading',text:`航向偏离许可 · 恢复 ${Math.round(c.heading)}°`,clip:'atc-heading'};
  if(c.altitude!==null){
   if(altitude>c.altitude+220)return{type:'high',text:`高于许可高度 · 恢复 ${Math.round(c.altitude)} ft`,clip:'atc-high'};
   // Do not call a normal climb a violation. Stall/terrain alerts have their

@@ -1,0 +1,271 @@
+{
+  "schemaVersion": 1,
+  "airportId": "jfk",
+  "runwayId": "22R",
+  "coordinateFrame": "Metres in active22R tangent frame: x runway-right, z approach side, y above threshold; yaw0 follows runway forward(-z).",
+  "stand": {
+    "ref": "9",
+    "sourceId": "way/1011116770",
+    "longitude": -73.7810805,
+    "latitude": 40.6504938,
+    "x": 1271.794,
+    "z": -539.529,
+    "yaw": 1.3977931032006774,
+    "nose": {
+      "x": 1286.57,
+      "z": -542.111
+    },
+    "cgSetbackM": 15,
+    "note": "Actual OSM parking lead-in nose endpoint; gameCG sits15m back along source lead-in."
+  },
+  "handoff": {
+    "x": 1250.264,
+    "z": -497.038,
+    "yaw": 3.1359062810861724,
+    "sourceId": "way/1011116770",
+    "note": "Automatic crew departure abstracts pushback; handoff is the actual source stand lead-in/taxiway connection."
+  },
+  "taxiPoints": [
+    {
+      "x": 1250.264,
+      "z": -497.038,
+      "sourceId": "way/1011116770",
+      "name": "9",
+      "kind": "source-network-point"
+    },
+    {
+      "x": 1250.278,
+      "z": -494.576,
+      "sourceId": "way/1256904562",
+      "name": "W",
+      "kind": "source-network-point"
+    },
+    {
+      "x": 1248.859,
+      "z": -452.469,
+      "sourceId": "way/1256904562",
+      "name": "W",
+      "kind": "source-network-point"
+    },
+    {
+      "x": 1008.389,
+      "z": -453.632,
+      "sourceId": "way/1356437398",
+      "name": "A",
+      "kind": "source-network-point"
+    },
+    {
+      "x": 796.476,
+      "z": -454.261,
+      "sourceId": "way/1356437398",
+      "name": "A",
+      "kind": "source-network-point"
+    },
+    {
+      "x": 585.971,
+      "z": -455.492,
+      "sourceId": "way/1356437398",
+      "name": "A",
+      "kind": "source-network-point"
+    },
+    {
+      "x": 469.89,
+      "z": -455.61,
+      "sourceId": "way/1356437398",
+      "name": "A",
+      "kind": "source-network-point"
+    },
+    {
+      "x": 432.142,
+      "z": -369.083,
+      "sourceId": "way/5786554",
+      "name": "DB",
+      "kind": "source-network-point"
+    },
+    {
+      "x": 417.017,
+      "z": -335.003,
+      "sourceId": "way/5786554",
+      "name": "DB",
+      "kind": "source-network-point"
+    },
+    {
+      "x": 408.245,
+      "z": -315.56,
+      "sourceId": "way/5786554",
+      "name": "DB",
+      "kind": "source-network-point"
+    },
+    {
+      "x": 381.571,
+      "z": -254.107,
+      "sourceId": "way/5786554",
+      "name": "DB",
+      "kind": "source-network-point"
+    },
+    {
+      "x": 378.965,
+      "z": -247.598,
+      "sourceId": "way/5786554",
+      "name": "DB",
+      "kind": "source-network-point"
+    },
+    {
+      "x": 339.497,
+      "z": -158.657,
+      "sourceId": "way/5786554",
+      "name": "DB",
+      "kind": "source-network-point"
+    },
+    {
+      "x": 325.043,
+      "z": -125.53,
+      "sourceId": "way/5786554",
+      "name": "DB",
+      "kind": "source-network-point"
+    },
+    {
+      "x": 165.124,
+      "z": -126.086,
+      "sourceId": "way/5823300",
+      "name": "C",
+      "kind": "source-network-point"
+    },
+    {
+      "x": 110.0,
+      "z": -126.297,
+      "sourceId": "way/5823300",
+      "name": "22R HOLD",
+      "kind": "game-holding-point"
+    }
+  ],
+  "hold": {
+    "x": 110,
+    "z": -126.297,
+    "yaw": -1.5708015022940274,
+    "sourceId": "way/5823300",
+    "isPublishedHoldingPosition": false,
+    "note": "GameCG holding point on source entrytaxiway, outside protectedstrip with15m noseclearance."
+  },
+  "entryPoints": [
+    {
+      "x": 110,
+      "z": -126.297,
+      "sourceId": "way/5823300",
+      "name": "22R HOLD",
+      "kind": "game-holding-point"
+    },
+    {
+      "x": 50,
+      "z": -126.297,
+      "sourceId": "way/5823300",
+      "name": "C",
+      "kind": "source-entry-alignment"
+    },
+    {
+      "x": 40.245,
+      "z": -127.258,
+      "sourceId": "OurAirports:04L/22R",
+      "name": "22R",
+      "kind": "game-lineup-arc"
+    },
+    {
+      "x": 30.866,
+      "z": -130.103,
+      "sourceId": "OurAirports:04L/22R",
+      "name": "22R",
+      "kind": "game-lineup-arc"
+    },
+    {
+      "x": 22.221,
+      "z": -134.724,
+      "sourceId": "OurAirports:04L/22R",
+      "name": "22R",
+      "kind": "game-lineup-arc"
+    },
+    {
+      "x": 14.645,
+      "z": -140.942,
+      "sourceId": "OurAirports:04L/22R",
+      "name": "22R",
+      "kind": "game-lineup-arc"
+    },
+    {
+      "x": 8.427,
+      "z": -148.519,
+      "sourceId": "OurAirports:04L/22R",
+      "name": "22R",
+      "kind": "game-lineup-arc"
+    },
+    {
+      "x": 3.806,
+      "z": -157.163,
+      "sourceId": "OurAirports:04L/22R",
+      "name": "22R",
+      "kind": "game-lineup-arc"
+    },
+    {
+      "x": 0.961,
+      "z": -166.543,
+      "sourceId": "OurAirports:04L/22R",
+      "name": "22R",
+      "kind": "game-lineup-arc"
+    },
+    {
+      "x": 0.0,
+      "z": -176.297,
+      "sourceId": "OurAirports:04L/22R",
+      "name": "22R",
+      "kind": "game-lineup-arc"
+    },
+    {
+      "x": 0,
+      "z": -226.297,
+      "sourceId": "OurAirports:04L/22R",
+      "name": "22R",
+      "kind": "runway-centerline"
+    }
+  ],
+  "lineup": {
+    "x": 0,
+    "z": -226.297,
+    "yaw": 0,
+    "sourceId": "OurAirports:04L/22R",
+    "remainingRunwayM": 3239.854
+  },
+  "taxiDistanceM": 1399.083,
+  "entryDistanceM": 188.413,
+  "routeReferences": [
+    "9",
+    "W",
+    "A",
+    "DB",
+    "C",
+    "22R"
+  ],
+  "sourceFeatureIds": [
+    "way/1011116770",
+    "way/1256904562",
+    "way/1356437398",
+    "way/5786554",
+    "way/5823300"
+  ],
+  "sources": [
+    {
+      "name": "OpenStreetMap contributors",
+      "license": "ODbL-1.0",
+      "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/",
+      "dataFile": "jfk.json"
+    },
+    {
+      "name": "OurAirports",
+      "license": "Unlicense / public domain",
+      "dataFile": "jfk.json"
+    }
+  ],
+  "notes": [
+    "Curated game departure follows real source stand and connected taxiway vertices; this is not a published current taxi clearance.",
+    "Source taxi/OurAirports centerline mismatch is bridged by a clearly synthetic50m radiusalignmentarc and50mstraightsegment before the finalstop.",
+    "The holdingCG is110m from the activeaxis; entry and takeoff require separate clearances. Optionaltaxiskipnevergrantsrunwayentry."
+  ]
+}

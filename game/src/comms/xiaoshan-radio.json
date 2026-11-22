@@ -1,0 +1,253 @@
+{
+  "zh": {
+    "preparation": [
+      [
+        "pilot",
+        "萧山地面，云际三二零，二五一机位，请求推出开车。"
+      ],
+      [
+        "tower",
+        "云际三二零，同意推出开车，完成后报告。"
+      ]
+    ],
+    "taxi": [
+      [
+        "tower",
+        "云际三二零，沿指示路线滑行至零七跑道外等待。"
+      ],
+      [
+        "pilot",
+        "沿指示路线滑行，零七跑道外等待，云际三二零。"
+      ]
+    ],
+    "holding": [
+      [
+        "pilot",
+        "云际三二零，零七跑道外等待点，已停稳。"
+      ],
+      [
+        "tower",
+        "云际三二零，联系塔台，继续跑道外等待。"
+      ]
+    ],
+    "lineup": [
+      [
+        "tower",
+        "云际三二零，零七，进跑道等待。"
+      ],
+      [
+        "pilot",
+        "零七，进跑道等待，云际三二零。"
+      ]
+    ],
+    "ground-speed": [
+      [
+        "tower",
+        "云际三二零，滑行速度过快，减速。"
+      ],
+      [
+        "pilot",
+        "减速滑行，云际三二零。"
+      ]
+    ],
+    "ground-stop": [
+      [
+        "tower",
+        "云际三二零，尚未许可进入跑道，立即停住。"
+      ],
+      [
+        "pilot",
+        "收到，立即停止，云际三二零。"
+      ]
+    ],
+    "takeoff": [
+      [
+        "tower",
+        "云际三二零，萧山塔台，跑道零七，可以起飞。"
+      ],
+      [
+        "pilot",
+        "跑道零七，可以起飞，云际三二零。"
+      ]
+    ],
+    "approach": [
+      [
+        "pilot",
+        "萧山塔台，云际三二零，进近零七。"
+      ],
+      [
+        "tower",
+        "云际三二零，萧山塔台，继续进近零七，检查速度和构型。"
+      ]
+    ],
+    "reapproach": [
+      [
+        "tower",
+        "云际三二零，按导航左转返场，准备再次进近零七。"
+      ],
+      [
+        "pilot",
+        "左转返场，准备再次进近零七，云际三二零。"
+      ]
+    ],
+    "final": [
+      [
+        "pilot",
+        "萧山塔台，云际三二零，零七五边。"
+      ],
+      [
+        "tower",
+        "云际三二零，跑道零七，可以着陆。"
+      ]
+    ]
+  },
+  "en": {
+    "preparation": [
+      [
+        "pilot",
+        "Xiaoshan Ground, Skyline three two zero, stand two five one. Request pushback and start."
+      ],
+      [
+        "tower",
+        "Skyline three two zero, pushback and start approved. Report when ready."
+      ]
+    ],
+    "taxi": [
+      [
+        "tower",
+        "Skyline three two zero, taxi via the marked route. Hold short of runway zero seven."
+      ],
+      [
+        "pilot",
+        "Taxi via the marked route. Hold short of zero seven, Skyline three two zero."
+      ]
+    ],
+    "holding": [
+      [
+        "pilot",
+        "Skyline three two zero, stopped at the holding point, runway zero seven."
+      ],
+      [
+        "tower",
+        "Skyline three two zero, contact Tower. Continue holding short."
+      ]
+    ],
+    "lineup": [
+      [
+        "tower",
+        "Skyline three two zero, runway zero seven, line up and wait."
+      ],
+      [
+        "pilot",
+        "Zero seven, line up and wait, Skyline three two zero."
+      ]
+    ],
+    "ground-speed": [
+      [
+        "tower",
+        "Skyline three two zero, taxi speed excessive. Reduce speed."
+      ],
+      [
+        "pilot",
+        "Reducing taxi speed, Skyline three two zero."
+      ]
+    ],
+    "ground-stop": [
+      [
+        "tower",
+        "Skyline three two zero, not cleared to enter the runway. Stop immediately."
+      ],
+      [
+        "pilot",
+        "Stopping immediately, Skyline three two zero."
+      ]
+    ],
+    "takeoff": [
+      [
+        "tower",
+        "Skyline three two zero, Xiaoshan Tower. Runway zero seven, cleared for takeoff."
+      ],
+      [
+        "pilot",
+        "Runway zero seven, cleared for takeoff, Skyline three two zero."
+      ]
+    ],
+    "approach": [
+      [
+        "pilot",
+        "Xiaoshan Tower, Skyline three two zero, approaching runway zero seven."
+      ],
+      [
+        "tower",
+        "Skyline three two zero, Xiaoshan Tower. Continue approach runway zero seven. Check speed and configuration."
+      ]
+    ],
+    "reapproach": [
+      [
+        "tower",
+        "Skyline three two zero, turn left following navigation for another approach, runway zero seven."
+      ],
+      [
+        "pilot",
+        "Left turn for another approach, runway zero seven, Skyline three two zero."
+      ]
+    ],
+    "final": [
+      [
+        "pilot",
+        "Xiaoshan Tower, Skyline three two zero, final runway zero seven."
+      ],
+      [
+        "tower",
+        "Skyline three two zero, runway zero seven, cleared to land."
+      ]
+    ]
+  },
+  "durations": {
+    "zh": {
+      "xiaoshan-preparation-0": 4.656,
+      "xiaoshan-preparation-1": 3.648,
+      "xiaoshan-taxi-0": 4.248,
+      "xiaoshan-taxi-1": 4.272,
+      "xiaoshan-holding-0": 3.696,
+      "xiaoshan-holding-1": 3.696,
+      "xiaoshan-lineup-0": 3.096,
+      "xiaoshan-lineup-1": 3.336,
+      "xiaoshan-ground-speed-0": 3.192,
+      "xiaoshan-ground-speed-1": 2.688,
+      "xiaoshan-ground-stop-0": 3.792,
+      "xiaoshan-ground-stop-1": 3.336,
+      "xiaoshan-takeoff-0": 4.032,
+      "xiaoshan-takeoff-1": 3.216,
+      "xiaoshan-approach-0": 3.528,
+      "xiaoshan-approach-1": 5.088,
+      "xiaoshan-reapproach-0": 4.464,
+      "xiaoshan-reapproach-1": 4.128,
+      "xiaoshan-final-0": 3.552,
+      "xiaoshan-final-1": 3.072
+    },
+    "en": {
+      "xiaoshan-preparation-0": 5.784,
+      "xiaoshan-preparation-1": 5.136,
+      "xiaoshan-taxi-0": 5.928,
+      "xiaoshan-taxi-1": 5.184,
+      "xiaoshan-holding-0": 4.152,
+      "xiaoshan-holding-1": 4.992,
+      "xiaoshan-lineup-0": 4.296,
+      "xiaoshan-lineup-1": 3.48,
+      "xiaoshan-ground-speed-0": 5.064,
+      "xiaoshan-ground-speed-1": 3.168,
+      "xiaoshan-ground-stop-0": 5.328,
+      "xiaoshan-ground-stop-1": 2.976,
+      "xiaoshan-takeoff-0": 6.072,
+      "xiaoshan-takeoff-1": 3.84,
+      "xiaoshan-approach-0": 4.2,
+      "xiaoshan-approach-1": 7.896,
+      "xiaoshan-reapproach-0": 5.976,
+      "xiaoshan-reapproach-1": 4.32,
+      "xiaoshan-final-0": 4.056,
+      "xiaoshan-final-1": 4.224
+    }
+  },
+  "version": "6353d7722c68d1d4aa2a"
+}

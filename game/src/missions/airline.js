@@ -18,16 +18,19 @@ export const arrivalPreview=s=>s.airline?.phase==='arrival-preview';
 const radioDone=(s,event)=>s.radio.fired[event]&&!s.radio.pending.some(l=>l.event===event)&&s.radio.active?.event!==event;
 export function cruiseConditions(s){
  const h=(s.y-runwayOf(s).ground)*FT,n=s.airline?.navigation,t=airlineTarget(s);
- const onRoute=n?.kind==='departure'&&n.index===1&&Math.abs(wrap(s.airData.groundTrack-(n.course-runwayOf(s).heading)*RAD))<15*RAD&&Math.abs(t?.cross??Infinity)<1500;
+ const last=n?.points.length-1,ordered=n?.visited?.length>=last&&n.visited.slice(0,last).every((value,i)=>value===i);
+ const onRoute=n?.kind==='departure'&&n.index===last&&ordered&&Math.abs(wrap(s.airData.groundTrack-(n.course-runwayOf(s).heading)*RAD))<15*RAD&&Math.abs(t?.cross??Infinity)<1500;
  return !!s.airline&&!s.result&&s.airborne&&!s.landed&&!s.goAround&&s.ground?.heldShort&&s.ground.lineupComplete&&s.ground.takeoffCleared&&onRoute&&h>=n.altitude-30&&h<=n.altitude+300&&Math.abs(s.verticalSpeed)<=1.5&&Math.abs(s.roll)<10*RAD&&s.speed*KT>=165&&s.speed*KT<=225&&s.gearPosition<.02&&s.flapPosition<=1.05&&!s.terrain.level&&!s.stallWarning.active&&s.engines.every(e=>e.status==='running'&&e.health>.5);
 }
 export const canSkipCruise=s=>s.airline?.phase==='cruise-ready'&&s.airline.stableSeconds>=3&&cruiseConditions(s);
-export function beforeAirlinePhysics(s,{checkpoint}){
+export const canAutoSkipCruise=s=>!s.airline?.cruiseSkipped&&!!s.airline?.navigation?.endPassed&&canSkipCruise(s);
+export function beforeAirlinePhysics(s,{checkpoint,dt=.01}){
  if(!s.airline)return false;
  if(!arrivalPreview(s)){
-  const event=advanceAirlineNavigation(s);
+  const event=advanceAirlineNavigation(s,dt);
   if(event)s.selectedAltitude=s.airline.navigation.points[s.airline.navigation.index].alt;
   if(event==='departure-turn'){queueRadio(s,event);checkpoint(s,'离场转弯 · 飞往目的机场');}
+  if(event==='departure-end')checkpoint(s,'离场末点已通过 · 等待自动转场');
   if(event==='arrival-final'){s.airline.phase='approach';s.mode='landing';s.selectedAltitude=3000;s.previousRA=(s.y-runwayOf(s).ground)*FT;queueRadio(s,event);queueRadio(s,'approach');checkpoint(s,'最后进近截获 · 完成构型检查');}
   return false;
  }
@@ -55,9 +58,10 @@ export function airlineInstruction(s){
  if(arrivalPreview(s))return '目标机场展示 · 自动进近简报';
  if(a.phase==='arrival')return `${a.navigation.points[a.navigation.index].name} · 按 ND / FD 飞行，最后进近前保持未构型`;
  if(['climb','cruise-ready'].includes(a.phase)){
+  if(a.navigation.endPassed)return '末航点已通过 · 保持出港航迹，完成离场条件后自动转场';
   if(s.gear)return '航班离场 · 正爬升后 G 收轮';
   if((s.y-runwayOf(s).ground)*FT>500&&s.throttle>.845)return '航班离场 · L 选择 CL，继续爬升至许可高度';
-  if(a.phase==='cruise-ready'&&canSkipCruise(s))return '离场完成 · 可跳过巡航，转至目的机场进近';
+  if(a.phase==='cruise-ready'&&canSkipCruise(s))return '离场已稳定 · 可提前跳过巡航，或继续至末航点自动转场';
   return `航班离场 · ${a.navigation.index?'转入目的地航路':'保持跑道方向爬升'} · ${a.navigation.altitude} ft`;
  }
  return null;

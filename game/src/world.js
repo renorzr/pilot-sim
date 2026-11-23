@@ -21,7 +21,7 @@ import {configureLaxLighting,LAX_LIGHTING}from './airports/lax-lighting.js';
 
 const rand = (seed) => { let n = seed; return () => { n = (n * 1664525 + 1013904223) >>> 0; return n / 4294967296; }; };
 
-export function createWorld(host, onReady, onError, airportId='training',onProgress=()=>{}) {
+export function createWorld(host, onReady, onError, airportId='training',onProgress=()=>{},{activate=true}={}) {
   const airport=airportOf(airportId),realAirport=!!airport.data;
   let renderer;
   try {
@@ -38,7 +38,8 @@ export function createWorld(host, onReady, onError, airportId='training',onProgr
   const label=()=>renderer.domElement.setAttribute('aria-label',t('实时 3D 机场外景'));
   label();const stopLanguage=subscribeLanguage(label);
   const scene = new THREE.Scene();
-  const hasMappedCity=['lax','xiaoshan','changi','jfk'].includes(airportId);
+  const hasMappedCity=['lax','xiaoshan','changi','jfk','kansai','daxing'].includes(airportId);
+  let cityActive=activate;
   let dirty = true, lastView = '',skyTexture=null,disposed=false,aircraft=null,aircraftReady=false,texturesReady=false,readyReported=false,lastAnimationTime=null,visualOffset=0,city=null,cityReady=!hasMappedCity,cityTerrain=null;
   const progress=createLoadingProgress(value=>{if(!disposed)onProgress(value);},{hasCity:hasMappedCity});progress.update('assets',0);
   const defaultView=createViewState();
@@ -263,7 +264,7 @@ export function createWorld(host, onReady, onError, airportId='training',onProgr
     parts.forEach(g=>g.dispose());
   }
 
-  if(hasMappedCity)(airportId==='lax'?import('./airports/lax-city-world.js').then(m=>m.loadLaxCity):airportId==='xiaoshan'?import('./airports/xiaoshan-city-world.js').then(m=>m.loadXiaoshanCity):airportId==='changi'?import('./airports/changi-city-world.js').then(m=>m.loadChangiCity):import('./airports/jfk-city-world.js').then(m=>m.loadJfkCity)).then(loadCity=>loadCity({scene,terrain:cityTerrain,airport,camera,loadingManager:loading,onProgress:detail=>progress.update('city',detail.fraction,detail),isCurrent:()=>!disposed,onChange:()=>{dirty=true;},maxAnisotropy:renderer.capabilities.getMaxAnisotropy()})).then(value=>{if(disposed){value.dispose();return;}city=value;city.activate?.();cityReady=true;dirty=true;reportReady();}).catch(error=>{if(!disposed){loadError=true;onError('城市场景加载失败，请刷新页面重试。');console.error('City scene load failed:',error);}});
+  if(hasMappedCity)(airportId==='lax'?import('./airports/lax-city-world.js').then(m=>m.loadLaxCity):airportId==='xiaoshan'?import('./airports/xiaoshan-city-world.js').then(m=>m.loadXiaoshanCity):airportId==='changi'?import('./airports/changi-city-world.js').then(m=>m.loadChangiCity):airportId==='jfk'?import('./airports/jfk-city-world.js').then(m=>m.loadJfkCity):airportId==='kansai'?import('./airports/kansai-city-world.js').then(m=>m.loadKansaiCity):import('./airports/daxing-city-world.js').then(m=>m.loadDaxingCity)).then(loadCity=>loadCity({scene,terrain:cityTerrain,airport,camera,loadingManager:loading,onProgress:detail=>progress.update('city',detail.fraction,detail),isCurrent:()=>!disposed,onChange:()=>{dirty=true;},maxAnisotropy:renderer.capabilities.getMaxAnisotropy()})).then(value=>{if(disposed){value.dispose();return;}city=value;if(cityActive)city.activate?.();cityReady=true;dirty=true;reportReady();}).catch(error=>{if(!disposed){loadError=true;onError('城市场景加载失败，请刷新页面重试。');console.error('City scene load failed:',error);}});
 
   const contactShadow=createContactShadow(scene);
   let width = 0, height = 0;
@@ -283,9 +284,11 @@ export function createWorld(host, onReady, onError, airportId='training',onProgr
   const rain=new THREE.LineSegments(rainGeometry,rainMaterial);camera.add(rain);scene.add(camera);
   const cloudSky=new THREE.Color('#82919c');
   return {
-    update(s,motion=sampleCabinMotion(s),{cinematic=false,cinematicTime=null,view=defaultView,dt=.016}={}) {
+    activate(){cityActive=true;city?.activate?.();},
+    settled:()=>city?.settled?.()??Promise.resolve(),
+    update(s,motion=sampleCabinMotion(s),{cinematic=false,cinematicTime=null,cruise=null,view=defaultView,dt=.016}={}) {
       if(disposed)return;
-      const cameraChanged=cameraRig.update(s,view,dt,{motion,cinematic,cinematicTime,airport,visualOffset});
+      const cameraChanged=cameraRig.update(s,view,dt,{motion,cinematic,cinematicTime,cruise,airport,visualOffset});
       city?.update(camera);
       const key=[cinematic,cinematicTime,view.mode,view.revision,view.resetSerial,s.time,s.x,s.y,s.z,s.pitch,s.yaw,s.roll,s.weather.visibility,s.weather.rain,s.weather.overcast,motion.x,motion.y,motion.roll,motion.cameraY].join(',');
       if(!dirty&&key===lastView&&!cameraChanged)return;
@@ -304,7 +307,7 @@ export function createWorld(host, onReady, onError, airportId='training',onProgr
       papi.forEach((p,i)=>p.material.color.set(i<reds?'#ff5544':'#fff5ce'));
       renderer.render(scene,camera);
     },
-    viewStats() {return{...cameraRig.stats(),distance:camera.position.distanceTo(new THREE.Vector3(...cameraRig.stats().target)),visualOffset};},
+    viewStats() {const stats=cameraRig.stats();return{...stats,distance:stats.mode.startsWith('cruise-')?stats.aircraftDistance:camera.position.distanceTo(new THREE.Vector3(...stats.target)),visualOffset};},
     aircraftStats() {return aircraft?{...aircraft.stats(),position:aircraft.group.position.toArray(),rotation:[aircraft.group.rotation.x,aircraft.group.rotation.y,aircraft.group.rotation.z],visible:aircraft.group.visible}:null;},
     stats() { return { calls:renderer.info.render.calls,triangles:renderer.info.render.triangles,city:city?.stats()??null }; },
     dispose() {

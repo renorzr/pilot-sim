@@ -452,3 +452,15 @@ html[lang=en] .help-panel{max-height:86%;overflow-y:auto}
 .cockpit-footer .fast-forward-button{padding:.1cqw .2cqw;border-radius:.25cqw}
 .cockpit-footer .fast-forward-button svg,.cockpit-footer .fast-forward-value{width:max(1.2cqw,12px);height:max(1.2cqw,12px)}
 .cockpit-footer .fast-forward-value{font-size:clamp(9px,.85cqw,14px)}
+
+/* Cruise cut: keep the exterior viewport geometry, hide the flight controls,
+   and intercept pointer events throughout the fully black loading hold. */
+.cruise-active .scenery{inset:0}
+.cruise-active>:not(.scenery):not(.cruise-cutscene){visibility:hidden;pointer-events:none}
+.cruise-cutscene{position:absolute;inset:0;z-index:100;touch-action:none;user-select:none;cursor:default}
+.cruise-radio{position:absolute;left:50%;bottom:9%;transform:translateX(-50%);max-width:min(660px,76%);padding:10px 15px;border-radius:6px;background:#10212bc4;color:#e1eaf0;font-size:clamp(11px,1cqw,15px);line-height:1.6;pointer-events:none}
+.cruise-radio small{display:block;color:#a3bdc9;font-size:.8em}.cruise-radio p{margin:3px 0 0}
+.destination-prefetch{position:absolute;z-index:8;right:1.6%;bottom:4.7%;max-width:70%;color:#d4e1e9b8;text-shadow:0 1px 3px #000c;font-size:clamp(9px,.7cqw,11px);line-height:1.5;text-align:right;pointer-events:none;font-variant-numeric:tabular-nums}
+.cruise-cutscene .destination-prefetch{z-index:1}
+
+.sim-shell:has(.cruise-active)>.touch-controls{visibility:hidden;pointer-events:none}

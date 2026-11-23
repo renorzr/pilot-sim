@@ -33,6 +33,12 @@ export function buildKansaiScenery({THREE,group,project,terrainHeight=()=>0,feat
  function segmentDistance(p,a,b){const x=b.x-a.x,z=b.z-a.z,l=x*x+z*z,t=l?Math.max(0,Math.min(1,((p.x-a.x)*x+(p.z-a.z)*z)/l)):0;return Math.hypot(p.x-a.x-t*x,p.z-a.z-t*z);}
  function box(w,h,d,mat,x,y,z,parent=root){const mesh=new THREE.Mesh(unitBox,mat);mesh.scale.set(w,h,d);mesh.position.set(x,y+h/2,z);parent.add(mesh);return mesh;}
  function beam(a,b,w,h,mat,y){const m=box(w,h,Math.hypot(b.x-a.x,b.z-a.z),mat,(a.x+b.x)/2,y,(a.z+b.z)/2);m.rotation.y=Math.atan2(b.x-a.x,b.z-a.z);return m;}
+ function glazedBridge(a,b,base){
+  const length=Math.hypot(b.x-a.x,b.z-a.z);if(length<.1)return;
+  beam(a,b,3.7,2.8,glass,base+4.8);beam(a,b,3.9,.28,frame,base+4.6);beam(a,b,3.9,.22,roof,base+7.6);
+  const nx=-(b.z-a.z)/length,nz=(b.x-a.x)/length;
+  for(let d=0;d<=length;d+=4)for(const side of[-1,1])box(.16,2.8,.16,frame,a.x+(b.x-a.x)*d/length+nx*side*1.85,base+4.8,a.z+(b.z-a.z)*d/length+nz*side*1.85);
+ }
  function polygon(p,holes,mat,height){
   const all=[...p,...holes.flat()],indices=THREE.ShapeUtils.triangulateShape(p.map(v=>new THREE.Vector2(v.x,-v.z)),holes.map(h=>h.map(v=>new THREE.Vector2(v.x,-v.z)))),positions=[];
   for(const t of indices)for(const i of t){const v=all[i];positions.push(v.x,height(v),v.z);}
@@ -92,7 +98,7 @@ export function buildKansaiScenery({THREE,group,project,terrainHeight=()=>0,feat
  // Source jet-bridge lines are preferred over invented gate positions. Their
  // equipment size and elevation are approximations, while plan locations stay.
  const bridges=features.filter(f=>['jet_bridge','jetbridge'].includes(tag(f).aeroway));let gates=0;
- for(const f of bridges){const p=ringOf(f);if(p.length<2)continue;for(let i=1;i<p.length;i++)beam(p[i-1],p[i],3.7,2.8,frame,terrainHeight(p[i].x,p[i].z)+4.8);const end=p.at(-1),base=terrainHeight(end.x,end.z);box(5.5,3.3,5.5,glass,end.x,base+4.5,end.z);box(.8,4.7,.8,frame,end.x,base,end.z);gates++;}
+ for(const f of bridges){const p=ringOf(f);if(p.length<2)continue;for(let i=1;i<p.length;i++)glazedBridge(p[i-1],p[i],terrainHeight(p[i].x,p[i].z));const end=p.at(-1),base=terrainHeight(end.x,end.z);box(5.5,3.3,5.5,glass,end.x,base+4.5,end.z);box(.8,4.7,.8,frame,end.x,base,end.z);gates++;}
  // Many OSM snapshots map only parking lead-ins. Add a short bridge at the
  // terminal-side end of those real lines, never a static aircraft on the stand.
  if(!gates){
@@ -105,7 +111,7 @@ export function buildKansaiScenery({THREE,group,project,terrainHeight=()=>0,feat
    const candidates=unique.flatMap(t=>t.p.map((v,i)=>{const w=t.p[(i+1)%t.p.length],ex=w.x-v.x,ez=w.z-v.z,l=ex*ex+ez*ez,u=l?Math.max(0,Math.min(1,((a.x-v.x)*ex+(a.z-v.z)*ez)/l)):0;return{x:v.x+ex*u,z:v.z+ez*u};}));
    const terminal=candidates.sort((b,c)=>Math.hypot(b.x-a.x,b.z-a.z)-Math.hypot(c.x-a.x,c.z-a.z))[0];if(!terminal)continue;
    const end={x:a.x+dx*3+dz*6,z:a.z+dz*3-dx*6},base=terrainHeight(a.x,a.z);
-   beam(terminal,end,3.7,2.8,frame,base+4.8);box(5,3,5,glass,end.x,base+4.5,end.z);gates++;
+   glazedBridge(terminal,end,base);box(5,3,5,glass,end.x,base+4.5,end.z);gates++;
   }
  }
  let towerCount=0;
@@ -127,7 +133,7 @@ export function buildKansaiScenery({THREE,group,project,terrainHeight=()=>0,feat
   }
  }
  // Geometry attributes remain compatible with the shared material batching.
- const normalized=new Set();root.traverse(mesh=>{if(!mesh.isMesh||normalized.has(mesh.geometry))return;const g=mesh.geometry,n=g.attributes.position.count;if(!g.index)g.setIndex(Array.from({length:n},(_,i)=>i));if(!g.attributes.uv)g.setAttribute('uv',new THREE.Float32BufferAttribute(new Float32Array(n*2),2));normalized.add(g);});
+ const normalized=new Set();root.traverse(mesh=>{if(!mesh.isMesh)return;mesh.castShadow=mesh.material!==apron&&mesh.material!==paint;mesh.receiveShadow=mesh.material!==paint;if(normalized.has(mesh.geometry))return;const g=mesh.geometry,n=g.attributes.position.count;if(!g.index)g.setIndex(Array.from({length:n},(_,i)=>i));if(!g.attributes.uv)g.setAttribute('uv',new THREE.Float32BufferAttribute(new Float32Array(n*2),2));normalized.add(g);});
  orderGroundPaint(root);
  const center=unique[0]?.center||{x:0,z:0};
  return{group:root,terminalCenter:{...center,y:terrainHeight(center.x,center.z)},footprintBased:unique.length>0,terminalCount:unique.length,roofTriangles,rooflights,gates,towerCount,connectorSegments,staticAircraft:0,terminalSourceIds:unique.map(t=>t.f.id),excludeFeatureIds:features.filter(f=>f.id==='way/405047733'||tag(f).aeroway==='control_tower'||/塔台|control tower|ATC tower/i.test(tag(f).name||'')).map(f=>f.id)};

@@ -39,23 +39,26 @@ including +/- actions, mode indicators and the vertical stick arrangement.
 
 ## Speech
 
-The game includes **401 mono MP3 files** at 24 kHz / 48 kbps:
+The game includes **1,435 mono MP3 files** at 24 kHz / 48 kbps:
 
-- `public/assets/radio/`: 62 Chinese dialogue clips and 21 shared English
+- `public/assets/radio/`: 202 base/legacy Chinese dialogue clips and 21 shared English
   height/safety callouts.
-- `public/assets/radio/en/`: 62 English pilot/tower dialogue clips.
+- `public/assets/radio/en/`: 202 English pilot/tower dialogue clips.
+- `public/assets/radio/pilots/`: 1,010 Chinese pilot/controller clips across
+  the five selected speakers.
 
-The additional 16 Daxing and 24 ground-departure dialogue clips are described below. These are
+The airport, airline and ground dialogue extensions are described below. These are
 synthetic recordings of fictional exchanges. Callsigns, training frequency,
 clearances and emergencies are game scenarios.
 
 | Role | Chinese dialogue | English dialogue |
 | --- | --- | --- |
-| Tower | `zh-CN-XiaoxiaoNeural`, +24%, −12 Hz | `en-US-AriaNeural`, +22%, −6 Hz |
-| Pilot | `zh-CN-YunxiNeural`, +26%, −18 Hz | `en-US-GuyNeural`, +24%, −10 Hz |
+| Tower | E / G / H / J / Xiaoxiao, chosen once per flight | `en-US-AriaNeural`, +22%, −6 Hz |
+| Pilot | Same five-speaker pool; different from the tower | `en-US-GuyNeural`, +24%, −10 Hz |
 | Shared safety/height calls | `en-US-GuyNeural`, +6%, 0 Hz | Same files |
 
-Clips were synthesized using edge-tts and filtered/normalized using FFmpeg.
+Chinese radio uses Fish Audio E/G/H/J and Edge Xiaoxiao (+24%, −12 Hz).
+English and legacy clips use edge-tts. Both pipelines filter/normalize using FFmpeg.
 They are outputs, not voice models. Provider software, voice-model rights and
 service terms are not conveyed by this repository's MIT license. See
 [third-party notices](THIRD_PARTY_NOTICES.md).
@@ -78,6 +81,14 @@ their separate licenses are documented in [the pack notes](game/src/airports/dat
 and [third-party notices](THIRD_PARTY_NOTICES.md). The build supplies the same
 database as `assets/maps/daxing-source.json` for attribution and data sharing.
 No public OSM raster tiles are scraped or included.
+
+The continuous city layer additionally combines the pinned 2026-11-20 Hebei /
+Beijing OSM extract with Shi et al. (2023) CC BY 4.0 East Asian building outlines
+for Beijing, Langfang and Baoding. Self-hosted Copernicus Sentinel-2 imagery from
+2025-10-13 supplies native 10 m ground pixels and footprint-weighted roof colours.
+Northern village/estate/logistics heights and neutral facades are estimates when
+source tags are missing. Shared templates, advance preparation and IndexedDB
+reuse follow the other city worlds. [Sources and rebuilding](game/src/airports/data/DAXING-CITY.md).
 
 The Daxing terminal is an original procedural mesh built from its OSM outer
 footprint. Bronze roof shape, height, glazing, jet bridges, parked aircraft,
@@ -280,6 +291,24 @@ Shared houses, estimated facades, roof services and glazed bridge detail are
 original code-built assets. Height tags/floors take priority over stable estimates.
 [JFK city source and processing notes](game/src/airports/data/JFK-CITY.md).
 
+## Osaka Kansai continuous city scenery
+
+`assets/cities/kansai/` contains 1,107,260 buildings (602,428 OSM and 504,832
+supplemental Microsoft outlines) in 1,035 chunks: 75.5 MiB compressed and
+132.3 MiB expanded source/contact arrays. Original shared Japanese pitched-house
+templates and facade estimates reuse the mapped-city rendering/caching pipeline.
+Source OSM heights/floors take priority. Four explicit underground outlines are
+excluded; conservative vegetation-only screening removes 225 Microsoft estimates.
+
+The 98.5 MiB local GSI imagery pack has 115 detail tiles plus overview/regional
+images and original marine masks with 258 island holes. Source tile pixel spacing
+is approximately 0.99 m airport / 1.97 m coastal / 3.94 m regional; original survey
+resolution and capture dates are not supplied by the JPEG endpoint. All source
+URLs, retrieval information, image/working-raster hashes and Microsoft source
+partition fingerprints remain in the manifests. Original glazed bridge details
+and sun shadows preserve the source terminal/stand/bridge geometry.
+[Sources, limitations and rebuilding](game/src/airports/data/KANSAI-CITY.md).
+
 ## Airline arrival and parking routes
 
 The six `game/src/airports/data/*-arrival.json` files derive taxiway geometry
@@ -291,3 +320,90 @@ retain the source ODbL terms. New bilingual route/taxi/parking dialogue uses
 the existing recorded-role profiles and radio DSP; generation and measured
 clip durations are maintained in `ops/generate-journey-radio.py` and the
 airline radio pack. No external speech service is needed during play.
+
+## Cruise entry dialogue
+
+Four original `airline-cruise-entry-*.mp3` clips provide matched Chinese/English
+pilot reports and ATC acknowledgements of entering cruise. They use the existing
+Edge neural role profiles, 300–3300 Hz radio filtering and loudness normalization.
+Measured durations and the cache fingerprint are in `airline-radio.json`; these
+are fictional game exchanges. The transition lets both lines finish before fade.
+
+
+### Chinese pilot voice auditions
+
+`public/assets/pilot-voices/` is an isolated listening page with four alternatives
+(Yunjian, YunJhe, Yunxia and Xiaoyi) and the former Yunxi reference. The 30 neural
+MP3 samples cover identical routine, MAYDAY and PAN PAN scripts in clean/radio
+variants. `ops/generate-pilot-auditions.py` records profile, script, duration and
+SHA-256 metadata and snapshots the game's unchanged runtime radio DSP. Each
+initial signal consists of three complete same-speaker units, checked against
+the actual output waveforms. These are synthetic speech outputs for selection;
+the original Yunxi recordings remain as an audition reference.
+
+
+### Fish Audio pilot auditions
+
+`public/assets/pilot-voices/fish/` adds four Chinese male candidates (E–H),
+with the original Edge Yunxi voice as a reference. The source voice IDs, original
+catalogue titles, source links, model and generated-file hashes are recorded in
+its manifest. Candidates were selected from the API's licensed Chinese voice
+results; their audition generation uses Fish Audio `s2.1-pro` and natural-language
+delivery cues. Runtime playback uses the same radio DSP as the game. The API
+credential is read from hidden standard input into backend memory and is absent
+from generated metadata and client code. `ops/fish-voice-auditions.py` performs
+API discovery/generation; `ops/package-fish-auditions.py` packages already-generated
+clips. E/G/H were subsequently selected for production; F remains audition-only.
+Provider and voice rights remain separate from the MIT game source.
+
+Two female previews, I (林晓夜, `0781bfe5e1984e8385dcddf123d7c933`)
+and J (金, `048222d36be842f199ec8ac71993dce4`), use `s2.1-pro-free`.
+Their 12 MP3 variants cover the same three scripts and clean/radio effects.
+Emergency prefixes contain three native groups from the same reference voice
+as the Chinese report. J's MAYDAY preview now uses one continuous mixed-language
+take, with an English pronunciation cue and the same restrained delivery as
+the Chinese report, instead of a separately generated urgent English prefix.
+Its reproducible source and metadata are pinned in
+`ops/assets/pilot-voices/audition-j-mayday.mp3` / `audition-continuous.json`.
+The pinned edit plays this take at 1.22× without changing pitch and removes
+the two measured inter-MAYDAY silences, retaining all three original utterances.
+Generate selected previews with
+`python3 ops/package-fish-auditions.py --voices i j`; existing male previews
+are preserved. I remains audition-only; J subsequently joined the game's
+five-speaker Chinese cast. Both remain first on the listening page.
+The shared audition player additionally offers current radio, narrower VHF,
+and heavy-static presets alongside clean playback. `audition-effects.js` adds
+preview-only filtering, compression, distortion, gated hiss/crackle and PTT
+transients; changing presets during radio playback retains playback position.
+The game now uses the selected VHF preset from this shared implementation.
+
+
+### Active Chinese radio cast
+
+The approved Fish Audio voices are E (温和日常男声,
+`41aafb356afe4d46925ab37fbb588c79`), G (从容雅致男声,
+`0a86f2f473514783a93b37dad673613e`), H (Jimmy 男中音,
+`09f2e5951ea543319af82e7d2219a92c`) and J (金,
+`048222d36be842f199ec8ac71993dce4`). Edge Xiaoxiao
+(`zh-CN-XiaoxiaoNeural`, +24%, −12 Hz) is the fifth speaker. Each has 202
+pre-generated Chinese pilot/tower lines covering training, emergencies, ground
+and all real airports. Each new flight uniformly selects one of 20 different
+ordered pilot/controller pairs and preserves both identities through retries,
+go-arounds and airport transitions. English retains its existing actors.
+`game/src/comms/pilot-voices.json` records source IDs, text, actual durations,
+roles, service-model names and content hashes for all 1,010 files. Its historical
+filename and `assets/radio/pilots/` directory now serve both Chinese roles.
+English dialogue and clean safety callouts retain their existing recordings.
+
+`ops/generate-radio-cast.py` stages both-role packs, reads its Fish credential
+through hidden stdin, and uses only `s2.1-pro-free` for new Fish takes. It reuses
+all previously approved E/G/H pilot and Xiaoxiao tower files and caches new takes.
+Ten same-speaker three-MAYDAY / three-PAN-PAN WAV sources and their fingerprints
+are preserved in `ops/assets/pilot-voices/`. J's MAYDAY source comes from its
+approved faster continuous preview, without inter-MAYDAY pauses. Emergency
+reports use the same speaker as their signal. The VHF preset in
+`game/src/comms/radio-presets.js` is shared with the listening page; ordinary
+Chinese and English radio get its narrower speech band, compression, gated
+hiss/crackle and PTT clicks. Cockpit callouts remain on a separate clean path.
+`ops/check-pilot-voices.mjs` verifies current dialogue coverage and every audio
+hash before tests/builds. Runtime playback is self-hosted with no API request.

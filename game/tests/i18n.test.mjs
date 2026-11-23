@@ -7,6 +7,8 @@ test('all existing interface and model messages have English catalog coverage',a
  for(const text of [...inventory.strings,...inventory.templates]){assert(!/\p{Script=Han}/u.test(t(text,'en')),text);assert.equal(t(text,'zh'),text);}
  assert.equal(t('THR LK · W / S 将推力杆匹配至约 24%','en'),'THR LK · W / S match levers to about 24%');
  assert.equal(t('进入三边 · 下风边 · 按航线指引飞行','en'),'Entering Downwind · Follow route guidance');
+ assert.equal(t('02 · 大兴 · 17L 进近着陆','en'),'02 · Daxing · Runway 17L Approach');
+ assert.equal(t('01 · 大兴 · 17L 起飞','en'),'01 · Daxing · Runway 17L Takeoff');
 });
 test('JSX boundary localizes text and accessible names without changing handlers or control data',()=>{
  setLanguage('en');const click=()=>{},props={children:['起落架',12],title:'操作说明',onClick:click,'data-level-id':'起飞',style:{color:'red'}};const out=localizeProps(props);

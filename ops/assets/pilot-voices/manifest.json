@@ -1,0 +1,91 @@
+{
+  "e": {
+    "referenceId": "41aafb356afe4d46925ab37fbb588c79",
+    "signals": {
+      "mayday": {
+        "file": "e-mayday.wav",
+        "sha256": "e4f535fc1dce5ba25be7ef4523999658fbda4ffb8ce7f8de3a7e1185d0496b50",
+        "duration": 1.506875,
+        "groups": 3
+      },
+      "pan": {
+        "file": "e-pan.wav",
+        "sha256": "013f714a9c365fb0ce2ea1ae7256bd3337aa4908a59a1f1fae0b08fc82a3026d",
+        "duration": 1.8075,
+        "groups": 3
+      }
+    }
+  },
+  "g": {
+    "referenceId": "0a86f2f473514783a93b37dad673613e",
+    "signals": {
+      "mayday": {
+        "file": "g-mayday.wav",
+        "sha256": "f8c6d6749156c0853e8641ff8dc2399ce38a04d3907d1733801fece23efc0d1b",
+        "duration": 1.4785,
+        "groups": 3
+      },
+      "pan": {
+        "file": "g-pan.wav",
+        "sha256": "5eacc91065ae02218756aacb57c6fe7d88eb98ffdccc2f99ca7a7b10f248a387",
+        "duration": 1.7457916666666666,
+        "groups": 3
+      }
+    }
+  },
+  "h": {
+    "referenceId": "09f2e5951ea543319af82e7d2219a92c",
+    "signals": {
+      "mayday": {
+        "file": "h-mayday.wav",
+        "sha256": "c2d1797130cb448751efafc751eaf4705d7dc7ceccd53739d504380ed8f15b0f",
+        "duration": 1.4006666666666667,
+        "groups": 3
+      },
+      "pan": {
+        "file": "h-pan.wav",
+        "sha256": "4224b237d0a67b36b00e66f6417e41002d3cf3f70b1c71494c297020d8a09cbe",
+        "duration": 1.67625,
+        "groups": 3
+      }
+    }
+  },
+  "j": {
+    "referenceId": "048222d36be842f199ec8ac71993dce4",
+    "signals": {
+      "mayday": {
+        "file": "j-mayday.wav",
+        "sha256": "a4abe672359f1d1351cc6496e55dbd1a8384266ae6b60edf798a2781531d2c44",
+        "duration": 1.228583,
+        "groups": 3,
+        "layout": "same-speaker-continuous-three-groups"
+      },
+      "pan": {
+        "file": "j-pan.wav",
+        "sha256": "678ab695e9b02887109f739675d1179651c2c88c73b5346e14759b84d58fbbef",
+        "duration": 1.762,
+        "groups": 3,
+        "layout": "same-speaker-continuous-three-groups"
+      }
+    }
+  },
+  "xiaoxiao": {
+    "referenceId": "zh-CN-XiaoxiaoNeural",
+    "signals": {
+      "mayday": {
+        "file": "xiaoxiao-mayday.wav",
+        "sha256": "d267a444d379e4feab76008809bc58c25bb8be718fbe8141ada2f8947e0d09b0",
+        "duration": 0.973,
+        "groups": 3,
+        "layout": "same-speaker-three-units-no-added-gap"
+      },
+      "pan": {
+        "file": "xiaoxiao-pan.wav",
+        "sha256": "d37094b51f41dcbe2802090d0d23adea0edb21a580ad5dc90751fc51b684ab45",
+        "duration": 1.183,
+        "groups": 3,
+        "layout": "same-speaker-three-units-no-added-gap"
+      }
+    }
+  }
+}

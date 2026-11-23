@@ -10,8 +10,16 @@ import {centerControls} from '../sim/controls.js';
 import {queueRadio,clearRadioEvents,repeatRadio} from '../comms/radio.js';
 import {preparedAtTouchdown} from './arrival.js';
 export const ARRIVAL_TAXI={daxing,xiaoshan,changi,kansai,jfk,lax};
+// Give the pilot time to take over wheel braking after landing cleanup and
+// after runway exit. Brief speed excursions are not sustained taxi speeding.
+export const TAXI_IN_SPEED=Object.freeze({grace:8,reminderDelay:3});
 export const taxiInActive=s=>!!s.ground?.arrival&&!s.airborne;
 const distance=(a,b)=>Math.hypot(a.x-b.x,a.z-b.z);
+function cancelUnsentSpeedReminder(s){
+ // A transmission/readback already in progress can finish. Remove the whole
+ // pending exchange only while its initial tower warning is still unsent.
+ if(s.radio.pending.some(line=>line.event==='ground-speed'&&line.role==='tower'))s.radio.pending=s.radio.pending.filter(line=>line.event!=='ground-speed');
+}
 export function initializeTaxiIn(s,score){
  if(!s.airline?.cruiseSkipped||!s.landed||s.goAround||s.result||s.ground?.arrival||s.airData.groundSpeed*KT>18||s.throttle>.025)return false;
  const pack=ARRIVAL_TAXI[s.airportId],available=pack.exits.filter(e=>e.z<s.z-55);
@@ -20,7 +28,7 @@ export function initializeTaxiIn(s,score){
  if(!exit)return false; // Missed every exit: ordinary runway-overrun rules remain.
  const points=[{x:s.x,z:s.z,name:'着陆滑跑'},...structuredClone(exit.points)];
  s.airline.landingEvidence={score,valid:preparedAtTouchdown(s)&&s.gates.length===2&&s.gates.every(g=>g.passed&&!g.preset),touchdown:structuredClone(s.touchdown),gates:structuredClone(s.gates)};
- s.ground={arrival:true,stage:'runway-exit',since:s.time,stand:pack.stand.ref,stop:structuredClone(pack.stand),exit:exit.ref,points,routeIndex:1,distance:0,steering:0,takeoffCleared:false,entryCleared:false,runwayVacated:false,skipped:false,skippedSeconds:0,offRouteSeconds:0,overspeedSeconds:0,lastReminder:-100,alignedSeconds:0};
+ s.ground={arrival:true,stage:'runway-exit',since:s.time,stand:pack.stand.ref,stop:structuredClone(pack.stand),exit:exit.ref,points,routeIndex:1,distance:0,steering:0,takeoffCleared:false,entryCleared:false,runwayVacated:false,skipped:false,skippedSeconds:0,offRouteSeconds:0,overspeedSeconds:0,speedReminderSeconds:0,lastReminder:-100,alignedSeconds:0};
  s.airline.phase='taxi-in';s.phase='runway-exit';s.autoPilot=s.autoThrust=false;s.reverse=false;s.spoilersArmed=s.spoilersDeployed=s.autoBrakeActive=false;s.autoBrake='OFF';
  if(!s.systems.flapsJammed)s.flaps=0;
  clearRadioEvents(s,'atc-');queueRadio(s,'runway-exit');return true;
@@ -51,9 +59,12 @@ export function afterTaxiInPhysics(s,previous,dt,{checkpoint}){
  const g=s.ground,ps=g.points,speed=s.airData.groundSpeed*KT;g.distance+=distance(s,previous);
  if(g.runwayVacated&&inLandingRunway(s)){repeatRadio(s,'ground-stop',{priority:2});s.result={success:false,title:'未经许可进入跑道',detail:'沿地面导航低速滑行；脱离跑道后可选择跳过剩余滑行。'};return;}
  while(g.routeIndex<ps.length-1&&distance(s,ps[g.routeIndex])<13)g.routeIndex++;
- if(!g.runwayVacated&&Math.abs(s.x)>runwayOf(s).width/2+40){g.runwayVacated=true;g.stage='taxi-in';g.since=s.time;s.phase='taxi-in';clearRadioEvents(s,'runway-exit');queueRadio(s,'arrival-taxi');checkpoint(s,'跑道已脱离 · 滑行至机位或跳过');}
- g.overspeedSeconds=speed>25?g.overspeedSeconds+dt:0;
- if(speed>18&&s.time-g.lastReminder>20){g.lastReminder=s.time;repeatRadio(s,'ground-speed',{priority:1});}
+ if(!g.runwayVacated&&Math.abs(s.x)>runwayOf(s).width/2+40){g.runwayVacated=true;g.stage='taxi-in';g.since=s.time;g.overspeedSeconds=g.speedReminderSeconds=0;s.phase='taxi-in';clearRadioEvents(s,'runway-exit');cancelUnsentSpeedReminder(s);queueRadio(s,'arrival-taxi');checkpoint(s,'跑道已脱离 · 滑行至机位或跳过');}
+ const speedGrace=s.time-g.since<TAXI_IN_SPEED.grace;
+ g.overspeedSeconds=!speedGrace&&speed>25?g.overspeedSeconds+dt:0;
+ g.speedReminderSeconds=!speedGrace&&speed>18?(g.speedReminderSeconds??0)+dt:0;
+ if(speedGrace||speed<=18)cancelUnsentSpeedReminder(s);
+ if(g.speedReminderSeconds>=TAXI_IN_SPEED.reminderDelay&&s.time-g.lastReminder>20){g.lastReminder=s.time;repeatRadio(s,'ground-speed',{priority:1});}
  const nearest=Math.min(...ps.slice(1).map((b,i)=>{const a=ps[i],dx=b.x-a.x,dz=b.z-a.z,t=Math.max(0,Math.min(1,((s.x-a.x)*dx+(s.z-a.z)*dz)/(dx*dx+dz*dz||1)));return Math.hypot(s.x-a.x-dx*t,s.z-a.z-dz*t);}));
  g.offRouteSeconds=nearest>42?g.offRouteSeconds+dt:0;
  if(g.offRouteSeconds>2||g.overspeedSeconds>4){s.result={success:false,title:g.offRouteSeconds>2?'偏离滑行道':'滑行速度过高',detail:'沿地面导航低速滑行；脱离跑道后可选择跳过剩余滑行。'};return;}

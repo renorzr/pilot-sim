@@ -23,6 +23,7 @@ design-qa.md
 # Reconstructed from checked-in 32 MiB parts by ops/large-assets.mjs.
 /public/assets/cities/lax/buildings-v2.bin.gz
 /public/assets/cities/jfk/buildings-v1.bin.gz
+/public/assets/cities/kansai/buildings-v1.bin.gz
 /public/assets/cities/xiaoshan/buildings-v1.bin.gz
 /public/assets/cities/xiaoshan/buildings-v2.bin.gz
 /public/assets/cities/**/*.restore-*
@@ -38,3 +39,6 @@ credentials.json
 
 # Optional local Python environment
 .venv/
+
+# Assembled from verified repository parts before test/build.
+/public/assets/cities/daxing/buildings-v1.bin.gz

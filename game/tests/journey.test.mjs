@@ -5,10 +5,10 @@ import {AIRPORTS,runwayOf} from '../src/airports/registry.js';
 import {AIRLINE_ROUTES} from '../src/missions/catalog.js';
 import {cityBearing,arrivalNavigation,departureNavigation} from '../src/missions/airline-navigation.js';
 import {canSkipCruise} from '../src/missions/airline.js';
-import {ARRIVAL_TAXI,canSkipTaxiIn,skipTaxiIn} from '../src/missions/taxi-in.js';
+import {ARRIVAL_TAXI,canSkipTaxiIn,skipTaxiIn,afterTaxiInPhysics} from '../src/missions/taxi-in.js';
 import {pilotInput} from './pilot.mjs';
 import {groundPilot} from './ground-pilot.mjs';
-import {RAD,wrap} from '../src/sim/constants.js';
+import {RAD,wrap,KT} from '../src/sim/constants.js';
 import {t} from '../src/i18n/index.js';
 function until(s,condition,input=pilotInput,max=2400){for(let i=0;i<max*50&&!s.result&&!condition(s);i++)advanceFlight(s,input(s),.02);assert(condition(s),JSON.stringify({result:s.result,phase:s.airline.phase,ground:s.ground,x:s.x,z:s.z}));return s;}
 test('all thirty routes depart toward destination and enter arrival from the origin radial',()=>{
@@ -51,6 +51,25 @@ test('taxi skip needs actual runway exit, preserves assessed landing and failure
  assert(skipTaxiIn(s));assert(s.ground.skipped&&s.ground.skippedSeconds>0);assert.equal(s.engines[0].status,'failed');assert.equal(s.engines[0].health,health);assert.deepEqual(s.airline.landingEvidence,evidence);
  until(s,s=>!!s.result,()=>({}));assert(s.result.levelCleared);assert.equal(s.result.score,evidence.score);
  assert(skipTaxiIn(checkpoint));until(checkpoint,s=>!!s.result,()=>({}));assert(!checkpoint.result.levelCleared);
+});
+test('arrival taxi gives braking time, ignores brief speed excursions and still warns/fails sustained speeding',()=>{
+ // Reach arrival through the real flight, landing and rollout first. The
+ // following isolated speed samples exercise the monitor without moving the
+ // aircraft off its route or changing the physical braking model.
+ const landed=until(createFlight(null,{levelId:'pkx-hgh'}),s=>s.ground?.arrival);
+ const tick=(s,speed,seconds,checkpoint=()=>{})=>{for(let i=0;i<Math.round(seconds*100)&&!s.result;i++){s.time+=.01;s.airData.groundSpeed=speed/KT;afterTaxiInPhysics(s,{x:s.x,z:s.z},.01,{checkpoint});}};
+ const warned=s=>s.radio.active?.event==='ground-speed'||s.radio.pending.some(l=>l.event==='ground-speed');
+ const s=structuredClone(landed);tick(s,27,7.9);assert(!warned(s));assert(!s.result);assert.equal(s.ground.overspeedSeconds,0);
+ tick(s,19,2.9);assert(!warned(s));tick(s,19,.3);assert(warned(s));assert(!s.result);
+ // An unsent warning must not appear later after the pilot has slowed down.
+ tick(s,15,.1);assert(!warned(s));assert.equal(s.ground.speedReminderSeconds,0);
+ const spikes=structuredClone(landed);tick(spikes,15,9);for(let i=0;i<6;i++){tick(spikes,20,2);tick(spikes,17,.1);}assert(!warned(spikes));assert(!spikes.result);
+ const excessive=structuredClone(landed);tick(excessive,27,11.8);assert(!excessive.result);assert(warned(excessive));tick(excessive,27,.4);assert.equal(excessive.result?.title,'滑行速度过高');
+ // The runway-exit handoff starts its own grace and resets accumulated speed
+ // timers, including the state saved for a phase retry.
+ const exit=structuredClone(landed);tick(exit,20,10);assert(!warned(exit));
+ const outside=exit.ground.points.find(p=>Math.abs(p.x)>runwayOf(exit).width/2+40);assert(outside);
+ exit.x=outside.x;exit.z=outside.z;let saved;tick(exit,27,.01,s=>{saved=structuredClone(s);});assert.equal(exit.ground.stage,'taxi-in');assert.equal(saved.ground.overspeedSeconds,0);assert.equal(saved.ground.speedReminderSeconds,0);assert.equal(exit.ground.overspeedSeconds,0);assert.equal(exit.ground.speedReminderSeconds,0);tick(exit,27,7.8);assert(!warned(exit));assert(!exit.result);
 });
 test('new game navigation and ground status messages translate in English',()=>{
  for(const x of['到港引导','导航 · 航班航路','航路方向 162° · 下一点 3.5 km','出口 A5 · 机位 251','低速脱离跑道 · 出口 A5 · 按地面导航滑行','航班离场 · 转入目的地航路 · 3500 ft','对正最后进近 · 按 ND / FD 飞行，最后进近前保持未构型','跑道方向爬升 / 3500 FT'])assert(!/\p{Script=Han}/u.test(t(x,'en')),x);

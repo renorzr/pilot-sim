@@ -4,7 +4,7 @@
 
 An A320-inspired airliner game for the browser: cockpit and exterior views, live instruments,
 real-time 3D scenery, simplified flight physics and 13 progressively harder lessons.
-Switch the entire interface **and pilot/tower recordings** between Chinese and English.
+Switch the entire interface **and pilot/tower recordings** between Chinese and English. Each new flight assigns different Chinese pilot and controller voices from E, G, H, J and Xiaoxiao, preserving both speakers through retries, go-arounds and airport transitions. Radio uses the VHF treatment; English retains its existing voices.
 
 ![Cockpit, instruments and English radio captions](docs/images/cockpit.png)
 
@@ -35,8 +35,10 @@ takeoff still require separate clearances and manual control.
 
 In a positive climb, retract the gear; above 500 ft select CL with L. Follow
 ND/FD along runway heading, then turn onto the destination route at the safe
-turn point. Stabilize at the displayed clearance altitude to unlock **Skip
-cruise**. After the destination showcase, arrive from the origin city direction
+turn point. Pass the departure waypoints in order: after the last point, cruise
+skips automatically once departure is stable at the displayed clearance altitude.
+If not yet stable, maintain the outbound track until it is; guidance continues
+forward. **Skip cruise early** remains available once stable. After the destination showcase, arrive from the origin city direction
 at 210 kt, with gear up and flaps 0. Follow the arrival route to final, then arm
 APPR, configure and land. A go-around continues the same flight. Vacate at taxi
 speed and follow ground navigation to the assigned real stand, or choose
@@ -44,6 +46,8 @@ speed and follow ground navigation to the assigned real stand, or choose
 the flight ends on stand. AP1 is optional. Long cruise/most descent and optional
 taxi skips are explicit game transitions. Airport routes are simplified game
 procedures, not published SID/STAR or operational airport charts.
+
+Airline Operations also monitors sustained route deviations: beyond4 km for120 simulation seconds,8 km for45 seconds, or12 km for15 seconds fails the flight. The ATC panel shows distance and remaining time; normal fly-by turns have a grace period and terrain avoidance takes priority.
 
 Airport showcases play in both cockpit and exterior views. Standalone airport
 landing practice starts with a 10-second preview while flight physics stays
@@ -166,9 +170,9 @@ npm run test:sites
 npm run preview -- --host 127.0.0.1 --port 4173
 ```
 
-The flight suite currently contains **357 tests**, including complete lesson
-flights, failure persistence, terrain, controls, communications and localization.
-The static hosting adapter has four additional tests.
+The flight suite covers complete lesson flights, failure persistence, terrain,
+controls, communications and localization. The static hosting adapter has its
+own additional checks; the test commands report current totals.
 
 Deploy **`game/dist/client/`** to a static web host. The build also creates
 `dist/server/index.js` and `dist/.openai/hosting.json` for the optional hosting
@@ -191,7 +195,7 @@ game/src/                 React UI, Three.js world and Web Audio
   comms/                  Radio scripts, timing, playback, priority and ATC feedback
   i18n/                   Shared Chinese/English presentation layer
 game/tests/               Flight, hosting and localization tests + fixtures
-public/assets/            Runtime images and 401 speech clips (211 shared/ZH + 190 EN)
+public/assets/            Runtime images, recorded radio and shared safety callouts
 ops/                      Browser checks, speech generation and deployment helpers
 docs/                     Development guide and screenshots
 ```
@@ -295,3 +299,39 @@ The building download is 124.2 MiB. Local 2022 NAIP imagery totals 281.5 MiB:
 0.6 m native sources become approximately 1.4 m airport / 2.8 m regional detail.
 T4 roof services, rooflights and glazed bridges add original architectural detail.
 [Sources, resolution and rebuilding](game/src/airports/data/JFK-CITY.md).
+
+## Osaka Kansai city scenery
+
+Kansai adds 1,107,260 OSM/Microsoft source buildings across the 60 km terrain,
+with Japanese pitched houses, coastal apartments, warehouses and source-tagged
+high-rises. Shared models, advance preparation and IndexedDB restoration reuse
+the existing city pipeline. Buildings download as a 75.5 MiB pack.
+
+The 98.5 MiB self-hosted GSI photo levels use approximately 0.99 m airport,
+1.97 m coastal and 3.94 m regional tile pixels. Original survey resolution and
+capture dates are not exposed by the tile service. Both artificial islands,
+coastal holes, silver T1 roof and elevated bridge retain their source geometry;
+passenger bridges receive glazing/framing and local sun shadows.
+[Sources, interpretation and rebuilding](game/src/airports/data/KANSAI-CITY.md).
+
+## Beijing Daxing city scenery
+
+The Daxing world now extends continuous shared buildings across the full
+regional terrain: northern village roofs, apartment estates and logistics blocks
+use mapped footprints and source heights or stable estimates. Roof colours come
+from actual footprint samples on the self-hosted **2025-10-13 Sentinel-2** mosaic
+(native **10 m**). The selected copper/gold terminal, stand 107, taxi route and
+runway 17L remain in place. Advance preparation, retained model identities and
+processed IndexedDB caches reuse the shared city pipeline.
+[Sources, limitations and rebuilding](game/src/airports/data/DAXING-CITY.md).
+
+## Cruise-cut presentation
+
+Manual and automatic cruise cuts use the selected B camera: cut overhead,
+follow for one second, then smoothly roll into a close upward view and fade
+at 8.5–9.5 seconds. The aircraft retains its actual pose, measured velocity,
+configuration and current airport scenery. Game inputs are locked during the
+transition; recorded pilot/ATC dialogue finishes before fade. Destination
+preparation begins when cruise-skip conditions first qualify, with small corner
+progress text. Full black holds until the destination showcase is ready, then
+the airport introduction resumes with the player's selected view preserved.

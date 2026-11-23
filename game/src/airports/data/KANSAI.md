@@ -33,3 +33,8 @@ Manual taxi follows the connected source **R / E9 / L / P / A13** network for ab
 The source coast chains have no open endpoints inside the display rectangle. After polygonization, length-weighted right/sea samples are compared with left/land samples for each face. This avoids a handful of corner or simplification slivers turning an otherwise land-side mainland face into water. No guessed shoreline is introduced. The main bay surface has 258 land holes, including both airport islands; a second tiny clipped boundary face is retained from source geometry.
 
 Verified geographic probes (longitude, latitude): T1 island (135.244, 34.4273) and second island (135.222, 34.440) are land; Izumisano (135.3273, 34.4056) is land; the bridge midpoint (135.276, 34.421), west bay (135.18, 34.425), and southwest approach (135.10, 34.34) are water. The elevated bridge deck is a scene object above the water and does not turn the underlying bay into land.
+
+The [continuous Kansai city layer](KANSAI-CITY.md) adds self-hosted GSI photo
+levels, regional OSM/Microsoft source buildings and persistent prepared models.
+Its imagery and model interpretation do not change these geographic probes,
+the physical DEM or the curated departure/arrival taxi procedures.

@@ -7,6 +7,7 @@ import englishDurations from './durations.en.json' with {type:'json'};
 import englishScript from './script.en.json' with {type:'json'};
 import englishVersion from './voice-version.en.json' with {type:'json'};
 import {siteUrl} from '../urls.js';
+import {chooseRadioVoices,radioVoiceFor,voiceClip} from './pilot-voices.js';
 const dialogue=(s,key)=>{
  if(s.airline&&RADIO_PACKS.airline.zh[key])return{lines:RADIO_PACKS.airline.zh[key],prefix:'airline-'};
  const pack=AIRPORT_RADIO[s.airportId];if(pack?.zh[key])return{lines:pack.zh[key],prefix:s.airportId+'-'};
@@ -14,12 +15,13 @@ const dialogue=(s,key)=>{
  return{lines:script[key],prefix:''};
 };
 const clipPack=id=>RADIO_PACKS[id.split('-')[0]];
-export const createRadio=()=>({language:'zh',fired:{},pending:[],active:null,readyAt:0,sequence:0,history:[],emergency:null,monitor:createEmergencyMonitor()});
-const clipDuration=(id,language)=>(clipPack(id)?.durations[language]?.[id]||(language==='en'?englishDurations:durations)[id]||5)+.2;
+export const createRadio=(voices={})=>({language:'zh',...chooseRadioVoices(voices),fired:{},pending:[],active:null,readyAt:0,sequence:0,history:[],emergency:null,monitor:createEmergencyMonitor()});
+export const radioClipDuration=(id,language,voice=null)=>((language==='zh'&&voiceClip(voice,id)?.duration)||clipPack(id)?.durations[language]?.[id]||(language==='en'?englishDurations:durations)[id]||5)+.2;
+const clipDuration=radioClipDuration;
 export function setRadioLanguage(s,language){
  const r=s.radio;if(!r||!['en','zh'].includes(language)||r.language===language)return;
  r.language=language;
- if(r.active){r.active.started=s.time;r.active.until=s.time+clipDuration(r.active.clip,language);}
+ if(r.active){r.active.started=s.time;r.active.until=s.time+clipDuration(r.active.clip,language,radioVoiceFor(r,r.active.role));}
 }
 function enqueue(s,key,priority=0,ttl=60){
  const r=s.radio;if(!r||!dialogue(s,key).lines)return false;
@@ -55,7 +57,7 @@ export function updateRadio(s){
  const r=s.radio;if(!r)return;
  if(r.active&&s.time>=r.active.until){r.history.push(r.active);if(r.history.length>12)r.history.shift();r.active=null;r.readyAt=s.time+.55;}
  r.pending=r.pending.filter(line=>!line.expires||line.expires>s.time);
- if(!r.active&&r.pending.length&&s.time>=r.readyAt){const line=r.pending.shift();r.active={...line,id:++r.sequence,started:s.time,until:s.time+clipDuration(line.clip,r.language)};}
+ if(!r.active&&r.pending.length&&s.time>=r.readyAt){const line=r.pending.shift();r.active={...line,id:++r.sequence,started:s.time,until:s.time+clipDuration(line.clip,r.language,radioVoiceFor(r,line.role))};}
 }
 export function calloutClip(text=''){
  const fixed={'Autopilot on':'ap-on','Autopilot off':'ap-off','Go around':'go-around','Positive climb':'positive','Wind shear, wind shear, wind shear':'wind-shear','Engine one failure':'engine-one','All engines failure':'all-engines','Minimum':'minimum','Landing checklist complete':'checklist','Terrain ahead':'terrain','Terrain, terrain, pull up':'pull-up','Stall, stall':'stall'};
@@ -66,7 +68,9 @@ export function calloutClip(text=''){
 // Script changes must also invalidate previously cached voice files.
 let speechVersion=0;for(const char of JSON.stringify(script)+JSON.stringify(durations))speechVersion=(Math.imul(speechVersion,31)+char.charCodeAt(0))>>>0;
 let englishSpeechVersion=0;for(const char of JSON.stringify(englishScript)+JSON.stringify(englishDurations))englishSpeechVersion=(Math.imul(englishSpeechVersion,31)+char.charCodeAt(0))>>>0;
-export const clipUrl=(id,language='zh')=>{
+export const clipUrl=(id,language='zh',voice=null)=>{
+ const selected=language==='zh'&&!id.startsWith('call-')?voiceClip(voice,id):null;
+ if(selected)return siteUrl(`assets/radio/pilots/${voice}/${selected.file}?v=${selected.sha256.slice(0,16)}`);
  const english=language==='en'&&!id.startsWith('call-'),version=clipPack(id)?.version||(english?englishSpeechVersion.toString(36)+'-'+englishVersion.fingerprint:speechVersion.toString(36)+'-'+voiceVersion.fingerprint);
  return siteUrl(`assets/radio/${english?'en/':''}${id}.mp3?v=${version}`);
 };

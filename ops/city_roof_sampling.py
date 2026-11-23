@@ -9,8 +9,13 @@ class RoofSampler:
  def __init__(self,path,unproject,min_brightness=45,vegetation_screen=True):
   with rasterio.open(path)as src:
    self.rgb=np.moveaxis(src.read([1,2,3]),0,-1);self.inverse=~src.transform;self.project=pyproj.Transformer.from_crs(4326,src.crs,always_xy=True).transform
-  self.unproject=unproject;self.min_brightness=min_brightness;f=self.rgb.astype('float32');r,g,b=f[:,:,0],f[:,:,1],f[:,:,2]
-  self.green=(g>r*1.12)&(g>b*1.08)&(g>45)
+  self.unproject=unproject;self.min_brightness=min_brightness
+  # Source mosaics can exceed a billion RGB samples. Identical float32 tests
+  # in bounded row blocks avoid a multi-gigabyte temporary RGB expansion.
+  self.green=np.empty(self.rgb.shape[:2],dtype='bool')
+  for y in range(0,self.rgb.shape[0],256):
+   f=self.rgb[y:y+256].astype('float32');r,g,b=f[:,:,0],f[:,:,1],f[:,:,2]
+   self.green[y:y+256]=(g>r*1.12)&(g>b*1.08)&(g>45)
   self.integral=np.pad(self.green.astype('uint32'),((1,0),(1,0))).cumsum(0,dtype='uint32').cumsum(1,dtype='uint32')if vegetation_screen else None
  def pixels(self,rings):
   result=[]

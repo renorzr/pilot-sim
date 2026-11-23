@@ -1,0 +1,613 @@
+{
+  "version": 1,
+  "provider": "fish",
+  "model": "mixed",
+  "models": [
+    "s2.1-pro",
+    "s2.1-pro-free"
+  ],
+  "scripts": {
+    "normal": {
+      "title": "普通通话",
+      "body": "塔台，云际三二零，跑道一七左，准备起飞。起飞后保持跑道方向，爬升至三千英尺。"
+    },
+    "mayday": {
+      "title": "紧急呼叫",
+      "unit": "Mayday.",
+      "prefix": "MAYDAY, MAYDAY, MAYDAY.",
+      "body": "塔台，云际三二零，双发失效，无法保持高度，请求紧急着陆。"
+    },
+    "pan": {
+      "title": "优先着陆",
+      "unit": "Pan pan.",
+      "prefix": "PAN PAN, PAN PAN, PAN PAN.",
+      "body": "塔台，云际三二零，襟翼卡阻，请求优先着陆。"
+    }
+  },
+  "voices": [
+    {
+      "id": "i",
+      "label": "I",
+      "name": "林晓夜",
+      "gender": "女声",
+      "locale": "普通话",
+      "provider": "fish",
+      "voice": "0781bfe5e1984e8385dcddf123d7c933",
+      "sourceTitle": "林晓夜",
+      "sourceUrl": "https://fish.audio/app/text-to-speech/?modelId=0781bfe5e1984e8385dcddf123d7c933",
+      "licensed": true,
+      "model": "s2.1-pro-free",
+      "clips": {
+        "normal": {
+          "variants": {
+            "clean": {
+              "url": "clips/i-normal-clean.mp3",
+              "duration": 8.04,
+              "bytes": 64557,
+              "sha256": "c8947789d687840b7c771a74ae8bd22d6525f8fef27d4928685d323976f2abf7"
+            },
+            "radio": {
+              "url": "clips/i-normal-radio.mp3",
+              "duration": 8.04,
+              "bytes": 64557,
+              "sha256": "99ce1a2a6b1dcfd80d27fc38c7ce09b999a4be8623c9b67030070d0b1d804bc5"
+            }
+          },
+          "signal": null
+        },
+        "mayday": {
+          "variants": {
+            "clean": {
+              "url": "clips/i-mayday-clean.mp3",
+              "duration": 7.992,
+              "bytes": 64173,
+              "sha256": "23c758d29ad64c5ce83a20508caa922d8972414be90e8c55f825910bd5308494"
+            },
+            "radio": {
+              "url": "clips/i-mayday-radio.mp3",
+              "duration": 7.992,
+              "bytes": 64173,
+              "sha256": "1340b505982404ee6be567da26a35ce34c7f4ed89eb23d419f9363a4fe1d1e4e"
+            }
+          },
+          "signal": {
+            "units": 3,
+            "layout": "native-three-groups",
+            "bodyGap": 0.12,
+            "tempo": 1.0,
+            "reference": "qa/fish-pilot-voices/render/i-mayday-prefix.wav",
+            "prefixEnd": 2.208125,
+            "source": "qa/fish-pilot-voices/raw/fish-i-mayday-prefix-4fcde9ec2c7696e1.mp3"
+          }
+        },
+        "pan": {
+          "variants": {
+            "clean": {
+              "url": "clips/i-pan-clean.mp3",
+              "duration": 6.672,
+              "bytes": 53613,
+              "sha256": "9cfaffabb017f9fc59f0bbc9c7868f22e419d0ab8bf56a89a3a9951463c996d3"
+            },
+            "radio": {
+              "url": "clips/i-pan-radio.mp3",
+              "duration": 6.672,
+              "bytes": 53613,
+              "sha256": "f7dbb5f3186cdbde72c6d89120d1773e20d24afcbc5d9919fb6bb3f83b316012"
+            }
+          },
+          "signal": {
+            "units": 3,
+            "layout": "native-three-groups",
+            "bodyGap": 0.12,
+            "tempo": 1.0,
+            "reference": "qa/fish-pilot-voices/render/i-pan-prefix.wav",
+            "prefixEnd": 2.002291666666667,
+            "source": "qa/fish-pilot-voices/raw/fish-i-pan-prefix-6cfb55af521214fa.mp3"
+          }
+        }
+      }
+    },
+    {
+      "id": "j",
+      "label": "J",
+      "name": "金",
+      "gender": "女声",
+      "locale": "普通话",
+      "provider": "fish",
+      "voice": "048222d36be842f199ec8ac71993dce4",
+      "sourceTitle": "金",
+      "sourceUrl": "https://fish.audio/app/text-to-speech/?modelId=048222d36be842f199ec8ac71993dce4",
+      "licensed": true,
+      "model": "s2.1-pro-free",
+      "clips": {
+        "normal": {
+          "variants": {
+            "clean": {
+              "url": "clips/j-normal-clean.mp3",
+              "duration": 7.272,
+              "bytes": 58413,
+              "sha256": "60190218d417b005c75d6d6bee422eaecdc6e4a199826110dfed338da4332616"
+            },
+            "radio": {
+              "url": "clips/j-normal-radio.mp3",
+              "duration": 7.272,
+              "bytes": 58413,
+              "sha256": "201060569d44f0b0bf93951fbb41d57d53c05948d84dd28a00673fbb984309d5"
+            }
+          },
+          "signal": null
+        },
+        "mayday": {
+          "variants": {
+            "clean": {
+              "url": "clips/j-mayday-clean.mp3",
+              "duration": 5.832,
+              "bytes": 46893,
+              "sha256": "e65b3762c749332763b0093559b5f66bdf203ff260456afc59e56a7ec09d2e87"
+            },
+            "radio": {
+              "url": "clips/j-mayday-radio.mp3",
+              "duration": 5.832,
+              "bytes": 46893,
+              "sha256": "ba695208dcb5c7623919bdde7cfb8160363b0561905e4b6cc86a3553c6a8ef81"
+            }
+          },
+          "signal": {
+            "units": 3,
+            "layout": "continuous-signal-and-report",
+            "tempo": 1.22,
+            "source": "ops/assets/pilot-voices/audition-j-mayday.mp3",
+            "sha256": "224ea8b2d9c0595e5462cf0160fe01f2c136fe48a7d2a8ba841edc2609e26b98",
+            "removedSilences": [
+              [
+                0.773646,
+                0.908553
+              ],
+              [
+                1.39705,
+                1.48869
+              ]
+            ]
+          }
+        },
+        "pan": {
+          "variants": {
+            "clean": {
+              "url": "clips/j-pan-clean.mp3",
+              "duration": 6.072,
+              "bytes": 48813,
+              "sha256": "2805bb1564d281ba7fa88d796d4385cb49bede83f9dc649652001b3052c745cf"
+            },
+            "radio": {
+              "url": "clips/j-pan-radio.mp3",
+              "duration": 6.072,
+              "bytes": 48813,
+              "sha256": "20016976d63a3dbda9ea2d4511abc44a4640c1582ec53171ea170988983da1f6"
+            }
+          },
+          "signal": {
+            "units": 3,
+            "layout": "native-three-groups",
+            "bodyGap": 0.12,
+            "tempo": 1.0,
+            "reference": "qa/fish-pilot-voices/render/j-pan-prefix.wav",
+            "prefixEnd": 1.6149166666666666,
+            "source": "qa/fish-pilot-voices/raw/fish-j-pan-prefix-762e05717ff9b64d.mp3"
+          }
+        }
+      }
+    },
+    {
+      "id": "e",
+      "label": "E",
+      "name": "温和日常男声",
+      "gender": "男声",
+      "locale": "普通话",
+      "provider": "fish",
+      "voice": "41aafb356afe4d46925ab37fbb588c79",
+      "sourceTitle": "温和日常男声",
+      "sourceUrl": "https://fish.audio/app/text-to-speech/?modelId=41aafb356afe4d46925ab37fbb588c79",
+      "licensed": true,
+      "model": "s2.1-pro",
+      "clips": {
+        "normal": {
+          "variants": {
+            "clean": {
+              "url": "clips/e-normal-clean.mp3",
+              "duration": 4.752,
+              "bytes": 38253,
+              "sha256": "e8585db0b9b5b15b017f4f434ef382684043edf34a88ee5aadd66e92b6e84134"
+            },
+            "radio": {
+              "url": "clips/e-normal-radio.mp3",
+              "duration": 4.752,
+              "bytes": 38253,
+              "sha256": "cd2987f6742246729a70696a1892d910a8656d13e3b39a7b67e8dd4fa1fcb05c"
+            }
+          },
+          "signal": null
+        },
+        "mayday": {
+          "variants": {
+            "clean": {
+              "url": "clips/e-mayday-clean.mp3",
+              "duration": 5.16,
+              "bytes": 41517,
+              "sha256": "f09c2050f6c4ecfeb231e8ab0bd7dc7a219fe666ebcf5eab7a07ea178a54e993"
+            },
+            "radio": {
+              "url": "clips/e-mayday-radio.mp3",
+              "duration": 5.16,
+              "bytes": 41517,
+              "sha256": "a28c7d67a854b71fcaa29eff2b26d11a41518892b5243f982d350751053e5361"
+            }
+          },
+          "signal": {
+            "units": 3,
+            "layout": "native-three-groups",
+            "bodyGap": 0.12,
+            "tempo": 1.0,
+            "reference": "qa/fish-pilot-voices/render/e-mayday-prefix.wav",
+            "prefixEnd": 1.506875,
+            "source": "qa/fish-pilot-voices/raw/fish-e-mayday-prefix-147a995e26cb67e7.mp3"
+          }
+        },
+        "pan": {
+          "variants": {
+            "clean": {
+              "url": "clips/e-pan-clean.mp3",
+              "duration": 4.608,
+              "bytes": 37101,
+              "sha256": "caf8bdec73abcea90ef9f4bbae36bf25de95e9ac8262998f76a245948474c489"
+            },
+            "radio": {
+              "url": "clips/e-pan-radio.mp3",
+              "duration": 4.608,
+              "bytes": 37101,
+              "sha256": "fa0ae0a6da7bc9adbf15091837f49385c3e5bfececbd52ab47322d40152dddea"
+            }
+          },
+          "signal": {
+            "units": 3,
+            "layout": "native-three-groups",
+            "bodyGap": 0.12,
+            "tempo": 1.0,
+            "reference": "qa/fish-pilot-voices/render/e-pan-prefix.wav",
+            "prefixEnd": 1.8075,
+            "source": "qa/fish-pilot-voices/raw/fish-e-pan-prefix-0558de1bfabcc74e.mp3"
+          }
+        }
+      }
+    },
+    {
+      "id": "f",
+      "label": "F",
+      "name": "阿土",
+      "gender": "男声",
+      "locale": "普通话",
+      "provider": "fish",
+      "voice": "5a4ed7bcea924e5faef14ceb537d56ec",
+      "sourceTitle": "阿土",
+      "sourceUrl": "https://fish.audio/app/text-to-speech/?modelId=5a4ed7bcea924e5faef14ceb537d56ec",
+      "licensed": true,
+      "model": "s2.1-pro",
+      "clips": {
+        "normal": {
+          "variants": {
+            "clean": {
+              "url": "clips/f-normal-clean.mp3",
+              "duration": 6.24,
+              "bytes": 50157,
+              "sha256": "187725b9bec3c3d601bc27d59e4013d99a9457897d4aefc2cb517c8219d7a733"
+            },
+            "radio": {
+              "url": "clips/f-normal-radio.mp3",
+              "duration": 6.24,
+              "bytes": 50157,
+              "sha256": "17ff8d7b472d8ba499a0a0dbd5592d96861b9872184aa66b8c2e349d31f63aa8"
+            }
+          },
+          "signal": null
+        },
+        "mayday": {
+          "variants": {
+            "clean": {
+              "url": "clips/f-mayday-clean.mp3",
+              "duration": 7.512,
+              "bytes": 60333,
+              "sha256": "2e50b0329427dd9c8d138321b09f8e5594c4d9272b07cb6ec519a18bc4eb9164"
+            },
+            "radio": {
+              "url": "clips/f-mayday-radio.mp3",
+              "duration": 7.512,
+              "bytes": 60333,
+              "sha256": "7239dc9bb9f61ca1992ccc38e413c20ed74a2bae11dc9be361493bd11e330d44"
+            }
+          },
+          "signal": {
+            "units": 3,
+            "layout": "native-three-groups",
+            "bodyGap": 0.12,
+            "tempo": 1.0,
+            "reference": "qa/fish-pilot-voices/render/f-mayday-prefix.wav",
+            "prefixEnd": 2.1654583333333335,
+            "source": "qa/fish-pilot-voices/raw/fish-f-mayday-prefix-3e0ca8dace7f6cd3.mp3"
+          }
+        },
+        "pan": {
+          "variants": {
+            "clean": {
+              "url": "clips/f-pan-clean.mp3",
+              "duration": 5.928,
+              "bytes": 47661,
+              "sha256": "2094c2f58ce0ddec332321248e1bd1094c45cf5dc366876e142b95cea3747a45"
+            },
+            "radio": {
+              "url": "clips/f-pan-radio.mp3",
+              "duration": 5.928,
+              "bytes": 47661,
+              "sha256": "71de4c16da1df43b0a1022fb31fb3e7a9540aaa1a7e88bc9ff8cea28da2a254e"
+            }
+          },
+          "signal": {
+            "units": 3,
+            "layout": "native-three-groups",
+            "bodyGap": 0.12,
+            "tempo": 1.1897743055555556,
+            "reference": "qa/fish-pilot-voices/render/f-pan-prefix.wav",
+            "prefixEnd": 2.401625,
+            "source": "qa/fish-pilot-voices/raw/fish-f-pan-prefix-5cec211e1424f423.mp3"
+          }
+        }
+      }
+    },
+    {
+      "id": "g",
+      "label": "G",
+      "name": "从容雅致男声",
+      "gender": "男声",
+      "locale": "普通话",
+      "provider": "fish",
+      "voice": "0a86f2f473514783a93b37dad673613e",
+      "sourceTitle": "从容雅致男声",
+      "sourceUrl": "https://fish.audio/app/text-to-speech/?modelId=0a86f2f473514783a93b37dad673613e",
+      "licensed": true,
+      "model": "s2.1-pro",
+      "clips": {
+        "normal": {
+          "variants": {
+            "clean": {
+              "url": "clips/g-normal-clean.mp3",
+              "duration": 6.6,
+              "bytes": 53037,
+              "sha256": "264f22ba437d546f6a37ac48cb2685cadba53f4420302071803570bcb728dc54"
+            },
+            "radio": {
+              "url": "clips/g-normal-radio.mp3",
+              "duration": 6.6,
+              "bytes": 53037,
+              "sha256": "f81b6bf044f68d71006556953f53f28bd95c15f59b81d53f0d1a8a724de132c4"
+            }
+          },
+          "signal": null
+        },
+        "mayday": {
+          "variants": {
+            "clean": {
+              "url": "clips/g-mayday-clean.mp3",
+              "duration": 6.504,
+              "bytes": 52269,
+              "sha256": "0654abd6765201e5cd89f8c31a65b382d97cb6d652dc7897c1995de2d061df2c"
+            },
+            "radio": {
+              "url": "clips/g-mayday-radio.mp3",
+              "duration": 6.504,
+              "bytes": 52269,
+              "sha256": "5fde1ae1f3667e9b1b4dca62379c9399fa1d0c604d02e243fa3883afdb80700c"
+            }
+          },
+          "signal": {
+            "units": 3,
+            "layout": "native-three-groups",
+            "bodyGap": 0.12,
+            "tempo": 1.0,
+            "reference": "qa/fish-pilot-voices/render/g-mayday-prefix.wav",
+            "prefixEnd": 1.4785,
+            "source": "qa/fish-pilot-voices/raw/fish-g-mayday-prefix-fbbcaa147355b620.mp3"
+          }
+        },
+        "pan": {
+          "variants": {
+            "clean": {
+              "url": "clips/g-pan-clean.mp3",
+              "duration": 5.208,
+              "bytes": 41901,
+              "sha256": "91d588c18ff09e787723fffda7ebbf947fd71a62c62187b19790c18a0e0a2622"
+            },
+            "radio": {
+              "url": "clips/g-pan-radio.mp3",
+              "duration": 5.208,
+              "bytes": 41901,
+              "sha256": "ef28c4d1a4fa4d8b8917aa46d90afb38b2b295f9c0ebdefef93d4dd9363aa499"
+            }
+          },
+          "signal": {
+            "units": 3,
+            "layout": "native-three-groups",
+            "bodyGap": 0.12,
+            "tempo": 1.0,
+            "reference": "qa/fish-pilot-voices/render/g-pan-prefix.wav",
+            "prefixEnd": 1.7457916666666666,
+            "source": "qa/fish-pilot-voices/raw/fish-g-pan-prefix-3c009a696f720faf.mp3"
+          }
+        }
+      }
+    },
+    {
+      "id": "h",
+      "label": "H",
+      "name": "Jimmy 男中音",
+      "gender": "男声",
+      "locale": "普通话",
+      "provider": "fish",
+      "voice": "09f2e5951ea543319af82e7d2219a92c",
+      "sourceTitle": "JImmy Chang WH",
+      "sourceUrl": "https://fish.audio/app/text-to-speech/?modelId=09f2e5951ea543319af82e7d2219a92c",
+      "licensed": true,
+      "model": "s2.1-pro",
+      "clips": {
+        "normal": {
+          "variants": {
+            "clean": {
+              "url": "clips/h-normal-clean.mp3",
+              "duration": 6.144,
+              "bytes": 49389,
+              "sha256": "d1397b38715c54c512ba03a4858a95a80af5cca78a4686d8bb7e3a9773b39338"
+            },
+            "radio": {
+              "url": "clips/h-normal-radio.mp3",
+              "duration": 6.144,
+              "bytes": 49389,
+              "sha256": "e4c80188898bfb2504e07965720e1d141a20d283566774d2ddcda72bece4e65a"
+            }
+          },
+          "signal": null
+        },
+        "mayday": {
+          "variants": {
+            "clean": {
+              "url": "clips/h-mayday-clean.mp3",
+              "duration": 5.832,
+              "bytes": 46893,
+              "sha256": "b58c81e1ed2faaa071b271428b4bc00c525c164ed664f5d40c1aeb2643c59193"
+            },
+            "radio": {
+              "url": "clips/h-mayday-radio.mp3",
+              "duration": 5.832,
+              "bytes": 46893,
+              "sha256": "0da9160de6661254091c94c729fc7e8d605d5d57d147a222e8d5a025e3dbac37"
+            }
+          },
+          "signal": {
+            "units": 3,
+            "layout": "native-three-groups",
+            "bodyGap": 0.12,
+            "tempo": 1.0,
+            "reference": "qa/fish-pilot-voices/render/h-mayday-prefix.wav",
+            "prefixEnd": 1.4006666666666667,
+            "source": "qa/fish-pilot-voices/raw/fish-h-mayday-prefix-8c6fd474d19880bc.mp3"
+          }
+        },
+        "pan": {
+          "variants": {
+            "clean": {
+              "url": "clips/h-pan-clean.mp3",
+              "duration": 4.968,
+              "bytes": 39981,
+              "sha256": "fb9354a89d4df48a93f6d4dc21cafaaaf05d7fcb227c8c0c3df88e7a158b94f8"
+            },
+            "radio": {
+              "url": "clips/h-pan-radio.mp3",
+              "duration": 4.968,
+              "bytes": 39981,
+              "sha256": "a12ea7d4dbcbe46f035e0e74181b57f374ff7cba40472925e0cadd06bd5c5fe1"
+            }
+          },
+          "signal": {
+            "units": 3,
+            "layout": "native-three-groups",
+            "bodyGap": 0.12,
+            "tempo": 1.0,
+            "reference": "qa/fish-pilot-voices/render/h-pan-prefix.wav",
+            "prefixEnd": 1.67625,
+            "source": "qa/fish-pilot-voices/raw/fish-h-pan-prefix-a9a6496e7eabd7d0.mp3"
+          }
+        }
+      }
+    },
+    {
+      "id": "current",
+      "label": "对照",
+      "name": "云希",
+      "voice": "zh-CN-YunxiNeural",
+      "gender": "男声",
+      "locale": "普通话",
+      "current": true,
+      "profile": {
+        "rate": "+26%",
+        "pitch": "-18Hz"
+      },
+      "clips": {
+        "normal": {
+          "variants": {
+            "clean": {
+              "url": "../clips/current-normal-clean.mp3",
+              "duration": 6.456,
+              "bytes": 51885,
+              "sha256": "2d1839fee58a0f698692e09647809a63f5f3455f99b2069fc9c088b17a1b9ccc"
+            },
+            "radio": {
+              "url": "../clips/current-normal-radio.mp3",
+              "duration": 6.456,
+              "bytes": 51885,
+              "sha256": "4ad1edd8ccc5ed4badea6ea36c67519535c15feb5a0647a662256846a7a1580f"
+            }
+          },
+          "signal": null
+        },
+        "mayday": {
+          "variants": {
+            "clean": {
+              "url": "../clips/current-mayday-clean.mp3",
+              "duration": 6.192,
+              "bytes": 49773,
+              "sha256": "1a9e6e84ae3e5093851ebe74f6728430b2369ef1bf4dc894b66aee56274436da"
+            },
+            "radio": {
+              "url": "../clips/current-mayday-radio.mp3",
+              "duration": 6.192,
+              "bytes": 49773,
+              "sha256": "e8ffeed734040608a83141ac3e86d96c6ff2998dcadfdec79b5af3c02afcb573"
+            }
+          },
+          "signal": {
+            "units": 3,
+            "unitDuration": 0.45145833333333335,
+            "gap": 0.08,
+            "bodyGap": 0.12,
+            "tempo": 1.1,
+            "reference": "qa/pilot-voices/raw/current-mayday-unit.wav",
+            "prefixEnd": 1.514375
+          }
+        },
+        "pan": {
+          "variants": {
+            "clean": {
+              "url": "../clips/current-pan-clean.mp3",
+              "duration": 5.136,
+              "bytes": 41325,
+              "sha256": "7ce30e924437b31125403ee8392329a8ad72eb32c41401f485e3a74120786a9c"
+            },
+            "radio": {
+              "url": "../clips/current-pan-radio.mp3",
+              "duration": 5.136,
+              "bytes": 41325,
+              "sha256": "0a7a8365ab969536dd9b17eb67005bf7dd5a6dbec2f3877a370c6524639a2a5f"
+            }
+          },
+          "signal": {
+            "units": 3,
+            "unitDuration": 0.45945833333333336,
+            "gap": 0.08,
+            "bodyGap": 0.12,
+            "tempo": 1.1,
+            "reference": "qa/pilot-voices/raw/current-pan-unit.wav",
+            "prefixEnd": 1.538375
+          }
+        }
+      }
+    }
+  ],
+  "productionChanged": false,
+  "fingerprint": "6ed703c9bf7ffa19"
+}

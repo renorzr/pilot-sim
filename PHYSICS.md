@@ -467,8 +467,23 @@ of its course, cross-track under1500 m, gear retracted, flaps at1 or less,
 altitude minus30/plus300 ft and3 seconds stable, with both engines available.
 Rejected requests never move the aircraft.
 
-The explicit cruise cut omits long cruise/most descent and changes the airport
-frame. The clean210 kt destination entry is28 km from the runway threshold on
+Departure waypoint capture requires two seconds established on the current leg
+and ordered preceding visits. Intermediate points allow a bounded fly-by; the
+last point requires crossing its endpoint plane in the forward direction.
+Passing the last point triggers the cruise cut automatically once the existing
+safety conditions have been stable for three seconds. If conditions are not
+met, departure guidance extends forward along the outbound leg until recovery,
+without chasing the passed point. Existing finite-leg route protection still
+limits prolonged overflight. Early manual skipping remains available after
+ordered prior points and the same safety checks. The pass latch and visit order
+survive checkpoints; additional departure points use the same progression.
+Departure-turn ATC reminders allow75 seconds for the safe-height outbound
+turn; the separate route-failure grace remains40 seconds with unchanged limits.
+
+The labelled cruise cut omits long cruise/most descent and changes the airport
+frame. An automatic cut discards the remaining accelerated frame, clears held
+controls and fast-forward, and pauses physics until destination assets load.
+The clean210 kt destination entry is28 km from the runway threshold on
 the origin-city radial; its incoming track uses the destination great-circle
 terminal bearing, not the departure bearing. Terrain-sampled arrival legs arc
 around the airport to an off-axis intercept and a heading-aligned final join.
@@ -571,3 +586,23 @@ batches no larger than 0.5 simulation seconds. A slow rendered frame at 4x
 therefore still runs all 100 Hz force, engine, terrain contact and mission
 steps, rather than truncating the accumulated time or assigning a new pose.
 Recorded radio/callout playback receives the same selected rate.
+
+## Broad airline route protection
+
+`missions/route-protection.js` monitors stage-two city-flight airborne legs,
+including arrival, final and the existing missed-approach route. The distances
+are to the current finite segment; future route legs do not excuse a shortcut.
+For40 seconds after a waypoint switch, the immediately preceding leg is also
+accepted as part of the fly-by turn. This grace pauses accumulation without
+erasing prior counters. Game thresholds are4km/120s,8km/45s and12km/15s; each
+tier clears after5 seconds at least500m inside its limit. Physics simulation
+time drives all counters, so pause freezes them and fast-forward scales them.
+Terrain warnings/temporary escape clearance suspend route penalties. An
+existing go-around heading uses a fixed maneuver origin and a forward ray;
+its subsequent recovery uses the ordinary finite route legs. No clearance,
+physical pose, engine state or waypoint completion is assigned by this monitor.
+A sustained violation sets a failed result before score recording; actual
+terrain/building contact retains priority. Distance/countdown appear in the
+existing ATC panel with the recorded generic route reminder. Restricted zones
+and map-border enforcement remain deferred. Cruise transition uses the separate
+ordered-departure rules described above.

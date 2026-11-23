@@ -170,3 +170,56 @@ available in the source index. Native 0.6 m images are explicitly reduced for
 working and rendering levels. No Esri runtime service is used. Original shared
 templates, facade estimates and airport architectural details remain MIT.
 [Full source and rebuild notes](game/src/airports/data/JFK-CITY.md).
+
+## Osaka Kansai city derivatives
+
+The regional database combines © OpenStreetMap contributors / ODbL 1.0,
+Geofabrik Kansai 2026-11-20, with supplemental Microsoft Global ML Building
+Footprints under CDLA Permissive 2.0, pinned repository revision
+`82577ce04b0e30668a4eecef124c38ba08b86c13`. Four source Japan partitions,
+source-row identities, catalog/file hashes and dates are retained. A complete
+Microsoft license copy is provided in `ops/assets/licenses/` and under
+`assets/cities/kansai/MICROSOFT-LICENSE.txt`. The combined geographic derivative
+retains ODbL terms; machine footprints and inferred heights are not surveys.
+
+Ground and roof imagery derives from GSI Tiles / 国土地理院, `seamlessphoto`,
+under the [GSI Content Terms](https://www.gsi.go.jp/kikakuchousei/kikakuchousei40182.html).
+Source: [GSI tile catalog](https://maps.gsi.go.jp/development/ichiran.html).
+Images were locally mosaicked, reprojected and resampled. Original capture dates
+and uniform survey resolution are not exposed by the source JPEG service;
+declared zoom-level ground pixels and retrieval dates do not claim those facts.
+No reference photographs from terminal brochures or commercial airport models
+are redistributed. Original templates, facade estimates, bridge details and
+rendering code remain MIT.
+[Full source/processing notes](game/src/airports/data/KANSAI-CITY.md).
+
+## Beijing Daxing city derivatives
+
+The regional database combines © OpenStreetMap contributors / ODbL 1.0,
+Geofabrik Hebei/Beijing `hebei-261120.osm.pbf`, with Beijing, Langfang and
+Baoding members of Qian Shi, Jiajun Zhu, Zhengyu Liu, Haonan Guo, Mengxi Liu,
+Zihong Liu and Xiaoping Liu (2023),
+[East Asian building footprints](https://zenodo.org/records/8174931), DOI
+`10.5281/zenodo.8174931`, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+The combined geographic derivative retains ODbL terms and original attribution;
+source outlines, mapped heights and inferred appearance are distinguished.
+
+Ground and roof pixels contain modified Copernicus Sentinel data (2025),
+processed by ESA / Microsoft Planetary Computer. Two Sentinel-2 L2A same-pass
+true-colour tiles from **2025-10-13**, native **10 m**, were windowed, mosaicked,
+reprojected and resampled under the Copernicus Sentinel Data Legal Notice.
+Item IDs, source URLs and hashes are retained. This is satellite imagery;
+resampling does not claim higher native resolution. Original northern Chinese
+building templates, facade estimates and rendering code remain MIT.
+[Full source/processing notes](game/src/airports/data/DAXING-CITY.md).
+
+
+## Chinese radio cast recordings
+
+The E/G/H/J Chinese pilot/controller packs are generated speech outputs from the
+authorized Fish Audio API using the selected public voice models. The fifth
+speaker uses Microsoft Edge Xiaoxiao, the game's previous Chinese controller.
+Source voice IDs, titles
+and file fingerprints are in `game/src/comms/pilot-voices.json` and ASSETS.md.
+No Fish voice model, API key or provider software is distributed. These audio
+outputs and voice/provider rights remain separate from the MIT game code.

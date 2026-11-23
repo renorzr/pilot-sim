@@ -1,0 +1,561 @@
+{
+  "airportId": "daxing",
+  "provenance": {
+    "footprints": {
+      "title": "A first high-quality vector data of buildings in East Asian countries based on a comprehensive large-scale mapping framework",
+      "doi": "10.5281/zenodo.8174931",
+      "url": "https://zenodo.org/records/8174931",
+      "license": "CC-BY-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "attribution": "Qian Shi, Jiajun Zhu, Zhengyu Liu, Haonan Guo, Mengxi Liu, Zihong Liu and Xiaoping Liu (2023), East Asian building footprints",
+      "sourceDate": "2023-07-22",
+      "archiveMd5": "md5:d356f487b19eaa13c6e12eb42ac3ca53",
+      "files": [
+        {
+          "member": "China/Beijing/Beijing.cpg",
+          "bytes": 5,
+          "compressedBytes": 5,
+          "crc32": "0e813c50",
+          "sha256": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824"
+        },
+        {
+          "member": "China/Beijing/Beijing.prj",
+          "bytes": 145,
+          "compressedBytes": 121,
+          "crc32": "af437f55",
+          "sha256": "a02a27b1d1982c8516d83398e85a3c8b1aef1713c13ef4d84d7bde17430c07c4"
+        },
+        {
+          "member": "China/Beijing/Beijing.shp",
+          "bytes": 444779528,
+          "compressedBytes": 194737856,
+          "crc32": "80e82d86",
+          "sha256": "24c85491398626c361cacc2cdabdc0c0bc0f15dd44032d31710ec35e5d48e42c"
+        },
+        {
+          "member": "China/Beijing/Beijing.shx",
+          "bytes": 23508388,
+          "compressedBytes": 6963951,
+          "crc32": "fc03bde4",
+          "sha256": "5b7fe197fcb5b402c7773f00e72099e67314e8d519b54abc1243647a0dd8b188"
+        },
+        {
+          "member": "China/Hebei/Baoding.cpg",
+          "bytes": 5,
+          "compressedBytes": 5,
+          "crc32": "0e813c50",
+          "sha256": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824"
+        },
+        {
+          "member": "China/Hebei/Baoding.prj",
+          "bytes": 402,
+          "compressedBytes": 256,
+          "crc32": "91353ff9",
+          "sha256": "f091cc5695962ce8d7807e3c43aa152ee62e419212c0fab878c56782910f2080"
+        },
+        {
+          "member": "China/Hebei/Baoding.shp",
+          "bytes": 459197032,
+          "compressedBytes": 225940138,
+          "crc32": "d5c8c9a0",
+          "sha256": "9297c0f0d3fde443f0d0b8f635b802dc59e9149074af758d01652ed3cd38d45c"
+        },
+        {
+          "member": "China/Hebei/Baoding.shx",
+          "bytes": 23401660,
+          "compressedBytes": 6954931,
+          "crc32": "cc524d7d",
+          "sha256": "59b0d488d8ef4bb03214c750003acb53fe67f0d81719090fc5a2d180994f04a5"
+        },
+        {
+          "member": "China/Hebei/Langfang.cpg",
+          "bytes": 5,
+          "compressedBytes": 5,
+          "crc32": "0e813c50",
+          "sha256": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824"
+        },
+        {
+          "member": "China/Hebei/Langfang.prj",
+          "bytes": 425,
+          "compressedBytes": 246,
+          "crc32": "25b1f528",
+          "sha256": "f2e7fb14d55bdd8d6a3bc2c272a48729d8f9d0ad72936e20eae6a9a81c2fccd0"
+        },
+        {
+          "member": "China/Hebei/Langfang.shp",
+          "bytes": 199142672,
+          "compressedBytes": 90063133,
+          "crc32": "1850f7c5",
+          "sha256": "f7c2c1cd09e67d0c7e8eb7209d910bd801b05ecc3e32c7e31806f519d0e93889"
+        },
+        {
+          "member": "China/Hebei/Langfang.shx",
+          "bytes": 10332788,
+          "compressedBytes": 3004592,
+          "crc32": "7cdd41cc",
+          "sha256": "4c5ba24cade846726035f1dd7a0d479eb657971ed482deb14b0a6f8ed98607f2"
+        }
+      ]
+    },
+    "imagery": {
+      "collection": "sentinel-2-l2a",
+      "catalog": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-2-l2a",
+      "itemIds": [
+        "S2C_MSIL2A_20251013T030711_R075_T50SMJ_20251013T064223",
+        "S2C_MSIL2A_20251013T030711_R075_T50TMK_20251013T064223"
+      ],
+      "datetime": "2025-10-13T03:07:11.025000Z",
+      "sourceNativeGsdM": 10,
+      "items": [
+        {
+          "id": "S2C_MSIL2A_20251013T030711_R075_T50SMJ_20251013T064223",
+          "datetime": "2025-10-13T03:07:11.025000Z",
+          "cloudCoverPercent": 0.009475,
+          "href": "https://sentinel2l2a01.blob.core.windows.net/sentinel2-l2/50/S/MJ/2025/10/13/S2C_MSIL2A_20251013T030711_N0511_R075_T50SMJ_20251013T064223.SAFE/GRANULE/L2A_T50SMJ_A005765_20251013T031009/IMG_DATA/R10m/T50SMJ_20251013T030711_TCI_10m.tif",
+          "stacSha256": "09f9f0b2b1e1c337da4501192aa2e5dd05a8c4d1869b1c9266f051ae20100ce9"
+        },
+        {
+          "id": "S2C_MSIL2A_20251013T030711_R075_T50TMK_20251013T064223",
+          "datetime": "2025-10-13T03:07:11.025000Z",
+          "cloudCoverPercent": 0.055086,
+          "href": "https://sentinel2l2a01.blob.core.windows.net/sentinel2-l2/50/T/MK/2025/10/13/S2C_MSIL2A_20251013T030711_N0511_R075_T50TMK_20251013T064223.SAFE/GRANULE/L2A_T50TMK_A005765_20251013T031009/IMG_DATA/R10m/T50TMK_20251013T030711_TCI_10m.tif",
+          "stacSha256": "7c0cd682686daedb2670ade1e54270169329891bb4debe0985058625ebb6271d"
+        }
+      ],
+      "license": "Copernicus Sentinel Data Legal Notice",
+      "licenseUrl": "https://sentinels.copernicus.eu/documents/247904/690755/Sentinel_Data_Legal_Notice",
+      "attribution": "Contains modified Copernicus Sentinel data (2025), processed by ESA / Microsoft Planetary Computer; local rendering derivatives",
+      "bytes": 123545225,
+      "sha256": "df659bfa28107da52e4bf3c03a20aabd9a980bbb30e627b8ddc891ebcc0a24df",
+      "processing": "Native 10 m true-colour same-pass tile windows merged in declared UTM50N. Source imagery unchanged; only spatial crop and lossless working raster."
+    },
+    "osm": {
+      "source": "https://download.geofabrik.de/asia/china/hebei/hebei-261120.osm.pbf",
+      "sha256": "b18473ed6d18031788baf11d86cf22c2e91bc7c266886e7117b2a21ebe0c6e71",
+      "snapshot": "2026-11-19T21:22:20Z",
+      "license": "ODbL-1.0",
+      "attribution": "© OpenStreetMap contributors / ODbL"
+    }
+  },
+  "buildingManifest": "assets/cities/daxing/buildings-v1.json",
+  "buildingDatabase": "assets/cities/daxing/buildings-v1.bin.gz",
+  "imageryManifest": "assets/cities/daxing/imagery-v1.json",
+  "airportSource": "assets/maps/daxing-source.json",
+  "notes": "Source footprint/contact geometry is retained. Repeated houses use shared estimated architectural templates, other ordinary buildings use shared mid-distance boxes and source-derived district proxies in the far distance. Heights/colours are source fields or deterministic estimates, not guaranteed surveys.",
+  "appearance": {
+    "version": 1,
+    "heightPriorVersion": 2,
+    "coordinatePolicy": "Original source coordinates, heights and topology remain unchanged for every retained building; no global translation or GCJ02 adjustment.",
+    "roofSampling": "Footprint-weighted native 10 m Sentinel-2 RGB, courtyard exclusion, blue/red panel preservation, shadow/vegetation rejection.",
+    "stalePolicy": "EAB-only estimate exclusion when footprint vegetation >= 92% and its 50 m native-raster context >= 88%. OSM footprints are retained. This is visual evidence, not verified demolition.",
+    "candidateBuildings": 757780,
+    "vegetationExcluded": 2403,
+    "excludedExamples": [
+      {
+        "id": "eab/10000090",
+        "x": 6713.26,
+        "z": -1800.45,
+        "evidence": {
+          "vegetation": 1,
+          "context": 0.92,
+          "pixels": 2
+        }
+      },
+      {
+        "id": "eab/10002113",
+        "x": 8486.79,
+        "z": 20835.78,
+        "evidence": {
+          "vegetation": 1,
+          "context": 0.96,
+          "pixels": 23
+        }
+      },
+      {
+        "id": "eab/10002640",
+        "x": -893.95,
+        "z": 21344.4,
+        "evidence": {
+          "vegetation": 1,
+          "context": 0.88,
+          "pixels": 7
+        }
+      },
+      {
+        "id": "eab/10002789",
+        "x": 815.25,
+        "z": 21824.82,
+        "evidence": {
+          "vegetation": 0.9849,
+          "context": 1,
+          "pixels": 59
+        }
+      },
+      {
+        "id": "eab/10003134",
+        "x": -4323.05,
+        "z": 21781.02,
+        "evidence": {
+          "vegetation": 1,
+          "context": 0.88,
+          "pixels": 21
+        }
+      },
+      {
+        "id": "eab/10004072",
+        "x": -4741.11,
+        "z": 22838.78,
+        "evidence": {
+          "vegetation": 1,
+          "context": 1,
+          "pixels": 3
+        }
+      },
+      {
+        "id": "eab/10004080",
+        "x": -4721.01,
+        "z": 22841.8,
+        "evidence": {
+          "vegetation": 1,
+          "context": 0.96,
+          "pixels": 5
+        }
+      },
+      {
+        "id": "eab/10004083",
+        "x": -4764.55,
+        "z": 22844.77,
+        "evidence": {
+          "vegetation": 1,
+          "context": 1,
+          "pixels": 5
+        }
+      },
+      {
+        "id": "eab/10004086",
+        "x": -4822.64,
+        "z": 22842.27,
+        "evidence": {
+          "vegetation": 1,
+          "context": 0.96,
+          "pixels": 4
+        }
+      },
+      {
+        "id": "eab/10004089",
+        "x": -5161.82,
+        "z": 22801.37,
+        "evidence": {
+          "vegetation": 1,
+          "context": 0.92,
+          "pixels": 4
+        }
+      },
+      {
+        "id": "eab/10004096",
+        "x": -4801.26,
+        "z": 22844.51,
+        "evidence": {
+          "vegetation": 1,
+          "context": 1,
+          "pixels": 5
+        }
+      },
+      {
+        "id": "eab/10004109",
+        "x": -5163.34,
+        "z": 22823.52,
+        "evidence": {
+          "vegetation": 1,
+          "context": 1,
+          "pixels": 4
+        }
+      },
+      {
+        "id": "eab/10004126",
+        "x": -5182.68,
+        "z": 22830.43,
+        "evidence": {
+          "vegetation": 1,
+          "context": 1,
+          "pixels": 4
+        }
+      },
+      {
+        "id": "eab/10004181",
+        "x": -5174.83,
+        "z": 22871.25,
+        "evidence": {
+          "vegetation": 1,
+          "context": 1,
+          "pixels": 6
+        }
+      },
+      {
+        "id": "eab/10004191",
+        "x": -5196.58,
+        "z": 22873.18,
+        "evidence": {
+          "vegetation": 1,
+          "context": 1,
+          "pixels": 2
+        }
+      },
+      {
+        "id": "eab/10004196",
+        "x": -5209.37,
+        "z": 22877.76,
+        "evidence": {
+          "vegetation": 1,
+          "context": 1,
+          "pixels": 4
+        }
+      },
+      {
+        "id": "eab/10004699",
+        "x": 16129.01,
+        "z": 26010.93,
+        "evidence": {
+          "vegetation": 1,
+          "context": 0.96,
+          "pixels": 2
+        }
+      },
+      {
+        "id": "eab/10005618",
+        "x": 945.01,
+        "z": 25129.91,
+        "evidence": {
+          "vegetation": 0.963,
+          "context": 0.96,
+          "pixels": 19
+        }
+      },
+      {
+        "id": "eab/10006008",
+        "x": -18152.17,
+        "z": 23122.9,
+        "evidence": {
+          "vegetation": 0.9279,
+          "context": 0.96,
+          "pixels": 67
+        }
+      },
+      {
+        "id": "eab/10006015",
+        "x": -18903.26,
+        "z": 23058.65,
+        "evidence": {
+          "vegetation": 1,
+          "context": 0.88,
+          "pixels": 15
+        }
+      },
+      {
+        "id": "eab/10006152",
+        "x": -8069.45,
+        "z": 24524.07,
+        "evidence": {
+          "vegetation": 0.9904,
+          "context": 1,
+          "pixels": 61
+        }
+      },
+      {
+        "id": "eab/10006389",
+        "x": 3549.26,
+        "z": 26136.86,
+        "evidence": {
+          "vegetation": 1,
+          "context": 0.96,
+          "pixels": 1
+        }
+      },
+      {
+        "id": "eab/10006673",
+        "x": -1328.03,
+        "z": 25694.84,
+        "evidence": {
+          "vegetation": 1,
+          "context": 0.96,
+          "pixels": 8
+        }
+      },
+      {
+        "id": "eab/10006814",
+        "x": -1894.84,
+        "z": 25681.3,
+        "evidence": {
+          "vegetation": 1,
+          "context": 0.92,
+          "pixels": 7
+        }
+      }
+    ],
+    "blueRoofExamples": [
+      {
+        "id": "eab/10257459",
+        "rgb": [
+          115,
+          126,
+          191
+        ],
+        "x": -28870.5,
+        "z": 24293.01
+      },
+      {
+        "id": "eab/10257672",
+        "rgb": [
+          76,
+          82,
+          166
+        ],
+        "x": -28953.34,
+        "z": 24408.25
+      },
+      {
+        "id": "eab/10283571",
+        "rgb": [
+          111,
+          119,
+          166
+        ],
+        "x": 29024.19,
+        "z": 25408.31
+      },
+      {
+        "id": "eab/10283994",
+        "rgb": [
+          78,
+          80,
+          138
+        ],
+        "x": 27863.11,
+        "z": 25487.16
+      },
+      {
+        "id": "eab/10284657",
+        "rgb": [
+          160,
+          179,
+          250
+        ],
+        "x": 28042.59,
+        "z": 25887.71
+      },
+      {
+        "id": "eab/10285311",
+        "rgb": [
+          153,
+          187,
+          228
+        ],
+        "x": 27944.58,
+        "z": 26226.67
+      },
+      {
+        "id": "eab/10287385",
+        "rgb": [
+          148,
+          185,
+          253
+        ],
+        "x": 28432.96,
+        "z": 26873.43
+      },
+      {
+        "id": "eab/10287498",
+        "rgb": [
+          178,
+          194,
+          253
+        ],
+        "x": 28707.05,
+        "z": 27109.57
+      },
+      {
+        "id": "eab/10288042",
+        "rgb": [
+          112,
+          145,
+          193
+        ],
+        "x": 26532.64,
+        "z": 27448.27
+      },
+      {
+        "id": "eab/10288261",
+        "rgb": [
+          136,
+          163,
+          255
+        ],
+        "x": 28897.76,
+        "z": 27821.36
+      },
+      {
+        "id": "eab/10288276",
+        "rgb": [
+          120,
+          144,
+          252
+        ],
+        "x": 28973.92,
+        "z": 27837.42
+      },
+      {
+        "id": "eab/10288431",
+        "rgb": [
+          125,
+          120,
+          176
+        ],
+        "x": 25975.01,
+        "z": 27537.88
+      }
+    ]
+  },
+  "architecture": {
+    "region": "Beijing Daxing / Langfang / Gu’an",
+    "flatTemplateMaxHeight": 140,
+    "homeRoofStyles": [
+      "gable",
+      "flat",
+      "gable",
+      "flat"
+    ],
+    "facadePalette": [
+      [
+        193,
+        190,
+        181
+      ],
+      [
+        185,
+        188,
+        187
+      ],
+      [
+        204,
+        200,
+        189
+      ],
+      [
+        180,
+        182,
+        178
+      ],
+      [
+        198,
+        190,
+        181
+      ],
+      [
+        189,
+        191,
+        185
+      ]
+    ],
+    "heightInference": "OSM height/floors first; otherwise stable neighbourhood/type/area estimates. Near-airport village/logistics prior applies only to missing heights. Apartment-like outlines without local mapped height hints use coherent 3–5-storey low-rise estimates rather than independent tall-building guesses. Not surveyed heights."
+  }
+}

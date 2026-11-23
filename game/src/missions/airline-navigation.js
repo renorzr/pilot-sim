@@ -21,7 +21,7 @@ export function departureNavigation(origin,destination){
  const course=cityBearing(origin,destination),track=wrap((course-runwayOf(origin).heading)*RAD),turn={x:0,z:-4500};
  const end={x:turn.x+Math.sin(track)*24000,z:turn.z-Math.cos(track)*24000};
  const altitude=Math.max(3000,terrainFloor(origin,{x:0,z:0},turn),terrainFloor(origin,turn,end));
- return {kind:'departure',index:0,origin:{x:0,z:0},course,altitude,safeTurnAltitude:1200,complete:false,crossTrack:0,
+ return {kind:'departure',index:0,origin:{x:0,z:0},course,altitude,safeTurnAltitude:1200,complete:false,crossTrack:0,visited:[],endPassed:false,
   points:[{...turn,alt:altitude,name:'跑道方向爬升'},{...end,alt:altitude,name:'转入目的地航路'}]};
 }
 export function arrivalNavigation(origin,destination){
@@ -45,17 +45,35 @@ export function airlineTarget(s){
  if(!airlineNavigationActive(s))return null;
  const n=s.airline.navigation,b=n.points[n.index],a=n.index?n.points[n.index-1]:n.origin,dx=b.x-a.x,dz=b.z-a.z,len=Math.hypot(dx,dz)||1;
  const along=((s.x-a.x)*dx+(s.z-a.z)*dz)/(len*len),cross=((s.x-a.x)*dz-(s.z-a.z)*dx)/len;
- const lookahead=clamp(s.airData.groundSpeed*18,1400,2200),t=clamp(along+lookahead/len,0,1),x=a.x+dx*t,z=a.z+dz*t;
+ // Departure legs continue forward beyond their endpoint while constraints
+ // are being met. Chasing a clamped, passed point would command a U-turn.
+ const lookahead=clamp(s.airData.groundSpeed*18,1400,2200),t=clamp(along+lookahead/len,0,n.kind==='departure'?Infinity:1),x=a.x+dx*t,z=a.z+dz*t;
  n.crossTrack=cross;
  // Anticipate a lower next-leg altitude only as fast as the remaining path permits.
  const altitude=n.kind==='arrival'?Math.max(b.alt,Math.min(a.alt??n.altitude,b.alt+Math.max(0,len*(1-along))*Math.tan(2.6*RAD)*FT)):b.alt;
  return {track:Math.atan2(x-s.x,-(z-s.z)),altitude,along,cross,length:len,distance:Math.hypot(s.x-b.x,s.z-b.z),name:b.name};
 }
-export function advanceAirlineNavigation(s){
+function advanceDeparture(s,n,t,dt){
+ n.visited??=[];
+ if(n.endPassed)return null;
+ if(n.legIndex!==n.index){n.legIndex=n.index;n.legCaptureSeconds=0;n.legEstablished=false;n.legPassed=false;n.previousAlong=null;}
+ const a=n.index?n.points[n.index-1]:n.origin,b=n.points[n.index],track=Math.atan2(b.x-a.x,-(b.z-a.z));
+ const onLeg=t.along>=-.1&&t.along<=1&&Math.abs(t.cross)<1500&&Math.abs(wrap(s.airData.groundTrack-track))<65*RAD;
+ n.legCaptureSeconds=onLeg?n.legCaptureSeconds+dt:0;if(n.legCaptureSeconds>=2)n.legEstablished=true;
+ const ordered=n.visited.length===n.index&&n.visited.every((value,i)=>value===i),last=n.index===n.points.length-1;
+ const crossed=n.previousAlong!==null&&n.previousAlong<1&&t.along>=1&&Math.abs(t.cross)<2500;
+ const flyBy=!last&&t.distance<1300&&t.along>=.6;
+ if(ordered&&n.legEstablished&&(crossed||flyBy))n.legPassed=true;
+ n.previousAlong=t.along;
+ if(!n.legPassed||(n.index===0&&(s.y-runwayOf(s).ground)*FT<n.safeTurnAltitude))return null;
+ n.visited.push(n.index);
+ if(last){n.endPassed=true;n.endPassedAt=s.time;return 'departure-end';}
+ n.index++;return 'departure-turn';
+}
+export function advanceAirlineNavigation(s,dt=.01){
  const t=airlineTarget(s);if(!t||!s.airborne)return null;
  const n=s.airline.navigation;
- if(n.kind==='departure'&&n.index===0&&(s.y-runwayOf(s).ground)*FT<n.safeTurnAltitude)return null;
- if(n.kind==='departure'&&n.index===1)return null;
+ if(n.kind==='departure')return advanceDeparture(s,n,t,dt);
  if(t.distance>Math.min(n.kind==='departure'?1300:900,t.length*.3)&&!(t.along>=.98&&Math.abs(t.cross)<1200))return null;
  if(n.kind==='arrival'&&n.index===n.points.length-1&&(Math.abs(wrap(s.airData.groundTrack))>30*RAD||Math.abs(s.x)>1200))return null;
  if(n.index<n.points.length-1){n.index++;return n.kind==='departure'?'departure-turn':'arrival-leg';}

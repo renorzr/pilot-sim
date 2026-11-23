@@ -1,8 +1,13 @@
 import {clipUrl,calloutClip} from './radio.js';
-import {RadioEffects} from './radio-effects.js';
+import {RadioPresets} from './radio-presets.js';
+import {radioVoiceFor} from './pilot-voices.js';
 export class CommsPlayback {
- constructor(){this.radio=new Audio();this.callout=new Audio();this.radio.preload=this.callout.preload='auto';this.key=null;this.blocked=false;this.played=0;this.running=false;this.requests=new WeakSet();}
- connect(context){if(!this.effects)this.effects=new RadioEffects(context,this.radio);}
+ constructor(){this.radio=new Audio();this.callout=new Audio();this.radio.preload=this.callout.preload='auto';this.key=null;this.blocked=false;this.played=0;this.running=false;this.requests=new WeakSet();
+  this.mediaEvents=['playing','pause','ended','emptied','loadeddata','canplay','waiting'];this.onRadioEvent=()=>this.updateEffects();
+  for(const event of this.mediaEvents)this.radio.addEventListener?.(event,this.onRadioEvent);
+ }
+ connect(context){if(!this.effects){this.effects=new RadioPresets(context,this.radio);this.effects.setPreset('vhf');}}
+ updateEffects(){this.effects?.update(this.running&&this.hasRadioLine&&!this.radio.paused&&!this.radio.ended&&this.radio.readyState>=2,this.running,this.radio.volume/.7);}
  play(media){
   if(!media.paused||media.ended||this.requests.has(media)||this.blocked)return;
   this.requests.add(media);const p=media.play();
@@ -11,9 +16,11 @@ export class CommsPlayback {
  update(s,playing,muted,rate=1){
   this.simTime=s.time;this.running=playing&&!muted;
   this.language=s.radio?.language||'zh';
-  const line=s.radio?.active;this.radioEmergencyPilot=!!line?.emergency&&line.role==='pilot';const key=line?`${this.language}:${line.id}:${line.clip}:${line.started}`:null;
-  if(key!==this.key){this.radio.pause();this.key=key;if(line){this.radio.src=clipUrl(line.clip,this.language);this.radio.currentTime=0;}else this.radio.removeAttribute('src');}
-  this.radio.playbackRate=this.callout.playbackRate=rate;
+  this.pilotVoice=s.radio?.pilotVoice??null;
+  this.towerVoice=s.radio?.towerVoice??null;
+  const line=s.radio?.active,actor=this.language==='zh'?radioVoiceFor(s.radio,line?.role):null;this.hasRadioLine=!!line;this.radioEmergencyPilot=!!line?.emergency&&line.role==='pilot';const key=line?`${this.language}:${actor??''}:${line.id}:${line.clip}:${line.started}`:null;
+  if(key!==this.key){this.radio.pause();this.key=key;if(line){this.radio.src=clipUrl(line.clip,this.language,actor);this.radio.currentTime=0;}else this.radio.removeAttribute('src');}
+  this.radio.playbackRate=rate*(s.radio?.presentationRate||1);this.callout.playbackRate=rate;
   this.radio.muted=this.callout.muted=muted;
   if(this.callout.src.includes('/call-stall.mp3')&&!s.stallWarning?.active){this.callout.pause();this.callout.removeAttribute('src');this.callout.load?.();this.calloutPriority=0;}
   this.radio.volume=(this.callout.paused||this.callout.ended)?0.7:0.15;this.callout.volume=.85;
@@ -24,12 +31,12 @@ export class CommsPlayback {
   // by the event queue instead of seeking inside an active transmission.
   if(line)this.play(this.radio);
   if(this.calloutPriority>=2&&this.callout.src&&!this.callout.ended&&s.time-this.calloutStarted<Math.max(this.callout.duration||5,5))this.play(this.callout);
-  this.effects?.update(!!line&&!this.radio.paused&&!this.radio.ended&&this.radio.readyState>=2,this.running,this.radio.volume/.7);
+  this.updateEffects();
  }
  say(text){const clip=calloutClip(text);if(!clip||!this.running)return false;const priority=/call-stall/.test(clip)?4:/pull-up|wind-shear|all-engines/.test(clip)?3:/terrain|engine-one/.test(clip)?2:1;if(this.radioEmergencyPilot&&/^(call-h[0-9]|call-ap-on|call-checklist)/.test(clip))return true;if(!this.callout.paused&&!this.callout.ended&&priority<(this.calloutPriority||0))return true;this.calloutPriority=priority;this.calloutStarted=this.simTime||0;this.callout.pause();this.callout.src=clipUrl(clip);this.callout.currentTime=0;this.play(this.callout);return true;}
  resume(){this.blocked=false;}
  pause(){this.radio.pause();this.callout.pause();this.effects?.silence();}
- reset(){this.pause();this.key=null;this.calloutPriority=0;this.radio.removeAttribute('src');this.callout.removeAttribute('src');this.radio.load?.();this.callout.load?.();}
- stats(){return{language:this.language,radioEffect:!!this.effects,radioSignalRms:this.effects?.level()||0,radioVolume:this.radio.volume,calloutPriority:this.calloutPriority||0,calloutTime:this.callout.currentTime,calloutDuration:Number.isFinite(this.callout.duration)?this.callout.duration:0,calloutPaused:this.callout.paused,carrierGain:this.effects?.carrierGain.gain.value||0,pttClicks:this.effects?.clicks||0,radioSrc:this.radio.currentSrc,radioTime:this.radio.currentTime,radioDuration:Number.isFinite(this.radio.duration)?this.radio.duration:0,radioPaused:this.radio.paused,radioReadyState:this.radio.readyState,radioEnded:this.radio.ended,contextState:this.effects?.context.state,calloutSrc:this.callout.currentSrc,played:this.played,blocked:this.blocked};}
- dispose(){this.reset();this.effects?.dispose();}
+ reset(){this.pause();this.key=null;this.hasRadioLine=false;this.calloutPriority=0;this.radio.removeAttribute('src');this.callout.removeAttribute('src');this.radio.load?.();this.callout.load?.();}
+ stats(){return{language:this.language,pilotVoice:this.pilotVoice,towerVoice:this.towerVoice,radioEffect:!!this.effects,radioPreset:this.effects?.preset??null,radioSignalRms:this.effects?.level()||0,radioVolume:this.radio.volume,calloutPriority:this.calloutPriority||0,calloutTime:this.callout.currentTime,calloutDuration:Number.isFinite(this.callout.duration)?this.callout.duration:0,calloutPaused:this.callout.paused,carrierGain:this.effects?.carrierGain.gain.value||0,crackleGain:this.effects?.crackleGain.gain.value||0,pttClicks:this.effects?.clicks||0,radioSrc:this.radio.currentSrc,radioTime:this.radio.currentTime,radioDuration:Number.isFinite(this.radio.duration)?this.radio.duration:0,radioPaused:this.radio.paused,radioReadyState:this.radio.readyState,radioEnded:this.radio.ended,contextState:this.effects?.context.state,calloutSrc:this.callout.currentSrc,played:this.played,blocked:this.blocked};}
+ dispose(){this.reset();for(const event of this.mediaEvents)this.radio.removeEventListener?.(event,this.onRadioEvent);this.effects?.dispose();}
 }

@@ -1,5 +1,8 @@
 # Daxing geography pack
 
+The continuous regional buildings and satellite layer are documented separately
+in [Daxing city notes](DAXING-CITY.md); this original airport/DEM pack is retained.
+
 `daxing.json` is an offline source-data pack for the local ZBAD airport scene.
 It contains actual public geographic data, not a generated approximation of
 Beijing's geography. Decorative models, terrain flattening around runways,

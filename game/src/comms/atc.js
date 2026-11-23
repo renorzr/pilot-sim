@@ -8,7 +8,7 @@ export const createATC=()=>({clearance:null,phaseKey:null,issuedAt:0,deviation:n
 function nominalClearance(s){
  if(s.goAround){const coast=s.touchAndGo?.active&&s.touchAndGo.coastalTurn;return{key:coast?'goaround-coastal':'goaround',kind:'heading',turnGrace:coast?55:6,heading:(runwayHeading(s)+s.goAroundHeading/RAD+360)%360,altitude:s.selectedAltitude,climb:true,label:coast?(s.airportId!=='training'?'触地复飞 · 左侧爬升':'触地复飞 · 左转海侧爬升'):'复飞 · 跑道方向'};}
  const target=airlineTarget(s);
- if(target){const n=s.airline.navigation;return{key:`airline-${n.kind}-${n.index}`,kind:'airline-route',altitude:Math.round(target.altitude/100)*100,climb:n.kind==='departure',turnGrace:40,label:`${target.name} · 按 ND 航路和高度飞行`};}
+ if(target){const n=s.airline.navigation;return{key:`airline-${n.kind}-${n.index}`,kind:'airline-route',altitude:Math.round(target.altitude/100)*100,climb:n.kind==='departure',turnGrace:n.kind==='departure'&&n.index>0?75:40,label:`${target.name} · 按 ND 航路和高度飞行`};}
  if(s.route?.active){
   const r=s.route,leg=r.points[r.index];
   return{key:`route-${r.index}`,kind:r.inFinal?'approach':'route',altitude:r.inFinal?null:leg.alt,leg:r.index,climb:r.index===0,label:r.inFinal?'五边 · 对正跑道':`${leg.name} · ${s.airportId!=='training'?'左侧返场':'海侧航线'}`};

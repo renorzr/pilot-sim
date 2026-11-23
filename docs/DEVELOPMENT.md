@@ -86,6 +86,16 @@ Pending events, emergency priority and one-shot history are retained.
 Existing clips are included, so generation is optional. To regenerate them,
 install FFmpeg/ffprobe and the Python requirements:
 
+The five-speaker Chinese pilot/controller cast uses
+`ops/generate-radio-cast.py`. Run it in a terminal with input echo disabled
+and pass the Fish credential on stdin, never in an argument or environment
+file. New Fish requests use the free tier; approved files and cached takes
+are reused. It stages the complete manifest/audio under `qa/radio-cast/`.
+Publish all content-addressed media before replacing the source manifest and
+rebuilding. `ops/check-pilot-voices.mjs` verifies every speaker in both roles
+and that the game and audition page share the same VHF preset source.
+The older generator below maintains English and legacy radio assets.
+
 ```bash
 python3 -m venv .venv
 .venv/bin/pip install -r ops/requirements-tts.txt
@@ -263,3 +273,71 @@ The accumulated release was verified from a clean staged checkout without the
 local QA folder: all four large databases restored with original hashes, 357
 flight tests and four hosting tests passed, and a `/pilot-sim/` Pages build
 produced an approximately 836.5 MiB site. Repository blobs remain at most 32 MiB.
+
+Kansai reuses the mapped-city loader and persistent source/model cache. Native
+building flags reserve bit 64 for the `ms/` source-row identities of supplemental
+Microsoft geometry; OSM/EAB formats and other airports are unchanged. The offline
+checker is `ops/check-kansai-city-data.mjs`. Optional GSI acquisition, source
+context extraction, roof sampling and packing are documented in
+[Kansai city notes](../game/src/airports/data/KANSAI-CITY.md). GSI tile pixel
+spacing must remain distinct from unknown original photo dates/resolution.
+
+`ops/check-kansai-city-scenes.mjs` supplies seven isolated rendering cameras;
+`ops/check-kansai-city-game.mjs` exercises real UI/keyboard/pointer inputs;
+`ops/check-kansai-city-cache.mjs` verifies cold/warm restoration with large files
+blocked on a fresh page. All accept a local URL and `PILOT_CDP_URL`.
+The regional photo encoding budget retains quality 91 near the airport/coast
+and uses quality 85 for 6 km regional cells; the original working rasters still
+drive roof colours. Large Kansai runtime bytes are included in the same verified
+32 MiB repository-parts system. Source caches remain outside the checkout.
+
+## Daxing regional city data
+
+Daxing reuses `loadMappedCity` with a source-frame-specific footprint pack and
+same-pass Sentinel-2 mosaic. `ops/fetch-daxing-city.py` acquires only geometry ZIP
+members, two 10 m visual COG windows and the verified dated Hebei/Beijing PBF;
+source caches remain outside the checkout. Original WKT transforms and native
+footprint roof sampling are mandatory. Ordinary builds verify included outputs,
+with large binary bytes restored from the existing 32 MiB repository parts.
+The isolated scene, actual game and persistent-cache fixtures are
+`ops/check-daxing-city-scenes.mjs`, `ops/check-daxing-city-game.mjs` and
+`ops/check-daxing-city-cache.mjs`; all accept a local URL and `PILOT_CDP_URL`.
+[Source and rebuild notes](../game/src/airports/data/DAXING-CITY.md).
+
+## Cruise transition and prepared destination worlds
+
+`views/cruise-transition.js` owns a presentation clock, the measured-velocity
+visual aircraft, and a separate recorded cruise-entry radio queue. It leaves the
+qualified physical aircraft/evidence untouched until an opaque black frame has
+been committed by React. `advanceFlight` / `advanceSimulation` / `advanceAtRate`
+accept an optional `onCruiseSkip` hook; native callers keep immediate cuts while
+App intercepts the same qualified automatic event and drops the remaining 4x
+batch. Manual early skips enter the same state machine.
+
+`views/airport-world-manager.js` retains one foreground world and at most one
+prepared destination. Preparation starts on `canSkipCruise`, uses the existing
+processed IndexedDB caches and keeps destination contact data inactive. The
+prepared intro camera is rendered, its visible image/model work is awaited and
+rendered again before progress reaches 100%. Promotion/disposal happens only
+under full black; failed loads retry while the physical preview clock is held.
+Cancelled readiness callbacks cannot affect a replacement world. Inputs are
+blocked by the overlay, root capture handlers and ref guards.
+
+The selected live camera is B: cut overhead, follow for one second, then roll
+into a close upward view, fading at 8.5–9.5 seconds. `cruise-camera-track.js`
+supplies the aircraft-relative observer track to the game.
+The game rotates that offset by actual heading and targets the current rendered
+aircraft, retaining terrain/building constraints and the saved player view.
+The actual pose, measured velocity, configuration and source world continue
+through the presentation; no illustrative altitude or climb is substituted.
+Only the observer rolls. Existing recorded radio uses a separate, measured
+presentation tempo so it ends before fade without slowing or accelerating the
+aircraft or engine sound. Black loading waits and destination fade-in follow
+the 9.5-second source shot and do not consume destination simulation time.
+
+The two Chinese and two English `airline-cruise-entry-*.mp3` recordings use the
+existing role profiles and radio DSP, measured durations and airline fingerprint.
+Regenerate only these with `python ops/generate-journey-radio.py --event cruise-entry`.
+`ops/check-cruise-transition.mjs` flies through real UI controls, records readonly
+camera/flight samples and delays the destination request to verify black holding.
+Its browser-side pilot uses DOM control events, never flight pose/state setters.

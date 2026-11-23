@@ -69,9 +69,9 @@ export function buildRealAirportWorld({scene,asphalt,grass,mat,airport=DAXING,de
   const points=local(coordinates);
   if(tags.aeroway==='taxiway'){strip(points,Number(tags.width)||23,taxi,G.taxi);strip(points,.35,yellow,G.paint);}
   else if(tags.aeroway==='taxilane')strip(points,.35,yellow,G.paint);
-  else if(tags.highway){if(['lax','changi','jfk'].includes(airport.id))continue;const major=['motorway','trunk','primary'].includes(tags.highway),width=Number(tags.width)||(['motorway','trunk'].includes(tags.highway)?22:major?14:['secondary','tertiary'].includes(tags.highway)?9:5);strip(points,width,major?road:minorRoad,G.road);}
-  else if(tags.waterway){if(!['xiaoshan','changi','jfk'].includes(airport.id))strip(points,Number(tags.width)||(['river','canal'].includes(tags.waterway)?24:7),water,.13);}
-  else if(tags.natural==='water'||tags.water||tags.landuse==='reservoir'){if(airport.id!=='xiaoshan'&&(!['changi','jfk'].includes(airport.id)||tags.water==='sea'))polygon(points,water,.15,(feature.holes||[]).map(local),tags.water==='sea'?-airport.elevationM:null);}
+  else if(tags.highway){if(['lax','changi','jfk','kansai','daxing'].includes(airport.id))continue;const major=['motorway','trunk','primary'].includes(tags.highway),width=Number(tags.width)||(['motorway','trunk'].includes(tags.highway)?22:major?14:['secondary','tertiary'].includes(tags.highway)?9:5);strip(points,width,major?road:minorRoad,G.road);}
+  else if(tags.waterway){if(!['xiaoshan','changi','jfk','kansai','daxing'].includes(airport.id))strip(points,Number(tags.width)||(['river','canal'].includes(tags.waterway)?24:7),water,.13);}
+  else if(tags.natural==='water'||tags.water||tags.landuse==='reservoir'){if(airport.id!=='xiaoshan'&&(!['changi','jfk','kansai','daxing'].includes(airport.id)||tags.water==='sea'))polygon(points,water,.15,(feature.holes||[]).map(local),tags.water==='sea'?-airport.elevationM:null);}
  }
  function rectangle(x,z,width,length,material,angle=0,y=.22){
   const mesh=new THREE.Mesh(new THREE.PlaneGeometry(width,length),material);mesh.rotation.set(-Math.PI/2,0,angle);mesh.position.set(x,y,z);group.add(mesh);return mesh;
@@ -123,7 +123,7 @@ export function buildRealAirportWorld({scene,asphalt,grass,mat,airport=DAXING,de
  const excludedFeatures=new Set([...(customScenery?.excludeFeatureIds||[]),...(airport.id==='changi'?['way/744520551','way/547383951','way/744653030','way/173010406']:[])]);
  // Low-cost building blocks follow actual OSM footprints. Missing heights
  // receive a documented visual estimate rather than a claim of survey detail.
- const cityAirportBoundary=['xiaoshan','jfk'].includes(airport.id)?features.filter(f=>f.tags?.aeroway==='aerodrome').map(f=>local(f.geometry)):null;
+ const cityAirportBoundary=['xiaoshan','jfk','kansai','daxing'].includes(airport.id)?features.filter(f=>f.tags?.aeroway==='aerodrome').map(f=>local(f.geometry)):null;
  const buildings=features.filter(f=>f.tags?.building&&!['tower','control_tower','jet_bridge'].includes(f.tags.aeroway)&&f.tags.aeroway!=='terminal'&&f.tags.building!=='terminal'&&!excludedFeatures.has(f.id)&&f.geometry.length>=3).slice(0,900);
  const buildingMaterials=[mat('#b8b5a5'),mat('#c6c4b9'),mat('#a4a9a3')],unit=new THREE.BoxGeometry(1,1,1);
  for(const [i,f]of buildings.entries()){

@@ -1,0 +1,433 @@
+{
+  "version": 1,
+  "rate": "+26%",
+  "pitch": "-18Hz",
+  "scripts": {
+    "normal": {
+      "title": "普通通话",
+      "body": "塔台，云际三二零，跑道一七左，准备起飞。起飞后保持跑道方向，爬升至三千英尺。"
+    },
+    "mayday": {
+      "title": "紧急呼叫",
+      "unit": "Mayday.",
+      "prefix": "MAYDAY, MAYDAY, MAYDAY.",
+      "body": "塔台，云际三二零，双发失效，无法保持高度，请求紧急着陆。"
+    },
+    "pan": {
+      "title": "优先着陆",
+      "unit": "Pan pan.",
+      "prefix": "PAN PAN, PAN PAN, PAN PAN.",
+      "body": "塔台，云际三二零，襟翼卡阻，请求优先着陆。"
+    }
+  },
+  "voices": [
+    {
+      "id": "a",
+      "label": "A",
+      "name": "云健",
+      "voice": "zh-CN-YunjianNeural",
+      "gender": "男声",
+      "locale": "普通话",
+      "profile": {
+        "rate": "+26%",
+        "pitch": "-18Hz"
+      },
+      "clips": {
+        "normal": {
+          "variants": {
+            "clean": {
+              "url": "clips/a-normal-clean.mp3",
+              "duration": 6.36,
+              "bytes": 51117,
+              "sha256": "618ff885a12b5dc4b142e01d83525639c52b53a1c9c05c5c55d8464d1100d908"
+            },
+            "radio": {
+              "url": "clips/a-normal-radio.mp3",
+              "duration": 6.36,
+              "bytes": 51117,
+              "sha256": "5d274efc79ce40421e58556f4796a570afddb7d8cb49aaf2d4ec5bd79f490884"
+            }
+          },
+          "signal": null
+        },
+        "mayday": {
+          "variants": {
+            "clean": {
+              "url": "clips/a-mayday-clean.mp3",
+              "duration": 5.592,
+              "bytes": 44973,
+              "sha256": "fa5706ca1561fc2ea62fe4fd0f01fd0c47003e288baa523478ead1e0eb7ccced"
+            },
+            "radio": {
+              "url": "clips/a-mayday-radio.mp3",
+              "duration": 5.592,
+              "bytes": 44973,
+              "sha256": "af3a94f8a86e13cb57fa03a9ad162fb11e45667bd8773cae2005d814c53aef2f"
+            }
+          },
+          "signal": {
+            "units": 3,
+            "unitDuration": 0.319375,
+            "gap": 0.08,
+            "bodyGap": 0.12,
+            "tempo": 1.1,
+            "reference": "qa/pilot-voices/raw/a-mayday-unit.wav",
+            "prefixEnd": 1.118125
+          }
+        },
+        "pan": {
+          "variants": {
+            "clean": {
+              "url": "clips/a-pan-clean.mp3",
+              "duration": 4.824,
+              "bytes": 38829,
+              "sha256": "444583143e2243c9e91d036e1f06f351d485a186ff2341c4961f5a033c3b6cd2"
+            },
+            "radio": {
+              "url": "clips/a-pan-radio.mp3",
+              "duration": 4.824,
+              "bytes": 38829,
+              "sha256": "847e50801dcfbd98bf1de466d5b444dba289ad30b35a55dc9067b39778fdba0e"
+            }
+          },
+          "signal": {
+            "units": 3,
+            "unitDuration": 0.41425,
+            "gap": 0.08,
+            "bodyGap": 0.12,
+            "tempo": 1.1,
+            "reference": "qa/pilot-voices/raw/a-pan-unit.wav",
+            "prefixEnd": 1.40275
+          }
+        }
+      }
+    },
+    {
+      "id": "b",
+      "label": "B",
+      "name": "云哲",
+      "voice": "zh-TW-YunJheNeural",
+      "gender": "男声",
+      "locale": "台湾华语",
+      "profile": {
+        "rate": "+26%",
+        "pitch": "-18Hz"
+      },
+      "clips": {
+        "normal": {
+          "variants": {
+            "clean": {
+              "url": "clips/b-normal-clean.mp3",
+              "duration": 6.336,
+              "bytes": 50925,
+              "sha256": "bcb2c40890375a9648c1e08b417554fe1c1ff4f4badf1dfae38e9631f5f9a5c4"
+            },
+            "radio": {
+              "url": "clips/b-normal-radio.mp3",
+              "duration": 6.336,
+              "bytes": 50925,
+              "sha256": "3fa337b2e812e3732aa9c5f30169736cb43e07623015cf8e889dd5ca4eae356c"
+            }
+          },
+          "signal": null
+        },
+        "mayday": {
+          "variants": {
+            "clean": {
+              "url": "clips/b-mayday-clean.mp3",
+              "duration": 5.376,
+              "bytes": 43245,
+              "sha256": "b1ccaa546705e8b2a992004744c032264fef3e980ba0cd8431ac3620be4c4b9d"
+            },
+            "radio": {
+              "url": "clips/b-mayday-radio.mp3",
+              "duration": 5.376,
+              "bytes": 43245,
+              "sha256": "0d274b23a56882d3363b34683474bd5020b5943ce1f0a3606ebc9d8a6a1d5d5c"
+            }
+          },
+          "signal": {
+            "units": 3,
+            "unitDuration": 0.2955,
+            "gap": 0.08,
+            "bodyGap": 0.12,
+            "tempo": 1.1,
+            "reference": "qa/pilot-voices/raw/b-mayday-unit.wav",
+            "prefixEnd": 1.0465
+          }
+        },
+        "pan": {
+          "variants": {
+            "clean": {
+              "url": "clips/b-pan-clean.mp3",
+              "duration": 4.68,
+              "bytes": 37677,
+              "sha256": "0c5121fd1780f32eeaef98bfdb33c674215c40c13754ca499915042a60bb0861"
+            },
+            "radio": {
+              "url": "clips/b-pan-radio.mp3",
+              "duration": 4.68,
+              "bytes": 37677,
+              "sha256": "dd36840de028869409204b6b90d5444d8c45be284f32804a35bfa18ff580f7ac"
+            }
+          },
+          "signal": {
+            "units": 3,
+            "unitDuration": 0.42241666666666666,
+            "gap": 0.08,
+            "bodyGap": 0.12,
+            "tempo": 1.1,
+            "reference": "qa/pilot-voices/raw/b-pan-unit.wav",
+            "prefixEnd": 1.42725
+          }
+        }
+      }
+    },
+    {
+      "id": "c",
+      "label": "C",
+      "name": "云夏",
+      "voice": "zh-CN-YunxiaNeural",
+      "gender": "男声",
+      "locale": "普通话",
+      "profile": {
+        "rate": "+26%",
+        "pitch": "-18Hz"
+      },
+      "clips": {
+        "normal": {
+          "variants": {
+            "clean": {
+              "url": "clips/c-normal-clean.mp3",
+              "duration": 6.864,
+              "bytes": 55149,
+              "sha256": "6dcc1fb705683ee3797154fc3da722c45580c21cc458c2936239751bee05bdb8"
+            },
+            "radio": {
+              "url": "clips/c-normal-radio.mp3",
+              "duration": 6.864,
+              "bytes": 55149,
+              "sha256": "857259399e491a7a8715792f55d3aa7e0ed6a26feecceec5b002d3826a1f8fa9"
+            }
+          },
+          "signal": null
+        },
+        "mayday": {
+          "variants": {
+            "clean": {
+              "url": "clips/c-mayday-clean.mp3",
+              "duration": 5.976,
+              "bytes": 48045,
+              "sha256": "353f6976e958c7157f73650c520fe67a9182d2dc8279127ccb9a49346ac80bdf"
+            },
+            "radio": {
+              "url": "clips/c-mayday-radio.mp3",
+              "duration": 5.976,
+              "bytes": 48045,
+              "sha256": "34ffe1fe06a5335c9e81c5d0c98a33fa8d9536311d2e65f4b1fb82208fafe314"
+            }
+          },
+          "signal": {
+            "units": 3,
+            "unitDuration": 0.32779166666666665,
+            "gap": 0.08,
+            "bodyGap": 0.12,
+            "tempo": 1.1,
+            "reference": "qa/pilot-voices/raw/c-mayday-unit.wav",
+            "prefixEnd": 1.1433749999999998
+          }
+        },
+        "pan": {
+          "variants": {
+            "clean": {
+              "url": "clips/c-pan-clean.mp3",
+              "duration": 5.088,
+              "bytes": 40941,
+              "sha256": "29bd4dfb45ae1ff1a710ee8bcb3813055818a5f5e47dab7ccf3da5bfc13bc8c1"
+            },
+            "radio": {
+              "url": "clips/c-pan-radio.mp3",
+              "duration": 5.088,
+              "bytes": 40941,
+              "sha256": "fbef1da76cc251ebf07c6ec6917f8b2fa9d926cd22ca467bb62c867e66983e6d"
+            }
+          },
+          "signal": {
+            "units": 3,
+            "unitDuration": 0.4285833333333333,
+            "gap": 0.08,
+            "bodyGap": 0.12,
+            "tempo": 1.1,
+            "reference": "qa/pilot-voices/raw/c-pan-unit.wav",
+            "prefixEnd": 1.4457499999999999
+          }
+        }
+      }
+    },
+    {
+      "id": "d",
+      "label": "D",
+      "name": "晓伊",
+      "voice": "zh-CN-XiaoyiNeural",
+      "gender": "女声",
+      "locale": "普通话",
+      "profile": {
+        "rate": "+26%",
+        "pitch": "-18Hz"
+      },
+      "clips": {
+        "normal": {
+          "variants": {
+            "clean": {
+              "url": "clips/d-normal-clean.mp3",
+              "duration": 6.384,
+              "bytes": 51309,
+              "sha256": "6d2626094e219e3cabfed7b230e17ba95da39622d91302a380b9ba29395491f2"
+            },
+            "radio": {
+              "url": "clips/d-normal-radio.mp3",
+              "duration": 6.384,
+              "bytes": 51309,
+              "sha256": "52d17c6d650395721ec17679078f743120bfeb0afa62ef55b3fd4c06881eca06"
+            }
+          },
+          "signal": null
+        },
+        "mayday": {
+          "variants": {
+            "clean": {
+              "url": "clips/d-mayday-clean.mp3",
+              "duration": 5.688,
+              "bytes": 45741,
+              "sha256": "f7d43bcf0680ab489c86f286495d4d00fb291000905cf6e54323db3e681e0626"
+            },
+            "radio": {
+              "url": "clips/d-mayday-radio.mp3",
+              "duration": 5.688,
+              "bytes": 45741,
+              "sha256": "d3d72a6aa7fff9a1085b11e9481aaf7ec475b3c3cfc3c54fecb2b72408ef133a"
+            }
+          },
+          "signal": {
+            "units": 3,
+            "unitDuration": 0.3300416666666667,
+            "gap": 0.08,
+            "bodyGap": 0.12,
+            "tempo": 1.1,
+            "reference": "qa/pilot-voices/raw/d-mayday-unit.wav",
+            "prefixEnd": 1.150125
+          }
+        },
+        "pan": {
+          "variants": {
+            "clean": {
+              "url": "clips/d-pan-clean.mp3",
+              "duration": 4.872,
+              "bytes": 39213,
+              "sha256": "4eea157b5223a706a1d441e4c52362956f2cab3aaf86c05be2ba5fe39fc1b9f8"
+            },
+            "radio": {
+              "url": "clips/d-pan-radio.mp3",
+              "duration": 4.872,
+              "bytes": 39213,
+              "sha256": "bb52ac3685b6c9fbd3be96d3d46a430cdc6d60f5a6cfc90e251a6ee33328be9e"
+            }
+          },
+          "signal": {
+            "units": 3,
+            "unitDuration": 0.43170833333333336,
+            "gap": 0.08,
+            "bodyGap": 0.12,
+            "tempo": 1.1,
+            "reference": "qa/pilot-voices/raw/d-pan-unit.wav",
+            "prefixEnd": 1.455125
+          }
+        }
+      }
+    },
+    {
+      "id": "current",
+      "label": "对照",
+      "name": "云希",
+      "voice": "zh-CN-YunxiNeural",
+      "gender": "男声",
+      "locale": "普通话",
+      "current": true,
+      "profile": {
+        "rate": "+26%",
+        "pitch": "-18Hz"
+      },
+      "clips": {
+        "normal": {
+          "variants": {
+            "clean": {
+              "url": "clips/current-normal-clean.mp3",
+              "duration": 6.456,
+              "bytes": 51885,
+              "sha256": "2d1839fee58a0f698692e09647809a63f5f3455f99b2069fc9c088b17a1b9ccc"
+            },
+            "radio": {
+              "url": "clips/current-normal-radio.mp3",
+              "duration": 6.456,
+              "bytes": 51885,
+              "sha256": "4ad1edd8ccc5ed4badea6ea36c67519535c15feb5a0647a662256846a7a1580f"
+            }
+          },
+          "signal": null
+        },
+        "mayday": {
+          "variants": {
+            "clean": {
+              "url": "clips/current-mayday-clean.mp3",
+              "duration": 6.192,
+              "bytes": 49773,
+              "sha256": "1a9e6e84ae3e5093851ebe74f6728430b2369ef1bf4dc894b66aee56274436da"
+            },
+            "radio": {
+              "url": "clips/current-mayday-radio.mp3",
+              "duration": 6.192,
+              "bytes": 49773,
+              "sha256": "e8ffeed734040608a83141ac3e86d96c6ff2998dcadfdec79b5af3c02afcb573"
+            }
+          },
+          "signal": {
+            "units": 3,
+            "unitDuration": 0.45145833333333335,
+            "gap": 0.08,
+            "bodyGap": 0.12,
+            "tempo": 1.1,
+            "reference": "qa/pilot-voices/raw/current-mayday-unit.wav",
+            "prefixEnd": 1.514375
+          }
+        },
+        "pan": {
+          "variants": {
+            "clean": {
+              "url": "clips/current-pan-clean.mp3",
+              "duration": 5.136,
+              "bytes": 41325,
+              "sha256": "7ce30e924437b31125403ee8392329a8ad72eb32c41401f485e3a74120786a9c"
+            },
+            "radio": {
+              "url": "clips/current-pan-radio.mp3",
+              "duration": 5.136,
+              "bytes": 41325,
+              "sha256": "0a7a8365ab969536dd9b17eb67005bf7dd5a6dbec2f3877a370c6524639a2a5f"
+            }
+          },
+          "signal": {
+            "units": 3,
+            "unitDuration": 0.45945833333333336,
+            "gap": 0.08,
+            "bodyGap": 0.12,
+            "tempo": 1.1,
+            "reference": "qa/pilot-voices/raw/current-pan-unit.wav",
+            "prefixEnd": 1.538375
+          }
+        }
+      }
+    }
+  ],
+  "productionChanged": false,
+  "fingerprint": "5e9180019e28cd4b"
+}

@@ -181,7 +181,9 @@ export function buildDaxingScenery({THREE, group, project, terrainHeight=()=>0, 
   // merge with boxes/cylinders that use the same material.
   const normalized=new Set();
   root.traverse(mesh=>{
-    if(!mesh.isMesh||normalized.has(mesh.geometry))return;
+    if(!mesh.isMesh)return;
+    mesh.castShadow=mesh.material!==apron&&mesh.material!==paint;mesh.receiveShadow=mesh.material!==paint;
+    if(normalized.has(mesh.geometry))return;
     const g=mesh.geometry,n=g.attributes.position.count;
     if(!g.index)g.setIndex(Array.from({length:n},(_,i)=>i));
     if(!g.attributes.uv)g.setAttribute('uv',new THREE.BufferAttribute(new Float32Array(n*2),2));

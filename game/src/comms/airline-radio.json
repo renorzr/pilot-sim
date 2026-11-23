@@ -89,6 +89,16 @@
         "tower",
         "云际三二零，收到，航班结束。"
       ]
+    ],
+    "cruise-entry": [
+      [
+        "pilot",
+        "云际三二零，已保持许可高度，进入巡航。"
+      ],
+      [
+        "tower",
+        "云际三二零，收到，保持现高度，按计划航路继续巡航。"
+      ]
     ]
   },
   "en": {
@@ -181,6 +191,16 @@
         "tower",
         "Skyline three two zero, roger. Flight complete."
       ]
+    ],
+    "cruise-entry": [
+      [
+        "pilot",
+        "Skyline three two zero, level at cleared altitude, entering cruise."
+      ],
+      [
+        "tower",
+        "Skyline three two zero, roger. Maintain present altitude and continue cruise on your planned route."
+      ]
     ]
   },
   "durations": {
@@ -202,7 +222,9 @@
       "airline-arrival-taxi-0": 3.792,
       "airline-arrival-taxi-1": 5.76,
       "airline-parked-0": 3.24,
-      "airline-parked-1": 2.952
+      "airline-parked-1": 2.952,
+      "airline-cruise-entry-0": 3.576,
+      "airline-cruise-entry-1": 4.824
     },
     "en": {
       "airline-departure-climb-0": 5.472,
@@ -222,8 +244,10 @@
       "airline-arrival-taxi-0": 4.944,
       "airline-arrival-taxi-1": 6.912,
       "airline-parked-0": 4.32,
-      "airline-parked-1": 4.296
+      "airline-parked-1": 4.296,
+      "airline-cruise-entry-0": 3.984,
+      "airline-cruise-entry-1": 6.48
     }
   },
-  "version": "e3f86546676f7d366da3"
+  "version": "a55d5da6fdbda313d2a1"
 }

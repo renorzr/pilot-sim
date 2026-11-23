@@ -1,0 +1,37 @@
+{
+  "j": {
+    "mayday": {
+      "file": "audition-j-mayday.mp3",
+      "groups": 3,
+      "model": "s2.1-pro-free",
+      "payload": {
+        "text": "[严肃克制，干练自然的飞行员无线电通话，快速清晰地复诵，不要播音腔]<|phoneme_start|>M EY1 D EY0<|phoneme_end|>，<|phoneme_start|>M EY1 D EY0<|phoneme_end|>，<|phoneme_start|>M EY1 D EY0<|phoneme_end|>。塔台，云际三二零，双发失效，无法保持高度，请求紧急着陆。",
+        "reference_id": "048222d36be842f199ec8ac71993dce4",
+        "format": "mp3",
+        "sample_rate": 44100,
+        "mp3_bitrate": 128,
+        "temperature": 0.3,
+        "top_p": 0.7,
+        "prosody": {
+          "speed": 1.16,
+          "volume": 0,
+          "normalize_loudness": true
+        }
+      },
+      "sha256": "224ea8b2d9c0595e5462cf0160fe01f2c136fe48a7d2a8ba841edc2609e26b98",
+      "edit": {
+        "tempo": 1.22,
+        "removeSilences": [
+          [
+            0.773646,
+            0.908553
+          ],
+          [
+            1.39705,
+            1.48869
+          ]
+        ]
+      }
+    }
+  }
+}

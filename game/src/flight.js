@@ -1,7 +1,8 @@
-import {initializeAirline,beforeAirlinePhysics,updateAirline,airlineInstruction,canSkipCruise,arrivalPreview} from './missions/airline.js';
+import {initializeAirline,beforeAirlinePhysics,updateAirline,airlineInstruction,canSkipCruise,canAutoSkipCruise,arrivalPreview} from './missions/airline.js';
 import {initializeDeparture,groundActive,groundFrozen,beforeGroundPhysics,afterGroundPhysics,groundInstruction} from './missions/ground.js';
 import {arrivalNavigation,airlineNavigationActive} from './missions/airline-navigation.js';
 import {initializeTaxiIn,beforeTaxiInPhysics,afterTaxiInPhysics,taxiInActive} from './missions/taxi-in.js';
+import {updateRouteProtection} from './missions/route-protection.js';
 import {observeEmergency} from './comms/emergency.js';
 import {runwayOf} from './airports/registry.js';
 import {createStallWarning,updateStallWarning} from './sim/stall-warning.js';
@@ -55,7 +56,7 @@ export function createFlight(mode='landing',options={}){
   const landing=mode==='landing',scenario=options.scenario||'short',full=landing&&scenario==='full';
   const landingConfig=[1,2,3,4].includes(options.landingConfig)?options.landingConfig:4,vapp=[180,165,165,150,145][landingConfig];
   const s={mode,scenario,airportId,landingConfig,vapp,weight:options.weight??64,headwind:5,windDirection:runway.heading,
-    systems:createSystems(),radio:createRadio(),atc:createATC(),terrain:createTerrainAwareness(),impact:null,stallWarning:createStallWarning(),cabin:{noseAt:null},weather:createWeather({...options.weather,referenceHeading:runway.heading,wind:{directionDeg:runway.heading,...options.weather?.wind}}),engines:createEngines(),controls:createControls(),velocity:{x:0,y:0,z:0},yawRate:0,clock:{accumulator:0},
+    systems:createSystems(),radio:createRadio({pilotVoice:options.pilotVoice,towerVoice:options.towerVoice}),atc:createATC(),terrain:createTerrainAwareness(),impact:null,stallWarning:createStallWarning(),cabin:{noseAt:null},weather:createWeather({...options.weather,referenceHeading:runway.heading,wind:{directionDeg:runway.heading,...options.weather?.wind}}),engines:createEngines(),controls:createControls(),velocity:{x:0,y:0,z:0},yawRate:0,clock:{accumulator:0},
     x:full?180:0,y:full?RUNWAY.ground+3000/FT:landing?approachAltitude(2100):RUNWAY.ground,z:full?18000:landing?2100:-130,
     speed:landing?(full?190:vapp)/KT:0,verticalSpeed:landing&&!full?-3.8:0,
     pitch:0,roll:0,yaw:full?-.012:0,pitchRate:0,rollRate:0,stickPitch:0,stickRoll:0,
@@ -89,13 +90,13 @@ export function createFlight(mode='landing',options={}){
 // The explicit cruise cut changes the local airport frame and installs the
 // destination leg's published game entry preset. It is not continuous cruise
 // integration. Failures, mass, practice state and departure evidence survive.
-export function skipCruise(s){
+export function skipCruise(s,{automatic=false}={}){
  if(!canSkipCruise(s))return false;
- const old={levelId:s.levelId,mission:structuredClone(s.mission),airline:structuredClone(s.airline),engines:structuredClone(s.engines),systems:structuredClone(s.systems),time:s.time,language:s.radio.language,history:structuredClone(s.radio.history),autoThrust:s.autoThrust,ground:structuredClone(s.ground)};
+ const old={levelId:s.levelId,mission:structuredClone(s.mission),airline:structuredClone(s.airline),engines:structuredClone(s.engines),systems:structuredClone(s.systems),time:s.time,language:s.radio.language,pilotVoice:s.radio.pilotVoice,towerVoice:s.radio.towerVoice,history:structuredClone(s.radio.history),autoThrust:s.autoThrust,ground:structuredClone(s.ground)};
  const skipped=old.airline.distanceKm/830*3600;
- const arrival=createFlight('landing',{levelId:`${old.airline.destination}-landing`,weight:s.weight,landingConfig:s.landingConfig});
+ const arrival=createFlight('landing',{levelId:`${old.airline.destination}-landing`,weight:s.weight,landingConfig:s.landingConfig,pilotVoice:old.pilotVoice,towerVoice:old.towerVoice});
  arrival.levelId=old.levelId;arrival.mission={...old.mission,stableSeconds:0};arrival.systems=old.systems;arrival.engines=old.engines;arrival.ground=null;arrival.time=old.time+skipped;arrival.autoThrust=old.autoThrust&&old.systems.autoThrustAvailable;
- arrival.airline={...old.airline,phase:'arrival-preview',cruiseSkipped:true,skippedCruiseSeconds:skipped,departureEvidence:old.ground,previewStarted:arrival.time,introSkipped:false,stableSeconds:0};
+ arrival.airline={...old.airline,phase:'arrival-preview',cruiseSkipped:true,cruiseSkipMode:automatic?'automatic':'manual',skippedCruiseSeconds:skipped,departureEvidence:old.ground,departureRouteEvidence:structuredClone(old.airline.navigation),departureCut:{x:s.x,y:s.y,z:s.z,time:old.time},previewStarted:arrival.time,introSkipped:false,stableSeconds:0};
  arrival.airline.navigation=arrivalNavigation(old.airline.origin,old.airline.destination);
  const entry=arrival.airline.navigation.entry;
  Object.assign(arrival,{x:entry.x,z:entry.z,y:RUNWAY.ground+entry.altitude/FT,yaw:entry.yaw,selectedAltitude:entry.altitude,previousRA:entry.altitude,mode:'enroute'});
@@ -247,12 +248,16 @@ function updateApproach(s,dt){
     s.speed*KT>FLAP_LIMITS[Math.ceil(s.flapPosition)]&&s.flapPosition>.1?'襟翼速度超限 · 减速':'';
 }
 
-export function advanceFlight(s,input,dt){
+export function advanceFlight(s,input,dt,options){
   const RUNWAY=runwayOf(s);
   if(s.result||dt<=0)return;dt=clamp(dt,0,.05);s.time+=dt;
   refreshAirData(s);
   const groundCheckpoint=(state,label)=>{refreshAirData(state);saveCheckpoint(state,label);};
-  if(beforeAirlinePhysics(s,{checkpoint:groundCheckpoint})){updateRadio(s);return;}
+  if(beforeAirlinePhysics(s,{checkpoint:groundCheckpoint,dt})){updateRadio(s);return;}
+  if(canAutoSkipCruise(s)){
+    if(!options?.onCruiseSkip){skipCruise(s,{automatic:true});return;}
+    if(options.onCruiseSkip(s,{automatic:true}))return 'cruise-transition';
+  }
   if(beforeTaxiInPhysics(s,dt)){stepEngines(s,0,dt);refreshAirData(s);updateRadio(s);updateAirline(s,dt,{checkpoint:groundCheckpoint});return;}
   if(beforeGroundPhysics(s,dt,{checkpoint:groundCheckpoint})){stepEngines(s,0,dt);refreshAirData(s);updateNavigation(s);updateRadio(s);return;}
   if(!groundActive(s)&&!s.airline?.cruiseSkipped&&!s.radio.fired.takeoff&&!s.radio.fired.approach&&!s.radio.fired['circuit-takeoff'])queueRadio(s,s.airborne?'approach':s.route?'circuit-takeoff':'takeoff');
@@ -316,7 +321,7 @@ export function advanceFlight(s,input,dt){
   if(s.landed&&s.noseWheelDown&&s.cabin.noseAt===null)s.cabin.noseAt=s.time;
   updateRecovery(s,dt,{emit,checkpoint:saveCheckpoint});
   afterLevelPhysics(s,dt);updateAirline(s,dt,{checkpoint:saveCheckpoint});
-  updateTerrainAwareness(s,dt,emit);updateATC(s,dt);
+  updateTerrainAwareness(s,dt,emit);updateATC(s,dt);updateRouteProtection(s,dt);
   updateRadio(s);
   updateStallWarning(s,dt,emit);
   observeEmergency(s,dt,queueRadio);
@@ -329,6 +334,7 @@ export function getInstruction(s){
   if(s.terrain?.level===2)return s.engines.every(e=>e.status!=='running')?'PULL UP · 前方地形，无动力转向可达低地':'PULL UP · 地形危险，T TOGA、↓ 后拉爬升并避开山体';
   if(s.terrain?.level===1)return 'TERRAIN AHEAD · 前方地形升高，检查航线与净空';
   if(s.stallWarning?.level===1)return '迎角接近上限 · 减小后拉，注意速度';
+  if(s.routeProtection?.warning&&!s.routeProtection.suspended)return `航路偏离 ${(s.routeProtection.distance/1000).toFixed(1)} km · 按 ND 修正航迹`;
   if(s.atc?.deviation&&s.atc.seconds>=6)return '空管提醒 · '+s.atc.deviation.text;
   const airlineHint=airlineInstruction(s);if(airlineHint)return airlineHint;
   const missionHint=levelInstruction(s);if(missionHint)return missionHint;
@@ -362,9 +368,9 @@ export function getInstruction(s){
 
 // Browser time is accumulated into fixed 100 Hz simulation ticks. The remainder
 // is checkpointed along with physics, so replay does not depend on render FPS.
-export function advanceSimulation(s,input,elapsed){
+export function advanceSimulation(s,input,elapsed,options){
   if(s.result||!Number.isFinite(elapsed)||elapsed<=0)return;
   s.clock.accumulator+=Math.min(elapsed,.5);
-  while(s.clock.accumulator>=.01-1e-10&&!s.result){s.clock.accumulator-=.01;advanceFlight(s,input,.01);}
+  while(s.clock.accumulator>=.01-1e-10&&!s.result){s.clock.accumulator-=.01;if(advanceFlight(s,input,.01,options)==='cruise-transition'){s.clock.accumulator=0;return 'cruise-transition';}}
   if(s.result)s.clock.accumulator=0;
 }

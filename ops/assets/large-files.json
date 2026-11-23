@@ -99,6 +99,45 @@
           "sha256": "932e308c3f60c39903a965538c810aab3cbe3c9518ca5bebe73a95b24c416d27"
         }
       ]
+    },
+    {
+      "path": "public/assets/cities/kansai/buildings-v1.bin.gz",
+      "bytes": 79129953,
+      "sha256": "056c3710ea609d3b4cb1457a8f63b947e4c2d047de42aa2fbb82d69ffa74bece",
+      "parts": [
+        {
+          "path": "ops/assets/large-files/cities/kansai/buildings-v1.bin.gz/000.part",
+          "bytes": 33554432,
+          "sha256": "c2bb132be6acb259a5c5b9fcf16559b24f6df5b1191ecfcda826a86f215bc023"
+        },
+        {
+          "path": "ops/assets/large-files/cities/kansai/buildings-v1.bin.gz/001.part",
+          "bytes": 33554432,
+          "sha256": "46dc395a56ebd5cc14c48dec3aaa57c9a95fb997dd6b11c963e805d5d6cb1ed4"
+        },
+        {
+          "path": "ops/assets/large-files/cities/kansai/buildings-v1.bin.gz/002.part",
+          "bytes": 12021089,
+          "sha256": "b8278ab7afa21564aff14d278cd5faf1624d048dd6a8c8a7be12b5b6c7b9b399"
+        }
+      ]
+    },
+    {
+      "path": "public/assets/cities/daxing/buildings-v1.bin.gz",
+      "bytes": 53347585,
+      "sha256": "8e00fc481ac59eed5196f422e9bad9527e8236bc7afc68260bdbdc27b8558da7",
+      "parts": [
+        {
+          "path": "ops/assets/large-files/cities/daxing/buildings-v1.bin.gz/000.part",
+          "bytes": 33554432,
+          "sha256": "029e613c0e219717ef2dde0f4c6573539d49eeea2b87ce1ce41888ba790fc55c"
+        },
+        {
+          "path": "ops/assets/large-files/cities/daxing/buildings-v1.bin.gz/001.part",
+          "bytes": 19793153,
+          "sha256": "f018696ea326fca32fcf53ebaadd421af0790f74cbb4fd5443f0bdb77984e543"
+        }
+      ]
     }
   ]
 }

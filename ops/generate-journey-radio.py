@@ -32,11 +32,12 @@ async def clip(language,event,index,role,text):
   print(language,ident,round(duration,3),'peak',round(peak,4),'rms',round(rms,4),flush=True)
   return language,ident,round(duration,3)
 async def main():
+ parser=argparse.ArgumentParser();parser.add_argument('--event',action='append');args=parser.parse_args()
  pack=json.loads((ROOT/'game/src/comms/airline-radio.json').read_text())
- events=['departure-climb', 'departure-turn', 'destination-established', 'arrival-final', 'runway-exit', 'arrival-taxi', 'parked']
+ events=args.event or ['departure-climb', 'departure-turn', 'destination-established', 'arrival-final', 'runway-exit', 'arrival-taxi', 'parked']
  results=await asyncio.gather(*[clip(lang,event,i,role,text) for lang in ['zh','en'] for event in events for i,(role,text) in enumerate(pack[lang][event])])
  for lang,ident,duration in results:pack['durations'][lang][ident]=duration
  pack['version']=hashlib.sha256(json.dumps({'zh':pack['zh'],'en':pack['en'],'profiles':PROFILES,'filter':FILTER},ensure_ascii=False,sort_keys=True).encode()).hexdigest()[:20]
  (ROOT/'game/src/comms/airline-radio.json').write_text(json.dumps(pack,ensure_ascii=False,indent=2)+'\n')
  print('PACK airline',pack['version'],'CLIPS',len(results),flush=True)
-asyncio.run(main())
+if __name__=='__main__':asyncio.run(main())

@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import {surfaceHeight}from '../terrain/heightfield.js';
+import {sampleCruiseCamera}from './cruise-camera-track.js';
 const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
 export class FlightCameraRig{
  constructor(camera,{heightAt=surfaceHeight,obstruction=()=>null}={}){this.camera=camera;this.heightAt=heightAt;this.obstruction=obstruction;this.position=new THREE.Vector3();this.target=new THREE.Vector3();this.initialized=false;this.lastReset=-1;this.lastPose=null;this.adjusted=false;this.mode='cockpit';this.look=new THREE.Vector3();this.lastOrigin=new THREE.Vector3();}
@@ -16,9 +17,19 @@ export class FlightCameraRig{
   }
   const ground=this.heightAt(result.x,result.z,s)+2.5;if(result.y<ground){result.y=ground;this.adjusted=true;}return result;
  }
- update(s,view,dt,{motion={},cinematic=false,cinematicTime=null,airport,visualOffset=0}={}){
-  this.adjusted=false;const camera=this.camera,previous=camera.position.clone(),oldQuaternion=camera.quaternion.clone();this.mode=cinematic?'intro':view.mode;
-  if(cinematic&&airport?.data){camera.clearViewOffset();const center=airport.viewCenter,u=clamp((cinematicTime??(s.time-(s.airline?.previewStarted??0)))/10,0,1),angle=.55+u*.45;camera.fov=36;camera.position.set(center.x+Math.sin(angle)*2100,1250-u*350,center.z+Math.cos(angle)*2100);this.target.set(center.x,25,center.z);camera.lookAt(this.target);this.initialized=false;}
+ update(s,view,dt,{motion={},cinematic=false,cinematicTime=null,cruise=null,airport,visualOffset=0}={}){
+  this.adjusted=false;const camera=this.camera,previous=camera.position.clone(),oldQuaternion=camera.quaternion.clone();this.mode=cruise?'cruise-'+cruise.phase:cinematic?'intro':view.mode;
+  if(cruise){
+   const shot=sampleCruiseCamera(cruise.elapsed),origin=new THREE.Vector3(s.x,s.y+visualOffset,s.z);
+   const offset=new THREE.Vector3(...shot.offset).applyAxisAngle(new THREE.Vector3(0,1,0),-s.yaw);
+   camera.clearViewOffset();camera.fov=shot.fov;this.target.copy(origin);
+   this.position.copy(this.constrain(origin,origin.clone().add(offset),s));camera.position.copy(this.position);
+   camera.up.set(0,1,0);camera.lookAt(this.target);camera.rotateZ(shot.roll);
+   // The opening intentionally cuts overhead; never inherit a stale orbit or
+   // smooth from its old world pose. Saved player view settings stay untouched.
+   this.initialized=false;
+  }
+  else if(cinematic&&airport?.data){camera.clearViewOffset();const center=airport.viewCenter,u=clamp((cinematicTime??(s.time-(s.airline?.previewStarted??0)))/10,0,1),angle=.55+u*.45;camera.fov=36;camera.position.set(center.x+Math.sin(angle)*2100,1250-u*350,center.z+Math.cos(angle)*2100);this.target.set(center.x,25,center.z);camera.lookAt(this.target);this.initialized=false;}
   else if(view.mode==='cockpit'){
    camera.clearViewOffset();camera.fov=36;camera.position.set(s.x+(motion.x||0)*4,s.y+(motion.cameraY||0),s.z+(motion.y||0)*2);camera.rotation.set(s.pitch-.021+(motion.cameraPitch||0),-s.yaw,-s.roll+(motion.roll||0),'YXZ');this.initialized=false;
   }else{
@@ -35,5 +46,5 @@ export class FlightCameraRig{
   camera.updateProjectionMatrix();this.lastPose={x:s.x,y:s.y,z:s.z,time:s.time,airportId:s.airportId};
   return previous.distanceToSquared(camera.position)>1e-8||1-Math.abs(oldQuaternion.dot(camera.quaternion))>1e-10;
  }
- stats(){return{mode:this.mode,position:this.camera.position.toArray(),target:this.target.toArray(),obstacleAdjusted:this.adjusted,fov:this.camera.fov};}
+ stats(){return{mode:this.mode,position:this.camera.position.toArray(),target:this.target.toArray(),aircraftDistance:this.mode.startsWith('cruise-')?this.camera.position.distanceTo(this.target):this.lastPose?this.camera.position.distanceTo(new THREE.Vector3(this.lastPose.x,this.lastPose.y+1.1,this.lastPose.z)):0,obstacleAdjusted:this.adjusted,fov:this.camera.fov};}
 }

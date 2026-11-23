@@ -1,0 +1,18 @@
+{
+  "model": "s2.1-pro-free",
+  "payload": {
+    "text": "[严肃克制，干练自然的飞行员无线电通话，快速清晰地复诵，不要播音腔]<|phoneme_start|>P AE1 N<|phoneme_end|> <|phoneme_start|>P AE1 N<|phoneme_end|>，<|phoneme_start|>P AE1 N<|phoneme_end|> <|phoneme_start|>P AE1 N<|phoneme_end|>，<|phoneme_start|>P AE1 N<|phoneme_end|> <|phoneme_start|>P AE1 N<|phoneme_end|>。塔台，云际三二零，襟翼卡阻，请求优先着陆。",
+    "reference_id": "048222d36be842f199ec8ac71993dce4",
+    "format": "mp3",
+    "sample_rate": 44100,
+    "mp3_bitrate": 128,
+    "temperature": 0.3,
+    "top_p": 0.7,
+    "prosody": {
+      "speed": 1.16,
+      "volume": 0,
+      "normalize_loudness": true
+    }
+  },
+  "sha256": "4ccbef01c5dbc7754f485eece470326fee23af882bf89746249d1f2a2f8ccb61"
+}

@@ -13,9 +13,10 @@ export function soundTargets(s){
   ground:!s.airborne&&!s.impact ? .095*clamp(groundSpeed/75,0,1.3):0,
   engines:s.engines.map(e=>{
    const running=e.status==='running',spool=clamp(e.spool),reverse=running&&s.reverse&&s.landed&&s.throttle<.025&&e.thrustN<0;
-   return {running,rumble:running?.5:0,fan:running?.015+e.spool*.035:0,
+    return {running,rumble:running?.5:0,fan:running?.015+e.spool*.035:s.historical?Math.max(0,e.n1)*.00015:0,
     frequency:48+e.n1*.75,reverse:reverse?1.4*Math.sqrt(spool):0};
   }),
+  ...(s.historical?{water:s.water?.phase&&s.water.phase!=='complete'?.035*clamp((s.water.waterSpeed||0)/35,0,1.8):0}:{}),
  };
 }
 
@@ -25,10 +26,12 @@ export class ContactSounds {
  constructor(){this.reset();}
  reset(){this.last=null;}
  update(s){
-  const current={time:s.time,touchdown:s.touchdown?.time??null,nose:s.cabin?.noseAt??null};
+  const current={time:s.time,touchdown:s.touchdown?.time??null,nose:s.cabin?.noseAt??null,water:s.water?.firstImpact?.time??null,bird:!s.presentationKind?s.historical?.crew?.birdAt??null:null};
   const last=this.last;this.last=current;
   if(!last||current.time<last.time)return [];
   const events=[];
+  if(current.bird!==null&&current.bird!==last.bird&&s.time-current.bird<.6)events.push({kind:'bird',strength:.45});
+  if(current.water!==null&&current.water!==last.water&&s.time-current.water<.6)events.push({kind:'water',strength:clamp((s.water.firstImpact.sinkMps||0)/4,.25,1.3)});
   if(current.touchdown!==null&&current.touchdown!==last.touchdown&&s.time-current.touchdown<.6)
    events.push({kind:'main',strength:clamp((s.touchdown.descent||0)/3,.22,1.3)});
   if(current.nose!==null&&current.nose!==last.nose&&s.time-current.nose<.6)events.push({kind:'nose',strength:.24});
@@ -65,7 +68,7 @@ export class FlightSoundscape {
   this.engineNoise=this.noise('lowpass',600,this.engineGain,0,originalNoiseBuffer(context));
   this.engineNoise.filter.Q.value=1; // Original BiquadFilter default.
   this.engineNoise.gain.gain.value=1;
-  this.wind=this.noise('highpass',480,this.master);this.ground=this.noise('lowpass',170,this.master);
+  this.wind=this.noise('highpass',480,this.master);this.ground=this.noise('lowpass',170,this.master);this.water=this.noise('lowpass',950,this.master);
   this.engines=[0,1].map(i=>{
    const panner=context.createStereoPanner();panner.pan.value=i?.65:-.65;
    const output=meter(context,this.engineGain);panner.connect(output);
@@ -82,15 +85,15 @@ export class FlightSoundscape {
  }
  impact({kind,strength}){
   strength*=2;
-  const c=this.context,t=c.currentTime,duration=kind==='main'?.7:.32;
+  const c=this.context,t=c.currentTime,duration=kind==='water'?1.15:kind==='bird'?.22:kind==='main'?.7:.32;
   const source=c.createBufferSource(),filter=c.createBiquadFilter(),envelope=c.createGain(),osc=c.createOscillator(),tone=c.createGain();
-  source.buffer=this.buffer;filter.type='lowpass';filter.frequency.value=kind==='main'?850:420;
+  source.buffer=this.buffer;filter.type='lowpass';filter.frequency.value=kind==='water'?1300:kind==='bird'?1700:kind==='main'?850:420;
   envelope.gain.setValueAtTime(.001,t);envelope.gain.linearRampToValueAtTime(strength*.65,t+.008);envelope.gain.exponentialRampToValueAtTime(.001,t+duration);
   source.connect(filter);filter.connect(envelope);envelope.connect(this.master);
   osc.frequency.setValueAtTime(kind==='main'?90:110,t);osc.frequency.exponentialRampToValueAtTime(34,t+duration);
   tone.gain.setValueAtTime(strength*.15,t);tone.gain.exponentialRampToValueAtTime(.001,t+duration);
   osc.connect(tone);tone.connect(this.master);
-  const voice={source,osc,envelope,tone,stop:()=>{source.stop();osc.stop();}};this.impacts.add(voice);this.counts[kind]++;
+  const voice={source,osc,envelope,tone,stop:()=>{source.stop();osc.stop();}};this.impacts.add(voice);this.counts[kind]=(this.counts[kind]||0)+1;
   source.onended=()=>{this.impacts.delete(voice);source.disconnect();filter.disconnect();envelope.disconnect();osc.disconnect();tone.disconnect();};
   source.start(t);osc.start(t);source.stop(t+duration);osc.stop(t+duration);
  }
@@ -104,6 +107,7 @@ export class FlightSoundscape {
   target(this.engineNoise.gain.gain,this.targets.engineNoise,t,this.targets.engineNoise<1?.08:.2);
   target(this.engineNoise.filter.frequency,this.targets.engineCutoff,t,.25);
   target(this.wind.gain.gain,this.targets.wind,t);target(this.ground.gain.gain,this.targets.ground,t);
+  target(this.water.gain.gain,this.targets.water||0,t,.09);
   target(this.wind.filter.frequency,400+Math.max(0,s.speed||0)*5,t);
   this.engines.forEach((v,i)=>{const e=this.targets.engines[i];
    target(v.panner.pan,(i?.65:-.65)*(exterior?pan:1),t,.1);target(v.tone.gain,e.fan,t,e.running?.3:.08);target(v.osc.frequency,e.frequency,t,.2);

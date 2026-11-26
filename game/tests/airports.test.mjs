@@ -1,3 +1,4 @@
+import englishPilotClean from '../src/comms/english-pilot-clean.json' with {type:'json'};
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import * as THREE from 'three';
@@ -68,7 +69,7 @@ test('Daxing bilingual recordings match runway and language duration while gener
   const clip=`daxing-${key}-${i}`;assert(daxingRadio.durations[lang][clip]>0);assert((await stat(new URL(`../../public/assets/radio/${lang==='en'?'en/':''}${clip}.mp3`,import.meta.url))).size>1000);
  }
  const s=createFlight(null,{levelId:'daxing-landing'});queueRadio(s,'approach');updateRadio(s);assert.equal(s.radio.active.clip,'daxing-approach-0');assert(!s.radio.active.text.includes('二七'));
- setRadioLanguage(s,'en');assert.equal(s.radio.active.until,s.time+daxingRadio.durations.en[s.radio.active.clip]+.2);assert(clipUrl(s.radio.active.clip,'en').includes('/en/daxing-approach-0.mp3'));
+ setRadioLanguage(s,'en');assert(Math.abs(s.radio.active.until-(s.time+(englishPilotClean.clips[s.radio.active.clip]?.duration??daxingRadio.durations.en[s.radio.active.clip])+.2))<1e-8);assert(clipUrl(s.radio.active.clip,'en').includes('/en/daxing-approach-0.mp3'));
 });
 
 test('airport records do not change training recommendations, counts or next-stage navigation',()=>{

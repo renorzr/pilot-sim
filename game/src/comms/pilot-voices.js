@@ -16,6 +16,6 @@ export function chooseRadioVoices({pilotVoice,towerVoice}={},random=Math.random)
  if(!towerVoice||towerVoice===pilotVoice)towerVoice=choose(RADIO_VOICE_IDS.filter(id=>id!==pilotVoice),random());
  return{pilotVoice,towerVoice};
 }
-export const radioVoiceFor=(radio,role)=>role==='pilot'?radio?.pilotVoice:role==='tower'?radio?.towerVoice:null;
+export const radioVoiceFor=(radio,role)=>role==='pilot'||role==='pa'?radio?.pilotVoice:role==='tower'?radio?.towerVoice:role==='copilot'?radio?.copilotVoice:null;
 export const voiceClip=(voice,id)=>RADIO_VOICES[voice]?.clips?.[id]??null;
 export const pilotClip=voiceClip;

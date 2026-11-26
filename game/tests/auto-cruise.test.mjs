@@ -31,6 +31,8 @@ for(const route of AIRLINE_ROUTES)test(`${route.id}: ordered physical departure 
  const s=createFlight(null,{levelId:route.id});until(s,s=>s.airline.cruiseSkipped);
  assert.equal(s.airportId,route.destination);assert.equal(s.airline.cruiseSkipMode,'automatic');
  const n=s.airline.departureRouteEvidence;assert(n.endPassed);assert.deepEqual(n.visited,n.points.map((_,i)=>i));assert(cutAlong(s)>=1);
+ assert.equal(n.captures.length,n.points.length);
+ for(const capture of n.captures){const point=n.points[capture.index];assert(capture.speedKt<=n.speedLimit+5);if(point.minMSL!==undefined)assert(capture.altitudeMSL>=point.minMSL-30);if(point.maxMSL!==undefined)assert(capture.altitudeMSL<=point.maxMSL+30);}
  assert(s.airline.departureEvidence.heldShort&&s.airline.departureEvidence.lineupComplete&&s.airline.departureEvidence.takeoffCleared);
  assert(arrivalPreview(s)&&!s.result);assert.equal(s.levelId,route.id);assert.equal(s.gearPosition,0);assert.equal(s.flapPosition,0);
  assert(!s.autoPilot&&!s.apprArmed&&!s.landingChecklistConfirmed);assert.deepEqual(s.gates,[]);assert(!s.terrain.events.some(e=>e.level>0));
@@ -39,7 +41,7 @@ for(const route of AIRLINE_ROUTES)test(`${route.id}: ordered physical departure 
 test('KIX–PKX: gear-down overflight continues outbound, then cuts after real retraction and stable recovery',()=>{
  const s=createFlight(null,{levelId:'kix-pkx'});until(s,canSkipCruise);toggleGear(s);
  until(s,s=>s.airline.navigation.endPassed,{keepGear:true});
- assert.equal(s.airportId,'kansai');assert(!canAutoSkipCruise(s));assert.deepEqual(s.airline.navigation.visited,[0,1]);
+ assert.equal(s.airportId,'kansai');assert(!canAutoSkipCruise(s));assert.deepEqual(s.airline.navigation.visited,s.airline.navigation.points.map((_,i)=>i));
  assert.equal(s.airline.stableSeconds,0);
  const course=(s.airline.navigation.course-runwayOf(s).heading)*RAD,end=s.time+25;
  while(s.time<end&&!s.result){advanceFlight(s,departurePilot(s,{keepGear:true}),.02);assert.equal(s.airportId,'kansai');assert(Math.abs(wrap(airlineTarget(s).track-course))<5*RAD);}
@@ -49,15 +51,15 @@ test('KIX–PKX: gear-down overflight continues outbound, then cuts after real r
  assert.equal(s.airline.cruiseSkipMode,'automatic');assert(cutAlong(s)>1.08);
 });
 
-test('future three-point departure visits all points and cannot auto-cut at point two',()=>{
- const s=createFlight(null,{levelId:'kix-pkx'}),n=s.airline.navigation,a=n.points[0],b=n.points[1];
- n.points=[a,{x:(a.x+b.x)/2,z:(a.z+b.z)/2,alt:n.altitude,name:'中间离场航点'},b];
+test('an added initial-departure point preserves ordered capture and cannot cut early',()=>{
+ const s=createFlight(null,{levelId:'kix-pkx'}),n=s.airline.navigation,a=n.points.at(-2),b=n.points.at(-1);
+ n.points.splice(n.points.length-1,0,{kind:'fix',x:(a.x+b.x)/2,z:(a.z+b.z)/2,alt:n.altitude,name:'中间离场航点'});
  let second=false;
  for(let i=0;i<75000&&!s.result&&!s.airline.cruiseSkipped;i++){
   advanceFlight(s,departurePilot(s),.02);
-  if(!s.airline.cruiseSkipped&&n.index===2){second=true;assert.deepEqual(n.visited,[0,1]);assert(!canAutoSkipCruise(s));}
+  if(!s.airline.cruiseSkipped&&n.index===n.points.length-1){second=true;assert.deepEqual(n.visited,n.points.slice(0,-1).map((_,i)=>i));assert(!canAutoSkipCruise(s));}
  }
- assert(second&&s.airline.cruiseSkipped);assert.deepEqual(s.airline.departureRouteEvidence.visited,[0,1,2]);assert(cutAlong(s)>=1);
+ assert(second&&s.airline.cruiseSkipped);assert.deepEqual(s.airline.departureRouteEvidence.visited,n.points.map((_,i)=>i));assert(cutAlong(s)>=1);
 });
 
 test('an engine failure prevents a terminal overflight from triggering the normal automatic cut',()=>{
@@ -86,7 +88,7 @@ test('an automatic KIX–PKX cut continues through genuine destination gates, la
 });
 
 test('4x crossing discards the remaining frame and starts destination preview at its initial time',()=>{
- const s=createFlight(null,{levelId:'kix-pkx'});until(s,s=>s.airline.navigation.index===1&&airlineTarget(s).along>.997);
+ const s=createFlight(null,{levelId:'kix-pkx'});until(s,s=>s.airline.navigation.index===s.airline.navigation.points.length-1&&canSkipCruise(s)&&airlineTarget(s).along>.997);
  assert(!s.airline.cruiseSkipped);advanceAtRate(s,{},.5,4);
  assert(s.airline.cruiseSkipped);assert.equal(s.airline.cruiseSkipMode,'automatic');assert.equal(s.time,s.airline.previewStarted);assert.equal(s.clock.accumulator,0);
 });
@@ -97,15 +99,15 @@ function sample(s,x,z,seconds=2.1){s.x=x;s.z=z;return advanceAirlineNavigation(s
 test('shortcuts, proximity alone and missing ordered evidence cannot pass the departure terminal',()=>{
  const s=geometryFixture(),n=s.airline.navigation,end=n.points.at(-1);
  sample(s,end.x,end.z);assert.equal(n.index,0);assert.deepEqual(n.visited,[]);assert(!n.endPassed&&!canAutoSkipCruise(s));
- n.index=1;n.legIndex=1;n.legEstablished=true;n.previousAlong=.999;s.airData.groundTrack=airlineTarget(s).track;
+ n.index=n.points.length-1;n.legIndex=n.index;n.legEstablished=true;n.previousAlong=.999;s.airData.groundTrack=airlineTarget(s).track;
  sample(s,end.x,end.z);assert(!n.endPassed);assert.deepEqual(n.visited,[]);
- n.visited=[0];n.previousAlong=.99;const a=n.points[0];
+ n.visited=n.points.slice(0,-1).map((_,i)=>i);n.previousAlong=.99;const a=n.points.at(-2);
  sample(s,a.x+(end.x-a.x)*.999,a.z+(end.z-a.z)*.999);assert(!n.endPassed);
- sample(s,a.x+(end.x-a.x)*1.001,a.z+(end.z-a.z)*1.001);assert(n.endPassed);assert.deepEqual(n.visited,[0,1]);
+ sample(s,a.x+(end.x-a.x)*1.001,a.z+(end.z-a.z)*1.001);assert(n.endPassed);assert.deepEqual(n.visited,n.points.map((_,i)=>i));
 });
-test('a low first-waypoint pass holds runway heading until the safe turn altitude',()=>{
- const s=geometryFixture(),n=s.airline.navigation;s.y=runwayOf(s).ground+800/FT;
- sample(s,0,-4200);sample(s,0,-4600);assert.equal(n.index,0);assert(n.legPassed);assert(Math.abs(airlineTarget(s).track)<.01);
- sample(s,0,-6000);assert.equal(n.index,0);assert(Math.abs(airlineTarget(s).track)<.01);
- s.y=runwayOf(s).ground+1201/FT;sample(s,0,-6000);assert.equal(n.index,1);assert.deepEqual(n.visited,[0]);
+test('Kansai altitude termination waits for 500 ft MSL and the runway end, then records its observed position',()=>{
+ const s=geometryFixture(),n=s.airline.navigation;s.y=runwayOf(s).ground+(400-n.elevationFt)/FT;
+ sample(s,0,-4200);sample(s,0,-4600);assert.equal(n.index,0);assert(!n.legPassed);assert(Math.abs(airlineTarget(s).track)<.02);
+ s.y=runwayOf(s).ground+(501-n.elevationFt)/FT;sample(s,0,-3000);assert.equal(n.index,0);
+ sample(s,0,-4700);assert.equal(n.index,1);assert.deepEqual(n.visited,[0]);assert.equal(n.points[0].z,-4700);assert(Math.abs(n.captures[0].altitudeMSL-501)<1e-8);
 });

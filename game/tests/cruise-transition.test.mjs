@@ -11,6 +11,7 @@ import {FlightCameraRig} from '../src/views/camera-rig.js';
 import {createAirportWorldManager} from '../src/views/airport-world-manager.js';
 import {RADIO_PACKS} from '../src/comms/radio-packs.js';
 import {PILOT_VOICE_IDS} from '../src/comms/pilot-voices.js';
+import {createRadio} from '../src/comms/radio.js';
 import {stat} from 'node:fs/promises';
 
 const qualified=createFlight(null,{levelId:'kix-pkx'});
@@ -52,32 +53,43 @@ test('B still uses live terrain and building obstruction constraints without mov
  for(let i=0;i<85;i++)advanceCruiseTransition(p,.1);
  rig.update(cruiseVisualFlight(p),view,.1,{cruise:p});assert(rig.stats().obstacleAdjusted);assert(cam.position.y>s.y+10);assert.deepEqual(s,before);
 });
-test('B and its recorded radio keep their deadline at both60 FPS and2 FPS without accelerating aircraft motion',()=>{
+test('B keeps its camera deadline while every language/pilot uses normal speech speed',()=>{
  for(const language of['zh','en'])for(const pilotVoice of PILOT_VOICE_IDS)for(const step of[1/60,.5]){
-  const s=flight();s.radio.language=language;s.radio.pilotVoice=pilotVoice;const p=createCruiseTransition(s);
+  const s=flight();s.radio=createRadio({pilotVoice,airportId:s.airportId,destinationId:s.airline.destination});s.radio.language=language;const p=createCruiseTransition(s);
   while(p.phase!=='black'){
    advanceCruiseTransition(p,step);
-   const visual=cruiseVisualFlight(p);assert.equal(visual.time,s.time+p.elapsed);
-   if(p.phase==='fadeout')assert.equal(p.radio.history.length,2,'never fade over unfinished recorded dialogue');
+   const visual=cruiseVisualFlight(p);assert.equal(visual.time,s.time+p.elapsed);assert.equal(p.radio.presentationRate,1);
   }
   assert(p.elapsed>=9.5-1e-8&&p.elapsed<10.01);
  }
 });
-test('recorded dialogue fits B for both languages and every selected pilot before fade, then black holds for readiness and preserves the destination preview clock',()=>{
+function finishSpeech(p){for(let i=0;i<2000&&(p.radio.active||p.radio.pending.length||p.source.time+p.elapsed<p.radio.readyAt);i++)advanceCruiseTransition(p,.1);assert.equal(p.radio.history.length,3);}
+test('normal dialogue continues under black before the destination switch, then black holds for world readiness',()=>{
+ let blackSpeechHolds=0;
  for(const language of['zh','en'])for(const pilotVoice of PILOT_VOICE_IDS){
-  const s=flight();s.radio.language=language;s.radio.pilotVoice=pilotVoice;const p=createCruiseTransition(s),initial=s.airportId;
-  assert(!commitCruiseTransition(p,s));while(p.radio.history.length<2){advanceCruiseTransition(p,.1);assert.notEqual(p.phase,'black');assert.equal(s.airportId,initial);}
-  toBlack(p);assert(p.elapsed>=9.5-1e-8&&p.elapsed<9.61);assert.equal(p.radio.history.length,2);assert.equal(p.radio.pilotVoice,pilotVoice);const weight=s.weight,health=structuredClone(s.engines),practice=s.mission.practice;assert(commitCruiseTransition(p,s));assert(!commitCruiseTransition(p,s));assert.equal(s.airportId,'daxing');assert.equal(s.weight,weight);assert.deepEqual(s.engines.map(({id,status,health,spool,lever})=>({id,status,health,spool,lever})),health.map(({id,status,health,spool,lever})=>({id,status,health,spool,lever})));assert.equal(s.mission.practice,practice);
-  assert.equal(s.radio.history.filter(l=>l.event==='cruise-entry').length,2);const destination=structuredClone(s);
+  const s=flight();s.radio=createRadio({pilotVoice,airportId:s.airportId,destinationId:s.airline.destination});s.radio.language=language;const p=createCruiseTransition(s),initial=s.airportId,before=structuredClone(s);
+  assert(!commitCruiseTransition(p,s));toBlack(p);assert(p.elapsed>=9.5-1e-8&&p.elapsed<9.61);assert.equal(p.radio.presentationRate,1);
+  if(p.radio.active||p.radio.pending.length||p.source.time+p.elapsed<p.radio.readyAt){blackSpeechHolds++;assert(!commitCruiseTransition(p,s));}assert.deepEqual(s,before);
+  finishSpeech(p);assert(p.elapsed>=9.5);assert.equal(p.radio.pilotVoice,pilotVoice);const weight=s.weight,health=structuredClone(s.engines),practice=s.mission.practice;assert(commitCruiseTransition(p,s));assert(!commitCruiseTransition(p,s));assert.equal(s.airportId,'daxing');assert.equal(s.weight,weight);assert.deepEqual(s.engines.map(({id,status,health,spool,lever})=>({id,status,health,spool,lever})),health.map(({id,status,health,spool,lever})=>({id,status,health,spool,lever})));assert.equal(s.mission.practice,practice);
+  assert.equal(s.radio.history.filter(l=>l.event==='cruise-climb').length,3);const destination=structuredClone(s);
   for(let i=0;i<200;i++)advanceCruiseTransition(p,.1,{ready:false});assert.equal(p.phase,'black');assert.equal(p.opacity,1);assert.deepEqual(s,destination);assert.equal(s.time,s.airline.previewStarted);
   advanceCruiseTransition(p,.1,{ready:true});assert.equal(p.phase,'fadein');assert.equal(p.opacity,1);while(p.active)advanceCruiseTransition(p,.1,{ready:true});assert.equal(p.opacity,0);assert.deepEqual(s,destination);
  }
+ assert(blackSpeechHolds>0);
+});
+test('buffering and stale ended events cannot cut off a transmission under black; mute can use measured timing',()=>{
+ const s=flight(),p=createCruiseTransition(s),first={clip:p.radio.active.clip,started:p.radio.active.started,ended:false};
+ for(let i=0;i<90;i++)advanceCruiseTransition(p,.5,{media:first});assert.equal(p.phase,'black');assert.equal(p.radio.history.length,0);assert(!commitCruiseTransition(p,s));
+ advanceCruiseTransition(p,.5,{media:{...first,started:first.started-1,ended:true}});assert.equal(p.radio.history.length,0);
+ advanceCruiseTransition(p,.1,{media:{...first,ended:true}});assert.equal(p.radio.history.length,1);
+ finishSpeech(p);assert(commitCruiseTransition(p,s));
+ const muted=flight(),q=createCruiseTransition(muted);for(let i=0;i<100;i++)advanceCruiseTransition(q,.5,{media:{ended:false,bypass:true}});assert.equal(q.radio.history.length,3);assert(commitCruiseTransition(q,muted));
 });
 test('the browser automatic-cut hook stops a 4x batch at the qualified event while native flight APIs keep their existing behavior',()=>{
  const s=flight();if(!s.autoPilot)toggleAP(s);let p=null;
  for(let i=0;i<1500&&!p&&!s.result;i++)advanceAtRate(s,{},.5,4,{onCruiseSkip:(state,options)=>{p=createCruiseTransition(state,options);return !!p;}});
  assert(p?.automatic);assert.equal(s.airportId,'kansai');assert.equal(s.clock.accumulator,0);assert.equal(s.time,p.source.time);assert(!s.airline.cruiseSkipped);
- toBlack(p);assert(commitCruiseTransition(p,s));assert.equal(s.airline.cruiseSkipMode,'automatic');assert(s.airline.departureRouteEvidence.endPassed);
+ toBlack(p);finishSpeech(p);assert(commitCruiseTransition(p,s));assert.equal(s.airline.cruiseSkipMode,'automatic');assert(s.airline.departureRouteEvidence.endPassed);
 });
 
 function worldFixture(){
@@ -101,7 +113,11 @@ test('black readiness waits for the actual destination view textures after data 
  r[1].pendingTextures=new Promise(resolve=>{finish=resolve;});r[1].ready();assert.equal(m.prepared().progress.percent,99);
  const warming=m.warmPrepared({},{});m.useAirport('daxing');assert(!m.ready());assert.equal(r[1].updates,1);finish();await warming;assert(m.ready());assert.equal(r[1].updates,2);assert.equal(m.current().progress.percent,100);m.dispose();
 });
-test('cruise-entry captions have matched measured bilingual audio files',async()=>{
+test('cruise-climb captions have matched measured bilingual audio files',async()=>{
  const pack=RADIO_PACKS.airline;
- for(const language of['zh','en']){assert.equal(pack[language]['cruise-entry'].length,2);for(let i=0;i<2;i++){const id='airline-cruise-entry-'+i;assert(pack.durations[language][id]>.5);assert((await stat(new URL('../../public/assets/radio/'+(language==='en'?'en/':'')+id+'.mp3',import.meta.url))).size>1000);}}
+ for(const language of['zh','en']){assert.equal(pack[language]['cruise-climb'].length,3);for(let i=0;i<3;i++){const id='airline-cruise-climb-'+i;assert(pack.durations[language][id]>.5);assert((await stat(new URL('../../public/assets/radio/'+(language==='en'?'en/':'')+id+'.mp3',import.meta.url))).size>1000);}}
+});
+test('replay warms the promoted airport by identity even while another airport is prefetching',async()=>{
+ const{manager:m,records:r}=worldFixture();m.useAirport('kansai');r[0].ready();m.prefetch('daxing');r[1].ready();m.useAirport('daxing');assert(!m.ready());m.prefetch('jfk');r[2].ready();
+ await m.warmPrepared({airportId:'daxing'},{});assert(m.ready());assert.equal(r[1].updates,2);assert.equal(r[2].updates,0);assert.equal(m.prepared().id,'jfk');m.dispose();
 });

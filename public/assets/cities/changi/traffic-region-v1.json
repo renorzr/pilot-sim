@@ -1,0 +1,2596 @@
+{
+  "schema": 1,
+  "airportId": "changi",
+  "bounds": [
+    -30000,
+    -30000,
+    30000,
+    30000
+  ],
+  "tileSize": 4000,
+  "innerRadiusM": 6000,
+  "center": [
+    1590.731632569089,
+    -813.0171125912714
+  ],
+  "frame": {
+    "threshold": [
+      103.977997,
+      1.34897
+    ],
+    "heading": 22.71146789794823
+  },
+  "drivingSide": "left",
+  "bridgeDeckReference": "terrain",
+  "tiles": [
+    {
+      "id": "-8:-8",
+      "bounds": [
+        -30000,
+        -30000,
+        -28000,
+        -28000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-8_-8-8b288806d2bc.json.gz",
+      "bytes": 2583,
+      "decodedBytes": 9501,
+      "sha256": "8b288806d2bc6158790bb9cb176e6c086b654d07ef1f2313afa46f40b2aeae7d",
+      "decodedSha256": "0b059151000d14374e1e0ec0405722a95f129207abe97694330c23a2314b556b",
+      "routes": 9,
+      "pieces": 10
+    },
+    {
+      "id": "-8:-7",
+      "bounds": [
+        -30000,
+        -28000,
+        -28000,
+        -24000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-8_-7-959a8f3f63d8.json.gz",
+      "bytes": 3336,
+      "decodedBytes": 11756,
+      "sha256": "959a8f3f63d82f7d4174f19ff80352ba0d89c527a0bd2d2bc716b952f1029734",
+      "decodedSha256": "f2532e4d1c14428c0faabcdcee2989940999eca2cee0d4c7cf10932fe046d3a1",
+      "routes": 10,
+      "pieces": 10
+    },
+    {
+      "id": "-8:-6",
+      "bounds": [
+        -30000,
+        -24000,
+        -28000,
+        -20000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-8_-6-c8315e333c83.json.gz",
+      "bytes": 10385,
+      "decodedBytes": 61471,
+      "sha256": "c8315e333c83a91c038ba1500ef946bca90e5e76ff6bacfa8326627a3c00c8ba",
+      "decodedSha256": "39b4f80848c2b7938fbcf4dccaf58a375b14a9303724185f6000cda8fcc4870a",
+      "routes": 182,
+      "pieces": 182
+    },
+    {
+      "id": "-8:-5",
+      "bounds": [
+        -30000,
+        -20000,
+        -28000,
+        -16000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-8_-5-72e533ea2105.json.gz",
+      "bytes": 45009,
+      "decodedBytes": 277586,
+      "sha256": "72e533ea21050158698ef060d9feab93a92b7ae0224316d00a76164ffc49beb8",
+      "decodedSha256": "ec8a350b2ff05701225cc8c7dd37d96c0085047f12aec1c86f2ce545b0fd12e9",
+      "routes": 943,
+      "pieces": 944
+    },
+    {
+      "id": "-8:-4",
+      "bounds": [
+        -30000,
+        -16000,
+        -28000,
+        -12000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-8_-4-fb0cbf6349f9.json.gz",
+      "bytes": 51951,
+      "decodedBytes": 310655,
+      "sha256": "fb0cbf6349f9862753a5f1c2bc5371699d375e83adbd709695c5cb39e908bca6",
+      "decodedSha256": "07dcc28529b3f5bb6db140443429d5017e81f13a4802ff41223b1fc39c3b905c",
+      "routes": 996,
+      "pieces": 999
+    },
+    {
+      "id": "-8:-3",
+      "bounds": [
+        -30000,
+        -12000,
+        -28000,
+        -8000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-8_-3-5b83231ada02.json.gz",
+      "bytes": 67362,
+      "decodedBytes": 389706,
+      "sha256": "5b83231ada02574e1dfd0226387f51b860ede052c7e3c0a811ee9edd6e03e33c",
+      "decodedSha256": "25534df5badd97f87170c639f0a590ec90893b3c6a67821eef2af3c13980a938",
+      "routes": 1229,
+      "pieces": 1229
+    },
+    {
+      "id": "-8:-2",
+      "bounds": [
+        -30000,
+        -8000,
+        -28000,
+        -4000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-8_-2-7cc7b5b9e000.json.gz",
+      "bytes": 81773,
+      "decodedBytes": 480816,
+      "sha256": "7cc7b5b9e000ac798d75f19311716ca3f699513fb7295c6513d87cf767f194e3",
+      "decodedSha256": "dfc329444d0f1d2b88755012e54411fa6e7e8be88e46ae9643427bce0a892766",
+      "routes": 1562,
+      "pieces": 1568
+    },
+    {
+      "id": "-8:-1",
+      "bounds": [
+        -30000,
+        -4000,
+        -28000,
+        0
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-8_-1-bc83c54e7c9d.json.gz",
+      "bytes": 67787,
+      "decodedBytes": 406049,
+      "sha256": "bc83c54e7c9d8dbbedd66522985da13f5c4da79c8ef5dc0c8966ff591a910b07",
+      "decodedSha256": "9591dbfeb4e87219f13f77d35e53c2c0b702453a19711e413c8d107c13eaf1e1",
+      "routes": 1343,
+      "pieces": 1345
+    },
+    {
+      "id": "-8:0",
+      "bounds": [
+        -30000,
+        0,
+        -28000,
+        4000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-8_0-77fc8733eb42.json.gz",
+      "bytes": 13137,
+      "decodedBytes": 87204,
+      "sha256": "77fc8733eb42612c12868e736dd1b50a7da6fd463df70b58279f25bdcff20ab1",
+      "decodedSha256": "3160a27e6572f8dd491cf4743789bcfe1520018ef79223f61b2111a4929be5b8",
+      "routes": 316,
+      "pieces": 316
+    },
+    {
+      "id": "-8:1",
+      "bounds": [
+        -30000,
+        4000,
+        -28000,
+        8000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-8_1-207e642db5ed.json.gz",
+      "bytes": 2228,
+      "decodedBytes": 12124,
+      "sha256": "207e642db5edf43ad8f7ee69f62f64db5e48d1ac33eea966adba65c59db4c7f2",
+      "decodedSha256": "b147fca70225e73e8a0f78c9b555ceed0110bebd377e7aa777039ef89faa97db",
+      "routes": 42,
+      "pieces": 42
+    },
+    {
+      "id": "-8:2",
+      "bounds": [
+        -30000,
+        8000,
+        -28000,
+        12000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-8_2-459bbff23f02.json.gz",
+      "bytes": 26404,
+      "decodedBytes": 162627,
+      "sha256": "459bbff23f021b47cc11df7c9ff1ccfa21bc64b0d53bbd65e779e0ee7fa6759a",
+      "decodedSha256": "4842257806132e7165a20164d4c66ae985e632dc8a6082b837d3697f4cb943e8",
+      "routes": 573,
+      "pieces": 574
+    },
+    {
+      "id": "-8:3",
+      "bounds": [
+        -30000,
+        12000,
+        -28000,
+        16000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-8_3-159dfd9a313f.json.gz",
+      "bytes": 71888,
+      "decodedBytes": 497704,
+      "sha256": "159dfd9a313f2399ede665d301317205b1d1a4d1bbd8900f5b6b753138ab5947",
+      "decodedSha256": "29825849bcad5a49275336c9dbe34aa98e3f72a0075a7bf86a4bc021f73dc2a5",
+      "routes": 1892,
+      "pieces": 1894
+    },
+    {
+      "id": "-8:4",
+      "bounds": [
+        -30000,
+        16000,
+        -28000,
+        20000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-8_4-4659aed61181.json.gz",
+      "bytes": 29410,
+      "decodedBytes": 206079,
+      "sha256": "4659aed61181c5038b7de3b4a2d8c3a91f40e6a028e59ba28016eb352f186f43",
+      "decodedSha256": "b4de9b05fd545ff9e634f57c05cbd91102c64d2795a43a705523d174038bca2e",
+      "routes": 805,
+      "pieces": 805
+    },
+    {
+      "id": "-8:5",
+      "bounds": [
+        -30000,
+        20000,
+        -28000,
+        24000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-8_5-f6f338af816c.json.gz",
+      "bytes": 384,
+      "decodedBytes": 1082,
+      "sha256": "f6f338af816ca946156e730208dfd1bd95286a9d5c98d4efc78b6b40972924d6",
+      "decodedSha256": "e31f534de903dd83f2b947fa6eef396300b55df7746f9c11ea00ae59c4d26d13",
+      "routes": 4,
+      "pieces": 4
+    },
+    {
+      "id": "-7:-8",
+      "bounds": [
+        -28000,
+        -30000,
+        -24000,
+        -28000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-7_-8-b6a1d0a83478.json.gz",
+      "bytes": 6961,
+      "decodedBytes": 30299,
+      "sha256": "b6a1d0a8347878fd8bfa7f29bb785b2a0ac776b41e79efd6f35f87fa5f898ea9",
+      "decodedSha256": "86bc734467b947269ddf3d9046075b3a8a9f5781f7b278e6b21e4c0610d789eb",
+      "routes": 51,
+      "pieces": 52
+    },
+    {
+      "id": "-7:-7",
+      "bounds": [
+        -28000,
+        -28000,
+        -24000,
+        -24000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-7_-7-10186232e292.json.gz",
+      "bytes": 23156,
+      "decodedBytes": 121886,
+      "sha256": "10186232e292f7a06130dee1e7b503dedbe824190b9802dee8f847fc5cb7f693",
+      "decodedSha256": "0a5bcc278308598cec9d4f8623a0a1cbe1bbedd34a80241dd1ddd8b184b19e49",
+      "routes": 306,
+      "pieces": 306
+    },
+    {
+      "id": "-7:-6",
+      "bounds": [
+        -28000,
+        -24000,
+        -24000,
+        -20000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-7_-6-fd2435762fa0.json.gz",
+      "bytes": 21328,
+      "decodedBytes": 112556,
+      "sha256": "fd2435762fa04157ae9214749d8f8297c3f84db4c342ad2f497d06b3690c5818",
+      "decodedSha256": "dc0558ef97ceea83871315f79198729fea7e2e86f745bef1d05277210ad62359",
+      "routes": 301,
+      "pieces": 303
+    },
+    {
+      "id": "-7:-5",
+      "bounds": [
+        -28000,
+        -20000,
+        -24000,
+        -16000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-7_-5-ed5f9abf2cb7.json.gz",
+      "bytes": 62514,
+      "decodedBytes": 359522,
+      "sha256": "ed5f9abf2cb7114f34ae16112d5cd66a24d7f4ee24a5aad30bd6c40ca045e48e",
+      "decodedSha256": "c5aed7fd5c8b3a8e3e147927ff862b0457c5377e0f6e72f4614abf139aa47793",
+      "routes": 1135,
+      "pieces": 1136
+    },
+    {
+      "id": "-7:-4",
+      "bounds": [
+        -28000,
+        -16000,
+        -24000,
+        -12000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-7_-4-0dfe4875c43f.json.gz",
+      "bytes": 119118,
+      "decodedBytes": 719190,
+      "sha256": "0dfe4875c43fac2505bf440574857a141e38aba1f6b681e6815787d0384d7ed1",
+      "decodedSha256": "09bac2815a29727b6f9ed41a447a86be6d28d043a53ca2212aac85213df31f25",
+      "routes": 2349,
+      "pieces": 2349
+    },
+    {
+      "id": "-7:-3",
+      "bounds": [
+        -28000,
+        -12000,
+        -24000,
+        -8000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-7_-3-3a7d910fbe21.json.gz",
+      "bytes": 115195,
+      "decodedBytes": 698913,
+      "sha256": "3a7d910fbe2149499fca540212745c64bc1e3ed8aa78872fb34cae9328ed1bd5",
+      "decodedSha256": "7b0d19a2a1726dd357a16f9f5d4009b9f73c7c3b2442974814505387b6e519cd",
+      "routes": 2309,
+      "pieces": 2316
+    },
+    {
+      "id": "-7:-2",
+      "bounds": [
+        -28000,
+        -8000,
+        -24000,
+        -4000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-7_-2-29b29e5aa025.json.gz",
+      "bytes": 91579,
+      "decodedBytes": 565615,
+      "sha256": "29b29e5aa025444d1656f21bcbfdc412a5a45df4b8c8409c1abbd35b8325a90d",
+      "decodedSha256": "dbf0ef976b2f4d74bf3a82968a34e2f8c11cd49c3b031916684b6c4e9c1d8a91",
+      "routes": 1947,
+      "pieces": 1948
+    },
+    {
+      "id": "-7:-1",
+      "bounds": [
+        -28000,
+        -4000,
+        -24000,
+        0
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-7_-1-73ca90176d83.json.gz",
+      "bytes": 100299,
+      "decodedBytes": 598971,
+      "sha256": "73ca90176d836bda62c81a9ea886b6a9b508b60eb3dc2a4a7255d35de563315f",
+      "decodedSha256": "800af5b830c5a5e302d859d77810491a955428e2c279f992d28677d7e9df9ac4",
+      "routes": 2052,
+      "pieces": 2055
+    },
+    {
+      "id": "-7:0",
+      "bounds": [
+        -28000,
+        0,
+        -24000,
+        4000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-7_0-ef4f3f648335.json.gz",
+      "bytes": 79778,
+      "decodedBytes": 510169,
+      "sha256": "ef4f3f6483359ac7048bd30922310126786475e88122074e75d9f6b37de70b36",
+      "decodedSha256": "2cd39b6b4be1e11fa9fb88871ea09bc0c30f261fc45cd3fd3a3657cd3537231e",
+      "routes": 1833,
+      "pieces": 1833
+    },
+    {
+      "id": "-7:1",
+      "bounds": [
+        -28000,
+        4000,
+        -24000,
+        8000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-7_1-053374c389f1.json.gz",
+      "bytes": 85948,
+      "decodedBytes": 554629,
+      "sha256": "053374c389f1ce433116e2e9c1c089973d1ded3c88d559bc0eba84541b4c7da9",
+      "decodedSha256": "0d52ae1754a52fee01503598364781f42cb40e09101680d1730b254e752c34c4",
+      "routes": 2050,
+      "pieces": 2050
+    },
+    {
+      "id": "-7:2",
+      "bounds": [
+        -28000,
+        8000,
+        -24000,
+        12000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-7_2-822df2ba1f17.json.gz",
+      "bytes": 63488,
+      "decodedBytes": 410651,
+      "sha256": "822df2ba1f17059bdcde2abe4da891d753ad2c21a0805bd9e5512c50bd43196b",
+      "decodedSha256": "d794ff2f80075a382fd2f8ea8c228d88febfb5211890b7ceda751660755d1c10",
+      "routes": 1496,
+      "pieces": 1497
+    },
+    {
+      "id": "-7:3",
+      "bounds": [
+        -28000,
+        12000,
+        -24000,
+        16000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-7_3-40c4cdf90ae9.json.gz",
+      "bytes": 110424,
+      "decodedBytes": 738907,
+      "sha256": "40c4cdf90ae909f7c39693a55ffeab570b2b0a1a0844d250934071ff7532895e",
+      "decodedSha256": "9c7b6be80da6f08cb95405d294d626c51b39ea93fb6014dc3d53388cc1f9678c",
+      "routes": 2773,
+      "pieces": 2774
+    },
+    {
+      "id": "-7:4",
+      "bounds": [
+        -28000,
+        16000,
+        -24000,
+        20000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-7_4-883afd2070bd.json.gz",
+      "bytes": 12194,
+      "decodedBytes": 75888,
+      "sha256": "883afd2070bda21ea15a4ef5f041e90ffeae441646adf3beb522ad1fdeb9c24b",
+      "decodedSha256": "0bfdc6ad35b90344afe261d575477a57d8c6b0f74e2f8ae8ed6f429bbeeff5f4",
+      "routes": 269,
+      "pieces": 269
+    },
+    {
+      "id": "-7:5",
+      "bounds": [
+        -28000,
+        20000,
+        -24000,
+        24000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-7_5-e2d5e1d1a35f.json.gz",
+      "bytes": 4598,
+      "decodedBytes": 33188,
+      "sha256": "e2d5e1d1a35fc2b5cb5f1d84c2d5026090406449c7c2d05f453be52e92a40049",
+      "decodedSha256": "ffd2c590bb3147c56d02a9a3bf275d4cab2b78278ca97d818ab983f605324813",
+      "routes": 135,
+      "pieces": 135
+    },
+    {
+      "id": "-7:6",
+      "bounds": [
+        -28000,
+        24000,
+        -24000,
+        28000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-7_6-a41456a69794.json.gz",
+      "bytes": 640,
+      "decodedBytes": 2558,
+      "sha256": "a41456a697947c0dd8e2b972063cdad60a41d9633d874c95e1fc6662ea20f997",
+      "decodedSha256": "c868fae5e10353e27a362bee24d7aaeff135424382d90937f63e23c7a7798e3f",
+      "routes": 9,
+      "pieces": 9
+    },
+    {
+      "id": "-6:-8",
+      "bounds": [
+        -24000,
+        -30000,
+        -20000,
+        -28000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-6_-8-9685a0c7d5df.json.gz",
+      "bytes": 1420,
+      "decodedBytes": 4712,
+      "sha256": "9685a0c7d5dfa5044df130eacc8189a2a5cef66cc10b99278cdcc5146ac8cc90",
+      "decodedSha256": "01e6704627cf5df0f0fcc35e069145bba6371a67c099027ee1b0272bd485cf11",
+      "routes": 4,
+      "pieces": 4
+    },
+    {
+      "id": "-6:-7",
+      "bounds": [
+        -24000,
+        -28000,
+        -20000,
+        -24000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-6_-7-bda73e0fd849.json.gz",
+      "bytes": 2322,
+      "decodedBytes": 7593,
+      "sha256": "bda73e0fd8497fa376ca8c13ebbf6e773e308402ff8b901d14d446831b87590f",
+      "decodedSha256": "73f949f27b93fb6438617168425d466977cbdba76da06e1a47c04e4ad12b4a45",
+      "routes": 4,
+      "pieces": 4
+    },
+    {
+      "id": "-6:-6",
+      "bounds": [
+        -24000,
+        -24000,
+        -20000,
+        -20000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-6_-6-a4fbe0dc4eaf.json.gz",
+      "bytes": 15154,
+      "decodedBytes": 72170,
+      "sha256": "a4fbe0dc4eaf73b692fb43400633f772ab801d5c5a6fa376e46520944858bffb",
+      "decodedSha256": "ef995988c75c39fbc4620b1edbbbbc3d203ddfe69ccc04c6323575ff1936c494",
+      "routes": 157,
+      "pieces": 157
+    },
+    {
+      "id": "-6:-5",
+      "bounds": [
+        -24000,
+        -20000,
+        -20000,
+        -16000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-6_-5-eff4a2b0fbf9.json.gz",
+      "bytes": 33183,
+      "decodedBytes": 157814,
+      "sha256": "eff4a2b0fbf9a5382d89ac2c6e9d38e5105eb39d83decd2a060378a9003619d2",
+      "decodedSha256": "5609bc4491f325f354f05addefd92bc917286d27f61e87994b53c4598341eb3a",
+      "routes": 357,
+      "pieces": 362
+    },
+    {
+      "id": "-6:-4",
+      "bounds": [
+        -24000,
+        -16000,
+        -20000,
+        -12000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-6_-4-fc6f97835ed6.json.gz",
+      "bytes": 14263,
+      "decodedBytes": 70666,
+      "sha256": "fc6f97835ed662a81bd775c8a4e0865be011d87dd6aa7ead7906a7036bc2e7cc",
+      "decodedSha256": "8e05f70a83fc50286ab24f30609e92841351c94d025249e233df807ed760a5e8",
+      "routes": 171,
+      "pieces": 171
+    },
+    {
+      "id": "-6:-3",
+      "bounds": [
+        -24000,
+        -12000,
+        -20000,
+        -8000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-6_-3-d264cb5eedaf.json.gz",
+      "bytes": 78333,
+      "decodedBytes": 476163,
+      "sha256": "d264cb5eedaf25512d41e4d47788dee34e6acf2320cc52cdaebfab883f0faf56",
+      "decodedSha256": "1a9d34b09b1c6945891ad216992bb080ef67f543343bd83854f66a98473918c8",
+      "routes": 1584,
+      "pieces": 1584
+    },
+    {
+      "id": "-6:-2",
+      "bounds": [
+        -24000,
+        -8000,
+        -20000,
+        -4000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-6_-2-4d9800454a8f.json.gz",
+      "bytes": 63682,
+      "decodedBytes": 404740,
+      "sha256": "4d9800454a8f19285ca14a3c011d9dbc0e9eac4f81ddb2a3a0482e04df794fe0",
+      "decodedSha256": "6649dcb0cb73e2cb71f266becaacf6f76bca94946f74cbd5a23a5d3057a9d025",
+      "routes": 1431,
+      "pieces": 1434
+    },
+    {
+      "id": "-6:-1",
+      "bounds": [
+        -24000,
+        -4000,
+        -20000,
+        0
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-6_-1-16b1c0855f43.json.gz",
+      "bytes": 150858,
+      "decodedBytes": 991755,
+      "sha256": "16b1c0855f43a15609d3e9bec29cad81673e18ed5740e0a870411e6a207aee08",
+      "decodedSha256": "028d99466abee30c89dec36e8c5630b2b0eda8fd2592f306551fd13123f7d3a8",
+      "routes": 3637,
+      "pieces": 3640
+    },
+    {
+      "id": "-6:0",
+      "bounds": [
+        -24000,
+        0,
+        -20000,
+        4000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-6_0-ebdb9b78167c.json.gz",
+      "bytes": 22781,
+      "decodedBytes": 133138,
+      "sha256": "ebdb9b78167cb0f22be0f2e0979f67e51a613b4ffdda56c9c72c5b38045967ff",
+      "decodedSha256": "7bfce03c431eecc5b20c886ed2aff7830b0290df5348be89d2980352e7aeaaf4",
+      "routes": 444,
+      "pieces": 444
+    },
+    {
+      "id": "-6:1",
+      "bounds": [
+        -24000,
+        4000,
+        -20000,
+        8000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-6_1-34c034e77aa5.json.gz",
+      "bytes": 76212,
+      "decodedBytes": 464217,
+      "sha256": "34c034e77aa56ef9f97d43efc25d413cbfd45e984c716ea629fef055c36e8462",
+      "decodedSha256": "06bee8bb19f8ca63dda3b1f4bdd05fba7da8d1c9eafb96acd3af7f347ae8fe9f",
+      "routes": 1605,
+      "pieces": 1605
+    },
+    {
+      "id": "-6:2",
+      "bounds": [
+        -24000,
+        8000,
+        -20000,
+        12000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-6_2-6c0e41be136d.json.gz",
+      "bytes": 118238,
+      "decodedBytes": 747371,
+      "sha256": "6c0e41be136dafd1774c8a06e3cae2524daecc478b6f64d345e9cce122d36f92",
+      "decodedSha256": "e1e0a3e9268fba7f2060f1c001e4e9c9ed5b3135e4c1f1dd425c9b697aecef38",
+      "routes": 2709,
+      "pieces": 2709
+    },
+    {
+      "id": "-6:3",
+      "bounds": [
+        -24000,
+        12000,
+        -20000,
+        16000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-6_3-fca9f4eea05e.json.gz",
+      "bytes": 100920,
+      "decodedBytes": 663825,
+      "sha256": "fca9f4eea05ea7cb8cceec9a46edb8a169a883d741ba07770b52708aa41b0cfd",
+      "decodedSha256": "fa814d4ee1679f24faa5a5d8752e4e8631a8dcc099b8b584ccec2f8d24b4e937",
+      "routes": 2487,
+      "pieces": 2491
+    },
+    {
+      "id": "-6:4",
+      "bounds": [
+        -24000,
+        16000,
+        -20000,
+        20000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-6_4-5c65f0e44093.json.gz",
+      "bytes": 4868,
+      "decodedBytes": 31970,
+      "sha256": "5c65f0e44093c969670cd617d51f5727385aa0ed28a18ae3d8618351672f6386",
+      "decodedSha256": "4bcdd6d2542550bb987932da5568beca3abf63c09be3b5105d4a2fdad04929d5",
+      "routes": 117,
+      "pieces": 117
+    },
+    {
+      "id": "-6:5",
+      "bounds": [
+        -24000,
+        20000,
+        -20000,
+        24000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-6_5-176f39481887.json.gz",
+      "bytes": 799,
+      "decodedBytes": 3868,
+      "sha256": "176f39481887efede974c374b7e14767d791a28a63ca8df7cb8005da3e3b2d3d",
+      "decodedSha256": "63e7aaad52e4ae62e6908f342186bdfb8452f791de0251fe96465c4d124b58cc",
+      "routes": 15,
+      "pieces": 15
+    },
+    {
+      "id": "-6:6",
+      "bounds": [
+        -24000,
+        24000,
+        -20000,
+        28000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-6_6-bfdd23e3f685.json.gz",
+      "bytes": 321,
+      "decodedBytes": 866,
+      "sha256": "bfdd23e3f685d368edd04056af7547ef1e1fe2b000d9973223423b0ffbfe1dd1",
+      "decodedSha256": "0b2a35a8d81a3816fc1491b3ff559164de85b5eb7e30f44aa780218ff173f006",
+      "routes": 3,
+      "pieces": 3
+    },
+    {
+      "id": "-5:-8",
+      "bounds": [
+        -20000,
+        -30000,
+        -16000,
+        -28000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-5_-8-fffe58ae4821.json.gz",
+      "bytes": 3515,
+      "decodedBytes": 13550,
+      "sha256": "fffe58ae482151ac09432f83bf7e44da1606e30abc6160ee8153e458768196c3",
+      "decodedSha256": "80ed096577e92586c2a27e96af927a45d4b2a124db41f814dce5c21220130124",
+      "routes": 20,
+      "pieces": 20
+    },
+    {
+      "id": "-5:-7",
+      "bounds": [
+        -20000,
+        -28000,
+        -16000,
+        -24000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-5_-7-da40a09a9b74.json.gz",
+      "bytes": 9195,
+      "decodedBytes": 36864,
+      "sha256": "da40a09a9b74bb74abdc2504d69b5e3a02a164efa2293897930d68300c207765",
+      "decodedSha256": "2383b8869db822d6ce03745bcfc1b4a63c8be4df90afd377111cddf104de4c84",
+      "routes": 46,
+      "pieces": 47
+    },
+    {
+      "id": "-5:-6",
+      "bounds": [
+        -20000,
+        -24000,
+        -16000,
+        -20000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-5_-6-8ea61151a439.json.gz",
+      "bytes": 15153,
+      "decodedBytes": 64828,
+      "sha256": "8ea61151a439b6ccd08ef193a234be1d5844d82313c79ba38e83840189d88e33",
+      "decodedSha256": "132b8d40f8d25b89a171031ac745e9b72ba73a9aee24ef9f3e83f7e57e14e106",
+      "routes": 114,
+      "pieces": 115
+    },
+    {
+      "id": "-5:-5",
+      "bounds": [
+        -20000,
+        -20000,
+        -16000,
+        -16000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-5_-5-7d91c121f837.json.gz",
+      "bytes": 9718,
+      "decodedBytes": 42971,
+      "sha256": "7d91c121f837ee30aacce26af705f4b3d1b87481c82b97e0dd366f4e74260374",
+      "decodedSha256": "b2324af5ab398e14c14d8cc4758459df5657117b753534d45264fd4a2b18c9c1",
+      "routes": 84,
+      "pieces": 87
+    },
+    {
+      "id": "-5:-4",
+      "bounds": [
+        -20000,
+        -16000,
+        -16000,
+        -12000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-5_-4-c6895afe951b.json.gz",
+      "bytes": 25358,
+      "decodedBytes": 144405,
+      "sha256": "c6895afe951be02275b3878d8c2b264d5c52cb227749b16dc063ffab3a8c5931",
+      "decodedSha256": "59b71e435e2ba0beaf2ebd341f61319560bc119bfe10212b59ef8376855bc464",
+      "routes": 421,
+      "pieces": 423
+    },
+    {
+      "id": "-5:-3",
+      "bounds": [
+        -20000,
+        -12000,
+        -16000,
+        -8000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-5_-3-0c5e4dab1a47.json.gz",
+      "bytes": 101852,
+      "decodedBytes": 630924,
+      "sha256": "0c5e4dab1a47e3b8eba6a24a7e625a562140ec6f436a9cfefe7d376b762b74eb",
+      "decodedSha256": "a0f52c2b706b9f7a02bcdd86dad8de65b8299082d3ba808ba8fa5351cf98dc11",
+      "routes": 2134,
+      "pieces": 2138
+    },
+    {
+      "id": "-5:-2",
+      "bounds": [
+        -20000,
+        -8000,
+        -16000,
+        -4000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-5_-2-ff8a5b1ef32d.json.gz",
+      "bytes": 19519,
+      "decodedBytes": 118554,
+      "sha256": "ff8a5b1ef32d4a54f7cb7e1e61398fa24538ed88fcd41ff5debc2836d2f3ef62",
+      "decodedSha256": "12b0c875e454c2bba15a2738bded10d5ad3eee9c30d69fcee34bdbff921d306c",
+      "routes": 397,
+      "pieces": 397
+    },
+    {
+      "id": "-5:-1",
+      "bounds": [
+        -20000,
+        -4000,
+        -16000,
+        0
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-5_-1-1fe077297270.json.gz",
+      "bytes": 106625,
+      "decodedBytes": 697778,
+      "sha256": "1fe077297270aea2b0a0d43924bd2857f2dc5f41c2992f996979b04f096866ee",
+      "decodedSha256": "c32d90514914d0b8e3f4b1ddb97fd54e341db9f68b3488df5328f27aaa99943c",
+      "routes": 2587,
+      "pieces": 2587
+    },
+    {
+      "id": "-5:0",
+      "bounds": [
+        -20000,
+        0,
+        -16000,
+        4000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-5_0-164942baecd9.json.gz",
+      "bytes": 60848,
+      "decodedBytes": 388289,
+      "sha256": "164942baecd9d7dd0464ba6ca3798329a2fb75c7fc9b938f230394a1283aa38a",
+      "decodedSha256": "eca361c3998348567e269acba00ac3c8ae4c39955e8a29f0c10477786f98feab",
+      "routes": 1400,
+      "pieces": 1401
+    },
+    {
+      "id": "-5:1",
+      "bounds": [
+        -20000,
+        4000,
+        -16000,
+        8000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-5_1-0b14af867303.json.gz",
+      "bytes": 10937,
+      "decodedBytes": 61717,
+      "sha256": "0b14af867303ea9ae5c1070efa15eb13b6f886c63e29017f0f0ee97985e5dce9",
+      "decodedSha256": "f2b76644ca5e89aee7de53f4fdaef2f113578930df6ed0651a5c4b0159f6b2c1",
+      "routes": 204,
+      "pieces": 205
+    },
+    {
+      "id": "-5:2",
+      "bounds": [
+        -20000,
+        8000,
+        -16000,
+        12000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-5_2-eecdb451e3cc.json.gz",
+      "bytes": 110071,
+      "decodedBytes": 693898,
+      "sha256": "eecdb451e3cc5d41ff1627d8fff864c6f0a5755719cf6ffb15ce812f5e3aca85",
+      "decodedSha256": "acb155b51c19b60df5067647e7bdf66bee5ba85601a07775027054d837d8aa24",
+      "routes": 2510,
+      "pieces": 2510
+    },
+    {
+      "id": "-5:3",
+      "bounds": [
+        -20000,
+        12000,
+        -16000,
+        16000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-5_3-2b1c8b28e4ed.json.gz",
+      "bytes": 134530,
+      "decodedBytes": 838858,
+      "sha256": "2b1c8b28e4ede6da30aea6cc32393b8eb125749d44f54547b675592448d252c1",
+      "decodedSha256": "6ea0d46a3914a0637f7b23820c826922f8bcf47580937bb4ad2f5cc6a8c97832",
+      "routes": 3020,
+      "pieces": 3020
+    },
+    {
+      "id": "-5:4",
+      "bounds": [
+        -20000,
+        16000,
+        -16000,
+        20000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-5_4-c3f0d0f931d5.json.gz",
+      "bytes": 238,
+      "decodedBytes": 324,
+      "sha256": "c3f0d0f931d5c81d0dc83935ef2f163aeea2ccddbd845b6028f3ffce8ea93e32",
+      "decodedSha256": "e0580c899a60e464eab052b0e6ba59e7f9298662b38418e25f75db33c62e0725",
+      "routes": 1,
+      "pieces": 1
+    },
+    {
+      "id": "-5:5",
+      "bounds": [
+        -20000,
+        20000,
+        -16000,
+        24000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-5_5-c6041e0141cd.json.gz",
+      "bytes": 12408,
+      "decodedBytes": 75047,
+      "sha256": "c6041e0141cdfaf144d215c52a8896fe86036fd75dbf6da553afc3f8e2206b9c",
+      "decodedSha256": "f994677114c7046641571e7377fff5ad23948625e74c905c7917e40860e2f43f",
+      "routes": 239,
+      "pieces": 239
+    },
+    {
+      "id": "-5:6",
+      "bounds": [
+        -20000,
+        24000,
+        -16000,
+        28000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-5_6-fe683e8b72c6.json.gz",
+      "bytes": 999,
+      "decodedBytes": 3524,
+      "sha256": "fe683e8b72c6dc35e87691582beda823b09bae37533e8630bf689f6231dad120",
+      "decodedSha256": "6496fa1dfadf68fd1e6e70583a24374582e12c5d073b9ae70ae3fafc148f9f31",
+      "routes": 6,
+      "pieces": 6
+    },
+    {
+      "id": "-4:-8",
+      "bounds": [
+        -16000,
+        -30000,
+        -12000,
+        -28000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-4_-8-e7ed1cc40992.json.gz",
+      "bytes": 4310,
+      "decodedBytes": 15788,
+      "sha256": "e7ed1cc4099296b2cec66a109aa951089a75866370fdca279062dad706d26a97",
+      "decodedSha256": "260bd83c0f9777f5d92f32b0190e465271ccdc02f03286ff3af1094fc85b1ba8",
+      "routes": 14,
+      "pieces": 16
+    },
+    {
+      "id": "-4:-7",
+      "bounds": [
+        -16000,
+        -28000,
+        -12000,
+        -24000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-4_-7-6718b157d52a.json.gz",
+      "bytes": 6143,
+      "decodedBytes": 23559,
+      "sha256": "6718b157d52ab1929103f7367c7459a50fa5febcd30a6821edd3f8866f560ce5",
+      "decodedSha256": "3adf1a98ed98b4e91ec096543ec07f737974e5a9fa9b6d7b5c403d30206d1f7d",
+      "routes": 25,
+      "pieces": 26
+    },
+    {
+      "id": "-4:-6",
+      "bounds": [
+        -16000,
+        -24000,
+        -12000,
+        -20000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-4_-6-f90aed56969b.json.gz",
+      "bytes": 6307,
+      "decodedBytes": 25781,
+      "sha256": "f90aed56969b32bdc276213d7fff95615e7acf64c29aa03d56a42d798e7f4ba5",
+      "decodedSha256": "c7bd2e7e8f41a02037765356eac5508e9b676341b4747feb12c630359e35a283",
+      "routes": 37,
+      "pieces": 38
+    },
+    {
+      "id": "-4:-5",
+      "bounds": [
+        -16000,
+        -20000,
+        -12000,
+        -16000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-4_-5-51511648fe7d.json.gz",
+      "bytes": 7497,
+      "decodedBytes": 33808,
+      "sha256": "51511648fe7d87ff28d2bbe762220eaf0da8c8203a883f7ea6b6cf599108f213",
+      "decodedSha256": "cb4c059f86cb2bcfb06ee340f0d77a979620c6b7f7813e15146c9a1864ef4425",
+      "routes": 75,
+      "pieces": 75
+    },
+    {
+      "id": "-4:-4",
+      "bounds": [
+        -16000,
+        -16000,
+        -12000,
+        -12000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-4_-4-9c9400323461.json.gz",
+      "bytes": 77066,
+      "decodedBytes": 470973,
+      "sha256": "9c940032346187b3fa201d1b5e3fa1dc5fc0fd7c1a73fbe27f956c9b6482a706",
+      "decodedSha256": "d674b8602dfbea00ac149c876e9615f9dee57caff1492f0e1b3abd8321e578ab",
+      "routes": 1477,
+      "pieces": 1480
+    },
+    {
+      "id": "-4:-3",
+      "bounds": [
+        -16000,
+        -12000,
+        -12000,
+        -8000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-4_-3-6d520413ccf5.json.gz",
+      "bytes": 89134,
+      "decodedBytes": 537641,
+      "sha256": "6d520413ccf5f4383b4049737ffc059db265a7068f4ba9f440ac0413a63aff0a",
+      "decodedSha256": "e280b8f6cce7343c8e42bf4c7618b519d41b4c49beda3a2670a0f6b2d16ac7fe",
+      "routes": 1742,
+      "pieces": 1743
+    },
+    {
+      "id": "-4:-2",
+      "bounds": [
+        -16000,
+        -8000,
+        -12000,
+        -4000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-4_-2-435c2f51348b.json.gz",
+      "bytes": 34935,
+      "decodedBytes": 200600,
+      "sha256": "435c2f51348b2cd2f49c8b28cc1f4fa0c88b1706fdadd5eb71355262f3954792",
+      "decodedSha256": "a47a65ba9d98e0d289a0e3e2d79edfd05176142c98847ea92681b391c74377f4",
+      "routes": 619,
+      "pieces": 619
+    },
+    {
+      "id": "-4:-1",
+      "bounds": [
+        -16000,
+        -4000,
+        -12000,
+        0
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-4_-1-5a9144e39528.json.gz",
+      "bytes": 50727,
+      "decodedBytes": 317292,
+      "sha256": "5a9144e3952843b7775d80b0c3ede56787b71ceee0d6529bfd7b4e22933d2030",
+      "decodedSha256": "bc0b26a1fbc9f00a523b20e639199454215565618497caf18cac20ec08400af9",
+      "routes": 1140,
+      "pieces": 1142
+    },
+    {
+      "id": "-4:0",
+      "bounds": [
+        -16000,
+        0,
+        -12000,
+        4000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-4_0-ba9f10fc95e9.json.gz",
+      "bytes": 130478,
+      "decodedBytes": 843355,
+      "sha256": "ba9f10fc95e9c0f4b0e84e7515793dc9c908feb4d6d0c3d26af27e40b84c31ba",
+      "decodedSha256": "f3699d7c5cf9e02c45f6bd5c3fec57b603b6cd5f21a66602b855f150830f35cc",
+      "routes": 3106,
+      "pieces": 3106
+    },
+    {
+      "id": "-4:1",
+      "bounds": [
+        -16000,
+        4000,
+        -12000,
+        8000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-4_1-24c60be51c8d.json.gz",
+      "bytes": 143566,
+      "decodedBytes": 908526,
+      "sha256": "24c60be51c8dff37d1cf0eaaa4557a6f53f3d916f47279b7175e238432ec1a8a",
+      "decodedSha256": "786108899daae817ea52a259478ccc9d8ea9a903ac13baf8f093367933d229f7",
+      "routes": 3281,
+      "pieces": 3283
+    },
+    {
+      "id": "-4:2",
+      "bounds": [
+        -16000,
+        8000,
+        -12000,
+        12000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-4_2-8f779c1947fe.json.gz",
+      "bytes": 178487,
+      "decodedBytes": 1115997,
+      "sha256": "8f779c1947fe281da52c9449654ad08eab6ffd852b0b0ca6078f38f0ca193994",
+      "decodedSha256": "84792c2d4e6254bf51758bd9eb948b9c553f502315b6865aafed12c91e01f1fa",
+      "routes": 4026,
+      "pieces": 4027
+    },
+    {
+      "id": "-4:3",
+      "bounds": [
+        -16000,
+        12000,
+        -12000,
+        16000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-4_3-7a50fbb5d90d.json.gz",
+      "bytes": 148114,
+      "decodedBytes": 930950,
+      "sha256": "7a50fbb5d90d34f34cdca667cbd713853e406eb24de32be8156292ce77e12b09",
+      "decodedSha256": "e0a4a4e826a5794db6f0284d1ade23ed7f797ae725516799bb641ba70016e69d",
+      "routes": 3371,
+      "pieces": 3371
+    },
+    {
+      "id": "-4:4",
+      "bounds": [
+        -16000,
+        16000,
+        -12000,
+        20000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-4_4-7712087eca76.json.gz",
+      "bytes": 9399,
+      "decodedBytes": 51586,
+      "sha256": "7712087eca76a9209edbd9220ec79c8825873796d68af10ed46f5babf0397ce0",
+      "decodedSha256": "642e5768c048322997b2a617057c60da6fb952b28007c589b1b8f1a482fa941a",
+      "routes": 149,
+      "pieces": 149
+    },
+    {
+      "id": "-4:5",
+      "bounds": [
+        -16000,
+        20000,
+        -12000,
+        24000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-4_5-4152a38f0ab7.json.gz",
+      "bytes": 8149,
+      "decodedBytes": 52014,
+      "sha256": "4152a38f0ab76d63cb8e60732d5ce769348907872a496e2b66567d2236c78678",
+      "decodedSha256": "347a0f8286dbba15d272f9f3d40dfd1d2d535b7bafae625be3c16e50d4470738",
+      "routes": 180,
+      "pieces": 180
+    },
+    {
+      "id": "-4:6",
+      "bounds": [
+        -16000,
+        24000,
+        -12000,
+        28000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-4_6-30635293bb69.json.gz",
+      "bytes": 1856,
+      "decodedBytes": 8284,
+      "sha256": "30635293bb695c2c15486adfd6adc50cefae2e9a1f68683018e5ef3a70264ab0",
+      "decodedSha256": "43730aa792640a1d17af61bd1cf2f1a9a23c66b848027da0b849a2bfeb4afa00",
+      "routes": 21,
+      "pieces": 21
+    },
+    {
+      "id": "-3:-8",
+      "bounds": [
+        -12000,
+        -30000,
+        -8000,
+        -28000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-3_-8-7f88ea08a33d.json.gz",
+      "bytes": 4455,
+      "decodedBytes": 14898,
+      "sha256": "7f88ea08a33deb700441980e2641e8be7579042c966fcee10e76a589a5e09a5f",
+      "decodedSha256": "b17809cbdf49aecc621edc1f5156f70535667fae32f524d9261356516081675e",
+      "routes": 4,
+      "pieces": 5
+    },
+    {
+      "id": "-3:-7",
+      "bounds": [
+        -12000,
+        -28000,
+        -8000,
+        -24000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-3_-7-ef85259531f6.json.gz",
+      "bytes": 1640,
+      "decodedBytes": 5381,
+      "sha256": "ef85259531f65ca46ca43777481bc233f2283c8d250a22a3531611c160523579",
+      "decodedSha256": "0b1624789994b54fb0a17a6d15697d9e969002dd5c456d63b08ad1128134bb9f",
+      "routes": 4,
+      "pieces": 4
+    },
+    {
+      "id": "-3:-6",
+      "bounds": [
+        -12000,
+        -24000,
+        -8000,
+        -20000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-3_-6-202d4bf1c9fe.json.gz",
+      "bytes": 5603,
+      "decodedBytes": 20572,
+      "sha256": "202d4bf1c9fe887cfdd7500020a52a8ab9dd337c1fb1af4ee3f6ba2b2d7087e2",
+      "decodedSha256": "0b34a4bc6a0ef074d87e4d86114c2aa434f835fc8bf9970917ccdc591132dfcc",
+      "routes": 18,
+      "pieces": 18
+    },
+    {
+      "id": "-3:-5",
+      "bounds": [
+        -12000,
+        -20000,
+        -8000,
+        -16000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-3_-5-169e24b4452b.json.gz",
+      "bytes": 20871,
+      "decodedBytes": 110854,
+      "sha256": "169e24b4452b6bc3133ecf9c13db00e51538ce7061b01349a845ec96b9de7d69",
+      "decodedSha256": "978974cbd08df17db6fe40895ec7d6551dac3c383abdcd7e825f4e8170897bb4",
+      "routes": 300,
+      "pieces": 301
+    },
+    {
+      "id": "-3:-4",
+      "bounds": [
+        -12000,
+        -16000,
+        -8000,
+        -12000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-3_-4-0fd4c3800348.json.gz",
+      "bytes": 70158,
+      "decodedBytes": 435521,
+      "sha256": "0fd4c380034890b06a9a26dd63a7918b923045df32cc5439206a126d911a500b",
+      "decodedSha256": "fc046d2199d88f62f0a5bb29524498d01a880a7dc0bcb284df83d502f58d5984",
+      "routes": 1374,
+      "pieces": 1375
+    },
+    {
+      "id": "-3:-3",
+      "bounds": [
+        -12000,
+        -12000,
+        -8000,
+        -8000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-3_-3-d7523ccd8247.json.gz",
+      "bytes": 84115,
+      "decodedBytes": 510670,
+      "sha256": "d7523ccd8247ca0eaa06f8f43b24211795b7427d4f090c29da4c2ff34bf9ee9c",
+      "decodedSha256": "0715048e69b9c0e65354a572c2487cad540d760293e891b2f9ce7c9590827885",
+      "routes": 1616,
+      "pieces": 1617
+    },
+    {
+      "id": "-3:-2",
+      "bounds": [
+        -12000,
+        -8000,
+        -8000,
+        -4000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-3_-2-c113d791a490.json.gz",
+      "bytes": 40013,
+      "decodedBytes": 236788,
+      "sha256": "c113d791a490b177ae5a4e42987ac36804d81b8d444b4fca147183ed7b4bc75c",
+      "decodedSha256": "45f02f1453139b37702da19b1fbd91d0ba7245709c42ede9f02bf439dfc9056a",
+      "routes": 751,
+      "pieces": 753
+    },
+    {
+      "id": "-3:-1",
+      "bounds": [
+        -12000,
+        -4000,
+        -8000,
+        0
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-3_-1-fe9767a38e7d.json.gz",
+      "bytes": 123630,
+      "decodedBytes": 806217,
+      "sha256": "fe9767a38e7dcf811f7a86b5c24f458600847c754c923de7170b2eeb8366c60c",
+      "decodedSha256": "ab5b80ff0160832fd8f0081f87ee1860c0b2b34645d3449a9c59c3f7ed848dcf",
+      "routes": 2928,
+      "pieces": 2928
+    },
+    {
+      "id": "-3:0",
+      "bounds": [
+        -12000,
+        0,
+        -8000,
+        4000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-3_0-6043f7e4cc71.json.gz",
+      "bytes": 152259,
+      "decodedBytes": 1002953,
+      "sha256": "6043f7e4cc71bf557a3cb37ea428359d8ebfe0f20fa7f78125b1c00792585018",
+      "decodedSha256": "899f04a482491efda4c301af27fc0e7f62ea6171bd5658652429207b7761eb72",
+      "routes": 3738,
+      "pieces": 3739
+    },
+    {
+      "id": "-3:1",
+      "bounds": [
+        -12000,
+        4000,
+        -8000,
+        8000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-3_1-81f2aeac1262.json.gz",
+      "bytes": 181384,
+      "decodedBytes": 1175640,
+      "sha256": "81f2aeac1262dcb70c995f39e47afc1b6310d841fed4518bde9283a19b41c60b",
+      "decodedSha256": "90f7820607c19f0f06ac7a901dc3e89be562d4c1620ada7d569799c336dd27b6",
+      "routes": 4355,
+      "pieces": 4357
+    },
+    {
+      "id": "-3:2",
+      "bounds": [
+        -12000,
+        8000,
+        -8000,
+        12000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-3_2-9dec898ceaeb.json.gz",
+      "bytes": 176419,
+      "decodedBytes": 1149794,
+      "sha256": "9dec898ceaeb23423bdefa3ef71dd479eadb4b25050753183df2d3bbfd6bc3bd",
+      "decodedSha256": "b3070b30f59480c54acca75e2d26f4c333463767fc7300a8acd44d43c162e041",
+      "routes": 4357,
+      "pieces": 4357
+    },
+    {
+      "id": "-3:3",
+      "bounds": [
+        -12000,
+        12000,
+        -8000,
+        16000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-3_3-46ee715ed197.json.gz",
+      "bytes": 84308,
+      "decodedBytes": 536392,
+      "sha256": "46ee715ed19718ec0b28ed5481a8f33a68ef16813859d743c7b0132fdc08e963",
+      "decodedSha256": "3b7ca2170e09fd7ca905e866e81203cd9654a0f876dea3e65a9b18deb2d469fe",
+      "routes": 1969,
+      "pieces": 1970
+    },
+    {
+      "id": "-3:4",
+      "bounds": [
+        -12000,
+        16000,
+        -8000,
+        20000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-3_4-cdc3c3bba497.json.gz",
+      "bytes": 13405,
+      "decodedBytes": 77242,
+      "sha256": "cdc3c3bba4972e746b0db1141c6428c1a16895e9e07ec84c7360f8515c6755f5",
+      "decodedSha256": "f00abcc24cf6b1d862ed6ce1ade12d62a6a267367c617fba60efa0f1e38aa9de",
+      "routes": 244,
+      "pieces": 244
+    },
+    {
+      "id": "-3:5",
+      "bounds": [
+        -12000,
+        20000,
+        -8000,
+        24000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-3_5-4afe9b24e2f9.json.gz",
+      "bytes": 517,
+      "decodedBytes": 2310,
+      "sha256": "4afe9b24e2f90c32a9f1229fc60635cb7f15d25dba0d97833666334693b8a36e",
+      "decodedSha256": "0ba5ac5f2f49e6c65e3248192dc257d6e07d2b0e2cb4b8c7f4cbff4e632a8b7a",
+      "routes": 9,
+      "pieces": 9
+    },
+    {
+      "id": "-2:-8",
+      "bounds": [
+        -8000,
+        -30000,
+        -4000,
+        -28000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-2_-8-fad702a7cd32.json.gz",
+      "bytes": 3645,
+      "decodedBytes": 12018,
+      "sha256": "fad702a7cd3273eb10147251a0adcec6e26c62d0111d26f04d9b4d06a7523d8f",
+      "decodedSha256": "a64f8d56000fcaa563dbf846e9621cb3507167248cf8a3af4f79decfc9f74c63",
+      "routes": 2,
+      "pieces": 2
+    },
+    {
+      "id": "-2:-7",
+      "bounds": [
+        -8000,
+        -28000,
+        -4000,
+        -24000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-2_-7-c17d0016f537.json.gz",
+      "bytes": 8752,
+      "decodedBytes": 35138,
+      "sha256": "c17d0016f537a5ca4203f87a4ab3d6c7770c4a25c35bce8aa0238417117172f2",
+      "decodedSha256": "e1e6cd9a5a5a984bf2d8e2c5caea99c65cecaaeabfc52688ab3e40f496ce44ec",
+      "routes": 47,
+      "pieces": 47
+    },
+    {
+      "id": "-2:-6",
+      "bounds": [
+        -8000,
+        -24000,
+        -4000,
+        -20000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-2_-6-24ff5fb44ec7.json.gz",
+      "bytes": 1148,
+      "decodedBytes": 3640,
+      "sha256": "24ff5fb44ec739103193d6ab6aba74d4367132dd5089a7f8c3ceb19641130af6",
+      "decodedSha256": "e6a011263d5906c4059c55e3eb752a6e7908fe8f9d919315866098fe73c05246",
+      "routes": 6,
+      "pieces": 6
+    },
+    {
+      "id": "-2:-5",
+      "bounds": [
+        -8000,
+        -20000,
+        -4000,
+        -16000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-2_-5-77f3840ef521.json.gz",
+      "bytes": 5529,
+      "decodedBytes": 24306,
+      "sha256": "77f3840ef521d64a9176929875c7362c4342771f282156ce13f4389e79d196b5",
+      "decodedSha256": "29fed567f4a02f2e0c30f4cbc320878a73ffaa216a82b84e21edb717e6442a2f",
+      "routes": 51,
+      "pieces": 51
+    },
+    {
+      "id": "-2:-4",
+      "bounds": [
+        -8000,
+        -16000,
+        -4000,
+        -12000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-2_-4-840c6c8128dc.json.gz",
+      "bytes": 13559,
+      "decodedBytes": 74776,
+      "sha256": "840c6c8128dcd0b00cb2ee883e929c33c871bd37ccab19382316a582006c4df6",
+      "decodedSha256": "5d33ab8e7c3016db006759f634f247689cd97a70009c1055778a3e813cffbc5c",
+      "routes": 206,
+      "pieces": 206
+    },
+    {
+      "id": "-2:-3",
+      "bounds": [
+        -8000,
+        -12000,
+        -4000,
+        -8000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-2_-3-d947e27d5a76.json.gz",
+      "bytes": 25376,
+      "decodedBytes": 141561,
+      "sha256": "d947e27d5a7673c691c778dde8c1a2997b27b67803d85f63a9c7ae539e1ef97c",
+      "decodedSha256": "b79a784ddcd4f4e0d0a352408d3fae1c4f7d6df584af0467de7c7615578058cb",
+      "routes": 395,
+      "pieces": 400
+    },
+    {
+      "id": "-2:-2",
+      "bounds": [
+        -8000,
+        -8000,
+        -4000,
+        -4000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-2_-2-3990d20449be.json.gz",
+      "bytes": 5456,
+      "decodedBytes": 25123,
+      "sha256": "3990d20449beb7a89bfb2c64cc0999c046f57109fce2465d0389966787b1260a",
+      "decodedSha256": "45bd3e90a1245c10d304f89d693321f5f4ea0b29861752d8f42269b5ff2c807d",
+      "routes": 57,
+      "pieces": 57
+    },
+    {
+      "id": "-2:-1",
+      "bounds": [
+        -8000,
+        -4000,
+        -4000,
+        0
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-2_-1-41e128ed4eb4.json.gz",
+      "bytes": 50186,
+      "decodedBytes": 299031,
+      "sha256": "41e128ed4eb42f471add4fdf85bf4af485df2d051771d072b54467fad241a979",
+      "decodedSha256": "5c6ef1c9be537cb7369b4b28978695398e71dd24fbc1fd95b21f307350d59db3",
+      "routes": 1025,
+      "pieces": 1025
+    },
+    {
+      "id": "-2:0",
+      "bounds": [
+        -8000,
+        0,
+        -4000,
+        4000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-2_0-c0fdda42282b.json.gz",
+      "bytes": 70600,
+      "decodedBytes": 438742,
+      "sha256": "c0fdda42282b59c4b8f2b68558da8c6b1526cad0d2681c4b179dfb5c1f8ba01c",
+      "decodedSha256": "cf067c00e2fe74683386ba65f95249da84cb6db2085c19cda60be9bd3ef6a457",
+      "routes": 1550,
+      "pieces": 1551
+    },
+    {
+      "id": "-2:1",
+      "bounds": [
+        -8000,
+        4000,
+        -4000,
+        8000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-2_1-15bdc605ef86.json.gz",
+      "bytes": 168539,
+      "decodedBytes": 1117722,
+      "sha256": "15bdc605ef863e19fc1c04012ff290dafe7b5ea189fa5123d35185d38053f8d9",
+      "decodedSha256": "e5b673717c1c1532dd1b3138143ec181ae7dda6d96b97e48aa37fb25d27b4659",
+      "routes": 4224,
+      "pieces": 4225
+    },
+    {
+      "id": "-2:2",
+      "bounds": [
+        -8000,
+        8000,
+        -4000,
+        12000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-2_2-3bb6b0fcfff2.json.gz",
+      "bytes": 30766,
+      "decodedBytes": 200045,
+      "sha256": "3bb6b0fcfff2c5e3fe7b8ddda1bc65b0f6e1cbb15890815fe83a1d278786ddc7",
+      "decodedSha256": "386493202d51f77389f902ea32ff8fa949b9723130a4bcc4b9bdf16ae1b9372f",
+      "routes": 738,
+      "pieces": 738
+    },
+    {
+      "id": "-2:4",
+      "bounds": [
+        -8000,
+        16000,
+        -4000,
+        20000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-2_4-62fd44e888be.json.gz",
+      "bytes": 470,
+      "decodedBytes": 1234,
+      "sha256": "62fd44e888bed1e8f6c84f0483acec3a748db3cbe6598f134668afa008b586db",
+      "decodedSha256": "e3323e431fe852db9fff53d6611208e32abf1d47cb43977dc04b736b5b27b4ba",
+      "routes": 2,
+      "pieces": 2
+    },
+    {
+      "id": "-1:-8",
+      "bounds": [
+        -4000,
+        -30000,
+        0,
+        -28000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-1_-8-86ab81aa02af.json.gz",
+      "bytes": 1634,
+      "decodedBytes": 5377,
+      "sha256": "86ab81aa02afeb85d4a4e4443b47455bd6fe8068620a46fe7cd3e1628cb3061d",
+      "decodedSha256": "365e05ae8a140fef3c075ad6ecb3524f170fdd3da8144662cff4d477d26b7524",
+      "routes": 5,
+      "pieces": 5
+    },
+    {
+      "id": "-1:-7",
+      "bounds": [
+        -4000,
+        -28000,
+        0,
+        -24000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-1_-7-1e2eaca38c6f.json.gz",
+      "bytes": 12795,
+      "decodedBytes": 51255,
+      "sha256": "1e2eaca38c6f6366aea80a7d1d76aa929b88dbbbaf5fb5e4bdaf04f73b7592cc",
+      "decodedSha256": "87a71713994dbf01e6517010064fec66b3f25bf9a8e517b1459982018d2f0f5c",
+      "routes": 69,
+      "pieces": 70
+    },
+    {
+      "id": "-1:-6",
+      "bounds": [
+        -4000,
+        -24000,
+        0,
+        -20000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-1_-6-e50e44b37fc2.json.gz",
+      "bytes": 9461,
+      "decodedBytes": 36977,
+      "sha256": "e50e44b37fc2ff2a191729dcc4063c6a190713a15c4ee9a1a37062531602a437",
+      "decodedSha256": "5c01c1bf3f9085cbfd2b0bfe3c28d0181adf7db82c0f7879a39d2430161e1326",
+      "routes": 43,
+      "pieces": 43
+    },
+    {
+      "id": "-1:-5",
+      "bounds": [
+        -4000,
+        -20000,
+        0,
+        -16000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-1_-5-fcd35bf93c2d.json.gz",
+      "bytes": 3134,
+      "decodedBytes": 11347,
+      "sha256": "fcd35bf93c2d99895229c5eaf2ce99d7f3acf8ce4bc201360b03610172cdec19",
+      "decodedSha256": "9ddbfb38d9c3ff2efbdfb1111731677f2853014e8f41e18a447aba954e035ea5",
+      "routes": 10,
+      "pieces": 10
+    },
+    {
+      "id": "-1:-4",
+      "bounds": [
+        -4000,
+        -16000,
+        0,
+        -12000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-1_-4-3d6f8548ea2a.json.gz",
+      "bytes": 8218,
+      "decodedBytes": 42910,
+      "sha256": "3d6f8548ea2aebcb7344d4898113ac9aa53b7aab6714875858874ff89faf13c4",
+      "decodedSha256": "4ebaa7846b921330a9d485c92ece16be6a5061ad0eb5c275c4e7a864023b2cf6",
+      "routes": 113,
+      "pieces": 115
+    },
+    {
+      "id": "-1:-3",
+      "bounds": [
+        -4000,
+        -12000,
+        0,
+        -8000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-1_-3-6f6e0660d491.json.gz",
+      "bytes": 10125,
+      "decodedBytes": 52169,
+      "sha256": "6f6e0660d491a8d77a3b7d59735eb6b37afffdb6db3e2bfbed9b46aa1a537105",
+      "decodedSha256": "813cf8f8bcb690fdfe2c96071315dae559a805fa46043087ed1e7d08e861a08d",
+      "routes": 134,
+      "pieces": 136
+    },
+    {
+      "id": "-1:-2",
+      "bounds": [
+        -4000,
+        -8000,
+        0,
+        -4000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-1_-2-b9b540f1d958.json.gz",
+      "bytes": 3165,
+      "decodedBytes": 14865,
+      "sha256": "b9b540f1d958aed22052883ab750df77389361ac08d2bcd5371ba74d3dde638a",
+      "decodedSha256": "31c30636c9c336f65a7cf4d34479cc9268697ea5eea94af4c66319fec2564bcd",
+      "routes": 38,
+      "pieces": 38
+    },
+    {
+      "id": "-1:0",
+      "bounds": [
+        -4000,
+        0,
+        0,
+        4000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-1_0-5b6490a22f18.json.gz",
+      "bytes": 18562,
+      "decodedBytes": 113997,
+      "sha256": "5b6490a22f1848461039fd9c66d3dc2eacf04bfbe967d35a001aff5a1f8b7060",
+      "decodedSha256": "bc6a28da768832c4a8d73153ff45237e36b0bca3dc83c7a70dbf1cd52cd829ec",
+      "routes": 390,
+      "pieces": 391
+    },
+    {
+      "id": "-1:1",
+      "bounds": [
+        -4000,
+        4000,
+        0,
+        8000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/-1_1-c4ec9108c9e7.json.gz",
+      "bytes": 51260,
+      "decodedBytes": 322255,
+      "sha256": "c4ec9108c9e7594b28e594ce96cab23575b9ecfbab41461d4f06c0a12e0bfafb",
+      "decodedSha256": "64e1ac4de11d38d399bb2db79e92d4cadedc1be04466ea4f7b865cd87dac2810",
+      "routes": 1139,
+      "pieces": 1139
+    },
+    {
+      "id": "0:-8",
+      "bounds": [
+        0,
+        -30000,
+        4000,
+        -28000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/0_-8-50f088628a4c.json.gz",
+      "bytes": 4559,
+      "decodedBytes": 20310,
+      "sha256": "50f088628a4c0c64f49e2114243afe9d1d1163425d2dd81e5948a982d293fea0",
+      "decodedSha256": "3bb2cee85286717601187c6fa9e6c4fbd47cb8ba219f215e40120d1527a679bb",
+      "routes": 40,
+      "pieces": 40
+    },
+    {
+      "id": "0:-7",
+      "bounds": [
+        0,
+        -28000,
+        4000,
+        -24000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/0_-7-68567fc49d3e.json.gz",
+      "bytes": 8279,
+      "decodedBytes": 34313,
+      "sha256": "68567fc49d3e2385c17ebcd2eaaa142dc1040db82fb1b319a118fa34b8e2f152",
+      "decodedSha256": "b6d0a0a4a3ebe0116dcef842636105073f070de9a3b605697583ba37217f90c5",
+      "routes": 57,
+      "pieces": 59
+    },
+    {
+      "id": "0:-6",
+      "bounds": [
+        0,
+        -24000,
+        4000,
+        -20000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/0_-6-e38cc5885ea9.json.gz",
+      "bytes": 3068,
+      "decodedBytes": 12644,
+      "sha256": "e38cc5885ea92beb5b816a28b92a9a27b89387318d9653dd7f1933706947b357",
+      "decodedSha256": "dcbec38e78985e5eb858f72046c781530c6529ecb183ade3b6e3493367b4f141",
+      "routes": 25,
+      "pieces": 25
+    },
+    {
+      "id": "0:-5",
+      "bounds": [
+        0,
+        -20000,
+        4000,
+        -16000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/0_-5-81c2e1a5358c.json.gz",
+      "bytes": 6676,
+      "decodedBytes": 24999,
+      "sha256": "81c2e1a5358c226c7ea6b67646abef3ddb07414217bc411ff6cb4655e647bade",
+      "decodedSha256": "b9862ff5ae8d9f38071b365b17d7bd1c22d52a5229f57228e3e10a940366bc02",
+      "routes": 24,
+      "pieces": 24
+    },
+    {
+      "id": "0:-4",
+      "bounds": [
+        0,
+        -16000,
+        4000,
+        -12000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/0_-4-be002a132161.json.gz",
+      "bytes": 1603,
+      "decodedBytes": 6025,
+      "sha256": "be002a1321613dd9ad25d55ae3a381ffac9723b51fef362b0b77f95dd73d748a",
+      "decodedSha256": "cef856f956380cc97eb8bf47b06d3321ff99c41d55399115201b9b0f7e9d2a93",
+      "routes": 10,
+      "pieces": 10
+    },
+    {
+      "id": "0:-3",
+      "bounds": [
+        0,
+        -12000,
+        4000,
+        -8000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/0_-3-6394dddad2ba.json.gz",
+      "bytes": 798,
+      "decodedBytes": 3655,
+      "sha256": "6394dddad2ba7e2d08c11f3640d2820d3a740e37551cf6970711a77020c4fcff",
+      "decodedSha256": "b75210a0f51da8626c0d1badddf9b78b5049dbc60de388c1886e042ec7502c99",
+      "routes": 13,
+      "pieces": 13
+    },
+    {
+      "id": "1:-8",
+      "bounds": [
+        4000,
+        -30000,
+        8000,
+        -28000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/1_-8-a337e450fbd1.json.gz",
+      "bytes": 2525,
+      "decodedBytes": 8553,
+      "sha256": "a337e450fbd10e18081046928446529d6288981f47f87466f99768830e19d5cc",
+      "decodedSha256": "7692af77e12fd4a259211d49a5ea706136a21dac30d40f1ab2cd421b226085b7",
+      "routes": 9,
+      "pieces": 9
+    },
+    {
+      "id": "1:-7",
+      "bounds": [
+        4000,
+        -28000,
+        8000,
+        -24000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/1_-7-3fe1dad94a90.json.gz",
+      "bytes": 4356,
+      "decodedBytes": 15525,
+      "sha256": "3fe1dad94a905df1f1f7075e593c191df758499c6ab5d28ed09ef5251a55eb1f",
+      "decodedSha256": "3e6d87cf57a5517381e3af07e5eed3366bcc5704950eb6fcaaf555f53f9c001c",
+      "routes": 13,
+      "pieces": 14
+    },
+    {
+      "id": "1:-6",
+      "bounds": [
+        4000,
+        -24000,
+        8000,
+        -20000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/1_-6-1fdeb9896d83.json.gz",
+      "bytes": 7420,
+      "decodedBytes": 28391,
+      "sha256": "1fdeb9896d835a19af6421007a9f9311f838cd5c8192a65a515f12e22c6ce7d7",
+      "decodedSha256": "c6f3e7128f50b80c0f3abd22e53299ec5edae3a98a7b1da640988a5243f19e8a",
+      "routes": 26,
+      "pieces": 26
+    },
+    {
+      "id": "1:-5",
+      "bounds": [
+        4000,
+        -20000,
+        8000,
+        -16000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/1_-5-bb4773fd8f19.json.gz",
+      "bytes": 3262,
+      "decodedBytes": 10901,
+      "sha256": "bb4773fd8f19a55d44d3f79982d689f74987a52e4bc1a8c8a6bff0c21b1d25ac",
+      "decodedSha256": "81ccfd36129243feba6a450bf33ad465b696c8a97cc93997ef1646efb6a69e89",
+      "routes": 4,
+      "pieces": 4
+    },
+    {
+      "id": "1:-4",
+      "bounds": [
+        4000,
+        -16000,
+        8000,
+        -12000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/1_-4-3c561fb6fb52.json.gz",
+      "bytes": 2695,
+      "decodedBytes": 11227,
+      "sha256": "3c561fb6fb52b998f5ac79a6fce611832d01fec7e2c78f6b7915baf402b24ee1",
+      "decodedSha256": "90795949b7e5d6bd628c98fd2a9ea6dafc489a8484b0017d68afdd5491ce3ae6",
+      "routes": 22,
+      "pieces": 22
+    },
+    {
+      "id": "1:-3",
+      "bounds": [
+        4000,
+        -12000,
+        8000,
+        -8000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/1_-3-68155eebf0d6.json.gz",
+      "bytes": 1194,
+      "decodedBytes": 5404,
+      "sha256": "68155eebf0d651f518ea798373fc563400ea5b5f26783f9a316275550d62d42b",
+      "decodedSha256": "1cce81e091e12d515e9dd0d68497b4492e7b6c721dad24ba311d33939bb38b3a",
+      "routes": 16,
+      "pieces": 16
+    },
+    {
+      "id": "1:-2",
+      "bounds": [
+        4000,
+        -8000,
+        8000,
+        -4000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/1_-2-89ccf6e91cb3.json.gz",
+      "bytes": 646,
+      "decodedBytes": 2611,
+      "sha256": "89ccf6e91cb31913dc465aab5210b3956ea68b55183c2013633ea017c063d4b6",
+      "decodedSha256": "ce14939b0487313770bbaf63bd41aab77b2b02144244e33d0881f6d81587135d",
+      "routes": 9,
+      "pieces": 9
+    },
+    {
+      "id": "1:0",
+      "bounds": [
+        4000,
+        0,
+        8000,
+        4000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/1_0-f75b970622f3.json.gz",
+      "bytes": 251,
+      "decodedBytes": 347,
+      "sha256": "f75b970622f3f6d4683e8563b214a352596f05d85e4a3838759e0db6d21f4d63",
+      "decodedSha256": "f1a603ff2724367e6a44f8eefd6cec025bd6117834d838524e80dc4bdb0e08f6",
+      "routes": 1,
+      "pieces": 1
+    },
+    {
+      "id": "2:-8",
+      "bounds": [
+        8000,
+        -30000,
+        12000,
+        -28000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/2_-8-ef874612ec05.json.gz",
+      "bytes": 1627,
+      "decodedBytes": 6373,
+      "sha256": "ef874612ec0511d9aa8439166b63083ea5a08da5d43bc760c53463bdd50b43d6",
+      "decodedSha256": "e011bbc32350d2e61e90b258f29417a710c2eab3db58cc97f33f419be04bc72a",
+      "routes": 9,
+      "pieces": 10
+    },
+    {
+      "id": "2:-7",
+      "bounds": [
+        8000,
+        -28000,
+        12000,
+        -24000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/2_-7-0b9387b03999.json.gz",
+      "bytes": 2457,
+      "decodedBytes": 8832,
+      "sha256": "0b9387b039999e042b5788c2360b2cb49b1f3eb835b1a367ddda4811164e5436",
+      "decodedSha256": "18199ad1f051d3d51a7639ec3ca8c68996b030d1c741129f3eb28e467725346c",
+      "routes": 11,
+      "pieces": 11
+    },
+    {
+      "id": "2:-6",
+      "bounds": [
+        8000,
+        -24000,
+        12000,
+        -20000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/2_-6-b520587cdb6e.json.gz",
+      "bytes": 3858,
+      "decodedBytes": 13374,
+      "sha256": "b520587cdb6eefe1c699b040c5714d14ec86d9bdc576b6e1c2b543234c3dc45f",
+      "decodedSha256": "b5eed2607769c22c6ad01a50097a4d281d3303e3f768ffd9015ce75ed080a496",
+      "routes": 9,
+      "pieces": 9
+    },
+    {
+      "id": "2:-5",
+      "bounds": [
+        8000,
+        -20000,
+        12000,
+        -16000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/2_-5-fc49330a4a8a.json.gz",
+      "bytes": 3959,
+      "decodedBytes": 14375,
+      "sha256": "fc49330a4a8a1adb4cb36115285629aaa800f7cc89998c5a1a3981b656ff29a7",
+      "decodedSha256": "a4084482286f8941845c81c2cbe30ef0f5ff3d9e2e52daf47e39e6786d581292",
+      "routes": 14,
+      "pieces": 14
+    },
+    {
+      "id": "2:-4",
+      "bounds": [
+        8000,
+        -16000,
+        12000,
+        -12000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/2_-4-c99ab5540305.json.gz",
+      "bytes": 7586,
+      "decodedBytes": 33537,
+      "sha256": "c99ab55403055b83b36d9256cdaa275a8b70dd9bf5b969ce5a563e2fa949f142",
+      "decodedSha256": "184afcacdbdc82758026b6c726fa1e09b3d85801bcbcda4fc2644004474f2b16",
+      "routes": 57,
+      "pieces": 57
+    },
+    {
+      "id": "2:-3",
+      "bounds": [
+        8000,
+        -12000,
+        12000,
+        -8000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/2_-3-3b1fb3f3ae26.json.gz",
+      "bytes": 837,
+      "decodedBytes": 2789,
+      "sha256": "3b1fb3f3ae267501a7a9e8e91bad009f1eee63efd16281f87c24ae5ed309b881",
+      "decodedSha256": "ed58a4d9a2f6e6355ce48efbf737132888f3d4f1da281bdbd20a1700706c3745",
+      "routes": 5,
+      "pieces": 5
+    },
+    {
+      "id": "2:-2",
+      "bounds": [
+        8000,
+        -8000,
+        12000,
+        -4000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/2_-2-27220a600e25.json.gz",
+      "bytes": 1637,
+      "decodedBytes": 6966,
+      "sha256": "27220a600e25004c0efe7eeb2a1cafbbf9339f7ed40d6c02deacfd54c1fe9fdc",
+      "decodedSha256": "38c083257f21a10c7113a38db523eddfee73bb47985d2813dffa50eed8cdea5f",
+      "routes": 16,
+      "pieces": 17
+    },
+    {
+      "id": "3:-8",
+      "bounds": [
+        12000,
+        -30000,
+        16000,
+        -28000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/3_-8-f3086f5251ec.json.gz",
+      "bytes": 4743,
+      "decodedBytes": 16305,
+      "sha256": "f3086f5251ecb4fd3b6fd84fc2ed3cb7835fc3e1fce4aef521fa9594f1fec24c",
+      "decodedSha256": "082c626fc34904779dd78eddef9c1de6b37cd90326c01b2503ea7a90f88e5809",
+      "routes": 13,
+      "pieces": 13
+    },
+    {
+      "id": "3:-7",
+      "bounds": [
+        12000,
+        -28000,
+        16000,
+        -24000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/3_-7-de9063240f2f.json.gz",
+      "bytes": 5414,
+      "decodedBytes": 17649,
+      "sha256": "de9063240f2f144c569a124afcb7f151032a444dcd46f69291de0c28a284bd66",
+      "decodedSha256": "ad886e9bbe4bf68663fef501291644c00e4bae0ee9459e2f29ca3f03d5cabcc5",
+      "routes": 11,
+      "pieces": 11
+    },
+    {
+      "id": "3:-6",
+      "bounds": [
+        12000,
+        -24000,
+        16000,
+        -20000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/3_-6-31060c8f4d9c.json.gz",
+      "bytes": 17562,
+      "decodedBytes": 86577,
+      "sha256": "31060c8f4d9cdf90760ce6bd5b6d8ad03a48a9c1b7085f9e9411d396811c89e3",
+      "decodedSha256": "9f7884764437f796df9bddcf65aa602a909d1c4e62df819f9d77bf9ad7f645ce",
+      "routes": 191,
+      "pieces": 192
+    },
+    {
+      "id": "3:-5",
+      "bounds": [
+        12000,
+        -20000,
+        16000,
+        -16000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/3_-5-9847829d0dc2.json.gz",
+      "bytes": 1017,
+      "decodedBytes": 3159,
+      "sha256": "9847829d0dc2b62d237a93a7d96a9b4e0577cdaba4d5e588bc84d86a498812c2",
+      "decodedSha256": "07dd084390ad30d034ddcf8a3b2c49d420e9043d59b9a80ec0c83bd0d9a893b5",
+      "routes": 3,
+      "pieces": 3
+    },
+    {
+      "id": "3:-4",
+      "bounds": [
+        12000,
+        -16000,
+        16000,
+        -12000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/3_-4-36c526ba96d0.json.gz",
+      "bytes": 5082,
+      "decodedBytes": 18837,
+      "sha256": "36c526ba96d056523322508a311b47f3f62a8e9a860d82d0f563c261b78d50a0",
+      "decodedSha256": "0e3aca451d3122fdd360c9d8a1f50ba113c33bdbcf59f3784c8252245e579afa",
+      "routes": 20,
+      "pieces": 20
+    },
+    {
+      "id": "3:-3",
+      "bounds": [
+        12000,
+        -12000,
+        16000,
+        -8000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/3_-3-d71c849524c3.json.gz",
+      "bytes": 8815,
+      "decodedBytes": 43988,
+      "sha256": "d71c849524c350fadc4624283bbddf5afc258d19a5c3748ac29dc71a2fc78ba6",
+      "decodedSha256": "fe54cd35d4e848565d2bf02c787c53fcd69975176ef4f3e26966243f66d045a7",
+      "routes": 113,
+      "pieces": 114
+    },
+    {
+      "id": "3:-2",
+      "bounds": [
+        12000,
+        -8000,
+        16000,
+        -4000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/3_-2-736cef7d732a.json.gz",
+      "bytes": 6039,
+      "decodedBytes": 29333,
+      "sha256": "736cef7d732a25cba2e073d05afc8f3cc136186572cfa189592fc3061c8f25f7",
+      "decodedSha256": "0e1211b4f46888b2c72fb7faecc81e78c087eb057733012e15e62895c9ed250d",
+      "routes": 75,
+      "pieces": 75
+    },
+    {
+      "id": "4:-7",
+      "bounds": [
+        16000,
+        -28000,
+        20000,
+        -24000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/4_-7-f8c66e3f892a.json.gz",
+      "bytes": 3259,
+      "decodedBytes": 10954,
+      "sha256": "f8c66e3f892a2e5bd899a5783866a487a1b2fa8a09dbe578c55f37f352b2305c",
+      "decodedSha256": "cf9b7f853e206c0c0f9e6c51750a6b73dc4e885e13621f92d27c5e6797dcdd42",
+      "routes": 8,
+      "pieces": 8
+    },
+    {
+      "id": "4:-6",
+      "bounds": [
+        16000,
+        -24000,
+        20000,
+        -20000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/4_-6-c15c602ebf52.json.gz",
+      "bytes": 8787,
+      "decodedBytes": 33136,
+      "sha256": "c15c602ebf529503eadf9dbb7a9d683cd3b113feabb127af16d6b92ac57e0ac4",
+      "decodedSha256": "78e0507856fc7d7b6e1fc48a20c3e3f2d7e021845ef2b2b00b43cc797c26d4a2",
+      "routes": 37,
+      "pieces": 37
+    },
+    {
+      "id": "4:-5",
+      "bounds": [
+        16000,
+        -20000,
+        20000,
+        -16000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/4_-5-a36ef50252a1.json.gz",
+      "bytes": 4424,
+      "decodedBytes": 14522,
+      "sha256": "a36ef50252a198206dd142ec465a30600caa2ae2b72e2214183573a39b2241b6",
+      "decodedSha256": "ec8ad11a723df84cbe28e8fa7c7f75d39bb7ca170dedb00b0c4905813aa047c2",
+      "routes": 8,
+      "pieces": 8
+    },
+    {
+      "id": "4:-4",
+      "bounds": [
+        16000,
+        -16000,
+        20000,
+        -12000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/4_-4-2aee362c0fc6.json.gz",
+      "bytes": 17001,
+      "decodedBytes": 76474,
+      "sha256": "2aee362c0fc6a9657c0dd6fd95772fadf908d25b2ebeafa148607698b6e174c0",
+      "decodedSha256": "0d8257d83f0f6a154f6c6c99b930baeb1e3e398daa34d1d2fcb88d2ff2c5b39d",
+      "routes": 139,
+      "pieces": 142
+    },
+    {
+      "id": "4:-3",
+      "bounds": [
+        16000,
+        -12000,
+        20000,
+        -8000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/4_-3-85c7ea6db59d.json.gz",
+      "bytes": 14990,
+      "decodedBytes": 77593,
+      "sha256": "85c7ea6db59df68543ac303bbbf45326cab3830850a462a28f193991fcda6021",
+      "decodedSha256": "536eea913392ead57cc91dff767871392829d7d9bca302aa60ef2a2137f22753",
+      "routes": 198,
+      "pieces": 201
+    },
+    {
+      "id": "4:-2",
+      "bounds": [
+        16000,
+        -8000,
+        20000,
+        -4000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/4_-2-e5f2620107bf.json.gz",
+      "bytes": 5356,
+      "decodedBytes": 24370,
+      "sha256": "e5f2620107bf507f3747d2f79d34b34b7af565400c073191698c69efda788b6d",
+      "decodedSha256": "e59cab35d9e451061c511aab976479ae72df9d0075f698317b60da099280aa71",
+      "routes": 54,
+      "pieces": 54
+    },
+    {
+      "id": "5:-8",
+      "bounds": [
+        20000,
+        -30000,
+        24000,
+        -28000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/5_-8-4962c6fc9519.json.gz",
+      "bytes": 4584,
+      "decodedBytes": 16370,
+      "sha256": "4962c6fc9519e6c76cdac0e1930d7a2a2841f31ff76b19a2c30b95198b726297",
+      "decodedSha256": "b79110c7447b1e5782482a298ca86948340570758644b43225bc7228e2ab3bad",
+      "routes": 15,
+      "pieces": 16
+    },
+    {
+      "id": "5:-7",
+      "bounds": [
+        20000,
+        -28000,
+        24000,
+        -24000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/5_-7-bc4afad71e4f.json.gz",
+      "bytes": 1816,
+      "decodedBytes": 5600,
+      "sha256": "bc4afad71e4fa7d8f2eef00db8172547abef7c05b59e3ee60c5ea06e1df2d0a3",
+      "decodedSha256": "0c4fc15095b4bc820a10695ef6bdce075aefc2c7673e0295c08a8057ea1865e9",
+      "routes": 3,
+      "pieces": 3
+    },
+    {
+      "id": "5:-6",
+      "bounds": [
+        20000,
+        -24000,
+        24000,
+        -20000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/5_-6-3f19c8050155.json.gz",
+      "bytes": 3559,
+      "decodedBytes": 12366,
+      "sha256": "3f19c8050155552a8a2f7724a2d4e2aba78618fa307527dbe1c815a93fc81841",
+      "decodedSha256": "343a0c5474e2214375790f8bd71ee43e7126436837204ff2e7ccd4e51acf024b",
+      "routes": 7,
+      "pieces": 8
+    },
+    {
+      "id": "5:-5",
+      "bounds": [
+        20000,
+        -20000,
+        24000,
+        -16000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/5_-5-abcf7cd4e766.json.gz",
+      "bytes": 4767,
+      "decodedBytes": 16122,
+      "sha256": "abcf7cd4e766b6d1e560f1bb1c16cd65ab3e8ffc950426e450925cf03ecd43e2",
+      "decodedSha256": "b86b8cf03f7d7d5020557e78305ee01bce4ddfa7bb166eef3f6adc29b91299fa",
+      "routes": 13,
+      "pieces": 15
+    },
+    {
+      "id": "5:-4",
+      "bounds": [
+        20000,
+        -16000,
+        24000,
+        -12000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/5_-4-3a77a1d0544f.json.gz",
+      "bytes": 23722,
+      "decodedBytes": 102127,
+      "sha256": "3a77a1d0544f1c2e1efc67fa5242301b32a8b54a617a1bbda725ea0761ecc320",
+      "decodedSha256": "64785de22ce37403746605d4be39c79897d7ea65b3b96cfb9fe460792adfc9ba",
+      "routes": 171,
+      "pieces": 172
+    },
+    {
+      "id": "5:-3",
+      "bounds": [
+        20000,
+        -12000,
+        24000,
+        -8000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/5_-3-2a3ed731bd55.json.gz",
+      "bytes": 23798,
+      "decodedBytes": 107603,
+      "sha256": "2a3ed731bd550d1c4858b5f7db5a3af2dcb5cbbd88bfe1a80857d75dc40e9073",
+      "decodedSha256": "c702a33018b7a771622ad3e808d0200f33ad87ea4722ec7603f3415ce47a5dd2",
+      "routes": 207,
+      "pieces": 210
+    },
+    {
+      "id": "5:-2",
+      "bounds": [
+        20000,
+        -8000,
+        24000,
+        -4000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/5_-2-04918acf1189.json.gz",
+      "bytes": 2545,
+      "decodedBytes": 12383,
+      "sha256": "04918acf1189eb56a125f8e45563ac129148073d1d873d969b45383ac02793b7",
+      "decodedSha256": "d5c3b7d1db4f2f75f27b05fd54be838ee8aca901b7456ec8c176b9d02a897b21",
+      "routes": 31,
+      "pieces": 32
+    },
+    {
+      "id": "6:-8",
+      "bounds": [
+        24000,
+        -30000,
+        28000,
+        -28000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/6_-8-2a76a4d01e7a.json.gz",
+      "bytes": 997,
+      "decodedBytes": 3082,
+      "sha256": "2a76a4d01e7ae5785a002b5e742fa05d19cd1ffc80ddc6c4c731bde129a58216",
+      "decodedSha256": "8e56ea3f21134714dc42ee1d9d0e3550577f59f73c362a59d148b6763685aa20",
+      "routes": 2,
+      "pieces": 2
+    },
+    {
+      "id": "6:-7",
+      "bounds": [
+        24000,
+        -28000,
+        28000,
+        -24000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/6_-7-58f91172e698.json.gz",
+      "bytes": 2940,
+      "decodedBytes": 9369,
+      "sha256": "58f91172e698a9fad4c2811162eef36fe62dd3ceebe3d0552c134f03d759a1cd",
+      "decodedSha256": "17b05304506205b383dcafa04fbb195651dc391f61088616af4386a36cc4834a",
+      "routes": 4,
+      "pieces": 4
+    },
+    {
+      "id": "6:-6",
+      "bounds": [
+        24000,
+        -24000,
+        28000,
+        -20000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/6_-6-5f94e9c4a582.json.gz",
+      "bytes": 10903,
+      "decodedBytes": 46070,
+      "sha256": "5f94e9c4a582c2869b41e776afa29ce45d25cc00a969a96c5d7d5d37999043d8",
+      "decodedSha256": "3efa76bf4619df174acf949fafb18311cb1698ec5f4d022c625ef999301614b9",
+      "routes": 74,
+      "pieces": 75
+    },
+    {
+      "id": "6:-5",
+      "bounds": [
+        24000,
+        -20000,
+        28000,
+        -16000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/6_-5-8b4033ec7c66.json.gz",
+      "bytes": 6483,
+      "decodedBytes": 28613,
+      "sha256": "8b4033ec7c66b7dcab8adea1d539f4d7d734893826c37c4aad4dc34f33b4e74d",
+      "decodedSha256": "824a4c4af2b9fee7ea3812611747cd78f64e04ae3c754391f8c728f2032d8124",
+      "routes": 54,
+      "pieces": 57
+    },
+    {
+      "id": "6:-4",
+      "bounds": [
+        24000,
+        -16000,
+        28000,
+        -12000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/6_-4-07d92e0261ea.json.gz",
+      "bytes": 21121,
+      "decodedBytes": 100710,
+      "sha256": "07d92e0261eaa69f356168ef0d46936bb2f5734829cbede8588ad99ffecf87a9",
+      "decodedSha256": "9f427a292213bba7cc1931331e698f55a5066c901cf8a867cb19e999c418cb39",
+      "routes": 219,
+      "pieces": 220
+    },
+    {
+      "id": "6:-3",
+      "bounds": [
+        24000,
+        -12000,
+        28000,
+        -8000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/6_-3-154de49b75c3.json.gz",
+      "bytes": 11932,
+      "decodedBytes": 57908,
+      "sha256": "154de49b75c37d7478a1083ca3f3c713ddd10c73869b325b4602e3d108d09436",
+      "decodedSha256": "43718a275996022b63d1e6acca74f1bad2ed1f11327865bbf4b7b09a481fc2bc",
+      "routes": 137,
+      "pieces": 137
+    },
+    {
+      "id": "7:-6",
+      "bounds": [
+        28000,
+        -24000,
+        30000,
+        -20000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/7_-6-89221360c4bf.json.gz",
+      "bytes": 2047,
+      "decodedBytes": 7116,
+      "sha256": "89221360c4bf6287299fd5027d6975bc370a5f234903e67dc33ce5214c791f87",
+      "decodedSha256": "34fccc24c89fe5576bf2abffd3996a9faf1415b79c00eca9a0b0a20595c7d3de",
+      "routes": 6,
+      "pieces": 6
+    },
+    {
+      "id": "7:-5",
+      "bounds": [
+        28000,
+        -20000,
+        30000,
+        -16000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/7_-5-9e25b8b50b35.json.gz",
+      "bytes": 11317,
+      "decodedBytes": 59639,
+      "sha256": "9e25b8b50b35c38bce9e4eaeff67afd5ba2938b27834e1dab53091a97c10bc81",
+      "decodedSha256": "277db24d7bbe9ea077455bd9f791d5c7e35476f7539c403e7b7bcd63ebdf590c",
+      "routes": 150,
+      "pieces": 150
+    },
+    {
+      "id": "7:-4",
+      "bounds": [
+        28000,
+        -16000,
+        30000,
+        -12000
+      ],
+      "path": "assets/cities/changi/traffic-region-v1/7_-4-bbc7a5f92e30.json.gz",
+      "bytes": 10272,
+      "decodedBytes": 46987,
+      "sha256": "bbc7a5f92e3053ebf2739101ae16267afa4a67f73602612202a09769d6fe250c",
+      "decodedSha256": "42d0e3704fc1615f4cb23db70d37365ea2cb267d0b71f9cf2f6cb5a0cc1d79bd",
+      "routes": 93,
+      "pieces": 95
+    }
+  ],
+  "counts": {
+    "residential": 33537,
+    "primary": 11026,
+    "tertiary": 7592,
+    "service": 31883,
+    "motorway": 1593,
+    "motorway_link": 1716,
+    "trunk": 2531,
+    "secondary": 8061,
+    "trunk_link": 1187,
+    "primary_link": 1763,
+    "secondary_link": 816,
+    "unclassified": 5106,
+    "living_street": 85,
+    "tertiary_link": 484
+  },
+  "provenance": {
+    "source": "https://download.geofabrik.de/asia/malaysia-singapore-brunei/malaysia-singapore-brunei-261120.osm.pbf",
+    "sha256": "47118e02f24fe2ca388b02197a84bbbae17090c5e892c696b2d387eba3eb585d",
+    "snapshot": "2026-11-20 cached extract",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors",
+    "estimates": "Source motor roads; missing lanes/speeds/widths and bridge clearances use the airport traffic defaults. Regional flow is estimated visual traffic, not measured demand. Original full way identities and distance intervals avoid resetting routes at tile seams."
+  },
+  "identity": "13674548280635cfe0c72ab11450341f8b6ee1c7e75bf7c0be10f3055794b9f1"
+}

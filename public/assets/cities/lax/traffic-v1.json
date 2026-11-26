@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "airportId": "lax",
+  "path": "assets/cities/lax/traffic-v1.source.json.gz",
+  "bytes": 1470073,
+  "decodedBytes": 8659141,
+  "sha256": "3708b23460fc3b34a6b5f5f1765dc53037339a8471af60d433c80cba92db63d0",
+  "fingerprint": "7be13c46b4a4d7de143af8d1079b9e792375e40f3f58550a168c43255657b68c",
+  "counts": {
+    "tertiary": 2404,
+    "unclassified": 522,
+    "residential": 6200,
+    "secondary_link": 36,
+    "motorway_link": 475,
+    "secondary": 1498,
+    "service": 6565,
+    "trunk_link": 2,
+    "primary": 2479,
+    "primary_link": 172,
+    "motorway": 237,
+    "tertiary_link": 34,
+    "trunk": 7
+  },
+  "provenance": {
+    "source": "https://download.bbbike.org/osm/bbbike/LosAngeles/LosAngeles.osm.pbf",
+    "snapshot": "2026-11-14 cached extract",
+    "sha256": "5bb49609485290dd271578874f7bac5bcb2de71e8d8a297ea0f0aa1814cd004e",
+    "license": "ODbL-1.0",
+    "attribution": "\u00a9 OpenStreetMap contributors",
+    "estimates": "Missing direction/lane/speed/width values use road-class defaults. Bridge clearance is 6m per positive layer (max18m), with connected 6.5% approach ramps; not measured elevations. Traffic volumes are game estimates.",
+    "protection": "Surface public motor roads only; runway, taxiway and apron reservations excluded. Source tunnels retain connectivity but have no above-ground vehicles or pavement."
+  },
+  "decodedSha256": "d403c076f5def371aee23cad198645a4ea133a288530fce688aaf6d393496466"
+}

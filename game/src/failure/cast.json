@@ -1,0 +1,14 @@
+{
+  "zh": {
+    "field": {"id":"xiaoxiao","voice":"zh-CN-XiaoxiaoNeural","rate":"+16%","pitch":"-18Hz"},
+    "instructor": {"id":"xiaoxiao","voice":"zh-CN-XiaoxiaoNeural","rate":"+16%","pitch":"-18Hz"},
+    "dispatch": {"id":"yunxi","voice":"zh-CN-YunxiNeural","rate":"+4%","pitch":"-6Hz"},
+    "responder": {"id":"yunjian","voice":"zh-CN-YunjianNeural","rate":"+10%","pitch":"-3Hz"}
+  },
+  "en": {
+    "field": {"id":"andrew","voice":"en-US-AndrewNeural","rate":"+14%","pitch":"-7Hz"},
+    "instructor": {"id":"andrew","voice":"en-US-AndrewNeural","rate":"+14%","pitch":"-7Hz"},
+    "dispatch": {"id":"guy","voice":"en-US-GuyNeural","rate":"+8%","pitch":"-8Hz"},
+    "responder": {"id":"aria","voice":"en-US-AriaNeural","rate":"+10%","pitch":"-5Hz"}
+  }
+}

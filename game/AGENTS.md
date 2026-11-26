@@ -56,6 +56,15 @@ All paths below are relative to this file.
 - Keep Chinese/English UI and recorded radio aligned. Radio delivery should be
   natural, restrained and brisk. Use the approved cast and VHF treatment documented
   in Assets and implemented in `src/comms/`, with separate clean safety callouts.
+- Pilot speech is dry in cockpit view and uses live VHF in exterior views;
+  controllers always use VHF. View changes must not restart an active recording.
+  Use unfiltered pilot sources rather than trying to undo baked radio filtering.
+- Keep one pilot per flight and choose controllers independently per airport;
+  origin and destination may share a controller, but neither matches the pilot.
+- At departure-altitude flight skips, request and clear a climb to cruise altitude;
+  do not claim the aircraft has already reached cruise. Keep captions and audio aligned.
+- Transition dialogue keeps normal playback speed. Let it finish, with subtitles,
+  under black when it outlasts the camera; do not hurry it to fit the animation.
 
 ## Engineering guardrails
 

@@ -90,10 +90,16 @@ The five-speaker Chinese pilot/controller cast uses
 `ops/generate-radio-cast.py`. Run it in a terminal with input echo disabled
 and pass the Fish credential on stdin, never in an argument or environment
 file. New Fish requests use the free tier; approved files and cached takes
-are reused. It stages the complete manifest/audio under `qa/radio-cast/`.
+are reused. It stages the complete manifest/audio under `qa/radio-cast/`. Next run
+`ops/generate-pilot-clean.py` with the same hidden-stdin credential convention:
+it reuses original Chinese takes and exports unfiltered pilot variants and
+`qa/radio-climb/english-pilot-clean.json`. Runtime uses those pilot sources in
+both views, switching the Web Audio dry/VHF gain paths without reloading media.
+ATC stays filtered and selects the saved controller for the active airport.
 Publish all content-addressed media before replacing the source manifest and
 rebuilding. `ops/check-pilot-voices.mjs` verifies every speaker in both roles
-and that the game and audition page share the same VHF preset source.
+and the canonical production signal sources. Runtime VHF processing lives in
+`game/src/comms/radio-effects.js` and `radio-presets.js`.
 The older generator below maintains English and legacy radio assets.
 
 ```bash
@@ -307,7 +313,7 @@ The isolated scene, actual game and persistent-cache fixtures are
 ## Cruise transition and prepared destination worlds
 
 `views/cruise-transition.js` owns a presentation clock, the measured-velocity
-visual aircraft, and a separate recorded cruise-entry radio queue. It leaves the
+visual aircraft, and a separate recorded climb-request/clearance/readback radio queue. It leaves the
 qualified physical aircraft/evidence untouched until an opaque black frame has
 been committed by React. `advanceFlight` / `advanceSimulation` / `advanceAtRate`
 accept an optional `onCruiseSkip` hook; native callers keep immediate cuts while
@@ -330,14 +336,98 @@ The game rotates that offset by actual heading and targets the current rendered
 aircraft, retaining terrain/building constraints and the saved player view.
 The actual pose, measured velocity, configuration and source world continue
 through the presentation; no illustrative altitude or climb is substituted.
-Only the observer rolls. Existing recorded radio uses a separate, measured
-presentation tempo so it ends before fade without slowing or accelerating the
-aircraft or engine sound. Black loading waits and destination fade-in follow
-the 9.5-second source shot and do not consume destination simulation time.
+Only the observer rolls. Recorded radio plays at normal 1× independently of
+the camera. The source scene fades on its existing schedule; unfinished speech
+and subtitles continue under black. Browser playback holds each line through
+its actual media end, including buffering, before switching airports; muted or
+unavailable audio falls back to measured durations. The final transmission gap
+and destination loading must also finish before destination fade-in. Neither
+the speech hold nor loading consumes destination simulation time.
 
-The two Chinese and two English `airline-cruise-entry-*.mp3` recordings use the
-existing role profiles and radio DSP, measured durations and airline fingerprint.
-Regenerate only these with `python ops/generate-journey-radio.py --event cruise-entry`.
+The three Chinese and three English `airline-cruise-climb-*.mp3` recordings
+request and clear climb to FL330 and read back the clearance. They never claim
+cruise has already been reached at the departure skip altitude. Regenerate base
+lines with `python ops/generate-journey-radio.py --event cruise-climb --staging-dir qa/radio-climb`,
+then rebuild the Chinese cast and dry pilot variants.
 `ops/check-cruise-transition.mjs` flies through real UI controls, records readonly
 camera/flight samples and delays the destination request to verify black holding.
 Its browser-side pilot uses DOM control events, never flight pose/state setters.
+
+## Source-mapped woodlands
+
+Mapped cities load `woodland-world.js` alongside the shared building renderer.
+`woodland-data.js` generates deterministic stands from source polygons, applies
+source/airport exclusions and provides the independent obstacle index. Processed
+fine/far arrays use the existing chunked persistent cache; shared volumetric
+templates and spatial LOD control drawing cost. The foreground world's activation
+installs contacts, and disposal releases them. Read-only diagnostics live under
+`window.__flightSim.stats().city.woodlandStats`.
+
+[Woodland notes](../game/src/airports/data/WOODLANDS.md) cover sources, estimates,
+cache identity, contact envelopes and targeted validation.
+
+## Initial departure data
+
+See [Initial departures](DEPARTURES.md) for the six pinned chart sources, MSL
+conventions, real fix coordinates, game radar/handoff boundaries and validation.
+Changes to a prefix must preserve the force model and pass the physical
+30-route departure tests as well as restriction fixtures.
+
+## Mission recording and debrief
+
+[Replay notes](REPLAY.md) describe the full session-only flight recording, segment
+boundaries, latest-attempt highlights, independent camera/playback clock and
+result-screen controls. No flight recording is persisted, and the full-flight
+player is not exposed. `game/tests/replay.test.mjs` covers sampling, interpolation,
+retention, scene boundaries and playback; `ops/check-mission-replay.mjs` verifies
+normal success and failure results through actual flight controls.
+
+## Historical US1549 scenario
+
+[Scenario design and acceptance notes](HISTORICAL-US1549.md) describe the separate
+historical world, crew decisions, continuous manual handover and water dynamics.
+`game/src/history/` owns the scenario, its bilingual crew script, independent
+progress and marked presentation scenes. `sim/water-contact.js` owns swept first
+contact, hydrostatic/hydrodynamic forces, damage, flooding and evacuation state.
+Normal runway assessment and ordinary mission progress are independent.
+
+Opening and rescue scenes run on private visual copies and independent clocks.
+They never modify flight evidence. Session recording starts at the actual bird
+strike and seals at the physical result; optional history channels preserve
+water contact and control-source data without changing packed flight columns.
+The rescue scene precedes the ordinary result replay. Practice never writes
+formal historical records; guided/challenge records are separated by revision.
+
+`game/tests/us1549.test.mjs` covers physical outcomes and control-only numerical
+flights. `us1549-experience.test.mjs` covers presentation isolation, crew timing,
+cast integrity and scoring boundaries. `ops/check-us1549-ui.mjs` verifies a formal
+flight or final approach through real UI decisions and captured pointer-stick
+input, using read-only telemetry for its test pilot. `ops/check-us1549.mjs` runs
+as part of test/build; add `--audio` to measure all speech with ffprobe.
+
+US1549 revision 3 adds `history/navigation.js` and `us1549-tuning.test.mjs`.
+`ops/check-us1549-ui.mjs` accepts `full`, `practice` and `return`; the return check
+uses the actual early-takeover button, runway selector, captured sidestick, gear,
+flaps and brakes. `ops/us1549-ui-pilot.mjs` is QA-only control-event code, not a
+runtime autopilot. Optional `PILOT_QA_NO_RASTER=1` suppresses only raster calls
+while retaining complete contacts and physical simulation; captures restore it.
+
+US1549 决策分支与选项排序回归位于 `game/tests/us1549-decisions.test.mjs`。浏览器脚本 `ops/check-us1549-ui.mjs` 的 `return-formal` 模式通过真实题卡完成 LGA 正式交接与手动备降；`return` 仍覆盖提前接管练习。选项 ID 独立于显示顺序，QA 不按按钮序号选择。
+
+水上迫降 HUD 的只读模型和组件位于 `game/src/history/ditching-guide.js`、`DitchingGuide.jsx`，建议范围复用 `sim/water-contact.js` 的评分目标。`tests/ditching-guide.test.mjs` 覆盖阶段中性提示、实际构型、重量、首次入水冻结和水相对坐标。浏览器验收可设置 `PILOT_QA_CHECK_ENTRY_GUIDE=1` 运行 `ops/check-us1549-ui.mjs` 的 `practice` 模式，采集实际进近/拉平/入水阶段并核对首次接触记录。
+
+Failure presentation checks: `tests/failure-presentation.test.mjs` and
+`tests/failure-audio.test.mjs` cover evidence-based incident classification,
+casting, overlap, pause/mute/skip/language behavior, media stalls and stop races.
+`ops/check-failure-audio.mjs` validates every bundled recording/mix, source hash,
+caption, voice and measured cue boundary as part of tests/builds.
+
+`PILOT_CDP_URL=http://127.0.0.1:19337 PILOT_QA_LANG=zh node ops/check-failure-intro.mjs http://127.0.0.1:18097/ history` flies the declared
+US1549 final-approach practice into an actual impact using ArrowUp. `airport`
+selects JFK landing through the real menu and checks a solid-surface collision.
+The optional `PILOT_QA_CANCEL_CHECKS=0` omits extra retry/skip/menu trials. The
+checker samples real playback RMS, records the actual Web Audio output, checks
+voice overlap/normal speed, fixed failure evidence, black/captions, small-screen
+controls and failure-first replay. Long flight segments suppress raster draws
+only; source collision/scenery, dynamics, UI and audio remain active. Captures
+restore rendering. All evidence belongs under ignored `qa/`.

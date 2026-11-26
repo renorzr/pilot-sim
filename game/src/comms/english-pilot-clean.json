@@ -1,0 +1,725 @@
+{
+  "voice": "en-US-GuyNeural",
+  "profile": {
+    "voice": "en-US-GuyNeural",
+    "rate": "+24%",
+    "pitch": "-10Hz"
+  },
+  "clips": {
+    "takeoff-1": {
+      "text": "Runway two seven, cleared for takeoff, Skyline three two zero.",
+      "duration": 2.832,
+      "bytes": 17229,
+      "sha256": "168024d83d6486ae0a489128bdcb5754c29744f07797ca5785e6a79d41d57b57",
+      "file": "takeoff-1-clean-168024d83d6486ae.mp3"
+    },
+    "approach-0": {
+      "text": "Tower, Skyline three two zero, approaching two seven.",
+      "duration": 2.544,
+      "bytes": 15501,
+      "sha256": "8d48cbf29f2b6b22d996ad5ee4caccebd21052a65bfc79be8d00e2556f193425",
+      "file": "approach-0-clean-8d48cbf29f2b6b22.mp3"
+    },
+    "crosswind-0": {
+      "text": "Skyline three two zero, crosswind.",
+      "duration": 1.8,
+      "bytes": 11037,
+      "sha256": "77c0623c975f98753a9405ed610c0595a66edccd56f3e33b30266d2c514bc685",
+      "file": "crosswind-0-clean-77c0623c975f9875.mp3"
+    },
+    "downwind-0": {
+      "text": "Skyline three two zero, downwind, preparing to land.",
+      "duration": 2.64,
+      "bytes": 16077,
+      "sha256": "357acd42a27423f1e61feff4fd6f297fd4e0d497b84159e46a2a31be9e23600b",
+      "file": "downwind-0-clean-357acd42a27423f1.mp3"
+    },
+    "base-0": {
+      "text": "Skyline three two zero, base leg.",
+      "duration": 1.728,
+      "bytes": 10605,
+      "sha256": "62581900109e84ed4291d8f9db1abcd9a0acac0bbaffa666c4df7461a748fb0e",
+      "file": "base-0-clean-62581900109e84ed.mp3"
+    },
+    "final-0": {
+      "text": "Skyline three two zero, final.",
+      "duration": 1.632,
+      "bytes": 10029,
+      "sha256": "57ae4d61a8feab01bf1e7988e7f38662e371dc542d8c41b80417bf2402cff312",
+      "file": "final-0-clean-57ae4d61a8feab01.mp3"
+    },
+    "goaround-0": {
+      "text": "Skyline three two zero, going around.",
+      "duration": 1.92,
+      "bytes": 11757,
+      "sha256": "1c47612d7ab7e4826fee266abe0722375f68f351f2b826b40b166d281a27748f",
+      "file": "goaround-0-clean-1c47612d7ab7e482.mp3"
+    },
+    "engine-0": {
+      "text": "MAYDAY, MAYDAY, MAYDAY. Tower, Skyline three two zero. Left engine failure after takeoff. Climbing on one engine. Request priority return.",
+      "duration": 9.12,
+      "bytes": 54957,
+      "sha256": "5608e24878b1fe6baf4a073ade669da5df6c4c92110c96128b8c60951af95f03",
+      "file": "engine-0-clean-5608e24878b1fe6b.mp3"
+    },
+    "athr-0": {
+      "text": "Skyline three two zero, autothrust failure. Taking manual thrust.",
+      "duration": 4.08,
+      "bytes": 24717,
+      "sha256": "91722b817f6a2cf8b23630c8d5028447c23575c9292279ee4f10fd989a66137b",
+      "file": "athr-0-clean-91722b817f6a2cf8.mp3"
+    },
+    "ils-0": {
+      "text": "Skyline three two zero, ILS lost. Taking manual control.",
+      "duration": 3.936,
+      "bytes": 23853,
+      "sha256": "ccbd53f7c402ad8059d56e6aeee9e7229219507340d616237eb97a091ffd08b2",
+      "file": "ils-0-clean-ccbd53f7c402ad80.mp3"
+    },
+    "flaps-0": {
+      "text": "PAN PAN, PAN PAN, PAN PAN. Tower, Skyline three two zero. Flaps jammed at two. Approaching in actual configuration. Request priority landing.",
+      "duration": 9.408,
+      "bytes": 56685,
+      "sha256": "24843c2275412dcabd7e371a0d16a723fbb3a6056947c7a93ba552955025f6c7",
+      "file": "flaps-0-clean-24843c2275412dca.mp3"
+    },
+    "dual-0": {
+      "text": "MAYDAY, MAYDAY, MAYDAY. Tower, Skyline three two zero. Both engines failed. Unpowered glide. Request priority landing, runway two seven.",
+      "duration": 9.072,
+      "bytes": 54669,
+      "sha256": "2005ffe624aa2836fbab61e59d9910ed81c71bd2d42d387e67e334722c8452a1",
+      "file": "dual-0-clean-2005ffe624aa2836.mp3"
+    },
+    "minimum-0": {
+      "text": "Skyline three two zero, minimums, runway not in sight.",
+      "duration": 2.688,
+      "bytes": 16365,
+      "sha256": "88f654f2d63953a22ff581ec95db9fd60b670577c85f3e0968013fd6bcce70f0",
+      "file": "minimum-0-clean-88f654f2d63953a2.mp3"
+    },
+    "wind-0": {
+      "text": "Skyline three two zero, windshear, escaping.",
+      "duration": 2.184,
+      "bytes": 13341,
+      "sha256": "0e9e026f41940a9b2f220f4c21bf66c457315d1c48eb4a1ec72284d0c470089a",
+      "file": "wind-0-clean-0e9e026f41940a9b.mp3"
+    },
+    "clear-0": {
+      "text": "Skyline three two zero, clear of windshear. Resuming climb.",
+      "duration": 3.576,
+      "bytes": 21693,
+      "sha256": "d47636983b1745ad2973b8de8d42bfec455fe5f04e11586bb26e8a8162dfeddd",
+      "file": "clear-0-clean-d47636983b1745ad.mp3"
+    },
+    "touchdown-0": {
+      "text": "Skyline three two zero, touchdown, decelerating.",
+      "duration": 2.496,
+      "bytes": 15213,
+      "sha256": "765d74245591652c1982d32b72a074418f33ba549817e323558d6683267da22d",
+      "file": "touchdown-0-clean-765d74245591652c.mp3"
+    },
+    "circuit-takeoff-1": {
+      "text": "Two seven, cleared for takeoff. One thousand five hundred. Left turn over the coast above one thousand one hundred. Skyline three two zero.",
+      "duration": 8.448,
+      "bytes": 50925,
+      "sha256": "73fca0ff5a59629bf3c4075997cf2defabc7e67e7068430ecd9bd289b7d4a493",
+      "file": "circuit-takeoff-1-clean-73fca0ff5a59629b.mp3"
+    },
+    "atc-low-1": {
+      "text": "Roger, correcting altitude, Skyline three two zero.",
+      "duration": 2.52,
+      "bytes": 15357,
+      "sha256": "ee61f404a6efc46d34eb454a2f01de8b96239bda716f2a6f4dc2b8122c75397a",
+      "file": "atc-low-1-clean-ee61f404a6efc46d.mp3"
+    },
+    "atc-high-1": {
+      "text": "Roger, correcting altitude, Skyline three two zero.",
+      "duration": 2.52,
+      "bytes": 15357,
+      "sha256": "ee61f404a6efc46d34eb454a2f01de8b96239bda716f2a6f4dc2b8122c75397a",
+      "file": "atc-high-1-clean-ee61f404a6efc46d.mp3"
+    },
+    "atc-route-1": {
+      "text": "Roger, correcting track, Skyline three two zero.",
+      "duration": 2.448,
+      "bytes": 14925,
+      "sha256": "e4939928b9a659988c940301684f1ae3ea74265fab470456aee6be6c49daaf35",
+      "file": "atc-route-1-clean-e4939928b9a65998.mp3"
+    },
+    "atc-heading-1": {
+      "text": "Roger, correcting heading, Skyline three two zero.",
+      "duration": 2.424,
+      "bytes": 14781,
+      "sha256": "96c90c579a80e0167944d223e423e231465c4885aa91853567dc537b11f62ae6",
+      "file": "atc-heading-1-clean-96c90c579a80e016.mp3"
+    },
+    "atc-recovered-1": {
+      "text": "Roger, continuing, Skyline three two zero.",
+      "duration": 2.256,
+      "bytes": 13773,
+      "sha256": "ed2c24cca520239d1700ad25b211d2dc8d03474b2ddd1e736de4ead6a0ca9023",
+      "file": "atc-recovered-1-clean-ed2c24cca520239d.mp3"
+    },
+    "atc-terrain-1": {
+      "text": "Roger, terrain avoidance first, Skyline three two zero.",
+      "duration": 2.664,
+      "bytes": 16221,
+      "sha256": "abc23dfb4bddb3741e6e6f081b7fbe87b8231969d92aaf73dcbf6c66f28b1f6c",
+      "file": "atc-terrain-1-clean-abc23dfb4bddb374.mp3"
+    },
+    "atc-resume-1": {
+      "text": "Resuming current clearance, Skyline three two zero.",
+      "duration": 2.28,
+      "bytes": 13917,
+      "sha256": "28cf10d80e556ab8c4644e602f8f81cc10dc62cdaebbe7e806b503909b3684b0",
+      "file": "atc-resume-1-clean-28cf10d80e556ab8.mp3"
+    },
+    "atc-approach-1": {
+      "text": "Roger, correcting approach, Skyline three two zero.",
+      "duration": 2.472,
+      "bytes": 15069,
+      "sha256": "4b32d03cb735b6db25c0f69ace8ba9e131720b89d89b8ab6ac5d8311057ead53",
+      "file": "atc-approach-1-clean-4b32d03cb735b6db.mp3"
+    },
+    "reapproach-1": {
+      "text": "Left turn over the coast, preparing another approach, Skyline three two zero.",
+      "duration": 3.408,
+      "bytes": 20685,
+      "sha256": "01bb48514526d859c511d4781ff9ee6b7719af3f5b662090b7ea9a5f5ca3b032",
+      "file": "reapproach-1-clean-01bb48514526d859.mp3"
+    },
+    "engine-stable-0": {
+      "text": "PAN PAN, PAN PAN, PAN PAN. Tower, Skyline three two zero. Stable on one engine. Cancelling distress, continuing under urgency. Request priority return.",
+      "duration": 10.248,
+      "bytes": 61725,
+      "sha256": "213248e944610056bc80a1423e48a1106f6c3148cefcb2bce9ccbb86c2d74ebf",
+      "file": "engine-stable-0-clean-213248e944610056.mp3"
+    },
+    "distress-wind-0": {
+      "text": "MAYDAY, MAYDAY, MAYDAY. Tower, Skyline three two zero. Severe windshear. Emergency escape in progress. Request immediate assistance.",
+      "duration": 8.952,
+      "bytes": 53949,
+      "sha256": "118ee3edcfcdb636417f226a8ddd5a19dd73eb13ab25a63754cb1e4fbf00b7af",
+      "file": "distress-wind-0-clean-118ee3edcfcdb636.mp3"
+    },
+    "distress-terrain-0": {
+      "text": "MAYDAY, MAYDAY, MAYDAY. Tower, Skyline three two zero. Terrain imminent. Emergency avoidance in progress. Request immediate assistance.",
+      "duration": 8.928,
+      "bytes": 53805,
+      "sha256": "5594c1e63890975b270fe95c9431eb8e1d15a6e67159960e6ad06eb2e8c1330b",
+      "file": "distress-terrain-0-clean-5594c1e63890975b.mp3"
+    },
+    "distress-stall-0": {
+      "text": "MAYDAY, MAYDAY, MAYDAY. Tower, Skyline three two zero. Low altitude stall warning, losing height. Recovering. Request immediate assistance.",
+      "duration": 9.072,
+      "bytes": 54669,
+      "sha256": "676c4ecf53aadf990d7ce505546d3de579fb6746ce132b04df1739a818a9e02c",
+      "file": "distress-stall-0-clean-676c4ecf53aadf99.mp3"
+    },
+    "distress-cancel-0": {
+      "text": "Skyline three two zero, immediate danger resolved. Cancelling distress. Continuing under current clearance.",
+      "duration": 6.576,
+      "bytes": 39693,
+      "sha256": "ba34feda3f2b2dc1ed2b0ad6f5b179a189a020036dc57a3ba64a702f306f646d",
+      "file": "distress-cancel-0-clean-ba34feda3f2b2dc1.mp3"
+    },
+    "airline-departure-climb-1": {
+      "text": "Runway heading, climbing to cleared altitude, Skyline three two zero.",
+      "duration": 3.072,
+      "bytes": 18669,
+      "sha256": "2377417d6fff2ea29eeefd9f5f7c894ec231ba0bbaa0f5e509ca935e46326d64",
+      "file": "airline-departure-climb-1-clean-2377417d6fff2ea2.mp3"
+    },
+    "airline-cruise-ready-1": {
+      "text": "Continuing on the planned route, Skyline three two zero.",
+      "duration": 2.472,
+      "bytes": 15069,
+      "sha256": "054cf72bc7929d53644f266b18df80d4677eb3ee23de68fdf292daab32ae35e9",
+      "file": "airline-cruise-ready-1-clean-054cf72bc7929d53.mp3"
+    },
+    "airline-arrival-brief-0": {
+      "text": "Skyline three two zero, descent preparation complete. Request approach.",
+      "duration": 4.104,
+      "bytes": 24861,
+      "sha256": "1aa17cf4d8b24f5442c1c92e07d2eb576752d7f34acc0060c861eb62c48405f5",
+      "file": "airline-arrival-brief-0-clean-1aa17cf4d8b24f54.mp3"
+    },
+    "airline-destination-established-1": {
+      "text": "Following arrival route and altitude guidance, Skyline three two zero.",
+      "duration": 2.928,
+      "bytes": 17805,
+      "sha256": "047e95b715d4f75d8357ef1637f6fa1d69b567d39e820d6a2f2fad660212353c",
+      "file": "airline-destination-established-1-clean-047e95b715d4f75d.mp3"
+    },
+    "airline-departure-turn-1": {
+      "text": "Following departure route, maintaining cleared altitude, Skyline three two zero.",
+      "duration": 3.48,
+      "bytes": 21117,
+      "sha256": "cf05e1839221ae8b4da624739f211822406b7f78d84a6f6a84c88afeb7036f09",
+      "file": "airline-departure-turn-1-clean-cf05e1839221ae8b.mp3"
+    },
+    "airline-arrival-final-1": {
+      "text": "Intercepting final, checking speed and configuration, Skyline three two zero.",
+      "duration": 3.456,
+      "bytes": 20973,
+      "sha256": "f04fbaabd101c54d2ef06fb6f449b1d92eae20f9844c48a9e5b3eb7ccf6e8099",
+      "file": "airline-arrival-final-1-clean-f04fbaabd101c54d.mp3"
+    },
+    "airline-runway-exit-1": {
+      "text": "Vacating via the indicated exit, Skyline three two zero.",
+      "duration": 2.736,
+      "bytes": 16653,
+      "sha256": "52758cfa7846556448040915f3c56c85f1793954435508b0a456f82a6f6bb73c",
+      "file": "airline-runway-exit-1-clean-52758cfa78465564.mp3"
+    },
+    "airline-arrival-taxi-0": {
+      "text": "Skyline three two zero, runway vacated. Request taxi to stand.",
+      "duration": 4.056,
+      "bytes": 24573,
+      "sha256": "ef506e4defb715b7c9ba0b1bf2d1c19605520b1496fb3349dd67bf657384fd44",
+      "file": "airline-arrival-taxi-0-clean-ef506e4defb715b7.mp3"
+    },
+    "airline-parked-0": {
+      "text": "Skyline three two zero, parked on stand. Shutting down.",
+      "duration": 3.456,
+      "bytes": 20973,
+      "sha256": "827912840eaa144355db042e250e535eb25efd1fac59b348152cbdccaace6fc8",
+      "file": "airline-parked-0-clean-827912840eaa1443.mp3"
+    },
+    "airline-cruise-climb-0": {
+      "text": "Skyline three two zero, request climb to flight level three three zero.",
+      "duration": 3.048,
+      "bytes": 18525,
+      "sha256": "cbfb80db487a9b9b46c647086357f34eca7ebd990191106196d3aa996e94b318",
+      "file": "airline-cruise-climb-0-clean-cbfb80db487a9b9b.mp3"
+    },
+    "airline-cruise-climb-2": {
+      "text": "Climb to flight level three three zero, Skyline three two zero.",
+      "duration": 2.664,
+      "bytes": 16221,
+      "sha256": "bc1998421c44ed35f1f78d51dd38bd2bcc0ca1aa95d6e4e5b794adb551c1ad36",
+      "file": "airline-cruise-climb-2-clean-bc1998421c44ed35.mp3"
+    },
+    "changi-preparation-0": {
+      "text": "Changi Ground, Skyline three two zero, stand Alpha one six. Request pushback and start.",
+      "duration": 4.92,
+      "bytes": 29757,
+      "sha256": "a8a13fdf9fc516bd3472c506d1244a1f02ea0031d3ac97d7121233b69ece95f2",
+      "file": "changi-preparation-0-clean-a8a13fdf9fc516bd.mp3"
+    },
+    "changi-taxi-1": {
+      "text": "Taxi via the marked route. Hold short of zero two left, Skyline three two zero.",
+      "duration": 4.392,
+      "bytes": 26589,
+      "sha256": "02bf92bbf7f88cc680c8a39bc068d3c1d14cd421023a7b192a9c54d089c9af88",
+      "file": "changi-taxi-1-clean-02bf92bbf7f88cc6.mp3"
+    },
+    "changi-holding-0": {
+      "text": "Skyline three two zero, stopped at the holding point, runway zero two left.",
+      "duration": 3.336,
+      "bytes": 20253,
+      "sha256": "d038160aa2602bef6c2c32951401e13ad1fe94463efcb31ce15c0fc1495d1447",
+      "file": "changi-holding-0-clean-d038160aa2602bef.mp3"
+    },
+    "changi-lineup-1": {
+      "text": "Zero two left, line up and wait, Skyline three two zero.",
+      "duration": 2.736,
+      "bytes": 16653,
+      "sha256": "342f0f39a0224fd4aac832f89958edec8925789ff5b44d7033610a3583931697",
+      "file": "changi-lineup-1-clean-342f0f39a0224fd4.mp3"
+    },
+    "changi-ground-speed-1": {
+      "text": "Reducing taxi speed, Skyline three two zero.",
+      "duration": 2.304,
+      "bytes": 14061,
+      "sha256": "f7e7f439a07fcf64f96ea46c3c0194dca07a66ee80a958510eecaaa76c1bd6da",
+      "file": "changi-ground-speed-1-clean-f7e7f439a07fcf64.mp3"
+    },
+    "changi-ground-stop-1": {
+      "text": "Stopping immediately, Skyline three two zero.",
+      "duration": 2.064,
+      "bytes": 12621,
+      "sha256": "3878e4269d291705c7b28aa0a7ffd78ad7c762fb01c6fa9a34116d9fc799a822",
+      "file": "changi-ground-stop-1-clean-3878e4269d291705.mp3"
+    },
+    "changi-takeoff-1": {
+      "text": "Runway zero two left, cleared for takeoff, Skyline three two zero.",
+      "duration": 3.144,
+      "bytes": 19101,
+      "sha256": "d959c51be4c52e2c6036d86488727c1b1d51c6747fc37930dbba38fcf53f581f",
+      "file": "changi-takeoff-1-clean-d959c51be4c52e2c.mp3"
+    },
+    "changi-approach-0": {
+      "text": "Changi Tower, Skyline three two zero, approaching runway zero two left.",
+      "duration": 3.336,
+      "bytes": 20253,
+      "sha256": "70f0e3947388d817d3356322adb80316e082539764c5fd63cfe54b95c135e813",
+      "file": "changi-approach-0-clean-70f0e3947388d817.mp3"
+    },
+    "changi-reapproach-1": {
+      "text": "Left turn for another approach, runway zero two left, Skyline three two zero.",
+      "duration": 3.576,
+      "bytes": 21693,
+      "sha256": "9798c6db03f04262d8b0bdba80c6bc8268c9fcbe8e4ef34ec9682d90f1ea40ed",
+      "file": "changi-reapproach-1-clean-9798c6db03f04262.mp3"
+    },
+    "changi-final-0": {
+      "text": "Changi Tower, Skyline three two zero, final runway zero two left.",
+      "duration": 3.192,
+      "bytes": 19389,
+      "sha256": "544158785cd5268ec000d42e1c7dac1abe4e98cba5565350a95a6356ecea84c1",
+      "file": "changi-final-0-clean-544158785cd5268e.mp3"
+    },
+    "daxing-takeoff-1": {
+      "text": "Runway one seven left, cleared for takeoff, Skyline three two zero.",
+      "duration": 3.168,
+      "bytes": 19245,
+      "sha256": "f9c071742c5cd64438f7e7a574877f7f09847474e0ff372c4f603769c8bb69b9",
+      "file": "daxing-takeoff-1-clean-f9c071742c5cd644.mp3"
+    },
+    "daxing-approach-0": {
+      "text": "Daxing Tower, Skyline three two zero, approaching runway one seven left.",
+      "duration": 3.456,
+      "bytes": 20973,
+      "sha256": "0511fb69887152c792fb4a0310d4067b7f6d29023b30bcf7b917f60923916e52",
+      "file": "daxing-approach-0-clean-0511fb69887152c7.mp3"
+    },
+    "daxing-reapproach-1": {
+      "text": "Left turn for another approach, runway one seven left, Skyline three two zero.",
+      "duration": 3.6,
+      "bytes": 21837,
+      "sha256": "d327e67bcb6a5426ed61f0a684b21ec0a240f2c7e2ca51cc23ae34a9a1395968",
+      "file": "daxing-reapproach-1-clean-d327e67bcb6a5426.mp3"
+    },
+    "daxing-final-0": {
+      "text": "Daxing Tower, Skyline three two zero, final runway one seven left.",
+      "duration": 3.312,
+      "bytes": 20109,
+      "sha256": "0e4dedb7f9114976bff10ca62a580d8e41c9719086f55fc308f124c77d15172a",
+      "file": "daxing-final-0-clean-0e4dedb7f9114976.mp3"
+    },
+    "ground-preparation-0": {
+      "text": "Daxing Ground, Skyline three two zero, stand one zero seven. Request pushback and start.",
+      "duration": 4.992,
+      "bytes": 30189,
+      "sha256": "d03077c06e300484bd14dcfe90d24631cbdcebd7cfe9a1b35d4548b84a0252c3",
+      "file": "ground-preparation-0-clean-d03077c06e300484.mp3"
+    },
+    "ground-taxi-1": {
+      "text": "Taxi via the marked route. Hold short of one seven left, Skyline three two zero.",
+      "duration": 4.464,
+      "bytes": 27021,
+      "sha256": "2868002a73f1c1ad488bcd6746994deddb3790db0f30304bf0fb1078d0d71c32",
+      "file": "ground-taxi-1-clean-2868002a73f1c1ad.mp3"
+    },
+    "ground-holding-0": {
+      "text": "Skyline three two zero, stopped at the holding point, runway one seven left.",
+      "duration": 3.36,
+      "bytes": 20397,
+      "sha256": "ee7acf6a064fcde23e8440479297b76a6fbeb439e9a82a8e66b3c6ba65f6f234",
+      "file": "ground-holding-0-clean-ee7acf6a064fcde2.mp3"
+    },
+    "ground-lineup-1": {
+      "text": "One seven left, line up and wait, Skyline three two zero.",
+      "duration": 2.784,
+      "bytes": 16941,
+      "sha256": "d7a161e676602c6601cc06815c6eb1800fda1f61344d58e88011ed71579e499b",
+      "file": "ground-lineup-1-clean-d7a161e676602c66.mp3"
+    },
+    "ground-ground-speed-1": {
+      "text": "Reducing taxi speed, Skyline three two zero.",
+      "duration": 2.304,
+      "bytes": 14061,
+      "sha256": "f7e7f439a07fcf64f96ea46c3c0194dca07a66ee80a958510eecaaa76c1bd6da",
+      "file": "ground-ground-speed-1-clean-f7e7f439a07fcf64.mp3"
+    },
+    "ground-ground-stop-1": {
+      "text": "Stopping immediately, Skyline three two zero.",
+      "duration": 2.064,
+      "bytes": 12621,
+      "sha256": "3878e4269d291705c7b28aa0a7ffd78ad7c762fb01c6fa9a34116d9fc799a822",
+      "file": "ground-ground-stop-1-clean-3878e4269d291705.mp3"
+    },
+    "jfk-preparation-0": {
+      "text": "Kennedy Ground, Skyline three two zero, stand nine. Request pushback and start.",
+      "duration": 4.512,
+      "bytes": 27309,
+      "sha256": "a8f930a64d5d368dc63cefebd04fc14983652bc8151e690017f24a24bcd4c461",
+      "file": "jfk-preparation-0-clean-a8f930a64d5d368d.mp3"
+    },
+    "jfk-taxi-1": {
+      "text": "Taxi via the marked route. Hold short of two two right, Skyline three two zero.",
+      "duration": 4.224,
+      "bytes": 25581,
+      "sha256": "27052f6fe151626752d83c0e6d81e898244e55d3bc740d3225de57f6e0db3bcd",
+      "file": "jfk-taxi-1-clean-27052f6fe1516267.mp3"
+    },
+    "jfk-holding-0": {
+      "text": "Skyline three two zero, stopped at the holding point, runway two two right.",
+      "duration": 3.192,
+      "bytes": 19389,
+      "sha256": "d3204a5d8ad52bea73080416cd0fbc65cf676098c2f40f43d83b426b5027eca3",
+      "file": "jfk-holding-0-clean-d3204a5d8ad52bea.mp3"
+    },
+    "jfk-lineup-1": {
+      "text": "Two two right, line up and wait, Skyline three two zero.",
+      "duration": 2.544,
+      "bytes": 15501,
+      "sha256": "a2158c33b6caf173a744758fc72b60738d9f6924b7db451edb2a8db6f87b0c3c",
+      "file": "jfk-lineup-1-clean-a2158c33b6caf173.mp3"
+    },
+    "jfk-ground-speed-1": {
+      "text": "Reducing taxi speed, Skyline three two zero.",
+      "duration": 2.304,
+      "bytes": 14061,
+      "sha256": "f7e7f439a07fcf64f96ea46c3c0194dca07a66ee80a958510eecaaa76c1bd6da",
+      "file": "jfk-ground-speed-1-clean-f7e7f439a07fcf64.mp3"
+    },
+    "jfk-ground-stop-1": {
+      "text": "Stopping immediately, Skyline three two zero.",
+      "duration": 2.064,
+      "bytes": 12621,
+      "sha256": "3878e4269d291705c7b28aa0a7ffd78ad7c762fb01c6fa9a34116d9fc799a822",
+      "file": "jfk-ground-stop-1-clean-3878e4269d291705.mp3"
+    },
+    "jfk-takeoff-1": {
+      "text": "Runway two two right, cleared for takeoff, Skyline three two zero.",
+      "duration": 2.88,
+      "bytes": 17517,
+      "sha256": "6b1bc06406b8e7205c5c8fea77588f6af2b60e07dd7c5b3354cbc11e96cb55b7",
+      "file": "jfk-takeoff-1-clean-6b1bc06406b8e720.mp3"
+    },
+    "jfk-approach-0": {
+      "text": "Kennedy Tower, Skyline three two zero, approaching runway two two right.",
+      "duration": 3.24,
+      "bytes": 19677,
+      "sha256": "199fe246cf643c2d09c28cb971978892d182561414b4ea2940cc7cf3daed9577",
+      "file": "jfk-approach-0-clean-199fe246cf643c2d.mp3"
+    },
+    "jfk-reapproach-1": {
+      "text": "Left turn for another approach, runway two two right, Skyline three two zero.",
+      "duration": 3.384,
+      "bytes": 20541,
+      "sha256": "2d457db466f69f9651ca3d2faa716d7801608b0d854e11291b6294f7c4bb7e8d",
+      "file": "jfk-reapproach-1-clean-2d457db466f69f96.mp3"
+    },
+    "jfk-final-0": {
+      "text": "Kennedy Tower, Skyline three two zero, final runway two two right.",
+      "duration": 3.192,
+      "bytes": 19389,
+      "sha256": "6df0ef4bdd0ee0ff4062e8c9e53bae783089dea4dc735d6c204b6e5205c66ad9",
+      "file": "jfk-final-0-clean-6df0ef4bdd0ee0ff.mp3"
+    },
+    "kansai-preparation-0": {
+      "text": "Kansai Ground, Skyline three two zero, stand three three. Request pushback and start.",
+      "duration": 4.776,
+      "bytes": 28893,
+      "sha256": "983e47c84487393ce9def9d547a76938fb0d02fcfee21e8b1fe29bc34789623e",
+      "file": "kansai-preparation-0-clean-983e47c84487393c.mp3"
+    },
+    "kansai-taxi-1": {
+      "text": "Taxi via the marked route. Hold short of zero six right, Skyline three two zero.",
+      "duration": 4.368,
+      "bytes": 26445,
+      "sha256": "7d582ebae72a622e65a9ea1beb6173826e78407b7b550f543ca6f70749d470de",
+      "file": "kansai-taxi-1-clean-7d582ebae72a622e.mp3"
+    },
+    "kansai-holding-0": {
+      "text": "Skyline three two zero, stopped at the holding point, runway zero six right.",
+      "duration": 3.408,
+      "bytes": 20685,
+      "sha256": "1c3ecdaba39ef3e105f3b49d072faadf4d283429a161a9f7d8b5002f69153907",
+      "file": "kansai-holding-0-clean-1c3ecdaba39ef3e1.mp3"
+    },
+    "kansai-lineup-1": {
+      "text": "Zero six right, line up and wait, Skyline three two zero.",
+      "duration": 2.784,
+      "bytes": 16941,
+      "sha256": "dce52c7d70b0a7297e82a7dd3505a8fc012943f04870173b9638c5975aeee764",
+      "file": "kansai-lineup-1-clean-dce52c7d70b0a729.mp3"
+    },
+    "kansai-ground-speed-1": {
+      "text": "Reducing taxi speed, Skyline three two zero.",
+      "duration": 2.304,
+      "bytes": 14061,
+      "sha256": "f7e7f439a07fcf64f96ea46c3c0194dca07a66ee80a958510eecaaa76c1bd6da",
+      "file": "kansai-ground-speed-1-clean-f7e7f439a07fcf64.mp3"
+    },
+    "kansai-ground-stop-1": {
+      "text": "Stopping immediately, Skyline three two zero.",
+      "duration": 2.064,
+      "bytes": 12621,
+      "sha256": "3878e4269d291705c7b28aa0a7ffd78ad7c762fb01c6fa9a34116d9fc799a822",
+      "file": "kansai-ground-stop-1-clean-3878e4269d291705.mp3"
+    },
+    "kansai-takeoff-1": {
+      "text": "Runway zero six right, cleared for takeoff, Skyline three two zero.",
+      "duration": 3.096,
+      "bytes": 18813,
+      "sha256": "8018afb8afcc01c81ca995867d8ba6f3ecb6c3104cb463702490e869cdbcd313",
+      "file": "kansai-takeoff-1-clean-8018afb8afcc01c8.mp3"
+    },
+    "kansai-approach-0": {
+      "text": "Kansai Tower, Skyline three two zero, approaching runway zero six right.",
+      "duration": 3.432,
+      "bytes": 20829,
+      "sha256": "597005f59bead37a726798a7275a24e3a99b13eae0dac312d1fc75dd3a5dd250",
+      "file": "kansai-approach-0-clean-597005f59bead37a.mp3"
+    },
+    "kansai-reapproach-1": {
+      "text": "Left turn for another approach, runway zero six right, Skyline three two zero.",
+      "duration": 3.576,
+      "bytes": 21693,
+      "sha256": "68bb88561e66851538cccebbe4f9c175eccfaa488f8f6c1f8857c51f0591935a",
+      "file": "kansai-reapproach-1-clean-68bb88561e668515.mp3"
+    },
+    "kansai-final-0": {
+      "text": "Kansai Tower, Skyline three two zero, final runway zero six right.",
+      "duration": 3.336,
+      "bytes": 20253,
+      "sha256": "eaf46e147e5ac80c5864f39c28e5f29bae07c9b3bbb046def967e73c4b7f0a60",
+      "file": "kansai-final-0-clean-eaf46e147e5ac80c.mp3"
+    },
+    "lax-preparation-0": {
+      "text": "Los Angeles Ground, Skyline three two zero, stand eight six Bravo. Request pushback and start.",
+      "duration": 5.16,
+      "bytes": 31197,
+      "sha256": "98b2c2ed9c4be0f9140afe4352f914412416020a1f56310f02d2a5e971c75141",
+      "file": "lax-preparation-0-clean-98b2c2ed9c4be0f9.mp3"
+    },
+    "lax-taxi-1": {
+      "text": "Taxi via the marked route. Hold short of two five right, Skyline three two zero.",
+      "duration": 4.296,
+      "bytes": 26013,
+      "sha256": "e51a810b4df8343b5b22b07fd0e0106ab7fe656b0b7a238ef2c91d2b47950c47",
+      "file": "lax-taxi-1-clean-e51a810b4df8343b.mp3"
+    },
+    "lax-holding-0": {
+      "text": "Skyline three two zero, stopped at the holding point, runway two five right.",
+      "duration": 3.288,
+      "bytes": 19965,
+      "sha256": "df4b9200ce60ed92a3b5b364e3daa11d9f0ce2ba9ade279ad4167e270d5b5d3a",
+      "file": "lax-holding-0-clean-df4b9200ce60ed92.mp3"
+    },
+    "lax-lineup-1": {
+      "text": "Two five right, line up and wait, Skyline three two zero.",
+      "duration": 2.616,
+      "bytes": 15933,
+      "sha256": "283206bb30231a7337dd25c2dfc2fca7727e5476fee432926542124f7e39a7f0",
+      "file": "lax-lineup-1-clean-283206bb30231a73.mp3"
+    },
+    "lax-ground-speed-1": {
+      "text": "Reducing taxi speed, Skyline three two zero.",
+      "duration": 2.304,
+      "bytes": 14061,
+      "sha256": "f7e7f439a07fcf64f96ea46c3c0194dca07a66ee80a958510eecaaa76c1bd6da",
+      "file": "lax-ground-speed-1-clean-f7e7f439a07fcf64.mp3"
+    },
+    "lax-ground-stop-1": {
+      "text": "Stopping immediately, Skyline three two zero.",
+      "duration": 2.064,
+      "bytes": 12621,
+      "sha256": "3878e4269d291705c7b28aa0a7ffd78ad7c762fb01c6fa9a34116d9fc799a822",
+      "file": "lax-ground-stop-1-clean-3878e4269d291705.mp3"
+    },
+    "lax-takeoff-1": {
+      "text": "Runway two five right, cleared for takeoff, Skyline three two zero.",
+      "duration": 2.928,
+      "bytes": 17805,
+      "sha256": "81572113f902842de92c0fcd98c49b1bb708ed0872e5a29430492a65d5b434a9",
+      "file": "lax-takeoff-1-clean-81572113f902842d.mp3"
+    },
+    "lax-approach-0": {
+      "text": "Los Angeles Tower, Skyline three two zero, approaching runway two five right.",
+      "duration": 3.504,
+      "bytes": 21261,
+      "sha256": "0b21f3fe74e35213799bf18cf0a62ae267200f35e0e71fb8789727d1d8516c62",
+      "file": "lax-approach-0-clean-0b21f3fe74e35213.mp3"
+    },
+    "lax-reapproach-1": {
+      "text": "Left turn for another approach, runway two five right, Skyline three two zero.",
+      "duration": 3.456,
+      "bytes": 20973,
+      "sha256": "a83945bdfad02b50ac1bd4c2396bc47c3145eb364c021943d27b1f2343aeccf5",
+      "file": "lax-reapproach-1-clean-a83945bdfad02b50.mp3"
+    },
+    "lax-final-0": {
+      "text": "Los Angeles Tower, Skyline three two zero, final runway two five right.",
+      "duration": 3.384,
+      "bytes": 20541,
+      "sha256": "72637ad88ade3506b1a5d6174e605428b0f216ac511d2947ff231d5aa56cee40",
+      "file": "lax-final-0-clean-72637ad88ade3506.mp3"
+    },
+    "xiaoshan-preparation-0": {
+      "text": "Xiaoshan Ground, Skyline three two zero, stand two five one. Request pushback and start.",
+      "duration": 4.872,
+      "bytes": 29469,
+      "sha256": "8fc763236f38c5d6119c7ec4838c02c73228a1da08180e2c3f879999f03400e1",
+      "file": "xiaoshan-preparation-0-clean-8fc763236f38c5d6.mp3"
+    },
+    "xiaoshan-taxi-1": {
+      "text": "Taxi via the marked route. Hold short of zero seven, Skyline three two zero.",
+      "duration": 4.296,
+      "bytes": 26013,
+      "sha256": "77cd53a67679e54c13e6bc94d81a6c7cb824dc5a71590be57bed93859fbe5d58",
+      "file": "xiaoshan-taxi-1-clean-77cd53a67679e54c.mp3"
+    },
+    "xiaoshan-holding-0": {
+      "text": "Skyline three two zero, stopped at the holding point, runway zero seven.",
+      "duration": 3.288,
+      "bytes": 19965,
+      "sha256": "6e659126ea96f37e941fe79fdf6964e7d28b6f01c8073e7e6fb54c68eb876be7",
+      "file": "xiaoshan-holding-0-clean-6e659126ea96f37e.mp3"
+    },
+    "xiaoshan-lineup-1": {
+      "text": "Zero seven, line up and wait, Skyline three two zero.",
+      "duration": 2.592,
+      "bytes": 15789,
+      "sha256": "b37e882ea31efe79a6b266a7dc2c365246b4c42fa83b2dbb6605a90a2793e92f",
+      "file": "xiaoshan-lineup-1-clean-b37e882ea31efe79.mp3"
+    },
+    "xiaoshan-ground-speed-1": {
+      "text": "Reducing taxi speed, Skyline three two zero.",
+      "duration": 2.304,
+      "bytes": 14061,
+      "sha256": "f7e7f439a07fcf64f96ea46c3c0194dca07a66ee80a958510eecaaa76c1bd6da",
+      "file": "xiaoshan-ground-speed-1-clean-f7e7f439a07fcf64.mp3"
+    },
+    "xiaoshan-ground-stop-1": {
+      "text": "Stopping immediately, Skyline three two zero.",
+      "duration": 2.064,
+      "bytes": 12621,
+      "sha256": "3878e4269d291705c7b28aa0a7ffd78ad7c762fb01c6fa9a34116d9fc799a822",
+      "file": "xiaoshan-ground-stop-1-clean-3878e4269d291705.mp3"
+    },
+    "xiaoshan-takeoff-1": {
+      "text": "Runway zero seven, cleared for takeoff, Skyline three two zero.",
+      "duration": 2.952,
+      "bytes": 17949,
+      "sha256": "6e3b0840f9adbcfa75b4994f5cd9ddfb218d290928104ba7466f4baa98ecdfe7",
+      "file": "xiaoshan-takeoff-1-clean-6e3b0840f9adbcfa.mp3"
+    },
+    "xiaoshan-approach-0": {
+      "text": "Xiaoshan Tower, Skyline three two zero, approaching runway zero seven.",
+      "duration": 3.312,
+      "bytes": 20109,
+      "sha256": "94e6d81416fee256ac2baa6df7340078bc8e095aa3fd858c6ed5854936d1fbcf",
+      "file": "xiaoshan-approach-0-clean-94e6d81416fee256.mp3"
+    },
+    "xiaoshan-reapproach-1": {
+      "text": "Left turn for another approach, runway zero seven, Skyline three two zero.",
+      "duration": 3.432,
+      "bytes": 20829,
+      "sha256": "4364cec6cdbc3a693c65466c6fc5fe85160e5729e939854fa8914e5eee1ba9ea",
+      "file": "xiaoshan-reapproach-1-clean-4364cec6cdbc3a69.mp3"
+    },
+    "xiaoshan-final-0": {
+      "text": "Xiaoshan Tower, Skyline three two zero, final runway zero seven.",
+      "duration": 3.192,
+      "bytes": 19389,
+      "sha256": "410dbfbc839b347d3d5f08f18d42dedbdd42486ed1940574e0a6c504148e798e",
+      "file": "xiaoshan-final-0-clean-410dbfbc839b347d.mp3"
+    }
+  },
+  "version": "d3bb14685d9f3369aa24"
+}

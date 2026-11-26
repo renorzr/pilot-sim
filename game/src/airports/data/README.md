@@ -111,3 +111,7 @@ GeoJSON input; Natural Earth data are [public domain](https://www.naturalearthda
 It supplies land silhouettes only, without live airspace or navigation routes.
 The optional `node ops/fetch-world-land.mjs` build-time helper regenerates these
 silhouettes; normal gameplay and builds use the bundled file.
+
+[Regional woodland scenery](WOODLANDS.md) describes shared source-mapped forests, estimated tree placement, persistent arrays and contact/LOD behavior.
+
+Public roads and moving vehicle traffic at all six airports: [source, estimates, runtime and cache notes](ROAD-TRAFFIC.md).

@@ -7,10 +7,10 @@ PROFILES={
 }
 FILTER='highpass=f=300,lowpass=f=3300,loudnorm=I=-18:TP=-2:LRA=7'
 SEM=asyncio.Semaphore(3)
-async def clip(language,event,index,role,text):
+async def clip(language,event,index,role,text,staging=None):
  async with SEM:
   ident=f'airline-{event}-{index}'
-  folder=ROOT/'public/assets/radio'/('en' if language=='en' else '')
+  folder=(staging/'radio' if staging else ROOT/'public/assets/radio')/('en' if language=='en' else '')
   folder.mkdir(parents=True,exist_ok=True);target=folder/(ident+'.mp3')
   identity=json.dumps({'text':text,'profile':PROFILES[language][role],'filter':FILTER},ensure_ascii=False,sort_keys=True)
   raw=pathlib.Path('/tmp')/('pilot-ground-'+hashlib.sha256(identity.encode()).hexdigest()[:20]+'.mp3')
@@ -32,12 +32,13 @@ async def clip(language,event,index,role,text):
   print(language,ident,round(duration,3),'peak',round(peak,4),'rms',round(rms,4),flush=True)
   return language,ident,round(duration,3)
 async def main():
- parser=argparse.ArgumentParser();parser.add_argument('--event',action='append');args=parser.parse_args()
+ parser=argparse.ArgumentParser();parser.add_argument('--event',action='append');parser.add_argument('--staging-dir',type=pathlib.Path);args=parser.parse_args()
  pack=json.loads((ROOT/'game/src/comms/airline-radio.json').read_text())
  events=args.event or ['departure-climb', 'departure-turn', 'destination-established', 'arrival-final', 'runway-exit', 'arrival-taxi', 'parked']
- results=await asyncio.gather(*[clip(lang,event,i,role,text) for lang in ['zh','en'] for event in events for i,(role,text) in enumerate(pack[lang][event])])
+ results=await asyncio.gather(*[clip(lang,event,i,role,text,args.staging_dir) for lang in ['zh','en'] for event in events for i,(role,text) in enumerate(pack[lang][event])])
  for lang,ident,duration in results:pack['durations'][lang][ident]=duration
  pack['version']=hashlib.sha256(json.dumps({'zh':pack['zh'],'en':pack['en'],'profiles':PROFILES,'filter':FILTER},ensure_ascii=False,sort_keys=True).encode()).hexdigest()[:20]
- (ROOT/'game/src/comms/airline-radio.json').write_text(json.dumps(pack,ensure_ascii=False,indent=2)+'\n')
+ output=args.staging_dir/'airline-radio.json' if args.staging_dir else ROOT/'game/src/comms/airline-radio.json'
+ output.write_text(json.dumps(pack,ensure_ascii=False,indent=2)+'\n')
  print('PACK airline',pack['version'],'CLIPS',len(results),flush=True)
 if __name__=='__main__':asyncio.run(main())

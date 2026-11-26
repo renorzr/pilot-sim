@@ -72,29 +72,17 @@ def main():
     if not key:
         raise SystemExit('Missing credential')
     lines = pilot_lines()
-    audition = json.loads((ROOT / 'public/assets/pilot-voices/fish/manifest.json').read_text())
     references = ROOT / 'ops/assets/pilot-voices'
-    references.mkdir(parents=True, exist_ok=True)
-    signal_manifest = json.loads((references / 'manifest.json').read_text()) if (references / 'manifest.json').exists() else None
+    signal_manifest = json.loads((references / 'manifest.json').read_text())
     # Keep the approved natural three-call performances as reproducible sources.
     for voice in VOICES:
-        approved = next(v for v in audition['voices'] if v['id'] == voice)
-        assert approved['voice'] == VOICES[voice]['referenceId']
-        if signal_manifest:
-            assert signal_manifest[voice]['referenceId'] == VOICES[voice]['referenceId'], 'Reapprove signal sources when changing a pilot'
+        approved = signal_manifest[voice]
+        assert approved['referenceId'] == VOICES[voice]['referenceId'], 'Reapprove signal sources when changing a pilot'
         for signal in ['mayday', 'pan']:
-            spec = approved['clips'][signal]['signal']
-            assert spec['units'] == 3 and spec['prefixEnd'] < 2.5
-            target = references / f'{voice}-{signal}.wav'
-            if not target.exists():
-                source = ROOT / spec['reference']
-                if source.exists():
-                    shutil.copyfile(source, target)
-                else:
-                    source = ROOT / 'public/assets/pilot-voices/fish' / approved['clips'][signal]['variants']['clean']['url']
-                    ffmpeg('-i', source, '-t', spec['prefixEnd'], '-ar', 24000, '-ac', 1, target)
-            if signal_manifest:
-                assert hashlib.sha256(target.read_bytes()).hexdigest() == signal_manifest[voice]['signals'][signal]['sha256'], 'Signal source hash changed; review before regeneration'
+            spec = approved['signals'][signal]
+            assert spec['groups'] == 3 and 0 < spec['duration'] < 2.5
+            target = references / spec['file']
+            assert hashlib.sha256(target.read_bytes()).hexdigest() == spec['sha256'], 'Signal source hash changed; review before regeneration'
     cached = {}
     for folder in [ROOT / 'qa/fish-pilot-voices/raw', STAGE / 'raw']:
         for path in folder.glob('*.json'):

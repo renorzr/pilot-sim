@@ -1,5 +1,5 @@
 import {groundActive,groundRoute,departureOf,remainingTaxiDistance} from './missions/ground.js';
-import {airlineNavigationActive,airlineTarget} from './missions/airline-navigation.js';
+import {airlineNavigationActive,airlineTarget,airportAltitude} from './missions/airline-navigation.js';
 import {terrainRadioAltitude} from './terrain/heightfield.js';
 import {glideInfo} from './missions/expanded.js';
 import {windReadout} from './sim/weather.js';
@@ -7,6 +7,9 @@ import { useEffect, useRef } from 'react';
 import {t} from './i18n/index.js';
 import {runwayOf,runwayHeading} from './airports/registry.js';
 import {useLanguage} from './i18n/hooks.js';
+import {selectedHistoricalRunway} from './history/navigation.js';
+import {eventProject,eventRunwayStrips} from './history/event-world.js';
+import {US1549_PROFILE} from './history/us1549-profile.js';
 import {clamp,FLAPS,FLAP_LIMITS,KT,FT,NM,radioAltitude,targetSpeed,minimumSelectableSpeed} from './flight.js';
 const DEG=180/Math.PI;
 const green='#7de862', white='#e2eaf1', muted='#9aabbc', yellow='#f6d64a';
@@ -28,10 +31,11 @@ function Canvas({className,label,width,height,state,draw}) {
 }
 function pfd(c,s,w,h) {
   c.fillStyle='#080f16';c.fillRect(0,0,w,h);
-  const speed=Math.round(s.speed*1.94384),alt=Math.round(Math.max(0,s.y-2.8)*3.28084);
+  const publishedDeparture=s.airline?.navigation?.kind==='departure'&&s.airline.navigation.procedure;
+  const speed=Math.round(s.speed*1.94384),alt=Math.round(publishedDeparture?airportAltitude(s):Math.max(0,s.y-2.8)*3.28084);
   const route=s.route?.active,glide=s.mission?.kind==='dual-glide'&&s.mission.triggered;
   const vs=Math.round(s.verticalSpeed*196.85/10)*10;
-  text(c,s.thrustMode,10,13,12,green);text(c,glide?'GLIDE':s.goAround?'SRS':s.gsCaptured?'G/S':route?'PATH':'ALT',145,13,13,green);text(c,s.goAround?'GA TRK':s.locCaptured?'LOC':route?'NAV':'HDG',218,13,13,green);text(c,s.autoPilot?'AP1':'AP OFF',w-12,13,12,s.autoPilot?green:muted,'right');
+  text(c,s.thrustMode,10,13,12,green);text(c,glide?'GLIDE':s.goAround?'SRS':s.gsCaptured?'G/S':route?'PATH':'ALT',145,13,13,green);text(c,s.goAround?'GA TRK':s.locCaptured?'LOC':route||publishedDeparture&&!airlineTarget(s)?.headingMode?'NAV':'HDG',218,13,13,green);text(c,s.autoPilot?'AP1':'AP OFF',w-12,13,12,s.autoPilot?green:muted,'right');
   text(c,'SPD '+Math.round(targetSpeed(s)),10,33,12,'#79d3f6');text(c,'V/S '+(vs>0?'+':'')+vs,166,33,12,white);text(c,(s.flightDirector?'FD ':'')+(s.autoThrustActive?'A/THR':'')+(s.guidance.limited?' LIM':''),w-12,33,12,muted,'right');
   const left=81,right=w-81,top=49,bottom=h-43,cx=w/2,cy=(top+bottom)/2;
   c.save();c.beginPath();c.rect(left,top,right-left,bottom-top);c.clip();
@@ -57,7 +61,7 @@ function pfd(c,s,w,h) {
   line(c,cx-20,cy,cx-20,cy+8,yellow,4);line(c,cx+20,cy,cx+20,cy+8,yellow,4);
   // The speed and altitude tapes move continuously with the simulation.
   text(c,'空速',35,53,16,white,'center');text(c,'KT',35,73,12,muted,'center');
-  text(c,'高度',w-34,53,16,white,'center');text(c,'FT',w-34,73,12,muted,'center');
+  text(c,publishedDeparture?'海拔':'高度',w-34,53,16,white,'center');text(c,'FT',w-34,73,12,muted,'center');
   c.save();c.beginPath();c.rect(2,88,75,h-103);c.clip();
   const speedStart=Math.floor((speed-50)/10)*10;
   for(let v=speedStart;v<speed+65;v+=10){if(v<0)continue;const y=cy-(v-speed)*3.1;line(c,63,y,74,y,muted);text(c,v,57,y,16,white,'right');}
@@ -81,13 +85,15 @@ function pfd(c,s,w,h) {
   text(c,'β '+(s.airData.beta*DEG).toFixed(1)+'°',w-12,h-6,10,Math.abs(s.airData.beta)>.08?'#ffbf78':muted,'right');
   text(c,'RA '+Math.round(terrainRadioAltitude(s)*FT)+' FT',cx,h-6,11,terrainRadioAltitude(s)*FT<100?'#f6d64a':white,'center');
   if(s.mission?.kind==='windshear'&&s.mission.triggered&&!s.mission.clear)text(c,'WINDSHEAR',cx,top+40,18,'#ff6b67','center',700);
-  if(!s.systems.ils.localizer)text(c,'ILS LOST',cx,top+39,16,'#ffbf78','center',700);
+  if(s.historical)text(c,'RIVER VISUAL',cx,top+39,16,'#79d3f6','center',700);
+  else if(!s.systems.ils.localizer)text(c,'ILS LOST',cx,top+39,16,'#ffbf78','center',700);
   if(s.systems.thrustLocked)text(c,'THR LK',cx,top+39,16,'#ffbf78','center',700);
   if(s.terrain?.level)text(c,s.terrain.level===2?'PULL UP':'TERRAIN',cx,cy+76,21,s.terrain.level===2?'#ff7368':'#ffce85','center',700);
   if(s.stallWarning?.level){const active=s.stallWarning.active;c.fillStyle=active?'#741c22':'#49331a';c.fillRect(cx-69,cy+37,138,29);text(c,active?'STALL':'HIGH AOA',cx,cy+52,22,active?'#ff9a91':'#ffce85','center',700);}
   text(c,s.mode==='takeoff'?'VR 125':'VAPP '+s.vapp,left+5,top+14,11,'#79d3f6');
 }
 function heading(c,s,w,h) {
+  if(s.historical){historicalNavigation(c,s,w,h);return;}
   if(groundActive(s)){groundNavigation(c,s,w,h);return;}
   c.fillStyle='#080f16';c.fillRect(0,0,w,h);
   const runway=runwayOf(s),airlineNav=airlineNavigationActive(s)?s.airline.navigation:null;
@@ -101,7 +107,7 @@ function heading(c,s,w,h) {
   const rw0=map(0,0),rw1=map(0,-runway.length);line(c,...rw0,...rw1,white,5);text(c,'RW'+runway.id,rw0[0]+10,rw0[1],12,white);
   for(const[z,label]of [[18000,'IF'],[10000,'FAP'],[3700,'2 NM']]){const p=map(0,z);polygon(c,[[p[0],p[1]-4],[p[0]+4,p[1]],[p[0],p[1]+4],[p[0]-4,p[1]]],'#cf8bdb');text(c,label,p[0]+9,p[1],10,muted);}
   if(s.route?.active){const points=[s.route.origin,...s.route.points];for(let i=0;i<points.length-1;i++){line(c,...map(points[i].x,points[i].z),...map(points[i+1].x,points[i+1].z),i<s.route.index?'#7de862':i===s.route.index?'#79d3f6':'#687d91',2);const p=map(points[i+1].x,points[i+1].z);text(c,String(i+1),p[0]+6,p[1],11,'#79d3f6');}}
-  if(airlineNav){const ps=[airlineNav.origin,...airlineNav.points];for(let i=1;i<ps.length;i++){line(c,...map(ps[i-1].x,ps[i-1].z),...map(ps[i].x,ps[i].z),i-1<airlineNav.index?'#7de862':i-1===airlineNav.index?'#79d3f6':'#687d91',2);const p=map(ps[i].x,ps[i].z);text(c,String(i),p[0]+6,p[1],11,'#79d3f6');}}
+  if(airlineNav){const ps=[airlineNav.origin,...airlineNav.points];for(let i=1;i<ps.length;i++){const point=ps[i];c.setLineDash(point.simulated||point.kind==='altitude'?[5,4]:[]);line(c,...map(ps[i-1].x,ps[i-1].z),...map(point.x,point.z),i-1<airlineNav.index?'#7de862':i-1===airlineNav.index?'#79d3f6':'#687d91',2);c.setLineDash([]);const p=map(point.x,point.z);text(c,point.id||(point.kind==='altitude'?'ALT':point.kind==='vector'?'HDG':point.kind==='handoff'?'EXIT':String(i)),p[0]+6,p[1],10,'#79d3f6');}}
   if(s.goAround){const p=map(s.x+Math.sin(s.goAroundHeading)*8000,s.z-Math.cos(s.goAroundHeading)*8000);c.setLineDash([5,3]);line(c,cx,py,...p,'#79d3f6',2);c.setLineDash([]);}
   polygon(c,[[cx,py-13],[cx-9,py+8],[cx,py+3],[cx+9,py+8]],yellow);
   c.restore();text(c,range+' NM',14,60,11,muted);
@@ -114,9 +120,18 @@ function heading(c,s,w,h) {
   text(c,'DIST',14,289,10,muted);text(c,s.z>0?(s.z/NM).toFixed(1)+' NM':s.landed?'滑跑':'跑道上空',w-14,289,16,green,'right');
   if(s.terrain?.level)text(c,'TERR '+Math.round(s.terrain.clearanceFt)+' FT / '+(s.terrain.timeToImpact?`${s.terrain.timeToImpact} S`:'AHEAD'),14,309,12,s.terrain.level===2?'#ff7368':'#ffce85');
   else if(s.mission?.kind==='dual-glide'){const reach=glideInfo(s);text(c,'估算可达 '+(reach.range/1000).toFixed(1)+' km',14,309,11,reach.margin>=0?green:'#ffbf78');}
-  else if(airlineNav){const t=airlineTarget(s);text(c,`${t.name} / ${Math.round(t.altitude)} FT`,14,309,10,'#79d3f6');}
+  else if(airlineNav){const t=airlineTarget(s);text(c,`${t.name} / ${Math.round(t.altitude+(airlineNav.elevationFt||0))} FT${airlineNav.procedure?' MSL':''}`,14,309,10,'#79d3f6');}
   else if(s.route?.active)text(c,`${s.route.points[s.route.index].name} / ${Math.round(s.route.targetAltitude)} FT`,14,309,10,'#79d3f6');
   else{ text(c,s.systems.ils.localizer?'LOC '+s.locDeviation.toFixed(2):'LOC --',14,309,10,Math.abs(s.locDeviation)<.4?green:'#ffbf78');text(c,s.systems.ils.glideSlope?'G/S '+s.glideDeviation.toFixed(2):'G/S --',w-14,309,10,Math.abs(s.glideDeviation)<.6?green:'#ffbf78','right');}
+}
+function historicalNavigation(c,s,w,h){
+ c.fillStyle='#080f16';c.fillRect(0,0,w,h);const target=selectedHistoricalRunway(s);text(c,target?target.airport+' '+target.id+' / VISUAL':s.historical.manualTarget==='free'?'FREE / GLIDE':'HUDSON / VISUAL',12,22,14);text(c,String(Math.round((runwayHeading(s)+s.yaw*DEG+360)%360)).padStart(3,'0')+'°',w-12,22,17,green,'right');
+ const cx=w/2,cy=h*.75,scale=h*.6/18000,map=p=>{const dx=p.x-s.x,dz=s.z-p.z;return[cx+(dx*Math.cos(s.yaw)-dz*Math.sin(s.yaw))*scale,cy-(dx*Math.sin(s.yaw)+dz*Math.cos(s.yaw))*scale];};
+ c.save();c.beginPath();c.rect(8,40,w-16,h-68);c.clip();const river=US1549_PROFILE.riverTargets.map(p=>map(eventProject(...p)));
+ for(let i=1;i<river.length;i++)line(c,...river[i-1],...river[i],'#477588',9);
+ for(const r of eventRunwayStrips){const p=map(r.a),q=map(r.b);line(c,...p,...q,white,3);text(c,r.airport+' '+r.id+'/'+r.opposite,p[0]+5,p[1],11,white);}if(target){const p=map(target.a),q=map(target.b);line(c,...p,...q,green,5);}
+ polygon(c,[[cx,cy-12],[cx-8,cy+8],[cx,cy+3],[cx+8,cy+8]],yellow);c.restore();
+ text(c,'GS '+Math.round(s.airData.groundSpeed*KT)+' KT',12,h-10,11,green);text(c,s.water?.phase?'WATER':s.historical.controlSource==='copilot'?'COPILOT':'MANUAL',w-12,h-10,11,muted,'right');
 }
 function groundNavigation(c,s,w,h){
   c.fillStyle='#080f16';c.fillRect(0,0,w,h);

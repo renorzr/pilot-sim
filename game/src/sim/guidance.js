@@ -10,8 +10,14 @@ export function computeGuidance(s,approachAltitude){
  const track=route?route.track:go?s.goAroundHeading:s.apprArmed||glide?-Math.atan2(s.x,Math.max(s.z*.35,600)):(s.selectedHeading-runwayHeading(s))*RAD;
  // APPR/GA track uses a wind correction; selected HDG remains a heading.
  const cross=a.wind.x*Math.cos(track)+a.wind.z*Math.sin(track);
- const heading=route||go||s.apprArmed||glide?track-Math.asin(clamp(cross/Math.max(a.horizontal,20),-.7,.7)):track;
- s.guidance.roll=clamp(wrap(heading-s.yaw)*2.0,route?-.42:-.25,route?.42:.25);
+ const heading=(route&&!route.headingMode)||go||s.apprArmed||glide?track-Math.asin(clamp(cross/Math.max(a.horizontal,20),-.7,.7)):track;
+ let headingError=wrap(heading-s.yaw);
+ // A charted turn direction wins over the shortest turn only during capture.
+ if(route?.turn&&!route.turnEstablished&&Math.abs(headingError)>90*RAD){
+  if(route.turn==='left'&&headingError>0)headingError-=2*Math.PI;
+  if(route.turn==='right'&&headingError<0)headingError+=2*Math.PI;
+ }
+ s.guidance.roll=clamp(headingError*2.0,route?-.42:-.25,route?.42:.25);
  let vs=go?clamp((RUNWAY.ground+s.selectedAltitude/FT-s.y)*.15,0,8):s.gsCaptured?-Math.max(20,a.groundSpeed)*Math.tan(3*RAD)+(approachAltitude(s.z)-s.y)*.16:clamp((RUNWAY.ground+s.selectedAltitude/FT-s.y)*.15,-6,6);
  if(route)vs=s.route?.inFinal?-Math.max(20,a.groundSpeed)*Math.tan(3*RAD)+(RUNWAY.ground+route.altitude/FT-s.y)*.16:clamp((RUNWAY.ground+route.altitude/FT-s.y)*.15,-5,7);
  if(glide)vs=-a.drag*Math.max(a.tas,20)/(massOf(s)*G);

@@ -1,0 +1,2372 @@
+{
+  "schema": 1,
+  "airportId": "lax",
+  "bounds": [
+    -30000,
+    -30000,
+    30000,
+    30000
+  ],
+  "tileSize": 4000,
+  "innerRadiusM": 6000,
+  "center": [
+    608.0984772091595,
+    -2549.3981873063685
+  ],
+  "frame": {
+    "threshold": [
+      -118.379794,
+      33.939881
+    ],
+    "heading": -97.02673335197653
+  },
+  "drivingSide": "right",
+  "bridgeDeckReference": "terrain",
+  "tiles": [
+    {
+      "id": "-8:6",
+      "bounds": [
+        -30000,
+        24000,
+        -28000,
+        28000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-8_6-f0c9fffa03d0.json.gz",
+      "bytes": 21617,
+      "decodedBytes": 128457,
+      "sha256": "f0c9fffa03d08fdcb37285f0c795c1e97578f11179151fa310c7dde61a1dae26",
+      "decodedSha256": "31f57be15d95008e70fccc0914959b8ba64769733f1b339fb6319c74bb67aed9",
+      "routes": 386,
+      "pieces": 386
+    },
+    {
+      "id": "-8:7",
+      "bounds": [
+        -30000,
+        28000,
+        -28000,
+        30000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-8_7-91f4d6311998.json.gz",
+      "bytes": 19600,
+      "decodedBytes": 131761,
+      "sha256": "91f4d63119981da90f4b7ee98d8a0444b29912f2ae3c0d1af7794670c714f40f",
+      "decodedSha256": "2977ce8fb70b1e05986a7f661a2afc178caa540c3749db2ce6d4ebb6dad4bd31",
+      "routes": 452,
+      "pieces": 452
+    },
+    {
+      "id": "-7:0",
+      "bounds": [
+        -28000,
+        0,
+        -24000,
+        4000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-7_0-b7391252ef38.json.gz",
+      "bytes": 17390,
+      "decodedBytes": 95534,
+      "sha256": "b7391252ef3888e3b656df07165505a2dce7a5ceff48fe9f13434501ceb9f93c",
+      "decodedSha256": "4fd553b2cf19e82e5ea9b4a5d7d7c09afe628e237f54d5c99db8f09cb5237832",
+      "routes": 255,
+      "pieces": 255
+    },
+    {
+      "id": "-7:1",
+      "bounds": [
+        -28000,
+        4000,
+        -24000,
+        8000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-7_1-790abcaed91b.json.gz",
+      "bytes": 32765,
+      "decodedBytes": 199099,
+      "sha256": "790abcaed91b96d94a999490fa835eff3521e8e1637a044baef8ae8c238f003c",
+      "decodedSha256": "24fa6a539e16b77134d1754e857deb493d491b9a4e15458d9d234b3ecff16ef4",
+      "routes": 594,
+      "pieces": 594
+    },
+    {
+      "id": "-7:2",
+      "bounds": [
+        -28000,
+        8000,
+        -24000,
+        12000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-7_2-5c9b4637eb7f.json.gz",
+      "bytes": 14053,
+      "decodedBytes": 88900,
+      "sha256": "5c9b4637eb7f5b01a57c42ef6006bb6e50c5455e71e8f7794a9fc1955803795f",
+      "decodedSha256": "356dfa4385459957bf9c076a231ecab1f40b1e94b7069b8389f2ec11e8c492c9",
+      "routes": 272,
+      "pieces": 274
+    },
+    {
+      "id": "-7:3",
+      "bounds": [
+        -28000,
+        12000,
+        -24000,
+        16000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-7_3-8f9c128bd0a6.json.gz",
+      "bytes": 992,
+      "decodedBytes": 4281,
+      "sha256": "8f9c128bd0a6f20e0d3b8a668f37c36ba61e66a0006d3009fc2b1dec233a04a9",
+      "decodedSha256": "8d7c31f95ee3439f8e734f90b59d32c8cfd65cf255d8760c26ebab001afd4e25",
+      "routes": 14,
+      "pieces": 14
+    },
+    {
+      "id": "-7:4",
+      "bounds": [
+        -28000,
+        16000,
+        -24000,
+        20000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-7_4-58be08127a0e.json.gz",
+      "bytes": 237,
+      "decodedBytes": 322,
+      "sha256": "58be08127a0e582ca3243107761d17944eb1d186706937f9e0798b3954d17777",
+      "decodedSha256": "1669513c920bb4061ac59adabc034adabe6451adc7643d19d269aa65b00f0d92",
+      "routes": 1,
+      "pieces": 1
+    },
+    {
+      "id": "-7:5",
+      "bounds": [
+        -28000,
+        20000,
+        -24000,
+        24000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-7_5-bfa0b2a2a028.json.gz",
+      "bytes": 22777,
+      "decodedBytes": 135648,
+      "sha256": "bfa0b2a2a028bb490abe5b78a4f47e71a0d30cd410ef12c7dcfdfdcd6a447528",
+      "decodedSha256": "96663f59e7009adb345e022f730b7a29b43ced816aae26534c3dba75d92580f7",
+      "routes": 411,
+      "pieces": 411
+    },
+    {
+      "id": "-7:6",
+      "bounds": [
+        -28000,
+        24000,
+        -24000,
+        28000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-7_6-85a9182e4a45.json.gz",
+      "bytes": 21056,
+      "decodedBytes": 126175,
+      "sha256": "85a9182e4a45e33018c19e6ce9d52955716e288d4b48ef8a4a2b9ad4b0ddb8c4",
+      "decodedSha256": "fd7ee403c50bc24caf00503b97999ccbde621b95a39b2c23db482f5a0398ab17",
+      "routes": 396,
+      "pieces": 397
+    },
+    {
+      "id": "-7:7",
+      "bounds": [
+        -28000,
+        28000,
+        -24000,
+        30000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-7_7-52ed7d09d62a.json.gz",
+      "bytes": 43287,
+      "decodedBytes": 288941,
+      "sha256": "52ed7d09d62a5f6631881dd6af206c479ef33df7bc923a73fb71088308131d16",
+      "decodedSha256": "33fad225eaa7931b9628c5ee4c60e345a19344fa207f0d0270031123999315da",
+      "routes": 975,
+      "pieces": 976
+    },
+    {
+      "id": "-6:-2",
+      "bounds": [
+        -24000,
+        -8000,
+        -20000,
+        -4000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-6_-2-78983edbc044.json.gz",
+      "bytes": 15377,
+      "decodedBytes": 80339,
+      "sha256": "78983edbc0449f6561b44afcb6291c725d0a00b268990db85c2b0b07fda225f5",
+      "decodedSha256": "0f517ac2cda4809379bf6e578ce54560365369a99875403aaf1a32d38aca22e8",
+      "routes": 193,
+      "pieces": 193
+    },
+    {
+      "id": "-6:-1",
+      "bounds": [
+        -24000,
+        -4000,
+        -20000,
+        0
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-6_-1-bbecfe7b60d8.json.gz",
+      "bytes": 20432,
+      "decodedBytes": 102048,
+      "sha256": "bbecfe7b60d8472604554592d290532bbc52eab3c897e92c730487a251c6f7e7",
+      "decodedSha256": "0aedfdd45d537981d91254f206353e09be20bd42ebbd9444a2faaa881a87e925",
+      "routes": 234,
+      "pieces": 235
+    },
+    {
+      "id": "-6:0",
+      "bounds": [
+        -24000,
+        0,
+        -20000,
+        4000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-6_0-c6b9993db516.json.gz",
+      "bytes": 63355,
+      "decodedBytes": 331642,
+      "sha256": "c6b9993db5168ddeb079e2ce992dbe2cc011a76935c7faeb77556775596c80c3",
+      "decodedSha256": "acc7a6a2b2d35c2accbf184e76514e476c55ffce5e8a0435f3d98ee6dc24b180",
+      "routes": 806,
+      "pieces": 809
+    },
+    {
+      "id": "-6:1",
+      "bounds": [
+        -24000,
+        4000,
+        -20000,
+        8000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-6_1-9d0d67bed188.json.gz",
+      "bytes": 74901,
+      "decodedBytes": 440316,
+      "sha256": "9d0d67bed1881489c547917af24b7449d198c54098c6609f4c901dbb34b5f187",
+      "decodedSha256": "affd52605187fb3edae890d1054df324fc02c5fc797084c76f023671be907946",
+      "routes": 1305,
+      "pieces": 1305
+    },
+    {
+      "id": "-6:2",
+      "bounds": [
+        -24000,
+        8000,
+        -20000,
+        12000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-6_2-1c8d6c0acd32.json.gz",
+      "bytes": 32982,
+      "decodedBytes": 176501,
+      "sha256": "1c8d6c0acd321b4d7b58a699be854c793a50ed8a93af998923f5dd3d761b6161",
+      "decodedSha256": "92131f0906222f088e5347ece97ace0791d819277762d295f043b72e6cfcce00",
+      "routes": 456,
+      "pieces": 457
+    },
+    {
+      "id": "-6:3",
+      "bounds": [
+        -24000,
+        12000,
+        -20000,
+        16000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-6_3-a113934bad88.json.gz",
+      "bytes": 73534,
+      "decodedBytes": 440381,
+      "sha256": "a113934bad884a2e4232d575aa6607cedd021608da46cce75272bd0d2fb7c6df",
+      "decodedSha256": "25370a93424c355e2b7a5b75e960c3ee1b37ab8a5e6228feef323b744c3bed4d",
+      "routes": 1355,
+      "pieces": 1357
+    },
+    {
+      "id": "-6:4",
+      "bounds": [
+        -24000,
+        16000,
+        -20000,
+        20000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-6_4-7490852ecb61.json.gz",
+      "bytes": 69745,
+      "decodedBytes": 443321,
+      "sha256": "7490852ecb61dd7690f9b23b377ed2b6a196501dd4757a743dd64d88ca01b384",
+      "decodedSha256": "0064e3db3b79f26f9bdc22e9b6571e297fc3f44bce1529da86eecc9c02a4491c",
+      "routes": 1382,
+      "pieces": 1383
+    },
+    {
+      "id": "-6:5",
+      "bounds": [
+        -24000,
+        20000,
+        -20000,
+        24000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-6_5-23ed7620dddf.json.gz",
+      "bytes": 93345,
+      "decodedBytes": 544621,
+      "sha256": "23ed7620dddfdebf6f9690ef8c660dda15e07d69e75e1f62835bcb99f8490714",
+      "decodedSha256": "bf9d49fced0faeaf32c835a46840cb2f650caf146a56a7848f8538e613214d87",
+      "routes": 1659,
+      "pieces": 1661
+    },
+    {
+      "id": "-6:6",
+      "bounds": [
+        -24000,
+        24000,
+        -20000,
+        28000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-6_6-742c5bcfa1f8.json.gz",
+      "bytes": 43037,
+      "decodedBytes": 252240,
+      "sha256": "742c5bcfa1f8c03c55420f70d88b6b6847287bb524f8140d46e0e50f2b30a6e4",
+      "decodedSha256": "606c57384776ace37753796547aee51d1bc027f9398da8c3496e2202216f3bc0",
+      "routes": 760,
+      "pieces": 764
+    },
+    {
+      "id": "-6:7",
+      "bounds": [
+        -24000,
+        28000,
+        -20000,
+        30000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-6_7-1c2f569c5e38.json.gz",
+      "bytes": 31828,
+      "decodedBytes": 190594,
+      "sha256": "1c2f569c5e386a13496c91f783582a56cab501733934ea1990c357e2f377c089",
+      "decodedSha256": "73bd769481d0114f18efbf7e64522b4e9a694d2a388fc596e56b6355face6aaa",
+      "routes": 583,
+      "pieces": 585
+    },
+    {
+      "id": "-5:-2",
+      "bounds": [
+        -20000,
+        -8000,
+        -16000,
+        -4000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-5_-2-2c78d1dc0095.json.gz",
+      "bytes": 31759,
+      "decodedBytes": 155047,
+      "sha256": "2c78d1dc00958cb9bd6823f19dbcc04bcd33be65b273bcd5d186bd1abb2676ff",
+      "decodedSha256": "103724604c288cc18053b0bd0df093ec1f0436665f60bd24db8010165827ba30",
+      "routes": 306,
+      "pieces": 306
+    },
+    {
+      "id": "-5:-1",
+      "bounds": [
+        -20000,
+        -4000,
+        -16000,
+        0
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-5_-1-4581cc810c86.json.gz",
+      "bytes": 72798,
+      "decodedBytes": 377522,
+      "sha256": "4581cc810c86bdfda3aefb932c9e0b5e888bb172fc0fb149a54e7a8c6254b6a6",
+      "decodedSha256": "8d378bba28b6f94d345ac5b8d4aed913ea5a3693727e29bb9d4d804c5a0686c7",
+      "routes": 908,
+      "pieces": 911
+    },
+    {
+      "id": "-5:0",
+      "bounds": [
+        -20000,
+        0,
+        -16000,
+        4000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-5_0-97192ad77fb8.json.gz",
+      "bytes": 76386,
+      "decodedBytes": 431575,
+      "sha256": "97192ad77fb83280e9942673e244f27e2210020d503cc9337ab565410004875f",
+      "decodedSha256": "6b4e64a1742a984d858ab2abd175d9691f6cf2807b2e8fe2c7bbecfd74c8a479",
+      "routes": 1222,
+      "pieces": 1224
+    },
+    {
+      "id": "-5:1",
+      "bounds": [
+        -20000,
+        4000,
+        -16000,
+        8000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-5_1-4ab1dd318afa.json.gz",
+      "bytes": 87515,
+      "decodedBytes": 534198,
+      "sha256": "4ab1dd318afa67b52e2abf99034e5b5a11ad6b221a5b43da0c278e3d2083a65a",
+      "decodedSha256": "ec87ff0f7b80ca9df977e9161d6c6149d9169b5b8e1cb2b13f875734edbff363",
+      "routes": 1662,
+      "pieces": 1666
+    },
+    {
+      "id": "-5:2",
+      "bounds": [
+        -20000,
+        8000,
+        -16000,
+        12000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-5_2-1497358a6e38.json.gz",
+      "bytes": 63712,
+      "decodedBytes": 379203,
+      "sha256": "1497358a6e38dabc83cb710971f4a3cd9e818140974ff4efb128dc4f5a65efdc",
+      "decodedSha256": "f0b8b7fd85ed9f30755d956c4c089cdcc00e5a33db25d215c3f93d75e65c2fa9",
+      "routes": 1179,
+      "pieces": 1183
+    },
+    {
+      "id": "-5:3",
+      "bounds": [
+        -20000,
+        12000,
+        -16000,
+        16000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-5_3-4d2bd5a580d8.json.gz",
+      "bytes": 103954,
+      "decodedBytes": 659017,
+      "sha256": "4d2bd5a580d897940b8f6dcebf4a824759f358d0b9af4dbf7efd96750583a69b",
+      "decodedSha256": "ae218af3801e266e3365334f26f5f66cddd44881ab13c38fcb95db98e63969fc",
+      "routes": 2077,
+      "pieces": 2077
+    },
+    {
+      "id": "-5:4",
+      "bounds": [
+        -20000,
+        16000,
+        -16000,
+        20000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-5_4-9ac764e493f4.json.gz",
+      "bytes": 130885,
+      "decodedBytes": 835619,
+      "sha256": "9ac764e493f492c7775396af44c7a1384ff65fd6cb63ba864cfaca2a8fc09053",
+      "decodedSha256": "b24392952b3f298d2c401e34598b8a0404c20e2e0723e645e4045771af46ef08",
+      "routes": 2688,
+      "pieces": 2692
+    },
+    {
+      "id": "-5:5",
+      "bounds": [
+        -20000,
+        20000,
+        -16000,
+        24000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-5_5-4eb6e0c5e9cc.json.gz",
+      "bytes": 100351,
+      "decodedBytes": 628278,
+      "sha256": "4eb6e0c5e9cc600ccb4fcd3f71749b6927af7a922df8d4b80afeb5c93845198f",
+      "decodedSha256": "eb7c6da3d288e3e66ee39e7ca9bf87a17ae55a75e898059c617cf332ad07d694",
+      "routes": 2000,
+      "pieces": 2002
+    },
+    {
+      "id": "-5:6",
+      "bounds": [
+        -20000,
+        24000,
+        -16000,
+        28000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-5_6-f55a66c9e725.json.gz",
+      "bytes": 71053,
+      "decodedBytes": 439893,
+      "sha256": "f55a66c9e7252d0369b98be6a742b5c7308302e64472b640e06c078490978f87",
+      "decodedSha256": "0cc5308c1bcbf3e33b06275ad0616e003832d417292750537f114ce2bd2580e4",
+      "routes": 1396,
+      "pieces": 1399
+    },
+    {
+      "id": "-5:7",
+      "bounds": [
+        -20000,
+        28000,
+        -16000,
+        30000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-5_7-97a1709fc5c4.json.gz",
+      "bytes": 39832,
+      "decodedBytes": 263036,
+      "sha256": "97a1709fc5c4135257df3268a0fbe1e22710c6fd995dcd85d89656629702ec9e",
+      "decodedSha256": "59ea78cff892773adb6594edc057669ef32ad47dbc525c5f05584386ebe49113",
+      "routes": 882,
+      "pieces": 884
+    },
+    {
+      "id": "-4:-2",
+      "bounds": [
+        -16000,
+        -8000,
+        -12000,
+        -4000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-4_-2-cef8fa3e1bab.json.gz",
+      "bytes": 2923,
+      "decodedBytes": 13261,
+      "sha256": "cef8fa3e1bab73a162e9e79ac5ecb836a01d88ade92f8a1337894f76f729fbde",
+      "decodedSha256": "ee70c900599c3e8afb6fcc56f783497420c3ae23087723925e3717077ccb03bd",
+      "routes": 27,
+      "pieces": 27
+    },
+    {
+      "id": "-4:-1",
+      "bounds": [
+        -16000,
+        -4000,
+        -12000,
+        0
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-4_-1-3a85464c654b.json.gz",
+      "bytes": 65177,
+      "decodedBytes": 353088,
+      "sha256": "3a85464c654b00d7211d03a41efb9ba3e8500b70572b744f752cb0bd9161fca1",
+      "decodedSha256": "e30a4aaf73d11f18d55b4336f0a54080f173897b7851de135636cf840905928f",
+      "routes": 921,
+      "pieces": 923
+    },
+    {
+      "id": "-4:0",
+      "bounds": [
+        -16000,
+        0,
+        -12000,
+        4000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-4_0-df86a56acfbe.json.gz",
+      "bytes": 112410,
+      "decodedBytes": 696526,
+      "sha256": "df86a56acfbe1c0fc6a3dcc9c86e54108f7c9b8abb4e302451c5adae7cfa91ad",
+      "decodedSha256": "66153c1a21e6de62d88de8c6ab8b9f2071f655183f669022af4984df2995c694",
+      "routes": 2228,
+      "pieces": 2231
+    },
+    {
+      "id": "-4:1",
+      "bounds": [
+        -16000,
+        4000,
+        -12000,
+        8000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-4_1-36f59f8b5fb4.json.gz",
+      "bytes": 109802,
+      "decodedBytes": 695479,
+      "sha256": "36f59f8b5fb42f4c11557d4636bc97eea491fc7a96d505e09c951f0331a30431",
+      "decodedSha256": "a7588dfb08a1da26f56f21b492fc5915208b70702a9cc4f489fcb6bf6a41069a",
+      "routes": 2277,
+      "pieces": 2280
+    },
+    {
+      "id": "-4:2",
+      "bounds": [
+        -16000,
+        8000,
+        -12000,
+        12000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-4_2-e46975938d59.json.gz",
+      "bytes": 74696,
+      "decodedBytes": 472279,
+      "sha256": "e46975938d595277ee9d5ac2aafe7c25a6ad5afcc2aed5f06363d01feb7ec78f",
+      "decodedSha256": "9ad92fd159eb908977ea968bdb74e04476a8a03aa757536fa46e10248e512116",
+      "routes": 1547,
+      "pieces": 1551
+    },
+    {
+      "id": "-4:3",
+      "bounds": [
+        -16000,
+        12000,
+        -12000,
+        16000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-4_3-21dd3d0dae97.json.gz",
+      "bytes": 83999,
+      "decodedBytes": 507788,
+      "sha256": "21dd3d0dae972cf84760b3701cd0b93d23ad8641fb497d90301ad485b6a5ba94",
+      "decodedSha256": "f95213071d1a933375e23e91075a6c6b0fcde2d87853d0c9cd3232106f0c7161",
+      "routes": 1569,
+      "pieces": 1574
+    },
+    {
+      "id": "-4:4",
+      "bounds": [
+        -16000,
+        16000,
+        -12000,
+        20000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-4_4-73ab40d17629.json.gz",
+      "bytes": 93115,
+      "decodedBytes": 578685,
+      "sha256": "73ab40d176299af8ee7f08a2f057288d7eef737d9c2cde5facea2a6a61d9fcf5",
+      "decodedSha256": "3a9cd9d34f9575fd1a96e345e6c29e2094052cf9724b239a853c1185c22b4de9",
+      "routes": 1750,
+      "pieces": 1753
+    },
+    {
+      "id": "-4:5",
+      "bounds": [
+        -16000,
+        20000,
+        -12000,
+        24000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-4_5-157c128e9f59.json.gz",
+      "bytes": 77377,
+      "decodedBytes": 489515,
+      "sha256": "157c128e9f5984aa3a18b599090ad911444e216072b270506edf9c500d50e0b4",
+      "decodedSha256": "3dd93af0ace9a71671dfe46713f22a9540790c85210770a7f6c856cbcecb34f2",
+      "routes": 1515,
+      "pieces": 1519
+    },
+    {
+      "id": "-4:6",
+      "bounds": [
+        -16000,
+        24000,
+        -12000,
+        28000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-4_6-5cb964468f83.json.gz",
+      "bytes": 98772,
+      "decodedBytes": 633630,
+      "sha256": "5cb964468f833f260898b0d9695046881c9f4ef717a85568673bc7ecba8e983b",
+      "decodedSha256": "d72e0879a55217a6eec33863fce249432a6dcec2c8eca8e4415c093884372bf1",
+      "routes": 2090,
+      "pieces": 2091
+    },
+    {
+      "id": "-4:7",
+      "bounds": [
+        -16000,
+        28000,
+        -12000,
+        30000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-4_7-02031d4e7688.json.gz",
+      "bytes": 44030,
+      "decodedBytes": 286962,
+      "sha256": "02031d4e7688f5a159a2a5e8ff7ea9b2d4e09b5ff4fae50971b91d590c703709",
+      "decodedSha256": "0897209b477b3bff1df5177bec02665a778aa9aa1429271afa9f00c95a49930a",
+      "routes": 965,
+      "pieces": 966
+    },
+    {
+      "id": "-3:-1",
+      "bounds": [
+        -12000,
+        -4000,
+        -8000,
+        0
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-3_-1-5523eb171086.json.gz",
+      "bytes": 84945,
+      "decodedBytes": 504326,
+      "sha256": "5523eb171086fcb51347ca8c327f12fe0d889c41632bdcc14aa26e2f3ebc441e",
+      "decodedSha256": "56a217d28731f28750506adbbac552323ad4ff4f8e8cfce0b87393867c4d7ba7",
+      "routes": 1512,
+      "pieces": 1513
+    },
+    {
+      "id": "-3:0",
+      "bounds": [
+        -12000,
+        0,
+        -8000,
+        4000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-3_0-91d6aab35c26.json.gz",
+      "bytes": 97228,
+      "decodedBytes": 615155,
+      "sha256": "91d6aab35c268bc6aa8dcf8dae8a7d5948bff422d073733d9ca56c9dd761bafe",
+      "decodedSha256": "6e46d64753542d3f49be8407b9faec02f746d4913d5584c8fc5e0bac95ace87e",
+      "routes": 1952,
+      "pieces": 1954
+    },
+    {
+      "id": "-3:1",
+      "bounds": [
+        -12000,
+        4000,
+        -8000,
+        8000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-3_1-ddf6b3416f63.json.gz",
+      "bytes": 101250,
+      "decodedBytes": 632123,
+      "sha256": "ddf6b3416f63c2b06a1df0a8e2a2194d46346101c6d8bb2e8ce16372c8615d49",
+      "decodedSha256": "84c4fbcc7dbc0067efe04d295aaad6c84b32acc355f9755d84ff28b9b8860ef4",
+      "routes": 2048,
+      "pieces": 2050
+    },
+    {
+      "id": "-3:2",
+      "bounds": [
+        -12000,
+        8000,
+        -8000,
+        12000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-3_2-ed5126692c1c.json.gz",
+      "bytes": 90033,
+      "decodedBytes": 528562,
+      "sha256": "ed5126692c1ca0ae1d5aeb9d7f8f70561c56096c5b7b4950f55e05bf7ec2138b",
+      "decodedSha256": "a1c314c155d824e8dbb07889dd5f8a52e94bb976405f3e0dca721943ec22b04e",
+      "routes": 1510,
+      "pieces": 1512
+    },
+    {
+      "id": "-3:3",
+      "bounds": [
+        -12000,
+        12000,
+        -8000,
+        16000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-3_3-bb513d95c3fd.json.gz",
+      "bytes": 73657,
+      "decodedBytes": 432593,
+      "sha256": "bb513d95c3fd88b880781ce2c9ab9c4039e2766576b7735e659d72e851fb86fd",
+      "decodedSha256": "21b22dd9f51c9cef8125c055665e6b0cd344cff011ca4405e8dda2c7d04b3a49",
+      "routes": 1328,
+      "pieces": 1329
+    },
+    {
+      "id": "-3:4",
+      "bounds": [
+        -12000,
+        16000,
+        -8000,
+        20000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-3_4-b9e00c2cf1ca.json.gz",
+      "bytes": 91052,
+      "decodedBytes": 584959,
+      "sha256": "b9e00c2cf1caafd26a77d1c7502444ae4a730ba98f1ab4675dfb0394cf72a6f0",
+      "decodedSha256": "da32325b246af519b587996605e69aed4a05d55d19cf64aa4b7e4d6751b15291",
+      "routes": 1890,
+      "pieces": 1892
+    },
+    {
+      "id": "-3:5",
+      "bounds": [
+        -12000,
+        20000,
+        -8000,
+        24000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-3_5-bfdaf0222a43.json.gz",
+      "bytes": 106640,
+      "decodedBytes": 688032,
+      "sha256": "bfdaf0222a437a126606068be966d424716eb41e3015edc5ba21281de4af8ef6",
+      "decodedSha256": "6f6454df3befa4cd2aeb61fc069f25a19628fe2845a9a3437417ebe38f445c43",
+      "routes": 2229,
+      "pieces": 2234
+    },
+    {
+      "id": "-3:6",
+      "bounds": [
+        -12000,
+        24000,
+        -8000,
+        28000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-3_6-64f71c03654e.json.gz",
+      "bytes": 101409,
+      "decodedBytes": 670025,
+      "sha256": "64f71c03654e97e4d002c044266d36f5e49bebb3f5b4a2eb34bb8f71b75704d1",
+      "decodedSha256": "bc317cedd48566c02a5a6c8acd1962d134ce2bc34a6ef10b25e4c1ce8c2ad4d8",
+      "routes": 2254,
+      "pieces": 2254
+    },
+    {
+      "id": "-3:7",
+      "bounds": [
+        -12000,
+        28000,
+        -8000,
+        30000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-3_7-46fb36b30106.json.gz",
+      "bytes": 54010,
+      "decodedBytes": 356506,
+      "sha256": "46fb36b3010604b7caed99ce7ca29df83954b424b27cf1a5cc1dcc49e9ae705b",
+      "decodedSha256": "dea9e68022337a70af25d8fbc98c4ac2a5231c1080abaca409ab08055f976316",
+      "routes": 1212,
+      "pieces": 1216
+    },
+    {
+      "id": "-2:-1",
+      "bounds": [
+        -8000,
+        -4000,
+        -4000,
+        0
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-2_-1-53547ca345a6.json.gz",
+      "bytes": 69201,
+      "decodedBytes": 451052,
+      "sha256": "53547ca345a64669b89d09df70c94c645b4b5b8c995f0878307a3323fd207d92",
+      "decodedSha256": "84233d5a6091ff7cc42426643becb4c8dee938aca832370562fdae0e8febc817",
+      "routes": 1475,
+      "pieces": 1475
+    },
+    {
+      "id": "-2:0",
+      "bounds": [
+        -8000,
+        0,
+        -4000,
+        4000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-2_0-e370d7297d4d.json.gz",
+      "bytes": 109312,
+      "decodedBytes": 691204,
+      "sha256": "e370d7297d4dca61449b001ec070553324ddeaec43a791f72610f5f405329691",
+      "decodedSha256": "06c60cae966278f835497171efe1740d1748800063da96175fc49e6284a2a69a",
+      "routes": 2189,
+      "pieces": 2191
+    },
+    {
+      "id": "-2:1",
+      "bounds": [
+        -8000,
+        4000,
+        -4000,
+        8000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-2_1-43d4ceeaf8c6.json.gz",
+      "bytes": 106687,
+      "decodedBytes": 682825,
+      "sha256": "43d4ceeaf8c6ecb94d34ec66d13d761cb86009f29dae4b030a88b982ac16305b",
+      "decodedSha256": "b6dfee124c8fe59cdf4f47492c8adac267248809a3642e0fa1537cbbea6ff421",
+      "routes": 2229,
+      "pieces": 2230
+    },
+    {
+      "id": "-2:2",
+      "bounds": [
+        -8000,
+        8000,
+        -4000,
+        12000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-2_2-b2131283c087.json.gz",
+      "bytes": 75548,
+      "decodedBytes": 464973,
+      "sha256": "b2131283c08734cd3606193486a9bc1182275dd760be80f66ae64ffdf72ee6a6",
+      "decodedSha256": "eab81db2657275ed590db5e4a87f8dd2b27f87871c290e80f040b216b6423e2a",
+      "routes": 1479,
+      "pieces": 1481
+    },
+    {
+      "id": "-2:3",
+      "bounds": [
+        -8000,
+        12000,
+        -4000,
+        16000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-2_3-9b79086d569b.json.gz",
+      "bytes": 82981,
+      "decodedBytes": 529065,
+      "sha256": "9b79086d569bf4c096c98705ab5685d66a0ac7b96587677dd2b5c8d92defad09",
+      "decodedSha256": "76800751131af664887b163e23d6f1ca77aece8d65c7df566e684ede1126d8fc",
+      "routes": 1716,
+      "pieces": 1717
+    },
+    {
+      "id": "-2:4",
+      "bounds": [
+        -8000,
+        16000,
+        -4000,
+        20000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-2_4-e4467c5347a4.json.gz",
+      "bytes": 102747,
+      "decodedBytes": 625474,
+      "sha256": "e4467c5347a4655f28f0e571b09b11f94dfcbd00ee7b8f58b6a769c9ddb27f4e",
+      "decodedSha256": "e34ce819794745fda3621ae5f0a2c398a6fa8bc43c63ac8a1a970ee7e9d893f7",
+      "routes": 1981,
+      "pieces": 1981
+    },
+    {
+      "id": "-2:5",
+      "bounds": [
+        -8000,
+        20000,
+        -4000,
+        24000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-2_5-6457473c19f6.json.gz",
+      "bytes": 109395,
+      "decodedBytes": 674891,
+      "sha256": "6457473c19f6078d2ab616f64bbeb9b7be25ee30db7c7cae3bbb72349c2af4cd",
+      "decodedSha256": "ad9284b86c8731dfd180eed820b02509ebcc1a511c03c52400cab967193f591e",
+      "routes": 2132,
+      "pieces": 2136
+    },
+    {
+      "id": "-2:6",
+      "bounds": [
+        -8000,
+        24000,
+        -4000,
+        28000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-2_6-fc3fcadcecdf.json.gz",
+      "bytes": 108196,
+      "decodedBytes": 689034,
+      "sha256": "fc3fcadcecdfc52f454136dff52db59f35d0bb65cd4bba2effd56a3d1e8496cd",
+      "decodedSha256": "6e5ee021810f63a97b9e3fa08811f7977466e7923b681f29efe77a3e9d5995cf",
+      "routes": 2261,
+      "pieces": 2266
+    },
+    {
+      "id": "-2:7",
+      "bounds": [
+        -8000,
+        28000,
+        -4000,
+        30000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-2_7-98d259230cb9.json.gz",
+      "bytes": 47152,
+      "decodedBytes": 302681,
+      "sha256": "98d259230cb9426de3c2cbeeb137573e468fc5c5c1cfbbee7bd6cf15f18914a9",
+      "decodedSha256": "92f386e979f0f0088790bd84cf396052e0e290ae21271f6f05ff37f1723c9f32",
+      "routes": 1004,
+      "pieces": 1011
+    },
+    {
+      "id": "-1:0",
+      "bounds": [
+        -4000,
+        0,
+        0,
+        4000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-1_0-b871fb8cd2c9.json.gz",
+      "bytes": 33926,
+      "decodedBytes": 214410,
+      "sha256": "b871fb8cd2c90b247bba56a2cbf0e78111c13bb6064e428010e2fd60c25a6d8f",
+      "decodedSha256": "94ebbdbea5e5e273fe9b43a4c65e479d2cacbcdde3ebc59d0893a47acd75bd9a",
+      "routes": 667,
+      "pieces": 670
+    },
+    {
+      "id": "-1:1",
+      "bounds": [
+        -4000,
+        4000,
+        0,
+        8000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-1_1-2ca383c98b76.json.gz",
+      "bytes": 86513,
+      "decodedBytes": 537328,
+      "sha256": "2ca383c98b76ed2d2832bbde44a375dd6528e5ac31942efd87083bcbb9f2d346",
+      "decodedSha256": "b68a1ec2e215dfae0931d385ce0b144182db0d6853f1f6ede3bef870f9b0c905",
+      "routes": 1666,
+      "pieces": 1667
+    },
+    {
+      "id": "-1:2",
+      "bounds": [
+        -4000,
+        8000,
+        0,
+        12000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-1_2-58a56ba0feb7.json.gz",
+      "bytes": 104082,
+      "decodedBytes": 632995,
+      "sha256": "58a56ba0feb751f34618f62343106ca5e9fe18b66fb4df131241fd2f4a576f7e",
+      "decodedSha256": "7cae69b1b36d0a376f7f974c8a67ec5580526d70fe7b42d5c8e3e774aedf19af",
+      "routes": 1924,
+      "pieces": 1926
+    },
+    {
+      "id": "-1:3",
+      "bounds": [
+        -4000,
+        12000,
+        0,
+        16000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-1_3-a39312e0fad0.json.gz",
+      "bytes": 103850,
+      "decodedBytes": 625036,
+      "sha256": "a39312e0fad02e45c7d46c53043ddd9f81d2c3cfa296203007b2a0aa614bbc84",
+      "decodedSha256": "5e8fe0d977cd40efcf015bde64aea9033f50a54d525c43a50b9affbaba422252",
+      "routes": 1951,
+      "pieces": 1952
+    },
+    {
+      "id": "-1:4",
+      "bounds": [
+        -4000,
+        16000,
+        0,
+        20000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-1_4-9d6ba41bf705.json.gz",
+      "bytes": 97404,
+      "decodedBytes": 564228,
+      "sha256": "9d6ba41bf705ad4b6130d3838735ea9aa081505c16067a153fc45b5f5ae2c8ac",
+      "decodedSha256": "49e8e5d25671b27d45f8d6e37b248532d1c793997acb5be7d92e587a27d5ee60",
+      "routes": 1702,
+      "pieces": 1704
+    },
+    {
+      "id": "-1:5",
+      "bounds": [
+        -4000,
+        20000,
+        0,
+        24000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-1_5-622bfb41f79a.json.gz",
+      "bytes": 111476,
+      "decodedBytes": 661956,
+      "sha256": "622bfb41f79a57b1a6456582bdb1befdac81ec6745c77530993d4d4dd75cb1d2",
+      "decodedSha256": "599cf98c88a7835e56aaf170458dd9c1d24db08e41cab5d69092c5e1fd93f441",
+      "routes": 2062,
+      "pieces": 2067
+    },
+    {
+      "id": "-1:6",
+      "bounds": [
+        -4000,
+        24000,
+        0,
+        28000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-1_6-96a76e5cd0aa.json.gz",
+      "bytes": 98982,
+      "decodedBytes": 597732,
+      "sha256": "96a76e5cd0aa0f340320033cdcd90394bcbb04eec9e3ec65d205c8176a991a27",
+      "decodedSha256": "511c5fa44b87950964ee64bf5541467398c8dac80a5c773ef9569a72ca170675",
+      "routes": 1899,
+      "pieces": 1901
+    },
+    {
+      "id": "-1:7",
+      "bounds": [
+        -4000,
+        28000,
+        0,
+        30000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/-1_7-1e902ccf0719.json.gz",
+      "bytes": 48113,
+      "decodedBytes": 300757,
+      "sha256": "1e902ccf0719dfdc308b3400021398ed99b51a0a37e9718883b58fcd75c21c78",
+      "decodedSha256": "e98250ece8e7263442cd1ba0dd30347d65c34f4eb826ec562d5e41596883fd7d",
+      "routes": 971,
+      "pieces": 976
+    },
+    {
+      "id": "0:0",
+      "bounds": [
+        0,
+        0,
+        4000,
+        4000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/0_0-08a39b760466.json.gz",
+      "bytes": 30523,
+      "decodedBytes": 177393,
+      "sha256": "08a39b760466113603d7a444d1b6f9cdfe8313b4760724da64ea7e5805b23258",
+      "decodedSha256": "335cd07053268fe7a865593310612b560bed94ac799665d57fd02b8c95e64b1a",
+      "routes": 492,
+      "pieces": 497
+    },
+    {
+      "id": "0:1",
+      "bounds": [
+        0,
+        4000,
+        4000,
+        8000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/0_1-928ce8acf83f.json.gz",
+      "bytes": 79868,
+      "decodedBytes": 478041,
+      "sha256": "928ce8acf83f2f6c8c9ddc1af46d1bee6431990bae29fcadceb83e3f4c98df86",
+      "decodedSha256": "6020ff176df9f12e28e842ccde7a34bbe949ed6d484ae93b112e91590421ee5f",
+      "routes": 1351,
+      "pieces": 1352
+    },
+    {
+      "id": "0:2",
+      "bounds": [
+        0,
+        8000,
+        4000,
+        12000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/0_2-46188819efc9.json.gz",
+      "bytes": 99316,
+      "decodedBytes": 636991,
+      "sha256": "46188819efc984546d2b5af5368d4b59e3c87933af685d47b5713652de8fdef3",
+      "decodedSha256": "69c91a940c53d41300e6e1d719712396ef999d40fffb6eb6ff84dbd82edb3bb2",
+      "routes": 1996,
+      "pieces": 1996
+    },
+    {
+      "id": "0:3",
+      "bounds": [
+        0,
+        12000,
+        4000,
+        16000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/0_3-f6e0fe2e80a0.json.gz",
+      "bytes": 100808,
+      "decodedBytes": 637844,
+      "sha256": "f6e0fe2e80a0ac8be13b4bff0ba8c19017252eeb098586122f3cc246b233c4ce",
+      "decodedSha256": "e667f7220d8b2400cae351605ac68e21e2db821e09facdb770a36dbb71772e0f",
+      "routes": 2040,
+      "pieces": 2041
+    },
+    {
+      "id": "0:4",
+      "bounds": [
+        0,
+        16000,
+        4000,
+        20000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/0_4-da480b502e8b.json.gz",
+      "bytes": 105903,
+      "decodedBytes": 636378,
+      "sha256": "da480b502e8b9317f1de01db7f57e10099d7ed2506269d45a9f605c23d9c7902",
+      "decodedSha256": "b2d710261043b269b794a4f63883816209bb4a1869e587872d2f0f83cf1795f6",
+      "routes": 2029,
+      "pieces": 2032
+    },
+    {
+      "id": "0:5",
+      "bounds": [
+        0,
+        20000,
+        4000,
+        24000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/0_5-5713c0f1666f.json.gz",
+      "bytes": 93877,
+      "decodedBytes": 557685,
+      "sha256": "5713c0f1666ffed5b23cc3ad5d226d93225f15ac883b83688f86b70b44b1580b",
+      "decodedSha256": "56b12076fe560583529250972551981c14c05edc48745d5be1c2f5f9a36e72b2",
+      "routes": 1748,
+      "pieces": 1751
+    },
+    {
+      "id": "0:6",
+      "bounds": [
+        0,
+        24000,
+        4000,
+        28000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/0_6-6ed888864687.json.gz",
+      "bytes": 80250,
+      "decodedBytes": 486060,
+      "sha256": "6ed88886468790adfa22a079aa652d5995014f6301a55cedd94972974f8db49c",
+      "decodedSha256": "90eb9cda0a05fb792b8fd0155e7484089b5b0e571029415c9eaea00fc9227460",
+      "routes": 1575,
+      "pieces": 1579
+    },
+    {
+      "id": "0:7",
+      "bounds": [
+        0,
+        28000,
+        4000,
+        30000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/0_7-507c48c3f39b.json.gz",
+      "bytes": 46125,
+      "decodedBytes": 272473,
+      "sha256": "507c48c3f39bb0940b6799d21609270136bbeb2cd63546e72e19ffb9a175778d",
+      "decodedSha256": "ff6ec196243ad95b5b6f55059f76b1c945c10b2d17237b5f1e0cf97899c42268",
+      "routes": 862,
+      "pieces": 866
+    },
+    {
+      "id": "1:-3",
+      "bounds": [
+        4000,
+        -12000,
+        8000,
+        -8000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/1_-3-0b9ac9850c64.json.gz",
+      "bytes": 11946,
+      "decodedBytes": 66943,
+      "sha256": "0b9ac9850c6436bd8a3be546ef93e885437bfefda173623affe0efe32702e47a",
+      "decodedSha256": "7ecf22096026d6e2760c45dddde6a59a8fb6fd753b83f821e3c5c94b8e1d42a8",
+      "routes": 184,
+      "pieces": 184
+    },
+    {
+      "id": "1:-2",
+      "bounds": [
+        4000,
+        -8000,
+        8000,
+        -4000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/1_-2-b45fec5387c4.json.gz",
+      "bytes": 93137,
+      "decodedBytes": 524064,
+      "sha256": "b45fec5387c41bb28f1f93589a86efe53335141f1ac400ebd1b9b6b1299015ba",
+      "decodedSha256": "b48e687b3dacbeedc149e1dc0310dc10ad1299da605d7c58e3d2aa700f264704",
+      "routes": 1485,
+      "pieces": 1487
+    },
+    {
+      "id": "1:-1",
+      "bounds": [
+        4000,
+        -4000,
+        8000,
+        0
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/1_-1-cfd60f6d501e.json.gz",
+      "bytes": 57814,
+      "decodedBytes": 333313,
+      "sha256": "cfd60f6d501e0f814fbc1635bab4f058f3e782561ead5e8f0e93dd3fc479b008",
+      "decodedSha256": "1e4ce15554d8d63c94467e3b8ca00bccd2b14858bdfd7093bae5bcd3b1a04d15",
+      "routes": 979,
+      "pieces": 980
+    },
+    {
+      "id": "1:0",
+      "bounds": [
+        4000,
+        0,
+        8000,
+        4000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/1_0-7f9d69592c22.json.gz",
+      "bytes": 60739,
+      "decodedBytes": 312615,
+      "sha256": "7f9d69592c22d247e617179533ef63994d34dcf367f2c475f140075138bf19e2",
+      "decodedSha256": "f0c23e9635fd6915aa9fd08f55e0e692ab8918a6e485e7f720d5dc0ae15beb01",
+      "routes": 732,
+      "pieces": 734
+    },
+    {
+      "id": "1:1",
+      "bounds": [
+        4000,
+        4000,
+        8000,
+        8000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/1_1-44f023be7320.json.gz",
+      "bytes": 93788,
+      "decodedBytes": 555697,
+      "sha256": "44f023be7320881574bce9defa711d0978277f8a99d894864b1568e5775cea0f",
+      "decodedSha256": "fb79ba7b57af5a1acc3f954dd1548138e0366ae605cbac57aa19408983ed521b",
+      "routes": 1568,
+      "pieces": 1570
+    },
+    {
+      "id": "1:2",
+      "bounds": [
+        4000,
+        8000,
+        8000,
+        12000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/1_2-a9b2aa37e093.json.gz",
+      "bytes": 102081,
+      "decodedBytes": 633954,
+      "sha256": "a9b2aa37e093e353616ddc0c7d17e9508ab86480496aeb6fda34d5a247f5aeaa",
+      "decodedSha256": "856a599225f43f6e0400627c6b9fbbbd5d91b0688d4b71fc262cd18b1d8211bc",
+      "routes": 1975,
+      "pieces": 1975
+    },
+    {
+      "id": "1:3",
+      "bounds": [
+        4000,
+        12000,
+        8000,
+        16000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/1_3-bc9b529a8426.json.gz",
+      "bytes": 87717,
+      "decodedBytes": 516348,
+      "sha256": "bc9b529a84261a37b6ff5dd63ed0635bf42394a091ca798a8c5f9566132bde77",
+      "decodedSha256": "4d0e7f2b0be185227888dda4610f14728ae13e31e096db740134398d12ab5b23",
+      "routes": 1544,
+      "pieces": 1546
+    },
+    {
+      "id": "1:4",
+      "bounds": [
+        4000,
+        16000,
+        8000,
+        20000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/1_4-e3f5d73d531b.json.gz",
+      "bytes": 81988,
+      "decodedBytes": 477083,
+      "sha256": "e3f5d73d531bc043cbb0037fe5569a3195dcf47466956d9a2019d04c0c70b697",
+      "decodedSha256": "c5611ebc0510c076b682885dfb5b03965f245b0656fa17ef916efe91b365a1c9",
+      "routes": 1475,
+      "pieces": 1481
+    },
+    {
+      "id": "1:5",
+      "bounds": [
+        4000,
+        20000,
+        8000,
+        24000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/1_5-408c4766dd84.json.gz",
+      "bytes": 115959,
+      "decodedBytes": 684899,
+      "sha256": "408c4766dd84228ff968f783b8f8beeb1b609ecf19c22f5ce61e9d0f5d97ebed",
+      "decodedSha256": "1e3d510ce71fa74bfea8d3633908dca5287de23d1f83ee46768afabe121b621d",
+      "routes": 2100,
+      "pieces": 2105
+    },
+    {
+      "id": "1:6",
+      "bounds": [
+        4000,
+        24000,
+        8000,
+        28000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/1_6-d8e08440e10a.json.gz",
+      "bytes": 100562,
+      "decodedBytes": 587527,
+      "sha256": "d8e08440e10af263d05d0e31db1769426a6cebc3570718ad62ab8a6becb43b96",
+      "decodedSha256": "ec148ef483a9b762e7d850145a3eb3b9a970b0470685d12ea8f822a60aba960d",
+      "routes": 1770,
+      "pieces": 1777
+    },
+    {
+      "id": "1:7",
+      "bounds": [
+        4000,
+        28000,
+        8000,
+        30000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/1_7-c747e992f1b0.json.gz",
+      "bytes": 34656,
+      "decodedBytes": 197830,
+      "sha256": "c747e992f1b06f55a61a1ab7f564321c7dfe8e2544ec443f36241d424de60709",
+      "decodedSha256": "5114d7be7022fc40b0e38621c3f69a159e37c2514b45f2069bab026939da8638",
+      "routes": 580,
+      "pieces": 580
+    },
+    {
+      "id": "2:-3",
+      "bounds": [
+        8000,
+        -12000,
+        12000,
+        -8000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/2_-3-03aff9654717.json.gz",
+      "bytes": 83687,
+      "decodedBytes": 470835,
+      "sha256": "03aff96547177f457494e83ecf408a82b7a1857a0ab54d1a1e5d2e8123c4b8e5",
+      "decodedSha256": "f14412a4252312f4d8143d41919a9835c77178c7388d105650bf17b755128ad1",
+      "routes": 1372,
+      "pieces": 1372
+    },
+    {
+      "id": "2:-2",
+      "bounds": [
+        8000,
+        -8000,
+        12000,
+        -4000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/2_-2-3bfbd8ffc27a.json.gz",
+      "bytes": 144005,
+      "decodedBytes": 799085,
+      "sha256": "3bfbd8ffc27ab9e61dafc14af0caaa8c600fdd23b7dfc5649199b12058fcd747",
+      "decodedSha256": "41ff23b6fe87f83365c392dbc8668ba202c8b71a0c7fe8814a6b7616a1530015",
+      "routes": 2264,
+      "pieces": 2266
+    },
+    {
+      "id": "2:-1",
+      "bounds": [
+        8000,
+        -4000,
+        12000,
+        0
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/2_-1-1341c9df9c1e.json.gz",
+      "bytes": 126624,
+      "decodedBytes": 708250,
+      "sha256": "1341c9df9c1eb5945e6a684c65bf54e128e7cf7bf0301c9d72f6a3bc651143f9",
+      "decodedSha256": "2824ddd8d3d01b0378638168ed6fa967bc44a35caf4d07965b86807dd26fc8c4",
+      "routes": 2015,
+      "pieces": 2016
+    },
+    {
+      "id": "2:0",
+      "bounds": [
+        8000,
+        0,
+        12000,
+        4000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/2_0-46ee7402458e.json.gz",
+      "bytes": 122217,
+      "decodedBytes": 689267,
+      "sha256": "46ee7402458e70de94e34a6d58305ad06e5f8bd8919b95829a9cbe28733d6522",
+      "decodedSha256": "e53c35db2382ee72feadc0d66028ea44e3569547536e077f6a711de8401332ca",
+      "routes": 1990,
+      "pieces": 1992
+    },
+    {
+      "id": "2:1",
+      "bounds": [
+        8000,
+        4000,
+        12000,
+        8000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/2_1-f1d44a55a97e.json.gz",
+      "bytes": 109633,
+      "decodedBytes": 630612,
+      "sha256": "f1d44a55a97e202c722de4b54743f5ddcb92c5f14f81a49849002f9c7f9505d5",
+      "decodedSha256": "b1288019adbe0dc3846137756a0f04972f965bbaf78dad1d546c5711900b01db",
+      "routes": 1769,
+      "pieces": 1771
+    },
+    {
+      "id": "2:2",
+      "bounds": [
+        8000,
+        8000,
+        12000,
+        12000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/2_2-01aa6d2dff19.json.gz",
+      "bytes": 156271,
+      "decodedBytes": 927068,
+      "sha256": "01aa6d2dff19c4343de489ed826ab8bdd60809db7e5a4f7c274d70909026b388",
+      "decodedSha256": "c7ce0d4d14a09f2f72a8aeb17fb42304ee8b6f34145a3cf218ae8729c9f9958b",
+      "routes": 2778,
+      "pieces": 2782
+    },
+    {
+      "id": "2:3",
+      "bounds": [
+        8000,
+        12000,
+        12000,
+        16000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/2_3-ba2a3afe9de3.json.gz",
+      "bytes": 163824,
+      "decodedBytes": 950340,
+      "sha256": "ba2a3afe9de3ff0d12bc5a67b2a4173681bb32632d88d6dafa687551b19a37a5",
+      "decodedSha256": "5931a75891b1831a5d6edb231aaea7a784eb7bb4f8c3404b0dbc424b1264be8d",
+      "routes": 3011,
+      "pieces": 3012
+    },
+    {
+      "id": "2:4",
+      "bounds": [
+        8000,
+        16000,
+        12000,
+        20000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/2_4-43ada378a259.json.gz",
+      "bytes": 118229,
+      "decodedBytes": 677282,
+      "sha256": "43ada378a259557ca664a449e00df0023c03deae649b50c3e5bbb13dd11ca339",
+      "decodedSha256": "2af4addabdd8714c82d315d7452318bd535a63b235f98d6e587371df8611f8e2",
+      "routes": 2033,
+      "pieces": 2033
+    },
+    {
+      "id": "2:5",
+      "bounds": [
+        8000,
+        20000,
+        12000,
+        24000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/2_5-40a00848fa1e.json.gz",
+      "bytes": 130685,
+      "decodedBytes": 707599,
+      "sha256": "40a00848fa1e42def8978974eae44e7565eb4efbf3bc11995a5a74c73ac134b0",
+      "decodedSha256": "cc055087a01032712c29aff633590b6327fc40fceecbe2d60a18be2e8f52a2a2",
+      "routes": 1875,
+      "pieces": 1880
+    },
+    {
+      "id": "2:6",
+      "bounds": [
+        8000,
+        24000,
+        12000,
+        28000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/2_6-ebf32146967d.json.gz",
+      "bytes": 126940,
+      "decodedBytes": 736342,
+      "sha256": "ebf32146967de515a63e4c56bed9f324c5ea44b8d6211337702ccdcfac834d2d",
+      "decodedSha256": "15c6f57bc10fc6cf89ecb92c0b52dda94633a32d3bd81cadfd7feaf758983973",
+      "routes": 2116,
+      "pieces": 2119
+    },
+    {
+      "id": "2:7",
+      "bounds": [
+        8000,
+        28000,
+        12000,
+        30000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/2_7-ac1357a5fd79.json.gz",
+      "bytes": 58042,
+      "decodedBytes": 349771,
+      "sha256": "ac1357a5fd7976d65e3324f606d4f28439a6a84972218337f4e7b5a9a1c3e171",
+      "decodedSha256": "6792e0e74b8e045b54e366363b589965b5bcb6aaa475b2d410d44cd6ade75e29",
+      "routes": 1075,
+      "pieces": 1079
+    },
+    {
+      "id": "3:-3",
+      "bounds": [
+        12000,
+        -12000,
+        16000,
+        -8000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/3_-3-773ee0e54f89.json.gz",
+      "bytes": 31123,
+      "decodedBytes": 153104,
+      "sha256": "773ee0e54f890b286ce34d3224390b0862b8f91ca7dcd302f6dfc24699bd3162",
+      "decodedSha256": "76c7064e8b69f09356dc6d5c8809a299e750951c70ad5253d01fb23e79c2628b",
+      "routes": 314,
+      "pieces": 315
+    },
+    {
+      "id": "3:-2",
+      "bounds": [
+        12000,
+        -8000,
+        16000,
+        -4000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/3_-2-e2730093ca02.json.gz",
+      "bytes": 122005,
+      "decodedBytes": 656736,
+      "sha256": "e2730093ca02bb8945c3a0e813a2bbf1027f990459fbd10f07ebaefa34dcca09",
+      "decodedSha256": "4dff5f721fe408dfe8d28171b9ec8d0019cf7f11942844879e06ff0065a5aa1c",
+      "routes": 1737,
+      "pieces": 1740
+    },
+    {
+      "id": "3:-1",
+      "bounds": [
+        12000,
+        -4000,
+        16000,
+        0
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/3_-1-8addf1ec71c9.json.gz",
+      "bytes": 108892,
+      "decodedBytes": 580739,
+      "sha256": "8addf1ec71c94cbdc316b3d88585c830a3c62fde68b76c188da80120b3943e56",
+      "decodedSha256": "50a8cf59f4684a3a17b8f7f3c36c6c80f4f2cf8cc82411876cb3920eafcb0754",
+      "routes": 1490,
+      "pieces": 1491
+    },
+    {
+      "id": "3:0",
+      "bounds": [
+        12000,
+        0,
+        16000,
+        4000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/3_0-bf547a54b452.json.gz",
+      "bytes": 126229,
+      "decodedBytes": 747357,
+      "sha256": "bf547a54b452167bcbf2b2287ff983ebd978127d531c3884c61b55ab0f015fae",
+      "decodedSha256": "9582536726605317d22c060a5ac29b03bb2efb0effeb05ee0f8c64ee1f4d94ab",
+      "routes": 2162,
+      "pieces": 2163
+    },
+    {
+      "id": "3:1",
+      "bounds": [
+        12000,
+        4000,
+        16000,
+        8000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/3_1-eaf3d6576ead.json.gz",
+      "bytes": 95304,
+      "decodedBytes": 567888,
+      "sha256": "eaf3d6576ead47ebec6965260c1ae76d1f6d98fcc5b3007302b9d9ec11f5f049",
+      "decodedSha256": "09324986505ca14dc6148a00f7ba36176f9dc76748f9e09afe6e11637faebb0d",
+      "routes": 1576,
+      "pieces": 1577
+    },
+    {
+      "id": "3:2",
+      "bounds": [
+        12000,
+        8000,
+        16000,
+        12000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/3_2-04ad29675ce4.json.gz",
+      "bytes": 140966,
+      "decodedBytes": 835387,
+      "sha256": "04ad29675ce4b3eaf96249a76c8a54174fc19721bc8a32f0c0941b940e91f295",
+      "decodedSha256": "392d87d292cdd6e01987aab55554491a3f978740dcf852141e94c8dc3a967456",
+      "routes": 2421,
+      "pieces": 2422
+    },
+    {
+      "id": "3:3",
+      "bounds": [
+        12000,
+        12000,
+        16000,
+        16000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/3_3-9cc5281d1043.json.gz",
+      "bytes": 117858,
+      "decodedBytes": 648958,
+      "sha256": "9cc5281d10437ba0987f5d7ec635728400950c83d90568117dc94a9d0cdbb662",
+      "decodedSha256": "a05b82a3d5d5bc5e03bca3e33b13694559a51d5ac3e88df06e5996921164bcee",
+      "routes": 1831,
+      "pieces": 1832
+    },
+    {
+      "id": "3:4",
+      "bounds": [
+        12000,
+        16000,
+        16000,
+        20000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/3_4-5fa52f279ab6.json.gz",
+      "bytes": 96293,
+      "decodedBytes": 532014,
+      "sha256": "5fa52f279ab65eae60cfa0e7550b6b362d5f0a3608735cc522b0520284901ff4",
+      "decodedSha256": "16fa18ba5543d290880e6ce013b2d684bc1491c6c282bb9ada9db0a81fe94b5f",
+      "routes": 1438,
+      "pieces": 1442
+    },
+    {
+      "id": "3:5",
+      "bounds": [
+        12000,
+        20000,
+        16000,
+        24000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/3_5-b44b4c7663f0.json.gz",
+      "bytes": 109393,
+      "decodedBytes": 614225,
+      "sha256": "b44b4c7663f01b90c1a76c7388f87163576e8b45e4553158848ecf83fb9a4904",
+      "decodedSha256": "cc774c8a3bbf48c22a6e74cf9b57b32ee08ced7455e9ad44712576c784f418e3",
+      "routes": 1666,
+      "pieces": 1671
+    },
+    {
+      "id": "3:6",
+      "bounds": [
+        12000,
+        24000,
+        16000,
+        28000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/3_6-8771cbb97029.json.gz",
+      "bytes": 130729,
+      "decodedBytes": 767865,
+      "sha256": "8771cbb9702983f948f27911164b9eb154bb5f63a3c772f6fcb8715d52bbbc90",
+      "decodedSha256": "e2620b15308fcad02fb05cb359f4896877db5e1b7e53a95443d5d7c83ba13c75",
+      "routes": 2268,
+      "pieces": 2269
+    },
+    {
+      "id": "3:7",
+      "bounds": [
+        12000,
+        28000,
+        16000,
+        30000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/3_7-4aecf0f7a93a.json.gz",
+      "bytes": 56170,
+      "decodedBytes": 340116,
+      "sha256": "4aecf0f7a93ac3605aca96528c923251bb8bc7778e1e3168620ba22fa0329163",
+      "decodedSha256": "323de3652372bdc7e1f25c48459ca0dffbb006c9224d8480e6faa396d7d6f96d",
+      "routes": 1040,
+      "pieces": 1040
+    },
+    {
+      "id": "4:-3",
+      "bounds": [
+        16000,
+        -12000,
+        20000,
+        -8000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/4_-3-46f8d25903cd.json.gz",
+      "bytes": 9754,
+      "decodedBytes": 40525,
+      "sha256": "46f8d25903cd5f16aacec364d39ad84b4ba77442ea4affe06f67efccb52c0b7b",
+      "decodedSha256": "3e7c8d197eec6d2a3f4c11850b995fee8c76ecab0713c6c32546e8fdabc86212",
+      "routes": 46,
+      "pieces": 47
+    },
+    {
+      "id": "4:-2",
+      "bounds": [
+        16000,
+        -8000,
+        20000,
+        -4000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/4_-2-93edfb0f8e50.json.gz",
+      "bytes": 47104,
+      "decodedBytes": 215839,
+      "sha256": "93edfb0f8e50c28e17cb63149e4ea2bc5115dc7fc19906627b1b0441a6769f07",
+      "decodedSha256": "45dfa0256f261959b2c9265d93ce45bba37a720a465507abf82c11a78f9221be",
+      "routes": 362,
+      "pieces": 367
+    },
+    {
+      "id": "4:-1",
+      "bounds": [
+        16000,
+        -4000,
+        20000,
+        0
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/4_-1-ace02bceac56.json.gz",
+      "bytes": 61588,
+      "decodedBytes": 278837,
+      "sha256": "ace02bceac56585870c9cf6ac8a9836ff8505c3346d26909db775d81f04baf79",
+      "decodedSha256": "6f2e40ce1fbc833450ea8abda73fb6700bdf546458183479d0d14028847f10f5",
+      "routes": 442,
+      "pieces": 449
+    },
+    {
+      "id": "4:0",
+      "bounds": [
+        16000,
+        0,
+        20000,
+        4000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/4_0-65fa5ff26065.json.gz",
+      "bytes": 106816,
+      "decodedBytes": 540578,
+      "sha256": "65fa5ff2606509c106b2eaee9aca5c3f0d8e7c3457e29514b074d33bd58adba3",
+      "decodedSha256": "fabe093afc27875d771941f69f2be7a37c6a0026578ca7ac80a50905798e04b0",
+      "routes": 1164,
+      "pieces": 1170
+    },
+    {
+      "id": "4:1",
+      "bounds": [
+        16000,
+        4000,
+        20000,
+        8000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/4_1-838f5edaf9f8.json.gz",
+      "bytes": 126297,
+      "decodedBytes": 689961,
+      "sha256": "838f5edaf9f88f90efbb479dd73985a2a604672a6bfe1d57645bf335077ed985",
+      "decodedSha256": "9ece70eb5007d0db41490f4441d4c30079553d74b951563e09b36f5c18dc5bb9",
+      "routes": 1729,
+      "pieces": 1738
+    },
+    {
+      "id": "4:2",
+      "bounds": [
+        16000,
+        8000,
+        20000,
+        12000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/4_2-b1123a169197.json.gz",
+      "bytes": 90438,
+      "decodedBytes": 477698,
+      "sha256": "b1123a16919717f1d1b7723e88d4633537295db14ab34f913cad6649dc35722e",
+      "decodedSha256": "e8a3fb024444edf055a941bd7c421488271839a9f914a0f4efee6a7ab308a03e",
+      "routes": 1131,
+      "pieces": 1137
+    },
+    {
+      "id": "4:3",
+      "bounds": [
+        16000,
+        12000,
+        20000,
+        16000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/4_3-032cbec99bb1.json.gz",
+      "bytes": 124151,
+      "decodedBytes": 693470,
+      "sha256": "032cbec99bb104e646f8be330f99ce6646019595d4b601ceb330a564dc306aa5",
+      "decodedSha256": "e805b6369ef308f5e67565e1d3416b786f366379e57dee837fa4ca1cfc689fe6",
+      "routes": 1915,
+      "pieces": 1920
+    },
+    {
+      "id": "4:4",
+      "bounds": [
+        16000,
+        16000,
+        20000,
+        20000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/4_4-a62e56b77651.json.gz",
+      "bytes": 110905,
+      "decodedBytes": 597981,
+      "sha256": "a62e56b77651c9d418f885701b45395f460d15e9857d1be7d8b0ecb9b9672eb2",
+      "decodedSha256": "2050ee9f8ce541cc7043baf388652db497fa4a38162c4082e4655bca6a6fd41f",
+      "routes": 1454,
+      "pieces": 1456
+    },
+    {
+      "id": "4:5",
+      "bounds": [
+        16000,
+        20000,
+        20000,
+        24000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/4_5-8d250b0c3e92.json.gz",
+      "bytes": 117489,
+      "decodedBytes": 655572,
+      "sha256": "8d250b0c3e92538b3f13571844ba038ec7573eaf391df107ca15d2b8fbe152ac",
+      "decodedSha256": "a4eba79ba1ff19228e67c5815b7f52916bd6a915d593e5f68f6a8e0707916256",
+      "routes": 1817,
+      "pieces": 1819
+    },
+    {
+      "id": "4:6",
+      "bounds": [
+        16000,
+        24000,
+        20000,
+        28000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/4_6-12d9bdd939ba.json.gz",
+      "bytes": 100956,
+      "decodedBytes": 567531,
+      "sha256": "12d9bdd939bad957ba16548a82d0c1a31ab73d89fc36f8ba66a9c4ccd14384b0",
+      "decodedSha256": "185b07d72464f6571578d37782554b2d12d469c0bc275dc4a8dd895c53072375",
+      "routes": 1527,
+      "pieces": 1532
+    },
+    {
+      "id": "4:7",
+      "bounds": [
+        16000,
+        28000,
+        20000,
+        30000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/4_7-d1b3975828d2.json.gz",
+      "bytes": 55614,
+      "decodedBytes": 320325,
+      "sha256": "d1b3975828d20d72571c1e612963cfd21f86ce75b62c50ccac80abddb0fd7451",
+      "decodedSha256": "f99a84f647c98a4f048d69ea98eb595559640ee043d9f64376be4e62adad5581",
+      "routes": 917,
+      "pieces": 918
+    },
+    {
+      "id": "5:-3",
+      "bounds": [
+        20000,
+        -12000,
+        24000,
+        -8000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/5_-3-5ca2ad7be479.json.gz",
+      "bytes": 6891,
+      "decodedBytes": 27601,
+      "sha256": "5ca2ad7be479a13be348ac6ef4dcf2bf61915343ffa7727e0291fc1861da9805",
+      "decodedSha256": "87e42de785bdf76acf16166b414faadd0ac6b8c4b2d5c236e2577d5684d437fd",
+      "routes": 27,
+      "pieces": 27
+    },
+    {
+      "id": "5:-2",
+      "bounds": [
+        20000,
+        -8000,
+        24000,
+        -4000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/5_-2-af3c3ab3b0fe.json.gz",
+      "bytes": 50524,
+      "decodedBytes": 236037,
+      "sha256": "af3c3ab3b0fefaa7eed97269a372115c3baa3b527b5bdc317063cf1551876fb8",
+      "decodedSha256": "9b4243d4302608402e3b8bae7406a9cecbc135f9a03a3a4a43dde620d273d455",
+      "routes": 434,
+      "pieces": 436
+    },
+    {
+      "id": "5:-1",
+      "bounds": [
+        20000,
+        -4000,
+        24000,
+        0
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/5_-1-393960f4bf25.json.gz",
+      "bytes": 63984,
+      "decodedBytes": 327427,
+      "sha256": "393960f4bf25569d643ecea240d165c32644bc93c3ddabf989dcc3eff2900b6b",
+      "decodedSha256": "d791aabba66f3fe3e2d2e8743bc1fd808f67098f5379612eb064d122aa016861",
+      "routes": 744,
+      "pieces": 747
+    },
+    {
+      "id": "5:0",
+      "bounds": [
+        20000,
+        0,
+        24000,
+        4000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/5_0-bcae0bd9cf27.json.gz",
+      "bytes": 86058,
+      "decodedBytes": 464385,
+      "sha256": "bcae0bd9cf27c223bc3c129858ae835e66cd27fc7ffa5ae21a83a353e99c7ebb",
+      "decodedSha256": "ad829e51ec2903b296bc92f7048ab7f0ed703e4a0e0229663168d528896a4de6",
+      "routes": 1179,
+      "pieces": 1186
+    },
+    {
+      "id": "5:1",
+      "bounds": [
+        20000,
+        4000,
+        24000,
+        8000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/5_1-1c9d6aa00274.json.gz",
+      "bytes": 100424,
+      "decodedBytes": 546504,
+      "sha256": "1c9d6aa0027499742e1c94a388ed99af5071a627e88fd50e9094dc85ea434706",
+      "decodedSha256": "ac40bb19d68345fc3dadbc36fdb311078c42bef6733a24a12a5153b900d0e256",
+      "routes": 1465,
+      "pieces": 1474
+    },
+    {
+      "id": "5:2",
+      "bounds": [
+        20000,
+        8000,
+        24000,
+        12000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/5_2-9f7653fb40a0.json.gz",
+      "bytes": 53547,
+      "decodedBytes": 280734,
+      "sha256": "9f7653fb40a027e79aebfd2edabdf092ee8c2c4cb4a0e616f269daa528ebde50",
+      "decodedSha256": "888346124ac761555ea82e1c7996bae087325bb2efad5c3631b3f2aa93c0025d",
+      "routes": 720,
+      "pieces": 725
+    },
+    {
+      "id": "5:3",
+      "bounds": [
+        20000,
+        12000,
+        24000,
+        16000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/5_3-25a5b1d9e014.json.gz",
+      "bytes": 144293,
+      "decodedBytes": 843144,
+      "sha256": "25a5b1d9e0143fa2d683ae676f68d0d99cac9f2655852fb793ac9f399996d80f",
+      "decodedSha256": "82c465355eeaa4088e6874bb2a1677525e0a4c7994bc388ffd9d0e32e546488a",
+      "routes": 2453,
+      "pieces": 2462
+    },
+    {
+      "id": "5:4",
+      "bounds": [
+        20000,
+        16000,
+        24000,
+        20000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/5_4-2a68536c28f5.json.gz",
+      "bytes": 91218,
+      "decodedBytes": 488008,
+      "sha256": "2a68536c28f50ffdc225b8e03802b4d27bc0bb6774ab1d76a64257c0ec3fa1a4",
+      "decodedSha256": "79bfa4d7bf3a915c18552aa8c43fcba517414507537bb7e748b45afdc6d7e040",
+      "routes": 1222,
+      "pieces": 1227
+    },
+    {
+      "id": "5:5",
+      "bounds": [
+        20000,
+        20000,
+        24000,
+        24000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/5_5-f92f46bf3539.json.gz",
+      "bytes": 77385,
+      "decodedBytes": 403268,
+      "sha256": "f92f46bf3539acc3069bb94624c9f6c4ead03773962576d04a77292e56ef7aab",
+      "decodedSha256": "d2e38bff56d186de55ce775c6cc4220788d025f3ed5bb87aacb4c090d3c19e00",
+      "routes": 1025,
+      "pieces": 1028
+    },
+    {
+      "id": "5:6",
+      "bounds": [
+        20000,
+        24000,
+        24000,
+        28000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/5_6-8ec03c405b62.json.gz",
+      "bytes": 111931,
+      "decodedBytes": 676598,
+      "sha256": "8ec03c405b6267164eeb2bb8b00a5104dd134f0cbc91ba08983f16ef150ad1d3",
+      "decodedSha256": "634ee9f2cb9077a1644989b0ced993f0bab591bd29aac8e78d90f4b192c42771",
+      "routes": 2015,
+      "pieces": 2016
+    },
+    {
+      "id": "5:7",
+      "bounds": [
+        20000,
+        28000,
+        24000,
+        30000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/5_7-071a1aab0fd1.json.gz",
+      "bytes": 39959,
+      "decodedBytes": 219932,
+      "sha256": "071a1aab0fd1252b137a056873ba6a19f6f17f77d394bfabce16f7b05f56be35",
+      "decodedSha256": "08c0b5309093a2065d2444067a59731587ecbca41275e9e0bebf05428ca2eeba",
+      "routes": 580,
+      "pieces": 581
+    },
+    {
+      "id": "6:-3",
+      "bounds": [
+        24000,
+        -12000,
+        28000,
+        -8000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/6_-3-31ae53c6dd27.json.gz",
+      "bytes": 3891,
+      "decodedBytes": 16370,
+      "sha256": "31ae53c6dd2707056a7cbd827bb3b046d8d639b406c4109c6494cd1033b0d646",
+      "decodedSha256": "0748e5a704aebfc7361b27d9a4e6cacc5de91ccab7238ee5e66a521324c633fc",
+      "routes": 25,
+      "pieces": 25
+    },
+    {
+      "id": "6:-2",
+      "bounds": [
+        24000,
+        -8000,
+        28000,
+        -4000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/6_-2-0874723b4e7e.json.gz",
+      "bytes": 72435,
+      "decodedBytes": 406509,
+      "sha256": "0874723b4e7ec1cc64586615e1ef0cc85e37988d4c2686f6869f09ae66e53a33",
+      "decodedSha256": "738b22bba835b6fe16cca0ba352c569ab5b5aa9ea74ee551273713bee9a035ee",
+      "routes": 1110,
+      "pieces": 1110
+    },
+    {
+      "id": "6:-1",
+      "bounds": [
+        24000,
+        -4000,
+        28000,
+        0
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/6_-1-68f9383c6fdd.json.gz",
+      "bytes": 89976,
+      "decodedBytes": 580380,
+      "sha256": "68f9383c6fdd34dd7578f31506c33ce282a61c9ea2261e38e792978b17105d58",
+      "decodedSha256": "708cba3e789016d6e5c548468177242200d693cdb66d87073ae95d98289280c4",
+      "routes": 1806,
+      "pieces": 1807
+    },
+    {
+      "id": "6:0",
+      "bounds": [
+        24000,
+        0,
+        28000,
+        4000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/6_0-f3efb5344b44.json.gz",
+      "bytes": 91769,
+      "decodedBytes": 604428,
+      "sha256": "f3efb5344b44f195fd1f2782fe6f667098c6e7c98e4bab7ea00e7a5f8313df6a",
+      "decodedSha256": "788abcc8ce48580d4ad508eee2ecf34f947790646af16dbdf3d1185ba1cf8115",
+      "routes": 1975,
+      "pieces": 1975
+    },
+    {
+      "id": "6:1",
+      "bounds": [
+        24000,
+        4000,
+        28000,
+        8000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/6_1-7aa703f833db.json.gz",
+      "bytes": 84868,
+      "decodedBytes": 510924,
+      "sha256": "7aa703f833db64bd06dbc9d9611105cba88dd755e34f6568fd8ac7d43f9d6bda",
+      "decodedSha256": "5dc94341512aeab59bc67419062ff4b567ec62973b23698790257b1f0a696b0b",
+      "routes": 1550,
+      "pieces": 1553
+    },
+    {
+      "id": "6:2",
+      "bounds": [
+        24000,
+        8000,
+        28000,
+        12000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/6_2-3c415900dbd7.json.gz",
+      "bytes": 112973,
+      "decodedBytes": 633447,
+      "sha256": "3c415900dbd76728185a5fa399b8efb326cceb7164883e4db2a956247e2fb0d0",
+      "decodedSha256": "4cc9a31a84a7fbc71f1033712bb93a60ead045d0cbd60dfa186e5a12abb2f979",
+      "routes": 1820,
+      "pieces": 1822
+    },
+    {
+      "id": "6:3",
+      "bounds": [
+        24000,
+        12000,
+        28000,
+        16000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/6_3-d29a88f03e44.json.gz",
+      "bytes": 24929,
+      "decodedBytes": 118471,
+      "sha256": "d29a88f03e44419b01a1cbdcacbae5ef9c51941269d9078e8fce4447c808240c",
+      "decodedSha256": "18af5efbac6f8b8d3748edf64cf4c0dfb8ae053b8413a87c1c3c2e5b0989fc24",
+      "routes": 212,
+      "pieces": 213
+    },
+    {
+      "id": "6:4",
+      "bounds": [
+        24000,
+        16000,
+        28000,
+        20000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/6_4-6c2f4658dfb5.json.gz",
+      "bytes": 41945,
+      "decodedBytes": 199356,
+      "sha256": "6c2f4658dfb584b0087f6b1e7ad5331a31c33538934a1378f5db18407938e68f",
+      "decodedSha256": "240cbcc3bbb492e4ddaf7ed0d4b666b549f9ad6e72f08f35df9bded23535fe32",
+      "routes": 377,
+      "pieces": 381
+    },
+    {
+      "id": "6:5",
+      "bounds": [
+        24000,
+        20000,
+        28000,
+        24000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/6_5-8493683754c9.json.gz",
+      "bytes": 48442,
+      "decodedBytes": 246654,
+      "sha256": "8493683754c93670737d644e636259d1ff367320144df468646191295a5eade1",
+      "decodedSha256": "3dc1289fe0bbe8881c82e71128cbb8a211eb61038cdf820a26e167cbb9a0734d",
+      "routes": 575,
+      "pieces": 580
+    },
+    {
+      "id": "6:6",
+      "bounds": [
+        24000,
+        24000,
+        28000,
+        28000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/6_6-2ce77d5e3659.json.gz",
+      "bytes": 37662,
+      "decodedBytes": 207514,
+      "sha256": "2ce77d5e3659871cfcaf78e804b9a2bf96827c5be567948811eb0fa8b94f4366",
+      "decodedSha256": "df2761ed9f47970df2aa7be6e02b252f9c2625563bb1facde2edeaa074f65218",
+      "routes": 552,
+      "pieces": 553
+    },
+    {
+      "id": "6:7",
+      "bounds": [
+        24000,
+        28000,
+        28000,
+        30000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/6_7-251063eed70d.json.gz",
+      "bytes": 2627,
+      "decodedBytes": 11151,
+      "sha256": "251063eed70d77babfe459b67e4aed16cd4bfd977a394abd6f533c37a71b73a5",
+      "decodedSha256": "30565f3647d73341bbd7b154e1cca1822639c2f4c3ca873a9d1b342e53243072",
+      "routes": 20,
+      "pieces": 20
+    },
+    {
+      "id": "7:-2",
+      "bounds": [
+        28000,
+        -8000,
+        30000,
+        -4000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/7_-2-ded51bfce902.json.gz",
+      "bytes": 28931,
+      "decodedBytes": 179810,
+      "sha256": "ded51bfce902df0b7989cfa31d3da22e3b3a5693589daec89fa0743484f18e8c",
+      "decodedSha256": "b63293ccdebc342868c6719568110b2a70ff23e5cbed488ef0a8aee1ea547b80",
+      "routes": 537,
+      "pieces": 537
+    },
+    {
+      "id": "7:-1",
+      "bounds": [
+        28000,
+        -4000,
+        30000,
+        0
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/7_-1-143a61d05215.json.gz",
+      "bytes": 27435,
+      "decodedBytes": 174877,
+      "sha256": "143a61d052153f03be652d971d04003ecbd8313a1b6a4f1305d40835bce73d60",
+      "decodedSha256": "1459a55fa9c87dea58c40b242ce8b08075504e0150e72a3d55781e2afee3fb12",
+      "routes": 525,
+      "pieces": 525
+    },
+    {
+      "id": "7:0",
+      "bounds": [
+        28000,
+        0,
+        30000,
+        4000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/7_0-2e81a4dfe1a6.json.gz",
+      "bytes": 20004,
+      "decodedBytes": 127853,
+      "sha256": "2e81a4dfe1a609afbfbb4f8e383c762a0ce7c98893a6f27f15c743c12fe7cc85",
+      "decodedSha256": "f4d44b3097260205c00c6893b06140f54f3a94629ef24071a7a4a18185183970",
+      "routes": 398,
+      "pieces": 399
+    },
+    {
+      "id": "7:1",
+      "bounds": [
+        28000,
+        4000,
+        30000,
+        8000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/7_1-6dae24972b7b.json.gz",
+      "bytes": 10884,
+      "decodedBytes": 60058,
+      "sha256": "6dae24972b7b48f4a69f1480594595357593663b39dbfcb6adfb2ae9ec3c339e",
+      "decodedSha256": "a24d988116ab13c03ea8aad8d8ed76f1f928604fd0aee65dcb229400f0b64045",
+      "routes": 165,
+      "pieces": 166
+    },
+    {
+      "id": "7:2",
+      "bounds": [
+        28000,
+        8000,
+        30000,
+        12000
+      ],
+      "path": "assets/cities/lax/traffic-region-v1/7_2-9a396f83af87.json.gz",
+      "bytes": 4540,
+      "decodedBytes": 20706,
+      "sha256": "9a396f83af877f3ce4582a87cf984a1115bc85603873542c7bb8e3dc0c7b9b19",
+      "decodedSha256": "61d6a165b5ab02a4b831e08800fd0984c62ea6860f3d463d9b441dcb4667820a",
+      "routes": 41,
+      "pieces": 41
+    }
+  ],
+  "counts": {
+    "tertiary": 13019,
+    "primary": 22386,
+    "service": 68168,
+    "primary_link": 927,
+    "secondary": 24088,
+    "residential": 39434,
+    "motorway_link": 5495,
+    "motorway": 4148,
+    "unclassified": 2823,
+    "trunk": 237,
+    "secondary_link": 531,
+    "tertiary_link": 205,
+    "living_street": 21,
+    "trunk_link": 26
+  },
+  "provenance": {
+    "source": "https://download.bbbike.org/osm/bbbike/LosAngeles/LosAngeles.osm.pbf",
+    "sha256": "5bb49609485290dd271578874f7bac5bcb2de71e8d8a297ea0f0aa1814cd004e",
+    "snapshot": "2026-11-14 cached extract",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors",
+    "estimates": "Source motor roads; missing lanes/speeds/widths and bridge clearances use the airport traffic defaults. Regional flow is estimated visual traffic, not measured demand. Original full way identities and distance intervals avoid resetting routes at tile seams."
+  },
+  "identity": "0a76b0e096640b81574b46d682190a266b2f07dc68ee98379a3d326e65834604"
+}

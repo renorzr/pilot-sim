@@ -1,6 +1,13 @@
-async function installCruiseUIPilot(cutMode,pointerId){
- const{groundTarget,departureOf}=await import('/src/missions/ground.js');
- const{canSkipCruise}=await import('/src/missions/airline.js');
+async function installCruiseUIPilot(cutMode,pointerId,geometry){
+ // Published builds have no /src modules. Observe the supplied ground geometry
+ // and the actual UI's enabled state; never mutate simulation state.
+ const departureOf=()=>geometry.departure;
+ const groundTarget=s=>{
+  const points=geometry.entryPoints,index=Math.min(s.ground.entryIndex,points.length-1),b=points[index],a=points[Math.max(0,index-1)],dx=b.x-a.x,dz=b.z-a.z,length=Math.hypot(dx,dz)||1;
+  const along=clamp(((s.x-a.x)*dx+(s.z-a.z)*dz)/(length*length),0,1),u=clamp(along+clamp(s.airData.groundSpeed*3,8,22)/length,0,1);
+  return{x:a.x+dx*u,z:a.z+dz*u};
+ };
+ const canSkipCruise=()=>{const button=document.querySelector('.skip-cruise');return !!button&&!button.disabled;};
  const origin=window.__flightSim.snapshot().airline.origin;
  const clamp=(v,a,b)=>Math.max(a,Math.min(b,v)),held=new Set();let released=false,eligible=0;
  const key=(code,on)=>{if(on===held.has(code))return;if(on)held.add(code);else held.delete(code);window.dispatchEvent(new KeyboardEvent(on?'keydown':'keyup',{code,key:code==='Space'?' ':code.startsWith('Key')?code.slice(3).toLowerCase():code,bubbles:true,cancelable:true}));};

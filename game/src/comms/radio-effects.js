@@ -4,6 +4,7 @@ export class RadioEffects{
  constructor(context,media){
   this.context=context;this.open=false;this.clicks=0;
   const source=context.createMediaElementSource(media),band=context.createBiquadFilter(),compressor=context.createDynamicsCompressor();
+  this.source=source;
   band.type='bandpass';band.frequency.value=1550;band.Q.value=.65;
   compressor.threshold.value=-28;compressor.knee.value=10;compressor.ratio.value=5;compressor.attack.value=.003;compressor.release.value=.12;
   const shaper=context.createWaveShaper(),curve=new Float32Array(1024);for(let i=0;i<curve.length;i++)curve[i]=Math.tanh((i/(curve.length-1)*2-1)*2.1)*.7;shaper.curve=curve;

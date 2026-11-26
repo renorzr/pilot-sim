@@ -1,0 +1,4116 @@
+{
+  "schema": 1,
+  "airportId": "daxing",
+  "bounds": [
+    -30000,
+    -30000,
+    30000,
+    30000
+  ],
+  "tileSize": 4000,
+  "innerRadiusM": 6000,
+  "center": [
+    -1298.550576149562,
+    -2021.5743545393275
+  ],
+  "frame": {
+    "threshold": [
+      116.396111,
+      39.517906
+    ],
+    "heading": 173.05764416916531
+  },
+  "drivingSide": "right",
+  "bridgeDeckReference": "terrain",
+  "tiles": [
+    {
+      "id": "-8:-8",
+      "bounds": [
+        -30000,
+        -30000,
+        -28000,
+        -28000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-8_-8-0a7e419b4093.json.gz",
+      "bytes": 2374,
+      "decodedBytes": 9046,
+      "sha256": "0a7e419b4093d99d6cf8f528c66733ba23d63989910119c4de09449d00719c6e",
+      "decodedSha256": "d74fc5978c32089eaf4e19c3a079e18b1627cb796b95a5db8b96797ffa26d467",
+      "routes": 16,
+      "pieces": 16
+    },
+    {
+      "id": "-8:-7",
+      "bounds": [
+        -30000,
+        -28000,
+        -28000,
+        -24000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-8_-7-5b172ffff0ff.json.gz",
+      "bytes": 3079,
+      "decodedBytes": 12159,
+      "sha256": "5b172ffff0ff372757537ed2277b785c3a3ad8d4a4f076a77d103c787d58335c",
+      "decodedSha256": "7555b8a272a6dd77a1b6a786a5af1a2710e754a76922764e2b667e50e0fbb993",
+      "routes": 24,
+      "pieces": 26
+    },
+    {
+      "id": "-8:-6",
+      "bounds": [
+        -30000,
+        -24000,
+        -28000,
+        -20000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-8_-6-1b3a6304579d.json.gz",
+      "bytes": 1751,
+      "decodedBytes": 5842,
+      "sha256": "1b3a6304579df30494b220b8d4c2f97243b7dc53d1c2b92bd669f23eaadc2de1",
+      "decodedSha256": "16e6f2916c04b6203d8054da095bf8313d49776bb16e058c6dd9ebde183851d1",
+      "routes": 8,
+      "pieces": 8
+    },
+    {
+      "id": "-8:-5",
+      "bounds": [
+        -30000,
+        -20000,
+        -28000,
+        -16000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-8_-5-3584f4c891ba.json.gz",
+      "bytes": 1198,
+      "decodedBytes": 3738,
+      "sha256": "3584f4c891baedd1b7bef0d50ac68e66fe5174f61ece8534e258d2a9a9995332",
+      "decodedSha256": "3e7689c5fa365920026b83f3415d020d8f9bb27f61ba412ef65559acba361dfa",
+      "routes": 5,
+      "pieces": 5
+    },
+    {
+      "id": "-8:-4",
+      "bounds": [
+        -30000,
+        -16000,
+        -28000,
+        -12000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-8_-4-f2c6a5e0db93.json.gz",
+      "bytes": 2415,
+      "decodedBytes": 10341,
+      "sha256": "f2c6a5e0db93651159d3b6eb9a8e2170688808479afcd2fdadbbfda3acc706ad",
+      "decodedSha256": "b026c263afb1f475eed6d07a46b22ad5fe7600ec09f35d6b76d8f133785be277",
+      "routes": 22,
+      "pieces": 24
+    },
+    {
+      "id": "-8:-3",
+      "bounds": [
+        -30000,
+        -12000,
+        -28000,
+        -8000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-8_-3-e17a0f8a714a.json.gz",
+      "bytes": 6394,
+      "decodedBytes": 26873,
+      "sha256": "e17a0f8a714a032561556192860da57a3151a081ef339faa1742de6da8b759d0",
+      "decodedSha256": "9539e5eb44baa6a3dd0fda4cfb6dfee285c03aa7dee3866d07a185fb91886133",
+      "routes": 45,
+      "pieces": 48
+    },
+    {
+      "id": "-8:-2",
+      "bounds": [
+        -30000,
+        -8000,
+        -28000,
+        -4000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-8_-2-803891cad013.json.gz",
+      "bytes": 9752,
+      "decodedBytes": 44894,
+      "sha256": "803891cad013bfc6256db8c20daac0068a369a2d2b4c16fd1d610ec6c0ad5532",
+      "decodedSha256": "57c3de66efa582e6e44227426e80c8dfc0a3254ae57ac6c2b55ac9ef14f39802",
+      "routes": 99,
+      "pieces": 102
+    },
+    {
+      "id": "-8:-1",
+      "bounds": [
+        -30000,
+        -4000,
+        -28000,
+        0
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-8_-1-854c47d890ff.json.gz",
+      "bytes": 6846,
+      "decodedBytes": 33354,
+      "sha256": "854c47d890ff7392ccc7d5fe376ac41128cc87b6abbd4b78a18ae5da03a2e620",
+      "decodedSha256": "0a54f45b89cc7e5210f6a79d08d2a987718ad1e39f127952a0f32cec049ae023",
+      "routes": 80,
+      "pieces": 80
+    },
+    {
+      "id": "-8:0",
+      "bounds": [
+        -30000,
+        0,
+        -28000,
+        4000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-8_0-5e897196c4e6.json.gz",
+      "bytes": 6392,
+      "decodedBytes": 28504,
+      "sha256": "5e897196c4e6eaa36a1403fd8855e564c81e65f65a850a0eaca861ce13a8ba12",
+      "decodedSha256": "e46ef42e3aaf6441cb232221183661a7e145b478f93b90bc0f4109d80fc27963",
+      "routes": 62,
+      "pieces": 66
+    },
+    {
+      "id": "-8:1",
+      "bounds": [
+        -30000,
+        4000,
+        -28000,
+        8000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-8_1-f1379166bbef.json.gz",
+      "bytes": 3634,
+      "decodedBytes": 17327,
+      "sha256": "f1379166bbef70aa94716402c5339c01b0afc709fd0700ee81238ba9aad9093c",
+      "decodedSha256": "2567993dd2746798006d3f76ae7c49d4dcdd941fe1fe9cc3ce02156609a2feb1",
+      "routes": 42,
+      "pieces": 42
+    },
+    {
+      "id": "-8:2",
+      "bounds": [
+        -30000,
+        8000,
+        -28000,
+        12000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-8_2-f22143f341fb.json.gz",
+      "bytes": 6714,
+      "decodedBytes": 34162,
+      "sha256": "f22143f341fb8616b32a0afcfebce78ff40ba4fe66e3158a2bcfb3c0476313bc",
+      "decodedSha256": "3affd54030495679816c3ee36ea0dde18a3bf4796f8478c3816084a0567d6af3",
+      "routes": 83,
+      "pieces": 85
+    },
+    {
+      "id": "-8:3",
+      "bounds": [
+        -30000,
+        12000,
+        -28000,
+        16000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-8_3-504d439b6654.json.gz",
+      "bytes": 7027,
+      "decodedBytes": 36769,
+      "sha256": "504d439b6654c5b611ad2e071acfedf6d6ea0ee4f54c7a9284eaa41310c88858",
+      "decodedSha256": "011eb7a00a398b6aa0de5874fe1edf9706f929d47233e14c742475ed4fa5c5a3",
+      "routes": 97,
+      "pieces": 98
+    },
+    {
+      "id": "-8:4",
+      "bounds": [
+        -30000,
+        16000,
+        -28000,
+        20000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-8_4-d1c48b5fab17.json.gz",
+      "bytes": 9097,
+      "decodedBytes": 49725,
+      "sha256": "d1c48b5fab1768cf419f385e4cb42a5700dc9beed92907e2708ab45d3f8830d9",
+      "decodedSha256": "bb2d4e88beb636e38414fc5abf56b901513d8d9405306ee62bc56a1c4d17a0f2",
+      "routes": 138,
+      "pieces": 138
+    },
+    {
+      "id": "-8:5",
+      "bounds": [
+        -30000,
+        20000,
+        -28000,
+        24000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-8_5-4dad67a9c85e.json.gz",
+      "bytes": 9440,
+      "decodedBytes": 46944,
+      "sha256": "4dad67a9c85e606a6c4ad9dac0a74858f9d12d8683a7405b61c635e771a9ab83",
+      "decodedSha256": "9fc6cf1aabb49bab009e1c5f3cfba4f28c85f01553ee760dcdc7f70ac5334bdf",
+      "routes": 115,
+      "pieces": 115
+    },
+    {
+      "id": "-8:6",
+      "bounds": [
+        -30000,
+        24000,
+        -28000,
+        28000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-8_6-b934dedac17b.json.gz",
+      "bytes": 8778,
+      "decodedBytes": 44859,
+      "sha256": "b934dedac17bcb23848ae916fe984117cd86335c87ffbf781cd72ac7a83af2c1",
+      "decodedSha256": "43e3d8d76f1f8753fb0fb33c5449d2712ed6d4cc9ad8785bf3d2213d6cc93388",
+      "routes": 111,
+      "pieces": 112
+    },
+    {
+      "id": "-8:7",
+      "bounds": [
+        -30000,
+        28000,
+        -28000,
+        30000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-8_7-fd9ac4c7dfab.json.gz",
+      "bytes": 3980,
+      "decodedBytes": 20322,
+      "sha256": "fd9ac4c7dfab09bab4a1d7ba59b0ca675329e6d88c22c41c2f3d502d9fac0b2b",
+      "decodedSha256": "cba014edcc3f3b4380741e6a53c69f8205300846261e5e4448c2bdef19b46218",
+      "routes": 51,
+      "pieces": 55
+    },
+    {
+      "id": "-7:-8",
+      "bounds": [
+        -28000,
+        -30000,
+        -24000,
+        -28000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-7_-8-b2d72b31f554.json.gz",
+      "bytes": 2758,
+      "decodedBytes": 10214,
+      "sha256": "b2d72b31f554f8bc0f92ed3e79bc3a3629d3f73cbc717efcf3b5f4655965fbe0",
+      "decodedSha256": "dd534b0044fc5c367f98274ee26fb5a1a77894a726259fb5a9cbafa147942bfd",
+      "routes": 17,
+      "pieces": 17
+    },
+    {
+      "id": "-7:-7",
+      "bounds": [
+        -28000,
+        -28000,
+        -24000,
+        -24000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-7_-7-7230df103e7c.json.gz",
+      "bytes": 4379,
+      "decodedBytes": 19587,
+      "sha256": "7230df103e7c93193a95238b8ed0b43d91c03e72084a956d62f1efd35e870f23",
+      "decodedSha256": "3d0af98aa2d2839b928f0934094c1f6e34316124c54f953776af06f9e5f38a0b",
+      "routes": 46,
+      "pieces": 46
+    },
+    {
+      "id": "-7:-6",
+      "bounds": [
+        -28000,
+        -24000,
+        -24000,
+        -20000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-7_-6-932b5b1ce8ee.json.gz",
+      "bytes": 3399,
+      "decodedBytes": 11897,
+      "sha256": "932b5b1ce8ee2f98400e22c4fe867d0c0d638e5b4bad6705c73b78bad000f400",
+      "decodedSha256": "4432dc3e71bcecdcfded6a2639c1819f02dc26643ff0203faa0971ff782993a8",
+      "routes": 16,
+      "pieces": 16
+    },
+    {
+      "id": "-7:-5",
+      "bounds": [
+        -28000,
+        -20000,
+        -24000,
+        -16000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-7_-5-ad5ba0eb8a15.json.gz",
+      "bytes": 2670,
+      "decodedBytes": 9622,
+      "sha256": "ad5ba0eb8a15c066270f75b29e01cb6ce4cdc44918ce4ff1fd5064e96f5de278",
+      "decodedSha256": "de3ff7b3e26d6bc48ad7197f41a9e3527ee10108671a52ebf51a4b36b88d672f",
+      "routes": 15,
+      "pieces": 15
+    },
+    {
+      "id": "-7:-4",
+      "bounds": [
+        -28000,
+        -16000,
+        -24000,
+        -12000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-7_-4-64dc11a64d3d.json.gz",
+      "bytes": 3010,
+      "decodedBytes": 12534,
+      "sha256": "64dc11a64d3d99fa6d54ce807ee1e1c41e2e4303bfb6746a2ee75e2c1cb367c6",
+      "decodedSha256": "fbd5f5ceb3f4234f9b6bf82cdf16fc87105b9a2d48a45e0c51351c5af7566b16",
+      "routes": 28,
+      "pieces": 29
+    },
+    {
+      "id": "-7:-3",
+      "bounds": [
+        -28000,
+        -12000,
+        -24000,
+        -8000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-7_-3-853bb87b47d6.json.gz",
+      "bytes": 8243,
+      "decodedBytes": 37073,
+      "sha256": "853bb87b47d6bb879ae80557eb448b73ef46b021b7a5efb7da33a4970d3ed879",
+      "decodedSha256": "a897a3267ba0ece195c057c25a0d85cf6fe45ee0a765eb18946887bf45555000",
+      "routes": 77,
+      "pieces": 79
+    },
+    {
+      "id": "-7:-2",
+      "bounds": [
+        -28000,
+        -8000,
+        -24000,
+        -4000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-7_-2-5a44a2988625.json.gz",
+      "bytes": 16610,
+      "decodedBytes": 83961,
+      "sha256": "5a44a298862503111f07e5d13103306f01bd924a1af29d4000ef72f542838b4f",
+      "decodedSha256": "1a93e5c09065c09d36b78599e198654929b63be7176cccb0956fac5659300159",
+      "routes": 210,
+      "pieces": 210
+    },
+    {
+      "id": "-7:-1",
+      "bounds": [
+        -28000,
+        -4000,
+        -24000,
+        0
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-7_-1-57fa61734684.json.gz",
+      "bytes": 15148,
+      "decodedBytes": 79705,
+      "sha256": "57fa617346849bfa8ab60d6a0cb9ea1449f59c1e18a1842a069c84fa704ad1b2",
+      "decodedSha256": "991f3c56d0a76c48123cdb80dd8fed7745567421c0b75a2793fdb42df03c8aa3",
+      "routes": 212,
+      "pieces": 213
+    },
+    {
+      "id": "-7:0",
+      "bounds": [
+        -28000,
+        0,
+        -24000,
+        4000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-7_0-d151305cf94d.json.gz",
+      "bytes": 9677,
+      "decodedBytes": 47058,
+      "sha256": "d151305cf94d38b932c0d9e9eab5fa16fbbedbb5415bcddc64861228a019fd35",
+      "decodedSha256": "0e6fa5a3338c9bcd129d9269fd5651cc527a1eceed6a8822d00795d1efb90592",
+      "routes": 107,
+      "pieces": 107
+    },
+    {
+      "id": "-7:1",
+      "bounds": [
+        -28000,
+        4000,
+        -24000,
+        8000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-7_1-cda342a57d86.json.gz",
+      "bytes": 8327,
+      "decodedBytes": 41685,
+      "sha256": "cda342a57d86a8af1312149a84e65852f726456374209416c6fb23f585d73f38",
+      "decodedSha256": "5e7ac8e6b33dc5f0ef3506ee3ac2bb9806db82690db82ef72fd64e3cdd5ca059",
+      "routes": 110,
+      "pieces": 110
+    },
+    {
+      "id": "-7:2",
+      "bounds": [
+        -28000,
+        8000,
+        -24000,
+        12000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-7_2-e03422850187.json.gz",
+      "bytes": 12298,
+      "decodedBytes": 59434,
+      "sha256": "e03422850187ea4df27570c2cdb3ec5eb47ba1b61b9e79ca3ef6fc5203ceb073",
+      "decodedSha256": "3a3c2ef21538517718ade29fa2422517f984e81c0045308f036ef3aeb5d859e6",
+      "routes": 141,
+      "pieces": 141
+    },
+    {
+      "id": "-7:3",
+      "bounds": [
+        -28000,
+        12000,
+        -24000,
+        16000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-7_3-fdb259d52c51.json.gz",
+      "bytes": 19402,
+      "decodedBytes": 97380,
+      "sha256": "fdb259d52c51901699857b0e09c502b742a9ddf352053e5c3354bb5347ae0005",
+      "decodedSha256": "640a8146d3d36f2e883f60a36bd8f4b4db41863165cb9eb9a7b569157a2d4d37",
+      "routes": 248,
+      "pieces": 249
+    },
+    {
+      "id": "-7:4",
+      "bounds": [
+        -28000,
+        16000,
+        -24000,
+        20000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-7_4-21e594a6f04e.json.gz",
+      "bytes": 11758,
+      "decodedBytes": 67300,
+      "sha256": "21e594a6f04e322bddc41253b7365548cd9d120e225d5b147bf35cc33b926592",
+      "decodedSha256": "34d731b73ffc8b44b364605128434c8fa460f77a6a2e9b1d5c52e3ef214962c3",
+      "routes": 187,
+      "pieces": 188
+    },
+    {
+      "id": "-7:5",
+      "bounds": [
+        -28000,
+        20000,
+        -24000,
+        24000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-7_5-8ff3275c3e17.json.gz",
+      "bytes": 19094,
+      "decodedBytes": 94594,
+      "sha256": "8ff3275c3e17d6d99bd7812c129e7c8540d222edd643712c44cc455a290401a7",
+      "decodedSha256": "a584439d9dde77de42e3b61db00829a65e1f36571f8cc1cdc9b3591d2391f149",
+      "routes": 218,
+      "pieces": 218
+    },
+    {
+      "id": "-7:6",
+      "bounds": [
+        -28000,
+        24000,
+        -24000,
+        28000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-7_6-925164942fe9.json.gz",
+      "bytes": 18131,
+      "decodedBytes": 90751,
+      "sha256": "925164942fe9d436017a3756ee254c9cdd131beac856b9034330b62983bdfa8a",
+      "decodedSha256": "fcb7ff0aa83f40abb1f9056bd611ae3b60970f6223276f6ab1d22429d381151a",
+      "routes": 221,
+      "pieces": 222
+    },
+    {
+      "id": "-7:7",
+      "bounds": [
+        -28000,
+        28000,
+        -24000,
+        30000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-7_7-7fb33166a5b3.json.gz",
+      "bytes": 12218,
+      "decodedBytes": 55797,
+      "sha256": "7fb33166a5b3679b9636b41d4b38975ce90e1bf3176f001da755783d501641de",
+      "decodedSha256": "9a7a1d7cd9fd31f3c86de5e3fef555fe3db70173912c83a02475f66a0f33573e",
+      "routes": 111,
+      "pieces": 115
+    },
+    {
+      "id": "-6:-8",
+      "bounds": [
+        -24000,
+        -30000,
+        -20000,
+        -28000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-6_-8-2ba755428b41.json.gz",
+      "bytes": 1109,
+      "decodedBytes": 3369,
+      "sha256": "2ba755428b4161db31f9ffb7b2727853fd72a7035905803e3671c518361329c2",
+      "decodedSha256": "84afd79d6c9b0d9b7126b7f6faff0f93509ce904f2afedd415ce516954dc4f5b",
+      "routes": 5,
+      "pieces": 6
+    },
+    {
+      "id": "-6:-7",
+      "bounds": [
+        -24000,
+        -28000,
+        -20000,
+        -24000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-6_-7-38595773ec79.json.gz",
+      "bytes": 2374,
+      "decodedBytes": 9088,
+      "sha256": "38595773ec79ad82bd1b71cfcc0fc2e0ec9cfa2b5cabaf7e62c0baaa6efa6ee6",
+      "decodedSha256": "a82edd360e132f2867d2f3a68762dc1dd7593c0bee4dae7f10cbdc9231ddd75f",
+      "routes": 19,
+      "pieces": 19
+    },
+    {
+      "id": "-6:-6",
+      "bounds": [
+        -24000,
+        -24000,
+        -20000,
+        -20000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-6_-6-09213d3e5b2e.json.gz",
+      "bytes": 1635,
+      "decodedBytes": 5411,
+      "sha256": "09213d3e5b2e0c0c56dffdb601e120d214d35e70374a94a77336d0af380f7d4f",
+      "decodedSha256": "8688a4b02a1200ed28729705a599dc6e1df1ebd8b958f1ae16341ff18309011e",
+      "routes": 8,
+      "pieces": 8
+    },
+    {
+      "id": "-6:-5",
+      "bounds": [
+        -24000,
+        -20000,
+        -20000,
+        -16000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-6_-5-d0650906b741.json.gz",
+      "bytes": 1636,
+      "decodedBytes": 5357,
+      "sha256": "d0650906b741ca5ad9b64b6f78fc998d792284847e6d805fbec8e5ee2b7a6c6f",
+      "decodedSha256": "e860b1e0c2e184c96c0c7535e5cefee4d92647c76b9f89e111c5ddec1083cfb2",
+      "routes": 8,
+      "pieces": 8
+    },
+    {
+      "id": "-6:-4",
+      "bounds": [
+        -24000,
+        -16000,
+        -20000,
+        -12000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-6_-4-da2862c330ae.json.gz",
+      "bytes": 2822,
+      "decodedBytes": 13836,
+      "sha256": "da2862c330aeacc2f566e30fd4d9fea07d7669564ee96d9d60a4f573cb903c0a",
+      "decodedSha256": "17d18f3de06ed7d806763991b83118d6be8248d286fc463073387abfc4666ed2",
+      "routes": 37,
+      "pieces": 37
+    },
+    {
+      "id": "-6:-3",
+      "bounds": [
+        -24000,
+        -12000,
+        -20000,
+        -8000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-6_-3-0ac60c8a63ee.json.gz",
+      "bytes": 9871,
+      "decodedBytes": 53247,
+      "sha256": "0ac60c8a63ee8766e605745997941b27dfab93c2d63de7b25f2d238786e23114",
+      "decodedSha256": "4c247d9669721a3b3a6eaab22497a0c20cd62edd455748c90f18e90e955a1ec2",
+      "routes": 151,
+      "pieces": 152
+    },
+    {
+      "id": "-6:-2",
+      "bounds": [
+        -24000,
+        -8000,
+        -20000,
+        -4000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-6_-2-6aaf46e47799.json.gz",
+      "bytes": 15098,
+      "decodedBytes": 81682,
+      "sha256": "6aaf46e47799e43ca893dc769232571fabc3ac4c7a41362ca09ae2f5c04c12c2",
+      "decodedSha256": "aef0b9bb00c64c87300ef47862e9c42c75ca743c6c439fb2dc664aef26b72be8",
+      "routes": 228,
+      "pieces": 228
+    },
+    {
+      "id": "-6:-1",
+      "bounds": [
+        -24000,
+        -4000,
+        -20000,
+        0
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-6_-1-4a365029d37a.json.gz",
+      "bytes": 15935,
+      "decodedBytes": 88865,
+      "sha256": "4a365029d37aaa91d5be4e332b828ce523e3466c80768345dd6ee21243f2d62d",
+      "decodedSha256": "6cbcda483cdcd2ce177540d7eae3b18028f40c0e386bfa1a6874690b1fdf7170",
+      "routes": 257,
+      "pieces": 257
+    },
+    {
+      "id": "-6:0",
+      "bounds": [
+        -24000,
+        0,
+        -20000,
+        4000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-6_0-c2820a365d17.json.gz",
+      "bytes": 11566,
+      "decodedBytes": 59621,
+      "sha256": "c2820a365d17f985868cb2934f71253c53587a2635e83aecdb372244879ab85f",
+      "decodedSha256": "45f37b75a2f4c738d180aab4db47dd7bfdd4641204639e4cecf104cd80cebe3b",
+      "routes": 158,
+      "pieces": 161
+    },
+    {
+      "id": "-6:1",
+      "bounds": [
+        -24000,
+        4000,
+        -20000,
+        8000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-6_1-3cb570f7335a.json.gz",
+      "bytes": 3141,
+      "decodedBytes": 14180,
+      "sha256": "3cb570f7335a757e9415259ce1e8dc24fbe96f7347c7cd18886ba9a6bc0e3f06",
+      "decodedSha256": "9de67710e29047fd23913352c22a0587bf65280a66620e71c387d25da7db207b",
+      "routes": 35,
+      "pieces": 36
+    },
+    {
+      "id": "-6:2",
+      "bounds": [
+        -24000,
+        8000,
+        -20000,
+        12000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-6_2-e5f547feecfb.json.gz",
+      "bytes": 11873,
+      "decodedBytes": 59346,
+      "sha256": "e5f547feecfba5403590ef7abc9de46351c34dec73902d0acd08a31afa6c79e0",
+      "decodedSha256": "2572dee067f5b52f06e0c2ae5ce72d8402311f3a709459f86ff2f79e2d85f3b1",
+      "routes": 157,
+      "pieces": 157
+    },
+    {
+      "id": "-6:3",
+      "bounds": [
+        -24000,
+        12000,
+        -20000,
+        16000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-6_3-9ab31c849093.json.gz",
+      "bytes": 11987,
+      "decodedBytes": 59721,
+      "sha256": "9ab31c849093e736de5f2c0f69af7a271a0cd22c2a3fe58a2d4fc838d2db2d27",
+      "decodedSha256": "b0cd84768745b4d2de5aba252d087153d0099ef84e07fbb5dad4b5d3f2aad520",
+      "routes": 151,
+      "pieces": 151
+    },
+    {
+      "id": "-6:4",
+      "bounds": [
+        -24000,
+        16000,
+        -20000,
+        20000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-6_4-c601dbe361e0.json.gz",
+      "bytes": 15075,
+      "decodedBytes": 79737,
+      "sha256": "c601dbe361e0fd4489392ac4135727cb70c7dfb2078b96cb9fbef696a9b14ba9",
+      "decodedSha256": "024babe845cd0f28ce8250a98b70f2604f4b801aec519cd70ed0f154cbaa1f18",
+      "routes": 204,
+      "pieces": 206
+    },
+    {
+      "id": "-6:5",
+      "bounds": [
+        -24000,
+        20000,
+        -20000,
+        24000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-6_5-53638ca1fa13.json.gz",
+      "bytes": 12310,
+      "decodedBytes": 61391,
+      "sha256": "53638ca1fa139e6be8e5c8bb75a3e4094dba256db11ba4c6f57610d8edaa8ce6",
+      "decodedSha256": "d607c064a00f399f4924f014dacef6fe8fd27fa3392dd49d99a58b56628163d9",
+      "routes": 145,
+      "pieces": 145
+    },
+    {
+      "id": "-6:6",
+      "bounds": [
+        -24000,
+        24000,
+        -20000,
+        28000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-6_6-639697fb9bcd.json.gz",
+      "bytes": 15305,
+      "decodedBytes": 79034,
+      "sha256": "639697fb9bcde89185a9fc24b0ecf4d55fca70d429700e5db8def8300a3ea234",
+      "decodedSha256": "b9964d4015ee98a176d4792cd80460ff6a466046e5fefe52db0ad4c0f212f0ec",
+      "routes": 204,
+      "pieces": 206
+    },
+    {
+      "id": "-6:7",
+      "bounds": [
+        -24000,
+        28000,
+        -20000,
+        30000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-6_7-e6ea0838f6a9.json.gz",
+      "bytes": 10521,
+      "decodedBytes": 50206,
+      "sha256": "e6ea0838f6a91567ab430404e327b1203d2a1dd0909c1c19247e9cb80e03a2e6",
+      "decodedSha256": "f7d208dc8f8f66ed305e88d180909868b1038ea85a5abc3bf2e7842ec782976a",
+      "routes": 121,
+      "pieces": 121
+    },
+    {
+      "id": "-5:-8",
+      "bounds": [
+        -20000,
+        -30000,
+        -16000,
+        -28000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-5_-8-01dceff3a983.json.gz",
+      "bytes": 1355,
+      "decodedBytes": 4747,
+      "sha256": "01dceff3a983f0bba3c0f16f1d41891f8a5f8189673c2f1f612b62af9a5d18fc",
+      "decodedSha256": "4f8fd2647b5c47f35b930c29f23585868a0ce79cafad8091ce000c14e69d8083",
+      "routes": 7,
+      "pieces": 7
+    },
+    {
+      "id": "-5:-7",
+      "bounds": [
+        -20000,
+        -28000,
+        -16000,
+        -24000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-5_-7-2f5206698163.json.gz",
+      "bytes": 2552,
+      "decodedBytes": 10184,
+      "sha256": "2f5206698163d3737c7119af7cee8439a31488e05b1696ec3b322775fd777a3f",
+      "decodedSha256": "7d482201465c46896e583dc739102bdf7ec2e68de1fbb7cc9e7dc443bd163e84",
+      "routes": 22,
+      "pieces": 22
+    },
+    {
+      "id": "-5:-6",
+      "bounds": [
+        -20000,
+        -24000,
+        -16000,
+        -20000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-5_-6-44b774c25c55.json.gz",
+      "bytes": 2188,
+      "decodedBytes": 8306,
+      "sha256": "44b774c25c55007353b45007d3f7aa0708183a0870b7dc74b6fdd1b162ba101f",
+      "decodedSha256": "e35256a636f9f9900ad4dde23e977d4f85b0dac41fe8f36cd2f95e894c6e7118",
+      "routes": 15,
+      "pieces": 15
+    },
+    {
+      "id": "-5:-5",
+      "bounds": [
+        -20000,
+        -20000,
+        -16000,
+        -16000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-5_-5-a6fd4b2133ff.json.gz",
+      "bytes": 1386,
+      "decodedBytes": 5191,
+      "sha256": "a6fd4b2133ffd17a297feacdf1a48f9b2110780e5b6afe918dc2e067ce56b5d8",
+      "decodedSha256": "4d0a16e5acb2d7c260ce57810e292a21298817d69de976a489198a21f0649a98",
+      "routes": 12,
+      "pieces": 12
+    },
+    {
+      "id": "-5:-4",
+      "bounds": [
+        -20000,
+        -16000,
+        -16000,
+        -12000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-5_-4-a509b8835008.json.gz",
+      "bytes": 3545,
+      "decodedBytes": 14817,
+      "sha256": "a509b8835008c689ef329efaafee89549a03839781ed0514698cbe3977f3486a",
+      "decodedSha256": "245a7681a3d693bf0a2e735bb431f9cee8029037e44b2f551e1d85bdafd4a6de",
+      "routes": 32,
+      "pieces": 32
+    },
+    {
+      "id": "-5:-3",
+      "bounds": [
+        -20000,
+        -12000,
+        -16000,
+        -8000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-5_-3-8041ee2cd478.json.gz",
+      "bytes": 8671,
+      "decodedBytes": 43648,
+      "sha256": "8041ee2cd4787e900cede2ede35773352f5c992330e09e0ff80b82206134fa88",
+      "decodedSha256": "a26bfdba00d2fba263969166a71c516cb7ce6ff77a6a68ec3035c5c0618e2fe9",
+      "routes": 110,
+      "pieces": 110
+    },
+    {
+      "id": "-5:-2",
+      "bounds": [
+        -20000,
+        -8000,
+        -16000,
+        -4000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-5_-2-1859272a41ed.json.gz",
+      "bytes": 15965,
+      "decodedBytes": 103002,
+      "sha256": "1859272a41ed87f6a96affab1c8fce1d60368ba1f0694fcab5377bcdb595a0fb",
+      "decodedSha256": "93ee74904fabfc79ef944c9e2bd81461520cc96e74ab405be4ea1285a064ee48",
+      "routes": 343,
+      "pieces": 343
+    },
+    {
+      "id": "-5:-1",
+      "bounds": [
+        -20000,
+        -4000,
+        -16000,
+        0
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-5_-1-766dfdeb710e.json.gz",
+      "bytes": 8014,
+      "decodedBytes": 44101,
+      "sha256": "766dfdeb710e0afbdb313885ee113852847b43d6a44423124f94727cad2f11f3",
+      "decodedSha256": "9b7353936fcb4c49073aa15b92769563d760ec1b18107c060719384ecadc0c3c",
+      "routes": 123,
+      "pieces": 123
+    },
+    {
+      "id": "-5:0",
+      "bounds": [
+        -20000,
+        0,
+        -16000,
+        4000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-5_0-e07cc7db16c3.json.gz",
+      "bytes": 13513,
+      "decodedBytes": 72268,
+      "sha256": "e07cc7db16c32f48b2261985c4795d062158478d4c75c1a02fe717ce0def2d8a",
+      "decodedSha256": "ea023c14824910995eb6931a82492ce83603172b0009b290e59e0dcb21e9c738",
+      "routes": 194,
+      "pieces": 195
+    },
+    {
+      "id": "-5:1",
+      "bounds": [
+        -20000,
+        4000,
+        -16000,
+        8000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-5_1-e8db440cbe72.json.gz",
+      "bytes": 12226,
+      "decodedBytes": 61140,
+      "sha256": "e8db440cbe72643ee95f8cc130c89579531bf4ecd9a19a265fee02ad48a693ad",
+      "decodedSha256": "fc6b58271bed8c7b66cef55572f9bd795f24e4aeb36beeec243c95c6dcf4d12b",
+      "routes": 151,
+      "pieces": 152
+    },
+    {
+      "id": "-5:2",
+      "bounds": [
+        -20000,
+        8000,
+        -16000,
+        12000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-5_2-c335eb140f28.json.gz",
+      "bytes": 14942,
+      "decodedBytes": 78447,
+      "sha256": "c335eb140f281da5535de34fda842fb26cff05eff68e4cb3979c4c150ba816a8",
+      "decodedSha256": "8bb0a712b95cac5f45ee8e62122864cc075997f258ab1a466dbb013d31aeaab3",
+      "routes": 187,
+      "pieces": 188
+    },
+    {
+      "id": "-5:3",
+      "bounds": [
+        -20000,
+        12000,
+        -16000,
+        16000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-5_3-beba6593ecf9.json.gz",
+      "bytes": 14114,
+      "decodedBytes": 76336,
+      "sha256": "beba6593ecf92741d38d7a6b41518c2bf9f081c7e149992f0aefe6d151ee441d",
+      "decodedSha256": "2e4829d1014ed9633fe2c88294b2c087fcf2d2668114f4800165946441205fba",
+      "routes": 208,
+      "pieces": 208
+    },
+    {
+      "id": "-5:4",
+      "bounds": [
+        -20000,
+        16000,
+        -16000,
+        20000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-5_4-0e6bb78d4482.json.gz",
+      "bytes": 13946,
+      "decodedBytes": 73958,
+      "sha256": "0e6bb78d4482e4eb0b3ede2f7d61c771b6a7933ce50ebc07f63926972f8ce020",
+      "decodedSha256": "04699a6a1e90d0b3463fe11c88f10fa9ef345e7a2cb18edcf2e92e3c771fa67b",
+      "routes": 192,
+      "pieces": 195
+    },
+    {
+      "id": "-5:5",
+      "bounds": [
+        -20000,
+        20000,
+        -16000,
+        24000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-5_5-09442718aade.json.gz",
+      "bytes": 14693,
+      "decodedBytes": 74220,
+      "sha256": "09442718aadeb64530d78e09dd95cbeaf16970d16cfcce95262fd92c22a11d3e",
+      "decodedSha256": "9176963d55f065fefc54ecb0a340ea0f544ff06b10432f36885a3642ff30b100",
+      "routes": 196,
+      "pieces": 197
+    },
+    {
+      "id": "-5:6",
+      "bounds": [
+        -20000,
+        24000,
+        -16000,
+        28000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-5_6-977474fd03ec.json.gz",
+      "bytes": 23755,
+      "decodedBytes": 121081,
+      "sha256": "977474fd03ec51be5eb995dbfd6b5e821187edbea07e877f76318d972f9d9094",
+      "decodedSha256": "d3234b28661430084ed16d85ac5cdf503501832e3b112d9c0c91ab6a756adacb",
+      "routes": 315,
+      "pieces": 316
+    },
+    {
+      "id": "-5:7",
+      "bounds": [
+        -20000,
+        28000,
+        -16000,
+        30000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-5_7-914f93cffb8c.json.gz",
+      "bytes": 11147,
+      "decodedBytes": 58238,
+      "sha256": "914f93cffb8ca017ebdf7061fbc6fa5724ca17d0931bda7fcddd82f81fa2da9f",
+      "decodedSha256": "b25b61a8685e96c6c0f1359964c5c73f58a63415835170baf71dd750a7fc05b0",
+      "routes": 147,
+      "pieces": 147
+    },
+    {
+      "id": "-4:-8",
+      "bounds": [
+        -16000,
+        -30000,
+        -12000,
+        -28000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-4_-8-b917e4034d88.json.gz",
+      "bytes": 1251,
+      "decodedBytes": 4899,
+      "sha256": "b917e4034d8895cfaa8c94d8d850d2ac5cf5a71e70f045d438154afc93434e6d",
+      "decodedSha256": "ba91d7f5397bc7cc5e228396c9f3458eadb20a4f01cf42814ea6269a29bfd321",
+      "routes": 13,
+      "pieces": 13
+    },
+    {
+      "id": "-4:-7",
+      "bounds": [
+        -16000,
+        -28000,
+        -12000,
+        -24000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-4_-7-8248bbe2c500.json.gz",
+      "bytes": 3244,
+      "decodedBytes": 13524,
+      "sha256": "8248bbe2c500f3353677b4bd42cd5bef1a54c012a1c9bbce8c1bf8d1a7b5fd59",
+      "decodedSha256": "bcacfb902ef824d34ed5e30803507f8f204ab78e7a86cbb34e8ad4b694303a89",
+      "routes": 30,
+      "pieces": 31
+    },
+    {
+      "id": "-4:-6",
+      "bounds": [
+        -16000,
+        -24000,
+        -12000,
+        -20000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-4_-6-fbb3efb7d735.json.gz",
+      "bytes": 4726,
+      "decodedBytes": 20648,
+      "sha256": "fbb3efb7d7359e2dd3cf0e0876ea8e5ce13b7353b90afb783a38af73add015c7",
+      "decodedSha256": "d7e0fc460b9b9d9297d9287f3e3308a6adaa28eb2739258ba14f5e03d0536137",
+      "routes": 51,
+      "pieces": 51
+    },
+    {
+      "id": "-4:-5",
+      "bounds": [
+        -16000,
+        -20000,
+        -12000,
+        -16000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-4_-5-7f5a82e3f4d8.json.gz",
+      "bytes": 2974,
+      "decodedBytes": 10728,
+      "sha256": "7f5a82e3f4d8299bdff1eba1260660749cdd7c2639051c0e95e2ba179d984bf5",
+      "decodedSha256": "9fae559b5689f2ad9927c09fe4feb6edbe9d0de0c544696db372d2bf28981359",
+      "routes": 17,
+      "pieces": 17
+    },
+    {
+      "id": "-4:-4",
+      "bounds": [
+        -16000,
+        -16000,
+        -12000,
+        -12000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-4_-4-2e41990ff687.json.gz",
+      "bytes": 1714,
+      "decodedBytes": 6633,
+      "sha256": "2e41990ff687b7c4cf14f9e86a560a90aea4ae09745ba55fccfc6984e59460a0",
+      "decodedSha256": "726ae6558e98061492a08047effebc32bb8f4f3ed3df248f352347f0f7abbfd5",
+      "routes": 14,
+      "pieces": 14
+    },
+    {
+      "id": "-4:-3",
+      "bounds": [
+        -16000,
+        -12000,
+        -12000,
+        -8000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-4_-3-62a174ed223d.json.gz",
+      "bytes": 7170,
+      "decodedBytes": 34332,
+      "sha256": "62a174ed223d063988f27a4ab2b1ed5535ac778cfc3d031edc0f50d189475468",
+      "decodedSha256": "c345cd88c1b407a66207933392de13b19fdb07dac9df2200098323a7128fd60d",
+      "routes": 78,
+      "pieces": 80
+    },
+    {
+      "id": "-4:-2",
+      "bounds": [
+        -16000,
+        -8000,
+        -12000,
+        -4000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-4_-2-5c74accf688c.json.gz",
+      "bytes": 8661,
+      "decodedBytes": 45742,
+      "sha256": "5c74accf688c83e781f46f60725993287e6a1567ad0d21733484f137c972df25",
+      "decodedSha256": "f3f58fcc108d09aac90d63035acdbc61054796af5a77bad71e45d25c93767a93",
+      "routes": 117,
+      "pieces": 118
+    },
+    {
+      "id": "-4:-1",
+      "bounds": [
+        -16000,
+        -4000,
+        -12000,
+        0
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-4_-1-25fce9a3a881.json.gz",
+      "bytes": 8354,
+      "decodedBytes": 45635,
+      "sha256": "25fce9a3a8810d36a3ea41bf4962c294d8bb288ceb4aad239b1df4c77cc2ce45",
+      "decodedSha256": "1f0291995c3e432a16f3d27485b79b49d2ff8ccb48766692bef71dc937aeef4c",
+      "routes": 127,
+      "pieces": 127
+    },
+    {
+      "id": "-4:0",
+      "bounds": [
+        -16000,
+        0,
+        -12000,
+        4000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-4_0-dda36fe2d2e5.json.gz",
+      "bytes": 13161,
+      "decodedBytes": 66079,
+      "sha256": "dda36fe2d2e5f6170a497910fb80aba45e1d1c6b5524fe8c4a3d0d96148424be",
+      "decodedSha256": "5717b8ad5a0e50eb6b7534b6581b7a40b80e76e8267ce50ef67b78cd6a9b0503",
+      "routes": 173,
+      "pieces": 173
+    },
+    {
+      "id": "-4:1",
+      "bounds": [
+        -16000,
+        4000,
+        -12000,
+        8000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-4_1-705535e859bc.json.gz",
+      "bytes": 6215,
+      "decodedBytes": 32186,
+      "sha256": "705535e859bc3490443a32cc7225ed6b5ceb545df263de743bdd221004687cea",
+      "decodedSha256": "84e5a1a2bd89e2eb55f2b3396e06c6a1748f168262bd15784a3c36d531d507b9",
+      "routes": 90,
+      "pieces": 90
+    },
+    {
+      "id": "-4:2",
+      "bounds": [
+        -16000,
+        8000,
+        -12000,
+        12000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-4_2-90471a6eb21a.json.gz",
+      "bytes": 11810,
+      "decodedBytes": 63057,
+      "sha256": "90471a6eb21a65ce79728a7c65415c9e136f85a06f2329672fc5a657299d3ec5",
+      "decodedSha256": "8408ff74b9e9ca303e000cdd6bfcbf6d5dd7d4e67441be1c75b1f9443a02ce5c",
+      "routes": 163,
+      "pieces": 164
+    },
+    {
+      "id": "-4:3",
+      "bounds": [
+        -16000,
+        12000,
+        -12000,
+        16000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-4_3-d1739d59bc68.json.gz",
+      "bytes": 10930,
+      "decodedBytes": 57919,
+      "sha256": "d1739d59bc68f50e123b8fe023da3fa10f37779b4664238a7bf5f97ca8b4e7be",
+      "decodedSha256": "a69a5e35e6fb4e3b47826f3ea8eba43f1b0d5c7ff8839c607041bb77602c711c",
+      "routes": 147,
+      "pieces": 147
+    },
+    {
+      "id": "-4:4",
+      "bounds": [
+        -16000,
+        16000,
+        -12000,
+        20000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-4_4-7499baa6f0e7.json.gz",
+      "bytes": 11892,
+      "decodedBytes": 63597,
+      "sha256": "7499baa6f0e725acb39f6b198ae51e39d16c760c561b85d47803b1b600f401f6",
+      "decodedSha256": "de80539e017a76bf5c76851233ebdb94b0e23853c53fab26e6abe1dee3a53eaa",
+      "routes": 171,
+      "pieces": 173
+    },
+    {
+      "id": "-4:5",
+      "bounds": [
+        -16000,
+        20000,
+        -12000,
+        24000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-4_5-606aaba98a22.json.gz",
+      "bytes": 14885,
+      "decodedBytes": 77252,
+      "sha256": "606aaba98a2256e7123cee2889f24c9957e87b23eb48dc83afd0a0da7dcaacc3",
+      "decodedSha256": "cbd8673c4b6048fd22c6af80cb115aec776cca06afbadb098f02a2756f04582a",
+      "routes": 204,
+      "pieces": 206
+    },
+    {
+      "id": "-4:6",
+      "bounds": [
+        -16000,
+        24000,
+        -12000,
+        28000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-4_6-9b702d75e5d9.json.gz",
+      "bytes": 28862,
+      "decodedBytes": 154019,
+      "sha256": "9b702d75e5d9a6f4012dc286e7cd432065d7ee695084495898e14868dab13210",
+      "decodedSha256": "62f7d8c441a77452abb7a1de58b3060cbdd07e1458ec0adab95bcdba69cdbb38",
+      "routes": 428,
+      "pieces": 429
+    },
+    {
+      "id": "-4:7",
+      "bounds": [
+        -16000,
+        28000,
+        -12000,
+        30000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-4_7-e10b02aab3a7.json.gz",
+      "bytes": 17897,
+      "decodedBytes": 95969,
+      "sha256": "e10b02aab3a75e4ce9d6f15f370ab8514147189a5db1c2b2f7688b7c135a72be",
+      "decodedSha256": "225a0a7b3673ca2228a756c5561823fce85b1df765e848b4a99c0e91ecbe1a04",
+      "routes": 265,
+      "pieces": 268
+    },
+    {
+      "id": "-3:-8",
+      "bounds": [
+        -12000,
+        -30000,
+        -8000,
+        -28000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-3_-8-11d6caa7da6b.json.gz",
+      "bytes": 800,
+      "decodedBytes": 2227,
+      "sha256": "11d6caa7da6b260b7f1edce64b60e31b4ecef6cebcaacb9746402d994c8fda8a",
+      "decodedSha256": "6aeeb710c9b08f0f838ad31169117b9da79d7edaf69e0e3a5aea48a4e5ca1370",
+      "routes": 3,
+      "pieces": 3
+    },
+    {
+      "id": "-3:-7",
+      "bounds": [
+        -12000,
+        -28000,
+        -8000,
+        -24000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-3_-7-97e83f59d6d2.json.gz",
+      "bytes": 2492,
+      "decodedBytes": 12456,
+      "sha256": "97e83f59d6d2096df05131808382b3ea18a58de46023660c42739216e832cbe1",
+      "decodedSha256": "99984f4054d5e2d46857238c113f133aae29c989b1d44d2c892bfb8b4d1f816c",
+      "routes": 35,
+      "pieces": 35
+    },
+    {
+      "id": "-3:-6",
+      "bounds": [
+        -12000,
+        -24000,
+        -8000,
+        -20000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-3_-6-d24159ced204.json.gz",
+      "bytes": 3559,
+      "decodedBytes": 16897,
+      "sha256": "d24159ced2046a49dba981e70fb4fd357ec9302d6b28af226b60679928ffdded",
+      "decodedSha256": "5ba015953fac94cc7ae0610939e4bbc9df7547ec1faf658faa859ab69604479d",
+      "routes": 45,
+      "pieces": 45
+    },
+    {
+      "id": "-3:-5",
+      "bounds": [
+        -12000,
+        -20000,
+        -8000,
+        -16000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-3_-5-73f805928abe.json.gz",
+      "bytes": 6928,
+      "decodedBytes": 35045,
+      "sha256": "73f805928abe1a010517b0aa588671962f3e1fb2f4c8618da28814b154ae3c4d",
+      "decodedSha256": "7aaae19fb54beaaedfe2336476d52d51cc924dce59911f20e9e959533b587609",
+      "routes": 97,
+      "pieces": 97
+    },
+    {
+      "id": "-3:-4",
+      "bounds": [
+        -12000,
+        -16000,
+        -8000,
+        -12000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-3_-4-7eeba1b8a3d9.json.gz",
+      "bytes": 3880,
+      "decodedBytes": 16492,
+      "sha256": "7eeba1b8a3d96c2e0986e6bcba6cd7bcacdad73bae8b720e17e7b5dc0c7fdf6d",
+      "decodedSha256": "363c82dbe2d531240a862eac123fb2473148b43879f84588a1563f5c0f45b27f",
+      "routes": 39,
+      "pieces": 39
+    },
+    {
+      "id": "-3:-3",
+      "bounds": [
+        -12000,
+        -12000,
+        -8000,
+        -8000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-3_-3-72e91ddd23ea.json.gz",
+      "bytes": 5024,
+      "decodedBytes": 21011,
+      "sha256": "72e91ddd23ea9527a635cd817aefcb00b58a57806aa1b37a4aab014a1a8c12a7",
+      "decodedSha256": "c852bf626c59e51787d6821502c4dd0fef7546c614516f7c95b6e041189368fb",
+      "routes": 39,
+      "pieces": 39
+    },
+    {
+      "id": "-3:-2",
+      "bounds": [
+        -12000,
+        -8000,
+        -8000,
+        -4000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-3_-2-aaafbd4ddf87.json.gz",
+      "bytes": 10423,
+      "decodedBytes": 46030,
+      "sha256": "aaafbd4ddf87c31e76a9b04fe2774681453667f1a45adaa8beb4fb0e3e8dd51c",
+      "decodedSha256": "02bbdcab269728de4f6d7d80838b0e6173c601aa3d2f355f72fe008ebd1b570f",
+      "routes": 89,
+      "pieces": 89
+    },
+    {
+      "id": "-3:-1",
+      "bounds": [
+        -12000,
+        -4000,
+        -8000,
+        0
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-3_-1-928dcf0b0670.json.gz",
+      "bytes": 15407,
+      "decodedBytes": 78613,
+      "sha256": "928dcf0b0670b4862ca11fd297e7ae2337920779d5f72b75be34ec43bfd6b38e",
+      "decodedSha256": "f85318d526de8d782f58181bde0aa62f91d6248665f10f37f3a1ef7ef3aafc36",
+      "routes": 203,
+      "pieces": 204
+    },
+    {
+      "id": "-3:0",
+      "bounds": [
+        -12000,
+        0,
+        -8000,
+        4000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-3_0-935ae9d98478.json.gz",
+      "bytes": 21285,
+      "decodedBytes": 104462,
+      "sha256": "935ae9d98478ecadb8c6c5e3fc59887b36c5eae67ab0a9f859107d4562cab3a8",
+      "decodedSha256": "156a5809588d3494288eeec4524ae1f171b285cad321c3cdd0378224ca03904d",
+      "routes": 242,
+      "pieces": 246
+    },
+    {
+      "id": "-3:1",
+      "bounds": [
+        -12000,
+        4000,
+        -8000,
+        8000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-3_1-e103cc05e862.json.gz",
+      "bytes": 13687,
+      "decodedBytes": 74522,
+      "sha256": "e103cc05e862a1ed065d1c4dad23d03402b78fc068d82a777081c5ec0d0a8a78",
+      "decodedSha256": "1ea1fdbfcd5db4ed5d295833920019bdf62dbda12f101ad8116d45ec297be9e7",
+      "routes": 206,
+      "pieces": 208
+    },
+    {
+      "id": "-3:2",
+      "bounds": [
+        -12000,
+        8000,
+        -8000,
+        12000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-3_2-bfddfc307cf9.json.gz",
+      "bytes": 16520,
+      "decodedBytes": 96987,
+      "sha256": "bfddfc307cf962ac751f6a8b34c0ce1381e9e31c655567384abf389ca8b47df1",
+      "decodedSha256": "f5ff3daa29e426d24862a71cf58e1129b46e7b887e44a30ecc5ed646ea2d6efe",
+      "routes": 277,
+      "pieces": 277
+    },
+    {
+      "id": "-3:3",
+      "bounds": [
+        -12000,
+        12000,
+        -8000,
+        16000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-3_3-5fa7c031f95c.json.gz",
+      "bytes": 12833,
+      "decodedBytes": 69122,
+      "sha256": "5fa7c031f95ca2bf70ffb901283c264f2e27f4b235eb21ca27fa45e2d2d27be8",
+      "decodedSha256": "7cea95424bfac319da13432e23d30819431fae8f53bc840ad94e3946dfb3c1e3",
+      "routes": 183,
+      "pieces": 184
+    },
+    {
+      "id": "-3:4",
+      "bounds": [
+        -12000,
+        16000,
+        -8000,
+        20000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-3_4-875aee037ded.json.gz",
+      "bytes": 13850,
+      "decodedBytes": 72782,
+      "sha256": "875aee037dedf3eb9f286d37c9bf4208a6a51731c4f0351073a8b7f5738ef6f6",
+      "decodedSha256": "167779993c95cb691ed9ffe22f59c5096defb0bcc5f0bfedd9762428d0536e21",
+      "routes": 192,
+      "pieces": 192
+    },
+    {
+      "id": "-3:5",
+      "bounds": [
+        -12000,
+        20000,
+        -8000,
+        24000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-3_5-cf58588b9063.json.gz",
+      "bytes": 22951,
+      "decodedBytes": 112009,
+      "sha256": "cf58588b9063ec15672b362bc6790eb2162fc4486f2e7a7e588dfc88610d1ad0",
+      "decodedSha256": "318ac018d485983452dfffe9ebf424ecd56751179f0cdc5dbc07070e992ff144",
+      "routes": 257,
+      "pieces": 257
+    },
+    {
+      "id": "-3:6",
+      "bounds": [
+        -12000,
+        24000,
+        -8000,
+        28000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-3_6-c2cf888bde4e.json.gz",
+      "bytes": 18905,
+      "decodedBytes": 96975,
+      "sha256": "c2cf888bde4e28e0e38f293a966be9225e19ce3696fdb8b271edf80aec0ee04f",
+      "decodedSha256": "8666583411225b9f4da241cf1fb0e8212d1ee2ec26d121c893c9d00625bdbe6d",
+      "routes": 247,
+      "pieces": 248
+    },
+    {
+      "id": "-3:7",
+      "bounds": [
+        -12000,
+        28000,
+        -8000,
+        30000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-3_7-a3af6607f274.json.gz",
+      "bytes": 11385,
+      "decodedBytes": 59296,
+      "sha256": "a3af6607f274e7a458ed2c4449b5dda13121b9ba730b4bbdb23ded09eafe9043",
+      "decodedSha256": "290539238bf6d3b09fc08260c4e76d36f994de2e6876c782d6e9c13b851d85cc",
+      "routes": 164,
+      "pieces": 166
+    },
+    {
+      "id": "-2:-8",
+      "bounds": [
+        -8000,
+        -30000,
+        -4000,
+        -28000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-2_-8-38c6a9be47d5.json.gz",
+      "bytes": 2802,
+      "decodedBytes": 11989,
+      "sha256": "38c6a9be47d5d165ec328a77303663d1b5860cd43e8f93659d07b383e6a7bd04",
+      "decodedSha256": "05a7419a1b1bda464c7968f0ab799294955138ccd75e2d737936dd69df0edc78",
+      "routes": 29,
+      "pieces": 29
+    },
+    {
+      "id": "-2:-7",
+      "bounds": [
+        -8000,
+        -28000,
+        -4000,
+        -24000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-2_-7-01a36854a8d1.json.gz",
+      "bytes": 3498,
+      "decodedBytes": 16409,
+      "sha256": "01a36854a8d1a2f79be5840df2c438af8641581d17ab7248cf9cf69417c0c15e",
+      "decodedSha256": "cf47e5fffa7c2446417e525bf1df47040fa3e81024ef97dc58e2376359359d27",
+      "routes": 43,
+      "pieces": 43
+    },
+    {
+      "id": "-2:-6",
+      "bounds": [
+        -8000,
+        -24000,
+        -4000,
+        -20000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-2_-6-7808d8665454.json.gz",
+      "bytes": 7576,
+      "decodedBytes": 41329,
+      "sha256": "7808d8665454b7b26e98e87fb983e5c6a59c343a9c128699a26bda2e471ee243",
+      "decodedSha256": "f6c4e4914b68e47e9b942c69451c4b4cfed5b737d3cb94f2ec050f8cf50545cc",
+      "routes": 116,
+      "pieces": 116
+    },
+    {
+      "id": "-2:-5",
+      "bounds": [
+        -8000,
+        -20000,
+        -4000,
+        -16000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-2_-5-3bbb3562d74e.json.gz",
+      "bytes": 4472,
+      "decodedBytes": 18952,
+      "sha256": "3bbb3562d74ec3493fdb4e7a371e666fe6fda454e0207758fec895427532669d",
+      "decodedSha256": "f26420bc9fbbbff5f2ffa2b5be3abb5b6bb1c22adf4ce570f9c4356dd6e44767",
+      "routes": 41,
+      "pieces": 42
+    },
+    {
+      "id": "-2:-4",
+      "bounds": [
+        -8000,
+        -16000,
+        -4000,
+        -12000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-2_-4-41dc45fcaa6f.json.gz",
+      "bytes": 3420,
+      "decodedBytes": 14579,
+      "sha256": "41dc45fcaa6f869dedae2ae89ba3d50d23956700805035390d4c7331622ca12f",
+      "decodedSha256": "ac2d6df0e4338ef144e23371aed5461ab34a27c19663c171e5fdf448bc63839d",
+      "routes": 33,
+      "pieces": 35
+    },
+    {
+      "id": "-2:-3",
+      "bounds": [
+        -8000,
+        -12000,
+        -4000,
+        -8000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-2_-3-70d8e9360210.json.gz",
+      "bytes": 6398,
+      "decodedBytes": 30103,
+      "sha256": "70d8e93602103b89ee0be4c58a53ca0efc7686e0f7ca9bfe2fc97b3178a50751",
+      "decodedSha256": "a1c351bbd2d39cd9e8fb374ff922bd2a587395417c84d59e25b5c0c049c7bc3b",
+      "routes": 66,
+      "pieces": 66
+    },
+    {
+      "id": "-2:-2",
+      "bounds": [
+        -8000,
+        -8000,
+        -4000,
+        -4000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-2_-2-1ee4de71d12d.json.gz",
+      "bytes": 7588,
+      "decodedBytes": 29842,
+      "sha256": "1ee4de71d12d67c14161280e9a9eb7e1bcc854fbf4a09474dbf60d5bee545f84",
+      "decodedSha256": "49354f517d152950a7ea543a1d148318efc24f8989677613f345b93dba497b44",
+      "routes": 47,
+      "pieces": 47
+    },
+    {
+      "id": "-2:-1",
+      "bounds": [
+        -8000,
+        -4000,
+        -4000,
+        0
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-2_-1-fbc2f123b50f.json.gz",
+      "bytes": 6669,
+      "decodedBytes": 26522,
+      "sha256": "fbc2f123b50f810f6dfdab4a05f0e6c4b43675354ee1b977593efe43b3cfe977",
+      "decodedSha256": "e3c8843d8cfdd37037c1319037d7ceaf7c0737c06cdf03846378bd862b57bf79",
+      "routes": 46,
+      "pieces": 46
+    },
+    {
+      "id": "-2:0",
+      "bounds": [
+        -8000,
+        0,
+        -4000,
+        4000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-2_0-594bf4ca0639.json.gz",
+      "bytes": 10232,
+      "decodedBytes": 48756,
+      "sha256": "594bf4ca0639b461f8b718828dc77cede5d0f98e1e30b2afc9bf964faee00b54",
+      "decodedSha256": "d16898e12d965900525a95414b5cd9d27c8a96c91929d55a394e330a2847224a",
+      "routes": 111,
+      "pieces": 114
+    },
+    {
+      "id": "-2:1",
+      "bounds": [
+        -8000,
+        4000,
+        -4000,
+        8000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-2_1-a37dc78aa6b0.json.gz",
+      "bytes": 15402,
+      "decodedBytes": 83548,
+      "sha256": "a37dc78aa6b0be7b88fa3a99c61e39d81812531c1101988f99b8372bf7023421",
+      "decodedSha256": "e1ef647b27c678b616f952533f03201445add25493cd98b1c09bd1385a48a3d2",
+      "routes": 237,
+      "pieces": 239
+    },
+    {
+      "id": "-2:2",
+      "bounds": [
+        -8000,
+        8000,
+        -4000,
+        12000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-2_2-0a53fff9281f.json.gz",
+      "bytes": 16131,
+      "decodedBytes": 89879,
+      "sha256": "0a53fff9281f79c39712f4c0f456b739344810d63d9724037732d7d30a362c8d",
+      "decodedSha256": "38eb8a5f24b053606828e379705eb950255cb56e1ad537115b0e7e43c21136c5",
+      "routes": 253,
+      "pieces": 253
+    },
+    {
+      "id": "-2:3",
+      "bounds": [
+        -8000,
+        12000,
+        -4000,
+        16000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-2_3-0217ab7736c6.json.gz",
+      "bytes": 13108,
+      "decodedBytes": 66079,
+      "sha256": "0217ab7736c6e4b1a309454441d4e7348078fa781e73e24830ce3568bc0ef389",
+      "decodedSha256": "21a891393ee9657d60b8ca7ba0e792574c50dda4acecaf2276b913176a3ef87c",
+      "routes": 161,
+      "pieces": 161
+    },
+    {
+      "id": "-2:4",
+      "bounds": [
+        -8000,
+        16000,
+        -4000,
+        20000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-2_4-c40aa07c2491.json.gz",
+      "bytes": 24693,
+      "decodedBytes": 129495,
+      "sha256": "c40aa07c2491754b2e7480610a5fd64be18fd077ab1fc5913d50ac4ae2d20a3f",
+      "decodedSha256": "ff35680894737ea5fe7fe52f943a411152ffad7afeeaf515e4417824b5d88e6a",
+      "routes": 335,
+      "pieces": 336
+    },
+    {
+      "id": "-2:5",
+      "bounds": [
+        -8000,
+        20000,
+        -4000,
+        24000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-2_5-9b4d187b5e1f.json.gz",
+      "bytes": 18349,
+      "decodedBytes": 97544,
+      "sha256": "9b4d187b5e1fdc7c150982257693179dbb7ad48c4f141bfafa6b77d676623975",
+      "decodedSha256": "c263b8f683bb9c2a5493730a833e934673066cdfed7843caa68c303daeb6bcfc",
+      "routes": 255,
+      "pieces": 256
+    },
+    {
+      "id": "-2:6",
+      "bounds": [
+        -8000,
+        24000,
+        -4000,
+        28000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-2_6-f5502d1e05c9.json.gz",
+      "bytes": 17682,
+      "decodedBytes": 93622,
+      "sha256": "f5502d1e05c9100c588053bcf3a9ff14825c63758a36a4f215a9a26593d8acee",
+      "decodedSha256": "c6fcd2b050535f1fc35ec8ab644a86db72660f2ffd4e185009390449001014de",
+      "routes": 258,
+      "pieces": 258
+    },
+    {
+      "id": "-2:7",
+      "bounds": [
+        -8000,
+        28000,
+        -4000,
+        30000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-2_7-843474c9a60d.json.gz",
+      "bytes": 13681,
+      "decodedBytes": 75381,
+      "sha256": "843474c9a60db10b931e7be45c14caea2751ff85c91063bdb9d568cbc50deb33",
+      "decodedSha256": "41ead006f181b67d11d5500aaf0810ee5aed38d0fc50a0ca02c17927d8baedd6",
+      "routes": 219,
+      "pieces": 220
+    },
+    {
+      "id": "-1:-8",
+      "bounds": [
+        -4000,
+        -30000,
+        0,
+        -28000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-1_-8-a617f6d2c222.json.gz",
+      "bytes": 4809,
+      "decodedBytes": 19785,
+      "sha256": "a617f6d2c22279ca8ca2bf44cbb52dbfb9d66ddb1d97e46b3d54a51d65260755",
+      "decodedSha256": "408e5b2a6d12d421be62b1beb184ac96f450054780b2e56c2732dccf4741e931",
+      "routes": 42,
+      "pieces": 44
+    },
+    {
+      "id": "-1:-7",
+      "bounds": [
+        -4000,
+        -28000,
+        0,
+        -24000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-1_-7-a3bd6bc231f1.json.gz",
+      "bytes": 2764,
+      "decodedBytes": 12526,
+      "sha256": "a3bd6bc231f10e407e935ba6cfada0563d9fba81158d724ea63658410db05034",
+      "decodedSha256": "b00b2a8558b3bb93e84ef6c3fb722bbf224526d214de2a77d71f0b8e5c809470",
+      "routes": 35,
+      "pieces": 35
+    },
+    {
+      "id": "-1:-6",
+      "bounds": [
+        -4000,
+        -24000,
+        0,
+        -20000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-1_-6-4fec134b8fbb.json.gz",
+      "bytes": 6576,
+      "decodedBytes": 31100,
+      "sha256": "4fec134b8fbbf3477665508976472c6f57d01104071138db68b213bf38977081",
+      "decodedSha256": "4af22fe60ead36bf9d734ccc58311809bfb5cda79879e12cce451c5c12913698",
+      "routes": 76,
+      "pieces": 77
+    },
+    {
+      "id": "-1:-5",
+      "bounds": [
+        -4000,
+        -20000,
+        0,
+        -16000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-1_-5-8e8fcfc31ebc.json.gz",
+      "bytes": 4910,
+      "decodedBytes": 21955,
+      "sha256": "8e8fcfc31ebc75203c3735de60218085170820133dc13584634658cb0318201a",
+      "decodedSha256": "5dfd2fa9bf6acd725a0909b8c1511231566213decf183f219975f2b98621cbe8",
+      "routes": 49,
+      "pieces": 49
+    },
+    {
+      "id": "-1:-4",
+      "bounds": [
+        -4000,
+        -16000,
+        0,
+        -12000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-1_-4-02568a2b3183.json.gz",
+      "bytes": 7919,
+      "decodedBytes": 43803,
+      "sha256": "02568a2b31830bb53bb4261881ebecfc62164e710879dcdf2e85ac08f3358ddc",
+      "decodedSha256": "490a0d31cdf32f1f6660613d6c0bd227f31a94a17c1d1b633f1e38325c231fc7",
+      "routes": 115,
+      "pieces": 115
+    },
+    {
+      "id": "-1:-3",
+      "bounds": [
+        -4000,
+        -12000,
+        0,
+        -8000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-1_-3-75ab3d63e218.json.gz",
+      "bytes": 8040,
+      "decodedBytes": 33475,
+      "sha256": "75ab3d63e218d4b40c5af09ac38c025b3add05130efc64d55e6ffab9cd1283ce",
+      "decodedSha256": "e439ac739d22172b077552467c4f2bca993af225f0e7648f6e3dfbd1a137c7df",
+      "routes": 59,
+      "pieces": 59
+    },
+    {
+      "id": "-1:-2",
+      "bounds": [
+        -4000,
+        -8000,
+        0,
+        -4000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-1_-2-ccd944e48c99.json.gz",
+      "bytes": 2361,
+      "decodedBytes": 7457,
+      "sha256": "ccd944e48c99c9d1b6616c3372164ff09380237fbbca5fa9138bbf35209f4750",
+      "decodedSha256": "1e113664bfc9d65c07f64534210c6c042f91afc7d43014eabc606beb96f1e365",
+      "routes": 5,
+      "pieces": 6
+    },
+    {
+      "id": "-1:0",
+      "bounds": [
+        -4000,
+        0,
+        0,
+        4000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-1_0-e4c6475e933f.json.gz",
+      "bytes": 2813,
+      "decodedBytes": 12314,
+      "sha256": "e4c6475e933ffb359e70976305bc17808636ad2b8554f62fe0bd044a68c1fbe6",
+      "decodedSha256": "e3a2bd00ad8949eaf710737bb2d2e4583f0cedc15b68075a6a457365400a582c",
+      "routes": 29,
+      "pieces": 30
+    },
+    {
+      "id": "-1:1",
+      "bounds": [
+        -4000,
+        4000,
+        0,
+        8000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-1_1-5f3a38f1e552.json.gz",
+      "bytes": 22805,
+      "decodedBytes": 120233,
+      "sha256": "5f3a38f1e55257b2dec5fe5227edcd84f82556044f8b0633f3bfda32d4022a11",
+      "decodedSha256": "beec1d584bfcf08365a19e16427d69c1f21e6177e76e7892e90909dc88866539",
+      "routes": 306,
+      "pieces": 309
+    },
+    {
+      "id": "-1:2",
+      "bounds": [
+        -4000,
+        8000,
+        0,
+        12000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-1_2-a2a34beeceea.json.gz",
+      "bytes": 21642,
+      "decodedBytes": 118516,
+      "sha256": "a2a34beeceea03e51d76baa1289f05005bea30c088f6539684840bd756238d20",
+      "decodedSha256": "4924a9f60630501c0d9ff6f7c3d9b390eae130ee02820cdf3cdd113a17882fe3",
+      "routes": 314,
+      "pieces": 315
+    },
+    {
+      "id": "-1:3",
+      "bounds": [
+        -4000,
+        12000,
+        0,
+        16000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-1_3-7b0a68620160.json.gz",
+      "bytes": 15554,
+      "decodedBytes": 86119,
+      "sha256": "7b0a686201601ed73a3ca58ed125d49a6a4325c0fdff8d5c8d4d4b091ba22a42",
+      "decodedSha256": "6fb550227a0464424a2feb0f2488cdaf81bf499e6a18e3942f79e18c62b30ec9",
+      "routes": 239,
+      "pieces": 239
+    },
+    {
+      "id": "-1:4",
+      "bounds": [
+        -4000,
+        16000,
+        0,
+        20000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-1_4-e6facd1df3c1.json.gz",
+      "bytes": 19565,
+      "decodedBytes": 97088,
+      "sha256": "e6facd1df3c160f5178a08e36677136eb1514ea83dbfe9ea8b239c1eaaad1fe4",
+      "decodedSha256": "416cb2c48e9bb315e5cf1faded1d6937c9f0c17cc14d89f627cc2243541c2676",
+      "routes": 231,
+      "pieces": 231
+    },
+    {
+      "id": "-1:5",
+      "bounds": [
+        -4000,
+        20000,
+        0,
+        24000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-1_5-5909b9307630.json.gz",
+      "bytes": 19932,
+      "decodedBytes": 104717,
+      "sha256": "5909b930763065beb9e64a11ad6d987e1ad7d0c2018303b91832a7caa0953a6b",
+      "decodedSha256": "29bdf1a1acda896741eb298b384e7198cd82a00dcdf2d2ebedb401348203e676",
+      "routes": 277,
+      "pieces": 277
+    },
+    {
+      "id": "-1:6",
+      "bounds": [
+        -4000,
+        24000,
+        0,
+        28000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-1_6-39d50eddcc0d.json.gz",
+      "bytes": 25201,
+      "decodedBytes": 135226,
+      "sha256": "39d50eddcc0dc4465b97300ec2cda9f96705c8c6bc8e81f51ee56dc95046b39c",
+      "decodedSha256": "04769b1ed65ce06203d5d8eeead322845e35e8f0c8cad160d7b0f837a2cda1f4",
+      "routes": 359,
+      "pieces": 360
+    },
+    {
+      "id": "-1:7",
+      "bounds": [
+        -4000,
+        28000,
+        0,
+        30000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/-1_7-9eab7468b999.json.gz",
+      "bytes": 6594,
+      "decodedBytes": 32275,
+      "sha256": "9eab7468b9993b21b3b3643eccee274565e16492727faf3be219910ce94482f4",
+      "decodedSha256": "154b6044467b8b7bcbcc45c298593809f07d988c24605fcab92bc4dc6871da41",
+      "routes": 81,
+      "pieces": 81
+    },
+    {
+      "id": "0:-8",
+      "bounds": [
+        0,
+        -30000,
+        4000,
+        -28000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/0_-8-75edc02d0a72.json.gz",
+      "bytes": 2096,
+      "decodedBytes": 6973,
+      "sha256": "75edc02d0a725083dc59b6704f232aadaba521c4cbe81481624d7d5c960053ce",
+      "decodedSha256": "f5af851c2ac91f7e95eac1afeb3d226bae2befffe5902317110d00b823c4da89",
+      "routes": 9,
+      "pieces": 9
+    },
+    {
+      "id": "0:-7",
+      "bounds": [
+        0,
+        -28000,
+        4000,
+        -24000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/0_-7-90aed1a7cee7.json.gz",
+      "bytes": 3298,
+      "decodedBytes": 13260,
+      "sha256": "90aed1a7cee7ede7545b0dbfee11d39f3f9875e36d8e6f03d874cf1d26ff70c7",
+      "decodedSha256": "f8370ac75ab74b6416577d3993bd03eeee2fd8aba006fed00975d9d0b2041ccc",
+      "routes": 27,
+      "pieces": 27
+    },
+    {
+      "id": "0:-6",
+      "bounds": [
+        0,
+        -24000,
+        4000,
+        -20000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/0_-6-df1f0b4b78ec.json.gz",
+      "bytes": 4491,
+      "decodedBytes": 18618,
+      "sha256": "df1f0b4b78ec3bc128395e77ab20170ab3f229b4ffb70baf37ec0ef15ade3c91",
+      "decodedSha256": "57e9a488552240b475f328f5cd9a87995ebe81fcbc275eab081b7dc3e8ff1767",
+      "routes": 37,
+      "pieces": 37
+    },
+    {
+      "id": "0:-5",
+      "bounds": [
+        0,
+        -20000,
+        4000,
+        -16000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/0_-5-88db5eab3ef4.json.gz",
+      "bytes": 7846,
+      "decodedBytes": 45567,
+      "sha256": "88db5eab3ef415c808154198459dac7691711866cd5ff0d4fcfec0d6864e8fcc",
+      "decodedSha256": "c19c60cd4c9e2a74ac5da3af927b631364336773304646d3ab6888ebb70f2029",
+      "routes": 135,
+      "pieces": 136
+    },
+    {
+      "id": "0:-4",
+      "bounds": [
+        0,
+        -16000,
+        4000,
+        -12000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/0_-4-6f10d58d75c4.json.gz",
+      "bytes": 11873,
+      "decodedBytes": 64178,
+      "sha256": "6f10d58d75c4a3ab6b69364d7157e545777d7217652d2a3e001f9e929a88cd5c",
+      "decodedSha256": "5ad7aa4d7401275b2aedc68d79d8ae3adc843e1d7f5a695ad42b39f6536a9be7",
+      "routes": 173,
+      "pieces": 174
+    },
+    {
+      "id": "0:-3",
+      "bounds": [
+        0,
+        -12000,
+        4000,
+        -8000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/0_-3-fe6eeacfb10b.json.gz",
+      "bytes": 10948,
+      "decodedBytes": 54275,
+      "sha256": "fe6eeacfb10be7fdd5506b7900b873ec6699fe54eae07d0e34713a62cf80ec3d",
+      "decodedSha256": "5c9147a74b2807750ca5fd4ba794a3a3a71172910e00bd8410c9ccbbf79244f1",
+      "routes": 130,
+      "pieces": 131
+    },
+    {
+      "id": "0:-2",
+      "bounds": [
+        0,
+        -8000,
+        4000,
+        -4000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/0_-2-a8120650443b.json.gz",
+      "bytes": 4900,
+      "decodedBytes": 18099,
+      "sha256": "a8120650443bd32224725cf8e134d8b86aa53df8d60473402cda2ebdebc4c281",
+      "decodedSha256": "e81ff5f2b6808eec71741e54effa974673d795a0fa6f319c63d3f144cb59f655",
+      "routes": 21,
+      "pieces": 21
+    },
+    {
+      "id": "0:0",
+      "bounds": [
+        0,
+        0,
+        4000,
+        4000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/0_0-10cd087946e6.json.gz",
+      "bytes": 4812,
+      "decodedBytes": 21455,
+      "sha256": "10cd087946e642687fc3c27fb103a4c04b203e1d362c45b6dbb3a2811c1d8d5a",
+      "decodedSha256": "151370829266ed32f7079dc49cafec51290f4042178fa5414171d9ea8a2a22e9",
+      "routes": 46,
+      "pieces": 46
+    },
+    {
+      "id": "0:1",
+      "bounds": [
+        0,
+        4000,
+        4000,
+        8000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/0_1-61b9197a42a3.json.gz",
+      "bytes": 16176,
+      "decodedBytes": 81724,
+      "sha256": "61b9197a42a3b829c9a19f4abb9d7cf00335bce5d643f29958468df648fa095b",
+      "decodedSha256": "46831311045ec1a86997f2a293c41a81bdcf595cd745b8aa79028f0839c36fd7",
+      "routes": 204,
+      "pieces": 205
+    },
+    {
+      "id": "0:2",
+      "bounds": [
+        0,
+        8000,
+        4000,
+        12000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/0_2-521ea46597fb.json.gz",
+      "bytes": 20104,
+      "decodedBytes": 103859,
+      "sha256": "521ea46597fb2f3b15f37daa41b08fba956799b80240c29f14e54ef1d0d71c19",
+      "decodedSha256": "6030654223372e598c7e4e9498f26da7a449a098019041a38985eaca57d60728",
+      "routes": 257,
+      "pieces": 257
+    },
+    {
+      "id": "0:3",
+      "bounds": [
+        0,
+        12000,
+        4000,
+        16000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/0_3-657f9923b07a.json.gz",
+      "bytes": 11052,
+      "decodedBytes": 60998,
+      "sha256": "657f9923b07aa4ae5d44858c136c79dd38540c7f5bf6644e518f96a984864d6b",
+      "decodedSha256": "11a07cede9481b11625e36d413de057d4d4cddd6c3e57a4de8be4cedf3339691",
+      "routes": 170,
+      "pieces": 172
+    },
+    {
+      "id": "0:4",
+      "bounds": [
+        0,
+        16000,
+        4000,
+        20000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/0_4-d4434fed3676.json.gz",
+      "bytes": 20213,
+      "decodedBytes": 102829,
+      "sha256": "d4434fed3676148f7ec07fda210a0558fb84705f9c5c9cc1013c6e91a7edc112",
+      "decodedSha256": "06c14ecb8e8f83876d54f875a299a6ed880828f232ce758d229249589cb35908",
+      "routes": 263,
+      "pieces": 264
+    },
+    {
+      "id": "0:5",
+      "bounds": [
+        0,
+        20000,
+        4000,
+        24000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/0_5-f8fe3faf1dac.json.gz",
+      "bytes": 30909,
+      "decodedBytes": 171683,
+      "sha256": "f8fe3faf1dac5f2d8ccfdd2557f5b5119059eb9f764e211552aae4bccc9a9d41",
+      "decodedSha256": "b95a21293ee42f9e234288c644e4a09c26d2a99d916aa353298cad74a17efafe",
+      "routes": 498,
+      "pieces": 498
+    },
+    {
+      "id": "0:6",
+      "bounds": [
+        0,
+        24000,
+        4000,
+        28000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/0_6-10ce6eb375be.json.gz",
+      "bytes": 41024,
+      "decodedBytes": 240777,
+      "sha256": "10ce6eb375be6a8deacaf9c94c2bc04f403dd1b1374361e9f582bb9f87e1ad58",
+      "decodedSha256": "f92aff15b86c6bceeb8c8e2125df5f59dfe3d45691ac8a1615db4a63f3f413fe",
+      "routes": 710,
+      "pieces": 712
+    },
+    {
+      "id": "0:7",
+      "bounds": [
+        0,
+        28000,
+        4000,
+        30000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/0_7-b8c99a13cb0e.json.gz",
+      "bytes": 42435,
+      "decodedBytes": 244497,
+      "sha256": "b8c99a13cb0e4c6507662ccaed893f3346eefc3c7303e2fa1d0adc4b5dcb3b96",
+      "decodedSha256": "c999016f96c3d26295e1a228f67717c73c14549f6205f70092fd2f7493cea4f4",
+      "routes": 644,
+      "pieces": 647
+    },
+    {
+      "id": "1:-8",
+      "bounds": [
+        4000,
+        -30000,
+        8000,
+        -28000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/1_-8-0972037ffb7b.json.gz",
+      "bytes": 4837,
+      "decodedBytes": 28078,
+      "sha256": "0972037ffb7b70551b25b9befa4d48f552a4017cbe9040d4ac0bc01f45c653bb",
+      "decodedSha256": "6da89a986746f9b138b8e4c143fb827e3a2df3c8fea5e92113de970b44c22ee8",
+      "routes": 79,
+      "pieces": 79
+    },
+    {
+      "id": "1:-7",
+      "bounds": [
+        4000,
+        -28000,
+        8000,
+        -24000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/1_-7-f30b3e6dc7bc.json.gz",
+      "bytes": 6108,
+      "decodedBytes": 32203,
+      "sha256": "f30b3e6dc7bca93dfb337ba2f226fc09fcdffbadfc4dd2370f600c503744a1d7",
+      "decodedSha256": "e4866d2897878c7ae3a33b130e92c43088c280e8857e0c739aad5030c2dfcc29",
+      "routes": 81,
+      "pieces": 81
+    },
+    {
+      "id": "1:-6",
+      "bounds": [
+        4000,
+        -24000,
+        8000,
+        -20000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/1_-6-588e040187bb.json.gz",
+      "bytes": 8200,
+      "decodedBytes": 44343,
+      "sha256": "588e040187bbfe8ef7cc35d919c5f461a56dc62ddede9303884d29b9381aa6ee",
+      "decodedSha256": "2bc600924a0ce162cf91adb25fc4eb45202ef7ca1bd12933f28f46cf068d995d",
+      "routes": 115,
+      "pieces": 115
+    },
+    {
+      "id": "1:-5",
+      "bounds": [
+        4000,
+        -20000,
+        8000,
+        -16000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/1_-5-fe704383913c.json.gz",
+      "bytes": 11463,
+      "decodedBytes": 69435,
+      "sha256": "fe704383913c17aba06354d08841a20a6bc9c1bac7b2556005ecb8fa96ec946e",
+      "decodedSha256": "7205a0b252fbbe3048ecaeaca2c44164c0e81481f2f570ee4dfeb9ae40809dc3",
+      "routes": 201,
+      "pieces": 201
+    },
+    {
+      "id": "1:-4",
+      "bounds": [
+        4000,
+        -16000,
+        8000,
+        -12000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/1_-4-87b271f1e1b0.json.gz",
+      "bytes": 6796,
+      "decodedBytes": 34436,
+      "sha256": "87b271f1e1b09dfa99a58ad3fefab3905fd58f92ea96176e1f692660c2ba0c09",
+      "decodedSha256": "b2935938bc18e7341b4d03ae35f898fbeb047f3c2281d8e3a581ca03ee6365df",
+      "routes": 88,
+      "pieces": 88
+    },
+    {
+      "id": "1:-3",
+      "bounds": [
+        4000,
+        -12000,
+        8000,
+        -8000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/1_-3-2d4365be9b54.json.gz",
+      "bytes": 11987,
+      "decodedBytes": 63218,
+      "sha256": "2d4365be9b54481d27ffc35343660cc6d42374c7463aea12443efcac620b9fce",
+      "decodedSha256": "f5d9c5103182b5ff289a7e7c9f91a5c1d666572ca151adca89f88925469d9102",
+      "routes": 158,
+      "pieces": 160
+    },
+    {
+      "id": "1:-2",
+      "bounds": [
+        4000,
+        -8000,
+        8000,
+        -4000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/1_-2-0c6def67db2d.json.gz",
+      "bytes": 15922,
+      "decodedBytes": 76925,
+      "sha256": "0c6def67db2d400b644c5c08246c5a22cecc5b3682b3dd8f97273f3382526dd8",
+      "decodedSha256": "3fae80661dc830386786279ad954326db4e963f04e72baba9d3fdd6ad4d589fa",
+      "routes": 173,
+      "pieces": 174
+    },
+    {
+      "id": "1:-1",
+      "bounds": [
+        4000,
+        -4000,
+        8000,
+        0
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/1_-1-b1becf0a3a7b.json.gz",
+      "bytes": 19757,
+      "decodedBytes": 93374,
+      "sha256": "b1becf0a3a7bf1af6c6f910abb07ee6c9318d61274ec1f25f5a32a1144864920",
+      "decodedSha256": "fc62b79a081f63d6a4f1578a9df198cef948e2c3b3632377ce5eb6402c4d4394",
+      "routes": 183,
+      "pieces": 184
+    },
+    {
+      "id": "1:0",
+      "bounds": [
+        4000,
+        0,
+        8000,
+        4000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/1_0-41c2c6eabcba.json.gz",
+      "bytes": 17474,
+      "decodedBytes": 92992,
+      "sha256": "41c2c6eabcbadd757c984e0ba16b82a8c45e427681eeee4dfef80ceae2ac08c3",
+      "decodedSha256": "d3139f19a87daf27262945233562997ddac366821017adf4f633400feec222a8",
+      "routes": 255,
+      "pieces": 256
+    },
+    {
+      "id": "1:1",
+      "bounds": [
+        4000,
+        4000,
+        8000,
+        8000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/1_1-1b5c087f0e51.json.gz",
+      "bytes": 19345,
+      "decodedBytes": 103493,
+      "sha256": "1b5c087f0e511368e744525c8f59eb9cfec8764c76e89c76c305b1034952c4bd",
+      "decodedSha256": "e5ce63cae7cc95a4a15c39725c0257e5ea5b337e63d4e8f9a507194255175792",
+      "routes": 278,
+      "pieces": 279
+    },
+    {
+      "id": "1:2",
+      "bounds": [
+        4000,
+        8000,
+        8000,
+        12000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/1_2-165208cc3551.json.gz",
+      "bytes": 19741,
+      "decodedBytes": 107114,
+      "sha256": "165208cc355160202f04e5c790c4fe88fbc4715a526437b22a9795a0f84cf8ec",
+      "decodedSha256": "859afc0328c80a87844fbc78b91243527b03de928f4943758d0cf4e498b846f4",
+      "routes": 280,
+      "pieces": 280
+    },
+    {
+      "id": "1:3",
+      "bounds": [
+        4000,
+        12000,
+        8000,
+        16000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/1_3-d4895d5e3380.json.gz",
+      "bytes": 22537,
+      "decodedBytes": 129017,
+      "sha256": "d4895d5e3380e976864c04188bee135d6efd28f871dcdf90ec7bdb461aaae5c1",
+      "decodedSha256": "b6d5a7b305d960ebc60ace86c69d891bd2ff141a284f77b8f1168dd06ef0c062",
+      "routes": 364,
+      "pieces": 365
+    },
+    {
+      "id": "1:4",
+      "bounds": [
+        4000,
+        16000,
+        8000,
+        20000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/1_4-ea0f32844235.json.gz",
+      "bytes": 23166,
+      "decodedBytes": 121687,
+      "sha256": "ea0f3284423524d1cebcf81bceb3792a290da5da134aba5a30c447380ea2b8f7",
+      "decodedSha256": "8fdebd2ddf4935417f92eafe39f872688a4210fcf7519c4f3140ed9ee873dfd1",
+      "routes": 312,
+      "pieces": 313
+    },
+    {
+      "id": "1:5",
+      "bounds": [
+        4000,
+        20000,
+        8000,
+        24000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/1_5-6ede9082240b.json.gz",
+      "bytes": 32493,
+      "decodedBytes": 166202,
+      "sha256": "6ede9082240b2272fe42d9d6fda7f679c93b2c451f694cde17202f556f7ffcba",
+      "decodedSha256": "1c63f9cea0ad019d9c78c467d4da12d94ad30b25c1889fb2d694bd6ba5e07bee",
+      "routes": 405,
+      "pieces": 406
+    },
+    {
+      "id": "1:6",
+      "bounds": [
+        4000,
+        24000,
+        8000,
+        28000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/1_6-b938a2609686.json.gz",
+      "bytes": 30617,
+      "decodedBytes": 183290,
+      "sha256": "b938a2609686466189c4b8b35372ea01af7523d38c3623f226ccf93cf1cc14f6",
+      "decodedSha256": "6cf9867762082fa26c5a2668e4415974377b898835f2e3cb83c5f102feda4da0",
+      "routes": 542,
+      "pieces": 543
+    },
+    {
+      "id": "1:7",
+      "bounds": [
+        4000,
+        28000,
+        8000,
+        30000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/1_7-ef13d26510d8.json.gz",
+      "bytes": 31363,
+      "decodedBytes": 172332,
+      "sha256": "ef13d26510d8f0b70ba8618b254807f951dad541860818f62b21f6250439e386",
+      "decodedSha256": "3d79be6ed44bc2ebac9704b6c471dfe3e14b59b5c1ad420cf95a97396bff6484",
+      "routes": 425,
+      "pieces": 426
+    },
+    {
+      "id": "2:-8",
+      "bounds": [
+        8000,
+        -30000,
+        12000,
+        -28000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/2_-8-b9f4868a2999.json.gz",
+      "bytes": 2495,
+      "decodedBytes": 10041,
+      "sha256": "b9f4868a299929fc5610282a92a599d03378c66e8b408763f41891d4134d2713",
+      "decodedSha256": "37bd70d6d47163231733d0ce1d285ad01433ea7486e5896a1981e08f557fb6a6",
+      "routes": 19,
+      "pieces": 19
+    },
+    {
+      "id": "2:-7",
+      "bounds": [
+        8000,
+        -28000,
+        12000,
+        -24000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/2_-7-da7d4d598062.json.gz",
+      "bytes": 5294,
+      "decodedBytes": 25266,
+      "sha256": "da7d4d5980624b624adcd79fcfc465d77770706985b79dd286ba4326d2c275d1",
+      "decodedSha256": "c487f61a8016ef350bafd8b11982b010ef213e2d2c78beaddae99651dd8ba9b1",
+      "routes": 55,
+      "pieces": 55
+    },
+    {
+      "id": "2:-6",
+      "bounds": [
+        8000,
+        -24000,
+        12000,
+        -20000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/2_-6-fa09002f352c.json.gz",
+      "bytes": 11278,
+      "decodedBytes": 60403,
+      "sha256": "fa09002f352ce05e15eef4b5a6d5fdaa8e75010bd9ade73216b2f995d58175a5",
+      "decodedSha256": "26b37904a620fdb1d2203da4dbb02e8c4f11db8cd23be4f6d25990ab42fcd2a7",
+      "routes": 153,
+      "pieces": 153
+    },
+    {
+      "id": "2:-5",
+      "bounds": [
+        8000,
+        -20000,
+        12000,
+        -16000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/2_-5-79853c105280.json.gz",
+      "bytes": 9921,
+      "decodedBytes": 51647,
+      "sha256": "79853c105280db2fe8c7f9dd7bf96b408f16050a93b2e6291c0b83811bda0f68",
+      "decodedSha256": "5367861a3d456f8b4b72e18845efa614e526968a8347790c35a9719db306efd2",
+      "routes": 123,
+      "pieces": 124
+    },
+    {
+      "id": "2:-4",
+      "bounds": [
+        8000,
+        -16000,
+        12000,
+        -12000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/2_-4-002a59e46069.json.gz",
+      "bytes": 10730,
+      "decodedBytes": 53021,
+      "sha256": "002a59e4606921dc9b23d2192b9cfc0777a227bb44c2c4ebfb7b5e13a0d7bb20",
+      "decodedSha256": "a7170ff94ea5fc8be804b67ff1e66beba8f91acda8ac2f4842c596bfae65b74d",
+      "routes": 124,
+      "pieces": 124
+    },
+    {
+      "id": "2:-3",
+      "bounds": [
+        8000,
+        -12000,
+        12000,
+        -8000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/2_-3-63142e6723b5.json.gz",
+      "bytes": 14024,
+      "decodedBytes": 67808,
+      "sha256": "63142e6723b57aecc940a5b7f22f97ae70c8fc2ab07dbe825b7b36c08fb58646",
+      "decodedSha256": "ed52865214652727cadaad82b5f57cec8a29188ca32628457b5ed51697e50df7",
+      "routes": 156,
+      "pieces": 156
+    },
+    {
+      "id": "2:-2",
+      "bounds": [
+        8000,
+        -8000,
+        12000,
+        -4000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/2_-2-fe9d954b4ea7.json.gz",
+      "bytes": 28091,
+      "decodedBytes": 148705,
+      "sha256": "fe9d954b4ea7474ad42275aa472fcae3b892e66dd8e07ae4807e048e77b9863b",
+      "decodedSha256": "ad865b03f32de572a5a4ebbea06e4ccea5853ddcfde8668127efeea97b12648e",
+      "routes": 378,
+      "pieces": 378
+    },
+    {
+      "id": "2:-1",
+      "bounds": [
+        8000,
+        -4000,
+        12000,
+        0
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/2_-1-801801276c0c.json.gz",
+      "bytes": 18515,
+      "decodedBytes": 96509,
+      "sha256": "801801276c0c8059294e77b4f3a1fc4615dba0815d0d6893f33eb5332e811a8b",
+      "decodedSha256": "0aae5a1741c0d36083f70ccb71b495b91acee56849bf77b77cf17f7ceab4f2da",
+      "routes": 246,
+      "pieces": 249
+    },
+    {
+      "id": "2:0",
+      "bounds": [
+        8000,
+        0,
+        12000,
+        4000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/2_0-b1ebbb050044.json.gz",
+      "bytes": 17242,
+      "decodedBytes": 93771,
+      "sha256": "b1ebbb0500442a6b49b365283a5f7900386072ee94a93ebe1f9567d4b5e0f5ee",
+      "decodedSha256": "dba4d2e438fe0bff252a5068c6663a02dc8ed5f5e25b698c86d82f288ec50dae",
+      "routes": 254,
+      "pieces": 255
+    },
+    {
+      "id": "2:1",
+      "bounds": [
+        8000,
+        4000,
+        12000,
+        8000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/2_1-31e0883a90d3.json.gz",
+      "bytes": 17972,
+      "decodedBytes": 95383,
+      "sha256": "31e0883a90d305ec24c02862439c6cbc8e9cb42766976ee0536676fddc98ed46",
+      "decodedSha256": "4e95bc3ddb386736b0bd41d634fb482ada8f19797a70cfea7c71e118776e1aa7",
+      "routes": 249,
+      "pieces": 252
+    },
+    {
+      "id": "2:2",
+      "bounds": [
+        8000,
+        8000,
+        12000,
+        12000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/2_2-1f7825ba4202.json.gz",
+      "bytes": 13758,
+      "decodedBytes": 75537,
+      "sha256": "1f7825ba42025bb9957fae1f2726125fc337f2f1067f5fa681946ee562e86a41",
+      "decodedSha256": "f4c83edabaa44aa7fa61a929294fd112b7393b15f7bc44085bf90bee699e8140",
+      "routes": 197,
+      "pieces": 198
+    },
+    {
+      "id": "2:3",
+      "bounds": [
+        8000,
+        12000,
+        12000,
+        16000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/2_3-0951fa87e52b.json.gz",
+      "bytes": 14779,
+      "decodedBytes": 81522,
+      "sha256": "0951fa87e52bef879f9e9011d9652bc279830bad23b9a245235102ac364a5b96",
+      "decodedSha256": "0b8cc6e4469b982c75a68fb3fbf607deb36fb10ce7220e1632e3111e9949e284",
+      "routes": 215,
+      "pieces": 215
+    },
+    {
+      "id": "2:4",
+      "bounds": [
+        8000,
+        16000,
+        12000,
+        20000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/2_4-576bb3eaf686.json.gz",
+      "bytes": 16621,
+      "decodedBytes": 82803,
+      "sha256": "576bb3eaf686668433a4daa4ae057bcaaf7696561ae8bbf79a615748e5b089d2",
+      "decodedSha256": "946c7905b1fbebf14d07bd7a06bf4b9d7d21414968c8da5a3e58f56fc6b20d8a",
+      "routes": 180,
+      "pieces": 180
+    },
+    {
+      "id": "2:5",
+      "bounds": [
+        8000,
+        20000,
+        12000,
+        24000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/2_5-5798626f3d4f.json.gz",
+      "bytes": 28599,
+      "decodedBytes": 136027,
+      "sha256": "5798626f3d4f2f9c876e0cd2d9ea930d055c2fcb12486e0b9fc54421dc2cb065",
+      "decodedSha256": "6f90146532c32913a0fb1107ced141f0a071bea7f7a99604238de0f074643c1a",
+      "routes": 273,
+      "pieces": 275
+    },
+    {
+      "id": "2:6",
+      "bounds": [
+        8000,
+        24000,
+        12000,
+        28000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/2_6-90c2ca17e88e.json.gz",
+      "bytes": 12511,
+      "decodedBytes": 59884,
+      "sha256": "90c2ca17e88e147b1a7668888fb84c40240fa8951a8ac76e426c9e163e33161b",
+      "decodedSha256": "60ad9a7c7d3a7fbe2dc8a474360fb37bbb6638eccdf95d67a734b0f71d3e594b",
+      "routes": 135,
+      "pieces": 137
+    },
+    {
+      "id": "2:7",
+      "bounds": [
+        8000,
+        28000,
+        12000,
+        30000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/2_7-e729d6380c9d.json.gz",
+      "bytes": 10235,
+      "decodedBytes": 49073,
+      "sha256": "e729d6380c9d3d14ce29c85b90e1e0f489c58058f054a544ec05e35505952fc5",
+      "decodedSha256": "f7da41422319ee1fb50e646f9add78d4983ed156c8ea04c2de5cd1360ceaab41",
+      "routes": 116,
+      "pieces": 117
+    },
+    {
+      "id": "3:-8",
+      "bounds": [
+        12000,
+        -30000,
+        16000,
+        -28000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/3_-8-745a3d40faa8.json.gz",
+      "bytes": 1305,
+      "decodedBytes": 4453,
+      "sha256": "745a3d40faa829c1b0e2911dada10a50d0cc42c9f288d0e3fa7bbb59beeadac4",
+      "decodedSha256": "fcc8e87b1a953dfa4b171f2cf18a361925dafd6a4eb5e185a68869be4b865a92",
+      "routes": 8,
+      "pieces": 8
+    },
+    {
+      "id": "3:-7",
+      "bounds": [
+        12000,
+        -28000,
+        16000,
+        -24000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/3_-7-d14cee4197ce.json.gz",
+      "bytes": 2156,
+      "decodedBytes": 8958,
+      "sha256": "d14cee4197cecb1f06ec37399d6fa67109466c6d3c799cbdf0cb45b88f57ac88",
+      "decodedSha256": "e5d064c1e1bea64fccaf7010c3ee13d00d18cec6b04728249736f36ded7573cc",
+      "routes": 21,
+      "pieces": 21
+    },
+    {
+      "id": "3:-6",
+      "bounds": [
+        12000,
+        -24000,
+        16000,
+        -20000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/3_-6-2094f80c036b.json.gz",
+      "bytes": 2940,
+      "decodedBytes": 13459,
+      "sha256": "2094f80c036b6f23f060744b34474077f6d2e0699a26552a4f319c1bbdf436b9",
+      "decodedSha256": "59bb09db7a3edb6179d0558f041a838baca881b06b510fc005b196cbf95dc54d",
+      "routes": 35,
+      "pieces": 35
+    },
+    {
+      "id": "3:-5",
+      "bounds": [
+        12000,
+        -20000,
+        16000,
+        -16000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/3_-5-d10c7fd01406.json.gz",
+      "bytes": 2623,
+      "decodedBytes": 10170,
+      "sha256": "d10c7fd014062d9da2c6b93f6101795ffb92f096fcca5c75cb892e6756c69f29",
+      "decodedSha256": "b5d572eb44f87a795fa832c884725c46c7138990d0ef415e5e0641b4e395424f",
+      "routes": 19,
+      "pieces": 19
+    },
+    {
+      "id": "3:-4",
+      "bounds": [
+        12000,
+        -16000,
+        16000,
+        -12000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/3_-4-7bf53be574f6.json.gz",
+      "bytes": 5865,
+      "decodedBytes": 29587,
+      "sha256": "7bf53be574f6efbcd25bc69d9447394fcb56fced7ca7129f8f08c7a90b1cc0f2",
+      "decodedSha256": "5b308fe9d7a69e6642808a3dcda619b52fce35da532eab541ce12e7739a566a1",
+      "routes": 81,
+      "pieces": 81
+    },
+    {
+      "id": "3:-3",
+      "bounds": [
+        12000,
+        -12000,
+        16000,
+        -8000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/3_-3-ad1eb5ab7f58.json.gz",
+      "bytes": 4968,
+      "decodedBytes": 23683,
+      "sha256": "ad1eb5ab7f5870fdf0255e48744f75abf5419f17c595e55015eb7142752280be",
+      "decodedSha256": "42aed9b5e29985494833e4368ed3fb45a16fbe648c88433f642e280b6dc195b1",
+      "routes": 61,
+      "pieces": 61
+    },
+    {
+      "id": "3:-2",
+      "bounds": [
+        12000,
+        -8000,
+        16000,
+        -4000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/3_-2-91c92c39c71b.json.gz",
+      "bytes": 10884,
+      "decodedBytes": 58990,
+      "sha256": "91c92c39c71bea6cabebad223213b6b329612ba14d8cc6dcd795d0035bfd421f",
+      "decodedSha256": "052724685397ebacdc8ce7aa6bc65f3b780f0527cd07c9ebbe4fed4a7ffb0c9d",
+      "routes": 154,
+      "pieces": 156
+    },
+    {
+      "id": "3:-1",
+      "bounds": [
+        12000,
+        -4000,
+        16000,
+        0
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/3_-1-577fd2cc9a0f.json.gz",
+      "bytes": 12513,
+      "decodedBytes": 68052,
+      "sha256": "577fd2cc9a0f83f5c2368aa057f355d66e05add788c7c9827020c9a0a9f9b29f",
+      "decodedSha256": "43408c164caf5bf58b9a1cdf2646b1af1d379fa47ea840168a004b26ebee1f21",
+      "routes": 173,
+      "pieces": 173
+    },
+    {
+      "id": "3:0",
+      "bounds": [
+        12000,
+        0,
+        16000,
+        4000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/3_0-12ec8389e170.json.gz",
+      "bytes": 10700,
+      "decodedBytes": 52022,
+      "sha256": "12ec8389e170cc6a2b2e7150e7d16692700aca3200ce1d9d482a04a3d3dbefd9",
+      "decodedSha256": "9656c906fc7dcc38323c33640a58dbf3d50021f5499a70add3afb7b753e5c5b4",
+      "routes": 115,
+      "pieces": 115
+    },
+    {
+      "id": "3:1",
+      "bounds": [
+        12000,
+        4000,
+        16000,
+        8000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/3_1-b1f262f4c6ed.json.gz",
+      "bytes": 17138,
+      "decodedBytes": 84617,
+      "sha256": "b1f262f4c6edeea9f7f6c62140be7a38cbabf9398b304b684e53484c7e8d8661",
+      "decodedSha256": "e8826fd1e0266742a166c3d7faa639d80a94decd26da298ade7c517a8ab545a7",
+      "routes": 193,
+      "pieces": 193
+    },
+    {
+      "id": "3:2",
+      "bounds": [
+        12000,
+        8000,
+        16000,
+        12000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/3_2-a7d3317f9df9.json.gz",
+      "bytes": 16685,
+      "decodedBytes": 82906,
+      "sha256": "a7d3317f9df90fb504e21a802d5d7a2d35d338bdc98e600cb18158974dc3c71a",
+      "decodedSha256": "ea5c07d56afd79e8e4ca477d8796d25d2c8a64d4233f6532d406b775c41068e9",
+      "routes": 180,
+      "pieces": 183
+    },
+    {
+      "id": "3:3",
+      "bounds": [
+        12000,
+        12000,
+        16000,
+        16000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/3_3-888a548091cd.json.gz",
+      "bytes": 24397,
+      "decodedBytes": 118008,
+      "sha256": "888a548091cdf091995a4ca9c73b81835529ff63a5ad4960a5f59ca7c440dff7",
+      "decodedSha256": "cbc482676d34560915598b2667a0e84236fe5f4d57116dbe944bde254b7358c8",
+      "routes": 240,
+      "pieces": 244
+    },
+    {
+      "id": "3:4",
+      "bounds": [
+        12000,
+        16000,
+        16000,
+        20000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/3_4-61ce027a91bb.json.gz",
+      "bytes": 26501,
+      "decodedBytes": 123397,
+      "sha256": "61ce027a91bb94cd1680d559a81b61c1ea1393a00fd3c6491ca3e59b4981c283",
+      "decodedSha256": "97a8f52f03f6bd4d32f83e3ea2e62113ac0e120b2f17027f52a90cb94990a587",
+      "routes": 235,
+      "pieces": 237
+    },
+    {
+      "id": "3:5",
+      "bounds": [
+        12000,
+        20000,
+        16000,
+        24000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/3_5-18e966d2ecb6.json.gz",
+      "bytes": 28812,
+      "decodedBytes": 139585,
+      "sha256": "18e966d2ecb62f0b60ed65b0ec604fa74055454a609203675e7cfcef491f91c9",
+      "decodedSha256": "d27c5b694baaff7f22f9e61cf0cd2e5e6fe2137da1f8a43b078f0f9fa369bb6e",
+      "routes": 299,
+      "pieces": 300
+    },
+    {
+      "id": "3:6",
+      "bounds": [
+        12000,
+        24000,
+        16000,
+        28000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/3_6-c2aff9e86df9.json.gz",
+      "bytes": 21166,
+      "decodedBytes": 115701,
+      "sha256": "c2aff9e86df90dbb0a191a0319b244fc169b0a83fb9d6b378adde41d3b121077",
+      "decodedSha256": "63e87be3f7162fbb20cf6a77778ca5ff064b8b76a5e0bb6f897b63a7a6d66aba",
+      "routes": 322,
+      "pieces": 323
+    },
+    {
+      "id": "3:7",
+      "bounds": [
+        12000,
+        28000,
+        16000,
+        30000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/3_7-d7b3fc310a6c.json.gz",
+      "bytes": 15342,
+      "decodedBytes": 81889,
+      "sha256": "d7b3fc310a6cc78ed18c724bf05b197bc9926f5c6cf26c75ea7092e13cc74620",
+      "decodedSha256": "33838285c5c3425cb916785a4a0b8189b84c59fb15216e2f49dc1aba1a6771c6",
+      "routes": 228,
+      "pieces": 230
+    },
+    {
+      "id": "4:-8",
+      "bounds": [
+        16000,
+        -30000,
+        20000,
+        -28000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/4_-8-65bd6ad85cb3.json.gz",
+      "bytes": 482,
+      "decodedBytes": 1122,
+      "sha256": "65bd6ad85cb3c4e318695e67163f34cffa6d26423ceb60d01d4a53ca822c8d45",
+      "decodedSha256": "46c66437ed2af86b5de21ab1dd5c89f7c9b72cd0badbe07aa51b2db6a82e28df",
+      "routes": 2,
+      "pieces": 2
+    },
+    {
+      "id": "4:-7",
+      "bounds": [
+        16000,
+        -28000,
+        20000,
+        -24000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/4_-7-a3cb90f3233c.json.gz",
+      "bytes": 4559,
+      "decodedBytes": 25743,
+      "sha256": "a3cb90f3233ce76a3f6261266c5e0afc58f5725b2d09506b357b6d0a50266213",
+      "decodedSha256": "87391dfb13e1a43d8b6bc0f9b52395fc2f542e4ca2061191cec821990d61373e",
+      "routes": 61,
+      "pieces": 61
+    },
+    {
+      "id": "4:-6",
+      "bounds": [
+        16000,
+        -24000,
+        20000,
+        -20000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/4_-6-3024aa6b8549.json.gz",
+      "bytes": 2050,
+      "decodedBytes": 9837,
+      "sha256": "3024aa6b854927e35a19a3cae315974b46c4ec0af4cd549f7fe19b7981ea0244",
+      "decodedSha256": "cec5345c5bfbcdf46f752d98f0763633070434cd371a29636ebcd625fdbd61a0",
+      "routes": 25,
+      "pieces": 25
+    },
+    {
+      "id": "4:-5",
+      "bounds": [
+        16000,
+        -20000,
+        20000,
+        -16000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/4_-5-224b6e2011ea.json.gz",
+      "bytes": 931,
+      "decodedBytes": 2760,
+      "sha256": "224b6e2011ea46348756f7ea5a45d8a77ff666a601f6dff01aa5710274b94dc7",
+      "decodedSha256": "a127550edf611337b863d9ae28d191f73c78c586cfe0ed6f29f0f9985819ff24",
+      "routes": 3,
+      "pieces": 3
+    },
+    {
+      "id": "4:-4",
+      "bounds": [
+        16000,
+        -16000,
+        20000,
+        -12000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/4_-4-c836585b21b2.json.gz",
+      "bytes": 3152,
+      "decodedBytes": 13949,
+      "sha256": "c836585b21b29974f1401c8fff98d9a804e0bf1d6aef69a0da39875a60fde9ee",
+      "decodedSha256": "99bb3927c8f902c4bc60f1544e39ba1be95eeca65ad05cf77cbb41d5703d0acc",
+      "routes": 34,
+      "pieces": 34
+    },
+    {
+      "id": "4:-3",
+      "bounds": [
+        16000,
+        -12000,
+        20000,
+        -8000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/4_-3-f966413deaa4.json.gz",
+      "bytes": 13603,
+      "decodedBytes": 75052,
+      "sha256": "f966413deaa434adca3296c1e3bf212c147e5a9ae31abc4a4083a8b5efb4ff81",
+      "decodedSha256": "8abe3606c6512945c3c12152611032c7adeb3956a3dc0082490388a6a6144414",
+      "routes": 198,
+      "pieces": 198
+    },
+    {
+      "id": "4:-2",
+      "bounds": [
+        16000,
+        -8000,
+        20000,
+        -4000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/4_-2-6fd4a9b7e484.json.gz",
+      "bytes": 10450,
+      "decodedBytes": 50237,
+      "sha256": "6fd4a9b7e4845e9c92928c3c2684f79f3fc7d7308a3792490c5acf4a07949b73",
+      "decodedSha256": "5976b619d58e6684ead4ddea2484760608bbc45491aa5a1e36879db3453becc8",
+      "routes": 112,
+      "pieces": 113
+    },
+    {
+      "id": "4:-1",
+      "bounds": [
+        16000,
+        -4000,
+        20000,
+        0
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/4_-1-a327e8a4d6ff.json.gz",
+      "bytes": 9816,
+      "decodedBytes": 46287,
+      "sha256": "a327e8a4d6ffc3103dec8d7e67bc9d6ef5b3972344784f23d7776f3972dbc951",
+      "decodedSha256": "a216dd5092c1b89a56a65ef40563ff8f93cbb63ae54d9dda1d6710fa5637fc72",
+      "routes": 102,
+      "pieces": 104
+    },
+    {
+      "id": "4:0",
+      "bounds": [
+        16000,
+        0,
+        20000,
+        4000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/4_0-9744d71c2061.json.gz",
+      "bytes": 15596,
+      "decodedBytes": 78557,
+      "sha256": "9744d71c206140db917841f2bb09537560710eb283d9178f882a311f742bb8cf",
+      "decodedSha256": "370dbe2de1941192e187aa6fcfe178712bc98dda66894f2c505eb62259b29fdd",
+      "routes": 188,
+      "pieces": 191
+    },
+    {
+      "id": "4:1",
+      "bounds": [
+        16000,
+        4000,
+        20000,
+        8000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/4_1-1ec0b83f93d8.json.gz",
+      "bytes": 17146,
+      "decodedBytes": 92841,
+      "sha256": "1ec0b83f93d81fcd45d45f007ca1eb637ffd17311bc6053625cac7e10b19ed34",
+      "decodedSha256": "5e341b1f2590230846a996ba0fa85f05d7403560660937e0b8f5d0a41afb975d",
+      "routes": 248,
+      "pieces": 248
+    },
+    {
+      "id": "4:2",
+      "bounds": [
+        16000,
+        8000,
+        20000,
+        12000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/4_2-6165a06b2385.json.gz",
+      "bytes": 16878,
+      "decodedBytes": 88405,
+      "sha256": "6165a06b2385b84c714434e562a3a7c45c0b6bf5880345d4462cf0c2ce147259",
+      "decodedSha256": "81862233546fda463fb6d0e9cce43809ac64d52f18151f997145144e3550d3ce",
+      "routes": 215,
+      "pieces": 216
+    },
+    {
+      "id": "4:3",
+      "bounds": [
+        16000,
+        12000,
+        20000,
+        16000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/4_3-b25e7a113a6f.json.gz",
+      "bytes": 15924,
+      "decodedBytes": 76060,
+      "sha256": "b25e7a113a6fb0b4594a81af906fa628e820b7e11d55bf0686d8239b7a401062",
+      "decodedSha256": "34b2a6dcc03409f48a668ece6fa3f89c69995c72b2c6ca15e56f4c39da6d9190",
+      "routes": 164,
+      "pieces": 164
+    },
+    {
+      "id": "4:4",
+      "bounds": [
+        16000,
+        16000,
+        20000,
+        20000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/4_4-0279e27826f9.json.gz",
+      "bytes": 20628,
+      "decodedBytes": 108748,
+      "sha256": "0279e27826f9d969327bccc9a2be885ad6327f009e35904c336606148e351c3a",
+      "decodedSha256": "96cceade9c34cf47e84959aa290040ea7d80124b24274f86d21351eda977770d",
+      "routes": 276,
+      "pieces": 276
+    },
+    {
+      "id": "4:5",
+      "bounds": [
+        16000,
+        20000,
+        20000,
+        24000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/4_5-567086212308.json.gz",
+      "bytes": 22593,
+      "decodedBytes": 122289,
+      "sha256": "5670862123081959144cabaddb4e8405bbf8826e29a8c43bac0432f7ea4fa4d3",
+      "decodedSha256": "0c877f2523fbb33693e078a90b1fd509cb7e4030aa54843eb149e51dbe62ea8b",
+      "routes": 326,
+      "pieces": 326
+    },
+    {
+      "id": "4:6",
+      "bounds": [
+        16000,
+        24000,
+        20000,
+        28000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/4_6-775767a88369.json.gz",
+      "bytes": 38425,
+      "decodedBytes": 227944,
+      "sha256": "775767a8836919fb5b98b0f7981db0bf2a2db04aa1a1e4563a2fea3a886f43a9",
+      "decodedSha256": "25441ebdc3d85d69e8c569c36b68fdd82fca79e139cb0b4308ab468b4de483c7",
+      "routes": 670,
+      "pieces": 670
+    },
+    {
+      "id": "4:7",
+      "bounds": [
+        16000,
+        28000,
+        20000,
+        30000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/4_7-9766bcff7d74.json.gz",
+      "bytes": 13223,
+      "decodedBytes": 72820,
+      "sha256": "9766bcff7d74f350e22a57165050ad135f4630064e88f193f16040372847997f",
+      "decodedSha256": "cea4ded0705b794539a24c26a99f0e6bbcfaf7bbf8deb9eb93bc03f9f63f2ec6",
+      "routes": 217,
+      "pieces": 218
+    },
+    {
+      "id": "5:-8",
+      "bounds": [
+        20000,
+        -30000,
+        24000,
+        -28000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/5_-8-ae08dc9cda61.json.gz",
+      "bytes": 615,
+      "decodedBytes": 1651,
+      "sha256": "ae08dc9cda61027895e172a10e629eca9888528ecce850bc39b4fb7663c7c17f",
+      "decodedSha256": "ba5888a9399816d31e812b319532d4b6dc18b9a0245b555b78f1d4a4bf66515a",
+      "routes": 3,
+      "pieces": 3
+    },
+    {
+      "id": "5:-7",
+      "bounds": [
+        20000,
+        -28000,
+        24000,
+        -24000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/5_-7-4b42d63d1e8a.json.gz",
+      "bytes": 1837,
+      "decodedBytes": 6504,
+      "sha256": "4b42d63d1e8afc761c7084922518be5cd58ee5dab2dc3e6bc84fee5c31e14492",
+      "decodedSha256": "1cdfb03ec7eb412a04842e25df3ea5268a1e17a492f34202c285e4b77cf4c742",
+      "routes": 9,
+      "pieces": 9
+    },
+    {
+      "id": "5:-6",
+      "bounds": [
+        20000,
+        -24000,
+        24000,
+        -20000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/5_-6-8d1d8e0ab721.json.gz",
+      "bytes": 3004,
+      "decodedBytes": 11880,
+      "sha256": "8d1d8e0ab721f01eea0a4fedcd3bff31450474609831f531e576ddeb6f092a3c",
+      "decodedSha256": "6b6fd183d6be5322cacefb82c0f27c7711df682a4f7eb66c9a8161d10cddaf22",
+      "routes": 21,
+      "pieces": 21
+    },
+    {
+      "id": "5:-5",
+      "bounds": [
+        20000,
+        -20000,
+        24000,
+        -16000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/5_-5-f5435264495b.json.gz",
+      "bytes": 6088,
+      "decodedBytes": 24044,
+      "sha256": "f5435264495b4a21c726fbe4151cca6d6718c74d9727c99a3f236a05cbe1e70f",
+      "decodedSha256": "7c8b525e0078b2db6e41694055b9f946bc578e2763a067bf62c9bcc10e7770c5",
+      "routes": 34,
+      "pieces": 34
+    },
+    {
+      "id": "5:-4",
+      "bounds": [
+        20000,
+        -16000,
+        24000,
+        -12000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/5_-4-895b2ec0edf7.json.gz",
+      "bytes": 3774,
+      "decodedBytes": 14980,
+      "sha256": "895b2ec0edf76a23ac67b53c86518d6c956769500548fe6ad42419735ba11d16",
+      "decodedSha256": "f457204a76a96b3be86d100a3c0ce5c85fb1045e932731dea23878cbf087a8a0",
+      "routes": 26,
+      "pieces": 26
+    },
+    {
+      "id": "5:-3",
+      "bounds": [
+        20000,
+        -12000,
+        24000,
+        -8000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/5_-3-166e26800eb3.json.gz",
+      "bytes": 4359,
+      "decodedBytes": 20549,
+      "sha256": "166e26800eb3c09b4c48f6b98dc75485d2760d4900e80380b5fb078330a31c17",
+      "decodedSha256": "db069fcc9a9620e926f6725758fb49630e7f38392116ef6a60171fd7d3dc8ca5",
+      "routes": 54,
+      "pieces": 56
+    },
+    {
+      "id": "5:-2",
+      "bounds": [
+        20000,
+        -8000,
+        24000,
+        -4000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/5_-2-92010fdc3c16.json.gz",
+      "bytes": 9170,
+      "decodedBytes": 46886,
+      "sha256": "92010fdc3c16cb655c699b990623c37a25d3150d551ba3052075411e6ad540a7",
+      "decodedSha256": "1f06884f2f85a1f75518d1fbdeaa998facade724bcc6c00b47470abb13b51909",
+      "routes": 110,
+      "pieces": 110
+    },
+    {
+      "id": "5:-1",
+      "bounds": [
+        20000,
+        -4000,
+        24000,
+        0
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/5_-1-05dadf83be46.json.gz",
+      "bytes": 9113,
+      "decodedBytes": 41164,
+      "sha256": "05dadf83be467d8f2bec6505e1c195f30842dcbaf695cd3eb503abdb2b85df6a",
+      "decodedSha256": "a7b47d1f0223fa3d378c88f0e52af1681a9fe2d34c9774ad37e0c9a1daa23ffa",
+      "routes": 82,
+      "pieces": 83
+    },
+    {
+      "id": "5:0",
+      "bounds": [
+        20000,
+        0,
+        24000,
+        4000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/5_0-4de4e9cf524c.json.gz",
+      "bytes": 9075,
+      "decodedBytes": 46178,
+      "sha256": "4de4e9cf524c5c3d19d43d0709e23820e18dbc7df4f461decf29f4cd03afc500",
+      "decodedSha256": "2e011039ac4da1b2530eaf66fa823108797ed92394148a982aeaf44c69bd9574",
+      "routes": 115,
+      "pieces": 115
+    },
+    {
+      "id": "5:1",
+      "bounds": [
+        20000,
+        4000,
+        24000,
+        8000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/5_1-0ac1d7384571.json.gz",
+      "bytes": 10671,
+      "decodedBytes": 59024,
+      "sha256": "0ac1d7384571bab238e919b9af8c925329e95f57f8ed6137310fa7c74e047e58",
+      "decodedSha256": "7e4d614c53c04f766649a657467553cb59e6c936cfc4caa2079caf4c3607f76c",
+      "routes": 161,
+      "pieces": 164
+    },
+    {
+      "id": "5:2",
+      "bounds": [
+        20000,
+        8000,
+        24000,
+        12000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/5_2-2bc3d2427924.json.gz",
+      "bytes": 13840,
+      "decodedBytes": 71898,
+      "sha256": "2bc3d24279247adb6c30bd14a55a8ae462fa51190944af756c5a53624263656f",
+      "decodedSha256": "c7b133c32578ac7427e4e618f562115567178b51adb8fb87e287ec28da81ef64",
+      "routes": 178,
+      "pieces": 178
+    },
+    {
+      "id": "5:3",
+      "bounds": [
+        20000,
+        12000,
+        24000,
+        16000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/5_3-53d689a673da.json.gz",
+      "bytes": 13551,
+      "decodedBytes": 66744,
+      "sha256": "53d689a673dac58f27dfbd6c58942ce04101595571966931063e9083d6775f0d",
+      "decodedSha256": "d25884338e567483a46902d3d4fcecff7494d83d99c32f01c8696eff61662c19",
+      "routes": 150,
+      "pieces": 150
+    },
+    {
+      "id": "5:4",
+      "bounds": [
+        20000,
+        16000,
+        24000,
+        20000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/5_4-7b519dbd0abd.json.gz",
+      "bytes": 21541,
+      "decodedBytes": 118768,
+      "sha256": "7b519dbd0abd6c1f429ee47375996197a90db14fc134318226cf20b91f2d838d",
+      "decodedSha256": "289640eb07e3d55730334761bc3fcdf17e12fc9c351d301d585b724be37a1010",
+      "routes": 314,
+      "pieces": 315
+    },
+    {
+      "id": "5:5",
+      "bounds": [
+        20000,
+        20000,
+        24000,
+        24000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/5_5-acaad74e3333.json.gz",
+      "bytes": 19909,
+      "decodedBytes": 107567,
+      "sha256": "acaad74e33334caff75ce8bb9b6a634a5dcba0f06a8b2bad74bcbf5bc65efe38",
+      "decodedSha256": "c7503c1be215bfdae60696817beb4b2281ca03477f8e305ea2be35ede2384095",
+      "routes": 293,
+      "pieces": 294
+    },
+    {
+      "id": "5:6",
+      "bounds": [
+        20000,
+        24000,
+        24000,
+        28000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/5_6-2bbf74455c65.json.gz",
+      "bytes": 26662,
+      "decodedBytes": 142882,
+      "sha256": "2bbf74455c65399b382073f658c540b900a536b1ed8cd87902466359043d5143",
+      "decodedSha256": "4e13cb02facdea43b9f292b9a11662679ebb961216c810cde93a10c872425bff",
+      "routes": 409,
+      "pieces": 410
+    },
+    {
+      "id": "5:7",
+      "bounds": [
+        20000,
+        28000,
+        24000,
+        30000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/5_7-17834bce9191.json.gz",
+      "bytes": 9470,
+      "decodedBytes": 48773,
+      "sha256": "17834bce919169de63b7c9876198f341ce87d77320b769599baab430c24bf409",
+      "decodedSha256": "7b6cad2f759a74e9b8b6ea450f88581b5d963df9dfd9bd7ba0e2b4cd5ed52ce4",
+      "routes": 126,
+      "pieces": 126
+    },
+    {
+      "id": "6:-8",
+      "bounds": [
+        24000,
+        -30000,
+        28000,
+        -28000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/6_-8-6ff1342d47ab.json.gz",
+      "bytes": 2240,
+      "decodedBytes": 7574,
+      "sha256": "6ff1342d47aba9b9c05c1345a31c35e52e3003e6ebea37ef50d5db1a1ab1895e",
+      "decodedSha256": "bd8eb41d6dfc8234eb8f3d8c7293829ad7470dec32afa5d670b9684f70454241",
+      "routes": 9,
+      "pieces": 9
+    },
+    {
+      "id": "6:-7",
+      "bounds": [
+        24000,
+        -28000,
+        28000,
+        -24000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/6_-7-0378ecf839ae.json.gz",
+      "bytes": 3611,
+      "decodedBytes": 13232,
+      "sha256": "0378ecf839aeb64131e05af80352de3bbb01e468a034b4a2a46c32ceb643929c",
+      "decodedSha256": "793cad58158a037b27fd02f01a76ff6615ce3679bb1e5baafc410a2474ae3f39",
+      "routes": 18,
+      "pieces": 18
+    },
+    {
+      "id": "6:-6",
+      "bounds": [
+        24000,
+        -24000,
+        28000,
+        -20000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/6_-6-1b6f3598f448.json.gz",
+      "bytes": 2840,
+      "decodedBytes": 12859,
+      "sha256": "1b6f3598f4482aa904fa6ad08ef9feeb51b10271e7b5b352407b56ab21bd70fe",
+      "decodedSha256": "700b562fec29b8ad6c26ed457925fc53eeb5ee4c7b013666845e87d73a067203",
+      "routes": 29,
+      "pieces": 29
+    },
+    {
+      "id": "6:-5",
+      "bounds": [
+        24000,
+        -20000,
+        28000,
+        -16000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/6_-5-cb358f694d89.json.gz",
+      "bytes": 3684,
+      "decodedBytes": 16202,
+      "sha256": "cb358f694d8906fbfc62e199a11bf6a2c625b1f1ea9b985c752b4918e0f56f03",
+      "decodedSha256": "39c2c80cb7e052b9bf1edd664008200c45fc2dd2af331f9670ab2cefb05adbc4",
+      "routes": 30,
+      "pieces": 31
+    },
+    {
+      "id": "6:-4",
+      "bounds": [
+        24000,
+        -16000,
+        28000,
+        -12000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/6_-4-c52a8583e322.json.gz",
+      "bytes": 961,
+      "decodedBytes": 2892,
+      "sha256": "c52a8583e3228298c9541ac03f7a94eabea651a500772c56bcda99ce373bb156",
+      "decodedSha256": "2ccdcc4cc6fa6d03ce0f7dd9a57a816f95a83409dc9dbb70223fa13e43d47883",
+      "routes": 5,
+      "pieces": 5
+    },
+    {
+      "id": "6:-3",
+      "bounds": [
+        24000,
+        -12000,
+        28000,
+        -8000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/6_-3-a156d439d77f.json.gz",
+      "bytes": 5288,
+      "decodedBytes": 27071,
+      "sha256": "a156d439d77fbcacc5c5ce9c04f2814ac74da539eaf0027bc62e0f7078b932d9",
+      "decodedSha256": "542ed660fd2530237816e9fc82c578797edf8d232f540b0ba143b43a34a017dc",
+      "routes": 78,
+      "pieces": 79
+    },
+    {
+      "id": "6:-2",
+      "bounds": [
+        24000,
+        -8000,
+        28000,
+        -4000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/6_-2-dd7ab55e8643.json.gz",
+      "bytes": 3087,
+      "decodedBytes": 12360,
+      "sha256": "dd7ab55e8643cb49c670f02aa4aac5327fc73bd8fbc82124f9184276f7a64413",
+      "decodedSha256": "be128e4cf11d675c46bfc42d0f845a409fe71e8a6e5f32fa1c21a2cef3a8f9f8",
+      "routes": 24,
+      "pieces": 24
+    },
+    {
+      "id": "6:-1",
+      "bounds": [
+        24000,
+        -4000,
+        28000,
+        0
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/6_-1-21a913737fb2.json.gz",
+      "bytes": 4414,
+      "decodedBytes": 19115,
+      "sha256": "21a913737fb295cad387a3904fa6cf03b4d2b6dc2fd8471f98377bd337b68822",
+      "decodedSha256": "21201e3cc951c391c24b9e8a5258d948fa4eb3b9399c8b8716b55145da33a79e",
+      "routes": 42,
+      "pieces": 42
+    },
+    {
+      "id": "6:0",
+      "bounds": [
+        24000,
+        0,
+        28000,
+        4000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/6_0-38d027119de3.json.gz",
+      "bytes": 8371,
+      "decodedBytes": 46781,
+      "sha256": "38d027119de3255eafe6c356e019afa6023711ec6aa65b91326932f8c1554137",
+      "decodedSha256": "00109f6c12b7a562f3198c6de957891552a590092991ca26e37cd35a0af680aa",
+      "routes": 132,
+      "pieces": 133
+    },
+    {
+      "id": "6:1",
+      "bounds": [
+        24000,
+        4000,
+        28000,
+        8000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/6_1-dea7367ff4d0.json.gz",
+      "bytes": 12753,
+      "decodedBytes": 69292,
+      "sha256": "dea7367ff4d092e325e55d59a86e67ec804310d6ff7b9206d87b4c4c4361c789",
+      "decodedSha256": "d4db2c04071664bfd346d2b68f59d28c7743cabae67b6a7bd40a806ec0fcc544",
+      "routes": 190,
+      "pieces": 190
+    },
+    {
+      "id": "6:2",
+      "bounds": [
+        24000,
+        8000,
+        28000,
+        12000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/6_2-4e365c179955.json.gz",
+      "bytes": 15190,
+      "decodedBytes": 82060,
+      "sha256": "4e365c17995517dc04c02c54b97dbaf6bfafe30c922471a364b485136ef5e45b",
+      "decodedSha256": "0f06a0ba902e90c79323dd4f624fb2100cecc2c002717e8ec111a6e2dbd0778b",
+      "routes": 205,
+      "pieces": 205
+    },
+    {
+      "id": "6:3",
+      "bounds": [
+        24000,
+        12000,
+        28000,
+        16000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/6_3-7400a6895e1b.json.gz",
+      "bytes": 14669,
+      "decodedBytes": 76996,
+      "sha256": "7400a6895e1bd891a183f0ea9b95a7e9e04f14be694c6c850c25f9600be65ca8",
+      "decodedSha256": "78668d5882e4319ae19074dd00bbd0ca7afaa5dd0a7fd1fc6a29d65020909c28",
+      "routes": 201,
+      "pieces": 202
+    },
+    {
+      "id": "6:4",
+      "bounds": [
+        24000,
+        16000,
+        28000,
+        20000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/6_4-09ae45b4533c.json.gz",
+      "bytes": 22317,
+      "decodedBytes": 121227,
+      "sha256": "09ae45b4533c4e8fb87421c6aeb666f0bb4a97cb99ecf73d148221c69cf5a8ff",
+      "decodedSha256": "10c907d603cc08cf29efed9a761d0e925d983a2b93bb8c93765d4678540b336f",
+      "routes": 336,
+      "pieces": 337
+    },
+    {
+      "id": "6:5",
+      "bounds": [
+        24000,
+        20000,
+        28000,
+        24000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/6_5-e8f3939434ca.json.gz",
+      "bytes": 20831,
+      "decodedBytes": 107177,
+      "sha256": "e8f3939434ca6ecb029e3f4f8358544731e0d62d5d531f93e65df6edafda0962",
+      "decodedSha256": "4782dc97171e543e969add1dad38d6ed993ce6cb30cb13066b983ce6851f8456",
+      "routes": 271,
+      "pieces": 273
+    },
+    {
+      "id": "6:6",
+      "bounds": [
+        24000,
+        24000,
+        28000,
+        28000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/6_6-886379fe79b2.json.gz",
+      "bytes": 27867,
+      "decodedBytes": 148566,
+      "sha256": "886379fe79b22219b97a46290d6535eef1368ab451405c1732fb38fe2868c92f",
+      "decodedSha256": "ef863d198894c419333fc3da8d7cd7d8984acee39dab51462cfdc3488ac0512e",
+      "routes": 387,
+      "pieces": 388
+    },
+    {
+      "id": "6:7",
+      "bounds": [
+        24000,
+        28000,
+        28000,
+        30000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/6_7-49c0d38c62b7.json.gz",
+      "bytes": 8092,
+      "decodedBytes": 37151,
+      "sha256": "49c0d38c62b79ddcec3ca37b808b5f9e6f2540e738c4649d47149488a23d01b0",
+      "decodedSha256": "01b7476a99446c3e37718c40d70df83e1a89a763b5e816ededdb4e0fa7042881",
+      "routes": 77,
+      "pieces": 77
+    },
+    {
+      "id": "7:-8",
+      "bounds": [
+        28000,
+        -30000,
+        30000,
+        -28000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/7_-8-80fa8d9e561d.json.gz",
+      "bytes": 1831,
+      "decodedBytes": 5516,
+      "sha256": "80fa8d9e561ded800bea782175f63b8f85c1d3696512ff42e2b98be1a6e44aad",
+      "decodedSha256": "b336b25587d5a78235bf63cbb9c84e7631b6d49f5a74fbd25fca627d31874e14",
+      "routes": 4,
+      "pieces": 4
+    },
+    {
+      "id": "7:-7",
+      "bounds": [
+        28000,
+        -28000,
+        30000,
+        -24000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/7_-7-e7010164558c.json.gz",
+      "bytes": 1062,
+      "decodedBytes": 3827,
+      "sha256": "e7010164558c4b938c1d704b8cf9bec8d88b1dafa5194732af0e4c5869bd76d4",
+      "decodedSha256": "c8453b66b2cad0114daf7c7c9a2c3ed1fb2badf3ca290cb8784b132b732b9f47",
+      "routes": 8,
+      "pieces": 8
+    },
+    {
+      "id": "7:-6",
+      "bounds": [
+        28000,
+        -24000,
+        30000,
+        -20000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/7_-6-f39224a6b077.json.gz",
+      "bytes": 2103,
+      "decodedBytes": 8412,
+      "sha256": "f39224a6b077c5e88fbeffcaac8448d5808f19a0b32fe8490926a5847d4583e9",
+      "decodedSha256": "a85eba586b06bf5f25e2e5227656b51c3935a09a0d4caaa13ad2d62ff531fe23",
+      "routes": 17,
+      "pieces": 17
+    },
+    {
+      "id": "7:-5",
+      "bounds": [
+        28000,
+        -20000,
+        30000,
+        -16000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/7_-5-86140b934628.json.gz",
+      "bytes": 2699,
+      "decodedBytes": 10729,
+      "sha256": "86140b9346282e32cb86462b3788373c4188e8f35e89b1daf517de29a3bb801b",
+      "decodedSha256": "2ce64779d7643735819871cc620b3bdc58de09fba62c159c3b66d3a1d5e5e5b8",
+      "routes": 20,
+      "pieces": 21
+    },
+    {
+      "id": "7:-4",
+      "bounds": [
+        28000,
+        -16000,
+        30000,
+        -12000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/7_-4-fb85a70b4411.json.gz",
+      "bytes": 1049,
+      "decodedBytes": 3389,
+      "sha256": "fb85a70b4411d80dff923c69ddc3b8e4e77515e9f0a41eec00ac217c39e3af2f",
+      "decodedSha256": "0948645f5616b2ff5b4681b2107645515f6930ac460f56dc7a464257114f67e7",
+      "routes": 6,
+      "pieces": 6
+    },
+    {
+      "id": "7:-3",
+      "bounds": [
+        28000,
+        -12000,
+        30000,
+        -8000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/7_-3-d6dc6257138c.json.gz",
+      "bytes": 4656,
+      "decodedBytes": 21783,
+      "sha256": "d6dc6257138c86daa8c0bae15815591f1ca1f85dbd8644c7d85bdf4ef1e597e2",
+      "decodedSha256": "1f065fda1f7390eebc8c9e8c3725e24ad65c0beb48282a1983cab068d5fdce99",
+      "routes": 57,
+      "pieces": 58
+    },
+    {
+      "id": "7:-2",
+      "bounds": [
+        28000,
+        -8000,
+        30000,
+        -4000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/7_-2-8f229c6180be.json.gz",
+      "bytes": 2078,
+      "decodedBytes": 8306,
+      "sha256": "8f229c6180be1bfcea06a98c13a1ef1b79d2bbd4e3115b4a2e17f741338261e1",
+      "decodedSha256": "79152deddc1c6c6d79fc237a553346844dd80093cd82a9f77d377295ff70a906",
+      "routes": 19,
+      "pieces": 19
+    },
+    {
+      "id": "7:-1",
+      "bounds": [
+        28000,
+        -4000,
+        30000,
+        0
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/7_-1-18d18adb0cdc.json.gz",
+      "bytes": 4817,
+      "decodedBytes": 22577,
+      "sha256": "18d18adb0cdc78df32dbad0df9512d6ca87bf43d345a4a6ba167daaacae036d7",
+      "decodedSha256": "ba406ceaf0b6ae96fa3cc30b9103c198ab9017b90610256622ea26a675d5cdec",
+      "routes": 49,
+      "pieces": 49
+    },
+    {
+      "id": "7:0",
+      "bounds": [
+        28000,
+        0,
+        30000,
+        4000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/7_0-1650c4c197ad.json.gz",
+      "bytes": 3339,
+      "decodedBytes": 15750,
+      "sha256": "1650c4c197ade125d83114b4c2c7dd9bbc84aec28fba9e623f635c59860611af",
+      "decodedSha256": "30f3b42a2f3f6c16274a19d05859e80c15eb71dcc3b0660520e1a7e733bb12a4",
+      "routes": 38,
+      "pieces": 40
+    },
+    {
+      "id": "7:1",
+      "bounds": [
+        28000,
+        4000,
+        30000,
+        8000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/7_1-93e7a9ee6a0f.json.gz",
+      "bytes": 8570,
+      "decodedBytes": 42188,
+      "sha256": "93e7a9ee6a0f244d7a1aea286237884b0bbe715db131db21229c28253cfb2fe2",
+      "decodedSha256": "b7f4fa60a498b18a68250dd82ba250ac3e25f546540e0b3767bf207b08cc0d93",
+      "routes": 97,
+      "pieces": 99
+    },
+    {
+      "id": "7:2",
+      "bounds": [
+        28000,
+        8000,
+        30000,
+        12000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/7_2-232ac1506069.json.gz",
+      "bytes": 8085,
+      "decodedBytes": 43191,
+      "sha256": "232ac1506069e7d557e42978a7cf936be316288adaf82f770a18f836a74caa62",
+      "decodedSha256": "f97b567d900bb904ca103e96da4d59cb6fb54ed4b8f11590e0278946a42ba893",
+      "routes": 114,
+      "pieces": 114
+    },
+    {
+      "id": "7:3",
+      "bounds": [
+        28000,
+        12000,
+        30000,
+        16000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/7_3-1eb8d5638da7.json.gz",
+      "bytes": 10380,
+      "decodedBytes": 50014,
+      "sha256": "1eb8d5638da77e35584bbec2285c4b45ede8960ecde8e4c6237e51d8a7fe4eb8",
+      "decodedSha256": "e806c40f85e0a2d81a44108da2c13f1376aab501ba291a3df8d54c532c233bcb",
+      "routes": 117,
+      "pieces": 117
+    },
+    {
+      "id": "7:4",
+      "bounds": [
+        28000,
+        16000,
+        30000,
+        20000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/7_4-9ec460cbb035.json.gz",
+      "bytes": 9666,
+      "decodedBytes": 45125,
+      "sha256": "9ec460cbb03578d068700ae48020cbf7e6801d64b3ffa7fa35a9d876d86beef0",
+      "decodedSha256": "82c1b7f2048f30a45405f5737c8eabbbf966e32aaab9bde64276043610329801",
+      "routes": 93,
+      "pieces": 94
+    },
+    {
+      "id": "7:5",
+      "bounds": [
+        28000,
+        20000,
+        30000,
+        24000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/7_5-ac38bfe954f8.json.gz",
+      "bytes": 12562,
+      "decodedBytes": 58914,
+      "sha256": "ac38bfe954f83f75f3cf3986ffa25ae9ada4e3ced077c0c0d9f8397fa3956297",
+      "decodedSha256": "8e3a0813755a0493490f5aeecb20d321582f47f69f1618a6601942af06fd7893",
+      "routes": 131,
+      "pieces": 132
+    },
+    {
+      "id": "7:6",
+      "bounds": [
+        28000,
+        24000,
+        30000,
+        28000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/7_6-348724939e85.json.gz",
+      "bytes": 14542,
+      "decodedBytes": 69962,
+      "sha256": "348724939e859358bcbf8ec3ad86a361dee35e6253ff5128a02aa3bdd2e75bfe",
+      "decodedSha256": "6a7a73036c045eac3acce5b9d09bb6a755bd982ded10eedfe655ff85b709e1b6",
+      "routes": 167,
+      "pieces": 167
+    },
+    {
+      "id": "7:7",
+      "bounds": [
+        28000,
+        28000,
+        30000,
+        30000
+      ],
+      "path": "assets/cities/daxing/traffic-region-v1/7_7-a7bea895a060.json.gz",
+      "bytes": 4680,
+      "decodedBytes": 20341,
+      "sha256": "a7bea895a06019776a70fe1facdf614965cedad636fd3535ac43d825f529130d",
+      "decodedSha256": "467a0af5e9f0118840060c4f3e87ae97ee43153459ca51325948030c267ca0e8",
+      "routes": 43,
+      "pieces": 43
+    }
+  ],
+  "counts": {
+    "secondary": 1716,
+    "tertiary": 2772,
+    "primary": 1243,
+    "residential": 15737,
+    "service": 4238,
+    "motorway": 1254,
+    "motorway_link": 1096,
+    "unclassified": 2431,
+    "trunk": 417,
+    "secondary_link": 154,
+    "primary_link": 247,
+    "tertiary_link": 167,
+    "trunk_link": 47,
+    "living_street": 310
+  },
+  "provenance": {
+    "source": "https://download.geofabrik.de/asia/china/hebei/hebei-latest.osm.pbf",
+    "sha256": "b18473ed6d18031788baf11d86cf22c2e91bc7c266886e7117b2a21ebe0c6e71",
+    "snapshot": "2026-11-20 cached extract",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors",
+    "estimates": "Source motor roads; missing lanes/speeds/widths and bridge clearances use the airport traffic defaults. Regional flow is estimated visual traffic, not measured demand. Original full way identities and distance intervals avoid resetting routes at tile seams."
+  },
+  "identity": "680828c74a0a182f7f09853b7a154c9cef93862c88bc124fbfae9b312c75b9f4"
+}

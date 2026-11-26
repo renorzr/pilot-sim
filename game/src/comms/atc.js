@@ -1,6 +1,6 @@
 // ATC observes the flown aircraft. A readback never moves it or clears a
 // deviation; only actual recovery does. All tolerances are game presets.
-import {FT,RUNWAY,wrap,RAD} from '../sim/constants.js';
+import {FT,KT,RUNWAY,wrap,RAD} from '../sim/constants.js';
 import {repeatRadio,clearRadioEvents} from './radio.js';
 import {runwayOf,runwayHeading} from '../airports/registry.js';
 import {airlineTarget} from '../missions/airline-navigation.js';
@@ -8,7 +8,7 @@ export const createATC=()=>({clearance:null,phaseKey:null,issuedAt:0,deviation:n
 function nominalClearance(s){
  if(s.goAround){const coast=s.touchAndGo?.active&&s.touchAndGo.coastalTurn;return{key:coast?'goaround-coastal':'goaround',kind:'heading',turnGrace:coast?55:6,heading:(runwayHeading(s)+s.goAroundHeading/RAD+360)%360,altitude:s.selectedAltitude,climb:true,label:coast?(s.airportId!=='training'?'触地复飞 · 左侧爬升':'触地复飞 · 左转海侧爬升'):'复飞 · 跑道方向'};}
  const target=airlineTarget(s);
- if(target){const n=s.airline.navigation;return{key:`airline-${n.kind}-${n.index}`,kind:'airline-route',altitude:Math.round(target.altitude/100)*100,climb:n.kind==='departure',turnGrace:n.kind==='departure'&&n.index>0?75:40,label:`${target.name} · 按 ND 航路和高度飞行`};}
+ if(target){const n=s.airline.navigation;return{key:`airline-${n.kind}-${n.index}`,kind:'airline-route',altitude:target.altitude,minMSL:target.minMSL,maxMSL:target.maxMSL,speedLimit:target.speedLimit,elevationFt:n.elevationFt||0,climb:n.kind==='departure',turnGrace:n.kind==='departure'&&n.index>0?75:40,label:`${target.name} · 按 ND 航路和高度飞行`};}
  if(s.route?.active){
   const r=s.route,leg=r.points[r.index];
   return{key:`route-${r.index}`,kind:r.inFinal?'approach':'route',altitude:r.inFinal?null:leg.alt,leg:r.index,climb:r.index===0,label:r.inFinal?'五边 · 对正跑道':`${leg.name} · ${s.airportId!=='training'?'左侧返场':'海侧航线'}`};
@@ -22,6 +22,8 @@ function deviationFor(s,c){
  const altitude=(s.y-RUNWAY.ground)*FT;
  if(c.kind==='airline-route'){
   const t=airlineTarget(s);if(t&&Math.abs(t.cross)>2500)return{type:'route',text:'偏离航班航路 · 根据 ND 修正航迹',clip:'atc-route'};
+  // A visual speed instruction uses no mismatched or missing speech asset.
+  if(c.speedLimit&&s.speed*KT>c.speedLimit+10)return{type:'speed',text:`超过离场限速 · 减速至 ${c.speedLimit} kt 以下`,clip:null};
  }else if(c.kind==='route'){
   if(c.leg===0){
    // Straight departure then a LEFT turn over the sea. Continuing straight
@@ -35,10 +37,11 @@ function deviationFor(s,c){
  }else if(c.kind==='approach'&&(Math.abs(s.x)>Math.max(150,Math.max(s.z,0)*.08)||Math.abs(wrap(s.airData.groundTrack))>35*RAD))return{type:'approach',text:'偏离进近航迹 · 对正跑道，无法稳定时复飞',clip:'atc-approach'};
  else if(c.kind==='heading'&&Math.abs(wrap(s.yaw-(c.heading-runwayHeading(s))*RAD))>25*RAD)return{type:'heading',text:`航向偏离许可 · 恢复 ${Math.round(c.heading)}°`,clip:'atc-heading'};
  if(c.altitude!==null){
-  if(altitude>c.altitude+220)return{type:'high',text:`高于许可高度 · 恢复 ${Math.round(c.altitude)} ft`,clip:'atc-high'};
+  if(c.maxMSL!==undefined&&altitude+c.elevationFt>c.maxMSL+100)return{type:'high',text:`高于过点限制 · 不得高于海拔 ${Math.round(c.maxMSL)} ft`,clip:'atc-high'};
+  if(altitude>c.altitude+220)return{type:'high',text:`高于许可高度 · 恢复 ${Math.round(c.altitude+(c.elevationFt||0))} ft`,clip:'atc-high'};
   // Do not call a normal climb a violation. Stall/terrain alerts have their
   // own priority; a sustained level-off/descent below clearance is monitored.
-  if(altitude<c.altitude-220&&!(c.climb&&s.verticalSpeed>1))return{type:'low',text:`低于许可高度 · 爬升至 ${Math.round(c.altitude)} ft`,clip:'atc-low'};
+  if(altitude<c.altitude-220&&!(c.climb&&s.verticalSpeed>1))return{type:'low',text:`低于许可高度 · 爬升至 ${Math.round(c.altitude+(c.elevationFt||0))} ft`,clip:'atc-low'};
  }
  return null;
 }
@@ -64,7 +67,7 @@ export function updateATC(s,dt){
   if(a.deviation?.type!==deviation.type)a.seconds=0;
   a.seconds+=dt;a.deviation=deviation;
   if(a.seconds>=6&&s.time-a.lastSent>=25){
-   if(repeatRadio(s,deviation.clip,{priority:1})){a.lastSent=s.time;a.notified=true;a.violations.push({type:deviation.type,time:s.time,altitude:(s.y-RUNWAY.ground)*FT});if(a.violations.length>30)a.violations.shift();}
+   if(!deviation.clip||repeatRadio(s,deviation.clip,{priority:1})){a.lastSent=s.time;a.notified=!!deviation.clip;a.violations.push({type:deviation.type,time:s.time,altitude:(s.y-RUNWAY.ground)*FT});if(a.violations.length>30)a.violations.shift();}
   }
  }else{
   a.seconds=0;

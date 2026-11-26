@@ -1,0 +1,2996 @@
+{
+  "schema": 1,
+  "airportId": "kansai",
+  "bounds": [
+    -30000,
+    -30000,
+    30000,
+    30000
+  ],
+  "tileSize": 4000,
+  "innerRadiusM": 6000,
+  "center": [
+    0.02644502910754909,
+    -1763.9261639598772
+  ],
+  "frame": {
+    "threshold": [
+      135.22900390625,
+      34.41740036010742
+    ],
+    "heading": 51.339515230164615
+  },
+  "drivingSide": "left",
+  "bridgeDeckReference": "airport",
+  "tiles": [
+    {
+      "id": "-8:-8",
+      "bounds": [
+        -30000,
+        -30000,
+        -28000,
+        -28000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-8_-8-988770a6adf8.json.gz",
+      "bytes": 7858,
+      "decodedBytes": 30864,
+      "sha256": "988770a6adf8bb5a75b91aaa12e66a7c230f14e08a5c6f13426e450f9b56013a",
+      "decodedSha256": "cfc66e2293e2b77f0d23202786352268be7417eed439dcff78f79b1243d8d5bc",
+      "routes": 34,
+      "pieces": 34
+    },
+    {
+      "id": "-8:-7",
+      "bounds": [
+        -30000,
+        -28000,
+        -28000,
+        -24000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-8_-7-8121a570f49c.json.gz",
+      "bytes": 10701,
+      "decodedBytes": 43406,
+      "sha256": "8121a570f49cfa9f469b0ef3d89a8ffb599de01906fe2a4fe91f632e02f34794",
+      "decodedSha256": "d25a315dbaa6cd4ebf6e48fea8aea17f301bad33ad6586ae59d7a9cb1daf368d",
+      "routes": 50,
+      "pieces": 51
+    },
+    {
+      "id": "-8:-6",
+      "bounds": [
+        -30000,
+        -24000,
+        -28000,
+        -20000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-8_-6-e128a847956f.json.gz",
+      "bytes": 21402,
+      "decodedBytes": 88722,
+      "sha256": "e128a847956f2e6491e0858be8af75ea9120a6b620e09bf982061e9f08e2efb6",
+      "decodedSha256": "001779057ad69a104bc1c612e29e2f5b0ea9c82b71d14ebe4f3e3ca5452685fd",
+      "routes": 91,
+      "pieces": 95
+    },
+    {
+      "id": "-8:-5",
+      "bounds": [
+        -30000,
+        -20000,
+        -28000,
+        -16000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-8_-5-708341027394.json.gz",
+      "bytes": 9124,
+      "decodedBytes": 36461,
+      "sha256": "708341027394093465cb801730bf97d50149351929800ed522f90785de5296a1",
+      "decodedSha256": "61d956c3e41e6d7e7997a4401b51179475818596586dfc44f7a36f1729f059c3",
+      "routes": 31,
+      "pieces": 32
+    },
+    {
+      "id": "-8:-4",
+      "bounds": [
+        -30000,
+        -16000,
+        -28000,
+        -12000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-8_-4-376293257ff4.json.gz",
+      "bytes": 32513,
+      "decodedBytes": 155387,
+      "sha256": "376293257ff47adec935f8e427a1cbeb30dc114c78dcfa2f16c0ebc64123e16e",
+      "decodedSha256": "2a4422568c8e52a96bb2931b1b11bd9b293e3718c6859df2f6314fa7175573e6",
+      "routes": 352,
+      "pieces": 355
+    },
+    {
+      "id": "-8:-3",
+      "bounds": [
+        -30000,
+        -12000,
+        -28000,
+        -8000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-8_-3-bcf8f1e4a2a0.json.gz",
+      "bytes": 62283,
+      "decodedBytes": 315590,
+      "sha256": "bcf8f1e4a2a04162e9a112c58906cb74a346f33caec1b383abc217280659d796",
+      "decodedSha256": "77d09c110f0cf090b6ecdb4054c789693f660a3716c2c6ab9fc6db3053ede82d",
+      "routes": 761,
+      "pieces": 765
+    },
+    {
+      "id": "-8:-2",
+      "bounds": [
+        -30000,
+        -8000,
+        -28000,
+        -4000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-8_-2-3a660c655050.json.gz",
+      "bytes": 82066,
+      "decodedBytes": 425564,
+      "sha256": "3a660c6550506f775e9c55f1919baceb3235cf2b5d84e2cb88b91ea55639e663",
+      "decodedSha256": "f588d43d9063a7fd0e98964cdb75c30e0e4850631ef3bfc27eba56889381945b",
+      "routes": 1086,
+      "pieces": 1093
+    },
+    {
+      "id": "-8:-1",
+      "bounds": [
+        -30000,
+        -4000,
+        -28000,
+        0
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-8_-1-c787493cfa8c.json.gz",
+      "bytes": 76564,
+      "decodedBytes": 445045,
+      "sha256": "c787493cfa8c548f7424cfc5383bae1f894033e018b84e445322cdf70bf3ab2c",
+      "decodedSha256": "13ff5c84ef311f114e41c5bc4d76afd309b87251fe2ef5484513f908ed70dd3b",
+      "routes": 1344,
+      "pieces": 1351
+    },
+    {
+      "id": "-8:0",
+      "bounds": [
+        -30000,
+        0,
+        -28000,
+        4000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-8_0-012c9a7cc5e7.json.gz",
+      "bytes": 5480,
+      "decodedBytes": 24679,
+      "sha256": "012c9a7cc5e7621306df9ecd640d8022c51e7583a746a4c6dd23faaa67488682",
+      "decodedSha256": "8e1d33ad3747a3989ec18c9f7f5713fee06df86f4623262c12062efafc221876",
+      "routes": 52,
+      "pieces": 52
+    },
+    {
+      "id": "-8:1",
+      "bounds": [
+        -30000,
+        4000,
+        -28000,
+        8000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-8_1-0022c2caca54.json.gz",
+      "bytes": 12302,
+      "decodedBytes": 54374,
+      "sha256": "0022c2caca54c6fe850d14149fd300594d37ba3125e989aa083c9ec67269bb6e",
+      "decodedSha256": "a3678f00e9c9380ddac822912fb33e69ebf0ef0236ed8a8b975c56b30a541058",
+      "routes": 79,
+      "pieces": 79
+    },
+    {
+      "id": "-8:2",
+      "bounds": [
+        -30000,
+        8000,
+        -28000,
+        12000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-8_2-48e76dbf25c7.json.gz",
+      "bytes": 10992,
+      "decodedBytes": 47509,
+      "sha256": "48e76dbf25c7ed5f62bf37feedb6192843dda5fd23699fa2971d8615d7c340c1",
+      "decodedSha256": "a4126f1d19055a18f906b2a75bd1ac5393878475025ceb222257a26fb8953bbc",
+      "routes": 70,
+      "pieces": 71
+    },
+    {
+      "id": "-8:3",
+      "bounds": [
+        -30000,
+        12000,
+        -28000,
+        16000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-8_3-d0343e3aa803.json.gz",
+      "bytes": 15173,
+      "decodedBytes": 81825,
+      "sha256": "d0343e3aa803031b80493b06e2a9da82cdeeddf9feea5947f0bbdd77fa4ce5e6",
+      "decodedSha256": "8cc9a15254c35c1ed747135c244ca19f78e5791c3c7e9311b124e305bbd8273f",
+      "routes": 215,
+      "pieces": 215
+    },
+    {
+      "id": "-8:4",
+      "bounds": [
+        -30000,
+        16000,
+        -28000,
+        20000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-8_4-60b6e7f8e02a.json.gz",
+      "bytes": 18189,
+      "decodedBytes": 95949,
+      "sha256": "60b6e7f8e02a2f0fb3fb3413d67b03bcf03477c6156aa8095b7a8abb06978f37",
+      "decodedSha256": "dc98b1d4205b8c77508d3931743804a388138080949bbb9b6fac96842b4818f9",
+      "routes": 263,
+      "pieces": 264
+    },
+    {
+      "id": "-8:5",
+      "bounds": [
+        -30000,
+        20000,
+        -28000,
+        24000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-8_5-4b1b54313be3.json.gz",
+      "bytes": 2175,
+      "decodedBytes": 9214,
+      "sha256": "4b1b54313be382b623ca5d5e2f0330c05343c32abd2f471f4328d916764ef07a",
+      "decodedSha256": "564b48e583aaddee1edc90620890dabc8c5f97ea9e9146d5727e7fec75cef6d5",
+      "routes": 19,
+      "pieces": 19
+    },
+    {
+      "id": "-8:6",
+      "bounds": [
+        -30000,
+        24000,
+        -28000,
+        28000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-8_6-ead58b6ce946.json.gz",
+      "bytes": 270,
+      "decodedBytes": 427,
+      "sha256": "ead58b6ce946d602bcd4728b317906fe8d37956880904d6c850a100eba262588",
+      "decodedSha256": "72346bebcdcd2c8fc92d98a19ac4bb2dee2a2486595c4498423b003b14a9519b",
+      "routes": 1,
+      "pieces": 1
+    },
+    {
+      "id": "-7:-8",
+      "bounds": [
+        -28000,
+        -30000,
+        -24000,
+        -28000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-7_-8-3383bc2c7919.json.gz",
+      "bytes": 34786,
+      "decodedBytes": 171753,
+      "sha256": "3383bc2c7919d0f207a896e51a2e87562fc325f28c7ecbaa6eb78e9645345dde",
+      "decodedSha256": "6f5ccd1c4ee4396c5ab538ca1626da1817e53a314de3e8454bff34a43f135457",
+      "routes": 435,
+      "pieces": 438
+    },
+    {
+      "id": "-7:-7",
+      "bounds": [
+        -28000,
+        -28000,
+        -24000,
+        -24000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-7_-7-27e85bdc0227.json.gz",
+      "bytes": 58207,
+      "decodedBytes": 306218,
+      "sha256": "27e85bdc0227d93549ef14ce33bea277985ed478c1505ea296a24c4802f43146",
+      "decodedSha256": "b1171f9c8cd4112a5eb36a06d7971211bcaef79ba415ca14538ade1477d64f30",
+      "routes": 849,
+      "pieces": 853
+    },
+    {
+      "id": "-7:-6",
+      "bounds": [
+        -28000,
+        -24000,
+        -24000,
+        -20000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-7_-6-042cf9e43158.json.gz",
+      "bytes": 154699,
+      "decodedBytes": 878586,
+      "sha256": "042cf9e43158c2de621429d0471075c4d3d5bb6b2bf8e76de68a85c69b38c43f",
+      "decodedSha256": "6d9307ccfd7bd86f885bbcbdb056b24fd834167f9633985fdfd1f085d303f49c",
+      "routes": 2694,
+      "pieces": 2696
+    },
+    {
+      "id": "-7:-5",
+      "bounds": [
+        -28000,
+        -20000,
+        -24000,
+        -16000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-7_-5-0151589610c0.json.gz",
+      "bytes": 132920,
+      "decodedBytes": 702959,
+      "sha256": "0151589610c02315fd9e07fc8b6208a60116584071cf5a46fb7ac2f444a5e9af",
+      "decodedSha256": "0674c69673d2b48391fbab67266bb2d2554eb1afa78bda7f6929e5b7b24b803f",
+      "routes": 1986,
+      "pieces": 1988
+    },
+    {
+      "id": "-7:-4",
+      "bounds": [
+        -28000,
+        -16000,
+        -24000,
+        -12000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-7_-4-a022f86e1553.json.gz",
+      "bytes": 160032,
+      "decodedBytes": 928294,
+      "sha256": "a022f86e1553f2cf254574fb1fd48db2982c77409b1b3af82c962c17b560fded",
+      "decodedSha256": "17974af76503204e6becb06f2b0791781122654776f1adc8cdad1144fcf96df0",
+      "routes": 2797,
+      "pieces": 2800
+    },
+    {
+      "id": "-7:-3",
+      "bounds": [
+        -28000,
+        -12000,
+        -24000,
+        -8000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-7_-3-f8188a35b81d.json.gz",
+      "bytes": 165635,
+      "decodedBytes": 969937,
+      "sha256": "f8188a35b81db3e5b7f2c1daaab7a69c55acdf89829df1230c73e7ac3efa4f09",
+      "decodedSha256": "8597b7dc593195d92992292901574e9476388b65789bacfac4e3e23da1a11fb3",
+      "routes": 2983,
+      "pieces": 2985
+    },
+    {
+      "id": "-7:-2",
+      "bounds": [
+        -28000,
+        -8000,
+        -24000,
+        -4000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-7_-2-dc1c97a50f29.json.gz",
+      "bytes": 49608,
+      "decodedBytes": 266060,
+      "sha256": "dc1c97a50f29072ab96cb466034f728c636ec648dd95ff9089193a62785fda68",
+      "decodedSha256": "5090520d8e9b06b95fb8bd9161234bc6ba1c0c7d10f98e76c6fb38c9bc72a70f",
+      "routes": 728,
+      "pieces": 731
+    },
+    {
+      "id": "-7:-1",
+      "bounds": [
+        -28000,
+        -4000,
+        -24000,
+        0
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-7_-1-0330fe1e1d6d.json.gz",
+      "bytes": 8709,
+      "decodedBytes": 54701,
+      "sha256": "0330fe1e1d6dfd85aa520a58a504705f9cfe1500c369e822b864da554df7b27c",
+      "decodedSha256": "ee84794bcb701ccff1632056c69e57f6351fb0d5f26f0f2bcfc6e57a77012657",
+      "routes": 170,
+      "pieces": 172
+    },
+    {
+      "id": "-7:0",
+      "bounds": [
+        -28000,
+        0,
+        -24000,
+        4000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-7_0-d60efcd5b220.json.gz",
+      "bytes": 20980,
+      "decodedBytes": 98763,
+      "sha256": "d60efcd5b2207b74d1fe61b1640ef20d478807990dec70917966109343b1e28d",
+      "decodedSha256": "d8ad9a9d0f34bbab75c7cbfb9c02de9cf53d4803ed17b0e7e72b0953190a084e",
+      "routes": 220,
+      "pieces": 225
+    },
+    {
+      "id": "-7:1",
+      "bounds": [
+        -28000,
+        4000,
+        -24000,
+        8000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-7_1-b9d7ba8a7cdf.json.gz",
+      "bytes": 47343,
+      "decodedBytes": 225715,
+      "sha256": "b9d7ba8a7cdf4615ae2b6663c90ff3acfc73b5d7c9605a73889604c24555cb71",
+      "decodedSha256": "806c99747cb1df715a7274fad84690ffb02c4ee14d4fb4b1819c95365a317c4b",
+      "routes": 486,
+      "pieces": 488
+    },
+    {
+      "id": "-7:2",
+      "bounds": [
+        -28000,
+        8000,
+        -24000,
+        12000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-7_2-ede18c021443.json.gz",
+      "bytes": 48507,
+      "decodedBytes": 226739,
+      "sha256": "ede18c021443275937a2d3871429f69340a0b657c8749e30abb2d2ea18110873",
+      "decodedSha256": "72b90c536ffe68c4640e7d67bd31bbdb2d3d562894e0910f80da37329d2bc456",
+      "routes": 430,
+      "pieces": 431
+    },
+    {
+      "id": "-7:3",
+      "bounds": [
+        -28000,
+        12000,
+        -24000,
+        16000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-7_3-b6c5366e4257.json.gz",
+      "bytes": 37048,
+      "decodedBytes": 176838,
+      "sha256": "b6c5366e425773cd04980f61e982b4971a5518cffcb1a92ab506e1ba30fa20de",
+      "decodedSha256": "0bc33815b05e74eeb4354a75dc9aafe37b801e354475556af6b3f0c0a07e8b12",
+      "routes": 339,
+      "pieces": 341
+    },
+    {
+      "id": "-7:4",
+      "bounds": [
+        -28000,
+        16000,
+        -24000,
+        20000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-7_4-f0580b49073a.json.gz",
+      "bytes": 27073,
+      "decodedBytes": 118476,
+      "sha256": "f0580b49073adbd0717dcfd24d1f8494eba6bcd8fc9f1192e689d664d666ad8c",
+      "decodedSha256": "2d779a3f9143110d8562d9b91d668af91a1f4e360bb16de57e0345236e8cfb4e",
+      "routes": 186,
+      "pieces": 187
+    },
+    {
+      "id": "-7:5",
+      "bounds": [
+        -28000,
+        20000,
+        -24000,
+        24000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-7_5-3cd48e78e9ce.json.gz",
+      "bytes": 42931,
+      "decodedBytes": 212176,
+      "sha256": "3cd48e78e9ce55376109e483d74b258ff5b25746a687bb3a2a28bfa3df05a90e",
+      "decodedSha256": "39ca6b84cdee50187d42a1f36ec1ffbcff9b69838720b103a745128578f2875b",
+      "routes": 486,
+      "pieces": 487
+    },
+    {
+      "id": "-7:6",
+      "bounds": [
+        -28000,
+        24000,
+        -24000,
+        28000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-7_6-ef61d3f7a813.json.gz",
+      "bytes": 41004,
+      "decodedBytes": 197357,
+      "sha256": "ef61d3f7a813396dabeea6e2ad82be9801cc81cbeb0fcd230a1144c283417ee0",
+      "decodedSha256": "83d8881141d751876c26c00c83a4e4fc7f358a5d30f523c662e01d5195a9c569",
+      "routes": 413,
+      "pieces": 415
+    },
+    {
+      "id": "-7:7",
+      "bounds": [
+        -28000,
+        28000,
+        -24000,
+        30000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-7_7-334e8452f6a3.json.gz",
+      "bytes": 19016,
+      "decodedBytes": 88992,
+      "sha256": "334e8452f6a32c09ceaad0bbd706fa7ef6599598e52510014e1fef34dbabcb38",
+      "decodedSha256": "26884b089f991e9dd994b2e12f19e71b510357564b8bd2c86c12fe19601d21b7",
+      "routes": 171,
+      "pieces": 175
+    },
+    {
+      "id": "-6:-8",
+      "bounds": [
+        -24000,
+        -30000,
+        -20000,
+        -28000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-6_-8-afd916460e82.json.gz",
+      "bytes": 74247,
+      "decodedBytes": 407015,
+      "sha256": "afd916460e82b5f413553b046175cc085fe980d55c2210c33af790fc5880eec8",
+      "decodedSha256": "49b26d9386019b1602fb9b81c50b418b2a35ca9a38f0e5e9d6ce3f6158461236",
+      "routes": 1194,
+      "pieces": 1195
+    },
+    {
+      "id": "-6:-7",
+      "bounds": [
+        -24000,
+        -28000,
+        -20000,
+        -24000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-6_-7-06ce7b54655f.json.gz",
+      "bytes": 117530,
+      "decodedBytes": 641451,
+      "sha256": "06ce7b54655fca709f7a22ea340b0817d31f7aa9894194110ecb4605ae177583",
+      "decodedSha256": "8d9269d28ff5309f5a315ba54d7c0321cd823c60e77bc841ebf19306fa7b5b12",
+      "routes": 1856,
+      "pieces": 1861
+    },
+    {
+      "id": "-6:-6",
+      "bounds": [
+        -24000,
+        -24000,
+        -20000,
+        -20000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-6_-6-39ec4ef0c233.json.gz",
+      "bytes": 49580,
+      "decodedBytes": 273821,
+      "sha256": "39ec4ef0c233e753e8dbf0354be56f1a264cdbe2e4c39559b4b7fad56d4c0de6",
+      "decodedSha256": "1c99f6f9ba812f96831536ae5ac23908c7a389e5026b03b9de22637c72948fac",
+      "routes": 811,
+      "pieces": 811
+    },
+    {
+      "id": "-6:-5",
+      "bounds": [
+        -24000,
+        -20000,
+        -20000,
+        -16000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-6_-5-55506c4f39da.json.gz",
+      "bytes": 14858,
+      "decodedBytes": 81837,
+      "sha256": "55506c4f39dad9ac17d3f2915623735608046f5b454ba7fa607e64dd5315843e",
+      "decodedSha256": "2079eb2d8aac47fb47cef2c074b42d3ab451ca7b8393ff74dad0481abe3465d9",
+      "routes": 233,
+      "pieces": 235
+    },
+    {
+      "id": "-6:-4",
+      "bounds": [
+        -24000,
+        -16000,
+        -20000,
+        -12000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-6_-4-9753331152e0.json.gz",
+      "bytes": 16376,
+      "decodedBytes": 91025,
+      "sha256": "9753331152e00a5f4cae62ef13929934bbc6b52edd681ec6664a8e2a84ff3529",
+      "decodedSha256": "40287c4383c0020b39e6e999a173864dd64e8142ed98e964e1f8c85467a74c6e",
+      "routes": 257,
+      "pieces": 258
+    },
+    {
+      "id": "-6:-3",
+      "bounds": [
+        -24000,
+        -12000,
+        -20000,
+        -8000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-6_-3-f50dacc29769.json.gz",
+      "bytes": 1394,
+      "decodedBytes": 7042,
+      "sha256": "f50dacc29769c5456184f0b8e7e197d78e0b16d8e9a064a522bf9f6fb6edf4d6",
+      "decodedSha256": "68f1414256e2dd044f24779ea927edfe9ed196675c5931bb21cb20e163579bc9",
+      "routes": 21,
+      "pieces": 22
+    },
+    {
+      "id": "-6:2",
+      "bounds": [
+        -24000,
+        8000,
+        -20000,
+        12000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-6_2-eb6665fb9146.json.gz",
+      "bytes": 19811,
+      "decodedBytes": 106209,
+      "sha256": "eb6665fb91463d1e4a0dea3b8846dff9947bc4a9ea335671ab8f3f9220ddef3c",
+      "decodedSha256": "cb0f17fb6889653a4de0d4526aad329650745d0047f9deae900d9b50a210d8d9",
+      "routes": 278,
+      "pieces": 278
+    },
+    {
+      "id": "-6:3",
+      "bounds": [
+        -24000,
+        12000,
+        -20000,
+        16000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-6_3-2bdfd5911b84.json.gz",
+      "bytes": 14226,
+      "decodedBytes": 69209,
+      "sha256": "2bdfd5911b841655dc41c280dc9a5d76404989ec964725b5372b130a1279171b",
+      "decodedSha256": "eb8dd0eea20f3b3454754f8707453a303804d7ad27d3335615e8b69abca7605c",
+      "routes": 137,
+      "pieces": 137
+    },
+    {
+      "id": "-6:4",
+      "bounds": [
+        -24000,
+        16000,
+        -20000,
+        20000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-6_4-fc8e0889a8ad.json.gz",
+      "bytes": 47749,
+      "decodedBytes": 207374,
+      "sha256": "fc8e0889a8ad89b6228b5a395d7b83d31935ad54bd9803d67fedea3ada16c136",
+      "decodedSha256": "1a89ff9443eee3ddff3f72c82f5ba1c03e31ef8727e6a0cc0edacae57a6f1309",
+      "routes": 332,
+      "pieces": 333
+    },
+    {
+      "id": "-6:5",
+      "bounds": [
+        -24000,
+        20000,
+        -20000,
+        24000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-6_5-7337cff76f45.json.gz",
+      "bytes": 71500,
+      "decodedBytes": 337853,
+      "sha256": "7337cff76f452690b92a70d2ba96453e5fe4fe7e43915c94a07cfe6dcf99a763",
+      "decodedSha256": "2f52c009f916df4548f3279d5f2038a4af3ad1f8da796a9cba455b03166bf664",
+      "routes": 744,
+      "pieces": 745
+    },
+    {
+      "id": "-6:6",
+      "bounds": [
+        -24000,
+        24000,
+        -20000,
+        28000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-6_6-d53e21522539.json.gz",
+      "bytes": 41537,
+      "decodedBytes": 192625,
+      "sha256": "d53e215225396d9e1c30d5fd28c369266cbc1492684ac5766f16365ee5c3956d",
+      "decodedSha256": "8cba10eecad87afc43074c17c3e653a77248c9e0695a01313fb0d85416599882",
+      "routes": 370,
+      "pieces": 370
+    },
+    {
+      "id": "-6:7",
+      "bounds": [
+        -24000,
+        28000,
+        -20000,
+        30000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-6_7-09f484ceb0a1.json.gz",
+      "bytes": 16857,
+      "decodedBytes": 77421,
+      "sha256": "09f484ceb0a1b405412e50cb435c518633dd9032da89d2c2c09be746ef8cd1ed",
+      "decodedSha256": "544da5fde79152d8266ea2c0f8f5a0f33b4c5197728d885d21cf1df4dbed9a3e",
+      "routes": 132,
+      "pieces": 132
+    },
+    {
+      "id": "-5:-8",
+      "bounds": [
+        -20000,
+        -30000,
+        -16000,
+        -28000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-5_-8-481a506ab320.json.gz",
+      "bytes": 21697,
+      "decodedBytes": 120797,
+      "sha256": "481a506ab320f923ebe33e862d4e61a5a771e8f1befa87d59c58040c3624a461",
+      "decodedSha256": "2db5950f0ee21592a8c7cb57445ee086d455ab529cd82a4440886c729f08d4a3",
+      "routes": 358,
+      "pieces": 361
+    },
+    {
+      "id": "-5:-7",
+      "bounds": [
+        -20000,
+        -28000,
+        -16000,
+        -24000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-5_-7-c0cc0e8e4c79.json.gz",
+      "bytes": 3281,
+      "decodedBytes": 15783,
+      "sha256": "c0cc0e8e4c79153aaa66036da0f84303e281351c8592ea0b4ca32f7c7a8bcf0f",
+      "decodedSha256": "09dfc1fc387c7b57833fa751b0d2c105cde2a5e37a3e2f36a97776274a054a2d",
+      "routes": 33,
+      "pieces": 33
+    },
+    {
+      "id": "-5:-6",
+      "bounds": [
+        -20000,
+        -24000,
+        -16000,
+        -20000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-5_-6-cd1c5bc6de93.json.gz",
+      "bytes": 450,
+      "decodedBytes": 1225,
+      "sha256": "cd1c5bc6de93e1606382a469201c8c60533a45621f80febd29628b0754a8bcaf",
+      "decodedSha256": "0d293253e08a7d5b8598f00907606d4a2b774e63c691a6124ce92cf3e840e4f6",
+      "routes": 4,
+      "pieces": 4
+    },
+    {
+      "id": "-5:-5",
+      "bounds": [
+        -20000,
+        -20000,
+        -16000,
+        -16000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-5_-5-dce185f2f1e3.json.gz",
+      "bytes": 1444,
+      "decodedBytes": 5380,
+      "sha256": "dce185f2f1e3a5021b3a12c4da0c000f2c7ce46a0d0bf102b5f7e6b17becd4dd",
+      "decodedSha256": "744bbe0475dbab07a3ee216dec3ff8b5880a3154280547ffb5c902e77b745dd0",
+      "routes": 10,
+      "pieces": 10
+    },
+    {
+      "id": "-5:-4",
+      "bounds": [
+        -20000,
+        -16000,
+        -16000,
+        -12000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-5_-4-d63dcf4167a6.json.gz",
+      "bytes": 7532,
+      "decodedBytes": 38784,
+      "sha256": "d63dcf4167a6324a5062cdc68032af43dd13677e6742f8f3222dd69c9e7a8832",
+      "decodedSha256": "5a5e1049dd209ab71f28f484efee22f16dad0cfc5e5575f1a67a861aadd2c62d",
+      "routes": 91,
+      "pieces": 92
+    },
+    {
+      "id": "-5:4",
+      "bounds": [
+        -20000,
+        16000,
+        -16000,
+        20000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-5_4-4325b3f5bd3a.json.gz",
+      "bytes": 571,
+      "decodedBytes": 1556,
+      "sha256": "4325b3f5bd3aefb504ef9d85e7952385697aa3fa1831298fba114058368cc132",
+      "decodedSha256": "dc6da378a7717806910937383a164d137760b1030e72fe206e703552fc591b48",
+      "routes": 2,
+      "pieces": 2
+    },
+    {
+      "id": "-5:5",
+      "bounds": [
+        -20000,
+        20000,
+        -16000,
+        24000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-5_5-5766288a5bbd.json.gz",
+      "bytes": 14097,
+      "decodedBytes": 76864,
+      "sha256": "5766288a5bbd8ed0ec6526113ea5df556fdc0a0c6c92f7c4bd6ea79c7c63857f",
+      "decodedSha256": "f813647f600d89bd84b8a8e073682291d9cb99dda35442513dfe78e4d63360eb",
+      "routes": 212,
+      "pieces": 213
+    },
+    {
+      "id": "-5:6",
+      "bounds": [
+        -20000,
+        24000,
+        -16000,
+        28000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-5_6-512507f05ef1.json.gz",
+      "bytes": 37278,
+      "decodedBytes": 184098,
+      "sha256": "512507f05ef1fc08833715fd2f91200ce4c57dea2535d7901202e4a47ae757e8",
+      "decodedSha256": "d91aa0001acb59a35cc2aaa210776feb60e834615cd76fbd65b4bd9bedd26937",
+      "routes": 392,
+      "pieces": 392
+    },
+    {
+      "id": "-5:7",
+      "bounds": [
+        -20000,
+        28000,
+        -16000,
+        30000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-5_7-44f425fca3e6.json.gz",
+      "bytes": 22317,
+      "decodedBytes": 105541,
+      "sha256": "44f425fca3e601fb5c617b81065472d3323d426fc7be1dfe2e2e8e5c0f87a8d6",
+      "decodedSha256": "d20959e11a688e51a8de022b1f773e37270d3b38140996d942a78dd7534ed9c8",
+      "routes": 208,
+      "pieces": 210
+    },
+    {
+      "id": "-4:-8",
+      "bounds": [
+        -16000,
+        -30000,
+        -12000,
+        -28000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-4_-8-fe804858d0b6.json.gz",
+      "bytes": 10063,
+      "decodedBytes": 46584,
+      "sha256": "fe804858d0b6260bcb95fb1088c8cedb400ad0df45fe5b1f824bfb564ec5d805",
+      "decodedSha256": "4fd736140f28f9dab234d7fbb8de759103449a6f2488e8900db62224d0858380",
+      "routes": 95,
+      "pieces": 96
+    },
+    {
+      "id": "-4:6",
+      "bounds": [
+        -16000,
+        24000,
+        -12000,
+        28000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-4_6-b4f8fb106945.json.gz",
+      "bytes": 3461,
+      "decodedBytes": 15171,
+      "sha256": "b4f8fb10694591eb84e419485c4cd4a3c00f565eb311a0fe4bcdcee99a4a8433",
+      "decodedSha256": "ae214247dd149af553a45ca8b9e7b465fccd6976265bad5083f2c315d0ad2558",
+      "routes": 24,
+      "pieces": 24
+    },
+    {
+      "id": "-4:7",
+      "bounds": [
+        -16000,
+        28000,
+        -12000,
+        30000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-4_7-4808ff4d5298.json.gz",
+      "bytes": 31894,
+      "decodedBytes": 167388,
+      "sha256": "4808ff4d5298350046cc5f60856512324be9972f3ad75df2c61d21cbe522ab0e",
+      "decodedSha256": "d10484027184b0382c5fd11cdbd8dea52cbf24343d7fc940a7e266a4750f47af",
+      "routes": 437,
+      "pieces": 440
+    },
+    {
+      "id": "-3:-8",
+      "bounds": [
+        -12000,
+        -30000,
+        -8000,
+        -28000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-3_-8-accf6a7af1f3.json.gz",
+      "bytes": 17668,
+      "decodedBytes": 90697,
+      "sha256": "accf6a7af1f365a8a7d185e663bbb403119b8f51b66cfbb7ebe42afd09bb9d59",
+      "decodedSha256": "2d79e8d18d3ac2f5ec6caecbcd707cfc7a4432a9c9de161b0461ef3ec6be5c2b",
+      "routes": 243,
+      "pieces": 244
+    },
+    {
+      "id": "-3:-7",
+      "bounds": [
+        -12000,
+        -28000,
+        -8000,
+        -24000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-3_-7-b9d27eab7567.json.gz",
+      "bytes": 3527,
+      "decodedBytes": 16162,
+      "sha256": "b9d27eab7567f294c72cd3b07cc3d551d71c05e6ad5910be6b6b4ed46b932d17",
+      "decodedSha256": "ee0d58e7d8fcdc1298d105a2e945ec43665f2bfcef421708d24b8801190fa16f",
+      "routes": 37,
+      "pieces": 37
+    },
+    {
+      "id": "-3:-6",
+      "bounds": [
+        -12000,
+        -24000,
+        -8000,
+        -20000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-3_-6-d25336aacf23.json.gz",
+      "bytes": 505,
+      "decodedBytes": 1248,
+      "sha256": "d25336aacf23c4ba7729276c76d033ff7d20d3d1acb2a59472ae2eeee3b6f119",
+      "decodedSha256": "f5874386c35da4c1d1049fe59955acca1f9557b42ff437fc3b86dcba1506452a",
+      "routes": 1,
+      "pieces": 1
+    },
+    {
+      "id": "-3:7",
+      "bounds": [
+        -12000,
+        28000,
+        -8000,
+        30000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-3_7-5bac6dcab443.json.gz",
+      "bytes": 11636,
+      "decodedBytes": 54652,
+      "sha256": "5bac6dcab4439ad028a38406b057f3ce4002dd238478e7945b2692622f26f0c3",
+      "decodedSha256": "313201e15b97275c28077c0cbf4d321d8b4bc7cce0c948e93c4099b6bd427524",
+      "routes": 111,
+      "pieces": 112
+    },
+    {
+      "id": "-2:-8",
+      "bounds": [
+        -8000,
+        -30000,
+        -4000,
+        -28000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-2_-8-8efc23faa658.json.gz",
+      "bytes": 21690,
+      "decodedBytes": 116398,
+      "sha256": "8efc23faa658d4ae8b233118ebd29b3109113148a9ab7b5b039b5ad6ec1fb12c",
+      "decodedSha256": "909447aa082e5c00ee0e060b5427dd1f4febdf681bad3d4d9ab835d1744e9642",
+      "routes": 329,
+      "pieces": 330
+    },
+    {
+      "id": "-2:-7",
+      "bounds": [
+        -8000,
+        -28000,
+        -4000,
+        -24000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-2_-7-c8833cf4e760.json.gz",
+      "bytes": 6261,
+      "decodedBytes": 35743,
+      "sha256": "c8833cf4e760dba1885523d4e98216cf10c27e3a77514aafec13ea1d4b3eab99",
+      "decodedSha256": "a3783205c8212f4c5f55a42258188cc8482fb01bff95d97fd24fc0a4334a983f",
+      "routes": 108,
+      "pieces": 108
+    },
+    {
+      "id": "-2:7",
+      "bounds": [
+        -8000,
+        28000,
+        -4000,
+        30000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-2_7-34270964ef12.json.gz",
+      "bytes": 12887,
+      "decodedBytes": 62947,
+      "sha256": "34270964ef1282a3a9d665bd96cb4a9e8f5f56ca71b7103ce2ff7cc42d97eef0",
+      "decodedSha256": "9fac9105636f90e2b0f7c139ac5d551c91a276b7204121cc0cb212e98de5032d",
+      "routes": 134,
+      "pieces": 134
+    },
+    {
+      "id": "-1:-8",
+      "bounds": [
+        -4000,
+        -30000,
+        0,
+        -28000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-1_-8-018efc821eb3.json.gz",
+      "bytes": 53632,
+      "decodedBytes": 278494,
+      "sha256": "018efc821eb338f9cf0cc2a37d1b945e1be30c817db95900b8b316da53b71f33",
+      "decodedSha256": "15d494fa735b39d0014080d7a95d43e96e5dd398cd79d69bec8aaf0dda9e4d2b",
+      "routes": 771,
+      "pieces": 773
+    },
+    {
+      "id": "-1:-7",
+      "bounds": [
+        -4000,
+        -28000,
+        0,
+        -24000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-1_-7-63ff4624c2fc.json.gz",
+      "bytes": 33136,
+      "decodedBytes": 182300,
+      "sha256": "63ff4624c2fc450716e0fe0ec8227915d66b9a967a1abfc996781ffd2f6f4bb2",
+      "decodedSha256": "c77b41a8cfd23d44f71e6b9c6b8bae6ac7feb7ace86e59482804168ecac0383b",
+      "routes": 520,
+      "pieces": 523
+    },
+    {
+      "id": "-1:-6",
+      "bounds": [
+        -4000,
+        -24000,
+        0,
+        -20000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-1_-6-6d03314c28ee.json.gz",
+      "bytes": 11622,
+      "decodedBytes": 70346,
+      "sha256": "6d03314c28eefc715151129cf458d4c984efb70055995220784d9384ecc81430",
+      "decodedSha256": "110cad79e1c5fb81ee20a23d10904e02e2f44e93e4d55da85f62cafb8e31abee",
+      "routes": 209,
+      "pieces": 209
+    },
+    {
+      "id": "-1:-5",
+      "bounds": [
+        -4000,
+        -20000,
+        0,
+        -16000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-1_-5-5143e356634c.json.gz",
+      "bytes": 1072,
+      "decodedBytes": 4657,
+      "sha256": "5143e356634cee8762b57ed7d0259c6bdd86feafe8f312d48168b7d19c64190f",
+      "decodedSha256": "46afeeafa78024bb80da1b27ff7e41c30c71808cd9829ffd19258e25c9b2f8c0",
+      "routes": 14,
+      "pieces": 14
+    },
+    {
+      "id": "-1:7",
+      "bounds": [
+        -4000,
+        28000,
+        0,
+        30000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/-1_7-c05eea330998.json.gz",
+      "bytes": 4929,
+      "decodedBytes": 17635,
+      "sha256": "c05eea3309987c374858c8cbfa19533e0f0fda17d03310b9baf9af1d5b4d9a8e",
+      "decodedSha256": "6c44e1f58e275ec8694c17bec30fa41fe5f554b0bd2a61adbfc79aa9ffb63e9f",
+      "routes": 4,
+      "pieces": 4
+    },
+    {
+      "id": "0:-8",
+      "bounds": [
+        0,
+        -30000,
+        4000,
+        -28000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/0_-8-592d308c826c.json.gz",
+      "bytes": 105715,
+      "decodedBytes": 575180,
+      "sha256": "592d308c826cd76a5778306093e9e7ef81028f9e911fb9ec6e5615cb954f3a33",
+      "decodedSha256": "c353f739fcf3703d1859d96e9fa26cc709a9808902d00a3aaab7e346975e294c",
+      "routes": 1625,
+      "pieces": 1627
+    },
+    {
+      "id": "0:-7",
+      "bounds": [
+        0,
+        -28000,
+        4000,
+        -24000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/0_-7-e136b4aa6702.json.gz",
+      "bytes": 212731,
+      "decodedBytes": 1252375,
+      "sha256": "e136b4aa670237b33950e0c6256f9122a8679f29080ade7cb27659b6a1998f6c",
+      "decodedSha256": "5eec14444ccfa01bcdcc56543f0bc3669d583d65168077e850ee6830cc33761d",
+      "routes": 3998,
+      "pieces": 4001
+    },
+    {
+      "id": "0:-6",
+      "bounds": [
+        0,
+        -24000,
+        4000,
+        -20000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/0_-6-43302428a236.json.gz",
+      "bytes": 122260,
+      "decodedBytes": 725833,
+      "sha256": "43302428a236e0efeb1a76e21818708c3a2baec35b7ed2b3febacd10fd8ac866",
+      "decodedSha256": "e5b86f45957725f1f70eb67ca11d56a3ad486d9d942670bdbd19e5f48a8a2784",
+      "routes": 2344,
+      "pieces": 2349
+    },
+    {
+      "id": "0:-5",
+      "bounds": [
+        0,
+        -20000,
+        4000,
+        -16000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/0_-5-351a048ccba6.json.gz",
+      "bytes": 86389,
+      "decodedBytes": 504573,
+      "sha256": "351a048ccba6937a353e86c571ff9bdfde62a9b5e41b12225e55a038a5916100",
+      "decodedSha256": "f4e36227b439a2fdc730e39138840a391462b49f299c736b0f9ce26706571ed1",
+      "routes": 1545,
+      "pieces": 1547
+    },
+    {
+      "id": "0:-4",
+      "bounds": [
+        0,
+        -16000,
+        4000,
+        -12000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/0_-4-4bbd2e275362.json.gz",
+      "bytes": 34442,
+      "decodedBytes": 192135,
+      "sha256": "4bbd2e2753629b8dc6c5ccebf8b77498230b313a92af40f0ec32f162f6363b10",
+      "decodedSha256": "6f3ec097c8c8e97acec57b01dcb092a3732a1ea02c73240d8bcb6bb0449347bf",
+      "routes": 548,
+      "pieces": 548
+    },
+    {
+      "id": "0:-3",
+      "bounds": [
+        0,
+        -12000,
+        4000,
+        -8000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/0_-3-f95dcbcdef52.json.gz",
+      "bytes": 7923,
+      "decodedBytes": 36410,
+      "sha256": "f95dcbcdef52bd6b7b878a05587439c6febcbe2c1f8a4faf97785501d59065a3",
+      "decodedSha256": "0765fa87137c71787ff7a520b7d5d3c15c35ebde83e429f7d9ef9e0134099268",
+      "routes": 76,
+      "pieces": 76
+    },
+    {
+      "id": "0:-2",
+      "bounds": [
+        0,
+        -8000,
+        4000,
+        -4000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/0_-2-6e09c0e3eec2.json.gz",
+      "bytes": 497,
+      "decodedBytes": 1192,
+      "sha256": "6e09c0e3eec2ca66449d6712ef969acbed31dfe2302f5f1b5da02f567f097c2e",
+      "decodedSha256": "906c80dfb44c0160287392663b74db110b58e0408edcc9a80fb1662f3130a2a8",
+      "routes": 1,
+      "pieces": 1
+    },
+    {
+      "id": "0:2",
+      "bounds": [
+        0,
+        8000,
+        4000,
+        12000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/0_2-65227c164f10.json.gz",
+      "bytes": 7473,
+      "decodedBytes": 37299,
+      "sha256": "65227c164f10b83053f0ebdd3757aa2e249bcfa80670a8d4b7681b14c6aed41d",
+      "decodedSha256": "23799c99a5d8c25bb0f55cf77466af0df5cd04022b89f72422c6799d8375c8ce",
+      "routes": 90,
+      "pieces": 91
+    },
+    {
+      "id": "0:3",
+      "bounds": [
+        0,
+        12000,
+        4000,
+        16000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/0_3-10dbb5c1b24f.json.gz",
+      "bytes": 26646,
+      "decodedBytes": 144772,
+      "sha256": "10dbb5c1b24f8fee051a4357871942db9827130cf583c081abf5ec254248f855",
+      "decodedSha256": "bf0a9713fcdec4bcda8bfbaa4d8ae6e482a7c368fdb8634573446b895a0f31f7",
+      "routes": 380,
+      "pieces": 381
+    },
+    {
+      "id": "0:4",
+      "bounds": [
+        0,
+        16000,
+        4000,
+        20000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/0_4-93e66b8d75e9.json.gz",
+      "bytes": 8191,
+      "decodedBytes": 32575,
+      "sha256": "93e66b8d75e96fd79546ba1233304f103c0f2e94c5a1ad5528c46fc3c60b9300",
+      "decodedSha256": "28ed51ebaec41756fe0a9a5d1c28b317d084606602e07a8ddc1ea8b3325d6845",
+      "routes": 46,
+      "pieces": 46
+    },
+    {
+      "id": "0:5",
+      "bounds": [
+        0,
+        20000,
+        4000,
+        24000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/0_5-06dcc678d0bc.json.gz",
+      "bytes": 14189,
+      "decodedBytes": 66584,
+      "sha256": "06dcc678d0bcb5ffa8de67cc52db44b3149ad0ff6a87fe564c6350e8597e8063",
+      "decodedSha256": "531e99671b898f3c4da3ffd6a6b1366528d79ef6898c3983700d27e09f744410",
+      "routes": 137,
+      "pieces": 137
+    },
+    {
+      "id": "1:-8",
+      "bounds": [
+        4000,
+        -30000,
+        8000,
+        -28000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/1_-8-5fad7e27325a.json.gz",
+      "bytes": 105090,
+      "decodedBytes": 601379,
+      "sha256": "5fad7e27325a236abc97e62dc0acbc5a9563c147b097927e4bae80b4b9b33e48",
+      "decodedSha256": "d43c74c562a389dfdb7c83522e4d76ba5bb9dcc21c66d4485a3eabb900866758",
+      "routes": 1789,
+      "pieces": 1795
+    },
+    {
+      "id": "1:-7",
+      "bounds": [
+        4000,
+        -28000,
+        8000,
+        -24000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/1_-7-5f3fe14c3424.json.gz",
+      "bytes": 184519,
+      "decodedBytes": 1050020,
+      "sha256": "5f3fe14c342460173e201ebfd8c86bbbbd2e10ed4d088a413f53eac77c61948a",
+      "decodedSha256": "1137a3f8c195d2780fe6d5756ae1280063479ceb00e6f3f89a95bff260a742c1",
+      "routes": 3110,
+      "pieces": 3117
+    },
+    {
+      "id": "1:-6",
+      "bounds": [
+        4000,
+        -24000,
+        8000,
+        -20000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/1_-6-2d397bf3873f.json.gz",
+      "bytes": 118809,
+      "decodedBytes": 672751,
+      "sha256": "2d397bf3873f134441952fde467e1a8bbbb05b598f5ca2edf03c93792a50499e",
+      "decodedSha256": "ceade74a72fb8f6c074cd0f950e11f4c4688536d5afe566e15273021f958ca19",
+      "routes": 1949,
+      "pieces": 1957
+    },
+    {
+      "id": "1:-5",
+      "bounds": [
+        4000,
+        -20000,
+        8000,
+        -16000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/1_-5-d5d0b214850b.json.gz",
+      "bytes": 174867,
+      "decodedBytes": 986224,
+      "sha256": "d5d0b214850bb25cf6899930037d46f3bcfa2799b090e93e105397271d54e058",
+      "decodedSha256": "d2c879b899277957f5493693b8337a446c46a2999d8419f9d12681197aaff4d3",
+      "routes": 2921,
+      "pieces": 2924
+    },
+    {
+      "id": "1:-4",
+      "bounds": [
+        4000,
+        -16000,
+        8000,
+        -12000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/1_-4-54f9e6a02021.json.gz",
+      "bytes": 160242,
+      "decodedBytes": 940894,
+      "sha256": "54f9e6a020218e9aebf246c1aab5c3828a373aef65571cf4b6b2a8f708bfd79e",
+      "decodedSha256": "7895344e74310926ae66eda7a0d15d54651fec481453d4f3cc318affcd832990",
+      "routes": 2881,
+      "pieces": 2883
+    },
+    {
+      "id": "1:-3",
+      "bounds": [
+        4000,
+        -12000,
+        8000,
+        -8000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/1_-3-62c5beccdb49.json.gz",
+      "bytes": 139063,
+      "decodedBytes": 770575,
+      "sha256": "62c5beccdb494b38bbf87226037a1a2b5fa7178a27c78b69fdd68b49f86f0ceb",
+      "decodedSha256": "bc2531379d39fb666df7c3077c81e54cbea378dfb6a61a99384d3570ce5c69fc",
+      "routes": 2106,
+      "pieces": 2115
+    },
+    {
+      "id": "1:-2",
+      "bounds": [
+        4000,
+        -8000,
+        8000,
+        -4000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/1_-2-836a61b4a799.json.gz",
+      "bytes": 112750,
+      "decodedBytes": 610453,
+      "sha256": "836a61b4a7997836b838ba2c532f1eba61bdf76518ff3ff61b94a4b275c060a1",
+      "decodedSha256": "6fc77b51e6d00be1fd4d0ae3fe5d8ea933d98bca6b2754c309bacd4fcd69b469",
+      "routes": 1656,
+      "pieces": 1664
+    },
+    {
+      "id": "1:-1",
+      "bounds": [
+        4000,
+        -4000,
+        8000,
+        0
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/1_-1-e87b2b574dc3.json.gz",
+      "bytes": 54492,
+      "decodedBytes": 287544,
+      "sha256": "e87b2b574dc3b2feaae6d73616f84d367985a4dd0e61503b53a585ed35e7b2f9",
+      "decodedSha256": "3ee8c3f5f7b10ff561a2cfbe34b7ba4a76ea268471f163059ea6a3f2317b6853",
+      "routes": 723,
+      "pieces": 727
+    },
+    {
+      "id": "1:0",
+      "bounds": [
+        4000,
+        0,
+        8000,
+        4000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/1_0-c84a8b348869.json.gz",
+      "bytes": 80854,
+      "decodedBytes": 486703,
+      "sha256": "c84a8b3488696b91d5bbd2e61db1c8c9a2398eb32513c44702275fab2516b865",
+      "decodedSha256": "22d6fa7413cad724b0ee3fd9eac2acae76ea75e2f854aa1f0de3be9538e36ce3",
+      "routes": 1501,
+      "pieces": 1504
+    },
+    {
+      "id": "1:1",
+      "bounds": [
+        4000,
+        4000,
+        8000,
+        8000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/1_1-bb159d42f900.json.gz",
+      "bytes": 62579,
+      "decodedBytes": 360948,
+      "sha256": "bb159d42f9000da46aa5147b87a9304498c2fef53e6e3c9f14ff2c0a99e9063f",
+      "decodedSha256": "6e1b11e55660f38b975a7898be4b99f28f912038e70ac7110d96a92ef5a76cf0",
+      "routes": 1072,
+      "pieces": 1076
+    },
+    {
+      "id": "1:2",
+      "bounds": [
+        4000,
+        8000,
+        8000,
+        12000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/1_2-24b6862ce6b6.json.gz",
+      "bytes": 42431,
+      "decodedBytes": 248906,
+      "sha256": "24b6862ce6b60963ebe7018d6de60393c3ef519625fb318c6b474370bb83c02e",
+      "decodedSha256": "282ba4de1e4ece334d75fea2c38ed2cabf1f9c7e1fe5aff05d1e298cb915d113",
+      "routes": 735,
+      "pieces": 740
+    },
+    {
+      "id": "1:3",
+      "bounds": [
+        4000,
+        12000,
+        8000,
+        16000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/1_3-42634ba888dc.json.gz",
+      "bytes": 24693,
+      "decodedBytes": 116993,
+      "sha256": "42634ba888dc87f96de2e43d4790016a76e4d171247f2b075d80f29c87041439",
+      "decodedSha256": "648920281032c9aac7680300906680ca66320f50f6a81fbe4a6b12e9d7e1e4a5",
+      "routes": 262,
+      "pieces": 262
+    },
+    {
+      "id": "1:4",
+      "bounds": [
+        4000,
+        16000,
+        8000,
+        20000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/1_4-66c36de4ecb2.json.gz",
+      "bytes": 56159,
+      "decodedBytes": 322186,
+      "sha256": "66c36de4ecb23d1f0acb976bcf4cd938ed33d55283d4163e0f535ba47a9b3426",
+      "decodedSha256": "ed137b67bc6b789ec5aae8ca51e39c4d5124034f570a61a4ae0081217ee705cb",
+      "routes": 966,
+      "pieces": 969
+    },
+    {
+      "id": "1:5",
+      "bounds": [
+        4000,
+        20000,
+        8000,
+        24000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/1_5-a580d544f4f9.json.gz",
+      "bytes": 21947,
+      "decodedBytes": 116855,
+      "sha256": "a580d544f4f949122c7383e5b8ab8a03edea2bf4695a42428ed502684b3e955d",
+      "decodedSha256": "820991c438a444eaadfef46a4371b6763647df3525317afdd2954db61b441369",
+      "routes": 310,
+      "pieces": 311
+    },
+    {
+      "id": "2:-8",
+      "bounds": [
+        8000,
+        -30000,
+        12000,
+        -28000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/2_-8-2a5ef570c0d1.json.gz",
+      "bytes": 83796,
+      "decodedBytes": 490215,
+      "sha256": "2a5ef570c0d1ca97193ec9a41a180942fcf36b8386f91229c35c592adbf05fca",
+      "decodedSha256": "f986cfb1983a402f8a0f64464a001be754d04296a1c100981147b10e9f31b734",
+      "routes": 1472,
+      "pieces": 1480
+    },
+    {
+      "id": "2:-7",
+      "bounds": [
+        8000,
+        -28000,
+        12000,
+        -24000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/2_-7-58fdc8e42236.json.gz",
+      "bytes": 133440,
+      "decodedBytes": 732312,
+      "sha256": "58fdc8e42236dc2993350f8abd3cff81e0c96c2805e4b7f2dcbb60899503e6b3",
+      "decodedSha256": "1b6979f3029f6e056711151f635708a9df9e82b1164e8cd6d34ee9aa79494fad",
+      "routes": 2002,
+      "pieces": 2008
+    },
+    {
+      "id": "2:-6",
+      "bounds": [
+        8000,
+        -24000,
+        12000,
+        -20000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/2_-6-f2b6ca6e29d3.json.gz",
+      "bytes": 134576,
+      "decodedBytes": 773421,
+      "sha256": "f2b6ca6e29d32d57ccbabee88b34a8ff0d28d4b55fa183e3f04c278cf4e59572",
+      "decodedSha256": "0008d94d563ca6b1cf5864ea1f560ecb82fce166c9d0c3a33f0ccf81d72f4058",
+      "routes": 2234,
+      "pieces": 2239
+    },
+    {
+      "id": "2:-5",
+      "bounds": [
+        8000,
+        -20000,
+        12000,
+        -16000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/2_-5-d6911b361cb9.json.gz",
+      "bytes": 146176,
+      "decodedBytes": 760910,
+      "sha256": "d6911b361cb96d14608476005ecdc30ddadcbe9575907a84e7bda95146db2676",
+      "decodedSha256": "413bb86d02d4bce70345aa69abcf840a1f983e56de7ef537d91a558e2dce5415",
+      "routes": 1893,
+      "pieces": 1899
+    },
+    {
+      "id": "2:-4",
+      "bounds": [
+        8000,
+        -16000,
+        12000,
+        -12000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/2_-4-933d7a4977e4.json.gz",
+      "bytes": 71146,
+      "decodedBytes": 345399,
+      "sha256": "933d7a4977e45f9403e3b2425c7e058c3f65bba26cfb4a811051bb4a86862b3e",
+      "decodedSha256": "9f0cea7c0c2ecb35221d4ee81f2670b21861ab79a7ccb828dbb22dc18b23b3e0",
+      "routes": 744,
+      "pieces": 748
+    },
+    {
+      "id": "2:-3",
+      "bounds": [
+        8000,
+        -12000,
+        12000,
+        -8000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/2_-3-a27518ff5ce9.json.gz",
+      "bytes": 95699,
+      "decodedBytes": 503549,
+      "sha256": "a27518ff5ce91432823ece9044b8b46bf4ade0c5d26f404c1d6f8827b996a66d",
+      "decodedSha256": "c17c00b54b497799b0f51c1862e89ac444220156755e2c818122793ddf1a5ed7",
+      "routes": 1272,
+      "pieces": 1278
+    },
+    {
+      "id": "2:-2",
+      "bounds": [
+        8000,
+        -8000,
+        12000,
+        -4000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/2_-2-2c2a26ab1d75.json.gz",
+      "bytes": 90209,
+      "decodedBytes": 481052,
+      "sha256": "2c2a26ab1d75ca7c02ebe9cc4db5fef963ec51f55f48c63f98d412fc279b75a8",
+      "decodedSha256": "fd3433a0a85fae9b95387ac5b519b6fba039d13b2c7b1452596a14babb0396f4",
+      "routes": 1248,
+      "pieces": 1254
+    },
+    {
+      "id": "2:-1",
+      "bounds": [
+        8000,
+        -4000,
+        12000,
+        0
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/2_-1-f6d1228e3f9f.json.gz",
+      "bytes": 49103,
+      "decodedBytes": 257155,
+      "sha256": "f6d1228e3f9f64b2aceb8a07bdccc47a675f018762fa2c713b05299822c25943",
+      "decodedSha256": "b8c6f429d8b579ba18991f0b2850cbad4dfcb2b0f2202a3ebbdc953c1b1d93c1",
+      "routes": 637,
+      "pieces": 641
+    },
+    {
+      "id": "2:0",
+      "bounds": [
+        8000,
+        0,
+        12000,
+        4000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/2_0-1e08c3f5e171.json.gz",
+      "bytes": 40850,
+      "decodedBytes": 205402,
+      "sha256": "1e08c3f5e171f5c593a98c05993c1657b79a15154a04ba2930cdc47b460f592b",
+      "decodedSha256": "8e0be2ddfb5614b84aa7ff5cbf49fbfb2ec00b24162509e9e2a9d877679cedb1",
+      "routes": 514,
+      "pieces": 523
+    },
+    {
+      "id": "2:1",
+      "bounds": [
+        8000,
+        4000,
+        12000,
+        8000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/2_1-01a0b58590ac.json.gz",
+      "bytes": 8810,
+      "decodedBytes": 38994,
+      "sha256": "01a0b58590ac4ff05f7c6ead2a98941b144f74beb960dbb9d3e6173ec9994bee",
+      "decodedSha256": "3601bcbd5029719f3bcead6d93acfbf61745336f7576f13add2e21ac764f73dd",
+      "routes": 71,
+      "pieces": 71
+    },
+    {
+      "id": "2:2",
+      "bounds": [
+        8000,
+        8000,
+        12000,
+        12000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/2_2-a4ea037c806a.json.gz",
+      "bytes": 9006,
+      "decodedBytes": 54082,
+      "sha256": "a4ea037c806ac64521d69775e401eee4fef926723f3cce9e6f94e638c9ab4c0c",
+      "decodedSha256": "cc76eb7b5baf81710e9c5f209ac69e77224a3f1deb86f93da500fd8780e3502a",
+      "routes": 169,
+      "pieces": 169
+    },
+    {
+      "id": "2:3",
+      "bounds": [
+        8000,
+        12000,
+        12000,
+        16000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/2_3-60de116c56f9.json.gz",
+      "bytes": 91310,
+      "decodedBytes": 534498,
+      "sha256": "60de116c56f986dc859db183c2139fb39d3cacbd4e984e024e8c8038ef4fb9fd",
+      "decodedSha256": "5ed2d27718c516e330a3a613f56ca4c3074de7f834aa4c76ec5b44cc4dcf3cc7",
+      "routes": 1640,
+      "pieces": 1641
+    },
+    {
+      "id": "2:4",
+      "bounds": [
+        8000,
+        16000,
+        12000,
+        20000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/2_4-e22b6b4696b1.json.gz",
+      "bytes": 116218,
+      "decodedBytes": 679084,
+      "sha256": "e22b6b4696b1e5908a8797a793f654be0cead3f39e230e31132e78ed287fd62a",
+      "decodedSha256": "3b4cae7388efa17d4613205e706cb5b24e0611ff16eaadd4475ff8b9ec552c39",
+      "routes": 2152,
+      "pieces": 2156
+    },
+    {
+      "id": "2:5",
+      "bounds": [
+        8000,
+        20000,
+        12000,
+        24000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/2_5-1de2e72b7fb2.json.gz",
+      "bytes": 1226,
+      "decodedBytes": 5756,
+      "sha256": "1de2e72b7fb26ba3b1e6c5cf7b36189c2dbdb69dadab680529323b6440259a32",
+      "decodedSha256": "438747ad68e7f0f716b13eb704e26e5c7b50a057046d2b597990dc466270d1ad",
+      "routes": 18,
+      "pieces": 18
+    },
+    {
+      "id": "3:-8",
+      "bounds": [
+        12000,
+        -30000,
+        16000,
+        -28000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/3_-8-15de81467824.json.gz",
+      "bytes": 93866,
+      "decodedBytes": 615419,
+      "sha256": "15de814678246847c19f3b62539a8bfb54db5c2c96f6c0b0223a74ff8b858f7a",
+      "decodedSha256": "fe9f90bba2280cade0d8f145f0f6cb477fca0fb8564414e631468606d60888c6",
+      "routes": 1980,
+      "pieces": 1981
+    },
+    {
+      "id": "3:-7",
+      "bounds": [
+        12000,
+        -28000,
+        16000,
+        -24000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/3_-7-0fdcf23cd52a.json.gz",
+      "bytes": 102074,
+      "decodedBytes": 564472,
+      "sha256": "0fdcf23cd52a0b9357a11bbe44ad88c4aa505fb963300e283b242ee3a3fe83c7",
+      "decodedSha256": "cac7861d5513e564616a605d3e3257276a726e96163ba9397dd66a44d46682da",
+      "routes": 1528,
+      "pieces": 1531
+    },
+    {
+      "id": "3:-6",
+      "bounds": [
+        12000,
+        -24000,
+        16000,
+        -20000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/3_-6-66ab1b01c612.json.gz",
+      "bytes": 60951,
+      "decodedBytes": 297688,
+      "sha256": "66ab1b01c612c20fc6b2aac9ad42d32cfc76b6159b66dd7dcc9fc049eb6044bd",
+      "decodedSha256": "a500098c64edace4031b648301953debdf4db3b634ed7fc103e418e520401da1",
+      "routes": 631,
+      "pieces": 633
+    },
+    {
+      "id": "3:-5",
+      "bounds": [
+        12000,
+        -20000,
+        16000,
+        -16000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/3_-5-59fed9317264.json.gz",
+      "bytes": 54470,
+      "decodedBytes": 249074,
+      "sha256": "59fed9317264b624c30083beada926039ef139d8efb5b2ed9865520890000cfd",
+      "decodedSha256": "d77aee35427496e2a1cf9bfe24c0d6486272d9cd91cfb3b52933bae1e956f6d3",
+      "routes": 477,
+      "pieces": 482
+    },
+    {
+      "id": "3:-4",
+      "bounds": [
+        12000,
+        -16000,
+        16000,
+        -12000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/3_-4-845f8af2a898.json.gz",
+      "bytes": 38686,
+      "decodedBytes": 166545,
+      "sha256": "845f8af2a898a8dae039d851eed3b0871a89d00447ff4c0b572875fc0f3095c9",
+      "decodedSha256": "d230057c9ae3b30e843ea035c2e75e51bf32426ca28a3b8ccfd31b1b38527c34",
+      "routes": 290,
+      "pieces": 293
+    },
+    {
+      "id": "3:-3",
+      "bounds": [
+        12000,
+        -12000,
+        16000,
+        -8000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/3_-3-3fb135ea46be.json.gz",
+      "bytes": 17231,
+      "decodedBytes": 70546,
+      "sha256": "3fb135ea46be26da754c6a8408e3f29412365d8b501f4d9a28e5efc3ca06b01e",
+      "decodedSha256": "9ad0eb45a09af887524f1dc0c1c687476a7f935c51dbf7ad773d5ba25187377d",
+      "routes": 101,
+      "pieces": 102
+    },
+    {
+      "id": "3:-2",
+      "bounds": [
+        12000,
+        -8000,
+        16000,
+        -4000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/3_-2-ac73bde35e30.json.gz",
+      "bytes": 8782,
+      "decodedBytes": 33964,
+      "sha256": "ac73bde35e30d5492755df4ff7ad6d1d47dd835210118ebb331bb7a815e3879a",
+      "decodedSha256": "79d4f73c43313af07dbe87f4589b4edae7616d30cd8d9f699a89d9b8c7cd6171",
+      "routes": 41,
+      "pieces": 43
+    },
+    {
+      "id": "3:-1",
+      "bounds": [
+        12000,
+        -4000,
+        16000,
+        0
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/3_-1-16f6fc6e8017.json.gz",
+      "bytes": 4711,
+      "decodedBytes": 20204,
+      "sha256": "16f6fc6e801763b2c8f68e26cd824558fbffbaba8d26eff17ec97d7522973c90",
+      "decodedSha256": "058dead9f05bd9d8b015f4a03aa39ba268d06cb2a8eca53ce81cefc5e1d68dc5",
+      "routes": 28,
+      "pieces": 28
+    },
+    {
+      "id": "3:0",
+      "bounds": [
+        12000,
+        0,
+        16000,
+        4000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/3_0-84664c2fbfde.json.gz",
+      "bytes": 18051,
+      "decodedBytes": 77220,
+      "sha256": "84664c2fbfde8bf7b987a8953657a2d446ffb6ec283a871c094b02db6a43f626",
+      "decodedSha256": "a6c3a01296597ab02e3e610d478fb8f16ac94e883b24228473e1bc135954aa52",
+      "routes": 125,
+      "pieces": 126
+    },
+    {
+      "id": "3:1",
+      "bounds": [
+        12000,
+        4000,
+        16000,
+        8000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/3_1-61d9e98f791c.json.gz",
+      "bytes": 48455,
+      "decodedBytes": 262802,
+      "sha256": "61d9e98f791c96a376d6e404c03a6ac21dac0ac0a5c8bfd4c104384c05ae20d0",
+      "decodedSha256": "3df924e9070b3923be13cf5ab6bb1dc327d73134f8ccc38c47bb355b12607673",
+      "routes": 740,
+      "pieces": 741
+    },
+    {
+      "id": "3:2",
+      "bounds": [
+        12000,
+        8000,
+        16000,
+        12000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/3_2-318c335bef16.json.gz",
+      "bytes": 73428,
+      "decodedBytes": 400626,
+      "sha256": "318c335bef165d6f0d564bfe16fe2c3b61cddb625bcd32e991b6404e895ce782",
+      "decodedSha256": "aac6789ab4ae30813b5ccc5e81f02fa00e35768f244f2ce7d525f4bd86943617",
+      "routes": 1131,
+      "pieces": 1132
+    },
+    {
+      "id": "3:3",
+      "bounds": [
+        12000,
+        12000,
+        16000,
+        16000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/3_3-77d4ac099bff.json.gz",
+      "bytes": 135758,
+      "decodedBytes": 804240,
+      "sha256": "77d4ac099bffefa14824a03776845d3caab53bbaa7b958fa782408308e5618b0",
+      "decodedSha256": "f850dae85ef74bd24ac4e61fcdda60962ae556506998f8f9df708bf34d6e1a90",
+      "routes": 2564,
+      "pieces": 2567
+    },
+    {
+      "id": "3:4",
+      "bounds": [
+        12000,
+        16000,
+        16000,
+        20000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/3_4-775920aa0a3a.json.gz",
+      "bytes": 139093,
+      "decodedBytes": 873288,
+      "sha256": "775920aa0a3a0b1c2bd9b17164f5fa92374ad922a239d8a633c95b4fe2b80323",
+      "decodedSha256": "1a7c987221d352f46d0a36fdcddca336e9be1cfb670bb9f1b1daa84b794bf846",
+      "routes": 2968,
+      "pieces": 2974
+    },
+    {
+      "id": "3:5",
+      "bounds": [
+        12000,
+        20000,
+        16000,
+        24000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/3_5-d4460eb3bad1.json.gz",
+      "bytes": 21985,
+      "decodedBytes": 131175,
+      "sha256": "d4460eb3bad12ea86be01a952fbd81509f22791813cca3e6353aa85f4ac725e3",
+      "decodedSha256": "0ac74f93f80215a48291ba5669c719057b20ff69931cb0182b57796b421466ec",
+      "routes": 400,
+      "pieces": 403
+    },
+    {
+      "id": "4:-8",
+      "bounds": [
+        16000,
+        -30000,
+        20000,
+        -28000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/4_-8-f0a811732c0b.json.gz",
+      "bytes": 34783,
+      "decodedBytes": 175266,
+      "sha256": "f0a811732c0be466cbe01681c1b6e77b30f8be8ea9ad8f5a408cbdef4e884e05",
+      "decodedSha256": "64dbc06e83ab45249a68c0728c1b5a7415ada20753fa767fa2a5e72718ab803e",
+      "routes": 399,
+      "pieces": 402
+    },
+    {
+      "id": "4:-7",
+      "bounds": [
+        16000,
+        -28000,
+        20000,
+        -24000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/4_-7-ac5e3a3ddfe8.json.gz",
+      "bytes": 144825,
+      "decodedBytes": 786538,
+      "sha256": "ac5e3a3ddfe8f262a535e1191f0707f72e33a8e494bd96a8ba7e6de69cbe3f01",
+      "decodedSha256": "6eb3d1b3805ba1968a14ef63b408c06717894722e8ca73dc8f1df1a8a1415f14",
+      "routes": 2208,
+      "pieces": 2211
+    },
+    {
+      "id": "4:-6",
+      "bounds": [
+        16000,
+        -24000,
+        20000,
+        -20000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/4_-6-1b84a34b7fad.json.gz",
+      "bytes": 53210,
+      "decodedBytes": 272608,
+      "sha256": "1b84a34b7fad6b18d52ea7e30589ab751e4137c892a0063773f8c3f467e9fc24",
+      "decodedSha256": "4522bc375ee716ad072355fb7cb39aaacb4129d54b2b7db0e69c9c24e715a670",
+      "routes": 688,
+      "pieces": 693
+    },
+    {
+      "id": "4:-5",
+      "bounds": [
+        16000,
+        -20000,
+        20000,
+        -16000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/4_-5-bfa62eaee1d6.json.gz",
+      "bytes": 9482,
+      "decodedBytes": 39231,
+      "sha256": "bfa62eaee1d66c356f8945f09eddffc481a097d02bf28cf18c6dd23ad7ac9afc",
+      "decodedSha256": "4b3047dfbd9cc0e9bb1ee33f7a384092d12e7c332e5b8a13dc4709b0788211db",
+      "routes": 63,
+      "pieces": 63
+    },
+    {
+      "id": "4:-4",
+      "bounds": [
+        16000,
+        -16000,
+        20000,
+        -12000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/4_-4-2fd55a5fb21a.json.gz",
+      "bytes": 12406,
+      "decodedBytes": 49137,
+      "sha256": "2fd55a5fb21a698ad349488247a1a5c2d1617243919af5c1f7a6cd8134ae2374",
+      "decodedSha256": "36afae757e9ae487a2cb58627565300541d2069f5ff2024e93b2b9e1f6a48c58",
+      "routes": 55,
+      "pieces": 56
+    },
+    {
+      "id": "4:-3",
+      "bounds": [
+        16000,
+        -12000,
+        20000,
+        -8000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/4_-3-e13b517f6438.json.gz",
+      "bytes": 22831,
+      "decodedBytes": 90369,
+      "sha256": "e13b517f6438e19a11b725305082096ac460d6019329c7e146d9ea05a2f3d8f7",
+      "decodedSha256": "f1420ad336179d68e3684f41801720b35c8942134383181bb01c0d7ee145b4de",
+      "routes": 67,
+      "pieces": 69
+    },
+    {
+      "id": "4:-2",
+      "bounds": [
+        16000,
+        -8000,
+        20000,
+        -4000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/4_-2-a09f8df906e3.json.gz",
+      "bytes": 27293,
+      "decodedBytes": 101617,
+      "sha256": "a09f8df906e36d38ff0c8d60fc67d39cbdfa8e2c546582d62eb3fe333a9d522b",
+      "decodedSha256": "162e72e73da9285b981d9231dd4e92c30dbe120086b4720225b132322960f049",
+      "routes": 56,
+      "pieces": 64
+    },
+    {
+      "id": "4:-1",
+      "bounds": [
+        16000,
+        -4000,
+        20000,
+        0
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/4_-1-56c4ca9bec49.json.gz",
+      "bytes": 33418,
+      "decodedBytes": 148973,
+      "sha256": "56c4ca9bec49a056dd5ea5c3e8d7e6a264f433a6aa440b73e7d78fe78e2cf603",
+      "decodedSha256": "d96a4920047e474b742de2bbdc609e8b8f901697542565b138b73762501256e9",
+      "routes": 266,
+      "pieces": 268
+    },
+    {
+      "id": "4:0",
+      "bounds": [
+        16000,
+        0,
+        20000,
+        4000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/4_0-568454364a46.json.gz",
+      "bytes": 86435,
+      "decodedBytes": 472020,
+      "sha256": "568454364a46d83e4e066b6d2f3c05c96c48c2fad2519faef5bbf810a87db0f6",
+      "decodedSha256": "a639e11ca613f024dd5222ed9875a150d6125f9b9922073cc96a44ef22cc62cd",
+      "routes": 1321,
+      "pieces": 1323
+    },
+    {
+      "id": "4:1",
+      "bounds": [
+        16000,
+        4000,
+        20000,
+        8000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/4_1-3d2ee6deb1fb.json.gz",
+      "bytes": 96657,
+      "decodedBytes": 536761,
+      "sha256": "3d2ee6deb1fbb012e58914c29682993e9a3f7cd26054c64cc527010c0d0718ae",
+      "decodedSha256": "358bdf099bd30029fa2cbcbcc59cad07923e652c86a3a945391a01701824e870",
+      "routes": 1542,
+      "pieces": 1546
+    },
+    {
+      "id": "4:2",
+      "bounds": [
+        16000,
+        8000,
+        20000,
+        12000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/4_2-a5222d50a8e5.json.gz",
+      "bytes": 35469,
+      "decodedBytes": 180048,
+      "sha256": "a5222d50a8e52207c0ef26da3da0152bc497dc15b9636f666510dc10cbb3f80d",
+      "decodedSha256": "7f65eb01510f711a634edc856657f606521f8a62421e7fdb0ee4fc1ba6072681",
+      "routes": 440,
+      "pieces": 444
+    },
+    {
+      "id": "4:3",
+      "bounds": [
+        16000,
+        12000,
+        20000,
+        16000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/4_3-70cf091eab78.json.gz",
+      "bytes": 56451,
+      "decodedBytes": 301641,
+      "sha256": "70cf091eab78b68789b6b4d6af238b1233ce80c32b4ca367aac642269b0bc757",
+      "decodedSha256": "d126065c8b9e9be6dccd6f47fce70fad8c1b240b8d65b3ebda72b58c79084f26",
+      "routes": 808,
+      "pieces": 812
+    },
+    {
+      "id": "4:4",
+      "bounds": [
+        16000,
+        16000,
+        20000,
+        20000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/4_4-11ace7127451.json.gz",
+      "bytes": 77783,
+      "decodedBytes": 422209,
+      "sha256": "11ace712745108d7c477e995cc2cf47e19d3ea1cf364dce18d0b178605b1bded",
+      "decodedSha256": "ce1cb6a1cede8158a20fccd5daca3feaf49bab4727f75d714338cd6b5028a2b8",
+      "routes": 1232,
+      "pieces": 1238
+    },
+    {
+      "id": "4:5",
+      "bounds": [
+        16000,
+        20000,
+        20000,
+        24000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/4_5-e25233238a99.json.gz",
+      "bytes": 18418,
+      "decodedBytes": 99485,
+      "sha256": "e25233238a990d1d07dc75220d211ad2f15cccb62cc33bb4f720363c20a0bf19",
+      "decodedSha256": "77ee944e0d980d2db5a3577fd5e866c97bd21dfdad3a1906de5de89f9ef8d2e4",
+      "routes": 280,
+      "pieces": 282
+    },
+    {
+      "id": "4:6",
+      "bounds": [
+        16000,
+        24000,
+        20000,
+        28000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/4_6-69be7ab8bfe8.json.gz",
+      "bytes": 5006,
+      "decodedBytes": 22230,
+      "sha256": "69be7ab8bfe838505b030fe2885fc1ebfbcb655892677e81fffeab017ae42468",
+      "decodedSha256": "2e1004c80ce78c72c2e967a079496df6efbb55465170cb6025cf9ec126646bc0",
+      "routes": 35,
+      "pieces": 35
+    },
+    {
+      "id": "4:7",
+      "bounds": [
+        16000,
+        28000,
+        20000,
+        30000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/4_7-162b3f82ddf1.json.gz",
+      "bytes": 838,
+      "decodedBytes": 3643,
+      "sha256": "162b3f82ddf16e5c1f70ddbb6e8d8b3738d20ceaeb7c1efb17a5cf8677b958eb",
+      "decodedSha256": "6c8c8d0dc8d8cf51ba8929782f14675c77163cd225d52bce4365968ff7cc8a9c",
+      "routes": 11,
+      "pieces": 11
+    },
+    {
+      "id": "5:-8",
+      "bounds": [
+        20000,
+        -30000,
+        24000,
+        -28000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/5_-8-5f6d68a8507f.json.gz",
+      "bytes": 18934,
+      "decodedBytes": 76785,
+      "sha256": "5f6d68a8507feb2063117abe677ac9ad9c25bca9c6201cbe70bc4c90dd3985fd",
+      "decodedSha256": "9331bb12fd22e0c77fad8944c0219e37afffd8cb829d188f038a12aaba5e68bf",
+      "routes": 102,
+      "pieces": 104
+    },
+    {
+      "id": "5:-7",
+      "bounds": [
+        20000,
+        -28000,
+        24000,
+        -24000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/5_-7-cd99e416f831.json.gz",
+      "bytes": 32002,
+      "decodedBytes": 150500,
+      "sha256": "cd99e416f831abc7ce247c69c96b75c1d6b55f211d7dca24d45d929eda238ed7",
+      "decodedSha256": "f78e50842e1b5acffa3fb9d004923039c89db41047090496bf34f066bd86d2b6",
+      "routes": 335,
+      "pieces": 337
+    },
+    {
+      "id": "5:-6",
+      "bounds": [
+        20000,
+        -24000,
+        24000,
+        -20000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/5_-6-60fba2384ff1.json.gz",
+      "bytes": 11402,
+      "decodedBytes": 42658,
+      "sha256": "60fba2384ff1f927c50c427db346329eba7aeaa96946c1bffa7fdd9d416e96ca",
+      "decodedSha256": "027b5ceb4245dd547bebcbe4a54cc4ea5f838151b3df65ddf35e2ed1f0fc702a",
+      "routes": 48,
+      "pieces": 49
+    },
+    {
+      "id": "5:-5",
+      "bounds": [
+        20000,
+        -20000,
+        24000,
+        -16000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/5_-5-21d2cde8cc96.json.gz",
+      "bytes": 10321,
+      "decodedBytes": 43618,
+      "sha256": "21d2cde8cc96c3877f9531878a53f6b5a4c0ef65ec53a7236a69ed3a6330cf9e",
+      "decodedSha256": "5f3d5710a0b50d17ccd80db40193019e6b939e52dba3276b86c86912f385c4b5",
+      "routes": 57,
+      "pieces": 58
+    },
+    {
+      "id": "5:-4",
+      "bounds": [
+        20000,
+        -16000,
+        24000,
+        -12000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/5_-4-36eb63752da8.json.gz",
+      "bytes": 51628,
+      "decodedBytes": 211518,
+      "sha256": "36eb63752da857b0742aaf1a058127d951829de0bf372c2c8bba077ff051a74f",
+      "decodedSha256": "f84088f1ab3e4d4e00214aeda3ec02125e1efb8cb3186e8382892de1b872f0f0",
+      "routes": 237,
+      "pieces": 239
+    },
+    {
+      "id": "5:-3",
+      "bounds": [
+        20000,
+        -12000,
+        24000,
+        -8000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/5_-3-27b2f83a05f2.json.gz",
+      "bytes": 59441,
+      "decodedBytes": 235731,
+      "sha256": "27b2f83a05f261b54ae99e3ab75e0040f1b660142872a6fe4630c10952c29bc8",
+      "decodedSha256": "a277e184f4d3c91550829ff37f3ea826e1cccadeaefc8bc46f61081b9691930a",
+      "routes": 263,
+      "pieces": 265
+    },
+    {
+      "id": "5:-2",
+      "bounds": [
+        20000,
+        -8000,
+        24000,
+        -4000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/5_-2-c7aae9cefded.json.gz",
+      "bytes": 120457,
+      "decodedBytes": 536526,
+      "sha256": "c7aae9cefded37259f6bbd11565b629fbd1c5b52a24a33a83803dd669e70700b",
+      "decodedSha256": "09aa5613de29f6b0c76a6581582493ce8fc1b7f6359b2c675d33587f6a4c5cce",
+      "routes": 935,
+      "pieces": 939
+    },
+    {
+      "id": "5:-1",
+      "bounds": [
+        20000,
+        -4000,
+        24000,
+        0
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/5_-1-7f77b1d70ce8.json.gz",
+      "bytes": 98778,
+      "decodedBytes": 453644,
+      "sha256": "7f77b1d70ce8d47fd123b24d60ef1e0769b28d6704a4066a50176cba38c3f2d9",
+      "decodedSha256": "78ce7f7149cc9a5a885023644485fb3e1bff4c2d475ec0d55b6b5834c5ddaff3",
+      "routes": 938,
+      "pieces": 944
+    },
+    {
+      "id": "5:0",
+      "bounds": [
+        20000,
+        0,
+        24000,
+        4000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/5_0-0e532a5853cb.json.gz",
+      "bytes": 64534,
+      "decodedBytes": 312166,
+      "sha256": "0e532a5853cb1d64500fcc35415160ad958cdaf6c8ff610b318cee8c99fe4940",
+      "decodedSha256": "479d926fb2163ce6bb2cef9ea65e28d2766bd03fec72c0878307a8e0d0564da3",
+      "routes": 728,
+      "pieces": 731
+    },
+    {
+      "id": "5:1",
+      "bounds": [
+        20000,
+        4000,
+        24000,
+        8000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/5_1-e29eeda156d2.json.gz",
+      "bytes": 57266,
+      "decodedBytes": 300736,
+      "sha256": "e29eeda156d207aab9b725f6e6e597844e420d0425b74195b1ee844a8fa6a431",
+      "decodedSha256": "6f2fd7d0502dcc66bd663dbe54f196f05c736119346cc168bc8b2e785342a8f9",
+      "routes": 786,
+      "pieces": 788
+    },
+    {
+      "id": "5:2",
+      "bounds": [
+        20000,
+        8000,
+        24000,
+        12000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/5_2-b33f5204c4d6.json.gz",
+      "bytes": 53981,
+      "decodedBytes": 282024,
+      "sha256": "b33f5204c4d602eb8fd6395df69c309beff05a818124a4f7993d33ff29178d00",
+      "decodedSha256": "2dcb5b800d2e21ba026f059f8734522d9a7175afb810f3ed2cb22a74c9a08fb9",
+      "routes": 706,
+      "pieces": 708
+    },
+    {
+      "id": "5:3",
+      "bounds": [
+        20000,
+        12000,
+        24000,
+        16000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/5_3-45fd5f326161.json.gz",
+      "bytes": 29226,
+      "decodedBytes": 136613,
+      "sha256": "45fd5f3261615127d4656ca4655ac3be580bad1c473c88f4a0ff2162479006c1",
+      "decodedSha256": "f125cb5a2de5cb70a145d5292c19a1234c3e093043e11e418fb4181dc07a2951",
+      "routes": 269,
+      "pieces": 269
+    },
+    {
+      "id": "5:4",
+      "bounds": [
+        20000,
+        16000,
+        24000,
+        20000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/5_4-23ce9060fd9a.json.gz",
+      "bytes": 79010,
+      "decodedBytes": 422594,
+      "sha256": "23ce9060fd9a3cb601dc6b7913dd4707bc5262e3c7eb67736c9c0875bd825519",
+      "decodedSha256": "6688b18f8eca3dd81c7f3100f80f5541e59a22a52f01508f5070ee0ee3044c8f",
+      "routes": 1149,
+      "pieces": 1151
+    },
+    {
+      "id": "5:5",
+      "bounds": [
+        20000,
+        20000,
+        24000,
+        24000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/5_5-62a9424aa754.json.gz",
+      "bytes": 55266,
+      "decodedBytes": 248370,
+      "sha256": "62a9424aa754916f91b4574d29071aa70458b8416cf858a08c9c89ab5dfb18a9",
+      "decodedSha256": "085926a7d13134bd03bcf942d1434c6ded690f103dd697b55947ed5892c196c2",
+      "routes": 436,
+      "pieces": 440
+    },
+    {
+      "id": "5:6",
+      "bounds": [
+        20000,
+        24000,
+        24000,
+        28000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/5_6-107fbdd2e3ea.json.gz",
+      "bytes": 69090,
+      "decodedBytes": 314494,
+      "sha256": "107fbdd2e3ea7dc1333f14ab0fc7f468f761c16db5ee2201e9975d08af40589c",
+      "decodedSha256": "7ed0a3bdc50bd1cf094b15019380ec0826ae9cddda0ac9344f39cf145f2a06b8",
+      "routes": 537,
+      "pieces": 542
+    },
+    {
+      "id": "5:7",
+      "bounds": [
+        20000,
+        28000,
+        24000,
+        30000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/5_7-e05be6bdaa63.json.gz",
+      "bytes": 26830,
+      "decodedBytes": 121723,
+      "sha256": "e05be6bdaa63c7158ce85e170175ff7aeda44a036aa81c9f9166a17667371db2",
+      "decodedSha256": "b5adacc27a26868301d7f211f1ee54390c455635513724ed911fe556a199c87d",
+      "routes": 197,
+      "pieces": 200
+    },
+    {
+      "id": "6:-8",
+      "bounds": [
+        24000,
+        -30000,
+        28000,
+        -28000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/6_-8-2fe6de8e8605.json.gz",
+      "bytes": 5139,
+      "decodedBytes": 19160,
+      "sha256": "2fe6de8e8605bb1bc8ba909cec8a55ac36aa7f77291923e8fb57ff93bb7d4e24",
+      "decodedSha256": "2a0e203a0c7195bb4c8b7a9b0bb2dc2e52e8fdd749d8ee8ee39528f658089e50",
+      "routes": 20,
+      "pieces": 22
+    },
+    {
+      "id": "6:-7",
+      "bounds": [
+        24000,
+        -28000,
+        28000,
+        -24000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/6_-7-6b6ef4448aa5.json.gz",
+      "bytes": 18882,
+      "decodedBytes": 72702,
+      "sha256": "6b6ef4448aa5c559d7aa675ab8eef2191dd4828b2254d7cb74609ef8089de134",
+      "decodedSha256": "9517de9a8508815fbd45a8799df5224b039c1c7ed28c5f1fea63c6a7ebeb64d0",
+      "routes": 68,
+      "pieces": 71
+    },
+    {
+      "id": "6:-6",
+      "bounds": [
+        24000,
+        -24000,
+        28000,
+        -20000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/6_-6-ee05a7c08a7d.json.gz",
+      "bytes": 45242,
+      "decodedBytes": 230767,
+      "sha256": "ee05a7c08a7d75354667e4789950a5555f5de86e0134a89dc3d8187f9f6073ec",
+      "decodedSha256": "1b087b3265410d99b6691bde311a948ee04bf5d8dce3fdb79ba0dbb3b1711064",
+      "routes": 561,
+      "pieces": 565
+    },
+    {
+      "id": "6:-5",
+      "bounds": [
+        24000,
+        -20000,
+        28000,
+        -16000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/6_-5-ddc5e84219d9.json.gz",
+      "bytes": 28495,
+      "decodedBytes": 127102,
+      "sha256": "ddc5e84219d9158e30553030fec79f6df7ffb19ded485a9aab6ef67649442457",
+      "decodedSha256": "7aad81ac1fd033ed82cdde2839e5cab594a99dcfe0ba23c9d252e8200f7e9e44",
+      "routes": 209,
+      "pieces": 216
+    },
+    {
+      "id": "6:-4",
+      "bounds": [
+        24000,
+        -16000,
+        28000,
+        -12000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/6_-4-39751a6f22b1.json.gz",
+      "bytes": 73111,
+      "decodedBytes": 336669,
+      "sha256": "39751a6f22b17ad1150340b5c04fd721b571bef8399b3fee2ddff6db42a841ba",
+      "decodedSha256": "d95083f2893c4e4f50da2c305f2d786f7c1033704b9c34202908210fcc263b51",
+      "routes": 700,
+      "pieces": 703
+    },
+    {
+      "id": "6:-3",
+      "bounds": [
+        24000,
+        -12000,
+        28000,
+        -8000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/6_-3-e723dc68fa60.json.gz",
+      "bytes": 107216,
+      "decodedBytes": 496490,
+      "sha256": "e723dc68fa6062fd870915cd7dd8626ba75be3d582aa89e831a1556846c5a1b1",
+      "decodedSha256": "9855145a11695c706fd2589b8d97a254177a029576faa7172e9e289bef18ca2c",
+      "routes": 1126,
+      "pieces": 1129
+    },
+    {
+      "id": "6:-2",
+      "bounds": [
+        24000,
+        -8000,
+        28000,
+        -4000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/6_-2-0f8e930afb8d.json.gz",
+      "bytes": 125175,
+      "decodedBytes": 564187,
+      "sha256": "0f8e930afb8dc4bf9eaeadc6879b8d220acfe8aae96562064f08ab49231c48f3",
+      "decodedSha256": "80780ec62af8568407711956224a7fc430834bc3b1b4cef5e4eaa585c666c56b",
+      "routes": 1003,
+      "pieces": 1012
+    },
+    {
+      "id": "6:-1",
+      "bounds": [
+        24000,
+        -4000,
+        28000,
+        0
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/6_-1-767bcb6687f6.json.gz",
+      "bytes": 69431,
+      "decodedBytes": 290570,
+      "sha256": "767bcb6687f6b9d5d2662f5b04d8bb2c5c42db9377edd739366b622f64636088",
+      "decodedSha256": "418b657e99b155f9838644b4103550cd89e6204a37854f2b27f2c0284caf66bf",
+      "routes": 437,
+      "pieces": 441
+    },
+    {
+      "id": "6:0",
+      "bounds": [
+        24000,
+        0,
+        28000,
+        4000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/6_0-d951d6bf8ee0.json.gz",
+      "bytes": 31239,
+      "decodedBytes": 137393,
+      "sha256": "d951d6bf8ee0c9c2e76da31d74a073885c4106c17ea20e045390f17d00b0602e",
+      "decodedSha256": "ab22e93fb2b37e83321e2420adaf757dc6b2cc55e489a11f18b957572f572b16",
+      "routes": 190,
+      "pieces": 192
+    },
+    {
+      "id": "6:1",
+      "bounds": [
+        24000,
+        4000,
+        28000,
+        8000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/6_1-0d3fe0aa48df.json.gz",
+      "bytes": 24159,
+      "decodedBytes": 110886,
+      "sha256": "0d3fe0aa48df4ad2e759d3fc796f6b516c544788571fb8846cde8db0115fd126",
+      "decodedSha256": "6a5908ebe8f9aa3b14fab168c3a9f17d1c3846e4eb73d4f369fdae6244039ada",
+      "routes": 188,
+      "pieces": 189
+    },
+    {
+      "id": "6:2",
+      "bounds": [
+        24000,
+        8000,
+        28000,
+        12000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/6_2-0b3425517fa1.json.gz",
+      "bytes": 40415,
+      "decodedBytes": 193595,
+      "sha256": "0b3425517fa1bfa20280633f786560e8e8e9a0e72264fce28a547d0e52314831",
+      "decodedSha256": "dcd756c2c4a4ce73ceaee6361df37dcdd7a1e420be1c101ae5e2806746c0b7b3",
+      "routes": 366,
+      "pieces": 369
+    },
+    {
+      "id": "6:3",
+      "bounds": [
+        24000,
+        12000,
+        28000,
+        16000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/6_3-faede167c03d.json.gz",
+      "bytes": 44817,
+      "decodedBytes": 212342,
+      "sha256": "faede167c03d4247829e3647b6f1518b61cf984d3c1b04f8d9af446dd4b15440",
+      "decodedSha256": "7528ae319b69cffc515da3f9a5b0ff45235db1da2eead637c4f76de8c874d5d7",
+      "routes": 441,
+      "pieces": 445
+    },
+    {
+      "id": "6:4",
+      "bounds": [
+        24000,
+        16000,
+        28000,
+        20000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/6_4-34986ee088e9.json.gz",
+      "bytes": 27826,
+      "decodedBytes": 124265,
+      "sha256": "34986ee088e9bde61029730d85934cd1df9cc6d91eb5d985338de81750064f16",
+      "decodedSha256": "6eeff88565d6beb616fedff2b6ee8b12deab5e6dc83062b3982521bd35e9f5ab",
+      "routes": 179,
+      "pieces": 182
+    },
+    {
+      "id": "6:5",
+      "bounds": [
+        24000,
+        20000,
+        28000,
+        24000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/6_5-7865f5763b70.json.gz",
+      "bytes": 51401,
+      "decodedBytes": 215643,
+      "sha256": "7865f5763b70dd6c0af6650bf1566114db3c774f45cd8f67d7347e974e9b83be",
+      "decodedSha256": "946f1664633ff458255c0708b10859c5ea8e0bd27a731c3e55054b904e7c1ff6",
+      "routes": 204,
+      "pieces": 208
+    },
+    {
+      "id": "6:6",
+      "bounds": [
+        24000,
+        24000,
+        28000,
+        28000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/6_6-c8386777a450.json.gz",
+      "bytes": 49114,
+      "decodedBytes": 227962,
+      "sha256": "c8386777a450f7f4d7756a45cd0b80e665116d5966e346513a083971f41eefb6",
+      "decodedSha256": "1331464fee11cca8413b63dd5429229a7b42daac3f9fac7f5e6fb15946d05ff8",
+      "routes": 384,
+      "pieces": 387
+    },
+    {
+      "id": "6:7",
+      "bounds": [
+        24000,
+        28000,
+        28000,
+        30000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/6_7-9ab623ee75fe.json.gz",
+      "bytes": 40275,
+      "decodedBytes": 204840,
+      "sha256": "9ab623ee75fecc992280dabc6578989c45ca81bfd0d873b0f9fa99aaff93e53c",
+      "decodedSha256": "714aa16cffa59a9e5fa3ae971a546e8d06fa777d6d1aeeed8768372caa15a1c4",
+      "routes": 447,
+      "pieces": 449
+    },
+    {
+      "id": "7:-8",
+      "bounds": [
+        28000,
+        -30000,
+        30000,
+        -28000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/7_-8-b24df1c7939c.json.gz",
+      "bytes": 12456,
+      "decodedBytes": 62049,
+      "sha256": "b24df1c7939c11c69f39005dc3d4d9db2b6f1d2c5ec70ff3e9637aef8f4940b1",
+      "decodedSha256": "6c85455f14da94212e9542f8cca54bc424017e88300835c25246d358b69a8d8c",
+      "routes": 135,
+      "pieces": 136
+    },
+    {
+      "id": "7:-7",
+      "bounds": [
+        28000,
+        -28000,
+        30000,
+        -24000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/7_-7-9b972ab7844b.json.gz",
+      "bytes": 19080,
+      "decodedBytes": 81485,
+      "sha256": "9b972ab7844bb8a53d11600eaf8b0edaeb71013b87ff457202742831ceacfab7",
+      "decodedSha256": "5a62d18359b3f836d8565efc71dfe967ce5c4bf8cec65f0ddcfa72c472dedae6",
+      "routes": 130,
+      "pieces": 130
+    },
+    {
+      "id": "7:-6",
+      "bounds": [
+        28000,
+        -24000,
+        30000,
+        -20000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/7_-6-4e61d5dbd5df.json.gz",
+      "bytes": 51266,
+      "decodedBytes": 255775,
+      "sha256": "4e61d5dbd5df9012269698ccecaf2331af9d7c364c180f8923d5ac8324c1ea83",
+      "decodedSha256": "334fb4269373b802d3073a25a6a72d3cfaedbffd14cccd076a3e89a21f843f87",
+      "routes": 613,
+      "pieces": 619
+    },
+    {
+      "id": "7:-5",
+      "bounds": [
+        28000,
+        -20000,
+        30000,
+        -16000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/7_-5-ab50923ae4e9.json.gz",
+      "bytes": 42618,
+      "decodedBytes": 235998,
+      "sha256": "ab50923ae4e950e8c1ca5a9afc53314cafabcfe318c8e17b8a5d9d08cfcb5c72",
+      "decodedSha256": "6936c8140643e23889cf26c84bfb668743213dafbd9591fcc4730fa24374d324",
+      "routes": 670,
+      "pieces": 672
+    },
+    {
+      "id": "7:-4",
+      "bounds": [
+        28000,
+        -16000,
+        30000,
+        -12000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/7_-4-64617b38742f.json.gz",
+      "bytes": 42145,
+      "decodedBytes": 213913,
+      "sha256": "64617b38742fdf6c2dd692e2580305c77ac9f537913db19b6dd0bad6a3d31c1f",
+      "decodedSha256": "0fce00512385b0e00aea87b784c25c2241c19106c599fffbe2efc63c1b258a00",
+      "routes": 505,
+      "pieces": 508
+    },
+    {
+      "id": "7:-3",
+      "bounds": [
+        28000,
+        -12000,
+        30000,
+        -8000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/7_-3-1c538f858da7.json.gz",
+      "bytes": 27212,
+      "decodedBytes": 110326,
+      "sha256": "1c538f858da75eaa8dd32a35a56cd8890931165bed0c5335291d35ee95b7824a",
+      "decodedSha256": "def281b39fe6b025975c1d99d086f65178f7e44b971a9f405fa810b4eddfda10",
+      "routes": 155,
+      "pieces": 157
+    },
+    {
+      "id": "7:-2",
+      "bounds": [
+        28000,
+        -8000,
+        30000,
+        -4000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/7_-2-647c95777df7.json.gz",
+      "bytes": 46492,
+      "decodedBytes": 186369,
+      "sha256": "647c95777df7e894e5b14e9fdb70f7059f0ff1cb0085396f96c6e7bf8d9d6c3d",
+      "decodedSha256": "1ecd267afff250381a2db47eb7ce49cdc409d3b9970b2cbed8f0c36523c8da25",
+      "routes": 188,
+      "pieces": 190
+    },
+    {
+      "id": "7:-1",
+      "bounds": [
+        28000,
+        -4000,
+        30000,
+        0
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/7_-1-773d6d70cb13.json.gz",
+      "bytes": 16926,
+      "decodedBytes": 70840,
+      "sha256": "773d6d70cb131652322a80d462368ef1ad641ce3e60c44f711df2ef87e4dd9d9",
+      "decodedSha256": "8d53633a215d7789bfee3547279bfb1a58b685040ef76ffa0ca540bb8351dade",
+      "routes": 110,
+      "pieces": 112
+    },
+    {
+      "id": "7:0",
+      "bounds": [
+        28000,
+        0,
+        30000,
+        4000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/7_0-dcdd7fd1bae9.json.gz",
+      "bytes": 9252,
+      "decodedBytes": 38283,
+      "sha256": "dcdd7fd1bae9b50ae19f3b17e5efc55af68a2cda6484f8426194f9d6aa2d0031",
+      "decodedSha256": "9b2c612c7904de1907f3a3a9e6635bffc5683ebd4cf8348297ee1c766ed1303a",
+      "routes": 46,
+      "pieces": 50
+    },
+    {
+      "id": "7:1",
+      "bounds": [
+        28000,
+        4000,
+        30000,
+        8000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/7_1-2d596acf3f67.json.gz",
+      "bytes": 9063,
+      "decodedBytes": 36694,
+      "sha256": "2d596acf3f6723f6dbc80683388761179ff8000436badc0ec3a89590e17ceacf",
+      "decodedSha256": "f13bf30b9d8aa44ce3026d07c507ec0b23402471b11b31e738dbd30d8455cd81",
+      "routes": 40,
+      "pieces": 41
+    },
+    {
+      "id": "7:2",
+      "bounds": [
+        28000,
+        8000,
+        30000,
+        12000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/7_2-bf5642b4311d.json.gz",
+      "bytes": 17589,
+      "decodedBytes": 74632,
+      "sha256": "bf5642b4311d5260fabe01d45bfa9dbf8791d2e272aab25ad85496136c4d2c27",
+      "decodedSha256": "b7c6e6c78895ba7b081ef6cac8e117bb398ea3116936193b4e522e14ceee0cf0",
+      "routes": 104,
+      "pieces": 105
+    },
+    {
+      "id": "7:3",
+      "bounds": [
+        28000,
+        12000,
+        30000,
+        16000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/7_3-b31d5c9f0e09.json.gz",
+      "bytes": 5068,
+      "decodedBytes": 19729,
+      "sha256": "b31d5c9f0e092915a7552d965cb17e49c7d37449f3a6a575f167076c1ef3645b",
+      "decodedSha256": "866937642bc5f999a39298c2ed169b6a3a864eccb71e41d6dc44577298b611a6",
+      "routes": 18,
+      "pieces": 20
+    },
+    {
+      "id": "7:4",
+      "bounds": [
+        28000,
+        16000,
+        30000,
+        20000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/7_4-800c6ff65b57.json.gz",
+      "bytes": 20531,
+      "decodedBytes": 77449,
+      "sha256": "800c6ff65b5790dc411c046ae689aa6629b51bd0a31ba65950c577afb836e468",
+      "decodedSha256": "57522a584a7992d4e55c875989f0bd54f5c443362ac0dfdd16cda63ecd84ffa8",
+      "routes": 37,
+      "pieces": 38
+    },
+    {
+      "id": "7:5",
+      "bounds": [
+        28000,
+        20000,
+        30000,
+        24000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/7_5-5828fbdda166.json.gz",
+      "bytes": 17284,
+      "decodedBytes": 71918,
+      "sha256": "5828fbdda166bf338de0426669a83571dcc77f1e4292c3aea15eecc9347ac962",
+      "decodedSha256": "c5c6d0cc8cfb10b8b50e3546ce50cb52a2d6c89709213edc878e01060825534c",
+      "routes": 69,
+      "pieces": 71
+    },
+    {
+      "id": "7:6",
+      "bounds": [
+        28000,
+        24000,
+        30000,
+        28000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/7_6-6eb8985e858d.json.gz",
+      "bytes": 58499,
+      "decodedBytes": 283634,
+      "sha256": "6eb8985e858dc96518e5f2bae62b80c0fee51d5ca334afe6bebd69692024f00f",
+      "decodedSha256": "69e3d66424f52a9b53b792828e136572622dc3cee755903805c8bff2c17831a2",
+      "routes": 594,
+      "pieces": 596
+    },
+    {
+      "id": "7:7",
+      "bounds": [
+        28000,
+        28000,
+        30000,
+        30000
+      ],
+      "path": "assets/cities/kansai/traffic-region-v1/7_7-447d65a0f8f9.json.gz",
+      "bytes": 14513,
+      "decodedBytes": 68616,
+      "sha256": "447d65a0f8f9ee0f4af578fef572eb594a67156d05607d61b793b9fb5189affb",
+      "decodedSha256": "580e4fb4125b147147167b2ed4388227cca279bf540c533b89e950bf669758eb",
+      "routes": 139,
+      "pieces": 139
+    }
+  ],
+  "counts": {
+    "motorway": 859,
+    "primary": 1853,
+    "tertiary": 7699,
+    "trunk": 1255,
+    "motorway_link": 800,
+    "secondary": 1338,
+    "unclassified": 31322,
+    "service": 14759,
+    "tertiary_link": 170,
+    "residential": 53904,
+    "trunk_link": 214,
+    "primary_link": 179,
+    "secondary_link": 22,
+    "living_street": 3
+  },
+  "provenance": {
+    "source": "https://download.geofabrik.de/asia/japan/kansai/kansai-261120.osm.pbf",
+    "sha256": "58021166c89efc34a9aeca0e1313dee89a68af18d5e7bb819ae4dac792afde6c",
+    "snapshot": "2026-11-20 cached extract",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors",
+    "estimates": "Source motor roads; missing lanes/speeds/widths and bridge clearances use the airport traffic defaults. Regional flow is estimated visual traffic, not measured demand. Original full way identities and distance intervals avoid resetting routes at tile seams."
+  },
+  "identity": "e4059f26fefe1c28e76766215e3b466e0ec93980b91e4b5e36a9c07f636340dc"
+}

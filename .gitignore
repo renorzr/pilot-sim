@@ -18,6 +18,7 @@ design-qa.md
 /public/assets/index-*.css
 /public/assets/lax-city-world-*.js
 /public/assets/*-city-world-*.js
+/public/assets/nyc-city-*.js
 /public/assets/maps/daxing-source.json
 
 # Reconstructed from checked-in 32 MiB parts by ops/large-assets.mjs.

@@ -1,0 +1,621 @@
+{
+  "version": 1,
+  "zh": {
+    "bird": [
+      [
+        "copilot",
+        "双发推力下降。我保持操纵，稳住空速。",
+        "intercom"
+      ]
+    ],
+    "mayday": [
+      [
+        "pilot",
+        "MAYDAY, MAYDAY, MAYDAY. Cactus 1549，遭遇鸟击，双发失去推力。",
+        "vhf"
+      ]
+    ],
+    "power": [
+      [
+        "copilot",
+        "应急供电程序已开始，正在尝试重启。",
+        "intercom"
+      ]
+    ],
+    "restart": [
+      [
+        "copilot",
+        "重启尝试结束，两台发动机都没有恢复推力。",
+        "intercom"
+      ]
+    ],
+    "lga": [
+      [
+        "tower",
+        "Cactus 1549，拉瓜迪亚可提供紧急返场跑道。报告意图。",
+        "vhf"
+      ]
+    ],
+    "left": [
+      [
+        "pilot",
+        "保持滑翔空速，左转评估落点。",
+        "intercom"
+      ],
+      [
+        "copilot",
+        "明白，左转，保持空速。",
+        "intercom"
+      ]
+    ],
+    "hold": [
+      [
+        "pilot",
+        "保持当前航向，继续判断。",
+        "intercom"
+      ],
+      [
+        "copilot",
+        "保持当前航向。",
+        "intercom"
+      ]
+    ],
+    "return": [
+      [
+        "pilot",
+        "尝试返回拉瓜迪亚，报告余量。",
+        "intercom"
+      ],
+      [
+        "copilot",
+        "转向拉瓜迪亚，监控能量。",
+        "intercom"
+      ]
+    ],
+    "assess": [
+      [
+        "pilot",
+        "评估返场，比较其他区域。",
+        "intercom"
+      ],
+      [
+        "copilot",
+        "我继续操纵，评估转弯和对正余量。",
+        "intercom"
+      ]
+    ],
+    "lga-low": [
+      [
+        "copilot",
+        "返场余量不足，转弯和对正还要消耗高度。",
+        "intercom"
+      ]
+    ],
+    "lga-margin": [
+      [
+        "copilot",
+        "返场余量有限，仍需转弯对正。",
+        "intercom"
+      ]
+    ],
+    "lga-reachable": [
+      [
+        "copilot",
+        "返场仍有预计余量。继续注意空速。",
+        "intercom"
+      ]
+    ],
+    "alternatives": [
+      [
+        "tower",
+        "Cactus 1549，也可评估泰特伯勒。报告意图。",
+        "vhf"
+      ]
+    ],
+    "river": [
+      [
+        "pilot",
+        "将河面作为首要备选，转向河道方向。",
+        "intercom"
+      ],
+      [
+        "copilot",
+        "转向河道，等待最后决定。",
+        "intercom"
+      ]
+    ],
+    "hold-option": [
+      [
+        "pilot",
+        "暂不承诺，延续当前指令。",
+        "intercom"
+      ],
+      [
+        "copilot",
+        "继续当前指令。高度仍在下降。",
+        "intercom"
+      ]
+    ],
+    "teb": [
+      [
+        "pilot",
+        "评估泰特伯勒，尝试转向那个方向。",
+        "intercom"
+      ],
+      [
+        "copilot",
+        "明白，转向泰特伯勒。",
+        "intercom"
+      ]
+    ],
+    "teb-low": [
+      [
+        "copilot",
+        "泰特伯勒余量不足，继续比较水面。",
+        "intercom"
+      ]
+    ],
+    "commit": [
+      [
+        "pilot",
+        "确认水上迫降。我来操纵。",
+        "intercom"
+      ],
+      [
+        "copilot",
+        "你操纵，我监控空速和高度。",
+        "intercom"
+      ]
+    ],
+    "hudson": [
+      [
+        "pilot",
+        "Cactus 1549，准备在哈德逊河迫降。",
+        "vhf"
+      ],
+      [
+        "tower",
+        "收到，正在通知河上救援。",
+        "vhf"
+      ]
+    ],
+    "hudson-unable": [
+      [
+        "pilot",
+        "Cactus 1549，无法返回。准备在哈德逊河迫降。",
+        "vhf"
+      ],
+      [
+        "tower",
+        "收到，正在通知河上救援。",
+        "vhf"
+      ]
+    ],
+    "early": [
+      [
+        "pilot",
+        "我来操纵，按练习继续。",
+        "intercom"
+      ],
+      [
+        "copilot",
+        "你操纵。",
+        "intercom"
+      ]
+    ],
+    "config": [
+      [
+        "copilot",
+        "起落架保持收起，按能量准备襟翼二。",
+        "intercom"
+      ]
+    ],
+    "gear": [
+      [
+        "copilot",
+        "起落架仍在放出。水上迫降应保持收轮。",
+        "intercom"
+      ]
+    ],
+    "flaps": [
+      [
+        "copilot",
+        "襟翼二到位，起落架保持收起。",
+        "intercom"
+      ]
+    ],
+    "speed": [
+      [
+        "copilot",
+        "空速偏低，减小后拉，保持能量。",
+        "intercom"
+      ]
+    ],
+    "river-established": [
+      [
+        "copilot",
+        "已建立顺河航迹。继续观察前方水面。",
+        "intercom"
+      ]
+    ],
+    "shore": [
+      [
+        "copilot",
+        "前方靠近河岸，注意横向修正。",
+        "intercom"
+      ]
+    ],
+    "brace": [
+      [
+        "pa",
+        "请做好防冲击准备。防冲击！",
+        "pa"
+      ]
+    ],
+    "height-200": [
+      [
+        "copilot",
+        "两百英尺。",
+        "intercom"
+      ]
+    ],
+    "height-100": [
+      [
+        "copilot",
+        "一百英尺。",
+        "intercom"
+      ]
+    ],
+    "height-50": [
+      [
+        "copilot",
+        "五十英尺。",
+        "intercom"
+      ]
+    ],
+    "height-20": [
+      [
+        "copilot",
+        "二十英尺。",
+        "intercom"
+      ]
+    ],
+    "height-10": [
+      [
+        "copilot",
+        "十英尺。",
+        "intercom"
+      ]
+    ],
+    "evacuate": [
+      [
+        "pa",
+        "撤离！使用可用出口离开飞机，穿好救生衣。",
+        "pa"
+      ]
+    ],
+    "rescue": [
+      [
+        "tower",
+        "救援船正在接近，保持联络。",
+        "vhf"
+      ]
+    ],
+    "closing": [
+      [
+        "copilot",
+        "飞机保持漂浮，救援接应正在进行。",
+        "intercom"
+      ]
+    ]
+  },
+  "en": {
+    "bird": [
+      [
+        "copilot",
+        "Both engines are losing thrust. I have control. Maintaining airspeed.",
+        "intercom"
+      ]
+    ],
+    "mayday": [
+      [
+        "pilot",
+        "MAYDAY, MAYDAY, MAYDAY. Cactus fifteen forty-nine. Bird strike. Lost thrust in both engines.",
+        "vhf"
+      ]
+    ],
+    "power": [
+      [
+        "copilot",
+        "Emergency power sequence started. Attempting a relight.",
+        "intercom"
+      ]
+    ],
+    "restart": [
+      [
+        "copilot",
+        "Relight attempt complete. No thrust recovered on either engine.",
+        "intercom"
+      ]
+    ],
+    "lga": [
+      [
+        "tower",
+        "Cactus fifteen forty-nine, LaGuardia is available for an emergency return. Say intentions.",
+        "vhf"
+      ]
+    ],
+    "left": [
+      [
+        "pilot",
+        "Maintain glide speed. Turn left and assess landing areas.",
+        "intercom"
+      ],
+      [
+        "copilot",
+        "Turning left. Maintaining airspeed.",
+        "intercom"
+      ]
+    ],
+    "hold": [
+      [
+        "pilot",
+        "Hold this heading while we assess.",
+        "intercom"
+      ],
+      [
+        "copilot",
+        "Holding this heading.",
+        "intercom"
+      ]
+    ],
+    "return": [
+      [
+        "pilot",
+        "Try returning to LaGuardia. Report our margin.",
+        "intercom"
+      ],
+      [
+        "copilot",
+        "Turning toward LaGuardia. Monitoring our energy.",
+        "intercom"
+      ]
+    ],
+    "assess": [
+      [
+        "pilot",
+        "Assess the return and compare other areas.",
+        "intercom"
+      ],
+      [
+        "copilot",
+        "I will keep flying and assess the turn and alignment margins.",
+        "intercom"
+      ]
+    ],
+    "lga-low": [
+      [
+        "copilot",
+        "The return margin is insufficient. Turning and aligning will cost more height.",
+        "intercom"
+      ]
+    ],
+    "lga-margin": [
+      [
+        "copilot",
+        "The return margin is small. We still need to turn and align.",
+        "intercom"
+      ]
+    ],
+    "lga-reachable": [
+      [
+        "copilot",
+        "There is still an estimated return margin. Watch the airspeed.",
+        "intercom"
+      ]
+    ],
+    "alternatives": [
+      [
+        "tower",
+        "Cactus fifteen forty-nine, Teterboro is another option to assess. Say intentions.",
+        "vhf"
+      ]
+    ],
+    "river": [
+      [
+        "pilot",
+        "Prioritize the river option. Turn toward it.",
+        "intercom"
+      ],
+      [
+        "copilot",
+        "Turning toward the river. Awaiting your final decision.",
+        "intercom"
+      ]
+    ],
+    "hold-option": [
+      [
+        "pilot",
+        "No commitment yet. Continue the current instruction.",
+        "intercom"
+      ],
+      [
+        "copilot",
+        "Continuing. We are still losing altitude.",
+        "intercom"
+      ]
+    ],
+    "teb": [
+      [
+        "pilot",
+        "Assess Teterboro and turn toward it.",
+        "intercom"
+      ],
+      [
+        "copilot",
+        "Turning toward Teterboro.",
+        "intercom"
+      ]
+    ],
+    "teb-low": [
+      [
+        "copilot",
+        "Teterboro has insufficient margin. Consider the water option.",
+        "intercom"
+      ]
+    ],
+    "commit": [
+      [
+        "pilot",
+        "We are committing to a water landing. I have control.",
+        "intercom"
+      ],
+      [
+        "copilot",
+        "You have control. I will monitor airspeed and altitude.",
+        "intercom"
+      ]
+    ],
+    "hudson": [
+      [
+        "pilot",
+        "Cactus fifteen forty-nine. Preparing to ditch in the Hudson.",
+        "vhf"
+      ],
+      [
+        "tower",
+        "Roger. Alerting rescue services on the river.",
+        "vhf"
+      ]
+    ],
+    "hudson-unable": [
+      [
+        "pilot",
+        "Cactus fifteen forty-nine. Unable to return. Preparing to ditch in the Hudson.",
+        "vhf"
+      ],
+      [
+        "tower",
+        "Roger. Alerting rescue services on the river.",
+        "vhf"
+      ]
+    ],
+    "early": [
+      [
+        "pilot",
+        "I have control. Continuing as practice.",
+        "intercom"
+      ],
+      [
+        "copilot",
+        "You have control.",
+        "intercom"
+      ]
+    ],
+    "config": [
+      [
+        "copilot",
+        "Keep the gear up. Prepare flaps two as energy permits.",
+        "intercom"
+      ]
+    ],
+    "gear": [
+      [
+        "copilot",
+        "The gear is extended. Keep it up for ditching.",
+        "intercom"
+      ]
+    ],
+    "flaps": [
+      [
+        "copilot",
+        "Flaps two set. Gear remains up.",
+        "intercom"
+      ]
+    ],
+    "speed": [
+      [
+        "copilot",
+        "Airspeed low. Ease the back pressure and preserve energy.",
+        "intercom"
+      ]
+    ],
+    "river-established": [
+      [
+        "copilot",
+        "Established along the river. Keep watching the water ahead.",
+        "intercom"
+      ]
+    ],
+    "shore": [
+      [
+        "copilot",
+        "We are approaching the riverbank. Correct the track.",
+        "intercom"
+      ]
+    ],
+    "brace": [
+      [
+        "pa",
+        "Brace for impact. Brace!",
+        "pa"
+      ]
+    ],
+    "height-200": [
+      [
+        "copilot",
+        "Two hundred.",
+        "intercom"
+      ]
+    ],
+    "height-100": [
+      [
+        "copilot",
+        "One hundred.",
+        "intercom"
+      ]
+    ],
+    "height-50": [
+      [
+        "copilot",
+        "Fifty.",
+        "intercom"
+      ]
+    ],
+    "height-20": [
+      [
+        "copilot",
+        "Twenty.",
+        "intercom"
+      ]
+    ],
+    "height-10": [
+      [
+        "copilot",
+        "Ten.",
+        "intercom"
+      ]
+    ],
+    "evacuate": [
+      [
+        "pa",
+        "Evacuate! Use the available exits. Put on your life vests.",
+        "pa"
+      ]
+    ],
+    "rescue": [
+      [
+        "tower",
+        "Rescue boats are approaching. Remain on frequency.",
+        "vhf"
+      ]
+    ],
+    "closing": [
+      [
+        "copilot",
+        "The aircraft remains afloat. Rescue assistance is under way.",
+        "intercom"
+      ]
+    ]
+  }
+}

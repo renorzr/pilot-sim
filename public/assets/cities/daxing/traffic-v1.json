@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "airportId": "daxing",
+  "drivingSide": "right",
+  "path": "assets/cities/daxing/traffic-v1.source.json.gz",
+  "bytes": 122955,
+  "decodedBytes": 725785,
+  "decodedSha256": "b627e2a8aa5fe59c3096d1c334df75537f0fe25aa25f294df45fe1181d5af993",
+  "sha256": "cb4a360612e4c901329d77addd0c2ad64575f671431f0cbd414e7dd88c7e9ae1",
+  "fingerprint": "d373e4d193f7d0dee7f3b1b67d9f70d3ac8c3fffbadb433c34106a557236b311",
+  "counts": {
+    "tertiary": 425,
+    "motorway": 25,
+    "secondary": 257,
+    "unclassified": 127,
+    "residential": 394,
+    "trunk": 10,
+    "trunk_link": 33,
+    "service": 480,
+    "tertiary_link": 2,
+    "primary": 127,
+    "secondary_link": 1
+  },
+  "provenance": {
+    "source": "https://download.geofabrik.de/asia/china/hebei/hebei-latest.osm.pbf",
+    "snapshot": "2026-11-20 cached extract",
+    "sha256": "b18473ed6d18031788baf11d86cf22c2e91bc7c266886e7117b2a21ebe0c6e71",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors",
+    "estimates": "Missing direction/lane/speed/width values use road-class defaults. Bridge clearance is 6m per positive layer (max18m), with connected 6.5% approach ramps; not measured elevations. Traffic volumes are game estimates.",
+    "protection": "Surface public motor roads only; runway, taxiway and apron reservations excluded. Source tunnels retain connectivity but have no above-ground vehicles or pavement."
+  }
+}

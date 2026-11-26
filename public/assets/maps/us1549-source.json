@@ -1,0 +1,74 @@
+{
+  "version": 1,
+  "event": "US Airways Flight 1549",
+  "eventDate": "2009-01-15",
+  "implementation": "Playable historical scenario, revision 4; branching airport/water decisions, measured risky-choice consequences and session-stable shuffled options",
+  "coordinateFrame": {
+    "horizontal": "Existing JFK runway-22R source projection; no in-flight origin changes",
+    "vertical": "Metres MSL; river water level 0 m"
+  },
+  "geography": {
+    "imageryAndBuildingsManifest": "assets/cities/jfk/sources-v1.json",
+    "imageryAcquisition": "2022 USDA NAIP, not 2009 photography",
+    "osmSnapshot": "2026-11-20",
+    "terrain": "Existing Mapzen / USGS DEM sampled into the shared event terrain mesh"
+  },
+  "eventReferences": [
+    {
+      "publisher": "NTSB",
+      "title": "Aircraft Accident Report NTSB/AAR-10/03",
+      "url": "https://www.ntsb.gov/investigations/AccidentReports/Reports/AAR1003.pdf",
+      "sha256": "fe9e1733e8400f3ea9ce0832f36d934c829ac369e8a66765dc423d18973640ef"
+    },
+    {
+      "publisher": "NTSB",
+      "title": "Aircraft Performance Study, December 10, 2009",
+      "use": "Initial location interpolated between EWR radar returns in Table 1a at correlated event time; not raw FDR latitude/longitude",
+      "url": "https://data.ntsb.gov/Docket/Document/docBLOB?FileExtension=.PDF&FileName=Aircraft+Performance+13+-+Factual+Report+of+Group+Chairman-Master.PDF&ID=40322563",
+      "sha256": "fa1025c7f5143767ef56a651bad7acabda86e861a9dfe26e196d41871da32aa9"
+    },
+    {
+      "publisher": "OurAirports",
+      "use": "LGA and TEB runway threshold coordinates; contemporary source with historical TEB label",
+      "url": "https://davidmegginson.github.io/ourairports-data/runways.csv",
+      "retrieved": "2026-11-25",
+      "sha256": "7fcfb1bdd5922dbca37757ea8319f541c9809ab9838814a03ce35203dcd3e83f"
+    }
+  ],
+  "estimates": [
+    "Event mass, initial climb/heading and weather are documented game presets.",
+    "Aerodynamic polar, water drag, buoyancy, moments, flooding and damage are tunable approximations.",
+    "Bridge/boat envelopes are schematic shared render/contact geometry.",
+    "Ordinary street blocks are not reconstructed to a 2009 survey; conspicuous modern tower silhouettes are suppressed.",
+    "River navigation anchors are rounded midpoints of bundled source-water cross sections, not recorded flight positions.",
+    "Version 3 aerodynamic/configuration and water-entry scoring coefficients are game calibration, not A320 operating limits.",
+    "Manual runway navigation and reach estimates include turn/alignment/energy margins; they do not guarantee touchdown or safe stopping.",
+    "Version 4 decision exposure costs and the TEB assessment gate are game estimates; no choice guarantees reachability or forces a physical outcome."
+  ],
+  "licenses": {
+    "imagery": "USDA NAIP public domain, attribution retained",
+    "geography": "© OpenStreetMap contributors / ODbL 1.0; inherited JFK dataset notices apply",
+    "runways": "OurAirports public domain",
+    "originalImplementation": "MIT"
+  },
+  "media": {
+    "script": "game/src/history/radio-script.json",
+    "manifest": "game/src/history/voice-assets.json",
+    "selfHostedRecordings": 282,
+    "chineseCast": [
+      "E",
+      "G",
+      "H",
+      "J",
+      "Xiaoxiao"
+    ],
+    "englishCast": [
+      "Guy",
+      "Aria",
+      "Andrew"
+    ],
+    "originalDialogue": true,
+    "historicalAudioReproduction": false
+  },
+  "scenarioRevision": 4
+}

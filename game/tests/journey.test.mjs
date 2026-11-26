@@ -11,14 +11,14 @@ import {groundPilot} from './ground-pilot.mjs';
 import {RAD,wrap,KT} from '../src/sim/constants.js';
 import {t} from '../src/i18n/index.js';
 function until(s,condition,input=pilotInput,max=2400){for(let i=0;i<max*50&&!s.result&&!condition(s);i++)advanceFlight(s,input(s),.02);assert(condition(s),JSON.stringify({result:s.result,phase:s.airline.phase,ground:s.ground,x:s.x,z:s.z}));return s;}
-test('all thirty routes depart toward destination and enter arrival from the origin radial',()=>{
+test('all thirty routes use airport initial departures and enter arrival from the origin radial',()=>{
  for(const l of AIRLINE_ROUTES){const d=departureNavigation(l.origin,l.destination),a=arrivalNavigation(l.origin,l.destination),rw=runwayOf(l.destination);
-  assert(Math.abs(wrap((d.course-cityBearing(l.origin,l.destination))*RAD))<1e-10);
+  assert(Math.abs(wrap((d.cityCourse-cityBearing(l.origin,l.destination))*RAD))<1e-10);
   const entryBearing=(rw.heading+Math.atan2(a.entry.x,-a.entry.z)/RAD+360)%360;
   assert(Math.abs(wrap((entryBearing-cityBearing(l.destination,l.origin))*RAD))<1e-10,l.id);
   assert(Math.abs(Math.hypot(a.entry.x,a.entry.z)-28000)<.01);assert(a.points.at(-1).z>=18000);assert(a.points.length>=4);
-  for(const p of[d.origin,...d.points,a.origin,...a.points])assert(Math.abs(p.x)<=30000&&Math.abs(p.z)<=30000);
-  for(const p of[d,...a.points])assert(p.altitude===undefined||p.altitude>=3000);
+  for(const p of[d.origin,...d.points,a.origin,...a.points])assert(Number.isFinite(p.x)&&Number.isFinite(p.z));
+  assert(d.procedure?.source&&d.points.length>=2);assert(d.altitude+d.elevationFt>=3000-1e-5);
  }
  // Great-circle terminal course is independently computed, including date line.
  assert(Math.abs(wrap((cityBearing('lax','jfk')+180-cityBearing('jfk','lax'))*RAD))>.1);
@@ -26,8 +26,8 @@ test('all thirty routes depart toward destination and enter arrival from the ori
 test('runway-heading climb cannot unlock cruise before joining the outbound route',()=>{
  const s=until(createFlight(null,{levelId:'hgh-pkx'}),s=>s.airborne&&s.airline.navigation.index===0);
  assert(!canSkipCruise(s));const pose={x:s.x,y:s.y,z:s.z};assert(!skipCruise(s));assert.deepEqual({x:s.x,y:s.y,z:s.z},pose);
- until(s,canSkipCruise);assert(s.airline.navigation.index===1);const trk=runwayOf(s).heading+s.airData.groundTrack/RAD;
- assert(Math.abs(wrap((trk-cityBearing('xiaoshan','daxing'))*RAD))<15*RAD);assert(!s.atc.violations.length);
+ until(s,canSkipCruise);assert(s.airline.navigation.index===s.airline.navigation.points.length-1);const trk=runwayOf(s).heading+s.airData.groundTrack/RAD;
+ assert(Math.abs(wrap((trk-s.airline.navigation.course)*RAD))<15*RAD);assert(!s.atc.violations.length);
 });
 test('ignoring the departure turn produces an observed ATC route deviation',()=>{
  const s=until(createFlight(null,{levelId:'hgh-pkx'}),s=>s.airline.navigation.index===1);

@@ -1,8 +1,14 @@
 import {cityLayout}from '../airports/city-layout.js';
 import {footprintEntry}from '../airports/dense-city-data.js';
+import {historicalObstacleCandidates} from '../history/obstacles.js';
+import {WATER_PROBES,probePosition} from '../sim/water-contact.js';
 const cells=new Map(),size=400;
 const denseCities=new Map();
+const woodlands=new Map();
+const roadTraffic=new Map();
 export function installDenseCity(index,airportId=index.manifest?.airportId||'lax'){denseCities.set(airportId,index);return()=>{if(denseCities.get(airportId)===index)denseCities.delete(airportId);};}
+export function installWoodlands(index,airportId=index.airportId){woodlands.set(airportId,index);return()=>{if(woodlands.get(airportId)===index)woodlands.delete(airportId);};}
+export function installRoadTraffic(index,airportId=index.airportId){const owner={index};roadTraffic.set(airportId,owner);return()=>{if(roadTraffic.get(airportId)===owner)roadTraffic.delete(airportId);};}
 let ready=false;
 function initialize(){
  if(ready)return;ready=true;
@@ -13,11 +19,11 @@ function initialize(){
  }
 }
 const airportIdOf=s=>typeof s==='string'?s:s?.airportId;
-const supportsCity=s=>airportIdOf(s)==='lax'||denseCities.has(airportIdOf(s));
-function candidates(a,b,margin=0,vertical=0,airportId='lax'){
+const supportsCity=s=>airportIdOf(s)==='us1549'||airportIdOf(s)==='lax'||denseCities.has(airportIdOf(s))||woodlands.has(airportIdOf(s))||roadTraffic.has(airportIdOf(s));
+function candidates(a,b,margin=0,vertical=0,airportId='lax',time=null){
  const denseCity=denseCities.get(airportId);if(airportId==='lax')initialize();const result=new Set();
  if(airportId==='lax')for(let x=Math.floor((Math.min(a.x,b.x)-margin)/size);x<=Math.floor((Math.max(a.x,b.x)+margin)/size);x++)for(let z=Math.floor((Math.min(a.z,b.z)-margin)/size);z<=Math.floor((Math.max(a.z,b.z)+margin)/size);z++)for(const o of cells.get(x+':'+z)||[])if(!denseCity||o.kind==='landmark')result.add(o);
- return denseCity?(function*(){yield*result;yield*denseCity.candidates(a,b,margin,vertical);})():result;
+ return(function*(){yield*result;if(airportId==='us1549')yield*historicalObstacleCandidates(a,b,margin,vertical);if(denseCity)yield*denseCity.candidates(a,b,margin,vertical);const forest=woodlands.get(airportId);if(forest)yield*forest.candidates(a,b,margin,vertical);const roads=roadTraffic.get(airportId)?.index;if(roads)yield*roads.candidates(a,b,margin,vertical,time);})();
 }
 function intersect(a,b,o,horizontal=0,vertical=0){
  const co=Math.cos(o.angle),si=Math.sin(o.angle),local=p=>[(p.x-o.cx)*co+(p.z-o.cz)*si,p.y,-(p.x-o.cx)*si+(p.z-o.cz)*co],p=local(a),q=local(b);
@@ -27,10 +33,11 @@ function intersect(a,b,o,horizontal=0,vertical=0){
 }
 export function cityRay(origin,destination,airport='lax',{horizontal=0,vertical=0}={}){
  if(!supportsCity(airport))return null;let hit=null;
- for(const o of candidates(origin,destination,horizontal,vertical,airportIdOf(airport))){const t=intersect(origin,destination,o,horizontal,vertical);if(t!==null&&(!hit||t<hit.t))hit={t,obstacle:o};}
+ for(const o of candidates(origin,destination,horizontal,vertical,airportIdOf(airport),origin.time)){const t=intersect(origin,destination,o,horizontal,vertical);if(t!==null&&(!hit||t<hit.t))hit={t,obstacle:o};}
  if(!hit)return null;return{...hit,distance:Math.hypot(destination.x-origin.x,destination.y-origin.y,destination.z-origin.z)*hit.t,top:hit.obstacle.topY};
 }
-function probes(p){
+function probes(p,historical=false){
+ if(historical)return[...WATER_PROBES.filter(q=>!q.gear||p.gearPosition>=.5),{x:0,y:8.96,z:18},{x:0,y:3.0,z:0}].map(q=>({...probePosition(p,q),margin:.1}));
  const co=Math.cos(p.yaw),si=Math.sin(p.yaw),out=[{x:p.x,y:p.y,z:p.z,margin:2.8}];
  for(const t of[-17,-8,8,17])out.push({x:p.x+t*co,y:p.y-t*Math.sin(p.roll),z:p.z+t*si,margin:.5});
  for(const t of[-15,15])out.push({x:p.x+t*si,y:p.y+t*Math.sin(p.pitch),z:p.z-t*co,margin:1});
@@ -38,11 +45,11 @@ function probes(p){
 }
 export function sweptCityContact(previous,current){
  if(!supportsCity(current))return null;
- const from=probes(previous),to=probes(current),near=candidates(previous,current,21,21,airportIdOf(current));let first=null;
+ const historical=airportIdOf(current)==='us1549',from=probes(previous,historical),to=probes(current,historical),near=candidates(previous,current,21,21,airportIdOf(current),current.time);let first=null;
  for(const o of near)for(let i=0;i<from.length;i++){const t=intersect(from[i],to[i],o,from[i].margin,from[i].margin);if(t!==null&&(!first||t<first.t))first={t,o};}
  if(!first)return null;const p={};for(const key of['x','y','z','pitch','roll'])p[key]=previous[key]+(current[key]-previous[key])*first.t;
  p.yaw=previous.yaw+Math.atan2(Math.sin(current.yaw-previous.yaw),Math.cos(current.yaw-previous.yaw))*first.t;
- return{...p,fraction:first.t,surface:first.o.topY,type:'building',obstacleId:first.o.id,obstacleName:first.o.name||first.o.id};
+ return{...p,fraction:first.t,surface:first.o.topY,type:'building',obstacleKind:['tree','vehicle','bridge','ship'].includes(first.o.kind)?first.o.kind:'building',obstacleId:first.o.id,obstacleName:first.o.name||first.o.id};
 }
 export function predictCityObstacles(s){
  if(!supportsCity(s))return null;const speed=s.airData.groundSpeed,heading=s.airData.groundTrack;let earliest=Infinity,peak=0,obstacleId=null;

@@ -17,4 +17,4 @@ export function createLoadingProgress(onProgress=()=>{},{hasCity=false}={}){
  };
 }
 
-export const LOADING_STAGES={assets:'正在加载场景素材',aircraft:'正在加载飞机模型',imagery:'正在加载机场航片',download:'正在下载建筑数据',decompress:'正在解压建筑数据',decode:'正在建立建筑索引',models:'正在准备建筑模型',cache:'正在读取本地缓存',save:'正在保存本地缓存',ready:'机场已准备就绪'};
+export const LOADING_STAGES={assets:'正在加载场景素材',aircraft:'正在加载飞机模型',imagery:'正在加载机场航片',download:'正在下载建筑数据',decompress:'正在解压建筑数据',decode:'正在建立建筑索引',models:'正在准备建筑模型',roads:'正在准备道路与车流',cache:'正在读取本地缓存',save:'正在保存本地缓存',ready:'机场已准备就绪'};

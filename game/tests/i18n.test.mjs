@@ -1,6 +1,7 @@
 import test from 'node:test';import assert from 'node:assert/strict';import {readFile,stat} from 'node:fs/promises';import {join} from 'node:path';
 import {t,localizeProps,setLanguage,getLanguage} from '../src/i18n/index.js';
 import {createRadio,queueRadio,updateRadio,setRadioLanguage,clipUrl} from '../src/comms/radio.js';
+import englishClean from '../src/comms/english-pilot-clean.json' with {type:'json'};
 import script from '../src/comms/script.json' with {type:'json'};import english from '../src/comms/script.en.json' with {type:'json'};import durations from '../src/comms/durations.en.json' with {type:'json'};
 test('all existing interface and model messages have English catalog coverage',async()=>{
  const inventory=JSON.parse(await readFile(new URL('./fixtures/i18n-inventory.json',import.meta.url),'utf8'));
@@ -23,6 +24,6 @@ test('English dialogue covers every event and keeps role/count and initial signa
 });
 test('switching an active line preserves flight and emergency state and allows the full localized clip',()=>{
  const s={time:0,x:123,y:500,velocity:{x:1,y:2,z:3},radio:createRadio()};queueRadio(s,'dual',true);s.time=3;updateRadio(s);const active=s.radio.active,pending=structuredClone(s.radio.pending),emergency=structuredClone(s.radio.emergency);s.time=4;setRadioLanguage(s,'en');
- assert.equal(s.radio.active.id,active.id);assert.equal(s.radio.active.until,4+durations[active.clip]+.2);assert.equal(s.x,123);assert.deepEqual(s.velocity,{x:1,y:2,z:3});assert.deepEqual(s.radio.pending,pending);assert.deepEqual(s.radio.emergency,emergency);assert(s.radio.fired.dual);assert.equal(s.radio.language,'en');
+ assert.equal(s.radio.active.id,active.id);assert(Math.abs(s.radio.active.until-(4+(englishClean.clips[active.clip]?.duration??durations[active.clip])+.2))<1e-8);assert.equal(s.x,123);assert.deepEqual(s.velocity,{x:1,y:2,z:3});assert.deepEqual(s.radio.pending,pending);assert.deepEqual(s.radio.emergency,emergency);assert(s.radio.fired.dual);assert.equal(s.radio.language,'en');
  assert(clipUrl('dual-0','en').startsWith('/assets/radio/en/dual-0.mp3'));assert.equal(clipUrl('call-h50','en'),clipUrl('call-h50','zh'));
 });

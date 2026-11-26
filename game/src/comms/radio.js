@@ -6,8 +6,10 @@ import durations from './durations.json' with {type:'json'};
 import englishDurations from './durations.en.json' with {type:'json'};
 import englishScript from './script.en.json' with {type:'json'};
 import englishVersion from './voice-version.en.json' with {type:'json'};
+import englishPilotClean from './english-pilot-clean.json' with {type:'json'};
 import {siteUrl} from '../urls.js';
 import {chooseRadioVoices,radioVoiceFor,voiceClip} from './pilot-voices.js';
+import {historicalClip,historicalClipUrl} from '../history/media.js';
 const dialogue=(s,key)=>{
  if(s.airline&&RADIO_PACKS.airline.zh[key])return{lines:RADIO_PACKS.airline.zh[key],prefix:'airline-'};
  const pack=AIRPORT_RADIO[s.airportId];if(pack?.zh[key])return{lines:pack.zh[key],prefix:s.airportId+'-'};
@@ -15,8 +17,17 @@ const dialogue=(s,key)=>{
  return{lines:script[key],prefix:''};
 };
 const clipPack=id=>RADIO_PACKS[id.split('-')[0]];
-export const createRadio=(voices={})=>({language:'zh',...chooseRadioVoices(voices),fired:{},pending:[],active:null,readyAt:0,sequence:0,history:[],emergency:null,monitor:createEmergencyMonitor()});
-export const radioClipDuration=(id,language,voice=null)=>((language==='zh'&&voiceClip(voice,id)?.duration)||clipPack(id)?.durations[language]?.[id]||(language==='en'?englishDurations:durations)[id]||5)+.2;
+export function createRadio({airportId,destinationId,towerVoices={},destinationTowerVoice,...voices}={},random=Math.random){
+ const pair=chooseRadioVoices({...voices,towerVoice:towerVoices[airportId]??voices.towerVoice},random),controllers={...towerVoices};
+ if(airportId)controllers[airportId]=pair.towerVoice;
+ if(destinationId&&destinationId!==airportId)controllers[destinationId]=chooseRadioVoices({pilotVoice:pair.pilotVoice,towerVoice:controllers[destinationId]??destinationTowerVoice},random).towerVoice;
+ return{language:'zh',...pair,towerVoices:controllers,fired:{},pending:[],active:null,readyAt:0,sequence:0,history:[],emergency:null,monitor:createEmergencyMonitor()};
+}
+export const radioClipDuration=(id,language,voice=null)=>{
+ if(id.startsWith('us1549-'))return(historicalClip(id,language,voice)?.duration??5)+.2;
+ const selected=language==='zh'?voiceClip(voice,id):null;
+ return(selected?.clean?.duration||selected?.duration||(language==='en'&&englishPilotClean.clips[id]?.duration)||clipPack(id)?.durations[language]?.[id]||(language==='en'?englishDurations:durations)[id]||5)+.2;
+};
 const clipDuration=radioClipDuration;
 export function setRadioLanguage(s,language){
  const r=s.radio;if(!r||!['en','zh'].includes(language)||r.language===language)return;
@@ -68,9 +79,11 @@ export function calloutClip(text=''){
 // Script changes must also invalidate previously cached voice files.
 let speechVersion=0;for(const char of JSON.stringify(script)+JSON.stringify(durations))speechVersion=(Math.imul(speechVersion,31)+char.charCodeAt(0))>>>0;
 let englishSpeechVersion=0;for(const char of JSON.stringify(englishScript)+JSON.stringify(englishDurations))englishSpeechVersion=(Math.imul(englishSpeechVersion,31)+char.charCodeAt(0))>>>0;
-export const clipUrl=(id,language='zh',voice=null)=>{
+export const clipUrl=(id,language='zh',voice=null,variant='radio')=>{
+ if(id.startsWith('us1549-'))return historicalClipUrl(id,language,voice);
  const selected=language==='zh'&&!id.startsWith('call-')?voiceClip(voice,id):null;
- if(selected)return siteUrl(`assets/radio/pilots/${voice}/${selected.file}?v=${selected.sha256.slice(0,16)}`);
+ if(selected){const item=variant==='clean'&&selected.clean?selected.clean:selected;return siteUrl(`assets/radio/pilots/${voice}/${item.file}?v=${item.sha256.slice(0,16)}`);}
+ if(language==='en'&&variant==='clean'&&englishPilotClean.clips[id]){const item=englishPilotClean.clips[id];return siteUrl(`assets/radio/en/pilots/${item.file}?v=${item.sha256.slice(0,16)}`);}
  const english=language==='en'&&!id.startsWith('call-'),version=clipPack(id)?.version||(english?englishSpeechVersion.toString(36)+'-'+englishVersion.fingerprint:speechVersion.toString(36)+'-'+voiceVersion.fingerprint);
  return siteUrl(`assets/radio/${english?'en/':''}${id}.mp3?v=${version}`);
 };

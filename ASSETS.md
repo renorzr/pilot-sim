@@ -39,13 +39,13 @@ including +/- actions, mode indicators and the vertical stick arrangement.
 
 ## Speech
 
-The game includes **1,435 mono MP3 files** at 24 kHz / 48 kbps:
+Speech is self-hosted as mono MP3 at 24 kHz / 48 kbps:
 
-- `public/assets/radio/`: 202 base/legacy Chinese dialogue clips and 21 shared English
-  height/safety callouts.
-- `public/assets/radio/en/`: 202 English pilot/tower dialogue clips.
-- `public/assets/radio/pilots/`: 1,010 Chinese pilot/controller clips across
-  the five selected speakers.
+- `public/assets/radio/` and `en/` retain base/legacy dialogue and the shared
+  English height/safety callouts. Historical files remain available to open sessions.
+- `public/assets/radio/pilots/` supplies the five Chinese cast members in both
+  roles, plus separate unfiltered pilot recordings.
+- `public/assets/radio/en/pilots/` supplies unfiltered English Guy recordings.
 
 The airport, airline and ground dialogue extensions are described below. These are
 synthetic recordings of fictional exchanges. Callsigns, training frequency,
@@ -53,12 +53,12 @@ clearances and emergencies are game scenarios.
 
 | Role | Chinese dialogue | English dialogue |
 | --- | --- | --- |
-| Tower | E / G / H / J / Xiaoxiao, chosen once per flight | `en-US-AriaNeural`, +22%, −6 Hz |
+| Tower | E / G / H / J / Xiaoxiao, chosen per airport | `en-US-AriaNeural`, +22%, −6 Hz |
 | Pilot | Same five-speaker pool; different from the tower | `en-US-GuyNeural`, +24%, −10 Hz |
 | Shared safety/height calls | `en-US-GuyNeural`, +6%, 0 Hz | Same files |
 
 Chinese radio uses Fish Audio E/G/H/J and Edge Xiaoxiao (+24%, −12 Hz).
-English and legacy clips use edge-tts. Both pipelines filter/normalize using FFmpeg.
+English and legacy clips use edge-tts. Both pipelines normalize with FFmpeg; legacy radio sources also have baked band limiting. New pilot dry sources preserve the full speech band.
 They are outputs, not voice models. Provider software, voice-model rights and
 service terms are not conveyed by this repository's MIT license. See
 [third-party notices](THIRD_PARTY_NOTICES.md).
@@ -321,61 +321,16 @@ the existing recorded-role profiles and radio DSP; generation and measured
 clip durations are maintained in `ops/generate-journey-radio.py` and the
 airline radio pack. No external speech service is needed during play.
 
-## Cruise entry dialogue
+## Climb-to-cruise dialogue
 
-Four original `airline-cruise-entry-*.mp3` clips provide matched Chinese/English
-pilot reports and ATC acknowledgements of entering cruise. They use the existing
-Edge neural role profiles, 300–3300 Hz radio filtering and loudness normalization.
-Measured durations and the cache fingerprint are in `airline-radio.json`; these
-are fictional game exchanges. The transition lets both lines finish before fade.
-
-
-### Chinese pilot voice auditions
-
-`public/assets/pilot-voices/` is an isolated listening page with four alternatives
-(Yunjian, YunJhe, Yunxia and Xiaoyi) and the former Yunxi reference. The 30 neural
-MP3 samples cover identical routine, MAYDAY and PAN PAN scripts in clean/radio
-variants. `ops/generate-pilot-auditions.py` records profile, script, duration and
-SHA-256 metadata and snapshots the game's unchanged runtime radio DSP. Each
-initial signal consists of three complete same-speaker units, checked against
-the actual output waveforms. These are synthetic speech outputs for selection;
-the original Yunxi recordings remain as an audition reference.
-
-
-### Fish Audio pilot auditions
-
-`public/assets/pilot-voices/fish/` adds four Chinese male candidates (E–H),
-with the original Edge Yunxi voice as a reference. The source voice IDs, original
-catalogue titles, source links, model and generated-file hashes are recorded in
-its manifest. Candidates were selected from the API's licensed Chinese voice
-results; their audition generation uses Fish Audio `s2.1-pro` and natural-language
-delivery cues. Runtime playback uses the same radio DSP as the game. The API
-credential is read from hidden standard input into backend memory and is absent
-from generated metadata and client code. `ops/fish-voice-auditions.py` performs
-API discovery/generation; `ops/package-fish-auditions.py` packages already-generated
-clips. E/G/H were subsequently selected for production; F remains audition-only.
-Provider and voice rights remain separate from the MIT game source.
-
-Two female previews, I (林晓夜, `0781bfe5e1984e8385dcddf123d7c933`)
-and J (金, `048222d36be842f199ec8ac71993dce4`), use `s2.1-pro-free`.
-Their 12 MP3 variants cover the same three scripts and clean/radio effects.
-Emergency prefixes contain three native groups from the same reference voice
-as the Chinese report. J's MAYDAY preview now uses one continuous mixed-language
-take, with an English pronunciation cue and the same restrained delivery as
-the Chinese report, instead of a separately generated urgent English prefix.
-Its reproducible source and metadata are pinned in
-`ops/assets/pilot-voices/audition-j-mayday.mp3` / `audition-continuous.json`.
-The pinned edit plays this take at 1.22× without changing pitch and removes
-the two measured inter-MAYDAY silences, retaining all three original utterances.
-Generate selected previews with
-`python3 ops/package-fish-auditions.py --voices i j`; existing male previews
-are preserved. I remains audition-only; J subsequently joined the game's
-five-speaker Chinese cast. Both remain first on the listening page.
-The shared audition player additionally offers current radio, narrower VHF,
-and heavy-static presets alongside clean playback. `audition-effects.js` adds
-preview-only filtering, compression, distortion, gated hiss/crackle and PTT
-transients; changing presets during radio playback retains playback position.
-The game now uses the selected VHF preset from this shared implementation.
+`airline-cruise-climb-*.mp3` provides a pilot request to climb to FL330, the
+controller's clearance, and the pilot's readback in both languages. At roughly
+3000 ft, the aircraft has not reached cruise: the remainder of climb, cruise
+and most descent is explicitly skipped. All three recorded lines play at their
+normal speed; if they outlast the camera, speech and captions continue under
+black before the airport switch. Measured durations, actual browser media end
+and content/version fingerprints keep playback complete. Older
+`cruise-entry` files remain solely for sessions using historical bundles.
 
 
 ### Active Chinese radio cast
@@ -385,25 +340,106 @@ The approved Fish Audio voices are E (温和日常男声,
 `0a86f2f473514783a93b37dad673613e`), H (Jimmy 男中音,
 `09f2e5951ea543319af82e7d2219a92c`) and J (金,
 `048222d36be842f199ec8ac71993dce4`). Edge Xiaoxiao
-(`zh-CN-XiaoxiaoNeural`, +24%, −12 Hz) is the fifth speaker. Each has 202
+(`zh-CN-XiaoxiaoNeural`, +24%, −12 Hz) is the fifth speaker. Each has 203
 pre-generated Chinese pilot/tower lines covering training, emergencies, ground
-and all real airports. Each new flight uniformly selects one of 20 different
-ordered pilot/controller pairs and preserves both identities through retries,
-go-arounds and airport transitions. English retains its existing actors.
+and all real airports. Each flight keeps one pilot and independently selects a controller at origin
+and destination. Controllers may match each other, but neither matches the
+pilot. The per-airport mapping survives retries, go-arounds and transitions. English retains its existing actors.
 `game/src/comms/pilot-voices.json` records source IDs, text, actual durations,
-roles, service-model names and content hashes for all 1,010 files. Its historical
+roles, service-model names and content hashes for all current files, including
+510 unfiltered Chinese pilot variants. Its historical
 filename and `assets/radio/pilots/` directory now serve both Chinese roles.
-English dialogue and clean safety callouts retain their existing recordings.
+English retains the Guy/Aria profiles; clean safety/height callouts are unchanged.
 
 `ops/generate-radio-cast.py` stages both-role packs, reads its Fish credential
 through hidden stdin, and uses only `s2.1-pro-free` for new Fish takes. It reuses
 all previously approved E/G/H pilot and Xiaoxiao tower files and caches new takes.
 Ten same-speaker three-MAYDAY / three-PAN-PAN WAV sources and their fingerprints
 are preserved in `ops/assets/pilot-voices/`. J's MAYDAY source comes from its
-approved faster continuous preview, without inter-MAYDAY pauses. Emergency
+approved continuous take, without inter-MAYDAY pauses. Its pinned original and
+edit metadata are retained as `ops/assets/pilot-voices/j-mayday-source.mp3` and
+`j-mayday-source.json`. Emergency
 reports use the same speaker as their signal. The VHF preset in
-`game/src/comms/radio-presets.js` is shared with the listening page; ordinary
-Chinese and English radio get its narrower speech band, compression, gated
-hiss/crackle and PTT clicks. Cockpit callouts remain on a separate clean path.
+`game/src/comms/radio-presets.js` supplies the runtime VHF treatment; controllers
+always receive its narrower speech band, compression, gated
+hiss/crackle and PTT clicks. Pilots use unfiltered recordings with a true live
+bypass in cockpit view and live VHF in exterior views; view changes do not
+replace or seek the media. `ops/generate-pilot-clean.py` reuses original Chinese
+takes and exports dry English pilot speech with the existing Guy profile.
+`english-pilot-clean.json` records English dry scripts, durations and hashes.
+Cockpit callouts remain on a separate clean path.
 `ops/check-pilot-voices.mjs` verifies current dialogue coverage and every audio
 hash before tests/builds. Runtime playback is self-hosted with no API request.
+
+### Regional woodland scenery
+
+Original code-authored crown/trunk templates and procedural foliage shading are
+shared across the six mapped airport regions. Five airports reuse their pinned
+OSM woodland features; LAX ships a source-coordinate woodland derivative under
+ODbL from the same attributed Los Angeles extract. No purchased tree models or
+external runtime imagery service are used. Positions within woodland areas,
+missing heights and inferred canopy appearance are visual estimates. See
+[woodland source and implementation notes](game/src/airports/data/WOODLANDS.md).
+
+## Airport roads and moving ground traffic
+
+The self-hosted road networks at LAX, Xiaoshan, Changi, JFK, Kansai and Daxing are OpenStreetMap derivatives (© OpenStreetMap contributors, [ODbL 1.0](https://www.openstreetmap.org/copyright)), extracted from the pinned BBBike Los Angeles and Geofabrik regional PBFs already used by the airport packs. Source way/node IDs, retained tags, checksums, estimated bridge heights and traffic assumptions are distributed with `public/assets/cities/<airport>/traffic-v1.json` and its compressed source database. Five shared vehicle models are original programmatic geometry; no third-party vehicle models are used. See [road data and runtime notes](game/src/airports/data/ROAD-TRAFFIC.md) for coverage, rebuilding, caching and limitations.
+
+Regional traffic additionally uses `traffic-region-v1.json` and the immutable source tiles in `public/assets/cities/<airport>/traffic-region-v1/`. They preserve original OpenStreetMap way identities and source attribution under ODbL 1.0; the JFK regional network includes both pinned New York and New Jersey PBFs. Road/lane geometry, shared vehicles and their motion are generated by the project.
+
+## US Airways 1549 historical scenario
+
+The scenario reuses the self-hosted JFK NAIP/building source in a shared horizontal
+frame. River level is MSL 0. Source references, acquisition dates and explicit
+estimates are published in `public/assets/maps/us1549-source.json`; this is not a
+2009 photographic reconstruction. The bridge, static ferries, birds, splash,
+rafts and presentation-only rescue boats are original programmatic geometry.
+Physical aircraft contact anchors remain shared with the existing authored model.
+
+Original bilingual dialogue is in `game/src/history/radio-script.json`.
+`voice-assets.json` identifies 282 self-hosted dry MP3 clips (5.03 MiB), measured
+durations, texts, roles, providers and SHA-256 hashes. Chinese uses the approved
+E/G/H/J/Xiaoxiao pool, with three distinct speakers selected per attempt; Fish
+clips use only `s2.1-pro-free`, Xiaoxiao uses the approved Edge profile. English
+retains Guy/Aria and adds Andrew as the distinct first officer. Retries retain
+identities. MAYDAY is recorded as one continuous same-speaker source. Captain
+radio is dry in cockpit and VHF outside; controllers always use VHF, first-officer
+intercom stays dry, and cabin announcements use a separate PA preset.
+
+`ops/generate-us1549-radio.py` generates resumable takes; Fish credentials enter
+through hidden stdin and are never runtime dependencies.
+`ops/check-us1549.mjs --audio` verifies all files and their measured formats.
+
+### Failure-scene radio montage
+
+`game/src/failure/script.json` contains original bilingual field reports and
+instructor lines. Emergency-role casting is explicit in
+`game/src/failure/cast.json`: Chinese field reports/instructor use Xiaoxiao,
+dispatch uses Yunxi and responding units use Yunjian. English uses Andrew for
+field reports/instructor, Guy for dispatch and Aria for responding units.
+Yunxi and Yunjian are additional Edge voices for this emergency scene; the
+normal crew and airport controller casts retain their established identities.
+Controller calls and short
+acknowledgements are curated excerpts of the existing approved recordings;
+`game/src/failure/voice-assets.json` records source paths, hashes and excerpt
+ranges. The flight's selected controller is retained. These are game
+performances, not historical accident or police recordings.
+
+The active manifest references 223 content-addressed files in
+`public/assets/radio/failure/`, including 148 pre-rendered mixes (about 20 MiB
+for the active pack). Earlier
+published versions remain available to open sessions. Each mix retains
+normal speech speed while combining distinct voices, narrow-band distortion,
+carrier dropouts, synthetic noise and distant siren/boat ambience. The final
+confirmation has less masking as the background continuously fades. Field
+reports and final confirmations have their own narrow-band, saturated radio
+channel with carrier noise and opening/closing squelch, in addition to the scene
+ambience. Dispatch includes brief noisy dropouts while a slightly wider radio
+band preserves the distinction between the three principal speakers. Runtime
+streams a single mix and uses its measured cue timeline for captions.
+
+To regenerate, install `ops/requirements-tts.txt`, run
+`ops/generate-failure-audio.py`, then `ops/build-failure-mixes.py` and
+`node ops/check-failure-audio.mjs`. Upgrade the mix profile identity when
+changing DSP. Ordinary checkout tests/builds use the bundled media and do not
+call a synthesis service or require credentials.

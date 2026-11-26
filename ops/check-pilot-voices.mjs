@@ -9,7 +9,7 @@ const expected={};
 for(const[prefix,lines]of[['',script],...Object.entries(RADIO_PACKS).map(([name,p])=>[name+'-',p.zh])]){
  for(const[event,dialogue]of Object.entries(lines))for(const[index,[role,text]]of dialogue.entries())if(['pilot','tower'].includes(role))expected[prefix+event+'-'+index]={role,text};
 }
-assert.equal(pack.schema,2);
+assert.equal(pack.schema,3);
 assert.deepEqual(Object.keys(pack.voices),['e','g','h','j','xiaoxiao']);
 const signals=JSON.parse(await readFile(new URL('./assets/pilot-voices/manifest.json',import.meta.url),'utf8'));
 for(const[id,voice]of Object.entries(pack.voices)){
@@ -24,11 +24,20 @@ for(const[id,voice]of Object.entries(pack.voices)){
   assert.equal(item.text,expected[clip].text,id+': '+clip+' script changed');assert.equal(item.role,expected[clip].role);assert(item.duration>.2&&item.duration<35);
   assert(/^[a-z0-9-]+\.mp3$/.test(item.file));const bytes=await readFile(new URL('../public/assets/radio/pilots/'+id+'/'+item.file,import.meta.url));
   assert.equal(bytes.length,item.bytes);assert.equal(createHash('sha256').update(bytes).digest('hex'),item.sha256);
+  if(item.role==='pilot'){
+   assert(item.clean?.duration>.2&&item.clean.duration<35,'Missing unfiltered pilot recording');
+   const dry=await readFile(new URL('../public/assets/radio/pilots/'+id+'/'+item.clean.file,import.meta.url));
+   assert.equal(dry.length,item.clean.bytes);assert.equal(createHash('sha256').update(dry).digest('hex'),item.clean.sha256);
+  }
  }
 }
-for(const name of['radio-effects.js','radio-presets.js']){
- const source=await readFile(new URL('../game/src/comms/'+name,import.meta.url));
- const audition=await readFile(new URL('../public/assets/pilot-voices/'+name,import.meta.url));
- assert(source.equals(audition),'The game and audition must use the same '+name);
+const englishClean=JSON.parse(await readFile(new URL('../game/src/comms/english-pilot-clean.json',import.meta.url),'utf8'));
+const englishExpected={};
+const englishScript=JSON.parse(await readFile(new URL('../game/src/comms/script.en.json',import.meta.url),'utf8'));
+for(const[prefix,lines]of[['',englishScript],...Object.entries(RADIO_PACKS).map(([name,p])=>[name+'-',p.en])])for(const[event,dialogue]of Object.entries(lines))for(const[index,[role,text]]of dialogue.entries())if(role==='pilot')englishExpected[prefix+event+'-'+index]=text;
+assert.deepEqual(Object.keys(englishClean.clips).sort(),Object.keys(englishExpected).sort());
+for(const[id,item]of Object.entries(englishClean.clips)){
+ assert.equal(item.text,englishExpected[id]);assert(item.duration>.2&&item.duration<35);
+ const bytes=await readFile(new URL('../public/assets/radio/en/pilots/'+item.file,import.meta.url));assert.equal(bytes.length,item.bytes);assert.equal(createHash('sha256').update(bytes).digest('hex'),item.sha256);
 }
-console.log('Chinese radio: E / G / H / J / Xiaoxiao; '+Object.keys(expected).length+' pilot/tower lines per voice; all audio hashes and shared VHF presets verified.');
+console.log('Chinese radio: E / G / H / J / Xiaoxiao; '+Object.keys(expected).length+' pilot/tower lines per voice; all audio hashes and production signal sources verified.');

@@ -4,7 +4,7 @@
 
 An A320-inspired airliner game for the browser: cockpit and exterior views, live instruments,
 real-time 3D scenery, simplified flight physics and 13 progressively harder lessons.
-Switch the entire interface **and pilot/tower recordings** between Chinese and English. Each new flight assigns different Chinese pilot and controller voices from E, G, H, J and Xiaoxiao, preserving both speakers through retries, go-arounds and airport transitions. Radio uses the VHF treatment; English retains its existing voices.
+Switch the entire interface **and pilot/tower recordings** between Chinese and English. Chinese voices are selected from E, G, H, J and Xiaoxiao. One pilot stays with the flight; departure and destination controllers are selected independently and may match each other, while remaining different from the pilot. Pilots sound dry inside the cockpit and use live VHF outside; controllers always use VHF. English retains its existing voice profiles.
 
 ![Cockpit, instruments and English radio captions](docs/images/cockpit.png)
 
@@ -16,7 +16,7 @@ buildings/procedures. It is not a certified simulator or an aircraft operating g
 
 - **Flight Training**: the existing 13 lessons and their saved scores.
 - **Airline Operations**: Six airports — Beijing Daxing, Hangzhou Xiaoshan, Singapore Changi, Osaka Kansai, New York Kennedy and Los Angeles — connected by 30 directional flights on an offline world map, plus 12 standalone airport practices.
-- **Historical Scenarios**: Coming Soon; not playable yet.
+- **Historical Scenarios**: US Airways 1549 — make crew decisions after a bird strike, take control for a continuous Hudson River ditching, then maintain flotation for evacuation. Guided/challenge modes and unscored final-approach practice have separate records. Includes original bilingual crew recordings and marked opening/rescue presentations.
 
 Choose departure and destination on a Pacific-centred world map. Great-circle
 routes cross the date line correctly; route focus includes polar arcs. Flights
@@ -335,3 +335,13 @@ transition; recorded pilot/ATC dialogue finishes before fade. Destination
 preparation begins when cruise-skip conditions first qualify, with small corner
 progress text. Full black holds until the destination showcase is ready, then
 the airport introduction resumes with the player's selected view preserved.
+
+## Source-mapped woodlands
+
+All six mapped airport regions now include volumetric woodland scenery from OSM
+forest boundaries. Original shared tree models use stable estimated placement,
+heights and image-derived colours, with spatial LOD and processed-data caching.
+Airport surfaces, roads, water and building envelopes stay clear; tree contact
+and camera avoidance use the same source stands independently of visual LOD.
+This pass covers mapped woodland areas, rather than every street or garden tree.
+[Sources and implementation](game/src/airports/data/WOODLANDS.md).

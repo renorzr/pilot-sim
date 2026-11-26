@@ -1,8 +1,9 @@
 import assert from 'node:assert/strict';
 import{writeFile,readFile}from'node:fs/promises';
 import{connect}from'./cdp.mjs';
-import{groundTarget,departureOf}from'../game/src/missions/ground.js';
+import{groundTarget,departureOf,entryPoints}from'../game/src/missions/ground.js';
 import{canSkipCruise}from'../game/src/missions/airline.js';
+const verificationStarted=Date.now();
 const url=process.argv[2]||'http://127.0.0.1:18090/',cutMode=process.argv[3]||'manual',viewMode=process.argv[4]||'exterior',existingTarget=process.argv[5]||null,origin=process.argv[6]||'changi',b=await connect(url,existingTarget?480:800,existingTarget?300:500,existingTarget),report={cutMode,viewMode},sleep=ms=>new Promise(r=>setTimeout(r,ms)),clamp=(n,a,z)=>Math.max(a,Math.min(z,n));
 const snap=()=>b.evaluate('window.__flightSim.snapshot()'),tap=async(code,key)=>{await b.key(code,key);await b.key(code,key,'keyUp');};
 async function click(selector){await b.evaluate('document.querySelector('+JSON.stringify(selector)+').scrollIntoView({block:"nearest"})');await b.evaluate('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))');const p=await b.evaluate('(()=>{const r=document.querySelector('+JSON.stringify(selector)+').getBoundingClientRect();return{x:r.x+r.width/2,y:r.y+r.height/2}})()');await b.send('Input.dispatchMouseEvent',{type:'mouseMoved',...p});await sleep(150);await b.click(selector);}
@@ -35,7 +36,7 @@ try{
  await b.send('Input.dispatchMouseEvent',{type:'mousePressed',...stickPoint,button:'left',buttons:1,clickCount:1});
  const pointerId=await b.evaluate('window.__qaMouseId');
  assert(await b.evaluate('document.querySelector(".stick-pad").hasPointerCapture('+pointerId+')'),'The real pointer must be captured by the visible virtual stick');
- await b.evaluate('('+await readFile(new URL('./cruise-ui-pilot.js',import.meta.url),'utf8')+')('+JSON.stringify(cutMode)+','+pointerId+')');
+ await b.evaluate('('+await readFile(new URL('./cruise-ui-pilot.js',import.meta.url),'utf8')+')('+JSON.stringify(cutMode)+','+pointerId+','+JSON.stringify({departure:departureOf(origin),entryPoints:entryPoints(origin)})+')');
  console.log('Browser UI controller engaged through the virtual stick, throttle and fast-forward controls');
  let heldFast=false,fastPoint=null,eligibleAt=null,transitionSeen=false,abuse=false,releasedNetwork=false,blackAt=0,lastStage='',lastLog=-1,bellyShot=false;
  const deadline=Date.now()+900000;
@@ -93,11 +94,18 @@ try{
   assert(f.camera.distance>=84-1e-6&&f.camera.distance<=115+1e-6);assert.equal(f.camera.fov,42);
   assert.deepEqual(f.attitude,first.attitude);assert.equal(f.mass,first.mass);assert.deepEqual(f.engines,first.engines);assert.equal(f.gear,first.gear);assert.equal(f.flaps,first.flaps);
  }
- assert(source.at(-1).transition.elapsed<10.1,'B must reach black within10 seconds, independently of destination load');
- assert(frames.some(f=>f.dialogue?.includes('entering cruise')));assert(frames.some(f=>f.dialogue?.includes('continue cruise')));assert(frames.some(f=>f.audio.radioSrc?.includes('airline-cruise-entry-0')));assert(frames.some(f=>f.audio.radioSrc?.includes('airline-cruise-entry-1')));
+ assert(source.find(f=>f.transition.phase==='black')?.transition.elapsed<10.1,'B must reach black within10 seconds, independently of speech or destination loading');
+ for(const f of source)assert.equal(f.audio.radioPlaybackRate,1,'Transition radio must stay at normal speed');
+ assert(frames.some(f=>f.dialogue?.includes('request climb')));assert(frames.some(f=>f.dialogue?.includes('Climb to flight level')));assert(frames.some(f=>f.audio.radioSrc?.includes('airline-cruise-climb-0')));assert(frames.some(f=>f.audio.radioSrc?.includes('airline-cruise-climb-1')));assert(frames.some(f=>f.audio.radioSrc?.includes('airline-cruise-climb-2')));
  for(const f of frames.filter(f=>f.transition.committed&&f.transition.phase==='black')){assert.equal(f.transition.opacity,1);assert.equal(f.time,f.previewStarted);assert(['rgb(0, 0, 0)','rgba(0, 0, 0, 1)'].includes(f.colour));}
  if(viewMode==='exterior')assert.deepEqual(first.camera.selection,report.trace.before.camera.selection);
  assert.deepEqual(await b.evaluate('window.__flightSim.missingTranslations()'),[]);assert.deepEqual(await b.evaluate('document.body.innerText.split("\\n").filter(x=>/\\p{Script=Han}/u.test(x))'),[]);
- report.errors=b.events.filter(e=>e.method==='Runtime.exceptionThrown'||e.method==='Runtime.consoleAPICalled'&&e.params.type==='error'||e.method==='Log.entryAdded'&&e.params.entry.level==='error');assert.deepEqual(report.errors,[]);report.passed=true;console.log('Cruise transition browser passed',cutMode,viewMode,frames.length,'samples');
+ // Log.enable replays historical page diagnostics when resuming a UI retry.
+ // Keep every error from this run, including current network failures.
+ report.startedAt=verificationStarted;
+ report.errors=b.events.filter(e=>{
+  const timestamp=e.method==='Log.entryAdded'?e.params.entry.timestamp:e.params.timestamp;
+  return(timestamp===undefined||timestamp>=verificationStarted)&&(e.method==='Runtime.exceptionThrown'||e.method==='Runtime.consoleAPICalled'&&e.params.type==='error'||e.method==='Log.entryAdded'&&e.params.entry.level==='error');
+ });assert.deepEqual(report.errors,[]);report.passed=true;console.log('Cruise transition browser passed',cutMode,viewMode,frames.length,'samples');
 }catch(e){report.failure=e.message;await b.screenshot('qa/cruise-'+cutMode+'-failure.png').catch(()=>{});throw e;}
 finally{report.targetId=b.target.id;await writeFile('qa/cruise-'+cutMode+'-browser.json',JSON.stringify(report,null,2));if(report.passed)await b.close();else{console.log('Retained the test page for actual UI retry',b.target.id);process.exit(1);}}

@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "airportId": "changi",
+  "drivingSide": "left",
+  "path": "assets/cities/changi/traffic-v1.source.json.gz",
+  "bytes": 797779,
+  "decodedBytes": 4315065,
+  "decodedSha256": "44a37fd46d3b43eab9061908f0372092044532371515a597b8f6289e6913d2cc",
+  "sha256": "66d9c838a7f7b73713221d8de07b8ba34f425402e0a776b3de2b86abc5ffe661",
+  "fingerprint": "f10d9e10ac54f139240c4fb19012726d390a1e6892392826bd11d53398586093",
+  "counts": {
+    "motorway_link": 165,
+    "residential": 2181,
+    "primary": 882,
+    "primary_link": 98,
+    "trunk": 57,
+    "trunk_link": 21,
+    "secondary": 749,
+    "service": 3427,
+    "unclassified": 238,
+    "tertiary": 680,
+    "motorway": 120,
+    "secondary_link": 56,
+    "tertiary_link": 37
+  },
+  "provenance": {
+    "source": "https://download.geofabrik.de/asia/malaysia-singapore-brunei/malaysia-singapore-brunei-261120.osm.pbf",
+    "snapshot": "2026-11-20 cached extract",
+    "sha256": "47118e02f24fe2ca388b02197a84bbbae17090c5e892c696b2d387eba3eb585d",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors",
+    "estimates": "Missing direction/lane/speed/width values use road-class defaults. Bridge clearance is 6m per positive layer (max18m), with connected 6.5% approach ramps; not measured elevations. Traffic volumes are game estimates.",
+    "protection": "Surface public motor roads only; runway, taxiway and apron reservations excluded. Source tunnels retain connectivity but have no above-ground vehicles or pavement."
+  }
+}

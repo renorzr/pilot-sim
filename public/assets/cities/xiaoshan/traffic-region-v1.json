@@ -1,0 +1,4052 @@
+{
+  "schema": 1,
+  "airportId": "xiaoshan",
+  "bounds": [
+    -30000,
+    -30000,
+    30000,
+    30000
+  ],
+  "tileSize": 4000,
+  "innerRadiusM": 6000,
+  "center": [
+    -895.2152486115824,
+    -1660.8064029058664
+  ],
+  "frame": {
+    "threshold": [
+      120.41775512695312,
+      30.222122192382812
+    ],
+    "heading": 62.82579910613395
+  },
+  "drivingSide": "right",
+  "bridgeDeckReference": "terrain",
+  "tiles": [
+    {
+      "id": "-8:-8",
+      "bounds": [
+        -30000,
+        -30000,
+        -28000,
+        -28000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-8_-8-0af91b2a6332.json.gz",
+      "bytes": 4503,
+      "decodedBytes": 23084,
+      "sha256": "0af91b2a6332ed4d400056c99faffd3eb2ee7442d1202210c2e86ce618c6bce7",
+      "decodedSha256": "88f0668ee1e04c26a20ecffa8a2b048fd798254029007612b85db3f626244576",
+      "routes": 62,
+      "pieces": 62
+    },
+    {
+      "id": "-8:-7",
+      "bounds": [
+        -30000,
+        -28000,
+        -28000,
+        -24000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-8_-7-fe2bc6d3b9e0.json.gz",
+      "bytes": 3465,
+      "decodedBytes": 16296,
+      "sha256": "fe2bc6d3b9e06061d4024b9ba392d0375fa2679ed7a4f1ae186a8da31ae5a780",
+      "decodedSha256": "730e72856dac055a1f84f59a099e2ced91fb6e5b6aba48f6bb539a3fd765decd",
+      "routes": 44,
+      "pieces": 44
+    },
+    {
+      "id": "-8:-6",
+      "bounds": [
+        -30000,
+        -24000,
+        -28000,
+        -20000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-8_-6-00c8f04ac50c.json.gz",
+      "bytes": 4340,
+      "decodedBytes": 21477,
+      "sha256": "00c8f04ac50c44dc48a1cb10da1e9b2d4d19ea57394fd19db47f508830678ce8",
+      "decodedSha256": "15ae019350de9d066e72e986d69cedf22f9ecc08b5d99f256ac1bbbceb07cbb1",
+      "routes": 61,
+      "pieces": 61
+    },
+    {
+      "id": "-8:-5",
+      "bounds": [
+        -30000,
+        -20000,
+        -28000,
+        -16000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-8_-5-462a782a6cb6.json.gz",
+      "bytes": 8996,
+      "decodedBytes": 51063,
+      "sha256": "462a782a6cb61868edf1703ef5c488b4f4b9f8ef496c048fb36c9093e96c3675",
+      "decodedSha256": "3269f1e7b5170c06d18f81fb4a6093824629a4b6329199e0380fb80128e9d39b",
+      "routes": 162,
+      "pieces": 162
+    },
+    {
+      "id": "-8:-4",
+      "bounds": [
+        -30000,
+        -16000,
+        -28000,
+        -12000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-8_-4-bbace78cdf8a.json.gz",
+      "bytes": 6238,
+      "decodedBytes": 31193,
+      "sha256": "bbace78cdf8a9283a0e1cdb0ff2514ccef9939302f46beaacd811d1c615d8331",
+      "decodedSha256": "effe6ba937960cba72d7e6734e2845b7ccd1e6860648450a1b410f88ba7ec5e1",
+      "routes": 84,
+      "pieces": 84
+    },
+    {
+      "id": "-8:-3",
+      "bounds": [
+        -30000,
+        -12000,
+        -28000,
+        -8000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-8_-3-fc9495d55ce1.json.gz",
+      "bytes": 4470,
+      "decodedBytes": 21530,
+      "sha256": "fc9495d55ce1417bda144580c7cb338b37b26766d7b777ad05ea2442bd1d714f",
+      "decodedSha256": "389ffffcca0deabe5a8d72416f248877713bfaa14d884354831a2b1eb9971ab8",
+      "routes": 58,
+      "pieces": 58
+    },
+    {
+      "id": "-8:-2",
+      "bounds": [
+        -30000,
+        -8000,
+        -28000,
+        -4000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-8_-2-8192c5462c0c.json.gz",
+      "bytes": 7379,
+      "decodedBytes": 38439,
+      "sha256": "8192c5462c0cd6aba0016ee782e710d32cbb706c3b4bf277d87eefbcfbacff18",
+      "decodedSha256": "f3e2db2b3440cd9eb9ec8b40746aacfaf91da62ea0bb34cb23931bccd073a10e",
+      "routes": 109,
+      "pieces": 109
+    },
+    {
+      "id": "-8:-1",
+      "bounds": [
+        -30000,
+        -4000,
+        -28000,
+        0
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-8_-1-c6ea357f50c5.json.gz",
+      "bytes": 13173,
+      "decodedBytes": 71349,
+      "sha256": "c6ea357f50c50f31025c839fd279da22c9b5b08b0530126d401093fc862bc5a4",
+      "decodedSha256": "b03fe9a9856c2917ece61b6cad052f0368e878d2abeba7b2405f3bcadfce6d8f",
+      "routes": 208,
+      "pieces": 209
+    },
+    {
+      "id": "-8:0",
+      "bounds": [
+        -30000,
+        0,
+        -28000,
+        4000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-8_0-cbce685e8c3e.json.gz",
+      "bytes": 14000,
+      "decodedBytes": 80124,
+      "sha256": "cbce685e8c3ed1c96942f2243d3815d301bda4de5cb08ca1add7e42032cee876",
+      "decodedSha256": "d32a1ad70db9941c401b81576d6c0016408b7ac0d4703f7aff656eed41e265bc",
+      "routes": 255,
+      "pieces": 256
+    },
+    {
+      "id": "-8:1",
+      "bounds": [
+        -30000,
+        4000,
+        -28000,
+        8000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-8_1-05d0ee0bbf96.json.gz",
+      "bytes": 11434,
+      "decodedBytes": 58932,
+      "sha256": "05d0ee0bbf96eeafa6593206b519229e447c781e769634e2e77aabe1d61bd418",
+      "decodedSha256": "6b815850609e2de87638c948db01f6c658021bdef41ec907ee9888f12b8e0fef",
+      "routes": 162,
+      "pieces": 163
+    },
+    {
+      "id": "-8:2",
+      "bounds": [
+        -30000,
+        8000,
+        -28000,
+        12000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-8_2-ecea1bfe1505.json.gz",
+      "bytes": 15323,
+      "decodedBytes": 81899,
+      "sha256": "ecea1bfe15052cbf114a201163b10769c75df6ce96f3f39e19642d39809a5e9d",
+      "decodedSha256": "f0ab57fa52de1b095e5f180f5d9d9e60c798ac1646023195b4effce89c207d44",
+      "routes": 234,
+      "pieces": 237
+    },
+    {
+      "id": "-8:3",
+      "bounds": [
+        -30000,
+        12000,
+        -28000,
+        16000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-8_3-25a41b275008.json.gz",
+      "bytes": 19038,
+      "decodedBytes": 97765,
+      "sha256": "25a41b275008459a3c2635bfe9da1b98a16170456de2201cc5c24ce9642aa74e",
+      "decodedSha256": "7f22a1bcae8b0e3a8b4b58d00c07caab84727d2081e86f3491d75f752ce34228",
+      "routes": 269,
+      "pieces": 269
+    },
+    {
+      "id": "-8:4",
+      "bounds": [
+        -30000,
+        16000,
+        -28000,
+        20000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-8_4-3e710feb7dcb.json.gz",
+      "bytes": 25285,
+      "decodedBytes": 142535,
+      "sha256": "3e710feb7dcb9d7af7561f1ce1f05728d7231eafe4e1fc817cb1b4068b75efed",
+      "decodedSha256": "8aba3404c0923e7b5b0b7a81c5d1d819d65e047569514eb77d4c9eddfa3f7aa9",
+      "routes": 428,
+      "pieces": 429
+    },
+    {
+      "id": "-8:5",
+      "bounds": [
+        -30000,
+        20000,
+        -28000,
+        24000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-8_5-0369fb8698d0.json.gz",
+      "bytes": 17573,
+      "decodedBytes": 92869,
+      "sha256": "0369fb8698d0bbc0afef65e440af08185eb51df8e34cf91fede683f3e6205616",
+      "decodedSha256": "3b6c5b209d82edaaf633341fd8ce31c80b6692a7320823982045b78a5409df3c",
+      "routes": 272,
+      "pieces": 275
+    },
+    {
+      "id": "-8:6",
+      "bounds": [
+        -30000,
+        24000,
+        -28000,
+        28000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-8_6-e4ee7369ec7e.json.gz",
+      "bytes": 27092,
+      "decodedBytes": 147991,
+      "sha256": "e4ee7369ec7e2a6c210d511636e7ce850faee10c0fd5611326ff4c340a3b6135",
+      "decodedSha256": "2b8dd5fb9505c500f92dface6b8259f3fa6e36551042beed52c5021580a2f5f4",
+      "routes": 423,
+      "pieces": 423
+    },
+    {
+      "id": "-8:7",
+      "bounds": [
+        -30000,
+        28000,
+        -28000,
+        30000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-8_7-8452aa6b08ca.json.gz",
+      "bytes": 7805,
+      "decodedBytes": 36517,
+      "sha256": "8452aa6b08cacd00ae5a23db5819fd33519f758b97cc56e15dacd7ff02d753a0",
+      "decodedSha256": "e8274a6818156c08567a8aa432391121706d8c9a3ab64eafe49e1e7437fcd0fc",
+      "routes": 85,
+      "pieces": 86
+    },
+    {
+      "id": "-7:-8",
+      "bounds": [
+        -28000,
+        -30000,
+        -24000,
+        -28000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-7_-8-075db580b06a.json.gz",
+      "bytes": 10335,
+      "decodedBytes": 53978,
+      "sha256": "075db580b06a973d49e9839ac22f61aef1ea325acc7b2587be8d97de7b0bbef3",
+      "decodedSha256": "bda62c37f11ab59f537bc33f00914db90878f9d526a2f7af3d5a679417d449a0",
+      "routes": 139,
+      "pieces": 139
+    },
+    {
+      "id": "-7:-7",
+      "bounds": [
+        -28000,
+        -28000,
+        -24000,
+        -24000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-7_-7-72fcc254c4e0.json.gz",
+      "bytes": 11736,
+      "decodedBytes": 63649,
+      "sha256": "72fcc254c4e08c5e0bf01293eb44a532ff982d0ef8ff5c3fbf3e2da579140e25",
+      "decodedSha256": "17da9c223ea457f36c75cdd96ef4b1289d3f68a7236db3729fba0a60bb909738",
+      "routes": 178,
+      "pieces": 178
+    },
+    {
+      "id": "-7:-6",
+      "bounds": [
+        -28000,
+        -24000,
+        -24000,
+        -20000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-7_-6-4737c3da930b.json.gz",
+      "bytes": 7223,
+      "decodedBytes": 35261,
+      "sha256": "4737c3da930b54c3a276235930952f6890d8a4829aeb53fc8b9325a9c3ff2a9b",
+      "decodedSha256": "ab61aca4590ae0a0b0cb1e769ed1f11dff06cc0ff1e56e3d045d3205af3d8a2c",
+      "routes": 95,
+      "pieces": 95
+    },
+    {
+      "id": "-7:-5",
+      "bounds": [
+        -28000,
+        -20000,
+        -24000,
+        -16000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-7_-5-3064b90a5896.json.gz",
+      "bytes": 5912,
+      "decodedBytes": 29530,
+      "sha256": "3064b90a58964d61be78ad4356e17084c1a8452ffc2b890d52f2d7ed38a7ff5d",
+      "decodedSha256": "85f9eb84446ac974f3dc20ab867b1838fa391533c9a8364db6658715bd1117ec",
+      "routes": 83,
+      "pieces": 84
+    },
+    {
+      "id": "-7:-4",
+      "bounds": [
+        -28000,
+        -16000,
+        -24000,
+        -12000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-7_-4-49a8232a82d4.json.gz",
+      "bytes": 11111,
+      "decodedBytes": 60116,
+      "sha256": "49a8232a82d49c376908ae6f2ab405be75407d366d6ec1dec13024b78da59012",
+      "decodedSha256": "86c64fb405b26784695d4de5a5ad677903e11332a9dfca32bd6b9d63800d3188",
+      "routes": 187,
+      "pieces": 187
+    },
+    {
+      "id": "-7:-3",
+      "bounds": [
+        -28000,
+        -12000,
+        -24000,
+        -8000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-7_-3-0b1d68e4b51f.json.gz",
+      "bytes": 11161,
+      "decodedBytes": 65565,
+      "sha256": "0b1d68e4b51fbf6d3e94571bcce713a238fb7e7a02ad5c634f92b2b216533d4d",
+      "decodedSha256": "cb741a0b1eb4c55f777a600ff9a397ee1019a0d49b9fbd0ad22d585bbd3d35e6",
+      "routes": 224,
+      "pieces": 224
+    },
+    {
+      "id": "-7:-2",
+      "bounds": [
+        -28000,
+        -8000,
+        -24000,
+        -4000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-7_-2-8c4ba5966c01.json.gz",
+      "bytes": 14493,
+      "decodedBytes": 85858,
+      "sha256": "8c4ba5966c011a13f7f6f3416278ae9f73b65556eda100cb4f1ed5cfbca1edc0",
+      "decodedSha256": "ce2e7dd4864222eba3f6121c4ba221fd2d640b098b2082ea17a5e073790e2c33",
+      "routes": 290,
+      "pieces": 290
+    },
+    {
+      "id": "-7:-1",
+      "bounds": [
+        -28000,
+        -4000,
+        -24000,
+        0
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-7_-1-34d2681e12e9.json.gz",
+      "bytes": 35561,
+      "decodedBytes": 201665,
+      "sha256": "34d2681e12e986dfd97282e7cbb093fb4113ea6313b739066485f6402793bae1",
+      "decodedSha256": "d0d48138cc5a2dd5e236e80f0fa4e86880df63e20d0777c198fec49528a720a3",
+      "routes": 656,
+      "pieces": 658
+    },
+    {
+      "id": "-7:0",
+      "bounds": [
+        -28000,
+        0,
+        -24000,
+        4000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-7_0-f2077efad8cf.json.gz",
+      "bytes": 39021,
+      "decodedBytes": 206965,
+      "sha256": "f2077efad8cfdfb88cefc54eb6938d24ef2d767dcdf6aa53ac4a9a3d551290eb",
+      "decodedSha256": "98a935cdd0bb826c38708d92e2bad31961ad6a6d7b39b19317bc9bc67be1e64e",
+      "routes": 617,
+      "pieces": 617
+    },
+    {
+      "id": "-7:1",
+      "bounds": [
+        -28000,
+        4000,
+        -24000,
+        8000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-7_1-7ca587ba8961.json.gz",
+      "bytes": 26093,
+      "decodedBytes": 132410,
+      "sha256": "7ca587ba896160e568ebea3a740ce58fe8a26d8dfba5a36815756020bcdf0119",
+      "decodedSha256": "fc148552489efcbe30ae60246c68d72d254bfbb6814ebf196aa162dfb908f312",
+      "routes": 340,
+      "pieces": 345
+    },
+    {
+      "id": "-7:2",
+      "bounds": [
+        -28000,
+        8000,
+        -24000,
+        12000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-7_2-6dc65bba15a1.json.gz",
+      "bytes": 31150,
+      "decodedBytes": 159184,
+      "sha256": "6dc65bba15a1bb2e29711b16822eb0ef8cdfed658c791606dcb36f0a3799cc3d",
+      "decodedSha256": "79eed5a0c3aed2e2f021045467903f697de7a13aafda202a632266842678f9a9",
+      "routes": 404,
+      "pieces": 407
+    },
+    {
+      "id": "-7:3",
+      "bounds": [
+        -28000,
+        12000,
+        -24000,
+        16000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-7_3-486aa759d919.json.gz",
+      "bytes": 31995,
+      "decodedBytes": 185907,
+      "sha256": "486aa759d9190656b1688a38898571eb118ca8f3e70f2f606b98de23388c7689",
+      "decodedSha256": "ea4400f221e467d2343102c7963d27f0aff149f1b6402a28f1a05795d66a8a78",
+      "routes": 577,
+      "pieces": 578
+    },
+    {
+      "id": "-7:4",
+      "bounds": [
+        -28000,
+        16000,
+        -24000,
+        20000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-7_4-194f2d96cb84.json.gz",
+      "bytes": 39029,
+      "decodedBytes": 233241,
+      "sha256": "194f2d96cb849a6169e48139f26600b872a33c0e5a45ffae4408256981885690",
+      "decodedSha256": "f03b3868f46b9ce22ca814111348edfcb13256b17d9a1fb29edc7449a629e81f",
+      "routes": 773,
+      "pieces": 776
+    },
+    {
+      "id": "-7:5",
+      "bounds": [
+        -28000,
+        20000,
+        -24000,
+        24000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-7_5-fe6e6571f279.json.gz",
+      "bytes": 40682,
+      "decodedBytes": 235330,
+      "sha256": "fe6e6571f279102f7c187a3df3054de857236d5fb8c8644c0f8eca971ae72e48",
+      "decodedSha256": "a7289f49e545d3a0684607f1c81cba9bf17c4d4b0db67c4fe8e5598eb46c81e0",
+      "routes": 776,
+      "pieces": 780
+    },
+    {
+      "id": "-7:6",
+      "bounds": [
+        -28000,
+        24000,
+        -24000,
+        28000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-7_6-f9de2a9b6365.json.gz",
+      "bytes": 50132,
+      "decodedBytes": 284125,
+      "sha256": "f9de2a9b63653613abf9f395ad486ba75f805b3d89f28b0e01663472d8cf2dc6",
+      "decodedSha256": "12c144c64ae29d49760b81a7f5297311b7ef1c5440db9d67d700b82dd18ef11f",
+      "routes": 904,
+      "pieces": 906
+    },
+    {
+      "id": "-7:7",
+      "bounds": [
+        -28000,
+        28000,
+        -24000,
+        30000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-7_7-7b325908d531.json.gz",
+      "bytes": 16887,
+      "decodedBytes": 84963,
+      "sha256": "7b325908d531ff12a24cfbace8717d7df6963850bf02b76d82b6fd6344bb638b",
+      "decodedSha256": "cdf4e17cc3d6992c7f43d42677f2d905a82eb5c269573d9d32a2c1341ae113ea",
+      "routes": 222,
+      "pieces": 223
+    },
+    {
+      "id": "-6:-8",
+      "bounds": [
+        -24000,
+        -30000,
+        -20000,
+        -28000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-6_-8-42a5434e444e.json.gz",
+      "bytes": 5810,
+      "decodedBytes": 30002,
+      "sha256": "42a5434e444e5c1f911e3b90389ff9fb83fe1f651bb448bae8392eb26974007a",
+      "decodedSha256": "26cebbd59af6cf12980e468dfc6d3c1bfdbe3a1a6eec8346e04fb39bc7b83e1a",
+      "routes": 80,
+      "pieces": 80
+    },
+    {
+      "id": "-6:-7",
+      "bounds": [
+        -24000,
+        -28000,
+        -20000,
+        -24000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-6_-7-c4f5a0229017.json.gz",
+      "bytes": 7527,
+      "decodedBytes": 39475,
+      "sha256": "c4f5a0229017ed9143aaabd0a2bf0bf2dc109a58f339fc6e43063d59e37ea673",
+      "decodedSha256": "2d72c7346ff1fd57117fd4ec6ca5e128500ff8f111a6e3d1113e2b73669a17aa",
+      "routes": 103,
+      "pieces": 104
+    },
+    {
+      "id": "-6:-6",
+      "bounds": [
+        -24000,
+        -24000,
+        -20000,
+        -20000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-6_-6-151713d9daa7.json.gz",
+      "bytes": 15223,
+      "decodedBytes": 92095,
+      "sha256": "151713d9daa709dd85de0da72dda34afecde05decb2ac175d6164ee700934540",
+      "decodedSha256": "b8c0fcad6ef6890c1d25c61795193d9bdca34e689bcb3fe24474b329be615e47",
+      "routes": 300,
+      "pieces": 302
+    },
+    {
+      "id": "-6:-5",
+      "bounds": [
+        -24000,
+        -20000,
+        -20000,
+        -16000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-6_-5-7f44db5755e0.json.gz",
+      "bytes": 17668,
+      "decodedBytes": 109574,
+      "sha256": "7f44db5755e0a17613d5aa5a5d2916cf82f71b177d8b68799cabdbe48c712c03",
+      "decodedSha256": "31190dc3f0e783b516e40dc75c922e19260d693f43f77f5747fb241bd74b0128",
+      "routes": 366,
+      "pieces": 366
+    },
+    {
+      "id": "-6:-4",
+      "bounds": [
+        -24000,
+        -16000,
+        -20000,
+        -12000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-6_-4-24adda9d1f49.json.gz",
+      "bytes": 31704,
+      "decodedBytes": 186985,
+      "sha256": "24adda9d1f492f3600e2125779246a1b5b6ba497bc9173c89f51885366411ad1",
+      "decodedSha256": "b61270c9f34fce7380818c1730f8d51493d6f03ca5ef56c478027770f26954f0",
+      "routes": 604,
+      "pieces": 605
+    },
+    {
+      "id": "-6:-3",
+      "bounds": [
+        -24000,
+        -12000,
+        -20000,
+        -8000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-6_-3-2d3e0b7de5f3.json.gz",
+      "bytes": 12363,
+      "decodedBytes": 66593,
+      "sha256": "2d3e0b7de5f3187aa915f07c290ff98695a36fc4bfdbf79c22fe4b2080e35294",
+      "decodedSha256": "f2efa1c910adb2ae8bacf61c219cf7a31358b1bcb4111d337df67a38afe93334",
+      "routes": 205,
+      "pieces": 205
+    },
+    {
+      "id": "-6:-2",
+      "bounds": [
+        -24000,
+        -8000,
+        -20000,
+        -4000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-6_-2-0d622d18a1ea.json.gz",
+      "bytes": 22122,
+      "decodedBytes": 126120,
+      "sha256": "0d622d18a1eab1909c56dc0539ed6eb96628cebd983bdbe3d63c9119732726b4",
+      "decodedSha256": "deed2bcc14811995d081a19fa900e1642480e36c5a492ecfef09131cfe28afc9",
+      "routes": 403,
+      "pieces": 403
+    },
+    {
+      "id": "-6:-1",
+      "bounds": [
+        -24000,
+        -4000,
+        -20000,
+        0
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-6_-1-ac5a16243740.json.gz",
+      "bytes": 25121,
+      "decodedBytes": 135982,
+      "sha256": "ac5a16243740582fcfdda456c855ead7b4aaf639228f064a7b3060184c274dad",
+      "decodedSha256": "bbe71b32b766026d6739df69def81eafa468f4a4d18eb1090c953d86ed3f7c4c",
+      "routes": 402,
+      "pieces": 403
+    },
+    {
+      "id": "-6:0",
+      "bounds": [
+        -24000,
+        0,
+        -20000,
+        4000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-6_0-24568d8d0fd9.json.gz",
+      "bytes": 45661,
+      "decodedBytes": 252535,
+      "sha256": "24568d8d0fd9ffbd78b6f85df9b2272b57fb231ea765bb7d0c184acede02268c",
+      "decodedSha256": "93e1bebb811a8dbddb625b05df6ff5e40b467ad24c9fc611a7bbe6a2113a1390",
+      "routes": 798,
+      "pieces": 800
+    },
+    {
+      "id": "-6:1",
+      "bounds": [
+        -24000,
+        4000,
+        -20000,
+        8000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-6_1-d95cbf2a5553.json.gz",
+      "bytes": 40439,
+      "decodedBytes": 223086,
+      "sha256": "d95cbf2a555388dcfb912da1990212629cdedd6eb01cbd402c8f08f100ddd9c9",
+      "decodedSha256": "a19796f3ae3879f86381f784462f454f4818cd7e7e8d3cb7b48e00de4eb98229",
+      "routes": 656,
+      "pieces": 657
+    },
+    {
+      "id": "-6:2",
+      "bounds": [
+        -24000,
+        8000,
+        -20000,
+        12000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-6_2-35b47bf07159.json.gz",
+      "bytes": 47515,
+      "decodedBytes": 274489,
+      "sha256": "35b47bf0715966cdcd49c16a0dc39be9977b18dd7db329879d8c7b1b878c54b0",
+      "decodedSha256": "61157ec5bb81381d8054f11468894258240b6f4ffbca7995f799003095d3c9f8",
+      "routes": 901,
+      "pieces": 904
+    },
+    {
+      "id": "-6:3",
+      "bounds": [
+        -24000,
+        12000,
+        -20000,
+        16000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-6_3-6e622720c5dd.json.gz",
+      "bytes": 77241,
+      "decodedBytes": 445560,
+      "sha256": "6e622720c5dd3f90e883647d4bb1f1aaf646d8eabc6ea3cbbbd7c3fda44a2112",
+      "decodedSha256": "77ae58c64cf69d4ef2d18d39361e97b035aa90c8696e89db0d7522bca23757bb",
+      "routes": 1325,
+      "pieces": 1329
+    },
+    {
+      "id": "-6:4",
+      "bounds": [
+        -24000,
+        16000,
+        -20000,
+        20000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-6_4-c608d77e228c.json.gz",
+      "bytes": 114905,
+      "decodedBytes": 701592,
+      "sha256": "c608d77e228cd0d3dcc67acc3dbf0aae0b7e786cd0e45a9c0cbef6571de82f08",
+      "decodedSha256": "7b23a0390ef11fd15d01aacdb395ac30c90ff120c275214e62fde216b3ba9751",
+      "routes": 2202,
+      "pieces": 2203
+    },
+    {
+      "id": "-6:5",
+      "bounds": [
+        -24000,
+        20000,
+        -20000,
+        24000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-6_5-0ac96c2327ba.json.gz",
+      "bytes": 53465,
+      "decodedBytes": 294832,
+      "sha256": "0ac96c2327bae143b43cf7f530b04f6861b2f109540753bb3d870e05d6729461",
+      "decodedSha256": "4aec0ee012e0639c512bbdca79182c017d7f44c20e15c2e1629dabd95755a356",
+      "routes": 925,
+      "pieces": 927
+    },
+    {
+      "id": "-6:6",
+      "bounds": [
+        -24000,
+        24000,
+        -20000,
+        28000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-6_6-ad6f94939cd6.json.gz",
+      "bytes": 51884,
+      "decodedBytes": 292159,
+      "sha256": "ad6f94939cd666c77d9fec94bcc0be98aee485327df23b958498b92caa33d699",
+      "decodedSha256": "03a600387a2a200031c7df6ab71c8bbefae8d3868d892d245e987bac164084a9",
+      "routes": 888,
+      "pieces": 892
+    },
+    {
+      "id": "-6:7",
+      "bounds": [
+        -24000,
+        28000,
+        -20000,
+        30000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-6_7-6e32fb1d2691.json.gz",
+      "bytes": 25193,
+      "decodedBytes": 131023,
+      "sha256": "6e32fb1d269171859b3f50cf26f444586efe7bef4c2d160a027095c7d0f70040",
+      "decodedSha256": "c02dcf6d369814c11342b14d458c9a769b6397535e041aec49cefd6b3408dd7a",
+      "routes": 362,
+      "pieces": 362
+    },
+    {
+      "id": "-5:-8",
+      "bounds": [
+        -20000,
+        -30000,
+        -16000,
+        -28000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-5_-8-79845c4cbb69.json.gz",
+      "bytes": 7633,
+      "decodedBytes": 45084,
+      "sha256": "79845c4cbb6986b93588cb18d4f2dcaf6c978314607ce8b32cdd06eac9851109",
+      "decodedSha256": "4a2730b25ef25c17f8259ada78a1aba1c994aa753b39fec540ddfcbccbf6d556",
+      "routes": 150,
+      "pieces": 151
+    },
+    {
+      "id": "-5:-7",
+      "bounds": [
+        -20000,
+        -28000,
+        -16000,
+        -24000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-5_-7-d5640307296d.json.gz",
+      "bytes": 12742,
+      "decodedBytes": 74047,
+      "sha256": "d5640307296d022a099f848c2be31647aee67a3f8d522d6ba479d2ee07abb810",
+      "decodedSha256": "37a975f82a931d6e723c6cc2c3db4f9b8c5f519143f3488faacff95c2782621d",
+      "routes": 241,
+      "pieces": 241
+    },
+    {
+      "id": "-5:-6",
+      "bounds": [
+        -20000,
+        -24000,
+        -16000,
+        -20000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-5_-6-48fba4eb0911.json.gz",
+      "bytes": 14703,
+      "decodedBytes": 84045,
+      "sha256": "48fba4eb0911d0757d96086d7d5fba25901b9f42c87a7a28b3393ec59318aa15",
+      "decodedSha256": "234a21b6f45c5645a529d167f92cdce7cf09ce3185ffb9346331d51b95f59fda",
+      "routes": 267,
+      "pieces": 267
+    },
+    {
+      "id": "-5:-5",
+      "bounds": [
+        -20000,
+        -20000,
+        -16000,
+        -16000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-5_-5-d18adff0f954.json.gz",
+      "bytes": 11999,
+      "decodedBytes": 68623,
+      "sha256": "d18adff0f9540b05143c15fe3a054593f901d8f7bee53b09714c70d1ada19ec1",
+      "decodedSha256": "7f17953e336bf4834f82b3c5039398c89efb8fd9676a0a4991f5ff1e53cb74a2",
+      "routes": 217,
+      "pieces": 218
+    },
+    {
+      "id": "-5:-4",
+      "bounds": [
+        -20000,
+        -16000,
+        -16000,
+        -12000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-5_-4-5f52d5251551.json.gz",
+      "bytes": 21479,
+      "decodedBytes": 127030,
+      "sha256": "5f52d52515515d6dfb6c3d1989fe7caca1740b1cfcd197e8e8413cd3a26ed747",
+      "decodedSha256": "0d5aef30f6347e3c2019f0908ceeb55fea506ef9ea5895fddbea54d03c586f26",
+      "routes": 411,
+      "pieces": 412
+    },
+    {
+      "id": "-5:-3",
+      "bounds": [
+        -20000,
+        -12000,
+        -16000,
+        -8000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-5_-3-4fd097c2f5ec.json.gz",
+      "bytes": 23191,
+      "decodedBytes": 129719,
+      "sha256": "4fd097c2f5ece062836f8cc6917bfea38087bcca09752a77b8e7df6a366e8758",
+      "decodedSha256": "148c802d763f14efb05d7a09056728f1621c53be467f873603431573af3e16c2",
+      "routes": 403,
+      "pieces": 405
+    },
+    {
+      "id": "-5:-2",
+      "bounds": [
+        -20000,
+        -8000,
+        -16000,
+        -4000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-5_-2-eed123e94af9.json.gz",
+      "bytes": 20854,
+      "decodedBytes": 114638,
+      "sha256": "eed123e94af9460d8c836e99dd1f340324b1f31a64253edd94d5e71a99a2f1db",
+      "decodedSha256": "96237b5efafbe4f3347a3e1fed263f1d8bbc0e6f10c4848f482608211070702a",
+      "routes": 345,
+      "pieces": 347
+    },
+    {
+      "id": "-5:-1",
+      "bounds": [
+        -20000,
+        -4000,
+        -16000,
+        0
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-5_-1-5e46a57fa7e4.json.gz",
+      "bytes": 21699,
+      "decodedBytes": 122598,
+      "sha256": "5e46a57fa7e4ea3c2c85837d0ecce0c7ce90cc0ff75abafe0ae68eac658795c0",
+      "decodedSha256": "cb742ab768a3a29d9a1084b5ebce0f3ab27d50f397dbe720e165ad9a48421434",
+      "routes": 376,
+      "pieces": 376
+    },
+    {
+      "id": "-5:0",
+      "bounds": [
+        -20000,
+        0,
+        -16000,
+        4000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-5_0-c1165706f180.json.gz",
+      "bytes": 26072,
+      "decodedBytes": 145079,
+      "sha256": "c1165706f180da473de73c1206aeb52b2dca0530efa52b5e9ac7fecb15e7cdd5",
+      "decodedSha256": "ea3e6788ee344bcc4bdc2309597ea2ee513e8af493783c0478374e76ff58c03d",
+      "routes": 454,
+      "pieces": 456
+    },
+    {
+      "id": "-5:1",
+      "bounds": [
+        -20000,
+        4000,
+        -16000,
+        8000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-5_1-6a86a799eb18.json.gz",
+      "bytes": 41959,
+      "decodedBytes": 222664,
+      "sha256": "6a86a799eb183af27b3a1aa4211fb3a066ebd478e85eeaccd7f1828f6d56b51d",
+      "decodedSha256": "1741ac81c0986f565c2790d4bfcfcf416d3dc8f5e0c2a7e52222031a442c9053",
+      "routes": 616,
+      "pieces": 622
+    },
+    {
+      "id": "-5:2",
+      "bounds": [
+        -20000,
+        8000,
+        -16000,
+        12000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-5_2-04bbff642146.json.gz",
+      "bytes": 45784,
+      "decodedBytes": 250385,
+      "sha256": "04bbff6421462b6f02ddd6fd196dc6ed01a8164cfa6ff11780c1f569aade9e10",
+      "decodedSha256": "cedb3f3846558eadc04536598f83269a854140120ef8134fece570c192a96cfb",
+      "routes": 743,
+      "pieces": 747
+    },
+    {
+      "id": "-5:3",
+      "bounds": [
+        -20000,
+        12000,
+        -16000,
+        16000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-5_3-697c9d989b98.json.gz",
+      "bytes": 82508,
+      "decodedBytes": 474215,
+      "sha256": "697c9d989b989bd10882f62c6192fcf0bb203ee6d74151c4b0c211f07c310b4c",
+      "decodedSha256": "f561ed9f6755f18a38ba1d95b6fb16822efadd1053997c988f2046d79fbd063f",
+      "routes": 1469,
+      "pieces": 1472
+    },
+    {
+      "id": "-5:4",
+      "bounds": [
+        -20000,
+        16000,
+        -16000,
+        20000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-5_4-69e06a8877f6.json.gz",
+      "bytes": 122093,
+      "decodedBytes": 744488,
+      "sha256": "69e06a8877f61f8cef3bacca07ffefbaf2b150d7899f1cb0e3714db0eb799f0d",
+      "decodedSha256": "c32a8dc11fe4ea13f127542f69c4ba59e1766589bc6eca20601cc62c7a0e2a96",
+      "routes": 2425,
+      "pieces": 2430
+    },
+    {
+      "id": "-5:5",
+      "bounds": [
+        -20000,
+        20000,
+        -16000,
+        24000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-5_5-6e5c9f36e632.json.gz",
+      "bytes": 77676,
+      "decodedBytes": 444002,
+      "sha256": "6e5c9f36e632343da40dd9c954044df5903a7a159cff89ad5a2a0e2dc7392789",
+      "decodedSha256": "686821763b8725a6987a8105fcec5085da011248e98f7df418d7da9e62bddabf",
+      "routes": 1370,
+      "pieces": 1373
+    },
+    {
+      "id": "-5:6",
+      "bounds": [
+        -20000,
+        24000,
+        -16000,
+        28000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-5_6-d6a4e5a2b7a3.json.gz",
+      "bytes": 34557,
+      "decodedBytes": 180627,
+      "sha256": "d6a4e5a2b7a3dadd0d7fbb4e8927e50a49540bbeb0bd2a5858d91865636bafa7",
+      "decodedSha256": "3256144f5abc36ff3063be4c96a54d0f1f57175ded12f0ba2dc0d78756253f76",
+      "routes": 484,
+      "pieces": 484
+    },
+    {
+      "id": "-5:7",
+      "bounds": [
+        -20000,
+        28000,
+        -16000,
+        30000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-5_7-30feb8159eb7.json.gz",
+      "bytes": 13070,
+      "decodedBytes": 60238,
+      "sha256": "30feb8159eb7238c5711029d9ba96c7bc41fd1ebbeea69e1f7bc16fd5d8da55c",
+      "decodedSha256": "2020b9bc192676e8a92067b722505afaf762587c1c95106684c0028c47d75684",
+      "routes": 131,
+      "pieces": 131
+    },
+    {
+      "id": "-4:-8",
+      "bounds": [
+        -16000,
+        -30000,
+        -12000,
+        -28000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-4_-8-66b6d4237125.json.gz",
+      "bytes": 4880,
+      "decodedBytes": 22803,
+      "sha256": "66b6d42371257161e76cef11a0831d7b06cb198ef8071c1a995fc35fb0cc5a6c",
+      "decodedSha256": "2ed185125c638d7ed8a910335e498515ac87ed87d79423809c289dc6dabccefa",
+      "routes": 57,
+      "pieces": 57
+    },
+    {
+      "id": "-4:-7",
+      "bounds": [
+        -16000,
+        -28000,
+        -12000,
+        -24000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-4_-7-0193580334b0.json.gz",
+      "bytes": 7695,
+      "decodedBytes": 37341,
+      "sha256": "0193580334b0cd5c603a0956084c5637e662d1afcc3faea3c16a85ccffb8670c",
+      "decodedSha256": "99764e236c065a48f060a5bb8e461e8b47f4d2646d92e0eb8de8bf4efc856423",
+      "routes": 99,
+      "pieces": 100
+    },
+    {
+      "id": "-4:-6",
+      "bounds": [
+        -16000,
+        -24000,
+        -12000,
+        -20000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-4_-6-9d8e85bbfa6a.json.gz",
+      "bytes": 12590,
+      "decodedBytes": 65831,
+      "sha256": "9d8e85bbfa6a897eabe4ae22c67c924f0bb90dfd33ca791fcf890cada59a95e4",
+      "decodedSha256": "2a637ec1596f9f3927ed4223793432d8eefa5a4be5acf4d5c17d6a89f1188e7e",
+      "routes": 191,
+      "pieces": 192
+    },
+    {
+      "id": "-4:-5",
+      "bounds": [
+        -16000,
+        -20000,
+        -12000,
+        -16000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-4_-5-049a90a2ac14.json.gz",
+      "bytes": 11185,
+      "decodedBytes": 58398,
+      "sha256": "049a90a2ac14a0c4f8e8652741717b889e697020d49e3c2664e3a3b64e9db91e",
+      "decodedSha256": "b731f8a50b124cf9795cec6224f4fd570bfd24a386692d2f807a45bc90346286",
+      "routes": 168,
+      "pieces": 168
+    },
+    {
+      "id": "-4:-4",
+      "bounds": [
+        -16000,
+        -16000,
+        -12000,
+        -12000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-4_-4-28737462086a.json.gz",
+      "bytes": 6691,
+      "decodedBytes": 27269,
+      "sha256": "28737462086aa94930bcc5d8d38dc73dc3115ad275052e6b6e08832940b0c401",
+      "decodedSha256": "2201d4d10a6f380695fa640455957f058df1d6bf6faa0c11acab94603be35b3d",
+      "routes": 53,
+      "pieces": 53
+    },
+    {
+      "id": "-4:-3",
+      "bounds": [
+        -16000,
+        -12000,
+        -12000,
+        -8000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-4_-3-179182caa21d.json.gz",
+      "bytes": 6653,
+      "decodedBytes": 29046,
+      "sha256": "179182caa21d28cebe96e127f23616c9deb7b72c25b3d42b21b10043e9ad412f",
+      "decodedSha256": "eba1a0598054e5eab4d00cd21f3602d067aa2e32e410896210f943486dd97ab3",
+      "routes": 63,
+      "pieces": 63
+    },
+    {
+      "id": "-4:-2",
+      "bounds": [
+        -16000,
+        -8000,
+        -12000,
+        -4000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-4_-2-640dd2d33a8d.json.gz",
+      "bytes": 11002,
+      "decodedBytes": 61234,
+      "sha256": "640dd2d33a8d13c4d468b9a45d4080d77d1bf37c086c2d5f9d5320990de0b139",
+      "decodedSha256": "f570d01d6c1fa52dbd10f82a1dc3678fd09b08849c239d30afeccee47c34e932",
+      "routes": 194,
+      "pieces": 196
+    },
+    {
+      "id": "-4:-1",
+      "bounds": [
+        -16000,
+        -4000,
+        -12000,
+        0
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-4_-1-e802a072a773.json.gz",
+      "bytes": 27578,
+      "decodedBytes": 155969,
+      "sha256": "e802a072a7733e6e80662dacc36c4c3b55333d69e1f0a99c60c93286ee63edd5",
+      "decodedSha256": "19fe79b816882e6bf7b7539fdc88544e07874f1667ec53be66c7b6c64ec7ef35",
+      "routes": 490,
+      "pieces": 492
+    },
+    {
+      "id": "-4:0",
+      "bounds": [
+        -16000,
+        0,
+        -12000,
+        4000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-4_0-a2e186875e3e.json.gz",
+      "bytes": 45655,
+      "decodedBytes": 273146,
+      "sha256": "a2e186875e3e91b229e3e6ce5255a1d443e51bb07dbe305a01fe2222b06889b4",
+      "decodedSha256": "17e1e6c06710f157b757c4c5e8c77ab357a20acf6f80c26c64f9bf0e4de8e416",
+      "routes": 868,
+      "pieces": 871
+    },
+    {
+      "id": "-4:1",
+      "bounds": [
+        -16000,
+        4000,
+        -12000,
+        8000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-4_1-9e47a6d98745.json.gz",
+      "bytes": 45423,
+      "decodedBytes": 254879,
+      "sha256": "9e47a6d987455ecdd1b1935de15d6cd0185f9e906e46a67190702ecf50678bbf",
+      "decodedSha256": "4b050d237071c56f155d5a05f5a88721e34ffeb6eedc2bbd68db2fa9b45af4d6",
+      "routes": 793,
+      "pieces": 793
+    },
+    {
+      "id": "-4:2",
+      "bounds": [
+        -16000,
+        8000,
+        -12000,
+        12000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-4_2-3e2fbe9d9a39.json.gz",
+      "bytes": 37794,
+      "decodedBytes": 200056,
+      "sha256": "3e2fbe9d9a39eedc458cd1fb13c64c6cd209505612217ab9431b1c61232a34bd",
+      "decodedSha256": "4365a6071734eb2da0856a9fa50bad4ddc99565c1b3c9adc89a3b281b4f87971",
+      "routes": 565,
+      "pieces": 567
+    },
+    {
+      "id": "-4:3",
+      "bounds": [
+        -16000,
+        12000,
+        -12000,
+        16000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-4_3-d860f6c5f178.json.gz",
+      "bytes": 56679,
+      "decodedBytes": 309243,
+      "sha256": "d860f6c5f1782237c76714d0573a22be9993422ac1b0ea0c5aacdc9e61c32574",
+      "decodedSha256": "3e979780948065fae818f5e48b11f3175cc1c4cfebb0335e7afdb20ed2a0b302",
+      "routes": 926,
+      "pieces": 928
+    },
+    {
+      "id": "-4:4",
+      "bounds": [
+        -16000,
+        16000,
+        -12000,
+        20000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-4_4-f857ea2baf52.json.gz",
+      "bytes": 81077,
+      "decodedBytes": 476563,
+      "sha256": "f857ea2baf5213e5ea72426bd93893cff353b5d5b376a380b27198c0254fec23",
+      "decodedSha256": "ad3eee1a5a2255b820941e65579170cbc47f4df013446278839a9c7725c9b227",
+      "routes": 1535,
+      "pieces": 1540
+    },
+    {
+      "id": "-4:5",
+      "bounds": [
+        -16000,
+        20000,
+        -12000,
+        24000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-4_5-0867bac6332b.json.gz",
+      "bytes": 59676,
+      "decodedBytes": 331822,
+      "sha256": "0867bac6332b3af4b8ba8d4926b74e6b08aaa8a06f4474ace675cb956c496419",
+      "decodedSha256": "924d5c83806c7e35439dd806fe4c9b74c09d06889265c5cc4b73a38f629d21d3",
+      "routes": 956,
+      "pieces": 958
+    },
+    {
+      "id": "-4:6",
+      "bounds": [
+        -16000,
+        24000,
+        -12000,
+        28000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-4_6-ef13c43771b2.json.gz",
+      "bytes": 46821,
+      "decodedBytes": 247423,
+      "sha256": "ef13c43771b2f85c848bbe4140994492b74c9540d04be78d5857f8741f65623b",
+      "decodedSha256": "15c384431d484d9f603f6856a876e0f4ac57b5b46db4ddad63bd1ab5b199afb7",
+      "routes": 610,
+      "pieces": 611
+    },
+    {
+      "id": "-4:7",
+      "bounds": [
+        -16000,
+        28000,
+        -12000,
+        30000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-4_7-222846f289e4.json.gz",
+      "bytes": 2309,
+      "decodedBytes": 8825,
+      "sha256": "222846f289e4b8ac21157d9255b483805b0c7b06f0f93c432fdb2451c03229a8",
+      "decodedSha256": "7205c099811e207636390b6f0f26ed5951eb291037aa11955816e480404d631c",
+      "routes": 13,
+      "pieces": 13
+    },
+    {
+      "id": "-3:-8",
+      "bounds": [
+        -12000,
+        -30000,
+        -8000,
+        -28000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-3_-8-fa488df8248b.json.gz",
+      "bytes": 6544,
+      "decodedBytes": 32208,
+      "sha256": "fa488df8248b073a7ed58e611dabf87ea170910ae5957d413942d5125e9b45d4",
+      "decodedSha256": "2d70e21e47644f756757d7b517b221b62779429941ab39c00c64748d41dd14be",
+      "routes": 87,
+      "pieces": 89
+    },
+    {
+      "id": "-3:-7",
+      "bounds": [
+        -12000,
+        -28000,
+        -8000,
+        -24000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-3_-7-047044876c40.json.gz",
+      "bytes": 6029,
+      "decodedBytes": 27700,
+      "sha256": "047044876c40847d65d530d489d6f1684aadfcbf4e702e11c3a9ce447687bcba",
+      "decodedSha256": "6197b79e9e340bf36318ed36e7ef2e8609cc0167c32c814a284e6f233143b8c6",
+      "routes": 69,
+      "pieces": 69
+    },
+    {
+      "id": "-3:-6",
+      "bounds": [
+        -12000,
+        -24000,
+        -8000,
+        -20000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-3_-6-202eb6913ec0.json.gz",
+      "bytes": 5645,
+      "decodedBytes": 23813,
+      "sha256": "202eb6913ec078de7be54c92d6325387fc354d869fb123a9039fa8f39e2078f7",
+      "decodedSha256": "0e94a1ffc13211b8484beb1a3d321d941829d97d18453d6eade4bf7a273e4671",
+      "routes": 42,
+      "pieces": 42
+    },
+    {
+      "id": "-3:-5",
+      "bounds": [
+        -12000,
+        -20000,
+        -8000,
+        -16000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-3_-5-479c0783f272.json.gz",
+      "bytes": 10294,
+      "decodedBytes": 49775,
+      "sha256": "479c0783f272049dfbbc93ff3d38a38a1cc536bccdd0d6ef572d910a0a5010b4",
+      "decodedSha256": "6581cef0841905b3f2e4053c4bd51e03726566f039906452ff88a9c520e0ae9e",
+      "routes": 116,
+      "pieces": 116
+    },
+    {
+      "id": "-3:-4",
+      "bounds": [
+        -12000,
+        -16000,
+        -8000,
+        -12000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-3_-4-f965f5c5e3d2.json.gz",
+      "bytes": 9840,
+      "decodedBytes": 51141,
+      "sha256": "f965f5c5e3d2fac1ac828feba48711581111a086b0e76b519218b02d45d064f7",
+      "decodedSha256": "65c9f9ac4be870b335354ed1b3f5040ea8fe9a7c3d8b04689046c988bda82b6b",
+      "routes": 138,
+      "pieces": 141
+    },
+    {
+      "id": "-3:-3",
+      "bounds": [
+        -12000,
+        -12000,
+        -8000,
+        -8000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-3_-3-98eafdf2eed8.json.gz",
+      "bytes": 13095,
+      "decodedBytes": 74112,
+      "sha256": "98eafdf2eed8ec4698dca88c26728b4827924176c9bd0b7f2f57629c229bc185",
+      "decodedSha256": "e28ba3774a567faa178927dcfd4d4c8557bc3ea49c995c261011c97920cecb75",
+      "routes": 214,
+      "pieces": 215
+    },
+    {
+      "id": "-3:-2",
+      "bounds": [
+        -12000,
+        -8000,
+        -8000,
+        -4000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-3_-2-9948ada466c2.json.gz",
+      "bytes": 17437,
+      "decodedBytes": 96576,
+      "sha256": "9948ada466c2655837bf0b3137cb0475a441f0d5e2c87cf69d399f0df13c4d44",
+      "decodedSha256": "91976bdcba1999ed5160ba6d219563a7ed99d5769595164d3deab0c891bf0f66",
+      "routes": 278,
+      "pieces": 280
+    },
+    {
+      "id": "-3:-1",
+      "bounds": [
+        -12000,
+        -4000,
+        -8000,
+        0
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-3_-1-ecd87414877b.json.gz",
+      "bytes": 41860,
+      "decodedBytes": 220593,
+      "sha256": "ecd87414877b6830b56cba22b98426dd15dcc44db5b1fc072bea64dc61697c3f",
+      "decodedSha256": "110bd9c126265bad0f32b3b0f5a4f8255a354a9d70f60878e5647e602f1f97a8",
+      "routes": 535,
+      "pieces": 537
+    },
+    {
+      "id": "-3:0",
+      "bounds": [
+        -12000,
+        0,
+        -8000,
+        4000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-3_0-78688c938451.json.gz",
+      "bytes": 32048,
+      "decodedBytes": 190584,
+      "sha256": "78688c938451dafd33d547a31c75e05e7f31c49b9304105c446fb3495a45db2d",
+      "decodedSha256": "038784fe62c9be1cfa3c5a86bb9a0c61e989613200bc5342e7a763f901b98ac4",
+      "routes": 602,
+      "pieces": 605
+    },
+    {
+      "id": "-3:1",
+      "bounds": [
+        -12000,
+        4000,
+        -8000,
+        8000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-3_1-1b48f85dd3f2.json.gz",
+      "bytes": 15845,
+      "decodedBytes": 77395,
+      "sha256": "1b48f85dd3f26b2c0e4bffdf80d7ad8a6a49c6dd841358084b0e2342230c5712",
+      "decodedSha256": "0c017f7291188f98acc999c28c7f1c1cd3e8d662145122104028c4649a65e7d4",
+      "routes": 192,
+      "pieces": 192
+    },
+    {
+      "id": "-3:2",
+      "bounds": [
+        -12000,
+        8000,
+        -8000,
+        12000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-3_2-8a7cf746e0b2.json.gz",
+      "bytes": 26195,
+      "decodedBytes": 131696,
+      "sha256": "8a7cf746e0b26a408a342e7d768742ea6765492681a9ed4fac48ea804807bb8e",
+      "decodedSha256": "111ee7f7c197e4d45e2da6c41237734f9421bfacc8cddcf29de0afa20b5b9b01",
+      "routes": 334,
+      "pieces": 335
+    },
+    {
+      "id": "-3:3",
+      "bounds": [
+        -12000,
+        12000,
+        -8000,
+        16000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-3_3-99cb23390ead.json.gz",
+      "bytes": 32070,
+      "decodedBytes": 171478,
+      "sha256": "99cb23390eadc371c6be97f70499cc097f399568c9f63d171151cafa87dd9e7e",
+      "decodedSha256": "4d371fff9af447c5b3688e7afa93d730595516d45eba915bc8bb150adba17e75",
+      "routes": 482,
+      "pieces": 483
+    },
+    {
+      "id": "-3:4",
+      "bounds": [
+        -12000,
+        16000,
+        -8000,
+        20000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-3_4-d1587d819c12.json.gz",
+      "bytes": 57820,
+      "decodedBytes": 332898,
+      "sha256": "d1587d819c1225ae3f437ea8eef5371fe35e7cd7152bdfad5a93a7eeb7905b76",
+      "decodedSha256": "2c4d5a11c3c7d56c9c5f683e003498c8e1f58160fc0d877d4955de0b70ded073",
+      "routes": 1032,
+      "pieces": 1036
+    },
+    {
+      "id": "-3:5",
+      "bounds": [
+        -12000,
+        20000,
+        -8000,
+        24000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-3_5-6141d253afb3.json.gz",
+      "bytes": 58748,
+      "decodedBytes": 333468,
+      "sha256": "6141d253afb315c40210ec054d9bd9bef683f736daeb741bb7125bd68ed395d8",
+      "decodedSha256": "f9a709492aeaa5b8015e252ac2a6436ad9bb3d25ffd6dbdd79ea63a2a1494616",
+      "routes": 1009,
+      "pieces": 1015
+    },
+    {
+      "id": "-3:6",
+      "bounds": [
+        -12000,
+        24000,
+        -8000,
+        28000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-3_6-d3412262cc6f.json.gz",
+      "bytes": 39792,
+      "decodedBytes": 202939,
+      "sha256": "d3412262cc6f388f9464e06db615fbe93ac30d3169dce2bb00984703876e3caa",
+      "decodedSha256": "407dd57e2208e36720d0f3a41258590140d5a354ea474f1f034b922ced056940",
+      "routes": 515,
+      "pieces": 520
+    },
+    {
+      "id": "-3:7",
+      "bounds": [
+        -12000,
+        28000,
+        -8000,
+        30000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-3_7-84abbcb9656e.json.gz",
+      "bytes": 9799,
+      "decodedBytes": 49492,
+      "sha256": "84abbcb9656e25b0d4e50fd9590d03e0394971e8bf84262fb70372095ab875a2",
+      "decodedSha256": "9aff45ba984f5ac588a06ef48ded8575bc7ab1c2297e99459c32531e69a696c5",
+      "routes": 130,
+      "pieces": 130
+    },
+    {
+      "id": "-2:-8",
+      "bounds": [
+        -8000,
+        -30000,
+        -4000,
+        -28000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-2_-8-3dd0c0d2b0de.json.gz",
+      "bytes": 1845,
+      "decodedBytes": 6196,
+      "sha256": "3dd0c0d2b0debf1af076fe2f3ee7b7c20254b425dca667d56594ee2274cd85e0",
+      "decodedSha256": "24e293b3e6f9e3656afaf0cd6b389fda80e5d2e848c5dfd006e2bec26a958af5",
+      "routes": 8,
+      "pieces": 8
+    },
+    {
+      "id": "-2:-7",
+      "bounds": [
+        -8000,
+        -28000,
+        -4000,
+        -24000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-2_-7-3a3eb491dacb.json.gz",
+      "bytes": 3876,
+      "decodedBytes": 18326,
+      "sha256": "3a3eb491dacba43234852bb6d66813e90c234f445302cb747e3e71bcc9b5a641",
+      "decodedSha256": "53fba94b55e83b142ed65b9611549badb3cb84ad5c078dd249fa4710cd5d337d",
+      "routes": 43,
+      "pieces": 43
+    },
+    {
+      "id": "-2:-6",
+      "bounds": [
+        -8000,
+        -24000,
+        -4000,
+        -20000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-2_-6-7b6d4cdbbc92.json.gz",
+      "bytes": 12573,
+      "decodedBytes": 58885,
+      "sha256": "7b6d4cdbbc92f980cb8ba51a62f899e3a82da36ccb3c7ead14a519d317fbf178",
+      "decodedSha256": "02b91a1f2f34bdaaf621635289edd79f44ad7d5394f5822028af1d2b9c766ba5",
+      "routes": 128,
+      "pieces": 129
+    },
+    {
+      "id": "-2:-5",
+      "bounds": [
+        -8000,
+        -20000,
+        -4000,
+        -16000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-2_-5-1d3730870528.json.gz",
+      "bytes": 12877,
+      "decodedBytes": 72749,
+      "sha256": "1d3730870528242439732987c8077b949cc5192f03095d296496b417696a63c6",
+      "decodedSha256": "b09e0db652d33ee7b165d51c2dc9c7c029de5536c6abf1cc30a4dda6c9d274ae",
+      "routes": 215,
+      "pieces": 217
+    },
+    {
+      "id": "-2:-4",
+      "bounds": [
+        -8000,
+        -16000,
+        -4000,
+        -12000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-2_-4-016507919d30.json.gz",
+      "bytes": 15567,
+      "decodedBytes": 88866,
+      "sha256": "016507919d300c28b15d7688f78fca46e323f815d83a80b87ce54b2f59536644",
+      "decodedSha256": "454ec6c74ec2b4f375e4d3a301ba00d69b4fcf4711422d5b4377ead5b844e987",
+      "routes": 259,
+      "pieces": 259
+    },
+    {
+      "id": "-2:-3",
+      "bounds": [
+        -8000,
+        -12000,
+        -4000,
+        -8000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-2_-3-f6788cbabfd5.json.gz",
+      "bytes": 21874,
+      "decodedBytes": 129816,
+      "sha256": "f6788cbabfd57c4607bf045fc0aad0f8ac42ae746f9fd919abfea87f5d9bab21",
+      "decodedSha256": "2ba75a8e39195b2a8460b0a4a2c2abc353f522388ecb27d63f1b7a272163a3fb",
+      "routes": 420,
+      "pieces": 420
+    },
+    {
+      "id": "-2:-2",
+      "bounds": [
+        -8000,
+        -8000,
+        -4000,
+        -4000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-2_-2-5f61098a2390.json.gz",
+      "bytes": 24171,
+      "decodedBytes": 134742,
+      "sha256": "5f61098a23905f287f4e3631ce07f066d8fd51e70c1a55e5922822dd39cb4e36",
+      "decodedSha256": "45bee4f548bc90f96b7cb59ad8c7dee42abd7ca754a36d34b265936155cd6fbb",
+      "routes": 392,
+      "pieces": 394
+    },
+    {
+      "id": "-2:-1",
+      "bounds": [
+        -8000,
+        -4000,
+        -4000,
+        0
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-2_-1-88f61fc2c1c8.json.gz",
+      "bytes": 6052,
+      "decodedBytes": 28774,
+      "sha256": "88f61fc2c1c83563fb97abd1d27cfbadcdc0950247e06d5b33467fa2d69a727a",
+      "decodedSha256": "7eb54295e0d0b722422c559e934b0c8037c2bcbfe06f6246a998fcd0075e0f9f",
+      "routes": 76,
+      "pieces": 76
+    },
+    {
+      "id": "-2:0",
+      "bounds": [
+        -8000,
+        0,
+        -4000,
+        4000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-2_0-762561daa68c.json.gz",
+      "bytes": 13393,
+      "decodedBytes": 66505,
+      "sha256": "762561daa68c737bf343b4887de15e83709309129f8c2bd8a51f3559b78948ec",
+      "decodedSha256": "68a8c8630a59b0134f7d27e8e76a54a30403c660d91e7a40a305ce1233875554",
+      "routes": 165,
+      "pieces": 166
+    },
+    {
+      "id": "-2:1",
+      "bounds": [
+        -8000,
+        4000,
+        -4000,
+        8000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-2_1-7757aee41fbb.json.gz",
+      "bytes": 17254,
+      "decodedBytes": 84757,
+      "sha256": "7757aee41fbb4f6227b81039ecb70a0eb5790657248f3f66f629afce83780c46",
+      "decodedSha256": "25052892468049ad3ac7854afa5d478cb2c74c563ab1e38604ef69bb29757304",
+      "routes": 221,
+      "pieces": 222
+    },
+    {
+      "id": "-2:2",
+      "bounds": [
+        -8000,
+        8000,
+        -4000,
+        12000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-2_2-5f6973dbea05.json.gz",
+      "bytes": 28215,
+      "decodedBytes": 145211,
+      "sha256": "5f6973dbea05d30c9186365b358dd559e1b24340da9895ff6dde709c51586eb9",
+      "decodedSha256": "46607a5eda1a46914f86e5d6fffb50180ed751c226ade7fc4be3a850bb91c945",
+      "routes": 410,
+      "pieces": 413
+    },
+    {
+      "id": "-2:3",
+      "bounds": [
+        -8000,
+        12000,
+        -4000,
+        16000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-2_3-ef27c250aaa3.json.gz",
+      "bytes": 33244,
+      "decodedBytes": 182315,
+      "sha256": "ef27c250aaa3c1494ee57b08b0d83d337ae942740847b1014adc31056d0b41f7",
+      "decodedSha256": "71341fb6073bcc99479f407ba0e513ed4c95a6d73980492438c525345da07187",
+      "routes": 546,
+      "pieces": 550
+    },
+    {
+      "id": "-2:4",
+      "bounds": [
+        -8000,
+        16000,
+        -4000,
+        20000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-2_4-badacb2a53b9.json.gz",
+      "bytes": 49339,
+      "decodedBytes": 281403,
+      "sha256": "badacb2a53b990db09dcc0e316a60f8540a8265d5f2cb56c8549ec2470dbda2e",
+      "decodedSha256": "ca4aa3f8c4cd7099175e05217cf5bea1764c1eec2dc4cae13c779d8ce965ad5b",
+      "routes": 882,
+      "pieces": 885
+    },
+    {
+      "id": "-2:5",
+      "bounds": [
+        -8000,
+        20000,
+        -4000,
+        24000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-2_5-532f44765ed4.json.gz",
+      "bytes": 56988,
+      "decodedBytes": 321661,
+      "sha256": "532f44765ed4893e20d25ad4807a7ceacc7c94887241359157dbf4622733a0c4",
+      "decodedSha256": "cbe1b5f718fbe0fceb5ab5d1ee2e3f8b462e126652c003eff9166f45acff9a4e",
+      "routes": 978,
+      "pieces": 981
+    },
+    {
+      "id": "-2:6",
+      "bounds": [
+        -8000,
+        24000,
+        -4000,
+        28000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-2_6-7e8371876308.json.gz",
+      "bytes": 50725,
+      "decodedBytes": 288735,
+      "sha256": "7e837187630819537c71f430423fe85a302d97a5fd2c32b96deedab50155135a",
+      "decodedSha256": "7592ecf9bd19463efd4e385af8bf9f9a0a56d915f3da644d0a7d0d24e4d3a7e4",
+      "routes": 840,
+      "pieces": 847
+    },
+    {
+      "id": "-2:7",
+      "bounds": [
+        -8000,
+        28000,
+        -4000,
+        30000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-2_7-1d9c97e79251.json.gz",
+      "bytes": 9438,
+      "decodedBytes": 43838,
+      "sha256": "1d9c97e7925151eed1123a6500bc96a8925240a32211fa0da859a4dd8e7d4640",
+      "decodedSha256": "450551fb6e52db2b4268da8b87837a8ea95be4bffd3a68f938863ca9a75fb659",
+      "routes": 98,
+      "pieces": 99
+    },
+    {
+      "id": "-1:-7",
+      "bounds": [
+        -4000,
+        -28000,
+        0,
+        -24000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-1_-7-7458868115bb.json.gz",
+      "bytes": 10541,
+      "decodedBytes": 51532,
+      "sha256": "7458868115bb6537106aa2af464753a47f79fe8217fc1c1cdcbe8f456c679eea",
+      "decodedSha256": "b7f6c215653308c2dd2039d7393ffea9d476f91b9e93fea52f7ac21d99c323dd",
+      "routes": 111,
+      "pieces": 115
+    },
+    {
+      "id": "-1:-6",
+      "bounds": [
+        -4000,
+        -24000,
+        0,
+        -20000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-1_-6-27f0013c6cfb.json.gz",
+      "bytes": 13067,
+      "decodedBytes": 70271,
+      "sha256": "27f0013c6cfbda82fd4895a5dd244d5a4bf792e482a6de86228b0b8e08b4cad5",
+      "decodedSha256": "e09a45745a1b7cdfd13704c0dc72c59b4c08a621cbe3c879a806751c24e567af",
+      "routes": 195,
+      "pieces": 197
+    },
+    {
+      "id": "-1:-5",
+      "bounds": [
+        -4000,
+        -20000,
+        0,
+        -16000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-1_-5-05a06d10b7e7.json.gz",
+      "bytes": 13514,
+      "decodedBytes": 76499,
+      "sha256": "05a06d10b7e7b106c13b163f8e11025d127a4798c319f64876cfeebb49a2941f",
+      "decodedSha256": "468e311caddf89f509f270c07ad835a8106d409cd20eb35a14526dcbe9c07290",
+      "routes": 229,
+      "pieces": 232
+    },
+    {
+      "id": "-1:-4",
+      "bounds": [
+        -4000,
+        -16000,
+        0,
+        -12000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-1_-4-36f6f2fb39eb.json.gz",
+      "bytes": 21558,
+      "decodedBytes": 119541,
+      "sha256": "36f6f2fb39eb47ed261307fa427e09de59427bbe4fad02321edf5deaeb7d2bd7",
+      "decodedSha256": "f8d8cf3b098aed3b0e0621d743bade229b5b2e420d88f64aded791aa3d5a08ec",
+      "routes": 364,
+      "pieces": 367
+    },
+    {
+      "id": "-1:-3",
+      "bounds": [
+        -4000,
+        -12000,
+        0,
+        -8000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-1_-3-3e7f9d5581db.json.gz",
+      "bytes": 17515,
+      "decodedBytes": 99321,
+      "sha256": "3e7f9d5581db2f98ac709de572d6042134f2f33463240fbd97771db8c3978898",
+      "decodedSha256": "2e404d5b60ed706ba3c9f751ba751cb9b2f76dfcf24256db2e6906b84ff7ffbe",
+      "routes": 303,
+      "pieces": 303
+    },
+    {
+      "id": "-1:-2",
+      "bounds": [
+        -4000,
+        -8000,
+        0,
+        -4000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-1_-2-97990b6f0f44.json.gz",
+      "bytes": 5426,
+      "decodedBytes": 28568,
+      "sha256": "97990b6f0f44cf0e0ee07cdc5ae994836a0deb7b76ee0b6d822f313135f68b31",
+      "decodedSha256": "56486fd07de29bd84a08ec336d0be31d7503f2896e3f7f74f18d080cbc088c25",
+      "routes": 83,
+      "pieces": 83
+    },
+    {
+      "id": "-1:0",
+      "bounds": [
+        -4000,
+        0,
+        0,
+        4000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-1_0-1bdf8e5dd784.json.gz",
+      "bytes": 734,
+      "decodedBytes": 2564,
+      "sha256": "1bdf8e5dd7845e9bc1ef63ce45f155bb15902df41b69c49f05cc9efe6514907c",
+      "decodedSha256": "39a3be25922fe66cf416706d9f0392f11539dad69026ee21c6c334780d53605a",
+      "routes": 7,
+      "pieces": 7
+    },
+    {
+      "id": "-1:1",
+      "bounds": [
+        -4000,
+        4000,
+        0,
+        8000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-1_1-ea107ebc39a7.json.gz",
+      "bytes": 24248,
+      "decodedBytes": 127378,
+      "sha256": "ea107ebc39a7725d727475f1d185113691f9a3430548b80ee0626476a394fb8f",
+      "decodedSha256": "520ba8cf5cb3ec625d90348bac91e48525a87c1c49e0f69cf473c66f3960130c",
+      "routes": 350,
+      "pieces": 350
+    },
+    {
+      "id": "-1:2",
+      "bounds": [
+        -4000,
+        8000,
+        0,
+        12000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-1_2-6ed245bcf457.json.gz",
+      "bytes": 23170,
+      "decodedBytes": 117139,
+      "sha256": "6ed245bcf457144e570b92b7a1e584fd03232245a75acb1eeabd42387b03a7c4",
+      "decodedSha256": "a8c19de176d2ad23bbfa1f852c2dbc9b48f568d5fb2ab2ededc7a3b2e71083d5",
+      "routes": 310,
+      "pieces": 312
+    },
+    {
+      "id": "-1:3",
+      "bounds": [
+        -4000,
+        12000,
+        0,
+        16000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-1_3-9519cedeaf45.json.gz",
+      "bytes": 48501,
+      "decodedBytes": 263808,
+      "sha256": "9519cedeaf451021097c37fe0e3a3244cf7d142acc01ed2d4ab4617000b6bae8",
+      "decodedSha256": "ba73908355da251656b51bb545b558ccf1cfc59459fd42861125461e0d098488",
+      "routes": 780,
+      "pieces": 782
+    },
+    {
+      "id": "-1:4",
+      "bounds": [
+        -4000,
+        16000,
+        0,
+        20000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-1_4-98048a1d56ee.json.gz",
+      "bytes": 40636,
+      "decodedBytes": 211514,
+      "sha256": "98048a1d56eea96d089a36a987b20ac5509512b441018b75c028756bd4b34bd3",
+      "decodedSha256": "3db704663595e254bb67dba1abb05b747cc00bf552c78ce50148b327f2c4cca8",
+      "routes": 592,
+      "pieces": 592
+    },
+    {
+      "id": "-1:5",
+      "bounds": [
+        -4000,
+        20000,
+        0,
+        24000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-1_5-b11ef3d7bfa5.json.gz",
+      "bytes": 22872,
+      "decodedBytes": 116237,
+      "sha256": "b11ef3d7bfa540c73117eef0e4e5ecc46c6349586f029e052563a2a5ab9731ed",
+      "decodedSha256": "623e94ca20387844c7f84477a08ddc7127398d9ea6a2655d09fa25cf50bf229d",
+      "routes": 315,
+      "pieces": 317
+    },
+    {
+      "id": "-1:6",
+      "bounds": [
+        -4000,
+        24000,
+        0,
+        28000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-1_6-10a54063d53e.json.gz",
+      "bytes": 26206,
+      "decodedBytes": 127993,
+      "sha256": "10a54063d53efe93a1688a58d0bde134058ef66b4be1352ee37d61be36fd516c",
+      "decodedSha256": "ac1574ba6d3d6d1040c3c99f8eb2586e1c3faec10a9bfacb2e2750202d445573",
+      "routes": 308,
+      "pieces": 311
+    },
+    {
+      "id": "-1:7",
+      "bounds": [
+        -4000,
+        28000,
+        0,
+        30000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/-1_7-fac35b90a2a2.json.gz",
+      "bytes": 11248,
+      "decodedBytes": 58018,
+      "sha256": "fac35b90a2a29e5f07a8b586adc2a544384c8ead04e702ddc6eeaf5f88e6323a",
+      "decodedSha256": "119dff5a053ea3226eac3c4e0ea64f9b452eaadbad1b6809ecbded41364b7856",
+      "routes": 155,
+      "pieces": 156
+    },
+    {
+      "id": "0:-7",
+      "bounds": [
+        0,
+        -28000,
+        4000,
+        -24000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/0_-7-36d095462c4f.json.gz",
+      "bytes": 6351,
+      "decodedBytes": 27115,
+      "sha256": "36d095462c4fcd1b2e1ba19e653807f49039b2b68c53e922893b96d762d0d820",
+      "decodedSha256": "c7ff3abeca0450311872b5a6b0a303e5d6d371a38002abd42536a49545a043db",
+      "routes": 48,
+      "pieces": 48
+    },
+    {
+      "id": "0:-6",
+      "bounds": [
+        0,
+        -24000,
+        4000,
+        -20000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/0_-6-326bb9a394eb.json.gz",
+      "bytes": 8169,
+      "decodedBytes": 38724,
+      "sha256": "326bb9a394eb5068a7398fe4ecefeca8780d8e5e7a6a6964a25c4ec3d2c81ffe",
+      "decodedSha256": "2f0f47c99090abfbf738eb98923c0d7c516eb6886be3655a05e03e11765e7dbc",
+      "routes": 91,
+      "pieces": 95
+    },
+    {
+      "id": "0:-5",
+      "bounds": [
+        0,
+        -20000,
+        4000,
+        -16000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/0_-5-1cc0995fc75c.json.gz",
+      "bytes": 7422,
+      "decodedBytes": 43962,
+      "sha256": "1cc0995fc75cf3ec2d00479796bf6c5f8542167784c44f57642a74833c0e58f0",
+      "decodedSha256": "b65c2a4219ca043802c3769acd1fe3c5d2c79c359cb0e143538bac66e13e605c",
+      "routes": 148,
+      "pieces": 149
+    },
+    {
+      "id": "0:-4",
+      "bounds": [
+        0,
+        -16000,
+        4000,
+        -12000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/0_-4-56cd72963bc6.json.gz",
+      "bytes": 9092,
+      "decodedBytes": 44852,
+      "sha256": "56cd72963bc6f6a979220b61fe109ca433259fd7182042a0e0335f04ef78d538",
+      "decodedSha256": "b0366631f8f611748814d786c04c937739682b5d6c0185848f587cabe0835508",
+      "routes": 121,
+      "pieces": 121
+    },
+    {
+      "id": "0:-3",
+      "bounds": [
+        0,
+        -12000,
+        4000,
+        -8000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/0_-3-f693f926997d.json.gz",
+      "bytes": 22210,
+      "decodedBytes": 109903,
+      "sha256": "f693f926997dacfd10c4acac6d2af07038ca31f598d6b3335fd537d1fa5f67c2",
+      "decodedSha256": "304cb25562c44f77614a359a135d8c6299149b187c060457749f5214d1434d96",
+      "routes": 277,
+      "pieces": 277
+    },
+    {
+      "id": "0:-2",
+      "bounds": [
+        0,
+        -8000,
+        4000,
+        -4000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/0_-2-40d47cd84d54.json.gz",
+      "bytes": 14409,
+      "decodedBytes": 72145,
+      "sha256": "40d47cd84d54f63ad969f165bca42a18b85753433d3a8f5d09cb0d77e273ed08",
+      "decodedSha256": "2ee15718b7f36024fe0512e46d41ea58a6b02f18ead10637adbe439e980d614f",
+      "routes": 180,
+      "pieces": 182
+    },
+    {
+      "id": "0:0",
+      "bounds": [
+        0,
+        0,
+        4000,
+        4000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/0_0-85767c660010.json.gz",
+      "bytes": 7047,
+      "decodedBytes": 33737,
+      "sha256": "85767c66001054088fee27b6f8652dde3fcc507aac64d79a6486b978f575299f",
+      "decodedSha256": "d333dd279c0ab15e37ee3912c247b1be818efaf60ca7f240e0115e01349e2650",
+      "routes": 77,
+      "pieces": 77
+    },
+    {
+      "id": "0:1",
+      "bounds": [
+        0,
+        4000,
+        4000,
+        8000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/0_1-b2a90f0715ec.json.gz",
+      "bytes": 27221,
+      "decodedBytes": 150385,
+      "sha256": "b2a90f0715eca68577978bcfc55a89db4718127c188f4497af5743d55cc30d9d",
+      "decodedSha256": "0edd369bf7a02525edb0de32012bbfcd120c6b3891c72dd5a6d39ef0733e7795",
+      "routes": 425,
+      "pieces": 427
+    },
+    {
+      "id": "0:2",
+      "bounds": [
+        0,
+        8000,
+        4000,
+        12000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/0_2-ca5617781782.json.gz",
+      "bytes": 34537,
+      "decodedBytes": 197317,
+      "sha256": "ca5617781782d924898c39942e5aeb4af7c84116ebd07cc00da9b04c86eed826",
+      "decodedSha256": "73ee692347e442b91dc099540d3de1c01609dec7626746156c3cd41c26b817a0",
+      "routes": 597,
+      "pieces": 597
+    },
+    {
+      "id": "0:3",
+      "bounds": [
+        0,
+        12000,
+        4000,
+        16000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/0_3-46aaef5b064b.json.gz",
+      "bytes": 34656,
+      "decodedBytes": 198913,
+      "sha256": "46aaef5b064bf511698fbc9ce594ccdffcbf2f87b34572019946b12d3b929138",
+      "decodedSha256": "3813f08c4d67aca7ae0acb390731cd7b6d8c84a618d9147596249d3dada1f0c9",
+      "routes": 608,
+      "pieces": 610
+    },
+    {
+      "id": "0:4",
+      "bounds": [
+        0,
+        16000,
+        4000,
+        20000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/0_4-e8d704f07387.json.gz",
+      "bytes": 21496,
+      "decodedBytes": 119587,
+      "sha256": "e8d704f07387b4ffce9ca24d68cb50208fae7ddbd0aa11e50e646df9ae0db1e3",
+      "decodedSha256": "4c6e370ae285de7756041c59c4040474db421780b5fa227888db53f22281e251",
+      "routes": 367,
+      "pieces": 369
+    },
+    {
+      "id": "0:5",
+      "bounds": [
+        0,
+        20000,
+        4000,
+        24000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/0_5-ffb897661026.json.gz",
+      "bytes": 16657,
+      "decodedBytes": 78948,
+      "sha256": "ffb8976610265b71b62a2e6cdc346dc3c3f219a1f619123ae869ba9eb053d21b",
+      "decodedSha256": "0041f1d93dcb7758b5495c75bdcf2457f5e998a35bf059c26beed15635d0e12a",
+      "routes": 186,
+      "pieces": 188
+    },
+    {
+      "id": "0:6",
+      "bounds": [
+        0,
+        24000,
+        4000,
+        28000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/0_6-bb1ae047a700.json.gz",
+      "bytes": 22479,
+      "decodedBytes": 102326,
+      "sha256": "bb1ae047a7008b43a5dbc3e154cd8a53ff9c43a9998a95ad66473f1c7d462454",
+      "decodedSha256": "b907d6b93ca44ded4103301b504943ad3689fca33d6a484cabde64f3263d6347",
+      "routes": 220,
+      "pieces": 221
+    },
+    {
+      "id": "0:7",
+      "bounds": [
+        0,
+        28000,
+        4000,
+        30000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/0_7-f23bc47f20b7.json.gz",
+      "bytes": 4665,
+      "decodedBytes": 21247,
+      "sha256": "f23bc47f20b7f420c03d40c15aba143cf384279f9c9cb38653d8fa75575c7194",
+      "decodedSha256": "6c0e5ce25036ecc32714146ea438f0d188202fc676a787ae610e64ec6333dbf3",
+      "routes": 49,
+      "pieces": 50
+    },
+    {
+      "id": "1:-7",
+      "bounds": [
+        4000,
+        -28000,
+        8000,
+        -24000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/1_-7-2f69b5bed567.json.gz",
+      "bytes": 5457,
+      "decodedBytes": 21690,
+      "sha256": "2f69b5bed5671eaf7ede86586d348ba3fea2ee8f64a395339174caa85196530d",
+      "decodedSha256": "afe6b6382b6a5ea82e009f97123611a6428bb2c518152aa82632a983a78a6678",
+      "routes": 39,
+      "pieces": 39
+    },
+    {
+      "id": "1:-6",
+      "bounds": [
+        4000,
+        -24000,
+        8000,
+        -20000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/1_-6-1af89be4f104.json.gz",
+      "bytes": 6238,
+      "decodedBytes": 30578,
+      "sha256": "1af89be4f10496a78af1825d2abdbe2544349caa6a053f5a9b5ed04788ccc7ae",
+      "decodedSha256": "8ae2aaf1f4edfff166098d6552ddb981a35684c1ff7caac675d4a8b0fa9e2497",
+      "routes": 80,
+      "pieces": 81
+    },
+    {
+      "id": "1:-5",
+      "bounds": [
+        4000,
+        -20000,
+        8000,
+        -16000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/1_-5-3b566ddb7048.json.gz",
+      "bytes": 10299,
+      "decodedBytes": 48197,
+      "sha256": "3b566ddb70481cc371285cc5d0d804958fced2ead86a4a4bd9cabb5cb5813301",
+      "decodedSha256": "7f15b13c23578ec5898b71ee5c9292a6013b17185318a24eb5bc3c4bd913fed1",
+      "routes": 116,
+      "pieces": 117
+    },
+    {
+      "id": "1:-4",
+      "bounds": [
+        4000,
+        -16000,
+        8000,
+        -12000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/1_-4-ab8a7c6ca22f.json.gz",
+      "bytes": 22194,
+      "decodedBytes": 109523,
+      "sha256": "ab8a7c6ca22f111401f4a644d4c435c15c8ac8feb3a598ab516693f613d2a0ff",
+      "decodedSha256": "810970da549d3f0b20327201a8f79952dc9be9e77f9bbfcb63507dcac0e4525f",
+      "routes": 271,
+      "pieces": 272
+    },
+    {
+      "id": "1:-3",
+      "bounds": [
+        4000,
+        -12000,
+        8000,
+        -8000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/1_-3-fb2f2b3399d9.json.gz",
+      "bytes": 38748,
+      "decodedBytes": 203575,
+      "sha256": "fb2f2b3399d9925dafb11f5ba24ed7ea02597391098a53c8156f8e1680e8292c",
+      "decodedSha256": "7d6708c25e8b7509a4d02cd196aed8bcd0afa9ec186a46ba6a2dc83e882d4d2c",
+      "routes": 526,
+      "pieces": 528
+    },
+    {
+      "id": "1:-2",
+      "bounds": [
+        4000,
+        -8000,
+        8000,
+        -4000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/1_-2-32ad339a9532.json.gz",
+      "bytes": 33029,
+      "decodedBytes": 171464,
+      "sha256": "32ad339a9532c9be3c83028ebf55675ce0bbf47d232d2f1df2476a21e4b66591",
+      "decodedSha256": "2680bd77dd20c334cb2bcd7851666d8d33aee39f136996286f9f2c8bfcc3c485",
+      "routes": 447,
+      "pieces": 451
+    },
+    {
+      "id": "1:-1",
+      "bounds": [
+        4000,
+        -4000,
+        8000,
+        0
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/1_-1-c8b52bc4afb8.json.gz",
+      "bytes": 21153,
+      "decodedBytes": 118064,
+      "sha256": "c8b52bc4afb8e97237b1f120df1f2cedbcc1ef0b54eaa198de7a4a4cab990c7d",
+      "decodedSha256": "e1ece843171ca3299c8e6846e2e1e0bda1a7bf8c7ee10f29ef0900571e60a32f",
+      "routes": 359,
+      "pieces": 361
+    },
+    {
+      "id": "1:0",
+      "bounds": [
+        4000,
+        0,
+        8000,
+        4000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/1_0-e69bb68e5bfb.json.gz",
+      "bytes": 19375,
+      "decodedBytes": 104381,
+      "sha256": "e69bb68e5bfb3ef4ef14c6fe06c7060e954c7b92579177a49bcd84f112105092",
+      "decodedSha256": "c43e92aef60586d0ed1933b3c57950f76f0ea797bfd645eb45d87c6484cd8907",
+      "routes": 288,
+      "pieces": 290
+    },
+    {
+      "id": "1:1",
+      "bounds": [
+        4000,
+        4000,
+        8000,
+        8000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/1_1-9b79c8132498.json.gz",
+      "bytes": 20097,
+      "decodedBytes": 108576,
+      "sha256": "9b79c81324980c7832361cf3ab9460dfb9842ec65ae37ed6fc24d6c719ac6a6d",
+      "decodedSha256": "5338af9bb6e9a33c83a260029055631cb5e98ec462220b83a8c5a48e404e3e89",
+      "routes": 312,
+      "pieces": 312
+    },
+    {
+      "id": "1:2",
+      "bounds": [
+        4000,
+        8000,
+        8000,
+        12000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/1_2-6c4fd0944a11.json.gz",
+      "bytes": 15696,
+      "decodedBytes": 80159,
+      "sha256": "6c4fd0944a11842a0d9b9a957b36a1815316c2dad0c243e403710c583894186a",
+      "decodedSha256": "47ec18e0bf79b5965b86c8254fff8904b22f31d132d8e4c343e7faca4bc5aabb",
+      "routes": 212,
+      "pieces": 216
+    },
+    {
+      "id": "1:3",
+      "bounds": [
+        4000,
+        12000,
+        8000,
+        16000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/1_3-5665c2d8c8c9.json.gz",
+      "bytes": 19517,
+      "decodedBytes": 100294,
+      "sha256": "5665c2d8c8c97f1d19a32b1c068299907ae128f5b3a362778b46c4334b5a347f",
+      "decodedSha256": "acf10d4c9d23649cf8a4835730b90e494817c08f3c502face6665f77f59cae13",
+      "routes": 254,
+      "pieces": 257
+    },
+    {
+      "id": "1:4",
+      "bounds": [
+        4000,
+        16000,
+        8000,
+        20000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/1_4-9e68d8576548.json.gz",
+      "bytes": 22539,
+      "decodedBytes": 119897,
+      "sha256": "9e68d8576548ca3902ecc3d36d9aa575e75033a784d8a9594708b79f147c52aa",
+      "decodedSha256": "2ffaf3630537461e8362bcef3d2bac328d704e431c6c68ec9fffaf8170e6fda8",
+      "routes": 329,
+      "pieces": 331
+    },
+    {
+      "id": "1:5",
+      "bounds": [
+        4000,
+        20000,
+        8000,
+        24000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/1_5-d9072adbe9d7.json.gz",
+      "bytes": 16640,
+      "decodedBytes": 82498,
+      "sha256": "d9072adbe9d7839829fbaaf3341cadcf91f35cd9dd95bc31ff7061f647974bcf",
+      "decodedSha256": "3785a27ecc6ffe5de810d56df7aa5ebb0fed39651f40bac0fdcc05f3e83e310a",
+      "routes": 210,
+      "pieces": 211
+    },
+    {
+      "id": "1:6",
+      "bounds": [
+        4000,
+        24000,
+        8000,
+        28000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/1_6-c98a92f27835.json.gz",
+      "bytes": 15029,
+      "decodedBytes": 70488,
+      "sha256": "c98a92f278350c0b28e03ffdd3e7dcc78638e6b129464d14e795aac6e346ecc2",
+      "decodedSha256": "f3265e9627e206e7389540459e8408dbb077ef504ecbeac76493cfbf85aa12ec",
+      "routes": 159,
+      "pieces": 161
+    },
+    {
+      "id": "1:7",
+      "bounds": [
+        4000,
+        28000,
+        8000,
+        30000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/1_7-b5a9a3d77380.json.gz",
+      "bytes": 8078,
+      "decodedBytes": 38353,
+      "sha256": "b5a9a3d77380f6b53da640a2dd24b976e0d10d7dc7bfec1d8484c59d6a9157c8",
+      "decodedSha256": "72d670f9713f6d8036ebdd671dd2d4e31e3e7fb52d4b73f040328cbec67bc2d5",
+      "routes": 89,
+      "pieces": 93
+    },
+    {
+      "id": "2:-7",
+      "bounds": [
+        8000,
+        -28000,
+        12000,
+        -24000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/2_-7-5d74111b1da4.json.gz",
+      "bytes": 5092,
+      "decodedBytes": 24885,
+      "sha256": "5d74111b1da433735286577ea5f694f3dab375e696dde8eb7fe4f27ffac1d5d6",
+      "decodedSha256": "aaabe241cc402f870df45b8ce33f39f0ceb5bf8855e1a6282793d8869ddcd7fb",
+      "routes": 70,
+      "pieces": 71
+    },
+    {
+      "id": "2:-6",
+      "bounds": [
+        8000,
+        -24000,
+        12000,
+        -20000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/2_-6-a15348e4f078.json.gz",
+      "bytes": 5380,
+      "decodedBytes": 23983,
+      "sha256": "a15348e4f078966e0c76f098762e63599419485c8abb02fe47e740fe5ec67ec3",
+      "decodedSha256": "76059601bd360a72ba8f649f09a8856aa36184da0797b6a6e108e00223197c72",
+      "routes": 60,
+      "pieces": 60
+    },
+    {
+      "id": "2:-5",
+      "bounds": [
+        8000,
+        -20000,
+        12000,
+        -16000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/2_-5-7c3ec9f66c5d.json.gz",
+      "bytes": 9273,
+      "decodedBytes": 44988,
+      "sha256": "7c3ec9f66c5df6b9669533d1d5ae7b309c54ec34bd3e10e07069f180daeb135e",
+      "decodedSha256": "41f58c6a9e65424586c12c63c7c6ed383b11928f179d84a049a81221f6963640",
+      "routes": 117,
+      "pieces": 118
+    },
+    {
+      "id": "2:-4",
+      "bounds": [
+        8000,
+        -16000,
+        12000,
+        -12000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/2_-4-d251ef72c7a8.json.gz",
+      "bytes": 21714,
+      "decodedBytes": 118876,
+      "sha256": "d251ef72c7a80d37f4d823b229a6620a96832f6757a65a3ffcaf071921d46175",
+      "decodedSha256": "ce9fc15589a41ed5fc718448b986168f24d5757769110d7b65a07dc43a489306",
+      "routes": 340,
+      "pieces": 341
+    },
+    {
+      "id": "2:-3",
+      "bounds": [
+        8000,
+        -12000,
+        12000,
+        -8000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/2_-3-03624b6dc5da.json.gz",
+      "bytes": 41399,
+      "decodedBytes": 218624,
+      "sha256": "03624b6dc5da94cb4b66756f211ffc4564a1bdfda449a4ac4a892a335ae4d8be",
+      "decodedSha256": "14d83bf2d2127c480c78979d79fd61587dd46c83866b4bb445e4eaf827e01677",
+      "routes": 576,
+      "pieces": 577
+    },
+    {
+      "id": "2:-2",
+      "bounds": [
+        8000,
+        -8000,
+        12000,
+        -4000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/2_-2-92869bcd04c4.json.gz",
+      "bytes": 40686,
+      "decodedBytes": 229246,
+      "sha256": "92869bcd04c40a55efef46955f39ccc408956783fd1725becec9fb297986068b",
+      "decodedSha256": "1119c52390b157a7303201bd905c41fd478852f2d32be533bb019687fd9c5903",
+      "routes": 683,
+      "pieces": 685
+    },
+    {
+      "id": "2:-1",
+      "bounds": [
+        8000,
+        -4000,
+        12000,
+        0
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/2_-1-f054431dcef6.json.gz",
+      "bytes": 24839,
+      "decodedBytes": 143150,
+      "sha256": "f054431dcef689cc104e00104521dc87897ffa4380ec82968345b132db5a90cc",
+      "decodedSha256": "3ba08582f470240108d4862688eb2ec128bb906a5e105854a8012ad299c6c97e",
+      "routes": 457,
+      "pieces": 457
+    },
+    {
+      "id": "2:0",
+      "bounds": [
+        8000,
+        0,
+        12000,
+        4000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/2_0-cdf3c1f640bb.json.gz",
+      "bytes": 17860,
+      "decodedBytes": 97594,
+      "sha256": "cdf3c1f640bb78b85fb313a50391b915a4c67912adc44a835be3562e62174bba",
+      "decodedSha256": "3a351526a95c3e61d994461726c5f6106144ad3cec5786a515b98db80d76f667",
+      "routes": 299,
+      "pieces": 299
+    },
+    {
+      "id": "2:1",
+      "bounds": [
+        8000,
+        4000,
+        12000,
+        8000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/2_1-a9ac4811b0ce.json.gz",
+      "bytes": 14790,
+      "decodedBytes": 79513,
+      "sha256": "a9ac4811b0ced2a742fe207a3674c04a51735b3b730c7ccbef4be208a04364da",
+      "decodedSha256": "8be8dcb78b0599e5202c84861855a69b0198a1cdc7840f6c2c6b6b7a7bd088d6",
+      "routes": 237,
+      "pieces": 238
+    },
+    {
+      "id": "2:2",
+      "bounds": [
+        8000,
+        8000,
+        12000,
+        12000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/2_2-c567a9a2fb25.json.gz",
+      "bytes": 10008,
+      "decodedBytes": 47440,
+      "sha256": "c567a9a2fb25fcc515cff8e3ffc4ac068d3d4780a93ff942cbd2b55cc1bb0406",
+      "decodedSha256": "89eb8f69ef77be43d6a9a16db87a0d780309cf2ab32849a00b40b144dd094562",
+      "routes": 115,
+      "pieces": 116
+    },
+    {
+      "id": "2:3",
+      "bounds": [
+        8000,
+        12000,
+        12000,
+        16000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/2_3-de8e477d1469.json.gz",
+      "bytes": 12369,
+      "decodedBytes": 53185,
+      "sha256": "de8e477d146902fb1f65f5972407cd39765779d523ab6093417d962c9aa61dd2",
+      "decodedSha256": "919ac9921f52e5a046c343084bd72b1b1f7c117b1a51608c202059ff5a72bf89",
+      "routes": 88,
+      "pieces": 89
+    },
+    {
+      "id": "2:4",
+      "bounds": [
+        8000,
+        16000,
+        12000,
+        20000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/2_4-21bd6c8283c6.json.gz",
+      "bytes": 21348,
+      "decodedBytes": 95660,
+      "sha256": "21bd6c8283c62e00ef4b30ae21280472062b84f58db88e89282a3fed3606b501",
+      "decodedSha256": "877ab8ac11a140f1aae5316b86c2d7a981b910ef9ac5fb7144ceab3d9348d135",
+      "routes": 166,
+      "pieces": 173
+    },
+    {
+      "id": "2:5",
+      "bounds": [
+        8000,
+        20000,
+        12000,
+        24000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/2_5-c03b27228029.json.gz",
+      "bytes": 27033,
+      "decodedBytes": 145389,
+      "sha256": "c03b27228029151ea54b4cf6d7cc3062cad44e6cc9c3d19958f24f4dba4fcc49",
+      "decodedSha256": "7d10b661d3d4ca94e10b38e8e9b837893570bc738a1da63f45c3c5ab5f7dc549",
+      "routes": 412,
+      "pieces": 413
+    },
+    {
+      "id": "2:6",
+      "bounds": [
+        8000,
+        24000,
+        12000,
+        28000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/2_6-8649f723f85a.json.gz",
+      "bytes": 21497,
+      "decodedBytes": 120426,
+      "sha256": "8649f723f85ae02f53f0efc1b8e5f76bf1002175f81ba9ef79b5b4a799fbf532",
+      "decodedSha256": "a2c480dea4ec5c60e9046e7476d131bb88f9ca0cd880b9518a4cbdefea01feb1",
+      "routes": 339,
+      "pieces": 339
+    },
+    {
+      "id": "2:7",
+      "bounds": [
+        8000,
+        28000,
+        12000,
+        30000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/2_7-05c9ff1f6a83.json.gz",
+      "bytes": 11894,
+      "decodedBytes": 61906,
+      "sha256": "05c9ff1f6a83f282ee42b9bda8385a39139db9d5730d69457fb8c83af8df6de6",
+      "decodedSha256": "316402faef3bd5e1279f242fbbd3ab6f87b82a253eb08db6406bb3e2bd6eebb8",
+      "routes": 162,
+      "pieces": 162
+    },
+    {
+      "id": "3:-8",
+      "bounds": [
+        12000,
+        -30000,
+        16000,
+        -28000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/3_-8-b8b369d4b8c2.json.gz",
+      "bytes": 1771,
+      "decodedBytes": 5788,
+      "sha256": "b8b369d4b8c246cf7e7886496b06053b20fd14331e2a2ae7912ba6d9c0639e00",
+      "decodedSha256": "4b6740f1ae5566554aebdee5647784aa5e27748862ad3bd295657934a9abcf09",
+      "routes": 8,
+      "pieces": 8
+    },
+    {
+      "id": "3:-7",
+      "bounds": [
+        12000,
+        -28000,
+        16000,
+        -24000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/3_-7-937e7f53cbc6.json.gz",
+      "bytes": 5517,
+      "decodedBytes": 27550,
+      "sha256": "937e7f53cbc6bb2b463a9782ebb38e1dbb2b1ec253a5e5e18b4e21c59a002eac",
+      "decodedSha256": "d1984e4ada4279730f9134868b6af438a442f6f5eed653f590c385f928f4f6dc",
+      "routes": 75,
+      "pieces": 75
+    },
+    {
+      "id": "3:-6",
+      "bounds": [
+        12000,
+        -24000,
+        16000,
+        -20000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/3_-6-b4a93547eab9.json.gz",
+      "bytes": 6747,
+      "decodedBytes": 29777,
+      "sha256": "b4a93547eab922e877289178a0a43d8b087f05b118800abe54f753a2402eb80d",
+      "decodedSha256": "8c90f698e2efbbda90d3c34c091566470780e53b98f280503d67a0996519f80a",
+      "routes": 72,
+      "pieces": 72
+    },
+    {
+      "id": "3:-5",
+      "bounds": [
+        12000,
+        -20000,
+        16000,
+        -16000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/3_-5-9b35639fa028.json.gz",
+      "bytes": 9413,
+      "decodedBytes": 42422,
+      "sha256": "9b35639fa028d16cfc8e83a27318737ee83d853b0ae2a444365ec1e0022e8c39",
+      "decodedSha256": "ad019891ae793055978f244c2cb41b6c6feecb5ef982958d031cdd0ff7fb905c",
+      "routes": 99,
+      "pieces": 100
+    },
+    {
+      "id": "3:-4",
+      "bounds": [
+        12000,
+        -16000,
+        16000,
+        -12000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/3_-4-c339ab614dba.json.gz",
+      "bytes": 19356,
+      "decodedBytes": 98383,
+      "sha256": "c339ab614dba96f649bbddf2ed8b53730ab528cfc529c498fb958552f2e70ef7",
+      "decodedSha256": "39e7480de45d7da581f1f379d8869e261970535e5610b1f2c578f610d2ecea4f",
+      "routes": 248,
+      "pieces": 248
+    },
+    {
+      "id": "3:-3",
+      "bounds": [
+        12000,
+        -12000,
+        16000,
+        -8000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/3_-3-9dd33be3b58c.json.gz",
+      "bytes": 28193,
+      "decodedBytes": 149749,
+      "sha256": "9dd33be3b58cc857adb0bd053e105021c9f9692fa6e22aa35995e88e3760ab51",
+      "decodedSha256": "d3d6949414d58bd7f8fa093aee9f0067725299c8c4250570fd90a47624e6eab7",
+      "routes": 410,
+      "pieces": 411
+    },
+    {
+      "id": "3:-2",
+      "bounds": [
+        12000,
+        -8000,
+        16000,
+        -4000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/3_-2-c7b3a69f5d43.json.gz",
+      "bytes": 31707,
+      "decodedBytes": 172906,
+      "sha256": "c7b3a69f5d436cf9d7c6df711465322d3fef596705bf18e23f69974b6b9984d1",
+      "decodedSha256": "df4a525a79594b23384ec4ea87b2f64dc0033ebb45aec2e1c0e0388886346791",
+      "routes": 504,
+      "pieces": 506
+    },
+    {
+      "id": "3:-1",
+      "bounds": [
+        12000,
+        -4000,
+        16000,
+        0
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/3_-1-5075a95cb8c3.json.gz",
+      "bytes": 29333,
+      "decodedBytes": 168805,
+      "sha256": "5075a95cb8c37b40ce940c1c587d0fb00115147547649322f8708c6c43427919",
+      "decodedSha256": "4b3ee0d1930f6f4094563667fa7a8e814ee97c05b498ff764db8dc5633d30cf6",
+      "routes": 546,
+      "pieces": 549
+    },
+    {
+      "id": "3:0",
+      "bounds": [
+        12000,
+        0,
+        16000,
+        4000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/3_0-6026d6d2d505.json.gz",
+      "bytes": 23216,
+      "decodedBytes": 135157,
+      "sha256": "6026d6d2d50509b325cbbdea67b453b161ab30b3e053b523e935dfaebc78c611",
+      "decodedSha256": "355cb5c18bd56321ceb9e7e3b245a7efe540871d828e8ce0a48c9f3abee304c0",
+      "routes": 456,
+      "pieces": 459
+    },
+    {
+      "id": "3:1",
+      "bounds": [
+        12000,
+        4000,
+        16000,
+        8000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/3_1-6df670421327.json.gz",
+      "bytes": 13561,
+      "decodedBytes": 79177,
+      "sha256": "6df6704213272f50e893049458d1641e9802cb0fbf20a499eaebac34599b5f2e",
+      "decodedSha256": "ed3b3b168e4d24e5710f755c14e8a4ebbb8553d55d77a1af93dc37d1b53eada6",
+      "routes": 275,
+      "pieces": 275
+    },
+    {
+      "id": "3:2",
+      "bounds": [
+        12000,
+        8000,
+        16000,
+        12000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/3_2-a5a4c8e3e987.json.gz",
+      "bytes": 8370,
+      "decodedBytes": 40901,
+      "sha256": "a5a4c8e3e987d791cf675e6f3f5c5b36ca3adf518c9588750c8e70e5a32cef77",
+      "decodedSha256": "41d8492fb38a706cfe4537bc3417bd58d170781ed2cf23010d883f0e65dd6b3a",
+      "routes": 107,
+      "pieces": 107
+    },
+    {
+      "id": "3:3",
+      "bounds": [
+        12000,
+        12000,
+        16000,
+        16000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/3_3-561bbead8b87.json.gz",
+      "bytes": 9100,
+      "decodedBytes": 39393,
+      "sha256": "561bbead8b87f5990b598921b77c9b271edebd8c73184cbd87b5e0c1dd39766d",
+      "decodedSha256": "c7aa4583d991a294598f137558acc068968e65f125da781a3fce8abca22f3f2a",
+      "routes": 68,
+      "pieces": 68
+    },
+    {
+      "id": "3:4",
+      "bounds": [
+        12000,
+        16000,
+        16000,
+        20000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/3_4-dbc19de93131.json.gz",
+      "bytes": 21339,
+      "decodedBytes": 83354,
+      "sha256": "dbc19de931317401d38cc7aaf293a98c428e58c351a50633bfdceec3b340cc03",
+      "decodedSha256": "15625540305065b29d64b806cf5008c1483d6a82cafe8683a6c0d476efcaa9da",
+      "routes": 68,
+      "pieces": 73
+    },
+    {
+      "id": "3:5",
+      "bounds": [
+        12000,
+        20000,
+        16000,
+        24000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/3_5-0284c67624d3.json.gz",
+      "bytes": 27216,
+      "decodedBytes": 124655,
+      "sha256": "0284c67624d3266e0683bdddbed51ad12d30c3ab5db2ac20002ecd9500e12a1c",
+      "decodedSha256": "5eff257e681b312adbb287c44e19c4214404f20f19967c941dcc513e297c51ee",
+      "routes": 254,
+      "pieces": 258
+    },
+    {
+      "id": "3:6",
+      "bounds": [
+        12000,
+        24000,
+        16000,
+        28000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/3_6-a191fa82bce6.json.gz",
+      "bytes": 17769,
+      "decodedBytes": 89494,
+      "sha256": "a191fa82bce656a16f7d63fa27cde1e791d89680b5382de2b02343e474b172e8",
+      "decodedSha256": "85d412568513db028b55cd561d2c6ba6540165877e4c97e7fb5693adff43541f",
+      "routes": 217,
+      "pieces": 218
+    },
+    {
+      "id": "3:7",
+      "bounds": [
+        12000,
+        28000,
+        16000,
+        30000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/3_7-186e932df868.json.gz",
+      "bytes": 6841,
+      "decodedBytes": 29941,
+      "sha256": "186e932df868b3823a1d2a188f9bed42cd930a25972fb7db5b7a07b20b0d2e13",
+      "decodedSha256": "09dab058cd8514cbfe111381a298789ec7bb0551fcfcbc37fbc69080fb15a56b",
+      "routes": 60,
+      "pieces": 61
+    },
+    {
+      "id": "4:-8",
+      "bounds": [
+        16000,
+        -30000,
+        20000,
+        -28000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/4_-8-7aa5ccadff4a.json.gz",
+      "bytes": 4353,
+      "decodedBytes": 22450,
+      "sha256": "7aa5ccadff4a1fa965d90cdb95a57e8530a149117793f0bf6c00714264181bee",
+      "decodedSha256": "8120b1d588bd0cb6979652ba22d6eb3ca6da2831024392647024a8b58887af57",
+      "routes": 66,
+      "pieces": 66
+    },
+    {
+      "id": "4:-7",
+      "bounds": [
+        16000,
+        -28000,
+        20000,
+        -24000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/4_-7-225a766b21dd.json.gz",
+      "bytes": 4029,
+      "decodedBytes": 15704,
+      "sha256": "225a766b21ddb23038674a771c3742794b98c6629899ff50d6feb74236facb42",
+      "decodedSha256": "49dfea69732f96d8137a27cca7eb018dc679adb74056965f1cf56572db996bf8",
+      "routes": 31,
+      "pieces": 31
+    },
+    {
+      "id": "4:-6",
+      "bounds": [
+        16000,
+        -24000,
+        20000,
+        -20000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/4_-6-dda16537ab9e.json.gz",
+      "bytes": 6405,
+      "decodedBytes": 25403,
+      "sha256": "dda16537ab9e095b0366b838708ce489cf60ef80afa91d2603a42b9b52947610",
+      "decodedSha256": "158c637b5015f50eeb0a5ad471ebc43684c2ba869f71b8e6932035d8e795ae40",
+      "routes": 44,
+      "pieces": 44
+    },
+    {
+      "id": "4:-5",
+      "bounds": [
+        16000,
+        -20000,
+        20000,
+        -16000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/4_-5-8d157e8c6a06.json.gz",
+      "bytes": 4811,
+      "decodedBytes": 20605,
+      "sha256": "8d157e8c6a060de63d2fc72e44ede796e6d370dcd75c05012593d8b0bd1d8696",
+      "decodedSha256": "3682cc997235d5c037c88a801659e85b268fe60827a9765d8e1e4574b716df2b",
+      "routes": 49,
+      "pieces": 49
+    },
+    {
+      "id": "4:-4",
+      "bounds": [
+        16000,
+        -16000,
+        20000,
+        -12000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/4_-4-f308aed53e59.json.gz",
+      "bytes": 7007,
+      "decodedBytes": 33951,
+      "sha256": "f308aed53e59d399c000384ae70d080154af79aab9c8d391b41b79c5b9bacb18",
+      "decodedSha256": "d81b7ee86e19a2e8abf245ab8b05ab04d8c0a7445cd0f449b5b495eb1fc83b62",
+      "routes": 90,
+      "pieces": 91
+    },
+    {
+      "id": "4:-3",
+      "bounds": [
+        16000,
+        -12000,
+        20000,
+        -8000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/4_-3-900078384544.json.gz",
+      "bytes": 16357,
+      "decodedBytes": 83238,
+      "sha256": "9000783845441c2eba3bfe010961a91b8865811a2f642cb2f735ac9183736344",
+      "decodedSha256": "c32d3a4c01bd2304a3524ceeb78341e017937b86c816d8e7f9e68a14c8a057a3",
+      "routes": 220,
+      "pieces": 221
+    },
+    {
+      "id": "4:-2",
+      "bounds": [
+        16000,
+        -8000,
+        20000,
+        -4000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/4_-2-566f0baead6e.json.gz",
+      "bytes": 22200,
+      "decodedBytes": 120311,
+      "sha256": "566f0baead6e83b35856a2d0fe099ac0d3907511eb7a92e0315cd5c99c36c2f2",
+      "decodedSha256": "14796b47247ec4899c9006d5bf8ba2e2ef5d99d12e722ac90f0f01f3922ef315",
+      "routes": 354,
+      "pieces": 359
+    },
+    {
+      "id": "4:-1",
+      "bounds": [
+        16000,
+        -4000,
+        20000,
+        0
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/4_-1-b4a0b8cc9bb0.json.gz",
+      "bytes": 31511,
+      "decodedBytes": 179973,
+      "sha256": "b4a0b8cc9bb00bcf690f0e16405318167796fde7baa92a5df5f6ea604ae90536",
+      "decodedSha256": "8d6c5cbab296f52804adf6b93e65e7f1df96785598ba12fed7cf1d87fda61159",
+      "routes": 564,
+      "pieces": 569
+    },
+    {
+      "id": "4:0",
+      "bounds": [
+        16000,
+        0,
+        20000,
+        4000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/4_0-46f4bd0ce35a.json.gz",
+      "bytes": 53090,
+      "decodedBytes": 318433,
+      "sha256": "46f4bd0ce35ad60f9d805b520258023dbfff913f195bdd422f7a444a0b3cf281",
+      "decodedSha256": "e347ba6d45ffc9fc26f8ee5a00d3c5607ed7f620b2ecc4d17058339431d384d6",
+      "routes": 1044,
+      "pieces": 1045
+    },
+    {
+      "id": "4:1",
+      "bounds": [
+        16000,
+        4000,
+        20000,
+        8000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/4_1-1d805e3859dc.json.gz",
+      "bytes": 22466,
+      "decodedBytes": 120905,
+      "sha256": "1d805e3859dcc0f1076cca71f1222d1d74a5cb306532b40f3b23431245017277",
+      "decodedSha256": "ae6965ea4f455467b0d93a8a7d021ab634f379dfc752a24e0e14704dafb7d1f9",
+      "routes": 361,
+      "pieces": 365
+    },
+    {
+      "id": "4:2",
+      "bounds": [
+        16000,
+        8000,
+        20000,
+        12000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/4_2-2a2572dca82d.json.gz",
+      "bytes": 12897,
+      "decodedBytes": 57480,
+      "sha256": "2a2572dca82d5eff5878882858c098c0141ded1ab50b7494093185fbcb472b1a",
+      "decodedSha256": "b488277e6c2a0e00c336f37e95b6193fcc23ae47cd029a35d8830245b02da4f0",
+      "routes": 112,
+      "pieces": 113
+    },
+    {
+      "id": "4:3",
+      "bounds": [
+        16000,
+        12000,
+        20000,
+        16000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/4_3-6ea62cea2db7.json.gz",
+      "bytes": 5508,
+      "decodedBytes": 21098,
+      "sha256": "6ea62cea2db7633563b87e4b517504b2485f3491391b407c3d036111c19b1629",
+      "decodedSha256": "813e64440cf3646d4497409d55a1466f02941d0fd877af391073171e85ea7021",
+      "routes": 22,
+      "pieces": 24
+    },
+    {
+      "id": "4:4",
+      "bounds": [
+        16000,
+        16000,
+        20000,
+        20000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/4_4-b1de097706d9.json.gz",
+      "bytes": 17748,
+      "decodedBytes": 71300,
+      "sha256": "b1de097706d95dc5c2fd33f883c9d04a62b1f570a2796213a6db5502ed3d25b4",
+      "decodedSha256": "ef1073e32e838a8325f86042a73be05d8997cdb7b97009578181a706009d0f3a",
+      "routes": 69,
+      "pieces": 72
+    },
+    {
+      "id": "4:5",
+      "bounds": [
+        16000,
+        20000,
+        20000,
+        24000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/4_5-f4d1592b393c.json.gz",
+      "bytes": 22915,
+      "decodedBytes": 95381,
+      "sha256": "f4d1592b393c3dee8d404cb51db76e4430e36c08721e6b2c87ed133694810fea",
+      "decodedSha256": "456c274bc7922e38b10ee195b7a07beff41a43d4492446567984578cb3bd55f9",
+      "routes": 128,
+      "pieces": 133
+    },
+    {
+      "id": "4:6",
+      "bounds": [
+        16000,
+        24000,
+        20000,
+        28000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/4_6-cbf75fb61859.json.gz",
+      "bytes": 30384,
+      "decodedBytes": 146412,
+      "sha256": "cbf75fb6185974a223fe8600d1dba9cc1f2b63e4352a2256ba5f6c95c8f93a49",
+      "decodedSha256": "04a28668614acc419cfbe94cf61b24b27ad2e912c0f84cbd71ddd9c3fb03ed20",
+      "routes": 333,
+      "pieces": 340
+    },
+    {
+      "id": "4:7",
+      "bounds": [
+        16000,
+        28000,
+        20000,
+        30000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/4_7-97a679f051aa.json.gz",
+      "bytes": 15293,
+      "decodedBytes": 78409,
+      "sha256": "97a679f051aa84db3f81e13f59e1d46523a61c4696ce422d43f79210b19706c7",
+      "decodedSha256": "1fee2afcc58d033ae8b1cecdfb10436debaffa3be3ac83675263a455ec4f1cfb",
+      "routes": 202,
+      "pieces": 203
+    },
+    {
+      "id": "5:-8",
+      "bounds": [
+        20000,
+        -30000,
+        24000,
+        -28000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/5_-8-e05252236f71.json.gz",
+      "bytes": 3642,
+      "decodedBytes": 12303,
+      "sha256": "e05252236f71c980a73c436e1702dba2ced6a30be495cd10ae7c159183c18aee",
+      "decodedSha256": "096357f0e36197a9955a5cfa715b4644fc72624d88f4d01a874e083647f73b06",
+      "routes": 15,
+      "pieces": 15
+    },
+    {
+      "id": "5:-7",
+      "bounds": [
+        20000,
+        -28000,
+        24000,
+        -24000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/5_-7-803d6ccface5.json.gz",
+      "bytes": 7142,
+      "decodedBytes": 30626,
+      "sha256": "803d6ccface5669f7044186ad416740e2e28c09996e5c1a7b94a582c6ab4f101",
+      "decodedSha256": "5ff8e08d3b9c9a411322a4d87b7c00486de6cc71b4eadab875b014fd31226cf8",
+      "routes": 60,
+      "pieces": 60
+    },
+    {
+      "id": "5:-6",
+      "bounds": [
+        20000,
+        -24000,
+        24000,
+        -20000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/5_-6-4d2d9b3ff529.json.gz",
+      "bytes": 7308,
+      "decodedBytes": 35308,
+      "sha256": "4d2d9b3ff5291cda8c654a9a2a8d5ba46346775ea189d84b14f12244b1823042",
+      "decodedSha256": "844985da35b9ed03e01026c857aacc6a44ea76123bad25876b975c610061638b",
+      "routes": 86,
+      "pieces": 86
+    },
+    {
+      "id": "5:-5",
+      "bounds": [
+        20000,
+        -20000,
+        24000,
+        -16000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/5_-5-9dd782491366.json.gz",
+      "bytes": 5507,
+      "decodedBytes": 27217,
+      "sha256": "9dd782491366af9bac332a24f84c1bfebbf64c3633eabd2935908b7431def59a",
+      "decodedSha256": "4e6f54b3712c24e8f7d6da59f042972cd0a021419149904f20c4e9d13c9c252a",
+      "routes": 65,
+      "pieces": 65
+    },
+    {
+      "id": "5:-4",
+      "bounds": [
+        20000,
+        -16000,
+        24000,
+        -12000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/5_-4-d62a439b04e5.json.gz",
+      "bytes": 6132,
+      "decodedBytes": 28707,
+      "sha256": "d62a439b04e52a3ab7a8c163f5e650449c6420bb33f2dc75345a4bb8287a902f",
+      "decodedSha256": "65a1366d3729f9ed9267a836318a0b7dae7cecb292da9e4bb5cd99116f7a9a96",
+      "routes": 74,
+      "pieces": 74
+    },
+    {
+      "id": "5:-3",
+      "bounds": [
+        20000,
+        -12000,
+        24000,
+        -8000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/5_-3-afe1813336bd.json.gz",
+      "bytes": 13293,
+      "decodedBytes": 65862,
+      "sha256": "afe1813336bd64f691431fe8d7e9a8957aeb7a8708fb9df49f9d6400d271a632",
+      "decodedSha256": "0b3aa7ee7c8b57b77b8dd752fac369333274b59f8e5897af1d1d16d13c9e7ad0",
+      "routes": 170,
+      "pieces": 170
+    },
+    {
+      "id": "5:-2",
+      "bounds": [
+        20000,
+        -8000,
+        24000,
+        -4000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/5_-2-47cfb2f2f85e.json.gz",
+      "bytes": 14147,
+      "decodedBytes": 70387,
+      "sha256": "47cfb2f2f85e25ca4bc9cde75d7593e8bd7bbf02373d4b9a9b2dc9583ada1666",
+      "decodedSha256": "0e082912f4410201e324f7085ca105f22f98e99241ea8464530ed96c7bc28f8a",
+      "routes": 176,
+      "pieces": 177
+    },
+    {
+      "id": "5:-1",
+      "bounds": [
+        20000,
+        -4000,
+        24000,
+        0
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/5_-1-4a8b08a7bbe3.json.gz",
+      "bytes": 19730,
+      "decodedBytes": 110825,
+      "sha256": "4a8b08a7bbe3a8ff8d84669f3f20f41af24350d2492ac8c5b381aa561c99adf6",
+      "decodedSha256": "b6a33f8f80cc35522aa87ca990372dac6d8af298aa2728d342fbb80aeed81a2c",
+      "routes": 348,
+      "pieces": 349
+    },
+    {
+      "id": "5:0",
+      "bounds": [
+        20000,
+        0,
+        24000,
+        4000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/5_0-dce02964e1b2.json.gz",
+      "bytes": 30106,
+      "decodedBytes": 169313,
+      "sha256": "dce02964e1b275de4275cc717e4b5d53274db14c5f86d3edbacbdbc53db0dc3f",
+      "decodedSha256": "8e07459cca065992837413e8347aff316350c9f3e328e0712ee714d4f411f37c",
+      "routes": 531,
+      "pieces": 534
+    },
+    {
+      "id": "5:1",
+      "bounds": [
+        20000,
+        4000,
+        24000,
+        8000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/5_1-cb5f173f5294.json.gz",
+      "bytes": 25887,
+      "decodedBytes": 137689,
+      "sha256": "cb5f173f5294855062bf569a9e9c31a814b725dd377efb919323f47ed9e0544a",
+      "decodedSha256": "f4a25debb2f4deffa676f2014bc35206a5dd6930478f25435e1cae4e1bc026db",
+      "routes": 389,
+      "pieces": 391
+    },
+    {
+      "id": "5:2",
+      "bounds": [
+        20000,
+        8000,
+        24000,
+        12000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/5_2-83bccfb29d8a.json.gz",
+      "bytes": 6927,
+      "decodedBytes": 29879,
+      "sha256": "83bccfb29d8a17e51637443529200be1c888ebef02653ad40358e433ef13c038",
+      "decodedSha256": "e521a89a8656a14a1af88c592c070765b77089eacae1fe346e389062bb2fc09a",
+      "routes": 57,
+      "pieces": 59
+    },
+    {
+      "id": "5:3",
+      "bounds": [
+        20000,
+        12000,
+        24000,
+        16000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/5_3-7f53428bb38a.json.gz",
+      "bytes": 7562,
+      "decodedBytes": 30280,
+      "sha256": "7f53428bb38a04324744e6ee38a56e9cefdd1d19324277090dc9ba49b94c7dcc",
+      "decodedSha256": "3f913b4e619697f027da0ea21306842fbfac1292e44b192bdeb2f4e6bedb675f",
+      "routes": 44,
+      "pieces": 45
+    },
+    {
+      "id": "5:4",
+      "bounds": [
+        20000,
+        16000,
+        24000,
+        20000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/5_4-6a22921cc173.json.gz",
+      "bytes": 9142,
+      "decodedBytes": 33559,
+      "sha256": "6a22921cc173ecf521a28ac526c939504d31c89db93451119386b7d537b9870a",
+      "decodedSha256": "326eaa2bf77606afe423064dfc8d5c226ee4225e6393036278be6dfb2fc49146",
+      "routes": 14,
+      "pieces": 16
+    },
+    {
+      "id": "5:5",
+      "bounds": [
+        20000,
+        20000,
+        24000,
+        24000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/5_5-29ec10cbf6a1.json.gz",
+      "bytes": 11408,
+      "decodedBytes": 47538,
+      "sha256": "29ec10cbf6a1300b7d83ff4e70ca13ac5b57a05d601f87c32d522c2ba27b1bc9",
+      "decodedSha256": "66597a997cf599d3bdfe09bed190159eed3a3d519a8e1627041d9940bcf4178f",
+      "routes": 66,
+      "pieces": 67
+    },
+    {
+      "id": "5:6",
+      "bounds": [
+        20000,
+        24000,
+        24000,
+        28000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/5_6-688aeb082b3b.json.gz",
+      "bytes": 20869,
+      "decodedBytes": 92516,
+      "sha256": "688aeb082b3b08f4d06fb729d5a6760ab858723d505bd42fbf2d7e614d05ca5e",
+      "decodedSha256": "e775d17d52f60844b92364800c444712d00642bc2fed819ceca6090a63f1ec2f",
+      "routes": 177,
+      "pieces": 179
+    },
+    {
+      "id": "5:7",
+      "bounds": [
+        20000,
+        28000,
+        24000,
+        30000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/5_7-c5a0e5972130.json.gz",
+      "bytes": 3842,
+      "decodedBytes": 13842,
+      "sha256": "c5a0e5972130eadc962ee484ac5ee28dfd587ab56c570fee29e9cc4b15bd6d06",
+      "decodedSha256": "9849e4deab192575de5b5b6cec9f21fdbd3f1d182c865802cd86b3aa7469b990",
+      "routes": 17,
+      "pieces": 17
+    },
+    {
+      "id": "6:-8",
+      "bounds": [
+        24000,
+        -30000,
+        28000,
+        -28000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/6_-8-9bafbe82fcc8.json.gz",
+      "bytes": 2170,
+      "decodedBytes": 11169,
+      "sha256": "9bafbe82fcc802883aca82b6153dc3920957ff2288860b17b9035d4732f726d1",
+      "decodedSha256": "f2cbca2af86602d4fc74cdc0b14774344dcbd40ddb9ad0567a010d591001898f",
+      "routes": 32,
+      "pieces": 32
+    },
+    {
+      "id": "6:-7",
+      "bounds": [
+        24000,
+        -28000,
+        28000,
+        -24000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/6_-7-0c3c74291128.json.gz",
+      "bytes": 6877,
+      "decodedBytes": 36470,
+      "sha256": "0c3c74291128616ee5e8ca8b43a24aa8367e3408833282a6d98d289426ca47ab",
+      "decodedSha256": "9413de08d7db611fb8e1882e19ea181d3feaaf6f84bcddc0e68c7eecbe8ba284",
+      "routes": 104,
+      "pieces": 104
+    },
+    {
+      "id": "6:-6",
+      "bounds": [
+        24000,
+        -24000,
+        28000,
+        -20000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/6_-6-49e001304cf9.json.gz",
+      "bytes": 4259,
+      "decodedBytes": 20148,
+      "sha256": "49e001304cf97c1dd62f9086ece3104e38dd7b47b4b93c25c3ec3bcaef55685d",
+      "decodedSha256": "b6d9dbe27596c8d7fad7ee8b15636578317465e488a72258f930b95fd5c0a208",
+      "routes": 48,
+      "pieces": 48
+    },
+    {
+      "id": "6:-5",
+      "bounds": [
+        24000,
+        -20000,
+        28000,
+        -16000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/6_-5-fb4266d3d716.json.gz",
+      "bytes": 3553,
+      "decodedBytes": 17788,
+      "sha256": "fb4266d3d716dec7bca5d6a7e99339372b5263bdd97501138189608e1faedf88",
+      "decodedSha256": "5274fe61d517c7e63611af49717068b26912291967e618e8a304c41200d0e1e8",
+      "routes": 51,
+      "pieces": 51
+    },
+    {
+      "id": "6:-4",
+      "bounds": [
+        24000,
+        -16000,
+        28000,
+        -12000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/6_-4-0c4ebaa193f3.json.gz",
+      "bytes": 9399,
+      "decodedBytes": 44407,
+      "sha256": "0c4ebaa193f351f68db6000133487a9fe7a4015a6d6335e965c989a72ad1c64b",
+      "decodedSha256": "915cfd5543360a4d6bebce8e503d6950860f7b16d89e9dac7142f643f2f99d5b",
+      "routes": 104,
+      "pieces": 105
+    },
+    {
+      "id": "6:-3",
+      "bounds": [
+        24000,
+        -12000,
+        28000,
+        -8000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/6_-3-8e7d071e034e.json.gz",
+      "bytes": 12760,
+      "decodedBytes": 64299,
+      "sha256": "8e7d071e034edeacb74676d6e331360549452a497d0a36fbdb083fd29dbeb365",
+      "decodedSha256": "4a58ecbb6356996a41a36cff892c4e8bb85fb09d97878ae3d950dd5d04a51b07",
+      "routes": 170,
+      "pieces": 170
+    },
+    {
+      "id": "6:-2",
+      "bounds": [
+        24000,
+        -8000,
+        28000,
+        -4000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/6_-2-78a0cc98c1cf.json.gz",
+      "bytes": 18688,
+      "decodedBytes": 95283,
+      "sha256": "78a0cc98c1cfd0d4f67b21e912c9ef1608d60b3ccd9961e24967b1cc72c46309",
+      "decodedSha256": "4c0d411adc79e235a5736552b66ee8e951e06eddf40d75bec8d3b2d9e948a4e3",
+      "routes": 242,
+      "pieces": 243
+    },
+    {
+      "id": "6:-1",
+      "bounds": [
+        24000,
+        -4000,
+        28000,
+        0
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/6_-1-3bdacf017c0a.json.gz",
+      "bytes": 33049,
+      "decodedBytes": 173313,
+      "sha256": "3bdacf017c0a11b206edafeeb55ba230710da1c24216bfa27cf4f7ebd316b44c",
+      "decodedSha256": "65f1e9a5010925ed8fb7403d8c67ccefcf3afdf2dc40da36a8c771086866213e",
+      "routes": 492,
+      "pieces": 494
+    },
+    {
+      "id": "6:0",
+      "bounds": [
+        24000,
+        0,
+        28000,
+        4000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/6_0-375445324c3d.json.gz",
+      "bytes": 14774,
+      "decodedBytes": 80818,
+      "sha256": "375445324c3db70914307bd58245db429292d815fbe3831114bc8cccd523454e",
+      "decodedSha256": "a633a85ee8892d22cd481f89537afb33cef350e2ff8cb404cd2a55c7105b2f2d",
+      "routes": 245,
+      "pieces": 246
+    },
+    {
+      "id": "6:1",
+      "bounds": [
+        24000,
+        4000,
+        28000,
+        8000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/6_1-12939c44c237.json.gz",
+      "bytes": 15602,
+      "decodedBytes": 82853,
+      "sha256": "12939c44c2374a947807d34247c9341411a3c2656bd2de22f6aadffbe6262232",
+      "decodedSha256": "587c3af3f830b82051b1f0298520ef17f13b4ef7273aa183530d2f24cd1ebb9b",
+      "routes": 245,
+      "pieces": 248
+    },
+    {
+      "id": "6:2",
+      "bounds": [
+        24000,
+        8000,
+        28000,
+        12000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/6_2-3db482221e69.json.gz",
+      "bytes": 4342,
+      "decodedBytes": 19070,
+      "sha256": "3db482221e69e668548bc1f58d7f0fcdce5e5586533e54b10b43edadecfc4bd7",
+      "decodedSha256": "7eff8c8598687a85296a7bdd5f47483a4122778a1fe81f6654b711a755396fbe",
+      "routes": 43,
+      "pieces": 43
+    },
+    {
+      "id": "6:3",
+      "bounds": [
+        24000,
+        12000,
+        28000,
+        16000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/6_3-d80ceaa36493.json.gz",
+      "bytes": 4080,
+      "decodedBytes": 17268,
+      "sha256": "d80ceaa3649303f8a68eff052e4c24820f4c20be826d1bb6cdc66bee39664cb1",
+      "decodedSha256": "e699f4dd7c7b9bf9b080c26298793a7c3c04d7ff583830dedecfbd3e1a747db0",
+      "routes": 35,
+      "pieces": 36
+    },
+    {
+      "id": "6:4",
+      "bounds": [
+        24000,
+        16000,
+        28000,
+        20000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/6_4-60d801159dc1.json.gz",
+      "bytes": 4663,
+      "decodedBytes": 21599,
+      "sha256": "60d801159dc187317da265566e16594db6e5520b4be32c5eb244a04f5de22a97",
+      "decodedSha256": "79a6edc05e416c48b701ed266db93bf9ff92fab3e6a9aca178b519497ff9e9b6",
+      "routes": 54,
+      "pieces": 54
+    },
+    {
+      "id": "6:5",
+      "bounds": [
+        24000,
+        20000,
+        28000,
+        24000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/6_5-716f384c6674.json.gz",
+      "bytes": 11350,
+      "decodedBytes": 57931,
+      "sha256": "716f384c6674387103890b705d3205712f115a13fae614702098eff38bddd993",
+      "decodedSha256": "5a2986240975bb13af772358c9775a92cfb0db601a4b322043f10acfa13b1760",
+      "routes": 150,
+      "pieces": 152
+    },
+    {
+      "id": "6:6",
+      "bounds": [
+        24000,
+        24000,
+        28000,
+        28000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/6_6-1369a9dc1360.json.gz",
+      "bytes": 10444,
+      "decodedBytes": 49515,
+      "sha256": "1369a9dc13602e578fe8f7728839dc382d28985dd1a3a13666a46fd7e44b5749",
+      "decodedSha256": "823743ac6b7f961cb42af9b202dbd0a928aa8b4f81fbeffd99ed16c8fac97471",
+      "routes": 118,
+      "pieces": 120
+    },
+    {
+      "id": "6:7",
+      "bounds": [
+        24000,
+        28000,
+        28000,
+        30000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/6_7-d60452827f33.json.gz",
+      "bytes": 2110,
+      "decodedBytes": 6606,
+      "sha256": "d60452827f339b641e7fdd292fbcc093ecf7a1fb9830aed72462eb97576af6ba",
+      "decodedSha256": "e542dd94414e0087aaf1f33844b567a922a0d0e78babf5cb87e3a097323214a0",
+      "routes": 6,
+      "pieces": 6
+    },
+    {
+      "id": "7:-8",
+      "bounds": [
+        28000,
+        -30000,
+        30000,
+        -28000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/7_-8-458e3aadb26e.json.gz",
+      "bytes": 2906,
+      "decodedBytes": 15254,
+      "sha256": "458e3aadb26e6559aefeaca4deba514393e11a66ee21e2ed9c2526b922688f38",
+      "decodedSha256": "393a15e7977a02e308e382dd4107b391c0bdc20ade22f16e2fe71af7f4e343c5",
+      "routes": 49,
+      "pieces": 49
+    },
+    {
+      "id": "7:-7",
+      "bounds": [
+        28000,
+        -28000,
+        30000,
+        -24000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/7_-7-6cbc1807ed67.json.gz",
+      "bytes": 3402,
+      "decodedBytes": 15440,
+      "sha256": "6cbc1807ed675765dd47aa84bb9c9173684383a093bda8de5ef1ee8d4c2e09c5",
+      "decodedSha256": "e277a9248dbddd665ad855183b472ccf8cb176ccbbcd6525792264c0883d5081",
+      "routes": 43,
+      "pieces": 43
+    },
+    {
+      "id": "7:-6",
+      "bounds": [
+        28000,
+        -24000,
+        30000,
+        -20000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/7_-6-fd33f154bbf3.json.gz",
+      "bytes": 1587,
+      "decodedBytes": 7031,
+      "sha256": "fd33f154bbf31a118971511afb0d92e2808eaf3760f5ce3675ad39daa136b6c9",
+      "decodedSha256": "dad9170614a7f38fa1119a175d3932825230fb04ebf611dfa75540e44ef3f516",
+      "routes": 22,
+      "pieces": 22
+    },
+    {
+      "id": "7:-5",
+      "bounds": [
+        28000,
+        -20000,
+        30000,
+        -16000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/7_-5-285b099c2b2e.json.gz",
+      "bytes": 2618,
+      "decodedBytes": 10802,
+      "sha256": "285b099c2b2e39160f1feed44669a1591a9d05f4c06875bc11db0f6550fe08f3",
+      "decodedSha256": "eb6e17b5b28aafa3f399575cc0a898dc7cf0cd85916d529ad7d0a604756c1a27",
+      "routes": 25,
+      "pieces": 26
+    },
+    {
+      "id": "7:-4",
+      "bounds": [
+        28000,
+        -16000,
+        30000,
+        -12000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/7_-4-cef734273a74.json.gz",
+      "bytes": 2092,
+      "decodedBytes": 9825,
+      "sha256": "cef734273a74579a02965b59def43bae303d7b38f5c84fe06621910098fa2261",
+      "decodedSha256": "a70641a13501c8eb45ff5afa197ac8c8437fb74696ef3c0b5a6da02ffa50e41f",
+      "routes": 31,
+      "pieces": 31
+    },
+    {
+      "id": "7:-3",
+      "bounds": [
+        28000,
+        -12000,
+        30000,
+        -8000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/7_-3-291c634d5663.json.gz",
+      "bytes": 3999,
+      "decodedBytes": 16187,
+      "sha256": "291c634d5663ec6c47186ea71249c484c6aaad961ba189de9544dad6eee64fbb",
+      "decodedSha256": "d08cd751a90794b76aecd1f38ac42ce2131c534a10deaa169a634b4a5eaa1c3a",
+      "routes": 32,
+      "pieces": 33
+    },
+    {
+      "id": "7:-2",
+      "bounds": [
+        28000,
+        -8000,
+        30000,
+        -4000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/7_-2-de86ee77742e.json.gz",
+      "bytes": 16613,
+      "decodedBytes": 81258,
+      "sha256": "de86ee77742e7ca0403fe03e9535b36ba5e2761efab7a56e55abe2ed5472fdb7",
+      "decodedSha256": "4b7a908baf4766fe31bee6be6f347ac7aaa116dbabf13a1d8f899e1790bec768",
+      "routes": 205,
+      "pieces": 205
+    },
+    {
+      "id": "7:-1",
+      "bounds": [
+        28000,
+        -4000,
+        30000,
+        0
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/7_-1-440c2a94d024.json.gz",
+      "bytes": 24615,
+      "decodedBytes": 122285,
+      "sha256": "440c2a94d024418c81069da3eec03009994a5a3707a3af3d848871b9fa42dfe9",
+      "decodedSha256": "6615e32ce2b95ed49c1fba9e432c8d3259e642a0ed92bbf511c2a763287b8f90",
+      "routes": 323,
+      "pieces": 323
+    },
+    {
+      "id": "7:0",
+      "bounds": [
+        28000,
+        0,
+        30000,
+        4000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/7_0-fd146e9c857c.json.gz",
+      "bytes": 13367,
+      "decodedBytes": 67124,
+      "sha256": "fd146e9c857c003051944316c0c60dc0bd26212802410e81def6b3f6c2ed0a8c",
+      "decodedSha256": "e84ce92b4b9a92373bbb2cf90d6dd34c48b989a934dba84a23df3940b98a27b3",
+      "routes": 179,
+      "pieces": 179
+    },
+    {
+      "id": "7:1",
+      "bounds": [
+        28000,
+        4000,
+        30000,
+        8000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/7_1-13603d604b95.json.gz",
+      "bytes": 6075,
+      "decodedBytes": 31513,
+      "sha256": "13603d604b9515257460e0f74bfd3ef4082037142d46a09a8b05816c732f61d8",
+      "decodedSha256": "adf7bdf6033986f3ebc526ed1af9ae93775cf04fdd55b82dd19c2006660c1b13",
+      "routes": 97,
+      "pieces": 97
+    },
+    {
+      "id": "7:2",
+      "bounds": [
+        28000,
+        8000,
+        30000,
+        12000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/7_2-412aeb79b3d7.json.gz",
+      "bytes": 4368,
+      "decodedBytes": 20361,
+      "sha256": "412aeb79b3d743d1a9f789bd3b6160a8615829e9072a722ea65c598eace3c793",
+      "decodedSha256": "0222b7bf928fd3484ea2c3f4b3b9b58046fb1e63fb90ae6b8640e164dafbb560",
+      "routes": 49,
+      "pieces": 49
+    },
+    {
+      "id": "7:3",
+      "bounds": [
+        28000,
+        12000,
+        30000,
+        16000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/7_3-8fd2993c786b.json.gz",
+      "bytes": 3913,
+      "decodedBytes": 15311,
+      "sha256": "8fd2993c786b5790a599cafb305d59d3c10cfb47931d3dee57cb3a5c15e1a6cc",
+      "decodedSha256": "36ce60945c401e9270a60a4fe6c0260086f6294bfc61978547a863c211286db2",
+      "routes": 26,
+      "pieces": 26
+    },
+    {
+      "id": "7:4",
+      "bounds": [
+        28000,
+        16000,
+        30000,
+        20000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/7_4-7baea07e25ff.json.gz",
+      "bytes": 3228,
+      "decodedBytes": 13238,
+      "sha256": "7baea07e25ffbc6d7b8c70b25f1276825cfd7acaa0df07f34342b1c98754abd9",
+      "decodedSha256": "c5f10e445589d5f5f8826a7704a9eed05dc1d53a1b1b87fd1575110cb67bcf24",
+      "routes": 25,
+      "pieces": 25
+    },
+    {
+      "id": "7:5",
+      "bounds": [
+        28000,
+        20000,
+        30000,
+        24000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/7_5-7a683ab5ee18.json.gz",
+      "bytes": 2816,
+      "decodedBytes": 10249,
+      "sha256": "7a683ab5ee18c0df3ba176279e971224552d0cfd2ea8143511ce3eb6ec090c9a",
+      "decodedSha256": "1acc64811f126430115b5a7a53849c5d6fab3384bf9ffa1aebf3679cfb9ecfea",
+      "routes": 15,
+      "pieces": 15
+    },
+    {
+      "id": "7:6",
+      "bounds": [
+        28000,
+        24000,
+        30000,
+        28000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/7_6-03390f0b1ff5.json.gz",
+      "bytes": 4777,
+      "decodedBytes": 19363,
+      "sha256": "03390f0b1ff57565ae1c4e4ef509acd4fb8e006fa4dd8d6e359d08c34ce34928",
+      "decodedSha256": "feaaaebcc8d7298c97e7a95b752a3932cab599fa410e8e4689c275802cb71dc0",
+      "routes": 37,
+      "pieces": 39
+    },
+    {
+      "id": "7:7",
+      "bounds": [
+        28000,
+        28000,
+        30000,
+        30000
+      ],
+      "path": "assets/cities/xiaoshan/traffic-region-v1/7_7-33acaca5a272.json.gz",
+      "bytes": 2967,
+      "decodedBytes": 9630,
+      "sha256": "33acaca5a27210242ca7b7de6ba3020ac94cef451bbc35aa117bd9a85bff0a43",
+      "decodedSha256": "2756a5ce98432b4a91ebe421e36fbd46f01e235a94a34aa77ea94b3c02bc9045",
+      "routes": 9,
+      "pieces": 9
+    }
+  ],
+  "counts": {
+    "service": 14312,
+    "tertiary": 9505,
+    "secondary": 8238,
+    "primary": 6842,
+    "unclassified": 11127,
+    "residential": 12768,
+    "secondary_link": 315,
+    "trunk": 1599,
+    "trunk_link": 1653,
+    "motorway": 1370,
+    "primary_link": 589,
+    "tertiary_link": 118,
+    "motorway_link": 1182,
+    "living_street": 628
+  },
+  "provenance": {
+    "source": "https://download.geofabrik.de/asia/china/zhejiang/zhejiang-261119.osm.pbf",
+    "sha256": "9f21a063174f7c4bf2001488dc40a1237c9e228b7c61a96b5ac468efeae6ba85",
+    "snapshot": "2026-11-19 cached extract",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors",
+    "estimates": "Source motor roads; missing lanes/speeds/widths and bridge clearances use the airport traffic defaults. Regional flow is estimated visual traffic, not measured demand. Original full way identities and distance intervals avoid resetting routes at tile seams."
+  },
+  "identity": "a6a7a8ac311bf1ad18946148eaf34a048db8a52317b8a7ecb98b95d96a18f696"
+}

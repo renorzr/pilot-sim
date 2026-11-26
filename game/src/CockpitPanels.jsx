@@ -17,7 +17,7 @@ export function FCU({state:s,onAction,children,physical=false}){
     <div className="fcu-target-bank" style={physical?FCU_STYLES.targets:undefined}>
     <div className="fcu-selection"><button className="fcu-label" onClick={()=>onAction(f=>{f.speedMode=f.speedMode==='managed'?'selected':'managed';})} title="切换管理 / 选择速度">SPD <small>{s.speedMode==='managed'?'管理':'选择'}</small></button><FCUTarget value={Math.round(targetSpeed(s))} decreaseLabel="目标速度减少" increaseLabel="目标速度增加" onDecrease={()=>change('selectedSpeed',-5,125,250)} onIncrease={()=>change('selectedSpeed',5,125,250)}/></div>
     <div className="fcu-selection"><span className="fcu-label">HDG</span><FCUTarget value={s.selectedHeading} decreaseLabel="目标航向减少" increaseLabel="目标航向增加" onDecrease={()=>change('selectedHeading',-5,-5,360)} onIncrease={()=>change('selectedHeading',5,-5,360)}/></div>
-    <div className="fcu-selection altitude-selection"><span className="fcu-label">ALT <small>ft</small></span><FCUTarget value={s.selectedAltitude} decreaseLabel="目标高度减少" increaseLabel="目标高度增加" onDecrease={()=>change('selectedAltitude',-500,1000,6000)} onIncrease={()=>change('selectedAltitude',500,1000,6000)}/></div>
+    <div className="fcu-selection altitude-selection"><span className="fcu-label">ALT <small>{s.airline?.navigation?.procedure?'MSL':'ft'}</small></span><FCUTarget value={Math.round(s.selectedAltitude+(s.airline?.navigation?.elevationFt||0))} decreaseLabel="目标高度减少" increaseLabel="目标高度增加" onDecrease={()=>change('selectedAltitude',-500,1000,6000)} onIncrease={()=>change('selectedAltitude',500,1000,6000)}/></div>
     </div><div className="fcu-mode-bank" style={physical?FCU_STYLES.modes:undefined}>
     <button className={`fcu-mode ${s.autoPilot?'on':''}`} disabled={!s.systems.apAvailable} onClick={()=>onAction(toggleAP)} aria-pressed={s.autoPilot} aria-label="自动驾驶 AP1">AP1<small>A</small></button>
     <button className={`fcu-mode ${s.flightDirector?'on':''}`} onClick={()=>onAction(f=>{f.flightDirector=!f.flightDirector;})} aria-pressed={s.flightDirector} aria-label="飞行指引 FD">FD<small>D</small></button>
@@ -78,16 +78,16 @@ export function ProcedurePanel({state:s,onAction,onRetry}){
   </aside>;
 }
 export function Briefing({state:s,onReset,onStart,onHelp,loaded,error,started,loadingProgress}){
-  const level=getLevel(s.levelId);
+  const level=getLevel(s.levelId),departure=s.airline?.navigation?.procedure?s.airline.navigation:null;
   return <section className="flight-card briefing-card" aria-label={error?'加载失败':started?'已暂停':'进近简报'}>
     <p className="eyebrow">{level?`关卡 ${String(level.order).padStart(2,'0')} / ${level.category}`:'云际 / A320 FLIGHT EXPERIENCE'}</p>
     <h1>{error?'暂时无法起飞':!loaded?'正在准备驾驶舱':started?'飞行已暂停':level?level.title:s.mode==='landing'?'准备进近跑道 27。':'完成一次客机起飞。'}</h1>
     {!loaded&&!error&&<LoadingProgress progress={loadingProgress}/>}
     {error?<p className="card-description">{error}</p>:!started&&level?<>
       <p className="card-description level-brief-description">{level.description}</p>
-      <div className="briefing-data"><span>跑道 <b>{runwayOf(s).id} · {level.kind==='dual-glide'?'滑翔':s.mode==='landing'?'进近':'起飞'}</b></span><span>{s.mode==='landing'?'着陆目标速度':'抬轮参考'} <b>{s.mode==='landing'?s.vapp:125} kt</b></span><span>{level.targetAltitude?'目标高度':'复飞高度'} <b>{level.targetAltitude?`${level.targetAltitude} ft`:'3000 ft'}</b></span></div>
-      {s.airportId!=='training'&&<p className="airport-scope-note">{airportOf(s).ident} / {airportOf(s).iata} · 真实地形与机场轮廓<br/>本游戏采用真航向、机场以上高度及简化飞行程序。</p>}
-      {level.kind==='landing'&&<div className="briefing-config"><span>着陆构型</span>{[3,4].map(c=><button key={c} className={s.landingConfig===c?'selected':''} onClick={()=>onReset('landing',false,{landingConfig:c})}>CONF {FLAPS[c]}</button>)}</div>}
+      {s.historical?<div className="briefing-data"><span>起点 <b>{s.historical.finalPractice?'末进近练习 · 300 ft':'鸟击 · 双发失去推力'}</b></span><span>构型 <b>{s.historical.finalPractice?'收轮 / CONF 2':'收轮 / CONF 0'}</b></span><span>操纵 <b>{s.mission.practice?'你来操纵':'副驾驶 → 玩家'}</b></span></div>:<div className="briefing-data"><span>跑道 <b>{runwayOf(s).id} · {level.kind==='dual-glide'?'滑翔':s.mode==='landing'?'进近':'起飞'}</b></span><span>{s.mode==='landing'?'着陆目标速度':'抬轮参考'} <b>{s.mode==='landing'?s.vapp:125} kt</b></span><span>{departure?'许可海拔':level.targetAltitude?'目标高度':'复飞高度'} <b>{departure?`${Math.round(departure.altitude+departure.elevationFt)} ft MSL`:level.targetAltitude?`${level.targetAltitude} ft`:'3000 ft'}</b></span></div>}
+      {s.airportId!=='training'&&!s.historical&&<p className="airport-scope-note">{airportOf(s).ident} / {airportOf(s).iata} · 真实地形与机场轮廓<br/>{departure?'按初始离场程序飞行，遵守海拔高度和转弯条件。':'本游戏采用真航向、机场以上高度及简化飞行程序。'}</p>}
+      {s.historical&&<div className="briefing-config" role="group" aria-label="历史关卡模式">{[['guided','引导'],['challenge','挑战']].map(([mode,label])=><button key={mode} className={s.historical.mode===mode&&!s.mission.practice?'selected':''} onClick={()=>onReset(null,false,{historical:{mode}})}>{label}</button>)}<button className={s.mission.practice?'selected':''} onClick={()=>onReset(null,false,{historical:{mode:s.historical.mode,practice:true,finalApproach:true}})}>末进近练习 · 不计成绩</button></div>}{level.kind==='landing'&&<div className="briefing-config"><span>着陆构型</span>{[3,4].map(c=><button key={c} className={s.landingConfig===c?'selected':''} onClick={()=>onReset('landing',false,{landingConfig:c})}>CONF {FLAPS[c]}</button>)}</div>}
       {s.arrival&&<p className="arrival-start-note">起始 {s.arrival.altitude} ft · {s.arrival.speed} kt · 跑道侧方 {Math.abs(s.arrival.x)} m<br/>起落架收起 / 襟翼 0 · {level.kind==='dual-glide'?'应急构型待建立':'检查待完成'}<br/>{level.kind==='dual-glide'?'手飞转向跑道，按时机放轮 / 襟翼':'I 预位 · F / G 构型 · B / M 预位 · C 检查'}</p>}<ul className="level-brief-objectives">{level.objectives.map(o=><li key={o}><CheckCircle/>{o}</li>)}</ul>
       <p className="level-key-hint">{level.keys}{level.requiresLanding&&<><br/>本关需最终着陆停稳 · 复飞后按 ND 继续返场</>}</p>
     </>:!started&&s.mode==='landing'?<>
@@ -97,6 +97,6 @@ export function Briefing({state:s,onReset,onStart,onHelp,loaded,error,started,lo
       <p className="card-description">{s.scenario==='full'?'从机场外开始，截获 ILS、减速放襟翼、完成检查，再决定落地或复飞。':'已对准 ILS 并完成着陆构型，专注末进近、拉平和接地减速。'}</p>
     </>:<p className="card-description">{!loaded?'正在加载机场素材…':started?'杆位已回中，飞机姿态保持。准备好后继续。':'FLX / TOGA 加速，125 节后按 ↓ 后拉至约 12° 后松键，离地后收轮。'}</p>}
     <div className="card-actions"><button className="primary-button" disabled={!loaded||!!error} onClick={onStart}><Play weight="fill"/>{error?'无法启动':!loaded?'加载中':started?'继续飞行':level?'开始关卡':s.mode==='landing'?'开始进近':'开始起飞'}</button><button className="text-button" onClick={onHelp}>操作说明</button></div>
-    {!started&&<p className="assist-note">{level?.kind==='dual-glide'?'手飞 + 滑翔 FD · 无推力 / 无自动驾驶':s.route?'手动起飞 · CL 后 A/THR 控速 · AP1 可选辅助':s.mode==='takeoff'?'手动推力 + FD 指引 · 方向舵辅助默认开启':'手飞 + FD 指引 + A/THR 控速 · AP1 可选辅助'} · 松键回杆</p>}
+    {!started&&<p className="assist-note">{s.historical?'连续滑翔与水面物理 · 正式飞行固定 1×':level?.kind==='dual-glide'?'手飞 + 滑翔 FD · 无推力 / 无自动驾驶':s.route?'手动起飞 · CL 后 A/THR 控速 · AP1 可选辅助':s.mode==='takeoff'?'手动推力 + FD 指引 · 方向舵辅助默认开启':'手飞 + FD 指引 + A/THR 控速 · AP1 可选辅助'} · 松键回杆</p>}
   </section>;
 }

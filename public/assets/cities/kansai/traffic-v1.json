@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "airportId": "kansai",
+  "drivingSide": "left",
+  "path": "assets/cities/kansai/traffic-v1.source.json.gz",
+  "bytes": 169895,
+  "decodedBytes": 918958,
+  "decodedSha256": "a9db1a449200ba42eda9e71cd9b3b0630b4026cab0dbd2b7cd68ede47ec90120",
+  "sha256": "d401bf7f185b9869e1e78c3e1d47dcc3dfc0e46125c0630298f36997ff4410ff",
+  "fingerprint": "dbae6b44ea3bb8a8eb25e19ad85687e630c87b507248f134dce27bfb306e4b81",
+  "counts": {
+    "motorway": 22,
+    "motorway_link": 18,
+    "service": 379,
+    "unclassified": 444,
+    "tertiary": 347,
+    "residential": 679,
+    "secondary": 100,
+    "trunk": 14,
+    "primary": 93,
+    "tertiary_link": 26,
+    "primary_link": 3
+  },
+  "provenance": {
+    "source": "https://download.geofabrik.de/asia/japan/kansai/kansai-261120.osm.pbf",
+    "snapshot": "2026-11-20 cached extract",
+    "sha256": "58021166c89efc34a9aeca0e1313dee89a68af18d5e7bb819ae4dac792afde6c",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors",
+    "estimates": "Missing direction/lane/speed/width values use road-class defaults. Bridge clearance is 8m per positive layer above airport datum for the coastal connector (max18m), with connected 6.5% approach ramps; not measured elevations. Traffic volumes are game estimates.",
+    "protection": "Surface public motor roads only; runway, taxiway and apron reservations excluded. Source tunnels retain connectivity but have no above-ground vehicles or pavement."
+  }
+}

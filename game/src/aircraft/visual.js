@@ -1,13 +1,10 @@
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
 import {siteUrl} from '../urls.js';
+import {AIRCRAFT_CONTACTS} from './contact-anchors.js';
+export {AIRCRAFT_CONTACTS};
 
 export const AIRCRAFT_ASSET=siteUrl('assets/aircraft/skyline-320.glb?v=belly-white-3');
-export const AIRCRAFT_CONTACTS=Object.freeze({
- main:[{x:-2.85,y:-2.8,z:2.5},{x:-2.35,y:-2.8,z:2.5},{x:2.35,y:-2.8,z:2.5},{x:2.85,y:-2.8,z:2.5}],
- nose:[{x:-.24,y:-2.8,z:-12.3},{x:.24,y:-2.8,z:-12.3}],
- wing:[{x:-17.9,y:2.28,z:6},{x:17.9,y:2.28,z:6}],
-});
 const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,Number.isFinite(v)?v:0));
 const flapAngle=p=>{const values=[0,.12,.28,.43,.61],i=Math.min(3,Math.floor(clamp(p,0,4))),f=clamp(p,0,4)-i;return values[i]+(values[i+1]-values[i])*f;};
 const moving=/^(MainGear_[LR]|MainWheels_[LR]|MainDoor_[LR]|NoseGear|NoseSteering|NoseWheels|NoseDoor_[LR]|Flap_[LR]_[01]|Slat_[LR]|Aileron_[LR]|Spoiler_[LR]_[012]|Elevator_[LR]|Rudder|Fan_[LR]|Reverse_[LR]|Beacon_(top|bottom)|Strobe_[LR]|Landing_[LR])$/;
@@ -23,7 +20,7 @@ export function createAircraftVisual({THREE,scene}){
  const group=new THREE.Group();group.name='Player-aircraft';group.add(scene);
  const named=new Map(),sourceGeometries=new Set(),materials=new Set();scene.updateMatrixWorld(true);
  scene.traverse(o=>{if(o.name)named.set(o.name,o);if(o.geometry)sourceGeometries.add(o.geometry);for(const m of o.material?Array.isArray(o.material)?o.material:[o.material]:[]){materials.add(m);m.side=THREE.DoubleSide;m.envMapIntensity=.8;}});
- const airframe=named.get('Airframe')||scene,animated=new Set([...named.values()].filter(o=>moving.test(o.name))),batches=new Map();
+ const airframe=named.get('Airframe')||scene,animated=new Set([...named.values()].filter(o=>moving.test(o.name)||/^(Vertical[ _]stabilizer|Horizontal[ _]stabilizer[ _][LR])$/.test(o.name))),batches=new Map();
  scene.traverse(o=>{
   if(!o.isMesh||Array.isArray(o.material))return;
   let owner=o;while(owner&&!animated.has(owner)&&owner!==airframe)owner=owner.parent;owner??=airframe;
@@ -60,7 +57,7 @@ export function createAircraftVisual({THREE,scene}){
  }
  function stats(){let triangles=0,draws=0;group.traverse(o=>{if(o.isMesh){triangles+=(o.geometry.index?o.geometry.index.count:o.geometry.attributes.position.count)/3;if(o.visible)draws++;}});const box=new THREE.Box3().setFromObject(group);return{triangles,draws,materials:materials.size,bounds:{min:box.min.toArray(),max:box.max.toArray()},joints:[...animated].map(o=>o.name),...currentSummary};}
  function dispose(){sourceGeometries.forEach(g=>g.dispose());materials.forEach(m=>{for(const value of Object.values(m))if(value?.isTexture)value.dispose();m.dispose();});group.removeFromParent();}
- return{group,update,dispose,stats,anchors:AIRCRAFT_CONTACTS};
+ return{group,update,dispose,stats,detailParts:part=>(part==='wheel'?['MainGear_L','MainGear_R','NoseGear']:['Vertical stabilizer','Horizontal stabilizer L','Horizontal stabilizer R','Rudder','Elevator_L','Elevator_R']).map(name=>get(name)||get(name.replaceAll(' ','_'))).filter(Boolean),anchors:AIRCRAFT_CONTACTS};
 }
 
 export async function loadAircraftVisual({THREE,loadingManager}){

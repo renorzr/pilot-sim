@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "airportId": "jfk",
+  "drivingSide": "right",
+  "path": "assets/cities/jfk/traffic-v1.source.json.gz",
+  "bytes": 1175442,
+  "decodedBytes": 6932110,
+  "decodedSha256": "4e2c798eafc4d2e49f31ad05ac08346d6d8d0373197be08438fc81ef01f603a3",
+  "sha256": "75a7d30445b38b5d34422118708080b2328d442cc67ce42e359fc0b5c4194dd9",
+  "fingerprint": "e01051b95a4cb96e3f70e1a4c9a45b2a225bee00ef10f8e707ee3963a132286a",
+  "counts": {
+    "residential": 9448,
+    "primary": 1183,
+    "motorway_link": 304,
+    "primary_link": 40,
+    "unclassified": 662,
+    "tertiary": 963,
+    "service": 2598,
+    "tertiary_link": 55,
+    "secondary": 732,
+    "living_street": 13,
+    "trunk": 228,
+    "trunk_link": 59,
+    "motorway": 229,
+    "secondary_link": 9
+  },
+  "provenance": {
+    "source": "https://download.geofabrik.de/north-america/us/new-york/new-york-261120.osm.pbf",
+    "snapshot": "2026-11-20 cached extract",
+    "sha256": "f36fd79b6305ea0709e3c228e668e6b35752127e4e7735266eae2284a855ee72",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors",
+    "estimates": "Missing direction/lane/speed/width values use road-class defaults. Bridge clearance is 6m per positive layer (max18m), with connected 6.5% approach ramps; not measured elevations. Traffic volumes are game estimates.",
+    "protection": "Surface public motor roads only; runway, taxiway and apron reservations excluded. Source tunnels retain connectivity but have no above-ground vehicles or pavement."
+  }
+}

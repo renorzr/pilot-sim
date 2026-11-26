@@ -4,7 +4,7 @@ import {GROUND_LAYERS as G,surfaceDepth,groundPaint,orderGroundPaint} from './gr
 // profiles, facade divisions, heights and bridge equipment are visual estimates.
 // Silver airfoil roof sections follow the KIX T1 exterior references; source plans
 // determine footprint placement. No photograph or third-party model is bundled.
-export function buildKansaiScenery({THREE,group,project,terrainHeight=()=>0,features=[],materials={}}){
+export function buildKansaiScenery({THREE,group,project,terrainHeight=()=>0,features=[],materials={},roadsManagedExternally=false}){
  const root=new THREE.Group();root.name='RJBB-Kansai-terminal-complex';group.add(root);
  const material=(key,color,extra={})=>materials[key]||new THREE.MeshStandardMaterial({color,roughness:.72,...extra});
  const roof=materials.kansaiRoof||new THREE.MeshPhysicalMaterial({color:'#c0cbd0',metalness:.38,roughness:.42,clearcoat:.12,side:THREE.DoubleSide});
@@ -125,7 +125,7 @@ export function buildKansaiScenery({THREE,group,project,terrainHeight=()=>0,feat
  // Elevated Kansai Sky Gate Bridge follows actual bridge road segments.
  // Road surface is an exterior visual estimate; it never forms the taxi route.
  let connectorSegments=0;
- for(const f of features.filter(f=>tag(f).bridge==='yes'&&tag(f).highway&&f.geometry.some(([lon,lat])=>lon>135.25&&lon<135.32&&lat>34.385&&lat<34.435))){
+ for(const f of features.filter(f=>!roadsManagedExternally&&tag(f).bridge==='yes'&&tag(f).highway&&f.geometry.some(([lon,lat])=>lon>135.25&&lon<135.32&&lat>34.385&&lat<34.435))){
   const p=ringOf(f);for(let i=1;i<p.length;i++){const a=p[i-1],b=p[i],length=Math.hypot(b.x-a.x,b.z-a.z);if(length<1)continue;
    beam(a,b,Number(tag(f).width)||10,1.6,dark,8);const nx=-(b.z-a.z)/length,nz=(b.x-a.x)/length;
    for(const side of[-1,1])beam({x:a.x+nx*side*5,z:a.z+nz*side*5},{x:b.x+nx*side*5,z:b.z+nz*side*5},.5,2.2,frame,9.5);

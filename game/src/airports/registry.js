@@ -6,6 +6,7 @@ import daxing from './data/daxing.json' with {type:'json'};
 import xiaoshan from './data/xiaoshan.json' with {type:'json'};
 import changi from './data/changi.json' with {type:'json'};
 import {RUNWAY} from '../sim/constants.js';
+import {US1549_PROFILE} from '../history/us1549-profile.js';
 const rad=Math.PI/180,earth=6378137;
 const names={daxing:{city:'北京',shortName:'北京大兴'},xiaoshan:{city:'杭州',shortName:'杭州萧山'},changi:{city:'新加坡',shortName:'新加坡樟宜'},kansai:{city:'大阪',shortName:'大阪关西'},jfk:{city:'纽约',shortName:'纽约肯尼迪'},lax:{city:'洛杉矶',shortName:'洛杉矶'}};
 const training={id:'training',name:'海岸训练机场',runway:{...RUNWAY,id:'27',heading:270},elevationM:0};
@@ -30,7 +31,10 @@ export const KANSAI=makeAirport(kansai,'kansai','06R','大阪关西国际机场'
 export const JFK=makeAirport(jfk,'jfk','22R','纽约肯尼迪国际机场','NEW YORK KENNEDY');
 export const LAX=makeAirport(lax,'lax','25R','洛杉矶国际机场','LOS ANGELES LAX');
 export const AIRPORTS=[DAXING,XIAOSHAN,CHANGI,KANSAI,JFK,LAX];
-export const airportOf=value=>AIRPORTS.find(a=>a.id===(typeof value==='string'?value:value?.airportId))||training;
+// An independent event world shares the NYC horizontal source frame. It has no
+// active runway at the frame origin and uses MSL metres, with river level zero.
+export const HISTORICAL_NYC={...JFK,id:'us1549',event:true,viewCenter:JFK.project(US1549_PROFILE.initial.longitude,US1549_PROFILE.initial.latitude),ident:'US1549',iata:null,name:'纽约 · 哈德逊河事件区域',shortName:'哈德逊河',english:'NEW YORK · HUDSON',elevationM:0,coastal:true,grading:{minX:1e9,maxX:1e9,minZ:1e9,maxZ:1e9},runway:{...JFK.runway,id:'—',width:0,length:0},data:{...jfk,runways:US1549_PROFILE.runways.map(r=>({widthM:r.widthM,ends:r.ends.map(([longitude,latitude],i)=>({longitude,latitude,id:i?r.opposite:r.id,elevationM:r.elevationM}))})),osm:{...jfk.osm,features:jfk.osm.features.filter(f=>!f.tags?.aeroway)}}};
+export const airportOf=value=>{const id=typeof value==='string'?value:value?.airportId;return id==='us1549'?HISTORICAL_NYC:AIRPORTS.find(a=>a.id===id)||training;};
 export const isRealAirport=value=>!!airportOf(value).data;
 export const runwayOf=value=>airportOf(value).runway;
 export const runwayHeading=value=>runwayOf(value).heading;

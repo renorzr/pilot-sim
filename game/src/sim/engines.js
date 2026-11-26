@@ -1,7 +1,7 @@
 import {AIRFRAME,G,clamp,smooth,massOf} from './constants.js';
 
 export const createEngines=(initial=0)=>['left','right'].map((side,id)=>({id,side,status:'running',health:1,lever:null,command:initial,spool:initial,n1:25+initial*73,thrustN:0,maxThrustN:AIRFRAME.engineThrust}));
-export const engineCapacity=(s,e)=>e.status==='running'?AIRFRAME.engineThrust*clamp(e.health,0,1)*Math.pow(s.airData.density/AIRFRAME.seaDensity,.7):0;
+export const engineCapacity=(s,e)=>e.status==='running'&&!e.irrecoverable?AIRFRAME.engineThrust*clamp(e.health,0,1)*Math.pow(s.airData.density/AIRFRAME.seaDensity,.7):0;
 export const availableThrust=s=>s.engines.reduce((sum,e)=>sum+engineCapacity(s,e),0);
 export function commandableThrust(s){
  const authority=s.autoThrust&&s.systems.autoThrustAvailable&&s.throttle>.025&&s.throttle<=.845?clamp(s.throttle/.78*.92,0,.92):s.throttle;
@@ -10,6 +10,7 @@ export function commandableThrust(s){
 export function setEngineStatus(s,index,status){
  if(!['running','off','failed'].includes(status))throw new Error('Invalid engine status');
  const engine=s.engines[index];if(!engine)throw new Error('Invalid engine index');
+ if(engine.irrecoverable&&status==='running')return false;
  engine.status=status;
  // Operational restart procedures and a general manual fault editor are deferred.
  if(status!=='running'){engine.command=0;engine.thrustN=0;}

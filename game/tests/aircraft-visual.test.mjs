@@ -5,7 +5,17 @@ import * as THREE from 'three';
 import {GLTFLoader}from 'three/addons/loaders/GLTFLoader.js';
 import {createAircraftVisual,AIRCRAFT_CONTACTS}from '../src/aircraft/visual.js';
 import {createFlight}from '../src/flight.js';
+import {COCKPIT_EYE,placeCockpitCamera}from '../src/views/aircraft-pose.js';
 async function model(){const b=await readFile(new URL('../../public/assets/aircraft/skyline-320.glb',import.meta.url));const gltf=await new GLTFLoader().parseAsync(b.buffer.slice(b.byteOffset,b.byteOffset+b.byteLength),'');return createAircraftVisual({THREE,scene:gltf.scene});}
+test('captain eye looks through the authored front windshield rather than the flight reference',async()=>{
+ const v=await model();try{
+  v.group.updateMatrixWorld(true);const glazing=[];v.group.traverse(o=>{if(o.isMesh&&/glazing/i.test(o.material?.name))glazing.push(o);});
+  const cam=new THREE.PerspectiveCamera(),s={x:0,y:0,z:0,pitch:0,roll:0,yaw:0};placeCockpitCamera(cam,s);cam.updateMatrixWorld(true);
+  assert.deepEqual(cam.position.toArray(),[COCKPIT_EYE.x,COCKPIT_EYE.y,COCKPIT_EYE.z]);
+  const ray=new THREE.Raycaster(cam.position,cam.getWorldDirection(new THREE.Vector3())),hit=ray.intersectObjects(glazing)[0];
+  assert(hit,'Forward eye ray must pass through model glazing');assert(hit.point.z> -14.91&&hit.point.z< -14.09);assert(hit.distance>1&&hit.distance<3);
+ }finally{v.dispose();}
+});
 test('aircraft batching preserves authored UV channels, tangent frames and vertex colours',()=>{
  const scene=new THREE.Group(),airframe=new THREE.Group();airframe.name='Airframe';scene.add(airframe);airframe.rotation.y=.3;
  const material=new THREE.MeshStandardMaterial(),expected=[];

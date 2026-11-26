@@ -70,6 +70,13 @@ clearance at 12° nose-up after this main-contact correction, before any game
 pavement elevation. Tyres are rounded; their exact tangent differs from the
 resting bottom anchors by less than 0.02 m at that angle.
 
+The cockpit camera uses the authored captain eye at X = −0.55 m, Y = 2.30 m,
+Z = −13.40 m (`views/aircraft-pose.js`). Its forward ray passes through the
+model's front glazing. The eye follows the same pitch/roll/yaw and visual root
+correction as the exterior model, including during flotation. It is not placed
+at the flight reference or clamped above water; genuine cockpit submersion is
+still represented. Cabin head motion is applied in aircraft-local coordinates.
+
 ## Loader and animation contract
 
 ```js

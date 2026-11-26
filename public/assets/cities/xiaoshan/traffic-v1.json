@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "airportId": "xiaoshan",
+  "drivingSide": "right",
+  "path": "assets/cities/xiaoshan/traffic-v1.source.json.gz",
+  "bytes": 414558,
+  "decodedBytes": 2530275,
+  "decodedSha256": "a045303503d925c6620aca74edb91c6025d14e5b1f606d64ce6c9274f22054d4",
+  "sha256": "766f64f1d7acc96bf6913ba9675d73a9817f4ec4abbb043d86bf5e68adc7958b",
+  "fingerprint": "76c146ba17d176b42e2ce5e3700c23c79eaa210df1362264bba52a4ef70bcbc6",
+  "counts": {
+    "unclassified": 2097,
+    "motorway_link": 71,
+    "motorway": 96,
+    "primary": 602,
+    "tertiary": 600,
+    "secondary": 549,
+    "service": 557,
+    "residential": 2084,
+    "secondary_link": 19,
+    "primary_link": 19,
+    "tertiary_link": 4,
+    "trunk": 5,
+    "trunk_link": 8
+  },
+  "provenance": {
+    "source": "https://download.geofabrik.de/asia/china/zhejiang/zhejiang-261119.osm.pbf",
+    "snapshot": "2026-11-19 cached extract",
+    "sha256": "9f21a063174f7c4bf2001488dc40a1237c9e228b7c61a96b5ac468efeae6ba85",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors",
+    "estimates": "Missing direction/lane/speed/width values use road-class defaults. Bridge clearance is 6m per positive layer (max18m), with connected 6.5% approach ramps; not measured elevations. Traffic volumes are game estimates.",
+    "protection": "Surface public motor roads only; runway, taxiway and apron reservations excluded. Source tunnels retain connectivity but have no above-ground vehicles or pavement."
+  }
+}

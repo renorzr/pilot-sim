@@ -90,14 +90,18 @@
         "云际三二零，收到，航班结束。"
       ]
     ],
-    "cruise-entry": [
+    "cruise-climb": [
       [
         "pilot",
-        "云际三二零，已保持许可高度，进入巡航。"
+        "云际三二零，请求爬升至巡航高度三万三千英尺。"
       ],
       [
         "tower",
-        "云际三二零，收到，保持现高度，按计划航路继续巡航。"
+        "云际三二零，许可爬升至三万三千英尺，按计划航路飞行。"
+      ],
+      [
+        "pilot",
+        "爬升至三万三千英尺，云际三二零。"
       ]
     ]
   },
@@ -192,14 +196,18 @@
         "Skyline three two zero, roger. Flight complete."
       ]
     ],
-    "cruise-entry": [
+    "cruise-climb": [
       [
         "pilot",
-        "Skyline three two zero, level at cleared altitude, entering cruise."
+        "Skyline three two zero, request climb to flight level three three zero."
       ],
       [
         "tower",
-        "Skyline three two zero, roger. Maintain present altitude and continue cruise on your planned route."
+        "Skyline three two zero, climb to flight level three three zero. Continue on the planned route."
+      ],
+      [
+        "pilot",
+        "Climb to flight level three three zero, Skyline three two zero."
       ]
     ]
   },
@@ -223,8 +231,9 @@
       "airline-arrival-taxi-1": 5.76,
       "airline-parked-0": 3.24,
       "airline-parked-1": 2.952,
-      "airline-cruise-entry-0": 3.576,
-      "airline-cruise-entry-1": 4.824
+      "airline-cruise-climb-0": 4.272,
+      "airline-cruise-climb-1": 4.944,
+      "airline-cruise-climb-2": 3.312
     },
     "en": {
       "airline-departure-climb-0": 5.472,
@@ -245,9 +254,10 @@
       "airline-arrival-taxi-1": 6.912,
       "airline-parked-0": 4.32,
       "airline-parked-1": 4.296,
-      "airline-cruise-entry-0": 3.984,
-      "airline-cruise-entry-1": 6.48
+      "airline-cruise-climb-0": 3.936,
+      "airline-cruise-climb-1": 6.12,
+      "airline-cruise-climb-2": 3.528
     }
   },
-  "version": "a55d5da6fdbda313d2a1"
+  "version": "214ec2b0e1a2caae31f6"
 }

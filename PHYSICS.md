@@ -454,31 +454,36 @@ wind reference, true heading, synthetic approach and taxi guidance select the
 same airport by state identity. Their DEM grids are cached independently.
 
 Normal route flights retain actual stand departure, manual ground permission,
-lineup and takeoff. `airline-navigation.js` computes independent great-circle
-initial and terminal bearings from airport coordinates, converts them to each
-runway-local frame, and supplies the same game waypoints to ND, FD/AP and ATC.
-Departure follows runway heading to the first route point and at least1200 ft
-before turning onto the outbound course. Clearance altitude is at least3000 ft
-and raised in500 ft steps when shared DEM samples along a900 m-wide route
-corridor require1500 ft terrain clearance. These are synthetic game values.
-A cruise cut requires the actual outbound leg, ground track within15 degrees
-of its course, cross-track under1500 m, gear retracted, flaps at1 or less,
-165–225 kt, bank under10 degrees, vertical speed within1.5 m/s, clearance
-altitude minus30/plus300 ft and3 seconds stable, with both engines available.
-Rejected requests never move the aircraft.
+lineup and takeoff. Six chart-derived initial departures replace the former
+universal 4.5 km point and 1200 ft turn gate. Published coordinates, magnetic
+headings, altitude terminators, crossing restrictions and explicitly simulated
+radar/handoff segments are documented in [Initial departures](docs/DEPARTURES.md).
+These are pinned initial segments, not a complete operational SID database.
 
-Departure waypoint capture requires two seconds established on the current leg
-and ordered preceding visits. Intermediate points allow a bounded fly-by; the
-last point requires crossing its endpoint plane in the forward direction.
-Passing the last point triggers the cruise cut automatically once the existing
-safety conditions have been stable for three seconds. If conditions are not
-met, departure guidance extends forward along the outbound leg until recovery,
-without chasing the passed point. Existing finite-leg route protection still
-limits prolonged overflight. Early manual skipping remains available after
-ordered prior points and the same safety checks. The pass latch and visit order
-survive checkpoints; additional departure points use the same progression.
-Departure-turn ATC reminders allow75 seconds for the safe-height outbound
-turn; the separate route-failure grace remains40 seconds with unchanged limits.
+The same segment drives ND, FD/AP, ATC and route assessment. Departure altitude
+readouts and chart restrictions use MSL, converted to the airport-relative force
+model. Clearance height is distinct from a crossing minimum/maximum and a turn
+altitude. Heading legs hold heading; fix legs apply wind correction. Altitude
+terminators store the actual observed endpoint after reaching the gate and
+passing the runway end. Fly-by lead depends on speed and turn geometry; fly-over
+points require forward crossing. Capture records observed position, altitude,
+speed and visit order. A missed crossing restriction is not repaired by a later
+climb. No normal-flight aircraft motion is assigned by navigation.
+
+A cruise cut requires the initial departure's final segment, track within15
+degrees of that segment, cross-track under1500 m, gear retracted, flaps at1 or
+less,165–225 kt within the procedure speed limit, bank under10 degrees, vertical
+speed within1.5 m/s, clearance height minus30/plus300 ft and3 seconds stable,
+with both engines available and no terrain alert. The city great-circle bearing
+is retained for cruise/arrival geometry, not used as the initial departure
+heading. Rejected requests never move the aircraft.
+
+The automatic cut additionally requires the actual initial-segment endpoint
+crossing with all prior visits in order. If conditions are not yet met, guidance
+continues forward without chasing a passed fix. Existing finite-segment route
+protection still limits prolonged overflight. Early manual requests remain
+available once the final initial segment is established and safe. Departure-turn
+ATC reminders allow75 seconds; route-failure grace remains40 seconds.
 
 The labelled cruise cut omits long cruise/most descent and changes the airport
 frame. An automatic cut discards the remaining accelerated frame, clears held
@@ -606,3 +611,27 @@ terrain/building contact retains priority. Distance/countdown appear in the
 existing ATC panel with the recorded generic route reminder. Restricted zones
 and map-border enforcement remain deferred. Cruise transition uses the separate
 ordered-departure rules described above.
+
+## Historical US1549 tuning
+
+`history/us1549-profile.js` supplies an event-only aerodynamic polar. Optional
+flap lift/drag curves and high-AoA drag are evaluated continuously through actual
+actuator travel; ordinary missions retain the original polar and lift functions.
+Power-off flight can keep a steady airspeed while losing altitude. Energy is
+dissipated through force integration rather than a scripted speed decay.
+
+Water impact uses swept authored contacts and actual water-relative velocity and
+sideslip. Version 3 tightens the continuous damage envelope, and its entry-quality
+score is narrower than the damaged-survival boundary. The reference historical
+entry remains survivable with damage. Scores are versioned independently.
+
+The event has six directional thresholds on three physical runway strips. Contact
+classification uses actual travel direction, including at strip intersections.
+A manual navigation selection provides an extended-centreline intercept and
+approach reference; it never supplies control inputs for the player. Gear contact,
+heading, sink, attitude, speed, braking and overrun determine a diversion outcome.
+Early manual attempts remain practice and safe airport diversions do not complete
+the Hudson objective. See [scenario notes](docs/HISTORICAL-US1549.md) for sources,
+estimates and numerical/browser acceptance evidence.
+
+US1549 修订 4 的决策指令仍通过同一物理步执行：提前放轮仅改变起落架目标，急转仅临时提高副驾驶坡度目标上限，等待仅保留原指令。正式机场交接保留姿态、动量、失败和构型，独立于河面承诺。选择题排序种子只影响按钮顺序；不影响气动、天气或可达性估算。决策分按实际构型/坡度暴露和当时余量计算，不强制制造失败。

@@ -1,3 +1,4 @@
+import {aircraftDefinition,flapLabels,flapLimits} from './aircraft/registry.js';
 import {groundActive,groundRoute,departureOf,remainingTaxiDistance} from './missions/ground.js';
 import {airlineNavigationActive,airlineTarget,airportAltitude} from './missions/airline-navigation.js';
 import {terrainRadioAltitude} from './terrain/heightfield.js';
@@ -10,7 +11,7 @@ import {useLanguage} from './i18n/hooks.js';
 import {selectedHistoricalRunway} from './history/navigation.js';
 import {eventProject,eventRunwayStrips} from './history/event-world.js';
 import {US1549_PROFILE} from './history/us1549-profile.js';
-import {clamp,FLAPS,FLAP_LIMITS,KT,FT,NM,radioAltitude,targetSpeed,minimumSelectableSpeed} from './flight.js';
+import {clamp,KT,FT,NM,radioAltitude,targetSpeed,minimumSelectableSpeed} from './flight.js';
 const DEG=180/Math.PI;
 const green='#7de862', white='#e2eaf1', muted='#9aabbc', yellow='#f6d64a';
 function text(c,value,x,y,size=17,color=white,align='left',weight=500) {
@@ -32,7 +33,7 @@ function Canvas({className,label,width,height,state,draw}) {
 function pfd(c,s,w,h) {
   c.fillStyle='#080f16';c.fillRect(0,0,w,h);
   const publishedDeparture=s.airline?.navigation?.kind==='departure'&&s.airline.navigation.procedure;
-  const speed=Math.round(s.speed*1.94384),alt=Math.round(publishedDeparture?airportAltitude(s):Math.max(0,s.y-2.8)*3.28084);
+  const speed=Math.round(s.speed*1.94384),alt=Math.round(publishedDeparture?airportAltitude(s):Math.max(0,s.y-aircraftDefinition(s).airframe.referenceHeight)*3.28084);
   const route=s.route?.active,glide=s.mission?.kind==='dual-glide'&&s.mission.triggered;
   const vs=Math.round(s.verticalSpeed*196.85/10)*10;
   text(c,s.thrustMode,10,13,12,green);text(c,glide?'GLIDE':s.goAround?'SRS':s.gsCaptured?'G/S':route?'PATH':'ALT',145,13,13,green);text(c,s.goAround?'GA TRK':s.locCaptured?'LOC':route||publishedDeparture&&!airlineTarget(s)?.headingMode?'NAV':'HDG',218,13,13,green);text(c,s.autoPilot?'AP1':'AP OFF',w-12,13,12,s.autoPilot?green:muted,'right');
@@ -65,7 +66,7 @@ function pfd(c,s,w,h) {
   c.save();c.beginPath();c.rect(2,88,75,h-103);c.clip();
   const speedStart=Math.floor((speed-50)/10)*10;
   for(let v=speedStart;v<speed+65;v+=10){if(v<0)continue;const y=cy-(v-speed)*3.1;line(c,63,y,74,y,muted);text(c,v,57,y,16,white,'right');}
-  const vls=minimumSelectableSpeed(s),vmax=Math.min(FLAP_LIMITS[Math.ceil(s.flapPosition)],s.gearPosition>.1?250:350);
+  const vls=minimumSelectableSpeed(s),vmax=Math.min(flapLimits(s)[Math.ceil(s.flapPosition)],s.gearPosition>.1?250:350);
   line(c,7,cy-(vls-speed)*3.1,7,cy+140,'#e9ad52',4);
   line(c,7,cy-140,7,cy-(vmax-speed)*3.1,'#e97871',4);
   const targetY=cy-(targetSpeed(s)-speed)*3.1;
@@ -90,7 +91,7 @@ function pfd(c,s,w,h) {
   if(s.systems.thrustLocked)text(c,'THR LK',cx,top+39,16,'#ffbf78','center',700);
   if(s.terrain?.level)text(c,s.terrain.level===2?'PULL UP':'TERRAIN',cx,cy+76,21,s.terrain.level===2?'#ff7368':'#ffce85','center',700);
   if(s.stallWarning?.level){const active=s.stallWarning.active;c.fillStyle=active?'#741c22':'#49331a';c.fillRect(cx-69,cy+37,138,29);text(c,active?'STALL':'HIGH AOA',cx,cy+52,22,active?'#ff9a91':'#ffce85','center',700);}
-  text(c,s.mode==='takeoff'?'VR 125':'VAPP '+s.vapp,left+5,top+14,11,'#79d3f6');
+  text(c,s.mode==='takeoff'?'VR '+aircraftDefinition(s).operations.rotationSpeedKt:'VAPP '+s.vapp,left+5,top+14,11,'#79d3f6');
 }
 function heading(c,s,w,h) {
   if(s.historical){historicalNavigation(c,s,w,h);return;}
@@ -151,24 +152,26 @@ function groundNavigation(c,s,w,h){
   text(c,g.arrival?g.runwayVacated?'RUNWAY VACATED':'VACATE VIA '+g.exit:g.entryCleared?'ENTRY CLEARED':'HOLD SHORT OF '+rw,12,309,10,g.arrival||g.entryCleared?green:'#ffbf78');
 }
 function engine(c,s,w,h) {
+  const cockpit=aircraftDefinition(s).cockpit,radius=cockpit.engineGaugeRadius??43,numberSize=cockpit.engineGaugeNumberSize??24,positions=cockpit.configurationLayout??{};
   c.fillStyle='#080f16';c.fillRect(0,0,w,h);text(c,'发动机 / 构型',w/2,20,16,white,'center');
-  for(const[index,[cx,name]]of [[65,'ENG 1'],[194,'ENG 2']].entries()){
-    const engine=s.engines[index],n1=engine.n1,engineColor=engine.status==='running'?green:'#ffbf78';
-    text(c,name+(engine.status==='running'?'':engine.status==='failed'?' FAIL':' OFF'),cx,47,11,engine.status==='running'?muted:engineColor,'center');c.lineWidth=7;c.strokeStyle='#34414e';c.beginPath();c.arc(cx,110,43,Math.PI,2*Math.PI);c.stroke();c.strokeStyle=engineColor;c.beginPath();c.arc(cx,110,43,Math.PI,Math.PI+Math.PI*n1/100);c.stroke();
-    text(c,n1.toFixed(1),cx,101,24,white,'center',600);text(c,'N1 %',cx,127,10,muted,'center');
+  for(const [index,engine]of s.engines.entries()){
+    const cx=cockpit.engineGaugeCenters?.[index]??w*(index+.5)/s.engines.length,cy=cockpit.engineGaugeRows?.[index]??110,labelY=cockpit.engineGaugeLabels?.[index]??47,name='ENG '+(index+1);
+    const n1=engine.n1,engineColor=engine.status==='running'?green:'#ffbf78';
+    text(c,name+(engine.status==='running'?'':engine.status==='failed'?' FAIL':' OFF'),cx,labelY,11,engine.status==='running'?muted:engineColor,'center');c.lineWidth=s.engines.length>2?5:7;c.strokeStyle='#34414e';c.beginPath();c.arc(cx,cy,radius,Math.PI,2*Math.PI);c.stroke();c.strokeStyle=engineColor;c.beginPath();c.arc(cx,cy,radius,Math.PI,Math.PI+Math.PI*n1/100);c.stroke();
+    text(c,n1.toFixed(1),cx,cy-9,numberSize,white,'center',600);text(c,'N1 %',cx,cy+17,10,muted,'center');
   }
-  line(c,12,145,w-12,145,'#2c3b47');
+  line(c,12,positions.line??145,w-12,positions.line??145,'#2c3b47');
   const gearMoving=Math.abs(s.gearPosition-(s.gear?1:0))>.02;
-  text(c,'GEAR',14,169,13);text(c,gearMoving?'移动中':s.gearPosition>.98?'DOWN':'UP',w-14,169,13,gearMoving?'#ffbf78':s.gearPosition>.98?green:muted,'right');
-  for(let i=0;i<3;i++){c.beginPath();c.fillStyle=gearMoving?'#ffbf78':s.gearPosition>.98?green:'#35414a';c.arc(w/2-16+i*16,188,4,0,2*Math.PI);c.fill();}
-  text(c,'FLAPS',14,214,13);text(c,s.systems.flapsJammed?'CONF '+FLAPS[Math.round(s.flapPosition)]+' JAM':'CONF '+FLAPS[s.flaps]+(Math.abs(s.flapPosition-s.flaps)>.05?' …':''),w-14,214,13,green,'right');
-  text(c,'SPLRS',14,245,13);text(c,s.spoilersDeployed?'DEPLOY':s.spoilersArmed?'ARM':'OFF',w-14,245,13,s.spoilersArmed?green:muted,'right');
-  text(c,'A/BRK',14,274,13);text(c,s.autoBrake+(s.autoBrakeActive?' ON':''),w-14,274,13,s.autoBrake!=='OFF'?green:muted,'right');
-  text(c,s.systems.emergencyPower?'EMER ELEC':s.reverse?'REV ACTIVE':s.thrustMode,w/2,302,11,s.reverse?green:muted,'center');
+  text(c,'GEAR',14,positions.gear??169,13);text(c,gearMoving?'移动中':s.gearPosition>.98?'DOWN':'UP',w-14,positions.gear??169,13,gearMoving?'#ffbf78':s.gearPosition>.98?green:muted,'right');
+  for(let i=0;i<aircraftDefinition(s).gear.lights;i++){c.beginPath();c.fillStyle=gearMoving?'#ffbf78':s.gearPosition>.98?green:'#35414a';c.arc(w/2-(aircraftDefinition(s).gear.lights-1)*8+i*16,positions.gearLights??188,4,0,2*Math.PI);c.fill();}
+  text(c,'FLAPS',14,positions.flaps??214,13);text(c,s.systems.flapsJammed?'CONF '+flapLabels(s)[Math.round(s.flapPosition)]+' JAM':'CONF '+flapLabels(s)[s.flaps]+(Math.abs(s.flapPosition-s.flaps)>.05?' …':''),w-14,positions.flaps??214,13,green,'right');
+  text(c,'SPLRS',14,positions.spoilers??245,13);text(c,s.spoilersDeployed?'DEPLOY':s.spoilersArmed?'ARM':'OFF',w-14,positions.spoilers??245,13,s.spoilersArmed?green:muted,'right');
+  text(c,'A/BRK',14,positions.autobrake??274,13);text(c,s.autoBrake+(s.autoBrakeActive?' ON':''),w-14,positions.autobrake??274,13,s.autoBrake!=='OFF'?green:muted,'right');
+  text(c,s.systems.emergencyPower?'EMER ELEC':s.reverse?'REV ACTIVE':s.thrustMode,w/2,positions.footer??302,11,s.reverse?green:muted,'center');
 }
 export function Instruments({state}) {
   return <>
-    <Canvas className="instrument pfd" label={`主飞行仪表：空速 ${Math.round(state.speed*1.94384)} 节，高度 ${Math.round((state.y-2.8)*3.28084)} 英尺`} width={514} height={316} state={state} draw={pfd}/>
+    <Canvas className="instrument pfd" label={`主飞行仪表：空速 ${Math.round(state.speed*1.94384)} 节，高度 ${Math.round((state.y-aircraftDefinition(state).airframe.referenceHeight)*3.28084)} 英尺`} width={514} height={316} state={state} draw={pfd}/>
     <Canvas className="instrument heading-display" label={`航向 ${Math.round((runwayHeading(state)+state.yaw*DEG+360)%360)} 度`} width={256} height={316} state={state} draw={heading}/>
     <Canvas className="instrument engine-display" label={`发动机推力 ${Math.round(state.thrust*100)}%，起落架${state.gear?'放下':'收起'}`} width={259} height={316} state={state} draw={engine}/>
   </>;

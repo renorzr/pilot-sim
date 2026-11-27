@@ -1,3 +1,4 @@
+import {chooseAirportPractice} from './airport-selection.mjs';
 // Flight evidence uses only real menu, keyboard and pointer actions. The audio
 // tap mirrors actual Web Audio destination connections for QA capture only.
 import assert from'node:assert/strict';import{mkdir,writeFile}from'node:fs/promises';import{connect}from'./cdp.mjs';
@@ -11,9 +12,9 @@ async function raster(on){await b.evaluate(`(()=>{if(!window.__qaRaster){window.
 async function enter(){
  await b.waitFor('!!document.querySelector(".stage-tabs")',60000);
  if(await b.evaluate('document.documentElement.lang!=='+JSON.stringify(lang==='zh'?'zh-CN':'en')))await click('.language-switch');
- if(kind==='history'){await click('[data-stage-id=history]');await click('[data-level-id=history-us1549]');}
- else{await click('[data-stage-id=airline]');await click('[data-airline-mode=practice]');await click('[data-level-id=jfk-landing]');}
- await click('.enter-level');await b.waitFor('document.querySelector(".briefing-card .primary-button")&&!document.querySelector(".briefing-card .primary-button").disabled',300000);
+ if(kind==='history'){await click('[data-stage-id=history]');await click('[data-level-id=history-us1549]');await click('.enter-level');}
+ else await chooseAirportPractice(b,'jfk-landing');
+ await b.waitFor('document.querySelector(".briefing-card .primary-button")&&!document.querySelector(".briefing-card .primary-button").disabled',300000);
  if(kind==='history'){await click('.briefing-config[role="group"] button:last-child');await b.waitFor('window.__flightSim.snapshot().historical?.finalPractice&&document.querySelector(".briefing-card .primary-button")&&!document.querySelector(".briefing-card .primary-button").disabled',60000);}
  await click('[data-view-mode=exterior]');await click('.briefing-card .primary-button');
  if(kind!=='history'){await b.waitFor('!!document.querySelector(".skip-intro")||window.__flightSim.snapshot().time>0',30000);if(await b.evaluate('!!document.querySelector(".skip-intro")'))await click('.skip-intro');}

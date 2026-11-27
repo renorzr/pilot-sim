@@ -7,7 +7,7 @@ import {AIRPORTS} from '../game/src/airports/registry.js';
 import {departureOf} from '../game/src/missions/ground.js';
 const outputDirectory=process.env.PILOT_TAXI_OUTPUT||new URL('../game/src/airports/data/',import.meta.url).pathname;
 await mkdir(outputDirectory,{recursive:true});
-for(const airport of AIRPORTS){
+for(const airport of AIRPORTS.filter(a=>!process.env.PILOT_TAXI_AIRPORT||a.id===process.env.PILOT_TAXI_AIRPORT)){
  const d=departureOf(airport.id),nodes=[],edges=[],keys=new Map(),candidates=[];
  const dist=(a,b)=>Math.hypot(a.x-b.x,a.z-b.z);
  function node(p){const key=[p.x.toFixed(1),p.z.toFixed(1)].join(':');if(keys.has(key))return keys.get(key);const id=nodes.length;nodes.push(p);edges.push([]);keys.set(key,id);return id;}
@@ -52,7 +52,10 @@ for(const airport of AIRPORTS){
   while(i!==end&&guard++<nodes.length){const n=next[i];if(!n)break;points.push({...nodes[n.to],...n.source});i=n.to;}
   if(i!==end||points.length<3)continue;
   // Once clear, the route must not re-enter the active landing runway.
-  let vacated=false,invalid=false;for(const p of points){if(Math.abs(p.x)>airport.runway.width/2+45)vacated=true;if(vacated&&Math.abs(p.x)<airport.runway.width/2+5&&p.z<0&&p.z> -airport.runway.length)invalid=true;}
+  let vacated=false,invalid=false;for(let j=0;j<points.length;j++){const p=points[j],previous=points[Math.max(0,j-1)],half=airport.runway.width/2+5;
+   if(vacated){const dx=p.x-previous.x,lo=Math.abs(dx)<1e-9?(Math.abs(p.x)<half?0:2):Math.max(0,Math.min((-half-previous.x)/dx,(half-previous.x)/dx)),hi=Math.abs(dx)<1e-9?1:Math.min(1,Math.max((-half-previous.x)/dx,(half-previous.x)/dx));if(lo<=hi){const a=previous.z+(p.z-previous.z)*lo,b=previous.z+(p.z-previous.z)*hi;if(Math.max(a,b)>-airport.runway.length&&Math.min(a,b)<0)invalid=true;}}
+   if(Math.abs(p.x)>airport.runway.width/2+45)vacated=true;
+  }
   if(invalid)continue;
   const lead=airport.data.osm.features.find(f=>f.id===(d.stand.sourceLeadInId||d.stand.sourceId)&&f.geometry.length>1);
   // Retain the real source curve where it already reaches the final lead-in.

@@ -9,8 +9,8 @@ export function createAirportPresentation(flight){
  if(flight.historical)return createHistoricalIntro(flight);
  return isRealAirport(flight)&&flight.mode==='landing'&&!flight.airline?{active:true,elapsed:0,duration:AIRPORT_PRESENTATION_SECONDS}:null;
 }
-export function advanceAirportPresentation(presentation,dt,playing=true){
- if(presentation?.kind?.startsWith('history-'))return advanceHistoricalPresentation(presentation,dt,playing);
+export function advanceAirportPresentation(presentation,dt,playing=true,options={}){
+ if(presentation?.kind?.startsWith('history-'))return advanceHistoricalPresentation(presentation,dt,playing,options);
  if(!presentation?.active)return false;
  if(!playing)return true;
  presentation.elapsed=Math.min(presentation.duration,presentation.elapsed+Math.max(0,Math.min(.5,Number.isFinite(dt)?dt:0)));

@@ -3,7 +3,7 @@
   "provider": "Fish Audio / Microsoft Edge",
   "language": "zh",
   "model": "s2.1-pro-free",
-  "sourceHash": "7b10667f7bff3ff84781f498b811ffb047185c7dc8a593e75377bfcb269b8f7c",
+  "sourceHash": "b6fec7dc8502451eacbc695a566297d151fb49c3f19fbae8687303be49f3b4f5",
   "voices": {
     "e": {
       "label": "E",
@@ -2656,6 +2656,266 @@
           "sha256": "196df2ed4f00b18d4ea4d2bf26820ab45b44ade3b7c5a8c23dbe6ba3bd7c1ce5",
           "signal": null,
           "serviceModel": "s2.1-pro-free"
+        },
+        "lga-preparation-0": {
+          "role": "pilot",
+          "text": "拉瓜迪亚地面，云际三二零，五机位，请求推出开车。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 3.48,
+          "bytes": 21117,
+          "sha256": "113dda83d5404e92611f87d8898f955a52414681d22eff9734aad1a0b8622e71",
+          "file": "lga-preparation-0-113dda83d5404e92.mp3",
+          "clean": {
+            "duration": 3.48,
+            "bytes": 21117,
+            "sha256": "dabf4385bbb9b0e813daef2761dede5601c173d6a9d054491f91881e71c269bd",
+            "file": "lga-preparation-0-clean-dabf4385bbb9b0e8.mp3"
+          }
+        },
+        "lga-preparation-1": {
+          "role": "tower",
+          "text": "云际三二零，同意推出开车，完成后报告。",
+          "file": "changi-preparation-1-b41535edac5f2a67.mp3",
+          "duration": 2.64,
+          "bytes": 16077,
+          "sha256": "b41535edac5f2a677c0cfc7af23483b47016c42b360602d5a8dc2f2ffe58364e",
+          "signal": null,
+          "serviceModel": "s2.1-pro-free"
+        },
+        "lga-taxi-0": {
+          "role": "tower",
+          "text": "云际三二零，沿指示路线滑行至零四跑道外等待。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 2.928,
+          "bytes": 17805,
+          "sha256": "2fc836e129743a81be1cf0e5afcddf512f0e5af1d37b8eee2b06923433a2c0ca",
+          "file": "lga-taxi-0-2fc836e129743a81.mp3"
+        },
+        "lga-taxi-1": {
+          "role": "pilot",
+          "text": "沿指示路线滑行，零四跑道外等待，云际三二零。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 3.336,
+          "bytes": 20253,
+          "sha256": "97478582939f0b4d81bb8230d887f841c8a34662ac1c9c35f1af1a65810874f0",
+          "file": "lga-taxi-1-97478582939f0b4d.mp3",
+          "clean": {
+            "duration": 3.336,
+            "bytes": 20253,
+            "sha256": "6264ba922101f59de20232700576d80efaee6a922934405fba77ef017e00322d",
+            "file": "lga-taxi-1-clean-6264ba922101f59d.mp3"
+          }
+        },
+        "lga-holding-0": {
+          "role": "pilot",
+          "text": "云际三二零，零四跑道外等待点，已停稳。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 2.4,
+          "bytes": 14637,
+          "sha256": "a67c08d694c4084ee2d2b60d3bd460f8c3a553b554763bcdbd0b89750dc86e74",
+          "file": "lga-holding-0-a67c08d694c4084e.mp3",
+          "clean": {
+            "duration": 2.4,
+            "bytes": 14637,
+            "sha256": "a67640ad035ed2dce2473a67c1a4345de4707944b6b5d8de81cc25a16171ab33",
+            "file": "lga-holding-0-clean-a67640ad035ed2dc.mp3"
+          }
+        },
+        "lga-holding-1": {
+          "role": "tower",
+          "text": "云际三二零，联系塔台，继续跑道外等待。",
+          "file": "changi-holding-1-a60cee78a213e412.mp3",
+          "duration": 2.256,
+          "bytes": 13773,
+          "sha256": "a60cee78a213e412243a677dcd84e8693891d572336025a1ca4e85d303aaf0f5",
+          "signal": null,
+          "serviceModel": "s2.1-pro-free"
+        },
+        "lga-lineup-0": {
+          "role": "tower",
+          "text": "云际三二零，零四，进跑道等待。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 2.4,
+          "bytes": 14637,
+          "sha256": "c03a9f2d23cfbcb5b21788c43c465bd7047b511cdb193c31ae4dc30dd60c50bd",
+          "file": "lga-lineup-0-c03a9f2d23cfbcb5.mp3"
+        },
+        "lga-lineup-1": {
+          "role": "pilot",
+          "text": "零四，进跑道等待，云际三二零。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 1.992,
+          "bytes": 12189,
+          "sha256": "de5725015a912fb03eac4ab326a656ab2516e3ea1c27ade1a976a33787eb98bd",
+          "file": "lga-lineup-1-de5725015a912fb0.mp3",
+          "clean": {
+            "duration": 1.992,
+            "bytes": 12189,
+            "sha256": "d1298f511c7d00f87e8e567275d81cd50e06a16e55892e832abf4ad85a0c0dfd",
+            "file": "lga-lineup-1-clean-d1298f511c7d00f8.mp3"
+          }
+        },
+        "lga-ground-speed-0": {
+          "role": "tower",
+          "text": "云际三二零，滑行速度过快，减速。",
+          "file": "changi-ground-speed-0-278feeb25d518971.mp3",
+          "duration": 2.4,
+          "bytes": 14637,
+          "sha256": "278feeb25d518971891d0c0a73cbb8b36d1456ecd0037591d3d79884dd76ef94",
+          "signal": null,
+          "serviceModel": "s2.1-pro-free"
+        },
+        "lga-ground-speed-1": {
+          "role": "pilot",
+          "text": "减速滑行，云际三二零。",
+          "file": "changi-ground-speed-1-42f09bd1f6213f12.mp3",
+          "duration": 1.584,
+          "bytes": 9741,
+          "sha256": "42f09bd1f6213f12da63f8101b362bcdc5b129006cd354d4f13a4767aa7b40b5",
+          "signal": null,
+          "serviceModel": "s2.1-pro",
+          "clean": {
+            "duration": 1.584,
+            "bytes": 9741,
+            "sha256": "fd75168570a3436eefeae12a6aca3deee3a41b6830560d17067613cfcb2fea5f",
+            "file": "changi-ground-speed-1-clean-fd75168570a3436e.mp3"
+          }
+        },
+        "lga-ground-stop-0": {
+          "role": "tower",
+          "text": "云际三二零，尚未许可进入跑道，立即停住。",
+          "file": "changi-ground-stop-0-3955f4c6be8fd7ef.mp3",
+          "duration": 2.496,
+          "bytes": 15213,
+          "sha256": "3955f4c6be8fd7efda6c849be8b2a7592eb14eeb0c5e0b86780a81d0a5875331",
+          "signal": null,
+          "serviceModel": "s2.1-pro-free"
+        },
+        "lga-ground-stop-1": {
+          "role": "pilot",
+          "text": "收到，立即停止，云际三二零。",
+          "file": "changi-ground-stop-1-8245b4ec495fc97a.mp3",
+          "duration": 2.232,
+          "bytes": 13629,
+          "sha256": "8245b4ec495fc97a1a895c4d0753e501520e283a2c2ef1f2553058a3154c1014",
+          "signal": null,
+          "serviceModel": "s2.1-pro",
+          "clean": {
+            "duration": 2.232,
+            "bytes": 13629,
+            "sha256": "bd9485e63762375f8af612fb465bbb67261776b9bae54a204a3ff4ee68cb8d47",
+            "file": "changi-ground-stop-1-clean-bd9485e63762375f.mp3"
+          }
+        },
+        "lga-takeoff-0": {
+          "role": "tower",
+          "text": "云际三二零，拉瓜迪亚塔台，跑道零四，可以起飞。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 2.784,
+          "bytes": 16941,
+          "sha256": "4fc6b35b54963c0dde1bc5ded194c7e88f8daf7c681bd4c78812302f75e398ca",
+          "file": "lga-takeoff-0-4fc6b35b54963c0d.mp3"
+        },
+        "lga-takeoff-1": {
+          "role": "pilot",
+          "text": "跑道零四，可以起飞，云际三二零。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 2.952,
+          "bytes": 17949,
+          "sha256": "3d2072afefedde7b8d555b034018e2bb03287b8e014139287bfe72d569648320",
+          "file": "lga-takeoff-1-3d2072afefedde7b.mp3",
+          "clean": {
+            "duration": 2.952,
+            "bytes": 17949,
+            "sha256": "37f205a18247f2aebe3faa90ca8d19dab98ae25120335ee750ab63f9d4ec58ea",
+            "file": "lga-takeoff-1-clean-37f205a18247f2ae.mp3"
+          }
+        },
+        "lga-approach-0": {
+          "role": "pilot",
+          "text": "拉瓜迪亚塔台，云际三二零，进近零四。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 2.76,
+          "bytes": 16797,
+          "sha256": "6e2aa4dee9743cf2bed24530766269b97dac92d861ae376b0391b71922c4b858",
+          "file": "lga-approach-0-6e2aa4dee9743cf2.mp3",
+          "clean": {
+            "duration": 2.76,
+            "bytes": 16797,
+            "sha256": "ea6d361dd31ad22c10444e74568bb3cbedb30860baa848b0e04c49bdd62a4a7b",
+            "file": "lga-approach-0-clean-ea6d361dd31ad22c.mp3"
+          }
+        },
+        "lga-approach-1": {
+          "role": "tower",
+          "text": "云际三二零，拉瓜迪亚塔台，继续进近零四，检查速度和构型。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 3.912,
+          "bytes": 23709,
+          "sha256": "ea97dbcf696d688768e417bd37258591592eaf9ce365de786a7342ac5ae7fb8b",
+          "file": "lga-approach-1-ea97dbcf696d6887.mp3"
+        },
+        "lga-reapproach-0": {
+          "role": "tower",
+          "text": "云际三二零，按导航左转返场，准备再次进近零四。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 3.384,
+          "bytes": 20541,
+          "sha256": "80a8081abef33982bcbcbb27a1d59de62e5e04964ab5964792e2880b112d9b05",
+          "file": "lga-reapproach-0-80a8081abef33982.mp3"
+        },
+        "lga-reapproach-1": {
+          "role": "pilot",
+          "text": "左转返场，准备再次进近零四，云际三二零。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 2.928,
+          "bytes": 17805,
+          "sha256": "e9464528c749ba3a74e9e89e464344655441ed40f51d76aaea0fbf3ead05b85b",
+          "file": "lga-reapproach-1-e9464528c749ba3a.mp3",
+          "clean": {
+            "duration": 2.928,
+            "bytes": 17805,
+            "sha256": "d26ed4451fb3998b10f836b19b1eb2998545f37c1dd1d5ae39046edb50f0f441",
+            "file": "lga-reapproach-1-clean-d26ed4451fb3998b.mp3"
+          }
+        },
+        "lga-final-0": {
+          "role": "pilot",
+          "text": "拉瓜迪亚塔台，云际三二零，零四五边。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 2.592,
+          "bytes": 15789,
+          "sha256": "083ac00548e127fc69b186d4086f5ba4e01519e6bf9fb39380542f95eb0dc683",
+          "file": "lga-final-0-083ac00548e127fc.mp3",
+          "clean": {
+            "duration": 2.592,
+            "bytes": 15789,
+            "sha256": "45426a06a012f313f1f5648ac07188f2d236642b36d68b9dbbcc30d9348b1fdc",
+            "file": "lga-final-0-clean-45426a06a012f313.mp3"
+          }
+        },
+        "lga-final-1": {
+          "role": "tower",
+          "text": "云际三二零，跑道零四，可以着陆。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 2.016,
+          "bytes": 12333,
+          "sha256": "182e96b540a307d9a2ae3d6f1a58e22696e33fa751ce44e5b71063f651a5f6e0",
+          "file": "lga-final-1-182e96b540a307d9.mp3"
         }
       }
     },
@@ -5310,6 +5570,266 @@
           "sha256": "ea377284015e27108dbf541d215551b669a48ab57e97cdffd6560db118e14560",
           "signal": null,
           "serviceModel": "s2.1-pro-free"
+        },
+        "lga-preparation-0": {
+          "role": "pilot",
+          "text": "拉瓜迪亚地面，云际三二零，五机位，请求推出开车。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 4.368,
+          "bytes": 26445,
+          "sha256": "a70d653e9e5cd6b44638152574d6c87e9e984c8e90ad8fc1444ff608caba97a4",
+          "file": "lga-preparation-0-a70d653e9e5cd6b4.mp3",
+          "clean": {
+            "duration": 4.368,
+            "bytes": 26445,
+            "sha256": "e03a580dfe1b707989457c10e49a7113dec293f8ee3827268685bd6e6ee33468",
+            "file": "lga-preparation-0-clean-e03a580dfe1b7079.mp3"
+          }
+        },
+        "lga-preparation-1": {
+          "role": "tower",
+          "text": "云际三二零，同意推出开车，完成后报告。",
+          "file": "changi-preparation-1-fe80205ed6db4f96.mp3",
+          "duration": 3.576,
+          "bytes": 21693,
+          "sha256": "fe80205ed6db4f961e2a831f3fbb745b74add9ab5cee6a303220ab251069b739",
+          "signal": null,
+          "serviceModel": "s2.1-pro-free"
+        },
+        "lga-taxi-0": {
+          "role": "tower",
+          "text": "云际三二零，沿指示路线滑行至零四跑道外等待。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 3.96,
+          "bytes": 23997,
+          "sha256": "70efc344da36828d6fe20a30c42a356309b1937beca12d0bb5742271a5ace642",
+          "file": "lga-taxi-0-70efc344da36828d.mp3"
+        },
+        "lga-taxi-1": {
+          "role": "pilot",
+          "text": "沿指示路线滑行，零四跑道外等待，云际三二零。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 4.248,
+          "bytes": 25725,
+          "sha256": "c1fc909624f2312cf651e1b38e5e33fb971b24c2c5ede69671a1b87312c61a7e",
+          "file": "lga-taxi-1-c1fc909624f2312c.mp3",
+          "clean": {
+            "duration": 4.248,
+            "bytes": 25725,
+            "sha256": "b1b4f22a0a4e327c5ae17693c58f14a79694141b4c8cd64912c71411694c295e",
+            "file": "lga-taxi-1-clean-b1b4f22a0a4e327c.mp3"
+          }
+        },
+        "lga-holding-0": {
+          "role": "pilot",
+          "text": "云际三二零，零四跑道外等待点，已停稳。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 2.976,
+          "bytes": 18093,
+          "sha256": "299b3fb5a247333bacd2b2e63803c0f2d6463d31553e93859d02e8024ec49a0d",
+          "file": "lga-holding-0-299b3fb5a247333b.mp3",
+          "clean": {
+            "duration": 2.976,
+            "bytes": 18093,
+            "sha256": "de5e2ceaa3d09dd3c37ec1f573c79c31caae96fd946565d4df41d699a020984d",
+            "file": "lga-holding-0-clean-de5e2ceaa3d09dd3.mp3"
+          }
+        },
+        "lga-holding-1": {
+          "role": "tower",
+          "text": "云际三二零，联系塔台，继续跑道外等待。",
+          "file": "changi-holding-1-8c18fe7bc9ab4b09.mp3",
+          "duration": 3.672,
+          "bytes": 22269,
+          "sha256": "8c18fe7bc9ab4b0942abf5b4702b1bee175a5946b41bee1c05cb77c987005eab",
+          "signal": null,
+          "serviceModel": "s2.1-pro-free"
+        },
+        "lga-lineup-0": {
+          "role": "tower",
+          "text": "云际三二零，零四，进跑道等待。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 2.544,
+          "bytes": 15501,
+          "sha256": "662613bcfc89440446bc48430cda805b46c97a4534900d2c90960077be3c6b61",
+          "file": "lga-lineup-0-662613bcfc894404.mp3"
+        },
+        "lga-lineup-1": {
+          "role": "pilot",
+          "text": "零四，进跑道等待，云际三二零。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 2.496,
+          "bytes": 15213,
+          "sha256": "5a4104fb296ea430037d2bc102331be3c58cb96d66c9dc2fd989ce2a9c2c94ea",
+          "file": "lga-lineup-1-5a4104fb296ea430.mp3",
+          "clean": {
+            "duration": 2.496,
+            "bytes": 15213,
+            "sha256": "21fa001676c7bb2aee879c92521852e18c5e1b0b8a57e94d18935ca384bbd54f",
+            "file": "lga-lineup-1-clean-21fa001676c7bb2a.mp3"
+          }
+        },
+        "lga-ground-speed-0": {
+          "role": "tower",
+          "text": "云际三二零，滑行速度过快，减速。",
+          "file": "changi-ground-speed-0-79e46c80d4cd5779.mp3",
+          "duration": 2.712,
+          "bytes": 16509,
+          "sha256": "79e46c80d4cd57798da402844bd80ea3bf256a0254828384e3e5c071b214fc2d",
+          "signal": null,
+          "serviceModel": "s2.1-pro-free"
+        },
+        "lga-ground-speed-1": {
+          "role": "pilot",
+          "text": "减速滑行，云际三二零。",
+          "file": "changi-ground-speed-1-620aea7b7d302e54.mp3",
+          "duration": 2.544,
+          "bytes": 15501,
+          "sha256": "620aea7b7d302e54f6b5fd11120fe38bd64ecd39bd71d1ece4a643627d356799",
+          "signal": null,
+          "serviceModel": "s2.1-pro",
+          "clean": {
+            "duration": 2.544,
+            "bytes": 15501,
+            "sha256": "f8ff459ab5a66c71be4606e0609f691dc88fc4650c86beaa90dca6862cbae21a",
+            "file": "changi-ground-speed-1-clean-f8ff459ab5a66c71.mp3"
+          }
+        },
+        "lga-ground-stop-0": {
+          "role": "tower",
+          "text": "云际三二零，尚未许可进入跑道，立即停住。",
+          "file": "changi-ground-stop-0-aaaba909ef8a09f6.mp3",
+          "duration": 3.576,
+          "bytes": 21693,
+          "sha256": "aaaba909ef8a09f6e617c047296727ef287ddeb457ce56aa31e89c9ef61796be",
+          "signal": null,
+          "serviceModel": "s2.1-pro-free"
+        },
+        "lga-ground-stop-1": {
+          "role": "pilot",
+          "text": "收到，立即停止，云际三二零。",
+          "file": "changi-ground-stop-1-879791ce43f2bbee.mp3",
+          "duration": 2.4,
+          "bytes": 14637,
+          "sha256": "879791ce43f2bbee725aa86517afbb19d550fd342dc356116b412f6ccd70c6c2",
+          "signal": null,
+          "serviceModel": "s2.1-pro",
+          "clean": {
+            "duration": 2.4,
+            "bytes": 14637,
+            "sha256": "cdbe15ebefbce1ff5e78ce1fbe853de2bd5a47b6b2c33f622013a8d95f0e15d1",
+            "file": "changi-ground-stop-1-clean-cdbe15ebefbce1ff.mp3"
+          }
+        },
+        "lga-takeoff-0": {
+          "role": "tower",
+          "text": "云际三二零，拉瓜迪亚塔台，跑道零四，可以起飞。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 3.72,
+          "bytes": 22557,
+          "sha256": "4758ce38faac847a1e4824a1471c18ea41e2b4553a7d58853e70b1ca0e615c27",
+          "file": "lga-takeoff-0-4758ce38faac847a.mp3"
+        },
+        "lga-takeoff-1": {
+          "role": "pilot",
+          "text": "跑道零四，可以起飞，云际三二零。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 2.88,
+          "bytes": 17517,
+          "sha256": "85e757060d5654ccbbc8a9a6d5f358303be4f5038f48173569e630a17e446a61",
+          "file": "lga-takeoff-1-85e757060d5654cc.mp3",
+          "clean": {
+            "duration": 2.88,
+            "bytes": 17517,
+            "sha256": "de2b8511b1afd2025a8d8f85e6e8386eec4e58f574c76139f50a68a4eab7704e",
+            "file": "lga-takeoff-1-clean-de2b8511b1afd202.mp3"
+          }
+        },
+        "lga-approach-0": {
+          "role": "pilot",
+          "text": "拉瓜迪亚塔台，云际三二零，进近零四。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 3.408,
+          "bytes": 20685,
+          "sha256": "9d44fa6f0aa94f40c4639c7c6102838c53d29c802514ca4a954ce199c75403a8",
+          "file": "lga-approach-0-9d44fa6f0aa94f40.mp3",
+          "clean": {
+            "duration": 3.408,
+            "bytes": 20685,
+            "sha256": "4505534abef5c437fb8d366610fc01851b4c622609d39cac6f5d78967c620707",
+            "file": "lga-approach-0-clean-4505534abef5c437.mp3"
+          }
+        },
+        "lga-approach-1": {
+          "role": "tower",
+          "text": "云际三二零，拉瓜迪亚塔台，继续进近零四，检查速度和构型。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 5.16,
+          "bytes": 31197,
+          "sha256": "b9a1825f4af8d86133ef5c5f0837336748e83cd1f7f95492aa1a17d2cef30023",
+          "file": "lga-approach-1-b9a1825f4af8d861.mp3"
+        },
+        "lga-reapproach-0": {
+          "role": "tower",
+          "text": "云际三二零，按导航左转返场，准备再次进近零四。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 4.128,
+          "bytes": 25005,
+          "sha256": "1e49b345d0b9f8b77e23b5f9c06973e0668ae2f4614b41b24d699cdf2b803f34",
+          "file": "lga-reapproach-0-1e49b345d0b9f8b7.mp3"
+        },
+        "lga-reapproach-1": {
+          "role": "pilot",
+          "text": "左转返场，准备再次进近零四，云际三二零。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 4.272,
+          "bytes": 25869,
+          "sha256": "49e974f4eda8ddec5bb873335c8d2c21c7ae7fcc2795eade246d51274a908b34",
+          "file": "lga-reapproach-1-49e974f4eda8ddec.mp3",
+          "clean": {
+            "duration": 4.272,
+            "bytes": 25869,
+            "sha256": "4fe541c0e5aa50335f790746345e85b3853c3b3595df04c9ddebf3c6b6a4b98e",
+            "file": "lga-reapproach-1-clean-4fe541c0e5aa5033.mp3"
+          }
+        },
+        "lga-final-0": {
+          "role": "pilot",
+          "text": "拉瓜迪亚塔台，云际三二零，零四五边。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 2.736,
+          "bytes": 16653,
+          "sha256": "fdb4fd5cf2e77c2d7ed5241944fca4d4e0df02825766388b62d00c8ed56ffda7",
+          "file": "lga-final-0-fdb4fd5cf2e77c2d.mp3",
+          "clean": {
+            "duration": 2.736,
+            "bytes": 16653,
+            "sha256": "0dc8fe45956e60af57917127c78e825998e9bdbb5be66b9cf7fc8a078ffd5cfb",
+            "file": "lga-final-0-clean-0dc8fe45956e60af.mp3"
+          }
+        },
+        "lga-final-1": {
+          "role": "tower",
+          "text": "云际三二零，跑道零四，可以着陆。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 2.544,
+          "bytes": 15501,
+          "sha256": "e94db25703cec585c06ce47927206dc815ab6328679b29d4ee103db6e82b6b64",
+          "file": "lga-final-1-e94db25703cec585.mp3"
         }
       }
     },
@@ -7964,6 +8484,266 @@
           "sha256": "8c1becc66451f08d15af6c2debe6c30ceaa64a5b1635d9553e4deb5812f5af97",
           "signal": null,
           "serviceModel": "s2.1-pro-free"
+        },
+        "lga-preparation-0": {
+          "role": "pilot",
+          "text": "拉瓜迪亚地面，云际三二零，五机位，请求推出开车。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 3.84,
+          "bytes": 23277,
+          "sha256": "64f744c42702fd7694cdb74909c05d30ce557fd6f47593d6c18d2c092725031d",
+          "file": "lga-preparation-0-64f744c42702fd76.mp3",
+          "clean": {
+            "duration": 3.84,
+            "bytes": 23277,
+            "sha256": "3158c4d1da92d6c61b1ed162e8267cb0d24acccacba889c4a26692d3c5fba66e",
+            "file": "lga-preparation-0-clean-3158c4d1da92d6c6.mp3"
+          }
+        },
+        "lga-preparation-1": {
+          "role": "tower",
+          "text": "云际三二零，同意推出开车，完成后报告。",
+          "file": "changi-preparation-1-ccbfc8cad7c37a68.mp3",
+          "duration": 2.832,
+          "bytes": 17229,
+          "sha256": "ccbfc8cad7c37a681919ab36cd6d0e8087813598d102a7bb625dc55c0e7e7fb8",
+          "signal": null,
+          "serviceModel": "s2.1-pro-free"
+        },
+        "lga-taxi-0": {
+          "role": "tower",
+          "text": "云际三二零，沿指示路线滑行至零四跑道外等待。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 3.432,
+          "bytes": 20829,
+          "sha256": "5c29a0a4ddeea72dfdc82237a721cc1fa769db4e03b7078cb1a558632406e7f1",
+          "file": "lga-taxi-0-5c29a0a4ddeea72d.mp3"
+        },
+        "lga-taxi-1": {
+          "role": "pilot",
+          "text": "沿指示路线滑行，零四跑道外等待，云际三二零。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 3.192,
+          "bytes": 19389,
+          "sha256": "013a659c60af721d94e931dc8f99bed391a25abd3ef3c6889d881bfee5aa120a",
+          "file": "lga-taxi-1-013a659c60af721d.mp3",
+          "clean": {
+            "duration": 3.192,
+            "bytes": 19389,
+            "sha256": "f8972972a465223b91726f62e2867c58c9324aea4ac2ca72dfbb45c0d97b3658",
+            "file": "lga-taxi-1-clean-f8972972a465223b.mp3"
+          }
+        },
+        "lga-holding-0": {
+          "role": "pilot",
+          "text": "云际三二零，零四跑道外等待点，已停稳。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 2.88,
+          "bytes": 17517,
+          "sha256": "69c876eebb1da9a8341f699b789be916a83c2448146f7eec2a8e0dee90cfe62b",
+          "file": "lga-holding-0-69c876eebb1da9a8.mp3",
+          "clean": {
+            "duration": 2.88,
+            "bytes": 17517,
+            "sha256": "1eb9ae0e18e7239672e13e46ab8f5a46d6a1b434089bb4715c761caed2be8258",
+            "file": "lga-holding-0-clean-1eb9ae0e18e72396.mp3"
+          }
+        },
+        "lga-holding-1": {
+          "role": "tower",
+          "text": "云际三二零，联系塔台，继续跑道外等待。",
+          "file": "changi-holding-1-f7c7919bb1cdca7a.mp3",
+          "duration": 2.736,
+          "bytes": 16653,
+          "sha256": "f7c7919bb1cdca7a9aa3b180f8dd06dc9f1531492c5b55f4768bf45efa24b526",
+          "signal": null,
+          "serviceModel": "s2.1-pro-free"
+        },
+        "lga-lineup-0": {
+          "role": "tower",
+          "text": "云际三二零，零四，进跑道等待。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 2.4,
+          "bytes": 14637,
+          "sha256": "a38817651fe24ccf547fafc691879d43c0cd6b624ceb63ce4562bdf3c86ad649",
+          "file": "lga-lineup-0-a38817651fe24ccf.mp3"
+        },
+        "lga-lineup-1": {
+          "role": "pilot",
+          "text": "零四，进跑道等待，云际三二零。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 2.52,
+          "bytes": 15357,
+          "sha256": "8ee86e71d5a703fe98d98160dd3453b37fc3fded6f9e4615956578c35e22e15c",
+          "file": "lga-lineup-1-8ee86e71d5a703fe.mp3",
+          "clean": {
+            "duration": 2.52,
+            "bytes": 15357,
+            "sha256": "df68288e2fcaa4876f8fa2805369551ace205e779c20f2408b94d6ad1e6e3839",
+            "file": "lga-lineup-1-clean-df68288e2fcaa487.mp3"
+          }
+        },
+        "lga-ground-speed-0": {
+          "role": "tower",
+          "text": "云际三二零，滑行速度过快，减速。",
+          "file": "changi-ground-speed-0-b13d392d5ea4fa23.mp3",
+          "duration": 2.736,
+          "bytes": 16653,
+          "sha256": "b13d392d5ea4fa239091eda7bcb46b34add63de00019349b4c3b0467700e140b",
+          "signal": null,
+          "serviceModel": "s2.1-pro-free"
+        },
+        "lga-ground-speed-1": {
+          "role": "pilot",
+          "text": "减速滑行，云际三二零。",
+          "file": "changi-ground-speed-1-463c4ea1ab6ea8a2.mp3",
+          "duration": 2.04,
+          "bytes": 12477,
+          "sha256": "463c4ea1ab6ea8a2d6d6e30d61c72abe5db0be231b610f46ef574d905aaa2579",
+          "signal": null,
+          "serviceModel": "s2.1-pro-free",
+          "clean": {
+            "duration": 2.04,
+            "bytes": 12477,
+            "sha256": "b43035abed6a98e81f8dc509f4fa08dcd5581f1b2c86f848bd7ca10fde0bf735",
+            "file": "changi-ground-speed-1-clean-b43035abed6a98e8.mp3"
+          }
+        },
+        "lga-ground-stop-0": {
+          "role": "tower",
+          "text": "云际三二零，尚未许可进入跑道，立即停住。",
+          "file": "changi-ground-stop-0-b1729d9a144a72be.mp3",
+          "duration": 3.072,
+          "bytes": 18669,
+          "sha256": "b1729d9a144a72beec5a483fe882bd17f9a34d36db27c4c1f9680ea5253ba3fc",
+          "signal": null,
+          "serviceModel": "s2.1-pro-free"
+        },
+        "lga-ground-stop-1": {
+          "role": "pilot",
+          "text": "收到，立即停止，云际三二零。",
+          "file": "changi-ground-stop-1-8dd0a9574304d219.mp3",
+          "duration": 2.064,
+          "bytes": 12621,
+          "sha256": "8dd0a9574304d219ac9b45435ab763636932b09aad638d68664ac2ec13222752",
+          "signal": null,
+          "serviceModel": "s2.1-pro-free",
+          "clean": {
+            "duration": 2.064,
+            "bytes": 12621,
+            "sha256": "bc0ebd2d4209d88a56efd64cb98b643ef13aaeffd9cdd137af42780ad0e71c3b",
+            "file": "changi-ground-stop-1-clean-bc0ebd2d4209d88a.mp3"
+          }
+        },
+        "lga-takeoff-0": {
+          "role": "tower",
+          "text": "云际三二零，拉瓜迪亚塔台，跑道零四，可以起飞。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 3.408,
+          "bytes": 20685,
+          "sha256": "f4f3389e188116ec101a850fd22483948285ad1cb6c501ef6233a6fe77005a3e",
+          "file": "lga-takeoff-0-f4f3389e188116ec.mp3"
+        },
+        "lga-takeoff-1": {
+          "role": "pilot",
+          "text": "跑道零四，可以起飞，云际三二零。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 2.16,
+          "bytes": 13197,
+          "sha256": "34dd2ea68d7e57198a37dd195810dbe22230b411704d090189839463237b30d4",
+          "file": "lga-takeoff-1-34dd2ea68d7e5719.mp3",
+          "clean": {
+            "duration": 2.16,
+            "bytes": 13197,
+            "sha256": "c254a874c2eb53f0e9ab6dd4994cac0e62aa535fef3ea78353cbceff8e3715f1",
+            "file": "lga-takeoff-1-clean-c254a874c2eb53f0.mp3"
+          }
+        },
+        "lga-approach-0": {
+          "role": "pilot",
+          "text": "拉瓜迪亚塔台，云际三二零，进近零四。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 2.784,
+          "bytes": 16941,
+          "sha256": "5089568bfe60e9429920297261394f3f7a05d6f1262bdea1f527c3cad891ad01",
+          "file": "lga-approach-0-5089568bfe60e942.mp3",
+          "clean": {
+            "duration": 2.784,
+            "bytes": 16941,
+            "sha256": "1ae8babf2f24521a4b1bf4d3e756fdf6cb305aed08aff54ca6376bf29f8a2056",
+            "file": "lga-approach-0-clean-1ae8babf2f24521a.mp3"
+          }
+        },
+        "lga-approach-1": {
+          "role": "tower",
+          "text": "云际三二零，拉瓜迪亚塔台，继续进近零四，检查速度和构型。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 3.984,
+          "bytes": 24141,
+          "sha256": "6871d1453229f7011139cf129be4b168f710a2bbdc3f1a3ac672969a162e6d72",
+          "file": "lga-approach-1-6871d1453229f701.mp3"
+        },
+        "lga-reapproach-0": {
+          "role": "tower",
+          "text": "云际三二零，按导航左转返场，准备再次进近零四。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 3.888,
+          "bytes": 23565,
+          "sha256": "92be739749ac554d5fea9c1c1c1928827b0a40d4b6249a8188485c7e99791d2f",
+          "file": "lga-reapproach-0-92be739749ac554d.mp3"
+        },
+        "lga-reapproach-1": {
+          "role": "pilot",
+          "text": "左转返场，准备再次进近零四，云际三二零。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 3.144,
+          "bytes": 19101,
+          "sha256": "348ab9993eb114cf2165b90ec720378df4f8c76feacf7070ec462e42a3dffdd1",
+          "file": "lga-reapproach-1-348ab9993eb114cf.mp3",
+          "clean": {
+            "duration": 3.144,
+            "bytes": 19101,
+            "sha256": "832ae6fa9ba35944d29a01aa0d21af38e0a7fb0ebc8f3ba5678ac9d9b30d5d33",
+            "file": "lga-reapproach-1-clean-832ae6fa9ba35944.mp3"
+          }
+        },
+        "lga-final-0": {
+          "role": "pilot",
+          "text": "拉瓜迪亚塔台，云际三二零，零四五边。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 2.616,
+          "bytes": 15933,
+          "sha256": "e4c532478ed29080bcc3a81f91da0ff6a8db47ee9a8296e28f51880ac6f96c86",
+          "file": "lga-final-0-e4c532478ed29080.mp3",
+          "clean": {
+            "duration": 2.616,
+            "bytes": 15933,
+            "sha256": "bf40d74bf49b707bb975d51f46b1e9a7591669fc6821fbbcec19319a43eda246",
+            "file": "lga-final-0-clean-bf40d74bf49b707b.mp3"
+          }
+        },
+        "lga-final-1": {
+          "role": "tower",
+          "text": "云际三二零，跑道零四，可以着陆。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 2.376,
+          "bytes": 14493,
+          "sha256": "d451796f39c9d53226ccaf3bd8e6c439f60699a7253faf2068a5c018dd822c6d",
+          "file": "lga-final-1-d451796f39c9d532.mp3"
         }
       }
     },
@@ -10618,6 +11398,266 @@
           "sha256": "d435dba50153540e8a0757e8c957be624ee82ae454ff446fb0e39d8f959ba9db",
           "signal": null,
           "serviceModel": "s2.1-pro-free"
+        },
+        "lga-preparation-0": {
+          "role": "pilot",
+          "text": "拉瓜迪亚地面，云际三二零，五机位，请求推出开车。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 4.176,
+          "bytes": 25293,
+          "sha256": "a8865b81db6f7421d6b53d809360d4da7d171e281df4819bfc775f523152fa00",
+          "file": "lga-preparation-0-a8865b81db6f7421.mp3",
+          "clean": {
+            "duration": 4.176,
+            "bytes": 25293,
+            "sha256": "ffdf97612251babbc6e93988841e3115be12e53df9b9622b9d723a2516f6cac9",
+            "file": "lga-preparation-0-clean-ffdf97612251babb.mp3"
+          }
+        },
+        "lga-preparation-1": {
+          "role": "tower",
+          "text": "云际三二零，同意推出开车，完成后报告。",
+          "file": "changi-preparation-1-8483c77cb77e9fb8.mp3",
+          "duration": 3.36,
+          "bytes": 20397,
+          "sha256": "8483c77cb77e9fb845e2063a049c25d541fcb8b97a4a63e3a7b9a678d70c34ac",
+          "signal": null,
+          "serviceModel": "s2.1-pro-free"
+        },
+        "lga-taxi-0": {
+          "role": "tower",
+          "text": "云际三二零，沿指示路线滑行至零四跑道外等待。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 4.368,
+          "bytes": 26445,
+          "sha256": "fee270630d9eaa367ace5d3a9706e6e83474f9cf5e5a8455bc85bd8e825d3bf2",
+          "file": "lga-taxi-0-fee270630d9eaa36.mp3"
+        },
+        "lga-taxi-1": {
+          "role": "pilot",
+          "text": "沿指示路线滑行，零四跑道外等待，云际三二零。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 4.104,
+          "bytes": 24861,
+          "sha256": "c9d2982a4a35d4a79a2f42a07ae30afe0b316a6518f2a8e40d0b52f3f217910a",
+          "file": "lga-taxi-1-c9d2982a4a35d4a7.mp3",
+          "clean": {
+            "duration": 4.104,
+            "bytes": 24861,
+            "sha256": "da4b9b44171b5ec18d097d4f2575b4699ba0475f17e20e708ebf44e5104d4a35",
+            "file": "lga-taxi-1-clean-da4b9b44171b5ec1.mp3"
+          }
+        },
+        "lga-holding-0": {
+          "role": "pilot",
+          "text": "云际三二零，零四跑道外等待点，已停稳。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 4.008,
+          "bytes": 24285,
+          "sha256": "d747deb8dfc0b17214c4fe99e95a5f4e18214967718a171933d7c2f7b6466b76",
+          "file": "lga-holding-0-d747deb8dfc0b172.mp3",
+          "clean": {
+            "duration": 4.008,
+            "bytes": 24285,
+            "sha256": "66d8c1a7d91d42c059077d4d92f1f8ec3f31ebce7b779be08a26e168c39f1f23",
+            "file": "lga-holding-0-clean-66d8c1a7d91d42c0.mp3"
+          }
+        },
+        "lga-holding-1": {
+          "role": "tower",
+          "text": "云际三二零，联系塔台，继续跑道外等待。",
+          "file": "changi-holding-1-a1c087e67fdfcdbb.mp3",
+          "duration": 3.672,
+          "bytes": 22269,
+          "sha256": "a1c087e67fdfcdbb69064acbbfa8cb8161e8a10daf7ac19e34eaf4c138d3c923",
+          "signal": null,
+          "serviceModel": "s2.1-pro-free"
+        },
+        "lga-lineup-0": {
+          "role": "tower",
+          "text": "云际三二零，零四，进跑道等待。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 3.336,
+          "bytes": 20253,
+          "sha256": "bc4bb94a791a5105884711792fce2cc71d76a87147b79bc875f22451e34dc53d",
+          "file": "lga-lineup-0-bc4bb94a791a5105.mp3"
+        },
+        "lga-lineup-1": {
+          "role": "pilot",
+          "text": "零四，进跑道等待，云际三二零。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 3.0,
+          "bytes": 18237,
+          "sha256": "758273174fccc0992adcdc6ddc23984ef8f27d9b33d39a3bb55c23ae9eaad0d6",
+          "file": "lga-lineup-1-758273174fccc099.mp3",
+          "clean": {
+            "duration": 3.0,
+            "bytes": 18237,
+            "sha256": "2f5a84f290e69db78ff84a743f37ef433707452e22f48f71cf625cd3464ed260",
+            "file": "lga-lineup-1-clean-2f5a84f290e69db7.mp3"
+          }
+        },
+        "lga-ground-speed-0": {
+          "role": "tower",
+          "text": "云际三二零，滑行速度过快，减速。",
+          "file": "changi-ground-speed-0-95d7da3ec825f962.mp3",
+          "duration": 3.384,
+          "bytes": 20541,
+          "sha256": "95d7da3ec825f9622ba5d0111ad0144625c09222ddf686f526668df49b195277",
+          "signal": null,
+          "serviceModel": "s2.1-pro-free"
+        },
+        "lga-ground-speed-1": {
+          "role": "pilot",
+          "text": "减速滑行，云际三二零。",
+          "file": "changi-ground-speed-1-3768d5cc6bcd5c1e.mp3",
+          "duration": 2.256,
+          "bytes": 13773,
+          "sha256": "3768d5cc6bcd5c1eafe85a8722d35125c3192e29c3bf12fd34c3d1db0174af94",
+          "signal": null,
+          "serviceModel": "s2.1-pro-free",
+          "clean": {
+            "duration": 2.256,
+            "bytes": 13773,
+            "sha256": "5ec757a0b0fa672018ee4c3ac8581fdc4f5d99e5d808566268a31feb28c6c192",
+            "file": "changi-ground-speed-1-clean-5ec757a0b0fa6720.mp3"
+          }
+        },
+        "lga-ground-stop-0": {
+          "role": "tower",
+          "text": "云际三二零，尚未许可进入跑道，立即停住。",
+          "file": "changi-ground-stop-0-7701f92e5b10389b.mp3",
+          "duration": 3.792,
+          "bytes": 22989,
+          "sha256": "7701f92e5b10389b6af0cad7f001cf3b48a91a9940b7dfe43f23a92f063ce821",
+          "signal": null,
+          "serviceModel": "s2.1-pro-free"
+        },
+        "lga-ground-stop-1": {
+          "role": "pilot",
+          "text": "收到，立即停止，云际三二零。",
+          "file": "changi-ground-stop-1-309495cce311c75b.mp3",
+          "duration": 2.544,
+          "bytes": 15501,
+          "sha256": "309495cce311c75bacabee267320597e64f4c922b6de9b07cb6de6608c2c9645",
+          "signal": null,
+          "serviceModel": "s2.1-pro-free",
+          "clean": {
+            "duration": 2.544,
+            "bytes": 15501,
+            "sha256": "f1db5352fda67b58842df9fce8b082b41016aa6ba8687356aec93a27d9dcd5e8",
+            "file": "changi-ground-stop-1-clean-f1db5352fda67b58.mp3"
+          }
+        },
+        "lga-takeoff-0": {
+          "role": "tower",
+          "text": "云际三二零，拉瓜迪亚塔台，跑道零四，可以起飞。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 4.824,
+          "bytes": 29181,
+          "sha256": "6160b7af268ee30d939c95bd382be595d49adc542cd1449207256fc0352acb92",
+          "file": "lga-takeoff-0-6160b7af268ee30d.mp3"
+        },
+        "lga-takeoff-1": {
+          "role": "pilot",
+          "text": "跑道零四，可以起飞，云际三二零。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 3.216,
+          "bytes": 19533,
+          "sha256": "b7f9f6c968fd8800f05e107eeace66460d5da6fcd6c0e8563ad77e97b2334bf4",
+          "file": "lga-takeoff-1-b7f9f6c968fd8800.mp3",
+          "clean": {
+            "duration": 3.216,
+            "bytes": 19533,
+            "sha256": "0b022bf037fc93c0b93f8ae8158eec1e0b7fdb1456b3ddb31fac87838116c4e1",
+            "file": "lga-takeoff-1-clean-0b022bf037fc93c0.mp3"
+          }
+        },
+        "lga-approach-0": {
+          "role": "pilot",
+          "text": "拉瓜迪亚塔台，云际三二零，进近零四。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 3.36,
+          "bytes": 20397,
+          "sha256": "de354728f2c030964d9912ef2ee15f65a8a2f2580413bcf1091a7125624812aa",
+          "file": "lga-approach-0-de354728f2c03096.mp3",
+          "clean": {
+            "duration": 3.36,
+            "bytes": 20397,
+            "sha256": "6fbf6d4512d53cb5d81f9195a0507b566f83cc81b902e4d01e0648825a140832",
+            "file": "lga-approach-0-clean-6fbf6d4512d53cb5.mp3"
+          }
+        },
+        "lga-approach-1": {
+          "role": "tower",
+          "text": "云际三二零，拉瓜迪亚塔台，继续进近零四，检查速度和构型。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 5.448,
+          "bytes": 32925,
+          "sha256": "2fa70cf9696b4bbb22d12d4dca6c9e1efaff2840db2aadbfea26876f95357431",
+          "file": "lga-approach-1-2fa70cf9696b4bbb.mp3"
+        },
+        "lga-reapproach-0": {
+          "role": "tower",
+          "text": "云际三二零，按导航左转返场，准备再次进近零四。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 4.776,
+          "bytes": 28893,
+          "sha256": "fb85299cc78a4d3594a3b3b3f9e2c490b44bfd986d809a4fabb36b05536176bf",
+          "file": "lga-reapproach-0-fb85299cc78a4d35.mp3"
+        },
+        "lga-reapproach-1": {
+          "role": "pilot",
+          "text": "左转返场，准备再次进近零四，云际三二零。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 4.224,
+          "bytes": 25581,
+          "sha256": "d467df2c38de9236248d1178aa073987e22bd352d889c1b2f6734973d5cf8c39",
+          "file": "lga-reapproach-1-d467df2c38de9236.mp3",
+          "clean": {
+            "duration": 4.224,
+            "bytes": 25581,
+            "sha256": "bb8bb92e040636b8956e549caef34a0e14925c9414f5cdbacce6c3f38445661b",
+            "file": "lga-reapproach-1-clean-bb8bb92e040636b8.mp3"
+          }
+        },
+        "lga-final-0": {
+          "role": "pilot",
+          "text": "拉瓜迪亚塔台，云际三二零，零四五边。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 2.952,
+          "bytes": 17949,
+          "sha256": "c763fa00e363b884c71b3edfe8ad49b16373c17c3f5f1ed9d56c9a34140ac8be",
+          "file": "lga-final-0-c763fa00e363b884.mp3",
+          "clean": {
+            "duration": 2.952,
+            "bytes": 17949,
+            "sha256": "148ab69c9dbf21c2fd9c8fd19e9972fda80018dd679b0ff605dbb03b8f686a1a",
+            "file": "lga-final-0-clean-148ab69c9dbf21c2.mp3"
+          }
+        },
+        "lga-final-1": {
+          "role": "tower",
+          "text": "云际三二零，跑道零四，可以着陆。",
+          "serviceModel": "s2.1-pro-free",
+          "signal": null,
+          "duration": 3.144,
+          "bytes": 19101,
+          "sha256": "041a62288959d65deb2d2c50a31fd8672e09696aca7165acc44fa2ce4fdb28e7",
+          "file": "lga-final-1-041a62288959d65d.mp3"
         }
       }
     },
@@ -13272,9 +14312,269 @@
           "sha256": "2772e73b424765fefa038d2a40ef7572e7f118bffebcff6ba22ff54500c389fd",
           "signal": null,
           "serviceModel": "edge-tts"
+        },
+        "lga-preparation-0": {
+          "role": "pilot",
+          "text": "拉瓜迪亚地面，云际三二零，五机位，请求推出开车。",
+          "serviceModel": "edge-tts",
+          "signal": null,
+          "duration": 3.888,
+          "bytes": 23565,
+          "sha256": "5ef9b50853eaa029bc2fa3b7a0cd7ce96b2c53ad0b3b96d7bd8776ff5611d0fc",
+          "file": "lga-preparation-0-5ef9b50853eaa029.mp3",
+          "clean": {
+            "duration": 3.888,
+            "bytes": 23565,
+            "sha256": "87c89a98018a8db87090f8d001b6ad7df1fe9db328e6168eb31a188876c02341",
+            "file": "lga-preparation-0-clean-87c89a98018a8db8.mp3"
+          }
+        },
+        "lga-preparation-1": {
+          "role": "tower",
+          "text": "云际三二零，同意推出开车，完成后报告。",
+          "file": "changi-preparation-1-7ea8eccf5c08f3ab.mp3",
+          "duration": 3.648,
+          "bytes": 22125,
+          "sha256": "7ea8eccf5c08f3ab57f41cd4b2754537f61f70f57025f2790804f9c4b365dc69",
+          "signal": null,
+          "serviceModel": "edge-tts"
+        },
+        "lga-taxi-0": {
+          "role": "tower",
+          "text": "云际三二零，沿指示路线滑行至零四跑道外等待。",
+          "serviceModel": "edge-tts",
+          "signal": null,
+          "duration": 3.648,
+          "bytes": 22125,
+          "sha256": "0b147c5acf88daa112cbb7ae94b9fd79648d13583f10324f04603243374281bf",
+          "file": "lga-taxi-0-0b147c5acf88daa1.mp3"
+        },
+        "lga-taxi-1": {
+          "role": "pilot",
+          "text": "沿指示路线滑行，零四跑道外等待，云际三二零。",
+          "serviceModel": "edge-tts",
+          "signal": null,
+          "duration": 3.6,
+          "bytes": 21837,
+          "sha256": "5c38bc8a395f6a1903797aadf3e27dba6a89028d076af12d9d1213d288267bb3",
+          "file": "lga-taxi-1-5c38bc8a395f6a19.mp3",
+          "clean": {
+            "duration": 3.6,
+            "bytes": 21837,
+            "sha256": "77c450fc573a134a535b7bf0ca2a004533b393e63bc262250b4f07f3e6be3a25",
+            "file": "lga-taxi-1-clean-77c450fc573a134a.mp3"
+          }
+        },
+        "lga-holding-0": {
+          "role": "pilot",
+          "text": "云际三二零，零四跑道外等待点，已停稳。",
+          "serviceModel": "edge-tts",
+          "signal": null,
+          "duration": 3.096,
+          "bytes": 18813,
+          "sha256": "ee2cf5ba8b9d69188762f2d8019e9e100b5112df580e5631b1d65d5ee593759d",
+          "file": "lga-holding-0-ee2cf5ba8b9d6918.mp3",
+          "clean": {
+            "duration": 3.096,
+            "bytes": 18813,
+            "sha256": "41fffe8abb249d841588e984d9f5f3639878202978814147d0c4e4e94bd2d668",
+            "file": "lga-holding-0-clean-41fffe8abb249d84.mp3"
+          }
+        },
+        "lga-holding-1": {
+          "role": "tower",
+          "text": "云际三二零，联系塔台，继续跑道外等待。",
+          "file": "changi-holding-1-d7abc3be04004ac5.mp3",
+          "duration": 3.696,
+          "bytes": 22413,
+          "sha256": "d7abc3be04004ac5e634d7a4c2f9605a58d9f301025fa7243cff08eb135d5b2d",
+          "signal": null,
+          "serviceModel": "edge-tts"
+        },
+        "lga-lineup-0": {
+          "role": "tower",
+          "text": "云际三二零，零四，进跑道等待。",
+          "serviceModel": "edge-tts",
+          "signal": null,
+          "duration": 2.472,
+          "bytes": 15069,
+          "sha256": "3f4b0a30f7d34f03627b182818faeccb5ad795b49f72b1f6d555bfa2cdbc7d17",
+          "file": "lga-lineup-0-3f4b0a30f7d34f03.mp3"
+        },
+        "lga-lineup-1": {
+          "role": "pilot",
+          "text": "零四，进跑道等待，云际三二零。",
+          "serviceModel": "edge-tts",
+          "signal": null,
+          "duration": 2.52,
+          "bytes": 15357,
+          "sha256": "dbd77b26949190a559923482c468ec72768fba1a0ca67b494affd0d109ff9dd7",
+          "file": "lga-lineup-1-dbd77b26949190a5.mp3",
+          "clean": {
+            "duration": 2.52,
+            "bytes": 15357,
+            "sha256": "6db68a1026548a30fe5d92bc982a979252ec948e8837deb78d86641940652596",
+            "file": "lga-lineup-1-clean-6db68a1026548a30.mp3"
+          }
+        },
+        "lga-ground-speed-0": {
+          "role": "tower",
+          "text": "云际三二零，滑行速度过快，减速。",
+          "file": "changi-ground-speed-0-a5511985d129ae88.mp3",
+          "duration": 3.192,
+          "bytes": 19389,
+          "sha256": "a5511985d129ae883ca1069d75d13a44b377aac6d4f2dd869270d987c70bd7c1",
+          "signal": null,
+          "serviceModel": "edge-tts"
+        },
+        "lga-ground-speed-1": {
+          "role": "pilot",
+          "text": "减速滑行，云际三二零。",
+          "file": "changi-ground-speed-1-9fb1ca61d8a9dcb6.mp3",
+          "duration": 1.848,
+          "bytes": 11325,
+          "sha256": "9fb1ca61d8a9dcb6aff715b3760c0e1d32efe2b7031eb2fbd838b7d030911168",
+          "signal": null,
+          "serviceModel": "edge-tts",
+          "clean": {
+            "duration": 1.848,
+            "bytes": 11325,
+            "sha256": "e8a497b32b0e79987f8b97cd62a4911306e9a5a0021e3778e0a9d8134c27ee92",
+            "file": "changi-ground-speed-1-clean-e8a497b32b0e7998.mp3"
+          }
+        },
+        "lga-ground-stop-0": {
+          "role": "tower",
+          "text": "云际三二零，尚未许可进入跑道，立即停住。",
+          "file": "changi-ground-stop-0-5b2293724b4c4389.mp3",
+          "duration": 3.792,
+          "bytes": 22989,
+          "sha256": "5b2293724b4c43893da69c46fdef3154da7b9848c088d0ade86d870602ccadb3",
+          "signal": null,
+          "serviceModel": "edge-tts"
+        },
+        "lga-ground-stop-1": {
+          "role": "pilot",
+          "text": "收到，立即停止，云际三二零。",
+          "file": "changi-ground-stop-1-c08c80457736ac97.mp3",
+          "duration": 2.352,
+          "bytes": 14349,
+          "sha256": "c08c80457736ac972d26b93421cb0e47784c7564618ff1e49268dfb7ab20ba47",
+          "signal": null,
+          "serviceModel": "edge-tts",
+          "clean": {
+            "duration": 2.352,
+            "bytes": 14349,
+            "sha256": "e11a58375de5dd2f5ad8aaef55c9c68afd34f167410da751ba232f0a69223e94",
+            "file": "changi-ground-stop-1-clean-e11a58375de5dd2f.mp3"
+          }
+        },
+        "lga-takeoff-0": {
+          "role": "tower",
+          "text": "云际三二零，拉瓜迪亚塔台，跑道零四，可以起飞。",
+          "serviceModel": "edge-tts",
+          "signal": null,
+          "duration": 3.648,
+          "bytes": 22125,
+          "sha256": "756fedc762a7ad659b4ffc2c7fa580429febb849359987c112d9dc31459dabfa",
+          "file": "lga-takeoff-0-756fedc762a7ad65.mp3"
+        },
+        "lga-takeoff-1": {
+          "role": "pilot",
+          "text": "跑道零四，可以起飞，云际三二零。",
+          "serviceModel": "edge-tts",
+          "signal": null,
+          "duration": 2.496,
+          "bytes": 15213,
+          "sha256": "2c78698f4b55a10f3b5dd139b74534d2fcfa44a19d99955107f004583c27ea55",
+          "file": "lga-takeoff-1-2c78698f4b55a10f.mp3",
+          "clean": {
+            "duration": 2.496,
+            "bytes": 15213,
+            "sha256": "0c54103f3e10baf588a5832374cc4e73b2dc5cc61047e72c83ef33a62c83d7bc",
+            "file": "lga-takeoff-1-clean-0c54103f3e10baf5.mp3"
+          }
+        },
+        "lga-approach-0": {
+          "role": "pilot",
+          "text": "拉瓜迪亚塔台，云际三二零，进近零四。",
+          "serviceModel": "edge-tts",
+          "signal": null,
+          "duration": 2.928,
+          "bytes": 17805,
+          "sha256": "cdf8e0278a4ffc858b31f55f43a8e81e1c2f28a48a8f7c12f4704a5c8c768e6c",
+          "file": "lga-approach-0-cdf8e0278a4ffc85.mp3",
+          "clean": {
+            "duration": 2.928,
+            "bytes": 17805,
+            "sha256": "6309c6e5b4dc93dcc7c9019a28968ec2f74c602d4ebab2f3da5985985607c5fb",
+            "file": "lga-approach-0-clean-6309c6e5b4dc93dc.mp3"
+          }
+        },
+        "lga-approach-1": {
+          "role": "tower",
+          "text": "云际三二零，拉瓜迪亚塔台，继续进近零四，检查速度和构型。",
+          "serviceModel": "edge-tts",
+          "signal": null,
+          "duration": 4.656,
+          "bytes": 28173,
+          "sha256": "9ab6d7901519cf014a3a2f43c888e34c21a52ce10c52d17240ec2521085deda4",
+          "file": "lga-approach-1-9ab6d7901519cf01.mp3"
+        },
+        "lga-reapproach-0": {
+          "role": "tower",
+          "text": "云际三二零，按导航左转返场，准备再次进近零四。",
+          "serviceModel": "edge-tts",
+          "signal": null,
+          "duration": 3.84,
+          "bytes": 23277,
+          "sha256": "0da5f2620edc376a2031075c23f8f46e4def6496e1ea4dee3116ec4004726932",
+          "file": "lga-reapproach-0-0da5f2620edc376a.mp3"
+        },
+        "lga-reapproach-1": {
+          "role": "pilot",
+          "text": "左转返场，准备再次进近零四，云际三二零。",
+          "serviceModel": "edge-tts",
+          "signal": null,
+          "duration": 3.384,
+          "bytes": 20541,
+          "sha256": "abba700868e57d2bba8e0a18a1bca15f5f04f3ae7a76f17738e51286e968d436",
+          "file": "lga-reapproach-1-abba700868e57d2b.mp3",
+          "clean": {
+            "duration": 3.384,
+            "bytes": 20541,
+            "sha256": "c6f49ee55cdfb8c80e6e1d6f4af58c0b15313c4315f433d5f97daa3d3ebf60f7",
+            "file": "lga-reapproach-1-clean-c6f49ee55cdfb8c8.mp3"
+          }
+        },
+        "lga-final-0": {
+          "role": "pilot",
+          "text": "拉瓜迪亚塔台，云际三二零，零四五边。",
+          "serviceModel": "edge-tts",
+          "signal": null,
+          "duration": 2.904,
+          "bytes": 17661,
+          "sha256": "d4b6b81ba9938cd5fb4363f7094318f7a317a3b6160bce19eed59e3a3a09a0db",
+          "file": "lga-final-0-d4b6b81ba9938cd5.mp3",
+          "clean": {
+            "duration": 2.904,
+            "bytes": 17661,
+            "sha256": "2677b488aa4451fc64376e06a611912d1f352538096379f38bfb442e5ec32268",
+            "file": "lga-final-0-clean-2677b488aa4451fc.mp3"
+          }
+        },
+        "lga-final-1": {
+          "role": "tower",
+          "text": "云际三二零，跑道零四，可以着陆。",
+          "serviceModel": "edge-tts",
+          "signal": null,
+          "duration": 2.472,
+          "bytes": 15069,
+          "sha256": "c075c4a50ea91b22b1ae2351e5ec280656a036fb18583bd1f7a931fa74d3531a",
+          "file": "lga-final-1-c075c4a50ea91b22.mp3"
         }
       }
     }
   },
-  "version": "cd87f1f661cd0c61616d"
+  "version": "a98ae76ccec1b5e9a803"
 }

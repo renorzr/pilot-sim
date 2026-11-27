@@ -14,8 +14,8 @@ import {clipUrl}from '../src/comms/radio.js';
 import {normalizeProgress}from '../src/missions/progress.js';
 import {t}from '../src/i18n/index.js';
 const added=['kansai','jfk','lax'];
-test('six real airports expose 30 unique directional flights and preserve existing records',()=>{
- assert.equal(AIRPORTS.length,6);assert.equal(AIRPORT_MISSIONS.length,12);assert.equal(AIRLINE_ROUTES.length,30);assert.equal(LEVELS.length,13);assert.equal(new Set(AIRLINE_ROUTES.map(l=>l.id)).size,30);
+test('seven real airports expose 42 unique directional flights and preserve existing records',()=>{
+ assert.equal(AIRPORTS.length,7);assert.equal(AIRPORT_MISSIONS.length,14);assert.equal(AIRLINE_ROUTES.length,42);assert.equal(LEVELS.length,13);assert.equal(new Set(AIRLINE_ROUTES.map(l=>l.id)).size,42);
  for(const a of AIRPORTS)for(const b of AIRPORTS.filter(b=>b.id!==a.id))assert(AIRLINE_ROUTES.some(l=>l.origin===a.id&&l.destination===b.id));
  assert.deepEqual(AIRLINE_ROUTES.slice(0,6).map(l=>l.id),['pkx-hgh','hgh-pkx','pkx-sin','hgh-sin','sin-pkx','sin-hgh']);
  const p=normalizeProgress({levels:{takeoff:{bestScore:99},'daxing-takeoff':{bestScore:96,revision:2},'changi-landing':{bestScore:97},'hgh-sin':{bestScore:96}}});assert.equal(Object.keys(p.levels).length,4);

@@ -1,7 +1,7 @@
 import {mkdir,copyFile,readFile} from 'node:fs/promises';
 const directory=new URL('../../public/assets/maps/',import.meta.url);
 await mkdir(directory,{recursive:true});
-for(const id of['daxing','xiaoshan','changi','kansai','jfk','lax']){
+for(const id of['daxing','xiaoshan','changi','kansai','jfk','lax','lga']){
  await copyFile(new URL(`../src/airports/data/${id}.json`,import.meta.url),new URL(`${id}-source.json`,directory));
  await copyFile(new URL(`../src/airports/data/${id}-departure.json`,import.meta.url),new URL(`${id}-departure.json`,directory));
 }

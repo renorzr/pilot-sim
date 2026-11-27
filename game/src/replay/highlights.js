@@ -47,7 +47,7 @@ function selectScored(pool,engine,{seed,limit=6}={}){
  return selected.sort((a,b)=>a.segment-b.segment||a.start-b.start).map((c,id)=>({...c,id}));
 }
 export function createReplay(recording,{airportId=null,directorOptions={},background=false,preferFailure=false}={}){
- const replay={recording,clips:[],index:0,startIndex:0,elapsed:0,paused:false,planning:true,backgroundPlanning:background,loading:true,settling:false,readyKey:null,fade:0,cycles:0};
+ const replay={recording,clips:[],index:0,startIndex:0,elapsed:0,paused:false,planning:true,backgroundPlanning:background,loading:true,settling:false,readyKey:null,fade:0,cycles:0,audioEpoch:0};
  const pool=eventCandidates(recording),discovery={},scanner=scanLandmarkWindows(recording,{contextFor:directorOptions.contextFor,includeActions:true,stats:discovery});let timer=null,disposed=false,phase='discovery',engine=null,scanMs=0,selectionMs=0,batches=0,maxBatchMs=0,finishedAt=null,candidateReports=[],selectedReports=[];
  const seed=directorOptions.seed??recording.seed,startedAt=now();
  function finish(){
@@ -79,17 +79,18 @@ export function createReplay(recording,{airportId=null,directorOptions={},backgr
 // same planner in bounded frame batches through prepareReplayScenery.
 export function buildHighlights(recording,{contextFor,...directorOptions}={}){const replay=createReplay(recording,{directorOptions:{...directorOptions,contextFor}});replay.director.complete();return replay.clips;}
 export function replayClip(replay){return replay?.clips[replay.index]??null;}
-export function changeReplayClip(replay,direction){if(replay?.planning||!replay?.clips.length)return;replay.index=(replay.index+direction+replay.clips.length)%replay.clips.length;replay.elapsed=0;replay.fade=0;replay.loading=true;replay.readyKey=null;replay.settling=false;}
+export function changeReplayClip(replay,direction,{continuous=false}={}){if(replay?.planning||!replay?.clips.length)return;const previous=replayClip(replay);replay.index=(replay.index+direction+replay.clips.length)%replay.clips.length;const next=replayClip(replay);if(!continuous||previous.segment!==next.segment||Math.abs(previous.end-next.start)>1e-5)replay.audioEpoch=(replay.audioEpoch||0)+1;replay.elapsed=0;replay.fade=0;replay.loading=true;replay.readyKey=null;replay.settling=false;}
 export function advanceReplay(replay,dt,{ready=true,visible=true}={}){
  if(!replay||replay.planning||!visible||!ready||replay.loading||!replay.clips.length)return;
  const step=Math.max(0,Math.min(.5,dt));replay.fade=Math.min(1,replay.fade+step);if(replay.paused)return;
  replay.elapsed+=step;
- if(replay.elapsed>=replayClip(replay).duration){if((replay.index+1)%replay.clips.length===replay.startIndex)replay.cycles++;changeReplayClip(replay,1);}
+ if(replay.elapsed>=replayClip(replay).duration){if((replay.index+1)%replay.clips.length===replay.startIndex)replay.cycles++;changeReplayClip(replay,1,{continuous:true});}
 }
 export function replayFrame(replay){
  const clip=replayClip(replay);if(!clip)return null;
  const time=clip.start+Math.min(clip.recordedDuration,replay.elapsed),state=replay.recording.sample(clip.segment,time),anchor=replay.recording.sample(clip.segment,Math.max(clip.start,Math.min(clip.end,clip.time)));
+ if(state?.replayAudio){state.replayAudio.cycle=replay.cycles;state.replayAudio.epoch=replay.audioEpoch||0;}
  const fade=.4,opacity=replay.loading?1:Math.max(0,1-replay.fade/fade,1-(clip.duration-replay.elapsed)/fade);
  return{state,shot:{...clip.camera,session:replay.recording.seed,selectionKey:clip.segment+':'+clip.start,kind:clip.camera?.kind??clip.shot,fallbackKind:clip.shot,anchor,elapsed:replay.elapsed,duration:clip.duration,eventOffset:clip.eventOffset,index:clip.id},opacity,clip};
 }
-export function replayStatus(replay){const clip=replayClip(replay);return replay?{index:replay.index,count:replay.clips.length,planning:!!replay.planning,airportId:clip?.airportId,shotTemplate:clip?.camera?.template??null,label:clip?.label||'飞行片段',elapsed:replay.elapsed,duration:clip?.duration||0,paused:replay.paused,loading:replay.loading,cycles:replay.cycles}:null;}
+export function replayStatus(replay){const clip=replayClip(replay);return replay?{index:replay.index,count:replay.clips.length,planning:!!replay.planning,segment:clip?.segment,recordedTime:clip?clip.start+Math.min(clip.recordedDuration,replay.elapsed):null,airportId:clip?.airportId,shotTemplate:clip?.camera?.template??null,label:clip?.label||'飞行片段',elapsed:replay.elapsed,duration:clip?.duration||0,paused:replay.paused,loading:replay.loading,cycles:replay.cycles}:null;}

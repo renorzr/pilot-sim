@@ -1,3 +1,7 @@
+import {airportOf} from './registry.js';
+import {sceneryFrame} from '../regions/scenery-frame.js';
+import {buildRegionalWater} from '../regions/water-world.js';
+import {isSeaLevelWater} from './water-surfaces.js';
 import {buildKansaiScenery} from './kansai-scene.js';
 import {buildJfkScenery} from './jfk-scene.js';
 import {buildLaxScenery} from './lax-scene.js';
@@ -15,7 +19,7 @@ import {buildDaxingScenery} from './daxing-scene.js';
 // Pavement/airport grading is shared with the contact and GPWS heightfield.
 export function buildRealAirportWorld({scene,asphalt,grass,mat,airport=DAXING,departurePlan=departure}){
  const group=new THREE.Group();group.name=airport.ident;scene.add(group);
- const height=(x,z)=>terrainHeight(x,z,airport.id),config=terrainConfig(airport.id),project=airport.project||projectDaxing;
+ const height=(x,z)=>terrainHeight(x,z,airport.id),terrainAirport=airportOf(airport.terrainFrameId||airport.id),config=terrainConfig(terrainAirport.id),project=airport.project||projectDaxing,terrainFrame=sceneryFrame(terrainAirport,airport);
  const geometry=new THREE.PlaneGeometry(config.width,config.depth,config.columns,config.rows);geometry.rotateX(-Math.PI/2);
  const vertices=geometry.attributes.position,colors=[],color=new THREE.Color();
  const features=airport.data.osm.features,cover=new Uint8Array(vertices.count),fieldShade=new Float32Array(vertices.count);
@@ -26,23 +30,24 @@ export function buildRealAirportWorld({scene,asphalt,grass,mat,airport=DAXING,de
  for(const [index,feature]of features.entries()){
   const tags=feature.tags||{},kind=['farmland','farmyard','orchard'].includes(tags.landuse)?1:['forest','grass','meadow','recreation_ground'].includes(tags.landuse)||tags.natural==='wood'?2:['residential','commercial','retail'].includes(tags.landuse)?3:['industrial','construction'].includes(tags.landuse)?4:0;
   if(!kind||feature.geometry.length<3)continue;
-  const p=local(feature.geometry),minX=Math.max(0,Math.ceil((Math.min(...p.map(v=>v.x))+config.width/2)/250)),maxX=Math.min(config.columns,Math.floor((Math.max(...p.map(v=>v.x))+config.width/2)/250)),minZ=Math.max(0,Math.ceil((Math.min(...p.map(v=>v.z))+config.depth/2)/250)),maxZ=Math.min(config.rows,Math.floor((Math.max(...p.map(v=>v.z))+config.depth/2)/250));
+  const p=feature.geometry.map(q=>terrainAirport.project(...q)),minX=Math.max(0,Math.ceil((Math.min(...p.map(v=>v.x))+config.width/2)/250)),maxX=Math.min(config.columns,Math.floor((Math.max(...p.map(v=>v.x))+config.width/2)/250)),minZ=Math.max(0,Math.ceil((Math.min(...p.map(v=>v.z))+config.depth/2)/250)),maxZ=Math.min(config.rows,Math.floor((Math.max(...p.map(v=>v.z))+config.depth/2)/250));
   for(let j=minZ;j<=maxZ;j++)for(let i=minX;i<=maxX;i++){const k=j*(config.columns+1)+i,x=-config.width/2+i*250,z=-config.depth/2+j*250;if(inside(x,z,p)){cover[k]=kind;fieldShade[k]=Math.sin(index*12.9898)*.06;}}
  }
  for(let i=0;i<vertices.count;i++){
-  const x=vertices.getX(i),z=vertices.getZ(i),y=vertexHeight(x,z,airport.id);vertices.setY(i,y);
+  const x=vertices.getX(i),z=vertices.getZ(i),y=vertexHeight(x,z,terrainAirport.id)+terrainAirport.elevationM-airport.elevationM;vertices.setY(i,y);
   // PlaneGeometry rows run north-to-south after its rotation; the land raster
   // above uses increasing local z, matching the physics grid indexing.
   const j=Math.round((z+config.depth/2)/250),column=Math.round((x+config.width/2)/250),k=j*(config.columns+1)+column;
   color.set(['#a2a68b','#a5a07a','#7f9470','#b1afa2','#a6a69d'][cover[k]]).multiplyScalar(1+fieldShade[k]);colors.push(color.r,color.g,color.b);
  }
- geometry.setAttribute('color',new THREE.Float32BufferAttribute(colors,3));geometry.computeVertexNormals();
+ geometry.setAttribute('color',new THREE.Float32BufferAttribute(colors,3));if(airport.terrainFrameId)geometry.applyMatrix4(new THREE.Matrix4().fromArray(terrainFrame.elements));geometry.computeVertexNormals();
  const terrain=new THREE.Mesh(geometry,new THREE.MeshStandardMaterial({map:grass,vertexColors:true,roughness:1,polygonOffset:true,polygonOffsetFactor:0,polygonOffsetUnits:4}));terrain.name='shared-DEM-terrain';group.add(terrain);
  const layer=surfaceDepth;
  const pavement=mat('#5e6464',{map:asphalt,...layer(4)}),taxi=mat('#777c78',layer(3)),road=mat('#838680',layer(2)),minorRoad=mat('#9d9b8e',layer(2)),water=mat(airport.id==='lax'?'#446c82':'#728e8c',{roughness:.3,metalness:.12,...layer(1)});
  const white=groundPaint(new THREE.MeshBasicMaterial({color:'#e6e5d9'}),11),yellow=groundPaint(new THREE.MeshBasicMaterial({color:'#d1b35a'}));
  const runwayMat=mat('#747b7b',{map:asphalt,...layer(5)});
  const reservedRunways=runwayFootprints(airport);
+ if(airport.region)buildRegionalWater({root:group,airport,material:water,surfaceOffset:.15});
  const strip=(points,width,material,offset=.08,reservations=reservedRunways)=>{
   const positions=[];
   for(let i=1;i<points.length;i++){
@@ -68,13 +73,14 @@ export function buildRealAirportWorld({scene,asphalt,grass,mat,airport=DAXING,de
  // legacy strips beyond that footprint without overlapping streamed pavement.
  const roadReservations=[...reservedRunways,[{x:-30000,z:-30000},{x:30000,z:-30000},{x:30000,z:30000},{x:-30000,z:30000}]];
  for(const feature of features){
+  if(airport.region&&isSeaLevelWater(feature))continue;
   const tags=feature.tags||{},coordinates=feature.geometry;if(!Array.isArray(coordinates)||coordinates.length<2)continue;
   const points=local(coordinates);
   if(tags.aeroway==='taxiway'){strip(points,Number(tags.width)||23,taxi,G.taxi);strip(points,.35,yellow,G.paint);}
   else if(tags.aeroway==='taxilane')strip(points,.35,yellow,G.paint);
-  else if(tags.highway){if(['lax','changi','jfk','kansai','daxing'].includes(airport.id))continue;const major=['motorway','trunk','primary'].includes(tags.highway),width=Number(tags.width)||(['motorway','trunk'].includes(tags.highway)?22:major?14:['secondary','tertiary'].includes(tags.highway)?9:5);strip(points,width,major?road:minorRoad,G.road,roadReservations);}
-  else if(tags.waterway){if(!['xiaoshan','changi','jfk','kansai','daxing'].includes(airport.id))strip(points,Number(tags.width)||(['river','canal'].includes(tags.waterway)?24:7),water,.13);}
-  else if(tags.natural==='water'||tags.water||tags.landuse==='reservoir'){if(airport.id!=='xiaoshan'&&(!['changi','jfk','kansai','daxing'].includes(airport.id)||tags.water==='sea'))polygon(points,water,.15,(feature.holes||[]).map(local),tags.water==='sea'?-airport.elevationM:null);}
+  else if(tags.highway){if(['lax','changi','jfk','lga','kansai','daxing'].includes(airport.id))continue;const major=['motorway','trunk','primary'].includes(tags.highway),width=Number(tags.width)||(['motorway','trunk'].includes(tags.highway)?22:major?14:['secondary','tertiary'].includes(tags.highway)?9:5);strip(points,width,major?road:minorRoad,G.road,roadReservations);}
+  else if(tags.waterway){if(!['xiaoshan','changi','jfk','lga','kansai','daxing'].includes(airport.id))strip(points,Number(tags.width)||(['river','canal'].includes(tags.waterway)?24:7),water,.13);}
+  else if(tags.natural==='water'||tags.water||tags.landuse==='reservoir'){if(airport.id!=='xiaoshan'&&(!['changi','jfk','lga','kansai','daxing'].includes(airport.id)||tags.water==='sea'))polygon(points,water,.15,(feature.holes||[]).map(local),tags.water==='sea'?-airport.elevationM:null);}
  }
  function rectangle(x,z,width,length,material,angle=0,y=.22){
   const mesh=new THREE.Mesh(new THREE.PlaneGeometry(width,length),material);mesh.rotation.set(-Math.PI/2,0,angle);mesh.position.set(x,y,z);group.add(mesh);return mesh;
@@ -121,12 +127,12 @@ export function buildRealAirportWorld({scene,asphalt,grass,mat,airport=DAXING,de
   const box=new THREE.Mesh(new THREE.BoxGeometry(1.5,.6,1.2),pavement);box.position.set(-55-i*5,.5,-300);group.add(box);
   const light=new THREE.Mesh(new THREE.PlaneGeometry(1.3,.4),new THREE.MeshBasicMaterial({color:i<2?'#ff5544':'#fff5ce'}));light.position.set(-55-i*5,.8,-299.3);group.add(light);papi.push(light);
  }
- const sceneryBuilders={daxing:buildDaxingScenery,xiaoshan:buildXiaoshanScenery,changi:buildChangiScenery,kansai:buildKansaiScenery,jfk:buildJfkScenery,lax:buildLaxScenery};
+ const sceneryBuilders={daxing:buildDaxingScenery,xiaoshan:buildXiaoshanScenery,changi:buildChangiScenery,kansai:buildKansaiScenery,jfk:buildJfkScenery,lga:buildJfkScenery,lax:buildLaxScenery};
  const customScenery=sceneryBuilders[airport.id]({THREE,group,project,terrainHeight:height,features,roadsManagedExternally:airport.id==='kansai'});
  const excludedFeatures=new Set([...(customScenery?.excludeFeatureIds||[]),...(airport.id==='changi'?['way/744520551','way/547383951','way/744653030','way/173010406']:[])]);
  // Low-cost building blocks follow actual OSM footprints. Missing heights
  // receive a documented visual estimate rather than a claim of survey detail.
- const cityAirportBoundary=['xiaoshan','jfk','kansai','daxing'].includes(airport.id)?features.filter(f=>f.tags?.aeroway==='aerodrome').map(f=>local(f.geometry)):null;
+ const cityAirportBoundary=['xiaoshan','jfk','lga','kansai','daxing'].includes(airport.id)?features.filter(f=>f.tags?.aeroway==='aerodrome').map(f=>local(f.geometry)):null;
  const buildings=features.filter(f=>f.tags?.building&&!['tower','control_tower','jet_bridge'].includes(f.tags.aeroway)&&f.tags.aeroway!=='terminal'&&f.tags.building!=='terminal'&&!excludedFeatures.has(f.id)&&f.geometry.length>=3).slice(0,900);
  const buildingMaterials=[mat('#b8b5a5'),mat('#c6c4b9'),mat('#a4a9a3')],unit=new THREE.BoxGeometry(1,1,1);
  for(const [i,f]of buildings.entries()){

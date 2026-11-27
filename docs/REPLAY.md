@@ -224,3 +224,47 @@ The scripts, cue models and view component are in `game/src/failure/`; the
 bounded one-element player is `game/src/audio/failure-audio.js`. Presentation
 state, emergency voices and synthetic ambience never write to physics, result
 assessment, the sealed recorder, normal records or historical qualification.
+
+## Successful water rescue
+
+A survivable historical ditching retains its water/boat presentation for about
+19 seconds before results/highlights. Its separate prerecorded mix overlaps
+controller, field, dispatch and responding-unit calls; a fixed first-officer
+intercom line closes the scene as shore sirens and approaching boats fade.
+Damaged survival changes the field report. Practice and formal flights share
+this presentation without changing completion eligibility or physical outcomes.
+
+`history/rescue-media.js` uses the native media clock and measured cue durations
+for camera progress and one primary subtitle. Pause/visibility freezes the scene;
+mute, blocked media or a stalled stream has a bounded fallback. Language changes
+restart only the current cue. Skip, retry, menu and unmount silence the player.
+Live radio is held while the mix plays so existing rescue calls are not doubled.
+The flight/result remains frozen, with no new recorder samples during rescue.
+
+## Recorded radio and aural alerts
+
+The session recorder indexes sparse radio/alert context per segment. Sampling
+restores the original language, captain/first-officer/controller identities, active
+transmission, engine damage cause, and alert acknowledgements. This adds event
+metadata only; existing local speech files are reused and nothing is persisted.
+
+Replay starts a transmission at its recorded offset, then lets the media clock
+run. Continuous recorded-time camera cuts preserve speech; backwards seeks,
+segment/attempt changes and loops reposition it. Loading, pause, hidden tabs and
+mute silence playback. Radio remains audible at ground/landmark cameras and
+uses the normal VHF chain, independent of aircraft distance; intercom stays dry.
+Subtitles accompany replay speech, including when the result panel is closed.
+
+Electronic cues follow recorded fault and acknowledgement state, not a detector
+re-triggered at each cut. Failure/rescue presentations retain their own soundtrack.
+
+## Aircraft appearance identity
+
+Each new segment's base state owns a copy of `aircraft` (model, structural
+variant, livery, definition version and their asset/UV versions). Sampling preserves it. World loading
+uses that recorded identity, including during historical presentation and retries.
+Old recordings without this optional field resolve to original A320 version 1.
+An appearance or engine-count change opens a separate segment. Optional sampled
+channels retain engines beyond the existing two packed engine columns.
+Versioned definitions and model/atlas resources must remain available for older
+recordings. See [Aircraft foundation](AIRCRAFT-FOUNDATION.md).

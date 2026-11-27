@@ -1,46 +1,60 @@
 import {useState,useRef,useEffect} from 'react';
-import {AIRPORTS,airportOf} from './airports/registry.js';
+import {ArrowsLeftRight,ArrowRight,AirplaneTakeoff,AirplaneLanding,CaretDown,Check,MapPin} from '@phosphor-icons/react';
+import {AIRPORTS} from './airports/registry.js';
 import {AIRLINE_ROUTES,AIRPORT_MISSIONS,getLevel} from './missions/catalog.js';
 import {routeDistance} from './missions/airline.js';
 import {longitudeNear,greatCircle,mapLandRings,mapRouteSegments,routeMapBounds,placeMapLabels,mapMarkerRadii} from './airports/map-projection.js';
+import {groupAirports,initialPlanner,pickPlannerAirport,pickCityAirport,readPlanner,savePlanner} from './airports/airline-planner.js';
+import {t} from './i18n/index.js';
 import land from './airports/data/world-land.json' with {type:'json'};
+const storage=()=>{try{return globalThis.localStorage;}catch{return null;}};
 
-export function AirlineSelect({progress,selectedId,onSelect,onChoose}){
- const current=getLevel(selectedId),[origin,setOrigin]=useState(current?.origin||current?.airportId||'daxing'),[destination,setDestination]=useState(current?.destination||(current?.airportId==='xiaoshan'?'daxing':'xiaoshan')),[slot,setSlot]=useState('origin'),[zoom,setZoom]=useState(false),[mode,setMode]=useState(AIRPORT_MISSIONS.some(l=>l.id===selectedId)&&selectedId===current?.id?'practice':'flights');
- const a=airportOf(origin),b=airportOf(destination),route=AIRLINE_ROUTES.find(r=>r.origin===origin&&r.destination===destination),practice=AIRPORT_MISSIONS.find(l=>l.id===selectedId)||AIRPORT_MISSIONS[0];
- const mapRef=useRef(null),[size,setSize]=useState({width:680,height:380});
- useEffect(()=>{const el=mapRef.current;if(!el)return;const observer=new ResizeObserver(([entry])=>setSize({width:entry.contentRect.width,height:entry.contentRect.height}));observer.observe(el);return()=>observer.disconnect();},[mode]);
- const routePoints=greatCircle(a.data.airport,b.data.airport),bounds=routeMapBounds(routePoints,zoom);
- const scale=Math.min(size.width/(bounds.east-bounds.west),size.height/(bounds.north-bounds.south)),cx=(bounds.west+bounds.east)/2,cy=(bounds.north+bounds.south)/2;
- const point=(lon,lat)=>({x:size.width/2+(lon-cx)*scale,y:size.height/2-(lat-cy)*scale}),xy=ap=>point(longitudeNear(ap.data.airport.longitude,cx),ap.data.airport.latitude),distance=routeDistance(origin,destination);
- const landPath=mapLandRings(land.rings,cx-180,cx+180).map(r=>r.map(([lon,lat],i)=>{const v=point(lon,lat);return `${i?'L':'M'}${v.x},${v.y}`;}).join(' ')+'Z').join(' ');
- const routePath=mapRouteSegments(routePoints,cx).map(r=>r.map(([lon,lat],i)=>{const v=point(lon,lat);return `${i?'L':'M'}${v.x},${v.y}`;}).join(' ')).join(' ');
- const markers=AIRPORTS.map(ap=>({id:ap.id,...xy(ap)})).filter(p=>p.x>8&&p.x<size.width-8&&p.y>8&&p.y<size.height-8),labels=placeMapLabels(markers,size.width,size.height),radii=mapMarkerRadii(markers);
- function choose(id){if(slot==='origin'){setOrigin(id);if(destination===id)setDestination(origin);setSlot('destination');}else{setDestination(id);if(origin===id)setOrigin(destination);setSlot('origin');}}
- function swap(){setOrigin(destination);setDestination(origin);}
- return <div className="airline-select">
-  <div className="airline-mode-tabs" role="tablist" aria-label="航线与机场练习"><button data-airline-mode="flights" role="tab" aria-selected={mode==='flights'} onClick={()=>setMode('flights')}>城市间航班</button><button data-airline-mode="practice" role="tab" aria-selected={mode==='practice'} onClick={()=>setMode('practice')}>机场练习</button></div>
-  {mode==='flights'?<div className="route-planner">
-   <div className="route-map-column"><div className="route-map-heading"><p>点击地图机场选择{slot==='origin'?'起点':'终点'}</p><button className="map-zoom" onClick={()=>setZoom(v=>!v)}>{zoom?'查看世界':'聚焦航线区域'}</button></div>
-    <svg ref={mapRef} className="world-route-map" viewBox={`0 0 ${size.width} ${size.height}`} role="group" aria-label="世界机场航线地图">
-     <rect width={size.width} height={size.height} fill="#112b3d"/><path d={landPath} fill="#304c58" stroke="#607c82" strokeWidth=".7"/>
-     <path d={routePath} fill="none" stroke="#e8c17c" strokeWidth="2" strokeDasharray="6 4"/>
-     {AIRPORTS.filter(ap=>labels[ap.id]).map(ap=>{const v=xy(ap),isOrigin=ap.id===origin,isDestination=ap.id===destination,colour=isOrigin?'#a9d8e2':isDestination?'#ebc382':'#96a6ae',label=labels[ap.id];return <g key={ap.id} data-airport-id={ap.id} role="button" tabIndex="0" aria-label={ap.name} onClick={()=>choose(ap.id)} onKeyDown={e=>{if(['Enter',' '].includes(e.key)){e.preventDefault();choose(ap.id);}}} className="map-airport-marker">
-      <circle cx={v.x} cy={v.y} r={radii[ap.id].hit} fill="transparent"/><circle cx={v.x} cy={v.y} r={radii[ap.id].dot} fill={colour} stroke="#dcecf2" strokeWidth="1.5"/>
-      <text x={label.x} y={label.y} fill={colour} fontSize="13" fontWeight="600">{ap.iata}</text>
+export function AirlineSelect({progress,selectedId,onChoose,airports=AIRPORTS}){
+ const cities=groupAirports(airports),[planner,setPlanner]=useState(()=>initialPlanner(airports,getLevel(selectedId),readPlanner(storage()))),[slot,setSlot]=useState('origin'),[cityId,setCityId]=useState(()=>cities.find(c=>c.airports.some(a=>a.id===planner.focused))?.id||cities[0].id),[pickerOpen,setPickerOpen]=useState(false),[pendingAirport,setPendingAirport]=useState(false);
+ const mapRef=useRef(null),pickerRef=useRef(null),pickerButton=useRef(null),[size,setSize]=useState({width:1000,height:380});
+ const a=airports.find(ap=>ap.id===planner.origin),b=airports.find(ap=>ap.id===planner.destination),city=cities.find(c=>c.id===cityId)||cities[0],airport=!pendingAirport?city.airports.find(ap=>ap.id===planner.focused):null,route=AIRLINE_ROUTES.find(r=>r.origin===a.id&&r.destination===b.id),missions=airport?AIRPORT_MISSIONS.filter(l=>l.airportId===airport.id):[];
+ useEffect(()=>{const observer=new ResizeObserver(([entry])=>setSize({width:entry.contentRect.width,height:entry.contentRect.height}));observer.observe(mapRef.current);return()=>observer.disconnect();},[]);
+ useEffect(()=>savePlanner(storage(),planner),[planner]);
+ useEffect(()=>{if(pickerOpen)(pickerRef.current?.querySelector('[aria-selected=true]')||pickerRef.current?.querySelector('[role=option]'))?.focus();},[pickerOpen,cityId]);
+ const routePoints=greatCircle(a.data.airport,b.data.airport),bounds=planner.bounds||routeMapBounds([],false),cardWidth=Math.min(300,Math.max(205,size.width*.28)),mapWidth=Math.max(120,size.width-cardWidth-44),mapHeight=Math.max(100,size.height-58),scale=Math.min(mapWidth/(bounds.east-bounds.west),mapHeight/(bounds.north-bounds.south)),cx=(bounds.west+bounds.east)/2,cy=(bounds.north+bounds.south)/2;
+ const point=(lon,lat)=>({x:18+mapWidth/2+(lon-cx)*scale,y:42+mapHeight/2-(lat-cy)*scale});
+ const landPath=mapLandRings(land.rings,cx-180,cx+180).map(r=>r.map(([lon,lat],i)=>{const p=point(lon,lat);return `${i?'L':'M'}${p.x},${p.y}`;}).join(' ')+'Z').join(' '),routePath=mapRouteSegments(routePoints,cx).map(r=>r.map(([lon,lat],i)=>{const p=point(lon,lat);return `${i?'L':'M'}${p.x},${p.y}`;}).join(' ')).join(' ');
+ const markers=cities.map(c=>({...c,...point(longitudeNear(c.longitude,cx),c.latitude),label:t(c.name)+(c.airports.length>1?` · ${c.airports.length}`:'')})).filter(p=>p.x>8&&p.x<mapWidth+25&&p.y>35&&p.y<size.height-8),labels=placeMapLabels(markers,mapWidth+28,size.height-12,{widthFor:m=>Math.max(30,Array.from(m.label).reduce((n,c)=>n+(/\p{Script=Han}/u.test(c)?12:6.2),0)),heightFor:()=>17}),radii=mapMarkerRadii(markers);
+ function acceptAirport(choice){setPlanner(choice.state);setSlot(choice.nextSlot);setPendingAirport(false);setPickerOpen(false);}
+ const selectAirport=id=>acceptAirport(pickPlannerAirport(planner,slot,id));
+ function chooseCity(c){setCityId(c.id);const choice=pickCityAirport(c,slot,planner);setPendingAirport(!choice.airport);setPickerOpen(choice.pickerOpen);if(choice.airport)acceptAirport(choice);}
+ function pickerKeys(e){const options=[...pickerRef.current.querySelectorAll('[role=option]')],index=options.indexOf(document.activeElement);if(['ArrowDown','ArrowUp','Home','End'].includes(e.key)){e.preventDefault();const next=e.key==='Home'?0:e.key==='End'?options.length-1:(index+(e.key==='ArrowDown'?1:-1)+options.length)%options.length;options[next]?.focus();}if(e.key==='Escape'){e.preventDefault();e.stopPropagation();setPickerOpen(false);pickerButton.current?.focus();}}
+ function enterPractice(mission){savePlanner(storage(),planner);onChoose(mission.id);}
+ const record=route&&progress.levels[route.id];
+ return <div className="airline-select unified-airline-map">
+  <div className="airline-map-stage">
+   <div className="airline-map-canvas" ref={mapRef} style={{'--airport-card-width':cardWidth+'px'}}>
+    <svg className="world-route-map" viewBox={`0 0 ${size.width} ${size.height}`} role="group" aria-label="世界机场航线地图">
+     <rect width={size.width} height={size.height} fill="#112735"/><path d={landPath} fill="#28434d" stroke="#52717b" strokeWidth=".7"/>
+     <path d={routePath} fill="none" stroke="#dfbc80" strokeWidth="2" strokeDasharray="5 5"/>
+     {markers.map(m=>{const label=labels[m.id],origin=m.airports.some(ap=>ap.id===a.id),destination=m.airports.some(ap=>ap.id===b.id),focused=m.id===cityId,colour=origin?'#a8d9dd':destination?'#e8bd7e':'#a0b5c0';return <g data-menu-focus key={m.id} data-city-id={m.id} data-airport-id={m.airports.length===1?m.airports[0].id:undefined} role="button" tabIndex="0" aria-label={m.name} aria-pressed={focused} className="map-airport-marker" onClick={()=>chooseCity(m)} onKeyDown={e=>{if(['Enter',' '].includes(e.key)){e.preventDefault();chooseCity(m);}}}>
+      <circle cx={m.x} cy={m.y} r={radii[m.id].hit} fill="transparent"/>{focused&&<circle className="city-focus-ring" cx={m.x} cy={m.y} r={radii[m.id].dot+5} fill="none" stroke={colour} strokeOpacity=".4"/>}<circle cx={m.x} cy={m.y} r={radii[m.id].dot} fill={colour} stroke="#dcecf2" strokeWidth="1.5"/>
+      <line x1={m.x} y1={m.y} x2={label.x+4} y2={label.y-5} stroke={colour} strokeOpacity=".35"/><text x={label.x} y={label.y} fill={colour} fontSize="12" fontWeight="600">{m.label}</text>
      </g>;})}
-    </svg><p className="map-source-caption">Natural Earth · 选择任意两座机场执飞</p>
-    <div className="airport-choice-buttons">{AIRPORTS.map(ap=><button key={ap.id} onClick={()=>choose(ap.id)}>{ap.iata} · {ap.city}</button>)}</div>
+    </svg>
+    <div className="route-map-heading"><p>{slot==='origin'?'选择始发机场 · 点击地图上的城市':'选择目的机场 · 点击地图上的城市'}</p><div><button data-menu-focus className="map-zoom" onClick={()=>setPlanner(p=>({...p,bounds:p.bounds?null:routeMapBounds(routePoints,true)}))}>{planner.bounds?'查看世界':'聚焦航线区域'}</button></div></div>
+    <aside className="map-airport-card" aria-label="机场操作" data-selected-airport={airport?.id}>
+     <header><span className="airport-card-label"><MapPin/> {city.name}</span><span className="airport-count">{city.airports.length>1?`${city.airports.length} 个机场`:'机场'}</span></header>
+     {city.airports.length>1&&<div className="city-airport-dropdown" onBlur={e=>{if(!e.currentTarget.contains(e.relatedTarget))setPickerOpen(false);}}><button data-menu-focus ref={pickerButton} className="airport-picker-trigger" aria-label="选择机场" aria-haspopup="listbox" aria-expanded={pickerOpen} onClick={()=>setPickerOpen(v=>!v)}><span>{airport?`${airport.iata} · ${airport.name}`:'请选择机场'}</span><CaretDown/></button>{pickerOpen&&<div ref={pickerRef} className="city-airport-options" role="listbox" aria-label="城市机场列表" onKeyDown={pickerKeys}>{city.airports.map(ap=><button data-menu-focus key={ap.id} role="option" aria-selected={airport?.id===ap.id} data-airport-option={ap.id} tabIndex={airport?.id===ap.id||!airport&&city.airports[0]===ap?0:-1} onClick={()=>selectAirport(ap.id)}><strong>{ap.iata}</strong><span>{ap.name}</span>{airport?.id===ap.id&&<Check/>}</button>)}</div>}</div>}
+     {airport?<>
+      <div className="airport-card-title"><strong>{airport.iata}</strong><span>{airport.ident}</span></div><h2 title={airport.name}>{airport.name}</h2>
+      <div className="airport-practice-actions"><p>机场练习</p>{missions.map(m=><button data-menu-focus key={m.id} data-level-id={m.id} onClick={()=>enterPractice(m)}>{m.mode==='takeoff'?<AirplaneTakeoff/>:<AirplaneLanding/>}<span><strong>{m.mode==='takeoff'?'起飞练习':'进近着陆练习'}</strong><small>{`RWY ${airport.runway.id} · `}{progress.levels[m.id]?`最高 ${progress.levels[m.id].bestScore} 分`:m.duration}</small></span><ArrowRight/></button>)}{!missions.length&&<small>机场练习尚未开放</small>}</div>
+     </>:<p className="airport-pick-hint">选择具体机场后，可安排航班或进入机场练习。</p>}
+    </aside>
+    <div className="map-source-caption"><span><i className="origin-dot"/>始发</span><span><i className="destination-dot"/>目的地</span><small>Natural Earth</small></div>
    </div>
-   <aside className="route-detail"><p className="eyebrow">CITY TO CITY</p><h2>选择你的下一段航程</h2>
-    <button className={`route-endpoint ${slot==='origin'?'active':''}`} aria-pressed={slot==='origin'} onClick={()=>setSlot('origin')}><small>始发机场</small><strong>{a.iata}</strong><span>{a.name}</span></button>
-    <button className="swap-airports" onClick={swap} aria-label="交换起点与终点">交换起终点</button>
-    <button className={`route-endpoint ${slot==='destination'?'active':''}`} aria-pressed={slot==='destination'} onClick={()=>setSlot('destination')}><small>目的机场</small><strong>{b.iata}</strong><span>{b.name}</span></button>
-    <div className="route-distance"><b>{Math.round(distance)} km</b><span>约 9–14 分钟 · 巡航阶段略过</span></div>
-    <p className="route-stages">机位离位 · 手动滑行 · 起飞爬升<br/>巡航略过 · 目的机场展示 · 进近着陆</p>
-    {progress.levels[route?.id]&&<p className="route-record">本机最高 {progress.levels[route.id].bestScore} 分</p>}
-    <button className="primary-button enter-flight" data-route-id={route?.id} disabled={!route} onClick={()=>onChoose(route.id)}>进入航班简报</button>
-   </aside>
-  </div>:<div className="airport-practice-layout"><div className="airport-practice-grid">{AIRPORT_MISSIONS.map(l=><button className={`level-tile ${practice.id===l.id?'selected':''}`} key={l.id} data-level-id={l.id} onClick={()=>onSelect(l.id)}><span className="level-tile-top">{airportOf(l.airportId).ident} / {airportOf(l.airportId).iata}</span><strong>{l.title}</strong><span className="level-focus">{l.focus}</span><span className="level-tile-bottom">{progress.levels[l.id]?`${progress.levels[l.id].bestScore} 分`:'未完成'} · {l.duration}</span></button>)}</div><aside className="level-detail"><p className="eyebrow">机场练习</p><h2>{practice.title}</h2><p className="level-goal">{practice.goal}</p><ol>{practice.objectives.map(o=><li key={o}>○ {o}</li>)}</ol><div className="level-detail-bottom"><button className="primary-button enter-level" onClick={()=>onChoose(practice.id)}>进入简报</button></div></aside></div>}
+   <div className="map-route-tray" aria-label="当前航线">
+    <button data-menu-focus className={`route-endpoint ${slot==='origin'?'active':''}`} data-route-slot="origin" aria-pressed={slot==='origin'} onClick={()=>setSlot('origin')}><small>始发机场</small><strong>{a.iata}</strong><span>{a.city}</span><em title={a.name}>{a.name}</em></button>
+    <button data-menu-focus className="swap-airports" onClick={()=>{setPlanner(p=>({...p,origin:p.destination,destination:p.origin}));setSlot('origin');}} aria-label="交换起点与终点"><ArrowsLeftRight/></button>
+    <button data-menu-focus className={`route-endpoint ${slot==='destination'?'active':''}`} data-route-slot="destination" aria-pressed={slot==='destination'} onClick={()=>setSlot('destination')}><small>目的机场</small><strong>{b.iata}</strong><span>{b.city}</span><em title={b.name}>{b.name}</em></button>
+    <div className="route-summary"><b>{route?`${Math.round(routeDistance(a.id,b.id))} km`:'—'}</b><span>{route?.duration}</span><small>{!route?'该航线尚未开放':record?`本机最高 ${record.bestScore} 分`:'巡航阶段可跳过'}</small></div>
+    <button data-menu-focus className="primary-button enter-flight" data-route-id={route?.id} disabled={!route} onClick={()=>{savePlanner(storage(),planner);onChoose(route.id);}}>进入航班简报<ArrowRight/></button>
+   </div>
+  </div>
  </div>;
 }

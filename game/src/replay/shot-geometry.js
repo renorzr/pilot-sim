@@ -1,3 +1,4 @@
+import {aircraftDefinition} from '../aircraft/registry.js';
 import * as THREE from 'three';
 const rotation=new THREE.Euler(0,0,0,'YXZ');
 export const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
@@ -8,17 +9,18 @@ export function aircraftVector(s,p){return new THREE.Vector3(...p).applyEuler(ai
 // Authored Skyline320 joint pivots; these match the visual animation, including
 // the main gear's rotation. Contact anchors are intentionally not used as foci.
 export function aircraftFocusLocal(part,s,side=1){
+ const geometry=aircraftDefinition(s).geometry,g=geometry.focusRig;
  if(part==='wheel'||part==='main-tyre'){
-  const angle=-side*(1-clamp(s.gearPosition??1))*1.66,x=-side*.4+(part==='main-tyre'?side*.25:0),y=-1.65,c=Math.cos(angle),n=Math.sin(angle);
-  return[side*3+x*c-y*n,-.5+x*n+y*c,2.5];
+  const angle=-side*(1-clamp(s.gearPosition??1))*g.mainRetractionAngle,x=side*g.mainOffsetX+(part==='main-tyre'?side*g.tyreOffsetX:0),y=g.mainOffsetY,c=Math.cos(angle),n=Math.sin(angle);
+  return[side*g.mainPivotX+x*c-y*n,g.mainPivotY+x*n+y*c,g.mainPivotZ+(part==='main-tyre'?(g.tyreOffsetZ??0):0)];
  }
  if(part==='nose-wheel'){
-  const a=(1-clamp(s.gearPosition??1))*1.74,c=Math.cos(a),n=Math.sin(a),steer=-clamp(s.ground?.steering??s.controls?.rudderApplied??s.controls?.rudder??0,-1,1)*.56;
-  const x=-.8*Math.sin(steer),z=-.8*Math.cos(steer);
-  return[x,-.45-1.95*c-z*n,-11.5-1.95*n+z*c];
+  const a=(1-clamp(s.gearPosition??1))*g.noseRetractionAngle,c=Math.cos(a),n=Math.sin(a),steer=-clamp(s.ground?.steering??s.controls?.rudderApplied??s.controls?.rudder??0,-1,1)*g.steeringAngle;
+  const x=g.noseOffsetZ*Math.sin(steer),z=g.noseOffsetZ*Math.cos(steer);
+  return[x,g.nosePivotY+g.noseOffsetY*c-z*n,g.nosePivotZ+g.noseOffsetY*n+z*c];
  }
- if(part==='tail')return[0,5.5,17.7];
- return[0,1,0];
+ if(part==='tail')return geometry.focus.tail;
+ return geometry.focus.aircraft;
 }
 export function aircraftFocus(part,s,side=1,offset=0){return aircraftPoint(s,aircraftFocusLocal(part,s,side),offset);}
 export function rayBox(a,b,box,padding=0){
@@ -31,9 +33,9 @@ export function aircraftSelfBlocked(s,position,target,part){
  const inverse=new THREE.Quaternion().setFromEuler(aircraftRotation(s)).invert(),local=p=>new THREE.Vector3(p[0]-s.x,p[1]-s.y,p[2]-s.z).applyQuaternion(inverse).toArray(),a=local(position),b=local(target);
  // Cheap, conservative pressure-shell and nacelle proxies. Precise world
  // geometry is checked separately by the live camera constraint.
- const shell={min:[-1.65,-1.35,-15.5],max:[1.65,1.4,12]};
+ const geometry=aircraftDefinition(s).geometry,shell=geometry.selfOccluders.shell;
  if(rayBox(a,b,shell))return true;
- if(part==='wheel')for(const side of[-1,1])if(rayBox(a,b,{min:[side*5.35-1,-2.1,-5.1],max:[side*5.35+1,.1,-.7]}))return true;
+ if(part==='wheel')for(const box of geometry.selfOccluders.engines)if(rayBox(a,b,box))return true;
  return false;
 }
 export function viewBasis(pose){const forward=new THREE.Vector3(...pose.target).sub(new THREE.Vector3(...pose.position)).normalize(),up=new THREE.Vector3(...(pose.up||[0,1,0])),right=forward.clone().cross(up).normalize(),vertical=right.clone().cross(forward).normalize();return{forward,right,vertical};}

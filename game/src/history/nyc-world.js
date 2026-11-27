@@ -1,3 +1,4 @@
+import {buildRegionalWater} from '../regions/water-world.js';
 import * as THREE from 'three';
 import {terrainConfig,vertexHeight} from '../terrain/heightfield.js';
 import {eventRunwayStrips} from './event-world.js';
@@ -10,11 +11,7 @@ export function buildHistoricalWorld({scene,airport,grass}){
  const positions=geo.attributes.position;for(let i=0;i<positions.count;i++)positions.setY(i,vertexHeight(positions.getX(i),positions.getZ(i),airport.id));geo.computeVertexNormals();
  const terrain=new THREE.Mesh(geo,new THREE.MeshStandardMaterial({map:grass,color:'#a5a89c',roughness:1}));terrain.name='shared-DEM-terrain';root.add(terrain);
  const water=new THREE.MeshStandardMaterial({color:'#526b77',roughness:.38,metalness:.16,side:THREE.DoubleSide});
- for(const f of airport.data.osm.features.filter(f=>f.tags?.water==='sea')){
-  const ring=coords=>coords.map(q=>{const p=airport.project(...q);return new THREE.Vector2(p.x,-p.z);}),outer=ring(f.geometry),holes=(f.holes||[]).map(ring),all=[...outer,...holes.flat()],triangles=THREE.ShapeUtils.triangulateShape(outer,holes),v=[];
-  for(const tri of triangles)for(const n of tri)v.push(all[n].x,0,-all[n].y);
-  const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(v,3));g.computeVertexNormals();const m=new THREE.Mesh(g,water);m.name='source-Hudson-and-NYC-water';root.add(m);
- }
+ buildRegionalWater({root,airport,material:water,name:'source-Hudson-and-NYC-water'});
  const runwayMat=new THREE.MeshStandardMaterial({color:'#62686b',roughness:.93});
  for(const r of eventRunwayStrips){
   const m=new THREE.Mesh(new THREE.BoxGeometry(r.widthM,.2,r.length),runwayMat);m.rotation.y=-r.heading;m.position.set((r.a.x+r.b.x)/2,r.elevationM-.1,(r.a.z+r.b.z)/2);m.name=r.airport+'-runway-'+r.id;root.add(m);

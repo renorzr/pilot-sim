@@ -1,3 +1,4 @@
+import {aircraftDefinition} from '../aircraft/registry.js';
 // Severity belongs to the actual fictional scenario, not the fault name alone.
 // First declarations repeat the complete MAYDAY / PAN PAN unit three times.
 export const emergencyLevels={engine:'distress',dual:'distress','engine-stable':'urgency',flaps:'urgency','distress-wind':'distress','distress-terrain':'distress','distress-stall':'distress'};
@@ -5,7 +6,7 @@ export const emergencyPriority=key=>emergencyLevels[key]==='distress'?4:emergenc
 export function createEmergencyMonitor(){return{windSeconds:0,terrainSeconds:0,stallSeconds:0,singleStableSeconds:0,safeSeconds:0};}
 export function observeEmergency(s,dt,queue){
  const r=s.radio;if(!r||s.result||!s.airborne||s.landed)return;
- const m=r.monitor??=createEmergencyMonitor(),ra=s.terrain?.clearanceFt??((s.y-2.8)*3.28084),speed=s.speed*1.94384;
+ const m=r.monitor??=createEmergencyMonitor(),ra=s.terrain?.clearanceFt??((s.y-aircraftDefinition(s).airframe.referenceHeight)*3.28084),speed=s.speed*1.94384;
  const wind=s.mission?.kind==='windshear'&&s.mission.triggered&&!s.mission.clear&&!s.mission.avoided;
  m.windSeconds=wind&&ra<700&&(s.verticalSpeed< -7||s.airData.stalled||s.stallWarning?.active)?m.windSeconds+dt:0;
  m.terrainSeconds=s.terrain?.level===2&&s.terrain.timeToImpact>0&&s.terrain.timeToImpact<=10?m.terrainSeconds+dt:0;

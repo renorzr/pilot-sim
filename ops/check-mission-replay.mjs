@@ -1,3 +1,4 @@
+import {chooseAirportPractice} from './airport-selection.mjs';
 import assert from 'node:assert/strict';
 import {writeFile} from 'node:fs/promises';
 import {connect} from './cdp.mjs';
@@ -20,8 +21,7 @@ try{
  await b.send('Emulation.setDeviceMetricsOverride',realAirport?{width:800,height:500,deviceScaleFactor:.35,mobile:false}:{width:1100,height:680,deviceScaleFactor:.6,mobile:false});
  if(!existing){
  await b.waitFor('!!window.__flightSim&&!!document.querySelector(".stage-tabs")',60000);
- if(realAirport){await click('[data-stage-id="airline"]');await click('[data-airline-mode="practice"]');}else await click('[data-stage-id="training"]');
- await click('[data-level-id="'+level+'"]');await click('.enter-level');
+ if(realAirport)await chooseAirportPractice(b,level);else{await click('[data-stage-id="training"]');await click('[data-level-id="'+level+'"]');await click('.enter-level');}
  await b.waitFor('!!document.querySelector(".flight-card .primary-button")&&!document.querySelector(".flight-card .primary-button").disabled',300000);
  if(realAirport)await click('[data-view-mode="exterior"]');
  await b.click('.flight-card .primary-button');

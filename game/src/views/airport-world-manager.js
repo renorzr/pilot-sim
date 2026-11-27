@@ -2,7 +2,7 @@
 // cannot install collision data or replace the active camera/audio listener.
 export function createAirportWorldManager({host,createWorld,onReady=()=>{},onError=()=>{},onProgress=()=>{},onPrefetch=()=>{}}){
  let active=null,pending=null,disposed=false;
- const ready=r=>!!r?.ready&&!r.error&&(!r.requiresWarm||r.warmed);
+ const ready=r=>!!r?.ready&&!r.error&&(!r.requiresWarm||r.warmed)&&(r.view?.aircraftReady?.()??true);
  function notify(record){if(record.disposed)return;if(record.foreground){onProgress(record.progress);if(ready(record))onReady();}else onPrefetch({...record.progress,airportId:record.id,error:record.error});}
  function release(record){if(!record)return;record.disposed=true;record.view?.dispose();record.host.remove();}
  function create(id,foreground,requiresWarm=!foreground){

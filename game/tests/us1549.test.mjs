@@ -1,3 +1,4 @@
+import {isSeaLevelWater} from '../src/airports/water-surfaces.js';
 // Deterministic numerical fixtures are physical-model evidence. They are not
 // keyboard/pointer end-to-end flight evidence or an historical reconstruction.
 import test from 'node:test';
@@ -8,7 +9,7 @@ import {advanceAtRate} from '../src/sim/time-acceleration.js';
 import {beginWaterContact,stepWaterDynamics,impactDamage,sweptSurfaceContact,probePosition,WATER_PROBES} from '../src/sim/water-contact.js';
 import {chooseHistorical,takeHistoricalControl,historicalQuestion,historicalPilotInput,historyHeight,historicalCandidates} from '../src/history/us1549.js';
 import {US1549_PROFILE as P} from '../src/history/us1549-profile.js';
-import {eventProject,eventUnproject,eventGroundMSL,eventWaterAt,eventHudsonAt} from '../src/history/event-world.js';
+import {eventProject,eventUnproject,eventGroundMSL,eventSurface,eventWaterAt,eventHudsonAt} from '../src/history/event-world.js';
 import {historicalObstacles} from '../src/history/obstacles.js';
 import {cityRay,sweptCityContact} from '../src/terrain/city-obstacles.js';
 import {airportOf,AIRPORTS} from '../src/airports/registry.js';
@@ -32,7 +33,7 @@ function waterFixture({speed=125,sink=3.8,roll=.4,pitch=9.5,gear=0}={}){
 test('source-derived start has one stable NYC frame and an explicit AGL to MSL conversion',()=>{
  const s=start(),p=eventUnproject(s.x,s.z);near(p.latitude,P.initial.latitude);near(p.longitude,P.initial.longitude);
  near((s.y-eventGroundMSL(s.x,s.z))*FT,2818);near(s.speed*KT,219);assert.equal(s.weight,68.5);
- assert.equal(s.airportId,'us1549');assert.equal(airportOf(s).event,true);assert.equal(AIRPORTS.length,6);assert(!onRunway(0,-200,s));
+ assert.equal(s.airportId,'us1549');assert.equal(airportOf(s).event,true);assert.equal(AIRPORTS.length,7);assert(!onRunway(0,-200,s));
  assert(s.engines.every(e=>e.status==='failed'&&e.irrecoverable));assert(!s.gear&&s.flapPosition===0);assert(!s.water);
 });
 test('Hudson qualification is narrower than source water contact and preserves land',()=>{
@@ -154,4 +155,37 @@ test('excessive water-entry speed has a continuous penalty and can make an other
  const a=waterFixture({speed:125}),b=waterFixture({speed:155}),c=waterFixture({speed:180});
  assert(a.water.damage<b.water.damage&&b.water.damage<c.water.damage);assert(!a.water.fatal&&c.water.fatal);
  const impact=b.water.firstImpact;assert(Math.abs(impactDamage({...impact,waterSpeed:impact.waterSpeed+.1/KT})-impactDamage(impact))<.01);
+});
+
+// Actual source mesh geometry, independent of browser-flight evidence.
+test('NYC water triangles match the source shoreline area and leave riverbank/island holes open',async()=>{
+ const THREE=await import('three'),{buildHistoricalWorld}=await import('../src/history/nyc-world.js'),scene=new THREE.Scene(),airport=airportOf('us1549');
+ const source=airport.data.osm.features.filter(isSeaLevelWater),before=JSON.stringify(source);
+ buildHistoricalWorld({scene,airport,grass:null});scene.updateMatrixWorld(true);
+ const water=[];scene.traverse(o=>{if(o.name==='source-Hudson-and-NYC-water')water.push(o);});
+ const ringArea=ring=>{const ps=ring.map(q=>airport.project(...q));let a=0;for(let i=0,j=ps.length-1;i<ps.length;j=i++)a+=ps[j].x*ps[i].z-ps[i].x*ps[j].z;return Math.abs(a)/2;};
+ const expected=source.reduce((sum,f)=>sum+ringArea(f.geometry)-(f.holes||[]).reduce((a,h)=>a+ringArea(h),0),0);let rendered=0;
+ for(const m of water){const p=m.geometry.attributes.position;for(let i=0;i<p.count;i+=3)rendered+=Math.abs((p.getX(i+1)-p.getX(i))*(p.getZ(i+2)-p.getZ(i))-(p.getZ(i+1)-p.getZ(i))*(p.getX(i+2)-p.getX(i)))/2;}
+ assert(Math.abs(rendered-expected)/expected<1e-6,`Water area ${rendered} must match source ${expected}`);
+ const ray=new THREE.Raycaster();
+ for(const [lon,lat]of[[-74.0057,40.7713],[-74.02,40.75],[-74.025,40.73],[-74.027,40.72],[-74.025,40.71],[-74.035,40.69],[-74.05,40.68],[-74.07,40.65],[-73.98,40.77],[-74.010,40.710],[-74.0397,40.6995],[-74.016,40.689],[-74.0445,40.6892],[-73.925347,40.9],[-73.911478,40.94],[-73.893401,41],[-73.892319,41.08],[-73.95,40.91],[-73.90,40.91]]){
+  const p=eventProject(lon,lat);ray.set(new THREE.Vector3(p.x,100,p.z),new THREE.Vector3(0,-1,0));assert.equal(!!ray.intersectObjects(water,false).length,eventWaterAt(p.x,p.z),`Rendered/physical water disagree at ${lon},${lat}`);
+ }
+ assert.equal(JSON.stringify(source),before,'Triangulation must not mutate source coastlines');
+ const geometries=new Set(),materials=new Set();scene.traverse(o=>{if(o.geometry)geometries.add(o.geometry);if(o.material)materials.add(o.material);});for(const g of geometries)g.dispose();for(const m of materials)m.dispose();
+});
+
+test('north of the Harlem mouth uses tidal water contact while both Hudson banks stay land',()=>{
+ for(const [lon,lat]of[[-73.932051,40.885],[-73.925347,40.9],[-73.918586,40.92],[-73.911478,40.94],[-73.896872,40.98],[-73.892319,41.08]]){
+  const p=eventProject(lon,lat),s=start({historical:{practice:true}});assert(eventWaterAt(p.x,p.z));assert(eventHudsonAt(p.x,p.z));near(eventSurface(p.x,p.z),0);
+  Object.assign(s,{x:p.x,z:p.z,y:0,pitch:9.5*RAD,roll:0,gear:false,gearPosition:0,flaps:2,flapPosition:2});s.y=-Math.min(...WATER_PROBES.filter(q=>!q.gear).map(q=>probePosition(s,q).y))+.02;setMotion(s,{speed:125/KT,verticalSpeed:-1.2,yaw:0});
+  advanceFlight(s,{},.02);assert(s.water,`Source river must enter water dynamics at ${lon},${lat}`);assert.equal(s.impact.type,'water');assert.notEqual(s.result?.title,'撞击地形');assert(s.mission.events.some(e=>e.type==='water-contact'));
+ }
+ for(const [lon,lat]of[[-73.95,40.91],[-73.90,40.91]]){const p=eventProject(lon,lat),ground=eventSurface(p.x,p.z),a={...p,y:ground+30,pitch:0,roll:0,yaw:0,gearPosition:0},b={...a,y:ground-2};assert(!eventWaterAt(p.x,p.z));const hit=sweptSurfaceContact(a,b,{surfaceAt:eventSurface,waterAt:eventWaterAt});assert.equal(hit.type,'terrain');}
+});
+
+test('extended water-mask bounds map correctly beyond the original photograph extent and reuse photography',async()=>{
+ const {geographicUv,detailRect}=await import('../src/airports/mapped-city-world.js'),base=JSON.parse(await(await import('node:fs/promises')).readFile(new URL('../../public/assets/cities/jfk/imagery-v1.json',import.meta.url))),extended=JSON.parse(await(await import('node:fs/promises')).readFile(new URL('../../public/assets/cities/us1549/imagery-river-v1.json',import.meta.url))),airport=airportOf('us1549');
+ assert.deepEqual(extended.tiles,base.tiles);assert.equal(extended.overview.sha256,base.overview.sha256);
+ for(const name of['seaMask','coastMask']){const rect=detailRect(extended.overview.bounds,extended[name].bounds);for(const q of[[-73.925347,40.9],[-73.892319,41.08],[-73.887358,41.14]]){const p=eventProject(...q),uv=geographicUv(airport,extended.overview.bounds,p.x,p.z),actual=[(uv[0]-rect[0])/rect[2],(uv[1]-rect[1])/rect[3]],expected=geographicUv(airport,extended[name].bounds,p.x,p.z);expected.forEach((v,i)=>near(actual[i],v,1e-10));assert(actual.every(v=>v>0&&v<1));if(q[1]>extended.overview.bounds[2])assert(uv[1]>1);}}
 });

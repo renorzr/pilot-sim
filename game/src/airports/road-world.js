@@ -1,3 +1,4 @@
+import {sceneryCacheId,scenerySourceId} from '../regions/scenery-source.js';
 import * as THREE from 'three';
 import {siteUrl} from '../urls.js';
 import {surfaceHeight} from '../terrain/heightfield.js';
@@ -11,9 +12,9 @@ import {loadRegionalTraffic} from './regional-traffic-world.js';
 const cancelled=()=>new DOMException('Road load cancelled','AbortError');
 function validManifest(m,id){return m?.schema===1&&m.airportId===id&&/^assets\/cities\/[a-z]+\/[^?]+\.json\.gz$/.test(m.path)&&/^[a-f0-9]{64}$/.test(m.sha256)&&/^[a-f0-9]{64}$/.test(m.decodedSha256)&&m.bytes>0&&m.decodedBytes>0&&m.decodedBytes<32*1024*1024&&!!m.fingerprint;}
 export async function loadRoadSource({airport,path,cache,isCurrent=()=>true}){
- const namespace=airport.id+':images:1',key='manifest/'+siteUrl(path);let manifest;
- try{const r=await fetch(siteUrl(path),{cache:'no-cache'});if(!r.ok)throw Error('Road metadata unavailable');manifest=await r.json();if(!validManifest(manifest,airport.id))throw Error('Invalid road metadata');cache.put(namespace,key,manifest);}
- catch(e){manifest=await cache.get(namespace,key);if(!validManifest(manifest,airport.id))throw e;}
+ const namespace=sceneryCacheId(airport)+':images:1',key='manifest/'+siteUrl(path);let manifest;
+ try{const r=await fetch(siteUrl(path),{cache:'no-cache'});if(!r.ok)throw Error('Road metadata unavailable');manifest=await r.json();if(!validManifest(manifest,scenerySourceId(airport)))throw Error('Invalid road metadata');cache.put(namespace,key,manifest);}
+ catch(e){manifest=await cache.get(namespace,key);if(!validManifest(manifest,scenerySourceId(airport)))throw e;}
  const blobKey='roads/'+manifest.sha256;
  async function decode(blob){
   // Servers may serve .gz as a file or Content-Encoding:gzip. Fetch has already
@@ -35,8 +36,8 @@ function validPrepared(arrays,metadata){
  if(!(arrays.roadPaintDistance instanceof Float32Array)||arrays.roadPaintDistance.length!==arrays.roadPaint.length/3||!arrays.roadPaintDistance.every(Number.isFinite)||!(arrays.roadPaintTint instanceof Float32Array)||arrays.roadPaintTint.length!==arrays.roadPaint.length||!arrays.roadPaintTint.every(Number.isFinite))return false;
  return metadata.obstacles.every(o=>o.kind==='bridge'&&['cx','cz','angle','width','depth','baseY','topY'].every(k=>Number.isFinite(o[k]))&&o.width>0&&o.depth>0&&o.topY>=o.baseY);
 }
-export async function loadRoadWorld({root,airport,path,cache,isCurrent=()=>true,onProgress=()=>{},onChange=()=>{},camera=null}){
- const{source,manifest}=await loadRoadSource({airport,path,cache,isCurrent}),terrainKey=trafficHash(JSON.stringify([airport.data.dem,airport.grading,airport.elevationM]));
+export async function loadRoadWorld({root,airport,path,cache,sourceCache=cache,isCurrent=()=>true,onProgress=()=>{},onChange=()=>{},camera=null}){
+ const{source,manifest}=await loadRoadSource({airport,path,cache:sourceCache,isCurrent}),terrainKey=trafficHash(JSON.stringify([airport.data.dem,airport.grading,airport.elevationM,...(airport.region?[airport.region.revision]:[])]));
  const namespace=`${airport.id}:roads:${ROAD_DATA_REVISION}:${manifest.sha256}:${terrainKey}`;
  let arrays=await cache.getArrays(namespace,'prepared',{isCurrent}),metadata=await cache.get(namespace,'metadata');
  if(!validPrepared(arrays,metadata)){arrays=null;metadata=null;}
@@ -54,7 +55,7 @@ export async function loadRoadWorld({root,airport,path,cache,isCurrent=()=>true,
   surfaces=createRoadMeshes(group,arrays);const traffic=createRoadTraffic(graph);vehicles=createVehicleRenderer(group,traffic,{viewportHeight:()=>globalThis.innerHeight||600});
   const coreIndex=createRoadObstacleIndex(graph,traffic,metadata.obstacles),woodlandExclusions=source.edges.filter(e=>!e.tunnel).map(e=>({id:'traffic/'+e.id,tags:{highway:e.kind,width:e.width},geometry:e.nodes.map(i=>[source.nodes[i][1],source.nodes[i][2]])}));
   // Unit fixtures have no regional manifest; real airport worlds all use it.
-  if(airport.data?.airport)regional=await loadRegionalTraffic({root:group,airport,cache,isCurrent,onChange,camera,clock:()=>traffic.clock,onProgress:d=>onProgress({fraction:.95+.05*d.fraction})});
+  if(airport.data?.airport)regional=await loadRegionalTraffic({root:group,airport,cache,sourceCache,isCurrent,onChange,camera,clock:()=>traffic.clock,onProgress:d=>onProgress({fraction:.95+.05*d.fraction})});
   const index={airportId:airport.id,*candidates(a,b,margin=0,vertical=0,time=null){if(Number.isFinite(time))traffic.sync(time);yield*coreIndex.candidates(a,b,margin,vertical,time);if(regional)yield*regional.index.candidates(a,b,margin,vertical,time);}};
   const preparedBytes=Object.values(arrays).reduce((n,a)=>n+a.byteLength,0);
   let disposed=false;if(camera)vehicles.update(camera);onProgress({fraction:1});

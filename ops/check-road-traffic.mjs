@@ -1,13 +1,15 @@
+import {scenerySourceId} from '../game/src/regions/scenery-source.js';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {gunzipSync} from 'node:zlib';
-import {AIRPORTS} from '../game/src/airports/registry.js';
+import {AIRPORTS,airportOf} from '../game/src/airports/registry.js';
 import {validateRoadSource} from '../game/src/airports/road-data.js';
 import {createPolygonMask} from '../game/src/airports/polygon-mask.js';
 import {runwayFootprints} from '../game/src/airports/ground-footprints.js';
-for(const airport of AIRPORTS){
- const manifest=JSON.parse(await readFile(new URL(`../public/assets/cities/${airport.id}/traffic-v1.json`,import.meta.url))),buffer=await readFile(new URL('../public/'+manifest.path,import.meta.url)),decoded=gunzipSync(buffer),source=JSON.parse(decoded);
+for(const registered of AIRPORTS){
+ const airport=airportOf(registered.sceneryAirportId||registered.id);
+ const manifest=JSON.parse(await readFile(new URL(`../public/assets/cities/${scenerySourceId(airport)}/traffic-v1.json`,import.meta.url))),buffer=await readFile(new URL('../public/'+manifest.path,import.meta.url)),decoded=gunzipSync(buffer),source=JSON.parse(decoded);
  assert.equal(buffer.byteLength,manifest.bytes);assert.equal(decoded.byteLength,manifest.decodedBytes);assert.equal(createHash('sha256').update(buffer).digest('hex'),manifest.sha256);assert.equal(createHash('sha256').update(decoded).digest('hex'),manifest.decodedSha256);assert.equal(source.fingerprint,manifest.fingerprint);validateRoadSource(source,airport);
  assert.equal(source.provenance.license,'ODbL-1.0');assert(/^[a-f0-9]{64}$/.test(source.provenance.sha256));assert.equal(source.radius,6000);assert(source.edges.length>50);assert.equal(source.drivingSide||'right',['changi','kansai'].includes(airport.id)?'left':'right');
  const mask=createPolygonMask(runwayFootprints(airport).map(outer=>({outer}))),counts={};

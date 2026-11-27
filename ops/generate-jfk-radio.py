@@ -79,4 +79,4 @@ async def main():
  (ROOT/'game/src/comms/jfk-radio.json').write_text(json.dumps(output,ensure_ascii=False,indent=2)+'\n')
  print('PACK jfk VERSION',version,'CLIPS',len(results),flush=True)
  for event in zh:print('EVENT',event,{language:round(sum(durations[language][f'jfk-{event}-{i}'] for i in range(len(zh[event]))),3) for language in durations},flush=True)
-asyncio.run(main())
+if __name__=='__main__':asyncio.run(main())

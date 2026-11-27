@@ -7,6 +7,7 @@ const dms=(degrees,minutes,seconds)=>degrees+minutes/60+seconds/3600;
 const mix=(a,b)=>a+(b-a)*fraction;
 export const US1549_PROFILE=Object.freeze({
  id:'history-us1549',revision:4,date:'2009-01-15',
+ aircraft:Object.freeze({model:'a320',variant:'wingtip-fence',livery:'us-airways-n106us-2009',assetVersion:1,liveryVersion:1,uvLayout:'a320-uv1',definitionVersion:1}),
  sources:{
   report:'https://www.ntsb.gov/investigations/AccidentReports/Reports/AAR1003.pdf',
   performance:'https://data.ntsb.gov/Docket/Document/docBLOB?FileExtension=.PDF&FileName=Aircraft+Performance+13+-+Factual+Report+of+Group+Chairman-Master.PDF&ID=40322563',

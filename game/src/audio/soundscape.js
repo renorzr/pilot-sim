@@ -1,20 +1,23 @@
+import {engineLayout,aircraftDefinition} from '../aircraft/registry.js';
+import {BirdStrikeAudio} from './bird-strike.js';
 // Sound follows actual engine/contact state; it never changes flight dynamics.
 const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
 export function soundTargets(s){
  const speed=Math.max(0,s.airData?.tas??s.speed??0),groundSpeed=Math.max(0,s.airData?.groundSpeed??0);
+ const definition=aircraftDefinition(s),engineCount=s.engines.length,idle=definition.thrust.idleThreshold,voice=definition.sound??{};
  const running=s.engines.filter(e=>e.status==='running').length,thrust=s.thrust??s.throttle;
- const reversing=s.engines.filter(e=>e.status==='running'&&s.reverse&&s.landed&&s.throttle<.025&&e.thrustN<0);
+ const reversing=s.engines.filter(e=>e.status==='running'&&s.reverse&&s.landed&&s.throttle<idle&&e.thrustN<0);
  return {
   // The old normal sound already contains speed-dependent airflow. A separate
   // wind layer only replaces that airflow as the engine bed shuts down.
-  wind:.032*clamp(speed/100,0,1.6)**1.4*(1-running/2),
-  engineGain:.11+thrust*.25,engineCutoff:350+thrust*1100+(s.speed||0)*4,engineNoise:running/2,
+  wind:.032*clamp(speed/100,0,1.6)**1.4*(1-running/Math.max(1,engineCount)),
+  engineGain:.11+thrust*.25,engineCutoff:350+thrust*1100+(s.speed||0)*4,engineNoise:running/Math.max(1,engineCount),
   reverseBoost:1+Math.max(0,...reversing.map(e=>1.4*Math.sqrt(clamp(e.spool)))),
   ground:!s.airborne&&!s.impact ? .095*clamp(groundSpeed/75,0,1.3):0,
   engines:s.engines.map(e=>{
-   const running=e.status==='running',spool=clamp(e.spool),reverse=running&&s.reverse&&s.landed&&s.throttle<.025&&e.thrustN<0;
-    return {running,rumble:running?.5:0,fan:running?.015+e.spool*.035:s.historical?Math.max(0,e.n1)*.00015:0,
-    frequency:48+e.n1*.75,reverse:reverse?1.4*Math.sqrt(spool):0};
+   const running=e.status==='running',spool=clamp(e.spool),reverse=running&&s.reverse&&s.landed&&s.throttle<idle&&e.thrustN<0;
+    return {running,rumble:running?.5:0,fan:(running?.015+e.spool*.035:s.historical?Math.max(0,e.n1)*.00015:0)*(voice.fanGainScale??1),
+    frequency:(48+e.n1*.75)*(voice.frequencyScale??1),reverse:reverse?1.4*Math.sqrt(spool):0};
   }),
   ...(s.historical?{water:s.water?.phase&&s.water.phase!=='complete'?.035*clamp((s.water.waterSpeed||0)/35,0,1.8):0}:{}),
  };
@@ -61,6 +64,7 @@ export class FlightSoundscape {
   this.master=context.createGain();this.master.gain.value=0;
   this.limiter=context.createDynamicsCompressor();this.limiter.threshold.value=-12;this.limiter.ratio.value=5;
   this.master.connect(this.limiter);this.output=meter(context,context.destination);this.limiter.connect(this.output);
+  this.birdStrike=new BirdStrikeAudio(context,this.master);
   this.buffer=noiseBuffer(context);
   this.engineGain=context.createGain();this.engineGain.gain.value=0;
   this.reverseGain=context.createGain();this.reverseGain.gain.value=1;
@@ -69,14 +73,18 @@ export class FlightSoundscape {
   this.engineNoise.filter.Q.value=1; // Original BiquadFilter default.
   this.engineNoise.gain.gain.value=1;
   this.wind=this.noise('highpass',480,this.master);this.ground=this.noise('lowpass',170,this.master);this.water=this.noise('lowpass',950,this.master);
-  this.engines=[0,1].map(i=>{
-   const panner=context.createStereoPanner();panner.pan.value=i?.65:-.65;
+  this.engines=[];this.syncEngineVoices(engineLayout());
+ }
+ syncEngineVoices(layout){
+  while(this.engines.length>layout.length){const v=this.engines.pop();v.osc.stop();v.osc.disconnect();v.tone.disconnect();v.panner.disconnect();v.output.disconnect();this.sources.splice(this.sources.indexOf(v.osc),1);}
+  while(this.engines.length<layout.length){
+   const context=this.context,index=this.engines.length,panner=context.createStereoPanner();panner.pan.value=layout[index].audioPan;
    const output=meter(context,this.engineGain);panner.connect(output);
    const osc=context.createOscillator(),tone=context.createGain();osc.type='sine';osc.frequency.value=55;tone.gain.value=0;
-   osc.connect(tone);tone.connect(panner);osc.start();this.sources.push(osc);
-   return {panner,output,osc,tone};
-  });
+   osc.connect(tone);tone.connect(panner);osc.start();this.sources.push(osc);this.engines.push({panner,output,osc,tone});
+  }
  }
+
  noise(type,frequency,destination,offset=0,buffer=this.buffer){
   const c=this.context,source=c.createBufferSource(),filter=c.createBiquadFilter(),gain=c.createGain();
   source.buffer=buffer;source.loop=true;filter.type=type;filter.frequency.value=frequency;filter.Q.value=.6;gain.gain.value=0;
@@ -98,6 +106,7 @@ export class FlightSoundscape {
   source.start(t);osc.start(t);source.stop(t+duration);osc.stop(t+duration);
  }
  update(s,audible,{duck=1,exterior=false,distance=85,pan=1}={}){
+  const layout=engineLayout(s);this.syncEngineVoices(layout);
   const t=this.context.currentTime,previousTime=this.contacts.last?.time;
   if(previousTime!==undefined&&s.time<previousTime)this.stopImpacts();
   const events=this.contacts.update(s);this.targets=soundTargets(s);this.audible=audible;const distanceGain=exterior?Math.min(1.35,80/Math.max(45,distance)):1;this.listener={exterior,distance,gain:distanceGain};
@@ -110,21 +119,22 @@ export class FlightSoundscape {
   target(this.water.gain.gain,this.targets.water||0,t,.09);
   target(this.wind.filter.frequency,400+Math.max(0,s.speed||0)*5,t);
   this.engines.forEach((v,i)=>{const e=this.targets.engines[i];
-   target(v.panner.pan,(i?.65:-.65)*(exterior?pan:1),t,.1);target(v.tone.gain,e.fan,t,e.running?.3:.08);target(v.osc.frequency,e.frequency,t,.2);
+   target(v.panner.pan,layout[i].audioPan*(exterior?pan:1),t,.1);target(v.tone.gain,e.fan,t,e.running?.3:.08);target(v.osc.frequency,e.frequency,t,.2);
   });
-  if(!audible)this.stopImpacts();else events.forEach(event=>this.impact(event));
+  this.birdStrike.update(s,audible,{exterior});
+  if(!audible)this.stopImpacts();else events.forEach(event=>{if(event.kind==='bird')this.counts.bird=(this.counts.bird||0)+1;else this.impact(event);});
  }
  stopImpacts(){for(const voice of this.impacts)voice.stop();this.impacts.clear();}
  silence(){
   // User mute/pause should not wait for the next (possibly slow WebGL) frame.
   const t=this.context.currentTime;this.audible=false;
-  this.master.gain.cancelScheduledValues(t);this.master.gain.setTargetAtTime(0,t,.008);this.stopImpacts();
+  this.master.gain.cancelScheduledValues(t);this.master.gain.setTargetAtTime(0,t,.008);this.stopImpacts();this.birdStrike.pause();
   this.engineGain.gain.cancelScheduledValues(t);this.engineGain.gain.setTargetAtTime(0,t,.008);
  }
  reset(){this.contacts.reset();this.silence();this.targets=null;this.counts={main:0,nose:0};}
  stats(){return {audible:!!this.audible,masterGain:this.master.gain.value,outputRms:rms(this.output),
   windRms:rms(this.wind.output),groundRms:rms(this.ground.output),engineNoiseRms:rms(this.engineNoise.output),engineGain:this.engineGain.gain.value,reverseBoost:this.reverseGain.gain.value,targets:this.targets,
   engines:this.engines.map(v=>({rms:rms(v.output),fanGain:v.tone.gain.value})),
-  listener:this.listener,contacts:{...this.counts},activeImpacts:this.impacts.size};}
- dispose(){this.reset();for(const source of this.sources){source.stop();source.disconnect();}this.engineGain.disconnect();this.reverseGain.disconnect();this.master.disconnect();this.limiter.disconnect();this.output.disconnect();}
+  listener:this.listener,contacts:{...this.counts},activeImpacts:this.impacts.size,birdStrike:this.birdStrike.stats()};}
+ dispose(){this.reset();this.birdStrike.dispose();for(const source of this.sources){source.stop();source.disconnect();}this.engineGain.disconnect();this.reverseGain.disconnect();this.master.disconnect();this.limiter.disconnect();this.output.disconnect();}
 }

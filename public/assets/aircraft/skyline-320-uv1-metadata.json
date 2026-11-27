@@ -1,0 +1,48 @@
+{
+  "triangles": 59566,
+  "materials": 10,
+  "meshObjects": 585,
+  "logicalCoordinateFrame": "X right, Y up, nose -Z",
+  "dimensionsM": {
+    "length": 37.57,
+    "span": 35.8,
+    "tailHeightAboveGround": 11.76
+  },
+  "contacts": {
+    "main": [
+      {
+        "x": -2.85,
+        "y": -2.8,
+        "z": 2.5
+      },
+      {
+        "x": -2.35,
+        "y": -2.8,
+        "z": 2.5
+      },
+      {
+        "x": 2.35,
+        "y": -2.8,
+        "z": 2.5
+      },
+      {
+        "x": 2.85,
+        "y": -2.8,
+        "z": 2.5
+      }
+    ],
+    "nose": [
+      {
+        "x": -0.24,
+        "y": -2.8,
+        "z": -12.3
+      },
+      {
+        "x": 0.24,
+        "y": -2.8,
+        "z": -12.3
+      }
+    ]
+  },
+  "originalAsset": true
+}

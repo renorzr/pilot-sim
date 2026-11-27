@@ -42,10 +42,10 @@ function denseCityAccess(buffer,points,grid,manifest){
  const number=(i,k)=>view.getFloat32(32+i*stride+k,true),integer=(i,k)=>view.getUint32(32+i*stride+k,true),key=(x,z)=>x*65536+z;
  function rings(i){const first=integer(i,40),n=integer(i,44),result=[];for(let j=first;j<first+n;j++)result.push(points.subarray(offsets[j]*2,offsets[j+1]*2));return result;}
  function building(i,includeRings=true){const flags=integer(i,8),part=flags>>>8,id=(flags&64?'ms/':flags&32?'eab/':flags&16?'relation/':'way/')+view.getFloat64(32+i*stride,true)+(part?'/'+part:'');return{index:i,id,kind:['home','industrial','commercial'][flags&3],heightSource:(flags>>>2)&3,seed:integer(i,12),cx:number(i,56),cz:number(i,60),minX:number(i,16),maxX:number(i,20),minZ:number(i,24),maxZ:number(i,28),baseY:number(i,32),topY:number(i,36),height:number(i,36)-number(i,32),width:number(i,20)-number(i,16),depth:number(i,28)-number(i,24),angle:0,roofColor:integer(i,48),wallColor:integer(i,52),ringCount:integer(i,44),frame:format===3?{x:number(i,56)+view.getInt16(32+i*stride+64,true)*.02,z:number(i,60)+view.getInt16(32+i*stride+66,true)*.02,width:view.getUint16(32+i*stride+68,true)*.02,depth:view.getUint16(32+i*stride+70,true)*.02,angle:view.getInt16(32+i*stride+72,true)/10000,fill:view.getUint16(32+i*stride+74,true)/65535}:undefined,rings:includeRings||format===2?rings(i):undefined};}
- function candidates(a,b,margin=0,vertical=0){
+ function candidates(a,b,margin=0,vertical=0,includeRings=true){
   const found=new Set(),steps=Math.max(1,Math.ceil(Math.max(Math.abs(b.x-a.x),Math.abs(b.z-a.z))/(cell*.5))),r=Math.ceil(margin/cell)+1,minY=Math.min(a.y,b.y)-vertical,maxY=Math.max(a.y,b.y)+vertical;
   for(let j=0;j<=steps;j++){const t=j/steps,x=Math.floor((a.x+(b.x-a.x)*t)/cell),z=Math.floor((a.z+(b.z-a.z)*t)/cell);for(let u=x-r;u<=x+r;u++)for(let v=z-r;v<=z+r;v++)for(const i of grid.get(key(u,v))||[]){if(number(i,36)<minY||number(i,32)>maxY)continue;found.add(i);}}
-  return(function*(){for(const i of found)yield building(i);})();
+  return(function*(){for(const i of found)yield building(i,includeRings);})();
  }
  function snapshot(){
   const keys=new Int32Array(grid.size),starts=new Uint32Array(grid.size+1),indices=new Uint32Array([...grid.values()].reduce((n,a)=>n+a.length,0));let i=0,offset=0;

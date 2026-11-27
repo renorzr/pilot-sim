@@ -6,8 +6,9 @@ import {trimAlpha} from '../src/sim/aerodynamics.js';
 // It does not assign aircraft position, velocity or a successful result.
 import {advanceFlight,radioAltitude,clamp,toggleGear,stepFlaps,setDetent,setLever,toggleAP,toggleApproach,confirmAction,confirmChecklist,beginGoAround,targetSpeed,KT} from '../src/flight.js';
 import {holdConfiguration} from '../src/missions/runtime.js';
-export function pilotInput(s){
- if(arrivalPreview(s))return{};if(canSkipCruise(s)){skipCruise(s);return{};}
+export function pilotInput(s,{skip=true}={}){
+ if(arrivalPreview(s))return{};if(skip&&canSkipCruise(s)){skipCruise(s);return{};}
+ if(!skip&&s.airline&&s.airborne&&s.flaps>0&&s.mode!=='landing'&&radioAltitude(s)>500&&Math.abs(s.flapPosition-s.flaps)<.05)stepFlaps(s,-1);
  if(s.airline&&s.airborne&&s.mode==='takeoff'&&radioAltitude(s)>500&&s.throttle>.845)setDetent(s,'CL');
  const ground=groundPilot(s,{skip:true});if(ground)return ground;
  const kind=s.mission?.kind,ra=radioAltitude(s),route=s.route,preFinal=route?.active&&!route.inFinal;

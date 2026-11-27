@@ -1,0 +1,175 @@
+{
+  "triangles": 59560,
+  "drawsGearDown": 60,
+  "materials": 10,
+  "bounds": {
+    "min": [
+      -17.899999618530273,
+      -2.8000000715255737,
+      -16.5
+    ],
+    "max": [
+      17.899999618530273,
+      8.960000038146973,
+      21.06999969482422
+    ]
+  },
+  "fairing": {
+    "widthM": 4.360000133514404,
+    "bottomY": -1.1699999570846558,
+    "protrusionBelowPressureShellM": 0.2399999570846557
+  },
+  "finite": true,
+  "actualGearAndFlapJoints": true,
+  "autopilotSurfaceCommands": true,
+  "failedFanAndReverseIndependent": true,
+  "pauseFreezesFans": true,
+  "bodyClearanceAt12DegreeRotationM": 0.05078848326851082,
+  "contacts": {
+    "main": [
+      {
+        "x": -2.85,
+        "y": -2.8,
+        "z": 2.5
+      },
+      {
+        "x": -2.35,
+        "y": -2.8,
+        "z": 2.5
+      },
+      {
+        "x": 2.35,
+        "y": -2.8,
+        "z": 2.5
+      },
+      {
+        "x": 2.85,
+        "y": -2.8,
+        "z": 2.5
+      }
+    ],
+    "nose": [
+      {
+        "x": -0.24,
+        "y": -2.8,
+        "z": -12.3
+      },
+      {
+        "x": 0.24,
+        "y": -2.8,
+        "z": -12.3
+      }
+    ],
+    "wing": [
+      {
+        "x": -17.9,
+        "y": 2.28,
+        "z": 6
+      },
+      {
+        "x": 17.9,
+        "y": 2.28,
+        "z": 6
+      }
+    ],
+    "water": [
+      {
+        "id": "belly-aft",
+        "x": 0,
+        "y": -0.93,
+        "z": 10.9,
+        "area": 12
+      },
+      {
+        "id": "belly-mid",
+        "x": 0,
+        "y": -1.17,
+        "z": 2.6,
+        "area": 18
+      },
+      {
+        "id": "belly-front",
+        "x": 0,
+        "y": -0.93,
+        "z": -11.8,
+        "area": 10
+      },
+      {
+        "id": "engine-left",
+        "x": -5.35,
+        "y": -2.12,
+        "z": -4.38,
+        "area": 2.6
+      },
+      {
+        "id": "engine-right",
+        "x": 5.35,
+        "y": -2.12,
+        "z": -4.38,
+        "area": 2.6
+      },
+      {
+        "id": "wing-left",
+        "x": -16.7,
+        "y": 0.6,
+        "z": 5.6,
+        "area": 2
+      },
+      {
+        "id": "wing-right",
+        "x": 16.7,
+        "y": 0.6,
+        "z": 5.6,
+        "area": 2
+      },
+      {
+        "id": "main-0",
+        "x": -2.85,
+        "y": -2.8,
+        "z": 2.5,
+        "area": 0.45,
+        "gear": true
+      },
+      {
+        "id": "main-1",
+        "x": -2.35,
+        "y": -2.8,
+        "z": 2.5,
+        "area": 0.45,
+        "gear": true
+      },
+      {
+        "id": "main-2",
+        "x": 2.35,
+        "y": -2.8,
+        "z": 2.5,
+        "area": 0.45,
+        "gear": true
+      },
+      {
+        "id": "main-3",
+        "x": 2.85,
+        "y": -2.8,
+        "z": 2.5,
+        "area": 0.45,
+        "gear": true
+      },
+      {
+        "id": "nose-gear-0",
+        "x": -0.24,
+        "y": -2.8,
+        "z": -12.3,
+        "area": 0.35,
+        "gear": true
+      },
+      {
+        "id": "nose-gear-1",
+        "x": 0.24,
+        "y": -2.8,
+        "z": -12.3,
+        "area": 0.35,
+        "gear": true
+      }
+    ]
+  }
+}

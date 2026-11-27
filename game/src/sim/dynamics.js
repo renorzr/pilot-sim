@@ -1,24 +1,25 @@
-import {AIRFRAME,G,RUNWAY,clamp,smooth,massOf} from './constants.js';
+import {aircraftDefinition} from '../aircraft/registry.js';
+import {G,RUNWAY,clamp,smooth,massOf} from './constants.js';
 import {refreshAirData} from './aerodynamics.js';
 
 export function stepDynamics(s,dt){
- const a=refreshAirData(s),m=massOf(s),cp=Math.cos(s.pitch),sp=Math.sin(s.pitch);
+ const d=aircraftDefinition(s),a=refreshAirData(s),m=massOf(s),cp=Math.cos(s.pitch),sp=Math.sin(s.pitch);
  const heading={x:Math.sin(s.yaw),z:-Math.cos(s.yaw)},right={x:Math.cos(s.yaw),z:Math.sin(s.yaw)};
  const thrust=s.totalThrustN;
  const cg=Math.cos(a.gamma),sg=Math.sin(a.gamma),ct=Math.cos(a.track),st=Math.sin(a.track);
  const up={x:-sg*st,y:cg,z:sg*ct},airRight={x:ct,y:0,z:st};
  const airUnit={x:cg*st,y:sg,z:-cg*ct};
- const rudderGain=a.q*AIRFRAME.wingArea*2.1;
+ const rudderGain=a.q*d.airframe.wingArea*(d.airframe.rudderMomentFactor??2.1);
  const engineMoment=s.propulsion.asymmetricMoment;
  const assist=s.controls.rudderAssist&&Math.abs(s.controls.rudder)<.02?clamp(-engineMoment/Math.max(rudderGain,1)-a.beta*2,-.8,.8):0;
  const rudder=clamp(s.controls.rudder+assist,-1,1);
  s.controls.rudderApplied=rudder;
  const lift=s.airborne||!s.spoilersDeployed?a.lift:a.lift*.12;
- const side=a.q*AIRFRAME.wingArea*(.8*a.beta-.04*rudder);
+ const side=a.q*d.airframe.wingArea*(.8*a.beta-.04*rudder);
  const force={x:thrust*cp*heading.x-a.drag*airUnit.x,y:thrust*sp-a.drag*airUnit.y-m*G,z:thrust*cp*heading.z-a.drag*airUnit.z};
  for(const axis of ['x','y','z'])force[axis]+=lift*(up[axis]*Math.cos(s.roll)+airRight[axis]*Math.sin(s.roll))+side*airRight[axis];
  const turnRate=lift*Math.sin(s.roll)/(m*Math.max(a.horizontal,15));
- const yawAccel=(engineMoment+rudder*rudderGain)/AIRFRAME.yawInertia;
+ const yawAccel=(engineMoment+rudder*rudderGain)/d.airframe.yawInertia;
  if(s.airborne){
   s.yawRate+=((turnRate-s.yawRate)*2-a.beta*1.4+yawAccel)*dt;
   s.yaw+=s.yawRate*dt;
@@ -46,7 +47,7 @@ export function stepDynamics(s,dt){
   const forward=s.velocity.x*heading.x+s.velocity.z*heading.z;
   if((ground<.15&&thrust<resistance+16000)||(forward<0&&thrust<=resistance))s.velocity.x=s.velocity.z=0;
   if((!s.ground||s.ground.takeoffCleared)&&(!s.landed||s.goAround)&&s.pitch>.05&&force.y>m*G*.01){
-   s.airborne=true;s.landed=false;s.noseWheelDown=false;s.y=RUNWAY.ground+.04;s.velocity.y=.15;
+   s.airborne=true;s.landed=false;s.noseWheelDown=false;s.y=d.airframe.referenceHeight+.04;s.velocity.y=.15;
    if(s.touchAndGo&&s.touchAndGo.liftOffAt===null){s.touchAndGo.liftOffAt=s.time;s.touchdown=null;s.cabin.noseAt=null;}
   }
  }

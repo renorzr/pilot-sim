@@ -1,3 +1,4 @@
+import {chooseAirportPractice} from './airport-selection.mjs';
 import assert from 'node:assert/strict';
 import {writeFile} from 'node:fs/promises';
 import {connect} from './cdp.mjs';
@@ -7,7 +8,7 @@ const roadStats=()=>b.evaluate('window.__flightSim.stats().city.roadTraffic');
 try{
  await b.send('Emulation.setDeviceMetricsOverride',{width:960,height:600,deviceScaleFactor:.6,mobile:false});await b.send('Network.enable');
  await b.waitFor('!!window.__flightSim&&!!document.querySelector(".stage-tabs")',90000);
- if(!existing){await click('[data-stage-id="airline"]');await click('[data-airline-mode="practice"]');await click('[data-level-id="'+airport+'-landing"]');await click('.enter-level');}
+ if(!existing)await chooseAirportPractice(b,airport+'-landing');
  await b.waitFor('!!window.__flightSim.stats()?.city?.roadTraffic&&!document.querySelector(".flight-card .primary-button")?.disabled',300000);
  report.prepared=await roadStats();assert(report.prepared.vehicles>0&&report.prepared.vehicles<=3600);assert(report.prepared.roadSegments>50);assert.equal(report.prepared.parked,0);assert.equal(report.prepared.drivingSide,['changi','kansai'].includes(airport)?'left':'right');assert(report.prepared.regional?.availableTiles>30);assert(report.prepared.regional.loadedTiles<=32);assert.equal(report.prepared.regional.unavailableTiles,0);
  const before=await b.evaluate('window.__flightSim.snapshot()');await click('[data-view-mode="exterior"]');await click('.flight-card .primary-button');

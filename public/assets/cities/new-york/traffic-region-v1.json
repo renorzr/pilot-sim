@@ -1,0 +1,4468 @@
+{
+  "schema": 1,
+  "airportId": "jfk",
+  "bounds": [
+    -40000.0,
+    -40000.0,
+    40000.0,
+    40000.0
+  ],
+  "tileSize": 4000,
+  "innerRadiusM": 6000,
+  "center": [
+    532.2068894357151,
+    -1524.62883618174
+  ],
+  "frame": {
+    "threshold": [
+      -73.764702,
+      40.6488
+    ],
+    "heading": -149.3895290553785
+  },
+  "drivingSide": "right",
+  "bridgeDeckReference": "terrain",
+  "tiles": [
+    {
+      "id": "-10:4",
+      "bounds": [
+        -40000.0,
+        16000,
+        -36000,
+        20000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/-10_4-eecbb308ecaf.json.gz",
+      "bytes": 7396,
+      "decodedBytes": 36571,
+      "sha256": "eecbb308ecafc65d93551b85ddff69bf4a1f039e9ef1180b24de72b2030342bf",
+      "decodedSha256": "d80ad722916a954ddd38373748f5e82d45cf62fba0f90e2446c64d793ba0a11d",
+      "routes": 79,
+      "pieces": 79
+    },
+    {
+      "id": "-10:5",
+      "bounds": [
+        -40000.0,
+        20000,
+        -36000,
+        24000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/-10_5-fb1220cd43b6.json.gz",
+      "bytes": 12504,
+      "decodedBytes": 58007,
+      "sha256": "fb1220cd43b6cba621e9c4e335dce34a4d15db33dec8e08c9b190b0f08b8f36f",
+      "decodedSha256": "522e659e61f9d8a1e6d795e41bb74207afaac966999a446cf4d01e7a50c072dd",
+      "routes": 112,
+      "pieces": 112
+    },
+    {
+      "id": "-10:7",
+      "bounds": [
+        -40000.0,
+        28000,
+        -36000,
+        32000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/-10_7-323562b2eab2.json.gz",
+      "bytes": 6978,
+      "decodedBytes": 34498,
+      "sha256": "323562b2eab25e5db78c737dfd754416f3f14cd990eace21fb447ca50a9185b0",
+      "decodedSha256": "240f34ba6b67b6a1c1b9b3aed3613f7d160c07f77c2cf7c7ea3ca2b85721e77c",
+      "routes": 77,
+      "pieces": 77
+    },
+    {
+      "id": "-10:8",
+      "bounds": [
+        -40000.0,
+        32000,
+        -36000,
+        36000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/-10_8-06bc51247d92.json.gz",
+      "bytes": 1125,
+      "decodedBytes": 4631,
+      "sha256": "06bc51247d923c17970cf9640f4aac21f531b963ecafcfa77651a3c79d2b4277",
+      "decodedSha256": "dc2c3ebb4cd472fbee6edd0815d59f323a5798e5b35ed881ae9379f684938eba",
+      "routes": 10,
+      "pieces": 10
+    },
+    {
+      "id": "-9:4",
+      "bounds": [
+        -36000,
+        16000,
+        -32000,
+        20000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/-9_4-73c28896d867.json.gz",
+      "bytes": 5082,
+      "decodedBytes": 25030,
+      "sha256": "73c28896d8676eaa287068532a59ea8b03e5e6147edcd429eb1b8c8215f9000b",
+      "decodedSha256": "d0c582555222db6ed891c0d34174117f2ea8ef8ed034d25578c1177162a763ec",
+      "routes": 58,
+      "pieces": 59
+    },
+    {
+      "id": "-9:5",
+      "bounds": [
+        -36000,
+        20000,
+        -32000,
+        24000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/-9_5-2bbcfebcf5b5.json.gz",
+      "bytes": 2803,
+      "decodedBytes": 11668,
+      "sha256": "2bbcfebcf5b5b58524feeaf7957e8ccd6e48e98ede7bb9e5ede93188df94d22a",
+      "decodedSha256": "87233aeb04d44344a2a584ee7692d26a412848e14e91979b289477b74f3aaac2",
+      "routes": 25,
+      "pieces": 25
+    },
+    {
+      "id": "-9:6",
+      "bounds": [
+        -36000,
+        24000,
+        -32000,
+        28000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/-9_6-0ec6f6dfa661.json.gz",
+      "bytes": 24499,
+      "decodedBytes": 125017,
+      "sha256": "0ec6f6dfa6613c1ed2fd28e9a09e5d43ea41f20749c2d833af42f169c7a6fe75",
+      "decodedSha256": "ee71ef29834a3888c6b6a5650ca362251c6aa3eb41af791102c2023ea94ac405",
+      "routes": 305,
+      "pieces": 306
+    },
+    {
+      "id": "-9:7",
+      "bounds": [
+        -36000,
+        28000,
+        -32000,
+        32000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/-9_7-f2358128cc2c.json.gz",
+      "bytes": 89955,
+      "decodedBytes": 505341,
+      "sha256": "f2358128cc2c193c73afb5b88147f9ce4cd6cc1c959528ae49a0f8267774abed",
+      "decodedSha256": "052b0cc04459bdc52827b8f3cb70f6289ce855524c1bb4ba2fad526f0b242ec2",
+      "routes": 1436,
+      "pieces": 1439
+    },
+    {
+      "id": "-9:8",
+      "bounds": [
+        -36000,
+        32000,
+        -32000,
+        36000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/-9_8-05f77b57fd59.json.gz",
+      "bytes": 39872,
+      "decodedBytes": 220700,
+      "sha256": "05f77b57fd595734ddff1d3f3c0d630a33442fdf24390727b33e7dcaccc21f02",
+      "decodedSha256": "b1fbff64366517d1c1cf50e3556122bf4ae445567a05cd72467b682b4cea3374",
+      "routes": 617,
+      "pieces": 619
+    },
+    {
+      "id": "-9:9",
+      "bounds": [
+        -36000,
+        36000,
+        -32000,
+        40000.0
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/-9_9-8a71d0d4acfe.json.gz",
+      "bytes": 794,
+      "decodedBytes": 3297,
+      "sha256": "8a71d0d4acfe830530218e76d07195a311fb5361d293f7fa285c8d976768f2fb",
+      "decodedSha256": "e599c84f7085526242f6966e3ebeb5ffb11ec8fa5c85374b9fce6f59a60c7a7f",
+      "routes": 11,
+      "pieces": 11
+    },
+    {
+      "id": "-8:3",
+      "bounds": [
+        -32000,
+        12000,
+        -28000,
+        16000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/-8_3-33a0f69bbee6.json.gz",
+      "bytes": 1920,
+      "decodedBytes": 8475,
+      "sha256": "33a0f69bbee6851d339bb1b582af4128ae3ac61967414927c81bb1fec9b7b405",
+      "decodedSha256": "925d8175534d11211981c7fe2045109de9493753f4974c5e46652f7f16b4886c",
+      "routes": 22,
+      "pieces": 22
+    },
+    {
+      "id": "-8:4",
+      "bounds": [
+        -32000,
+        16000,
+        -28000,
+        20000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/-8_4-4c35a0f86f39.json.gz",
+      "bytes": 5385,
+      "decodedBytes": 28993,
+      "sha256": "4c35a0f86f399d8607e3b1682beec19d2dff7983e4765610a513cd150c530911",
+      "decodedSha256": "00ce95c7f84bc0389108759a2a18b6f8463526de4a013b8af7ab289ae6db43a1",
+      "routes": 85,
+      "pieces": 85
+    },
+    {
+      "id": "-8:5",
+      "bounds": [
+        -32000,
+        20000,
+        -28000,
+        24000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/-8_5-f4630c532bcf.json.gz",
+      "bytes": 46713,
+      "decodedBytes": 265835,
+      "sha256": "f4630c532bcf19f16d63c1d54397e0736ca0ed73107433734fd3a1f3f82e4ce8",
+      "decodedSha256": "999dcbe7e80037b3ffcd381efec43f1900389abd98e3a084623ca04f0480f80f",
+      "routes": 760,
+      "pieces": 762
+    },
+    {
+      "id": "-8:6",
+      "bounds": [
+        -32000,
+        24000,
+        -28000,
+        28000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/-8_6-dd38c7e6f8f2.json.gz",
+      "bytes": 87613,
+      "decodedBytes": 474948,
+      "sha256": "dd38c7e6f8f2fc69f45cfcb162179784b2b5bb0c9237d4c8df2c0ae13def3711",
+      "decodedSha256": "958a2ffae5cb91f5d0f68d0a3d6ad212438b09d07fa898b177c5d46f106f8375",
+      "routes": 1257,
+      "pieces": 1259
+    },
+    {
+      "id": "-8:7",
+      "bounds": [
+        -32000,
+        28000,
+        -28000,
+        32000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/-8_7-d4131fa2a916.json.gz",
+      "bytes": 66380,
+      "decodedBytes": 347866,
+      "sha256": "d4131fa2a91676cf9aa3bcb3b718538bb95e96fe942991084bbbc0e5005a10bc",
+      "decodedSha256": "337672e75ae7883c9a34e39976f8e910e67f590cef5394fc9c3a95e0987fd9bd",
+      "routes": 870,
+      "pieces": 872
+    },
+    {
+      "id": "-8:8",
+      "bounds": [
+        -32000,
+        32000,
+        -28000,
+        36000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/-8_8-27b4898f8112.json.gz",
+      "bytes": 60861,
+      "decodedBytes": 346750,
+      "sha256": "27b4898f81128fb84ee0c1567c531df52307a0195f026645e1a4914d3e65c853",
+      "decodedSha256": "17a7828b14221990ed1b2cee980154a04340907e6aa347c7889ac620f7779db1",
+      "routes": 964,
+      "pieces": 964
+    },
+    {
+      "id": "-8:9",
+      "bounds": [
+        -32000,
+        36000,
+        -28000,
+        40000.0
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/-8_9-32e692b4e514.json.gz",
+      "bytes": 39123,
+      "decodedBytes": 218578,
+      "sha256": "32e692b4e51478aa3deffcb3fbcacaa182164001f9688de1fcc7f0fc522370f6",
+      "decodedSha256": "a0c6de5c628359331aef50bf9629baa889d5937f22f6df83b77409c295e9d6c1",
+      "routes": 618,
+      "pieces": 620
+    },
+    {
+      "id": "-7:2",
+      "bounds": [
+        -28000,
+        8000,
+        -24000,
+        12000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/-7_2-a6858282b803.json.gz",
+      "bytes": 3948,
+      "decodedBytes": 16465,
+      "sha256": "a6858282b803c3084f6c2c124aea42058a1650497b4d2cf889f24f91d12b0602",
+      "decodedSha256": "7e3ad164d2375baa73d6304d771fe48ee80cd0431142ac89e4591ed5fb73efd3",
+      "routes": 26,
+      "pieces": 26
+    },
+    {
+      "id": "-7:3",
+      "bounds": [
+        -28000,
+        12000,
+        -24000,
+        16000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/-7_3-e82748e22658.json.gz",
+      "bytes": 3686,
+      "decodedBytes": 16198,
+      "sha256": "e82748e2265808653dbbdcfc165bf16a5986daaedfe714d4c2a58cd5e75c7aec",
+      "decodedSha256": "766233b27433d194790ecd4f1d3fa24af5bdce7cc70728ced1331c54e164bd49",
+      "routes": 34,
+      "pieces": 34
+    },
+    {
+      "id": "-7:4",
+      "bounds": [
+        -28000,
+        16000,
+        -24000,
+        20000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/-7_4-56183900b0d6.json.gz",
+      "bytes": 53337,
+      "decodedBytes": 299315,
+      "sha256": "56183900b0d6370183c43fd3194cbf6bbeec1e5071771027ddaa07bb87ec0fb5",
+      "decodedSha256": "e2c541b5efb20f3923e65faee71655ba556e5c322e3b08a4ba61533c77c23bf9",
+      "routes": 863,
+      "pieces": 864
+    },
+    {
+      "id": "-7:5",
+      "bounds": [
+        -28000,
+        20000,
+        -24000,
+        24000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/-7_5-badf14853249.json.gz",
+      "bytes": 97002,
+      "decodedBytes": 533040,
+      "sha256": "badf14853249cd3d2d10f58bd1334c17a661c5cf2adf75a32c3fd5c86995415a",
+      "decodedSha256": "4a04a6422eb304eed8ff5ede925bd9bc620dbec8d674a36b489ddaf8ceffd5c6",
+      "routes": 1492,
+      "pieces": 1493
+    },
+    {
+      "id": "-7:6",
+      "bounds": [
+        -28000,
+        24000,
+        -24000,
+        28000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/-7_6-4520a1793ced.json.gz",
+      "bytes": 74298,
+      "decodedBytes": 394036,
+      "sha256": "4520a1793cedf7d4a8e5697ce900ae73ad4c3e96bbc9a9428a604ef176cae689",
+      "decodedSha256": "918652ec9cea9b491e486489a2d4ee6ee2e37573345bfba69da0b37baad43777",
+      "routes": 1016,
+      "pieces": 1017
+    },
+    {
+      "id": "-7:7",
+      "bounds": [
+        -28000,
+        28000,
+        -24000,
+        32000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/-7_7-b08af788c210.json.gz",
+      "bytes": 64933,
+      "decodedBytes": 370146,
+      "sha256": "b08af788c21015dc84b4b91608c8d02fd196061062d1075986608a572b3d5245",
+      "decodedSha256": "655de8dc599a86abd15600023c1bdde7b772587a512f5e407c436a81cb414768",
+      "routes": 1068,
+      "pieces": 1069
+    },
+    {
+      "id": "-7:8",
+      "bounds": [
+        -28000,
+        32000,
+        -24000,
+        36000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/-7_8-41119fb64099.json.gz",
+      "bytes": 49395,
+      "decodedBytes": 257905,
+      "sha256": "41119fb6409903534d3680aace44a387c74a685556386eb5b9233fbeea10d71e",
+      "decodedSha256": "3fc5f099a161ea6b534a30366d2d6e7aee3d9d3d27fe8ef2e0c8079e9d69964e",
+      "routes": 658,
+      "pieces": 660
+    },
+    {
+      "id": "-7:9",
+      "bounds": [
+        -28000,
+        36000,
+        -24000,
+        40000.0
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/-7_9-885dd7b7fb09.json.gz",
+      "bytes": 82272,
+      "decodedBytes": 433339,
+      "sha256": "885dd7b7fb09c40c1503b71af3b41e43238966a7671c3d385daa66bb85077e9c",
+      "decodedSha256": "1fe5b5d546c98e51a7e5e7c9e5c36190856694aef7693b64cced5602e71e8fab",
+      "routes": 1104,
+      "pieces": 1110
+    },
+    {
+      "id": "-6:1",
+      "bounds": [
+        -24000,
+        4000,
+        -20000,
+        8000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/-6_1-f63e8236fad1.json.gz",
+      "bytes": 11415,
+      "decodedBytes": 55848,
+      "sha256": "f63e8236fad124e92fce3eae10238fb937e02d579046208d58de4a798c409d74",
+      "decodedSha256": "8506f06695a91910d44f9041d8dc195fc37430436fabeb1a3ed2e027da7597f8",
+      "routes": 118,
+      "pieces": 118
+    },
+    {
+      "id": "-6:2",
+      "bounds": [
+        -24000,
+        8000,
+        -20000,
+        12000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/-6_2-6cf12e3fbea2.json.gz",
+      "bytes": 3103,
+      "decodedBytes": 11848,
+      "sha256": "6cf12e3fbea2b4de187cbca14d69e5c3b60da250ec7b9949b304ca1ce0689b60",
+      "decodedSha256": "33bb6dfd643bb0ba5a98b301204e2dcd0d6097935c587ad738aa4d303d50aa42",
+      "routes": 18,
+      "pieces": 19
+    },
+    {
+      "id": "-6:3",
+      "bounds": [
+        -24000,
+        12000,
+        -20000,
+        16000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/-6_3-938861763267.json.gz",
+      "bytes": 32195,
+      "decodedBytes": 182036,
+      "sha256": "93886176326763d29b4a28b0d9389268ae690cd4530fbf9b3ef51ab46d20dc97",
+      "decodedSha256": "b811bdee95a5dc10154acd750002045dbf229058ca723899228abb119c69364c",
+      "routes": 500,
+      "pieces": 501
+    },
+    {
+      "id": "-6:4",
+      "bounds": [
+        -24000,
+        16000,
+        -20000,
+        20000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/-6_4-f6f0958b4d51.json.gz",
+      "bytes": 67868,
+      "decodedBytes": 389689,
+      "sha256": "f6f0958b4d51fbbdd2ecf4b75ad39193f728924758a4f4ffa3e838868aa246aa",
+      "decodedSha256": "8bd893a355963492effc59e9745a2ecaa98a51e5ac2e1da04e16eee5ce05b515",
+      "routes": 1130,
+      "pieces": 1134
+    },
+    {
+      "id": "-6:5",
+      "bounds": [
+        -24000,
+        20000,
+        -20000,
+        24000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/-6_5-2d36b41c1c42.json.gz",
+      "bytes": 79001,
+      "decodedBytes": 414119,
+      "sha256": "2d36b41c1c426bf667eb56b194a6f3b1f702a94056b813de6e82652146d18d68",
+      "decodedSha256": "75a8704b065f68130a3f2fd56d842642d6514d2b7910fa37508a415312049156",
+      "routes": 1055,
+      "pieces": 1061
+    },
+    {
+      "id": "-6:6",
+      "bounds": [
+        -24000,
+        24000,
+        -20000,
+        28000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/-6_6-0dc320650593.json.gz",
+      "bytes": 57407,
+      "decodedBytes": 309885,
+      "sha256": "0dc320650593992eb91bb6aa3690442463532699386ae4269846696804b13071",
+      "decodedSha256": "fa006fe06980472322cb96899c48d4bb79cc04975ed3029a319c7a5b8d3d996e",
+      "routes": 811,
+      "pieces": 813
+    },
+    {
+      "id": "-6:7",
+      "bounds": [
+        -24000,
+        28000,
+        -20000,
+        32000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/-6_7-49d8e713767d.json.gz",
+      "bytes": 42609,
+      "decodedBytes": 220880,
+      "sha256": "49d8e713767d571b4be7a55d9753daafdad8424965031d79d38ceb6f710441e7",
+      "decodedSha256": "c61c4a86df313bb98b9d0a4919f291f7c20180fcc810e52ed3234a8b3eba6024",
+      "routes": 548,
+      "pieces": 551
+    },
+    {
+      "id": "-6:8",
+      "bounds": [
+        -24000,
+        32000,
+        -20000,
+        36000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/-6_8-789891e68d7e.json.gz",
+      "bytes": 45038,
+      "decodedBytes": 223539,
+      "sha256": "789891e68d7ede884ab8946630e3e8a9e4cfa7c51ad056fd7d5fd32060830cad",
+      "decodedSha256": "49bf7fc584ad52bee0beddd13c941e4949a40bb1bdab5b0876759706bea53291",
+      "routes": 496,
+      "pieces": 496
+    },
+    {
+      "id": "-6:9",
+      "bounds": [
+        -24000,
+        36000,
+        -20000,
+        40000.0
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/-6_9-aebd1645feac.json.gz",
+      "bytes": 67183,
+      "decodedBytes": 361761,
+      "sha256": "aebd1645feaccd367b6d0248104d97b9b8112642fcbc651f45a11ab2c91250c6",
+      "decodedSha256": "5c6e98558e34b1a43685f04c21e641abe77b8b0a4e3bb1492b99bd4fb75e902a",
+      "routes": 932,
+      "pieces": 934
+    },
+    {
+      "id": "-5:0",
+      "bounds": [
+        -20000,
+        0,
+        -16000,
+        4000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/-5_0-e40bfee4655c.json.gz",
+      "bytes": 7698,
+      "decodedBytes": 38253,
+      "sha256": "e40bfee4655cae15f1c5816245dabdc1ca5be5b9664d141de00172c6fd8d0c94",
+      "decodedSha256": "29bbcdbc086c9c8cf65d443d5e7d6f981494a2fe2f21b160a8bb12f981da95c0",
+      "routes": 85,
+      "pieces": 85
+    },
+    {
+      "id": "-5:1",
+      "bounds": [
+        -20000,
+        4000,
+        -16000,
+        8000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/-5_1-2d134e939038.json.gz",
+      "bytes": 9125,
+      "decodedBytes": 39603,
+      "sha256": "2d134e9390385a24a04081f1154690ea0e14706e997863b2f84ef9ff951763d7",
+      "decodedSha256": "8e839eec6b79929da05b751e6ae6e45537c7c3fae57e441bdad765967bdb4f92",
+      "routes": 64,
+      "pieces": 65
+    },
+    {
+      "id": "-5:2",
+      "bounds": [
+        -20000,
+        8000,
+        -16000,
+        12000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/-5_2-1e3d19b3e5e6.json.gz",
+      "bytes": 28409,
+      "decodedBytes": 155732,
+      "sha256": "1e3d19b3e5e622139ecd7c60eb9799804cf1e95335a416c0c8da2e6d9c90a979",
+      "decodedSha256": "9a4af323fce035042ced3c240a54fe78fa9e054272e56991470acf866bff5b7f",
+      "routes": 411,
+      "pieces": 412
+    },
+    {
+      "id": "-5:3",
+      "bounds": [
+        -20000,
+        12000,
+        -16000,
+        16000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/-5_3-d6c45528b87c.json.gz",
+      "bytes": 66991,
+      "decodedBytes": 384022,
+      "sha256": "d6c45528b87ce553b459f34c392a91100d0816bd89a89476a4287a1175446194",
+      "decodedSha256": "390e8dac52730821323f1a3fec99c0e2a8337446502242dc02395d07ff86e8d9",
+      "routes": 1152,
+      "pieces": 1154
+    },
+    {
+      "id": "-5:4",
+      "bounds": [
+        -20000,
+        16000,
+        -16000,
+        20000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/-5_4-0f2c0bb836e8.json.gz",
+      "bytes": 65229,
+      "decodedBytes": 351453,
+      "sha256": "0f2c0bb836e855bd4882692b867d73e4a7b295239cf6717cd1a2a95c941f7111",
+      "decodedSha256": "5adb859ea5861717e70595c5fa51ad106a5fe90d8fe0ae5875a4a1770ee2f283",
+      "routes": 926,
+      "pieces": 931
+    },
+    {
+      "id": "-5:5",
+      "bounds": [
+        -20000,
+        20000,
+        -16000,
+        24000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/-5_5-48283b42d160.json.gz",
+      "bytes": 64375,
+      "decodedBytes": 343000,
+      "sha256": "48283b42d160b70d0379f538f98db805d673009fb30dd1976bba0248fa889f6a",
+      "decodedSha256": "8653d68ef9b14a574a30d77b0b2f7d2525d1a7ddd928f52b5ac3545fb8c1bf57",
+      "routes": 896,
+      "pieces": 897
+    },
+    {
+      "id": "-5:6",
+      "bounds": [
+        -20000,
+        24000,
+        -16000,
+        28000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/-5_6-dedeb4b93cad.json.gz",
+      "bytes": 57379,
+      "decodedBytes": 300328,
+      "sha256": "dedeb4b93cad17909a8f0dcad6b1be890e99c253266081a62e1602432c8d77f7",
+      "decodedSha256": "1bcaa371992c2b442090d4c2ac16af808c0f6e2596885924df89c9dddcdd3896",
+      "routes": 772,
+      "pieces": 772
+    },
+    {
+      "id": "-5:7",
+      "bounds": [
+        -20000,
+        28000,
+        -16000,
+        32000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/-5_7-67544f6dc0aa.json.gz",
+      "bytes": 64692,
+      "decodedBytes": 332106,
+      "sha256": "67544f6dc0aa345ee79a73b0d0806d4dc200edf2e7e27e9e85cdf09cdf2ee778",
+      "decodedSha256": "23c8301331dc0c94b08120a855bf19dacb58164f5f8faa54ecb5973d31d9bf6b",
+      "routes": 811,
+      "pieces": 813
+    },
+    {
+      "id": "-5:8",
+      "bounds": [
+        -20000,
+        32000,
+        -16000,
+        36000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/-5_8-2b6b9e6dd9c4.json.gz",
+      "bytes": 53519,
+      "decodedBytes": 280321,
+      "sha256": "2b6b9e6dd9c460f35b1b40bfa504393077053e11928b49c81940541ca0ec0668",
+      "decodedSha256": "0abe0e4b1897e597cdbb5c248db2c6022c3ed7f3f20dd9803de812cc30c078e6",
+      "routes": 705,
+      "pieces": 708
+    },
+    {
+      "id": "-5:9",
+      "bounds": [
+        -20000,
+        36000,
+        -16000,
+        40000.0
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/-5_9-5cd3f73507ce.json.gz",
+      "bytes": 49332,
+      "decodedBytes": 259350,
+      "sha256": "5cd3f73507ce39c86f0aee20b5c0dd5f9f255d887dfd9d7d57035aa2ea8f5430",
+      "decodedSha256": "682960ad95ae6d1c8758aeb5ffcdf79fbec32ff66f19922250fe0a34c54572b3",
+      "routes": 638,
+      "pieces": 642
+    },
+    {
+      "id": "-4:-1",
+      "bounds": [
+        -16000,
+        -4000,
+        -12000,
+        0
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/-4_-1-558ca64ae4db.json.gz",
+      "bytes": 8201,
+      "decodedBytes": 45749,
+      "sha256": "558ca64ae4db4f0e3af4cf5e8c5a2884fd7c48eb99eadbdca4a8fec3ae585eb9",
+      "decodedSha256": "ed9245c263e45dd1e3b55a4c3714063e934a1bfb7b3452edf77799213f75b42b",
+      "routes": 117,
+      "pieces": 118
+    },
+    {
+      "id": "-4:0",
+      "bounds": [
+        -16000,
+        0,
+        -12000,
+        4000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/-4_0-af18321cdefd.json.gz",
+      "bytes": 12411,
+      "decodedBytes": 70634,
+      "sha256": "af18321cdefd877b785a92b104356f8b05b4fb4092288c63ac78382884391e10",
+      "decodedSha256": "2317ee6d8d9482a23cbacf82342d5d370cf3b3ac712a778842234ca417207aba",
+      "routes": 203,
+      "pieces": 204
+    },
+    {
+      "id": "-4:1",
+      "bounds": [
+        -16000,
+        4000,
+        -12000,
+        8000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/-4_1-504754a2adec.json.gz",
+      "bytes": 28888,
+      "decodedBytes": 167526,
+      "sha256": "504754a2adec12b3b9d9e60937ac988bcab92c3ecf9cebb2c29943afa9bb0ad0",
+      "decodedSha256": "e5e24b4bfdb4faa3b1f5e4dbd05764fb2920dae2b212a4aa66ceaa95065f6949",
+      "routes": 480,
+      "pieces": 480
+    },
+    {
+      "id": "-4:2",
+      "bounds": [
+        -16000,
+        8000,
+        -12000,
+        12000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/-4_2-ba520d226b36.json.gz",
+      "bytes": 75597,
+      "decodedBytes": 439350,
+      "sha256": "ba520d226b368b13204c944c648c588f77a65bfa614c3acbb67f11ee861c4de2",
+      "decodedSha256": "3c01c2d5bb1f4b6d537274c874b31f43613a8f45ff26590190272df1e12c8caa",
+      "routes": 1310,
+      "pieces": 1313
+    },
+    {
+      "id": "-4:3",
+      "bounds": [
+        -16000,
+        12000,
+        -12000,
+        16000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/-4_3-29b3b93490af.json.gz",
+      "bytes": 75588,
+      "decodedBytes": 418136,
+      "sha256": "29b3b93490af74120bef6079d822757e02bda4230a60a69c8e28916461ceb05d",
+      "decodedSha256": "fdfb0517b35e7d58296fd8f74fc72efe1db759914130df22282bd8a22c04b96c",
+      "routes": 1144,
+      "pieces": 1148
+    },
+    {
+      "id": "-4:4",
+      "bounds": [
+        -16000,
+        16000,
+        -12000,
+        20000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/-4_4-fb25a0806664.json.gz",
+      "bytes": 73049,
+      "decodedBytes": 406454,
+      "sha256": "fb25a080666467528365fd8126eeb768ba644a66b33d4f16a783fc5f7a2348d5",
+      "decodedSha256": "e35fff2681e8276132104b10aaa84581fcb69d4276d4b63eb36a5791ae24e3bf",
+      "routes": 1090,
+      "pieces": 1095
+    },
+    {
+      "id": "-4:5",
+      "bounds": [
+        -16000,
+        20000,
+        -12000,
+        24000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/-4_5-d1cb792706b0.json.gz",
+      "bytes": 78649,
+      "decodedBytes": 425901,
+      "sha256": "d1cb792706b0cb5efb48f1673f569dddc70459553fe2c2911ee4da9d88b3ca45",
+      "decodedSha256": "960b0b946be37e42c8ff11ce374afcbf5ab322c2ae6619c17e5a8e73e59490ef",
+      "routes": 1135,
+      "pieces": 1140
+    },
+    {
+      "id": "-4:6",
+      "bounds": [
+        -16000,
+        24000,
+        -12000,
+        28000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/-4_6-b1f93fd93671.json.gz",
+      "bytes": 83880,
+      "decodedBytes": 449387,
+      "sha256": "b1f93fd93671862dcfa1afb9e36ddd096582e8549c06c6cad1ef4f0baab9bf95",
+      "decodedSha256": "b66f2a2e5bcff9a6368d1c961bfa4246cd9886997c75bdfd61c5b74cca16efd2",
+      "routes": 1167,
+      "pieces": 1173
+    },
+    {
+      "id": "-4:7",
+      "bounds": [
+        -16000,
+        28000,
+        -12000,
+        32000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/-4_7-6e5ac85910c0.json.gz",
+      "bytes": 46343,
+      "decodedBytes": 232443,
+      "sha256": "6e5ac85910c0de2c11ad289eda21a8bdfd8de0b77cda195a390fad51b7b44b83",
+      "decodedSha256": "bd2140f4a1d1da946b6e0a3343b552b8c95197510a50ef0a3b93be31caf116e2",
+      "routes": 526,
+      "pieces": 531
+    },
+    {
+      "id": "-4:8",
+      "bounds": [
+        -16000,
+        32000,
+        -12000,
+        36000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/-4_8-740475583f49.json.gz",
+      "bytes": 70535,
+      "decodedBytes": 375859,
+      "sha256": "740475583f49bf0e7e76096c92c0a38106a553a064709011be690146f2620caa",
+      "decodedSha256": "074df3700012f3a4d274ef5c1bdea7090e042172131f245e6fd347cb2408ed5b",
+      "routes": 975,
+      "pieces": 979
+    },
+    {
+      "id": "-4:9",
+      "bounds": [
+        -16000,
+        36000,
+        -12000,
+        40000.0
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/-4_9-c656cd2b4239.json.gz",
+      "bytes": 55754,
+      "decodedBytes": 285380,
+      "sha256": "c656cd2b4239d128683041e82fc2b93dabb7eaa05f8bf0ba074984f290104f15",
+      "decodedSha256": "39bf5db51d47c3a2e1f83ca9cc99726f020d61a03c20264edd787aea6dc5ddc8",
+      "routes": 668,
+      "pieces": 668
+    },
+    {
+      "id": "-3:-1",
+      "bounds": [
+        -12000,
+        -4000,
+        -8000,
+        0
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/-3_-1-bf8496733c95.json.gz",
+      "bytes": 32283,
+      "decodedBytes": 197459,
+      "sha256": "bf8496733c9523ab4ab91811047fc175a060a597c843cc6ce0df5f76479e6c6f",
+      "decodedSha256": "c0711e9a2b27c162c2e0d9e8698977c5f4cc9bf69c7f66f19445bff04e049437",
+      "routes": 593,
+      "pieces": 595
+    },
+    {
+      "id": "-3:0",
+      "bounds": [
+        -12000,
+        0,
+        -8000,
+        4000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/-3_0-5213fb1a7350.json.gz",
+      "bytes": 41635,
+      "decodedBytes": 247508,
+      "sha256": "5213fb1a735078c909d6a6f292ddb9189f849ce761d62aff83e3ce910c81ef97",
+      "decodedSha256": "039fb3f851fecb4718dc4bd25af05fc2e6c80a92ce0bdb08f1d974fe83f98791",
+      "routes": 780,
+      "pieces": 781
+    },
+    {
+      "id": "-3:1",
+      "bounds": [
+        -12000,
+        4000,
+        -8000,
+        8000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/-3_1-187ee8f251ba.json.gz",
+      "bytes": 78502,
+      "decodedBytes": 463766,
+      "sha256": "187ee8f251ba658b318dfde82d0391b164ede73f1236cae0a3d60db1e4827d0e",
+      "decodedSha256": "ff4e1e3528402dee6c10b0a016e421cfb233cbf8866438271d144582c02064cc",
+      "routes": 1413,
+      "pieces": 1414
+    },
+    {
+      "id": "-3:2",
+      "bounds": [
+        -12000,
+        8000,
+        -8000,
+        12000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/-3_2-cf9353818b4d.json.gz",
+      "bytes": 75902,
+      "decodedBytes": 426088,
+      "sha256": "cf9353818b4d47b9813ada022c6208ed01c3d3065300c36f2c03f5e5a02dc399",
+      "decodedSha256": "35b2c54ab1d1ee7779319925a9719db8f53fa6af159bb9e19e673e176257610f",
+      "routes": 1199,
+      "pieces": 1202
+    },
+    {
+      "id": "-3:3",
+      "bounds": [
+        -12000,
+        12000,
+        -8000,
+        16000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/-3_3-06a1a33bdb23.json.gz",
+      "bytes": 83827,
+      "decodedBytes": 457674,
+      "sha256": "06a1a33bdb232313dfed235ed59e4afecb26b408255acc0c2fbcb899a660c776",
+      "decodedSha256": "2ab76f3092982cb32cc3c5c0cd17bdb48599ed2e0c06cf95f19e8d2eb848b4db",
+      "routes": 1247,
+      "pieces": 1247
+    },
+    {
+      "id": "-3:4",
+      "bounds": [
+        -12000,
+        16000,
+        -8000,
+        20000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/-3_4-cfccd1a9a54d.json.gz",
+      "bytes": 78659,
+      "decodedBytes": 427046,
+      "sha256": "cfccd1a9a54da1f69eff4d6d889faf9ba4627a6642e4f0181928b939b8072ef4",
+      "decodedSha256": "d2d0980420452a4aa93cac8730703edb0446187913932250649928e6d23c0acd",
+      "routes": 1133,
+      "pieces": 1140
+    },
+    {
+      "id": "-3:5",
+      "bounds": [
+        -12000,
+        20000,
+        -8000,
+        24000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/-3_5-9594e8bc5437.json.gz",
+      "bytes": 90628,
+      "decodedBytes": 490880,
+      "sha256": "9594e8bc543780f0754e0b127d835f4817752a85943b69df46f2c0f7d4860d3a",
+      "decodedSha256": "3db91009d7db8815e3528ad53e15a16c0249f236d3441e190ecee8160767cfc7",
+      "routes": 1307,
+      "pieces": 1308
+    },
+    {
+      "id": "-3:6",
+      "bounds": [
+        -12000,
+        24000,
+        -8000,
+        28000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/-3_6-1d484e31885d.json.gz",
+      "bytes": 85026,
+      "decodedBytes": 449971,
+      "sha256": "1d484e31885dfa7e2e64274b0ade5da5dbeec5ec4fa6fe6aa8826685bf91a5d4",
+      "decodedSha256": "7f3836f633edad50839f265cc02cbb07d849af9d215f7464d4ef37d108ad789f",
+      "routes": 1131,
+      "pieces": 1133
+    },
+    {
+      "id": "-3:7",
+      "bounds": [
+        -12000,
+        28000,
+        -8000,
+        32000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/-3_7-6495dd5591d3.json.gz",
+      "bytes": 45010,
+      "decodedBytes": 225803,
+      "sha256": "6495dd5591d387ac7461397af22b077c23a79b65061f48943c6817067a9d82f5",
+      "decodedSha256": "640b51b1292d57b74ae3c27ff78b1d2c85f0a9feefb0e2646179c684ac1ac7ac",
+      "routes": 506,
+      "pieces": 507
+    },
+    {
+      "id": "-3:8",
+      "bounds": [
+        -12000,
+        32000,
+        -8000,
+        36000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/-3_8-fe13f7266979.json.gz",
+      "bytes": 40950,
+      "decodedBytes": 200574,
+      "sha256": "fe13f72669797d7a6ce553e92af023f6593df2c3d8052e55e673c0a0191445d9",
+      "decodedSha256": "3ec542ea43fa6b48cd1462d1bbbe37c37692267262faa233b21c5ef54672fbd0",
+      "routes": 426,
+      "pieces": 428
+    },
+    {
+      "id": "-3:9",
+      "bounds": [
+        -12000,
+        36000,
+        -8000,
+        40000.0
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/-3_9-dce770f9931f.json.gz",
+      "bytes": 45299,
+      "decodedBytes": 228343,
+      "sha256": "dce770f9931f0b09926533d823097d4ae2532d3b3c38b85aa5abf06105559c43",
+      "decodedSha256": "1cb5fff73ab02d0cd9fd8f8655f681781028d95b8e2c93eae3409b3069e5c7a3",
+      "routes": 505,
+      "pieces": 507
+    },
+    {
+      "id": "-2:-2",
+      "bounds": [
+        -8000,
+        -8000,
+        -4000,
+        -4000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/-2_-2-5aaf3c32ce3f.json.gz",
+      "bytes": 7359,
+      "decodedBytes": 47490,
+      "sha256": "5aaf3c32ce3f13953cff958c1e414efa01330f59c6552868c378ffa56a70b59c",
+      "decodedSha256": "6a7301aae298880773c2597c6a1114e83e1f4a7decd1ade43d203b4eee23163e",
+      "routes": 160,
+      "pieces": 160
+    },
+    {
+      "id": "-2:-1",
+      "bounds": [
+        -8000,
+        -4000,
+        -4000,
+        0
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/-2_-1-1434f7d0a7b2.json.gz",
+      "bytes": 15080,
+      "decodedBytes": 79580,
+      "sha256": "1434f7d0a7b231504703a90a308546ca41153c555f2bccda422e5ce2a2782511",
+      "decodedSha256": "6f496f836d1deba3ed8b27fe272e978f669b5561a00c1436714447abf5c08f14",
+      "routes": 194,
+      "pieces": 194
+    },
+    {
+      "id": "-2:0",
+      "bounds": [
+        -8000,
+        0,
+        -4000,
+        4000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/-2_0-99e56e043b41.json.gz",
+      "bytes": 56366,
+      "decodedBytes": 317298,
+      "sha256": "99e56e043b419cd1f65254fad327c97b7c697725d0cf0b5db63aa435dd9a6b27",
+      "decodedSha256": "195ac8cfc172b104569d2344acbaf411fa57fad69313a2c66599af877eeef77c",
+      "routes": 894,
+      "pieces": 895
+    },
+    {
+      "id": "-2:1",
+      "bounds": [
+        -8000,
+        4000,
+        -4000,
+        8000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/-2_1-60aeff114aef.json.gz",
+      "bytes": 90781,
+      "decodedBytes": 514691,
+      "sha256": "60aeff114aefa083c14613f632e57eec06947dba026fcd4935070a14017fe8cb",
+      "decodedSha256": "dc491ff36391be651a91386630a7114394f438afa0c654d5c44bd03caea64374",
+      "routes": 1479,
+      "pieces": 1480
+    },
+    {
+      "id": "-2:2",
+      "bounds": [
+        -8000,
+        8000,
+        -4000,
+        12000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/-2_2-23ae02369bc1.json.gz",
+      "bytes": 87672,
+      "decodedBytes": 495823,
+      "sha256": "23ae02369bc1c73ac6b9bd1437e7f350545194fce36fcc4d39c8047d292420eb",
+      "decodedSha256": "f682174f550ad264115d78cf60c289cbb9ab78ad0118359685ba0dd54e109f26",
+      "routes": 1414,
+      "pieces": 1416
+    },
+    {
+      "id": "-2:3",
+      "bounds": [
+        -8000,
+        12000,
+        -4000,
+        16000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/-2_3-0e4e9ddd34b9.json.gz",
+      "bytes": 92266,
+      "decodedBytes": 524993,
+      "sha256": "0e4e9ddd34b9049e0f568f99eb516ab0dd409bee8a87ef69afcb55e64886ff9a",
+      "decodedSha256": "f3259e41afa19ab1ccf8e94bb00d657109883cc55a76a08eb568e7536de0fcf1",
+      "routes": 1563,
+      "pieces": 1563
+    },
+    {
+      "id": "-2:4",
+      "bounds": [
+        -8000,
+        16000,
+        -4000,
+        20000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/-2_4-9b7503d6176d.json.gz",
+      "bytes": 87000,
+      "decodedBytes": 467291,
+      "sha256": "9b7503d6176d69e270e3e8de64a759ffcd5b6669a5233ceb5a1e988163d0a67c",
+      "decodedSha256": "e0d46b4630740ddfa96b160eb478cbb74758007fc9ba2cd3a7c9a3420f63e2af",
+      "routes": 1251,
+      "pieces": 1253
+    },
+    {
+      "id": "-2:5",
+      "bounds": [
+        -8000,
+        20000,
+        -4000,
+        24000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/-2_5-a029f9e9ba87.json.gz",
+      "bytes": 58590,
+      "decodedBytes": 285089,
+      "sha256": "a029f9e9ba87e5a09303e75657a876fdcf6e7cd37f35f46cc6ae5c405a28eaba",
+      "decodedSha256": "529c9b5ab062ef43087dafc7de60198eb329b3c2a29dcf6eabeafde8fa20d5a3",
+      "routes": 606,
+      "pieces": 608
+    },
+    {
+      "id": "-2:6",
+      "bounds": [
+        -8000,
+        24000,
+        -4000,
+        28000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/-2_6-0b8414d576fe.json.gz",
+      "bytes": 33675,
+      "decodedBytes": 157452,
+      "sha256": "0b8414d576fea932b05ad3d5b8550125bc97c7953f370f047305992ff67d7180",
+      "decodedSha256": "8636f48d41c6746d634bd6ff6a750cd32756b0f8780daac4effd196ceb7135c8",
+      "routes": 281,
+      "pieces": 283
+    },
+    {
+      "id": "-2:7",
+      "bounds": [
+        -8000,
+        28000,
+        -4000,
+        32000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/-2_7-5b757848bd61.json.gz",
+      "bytes": 47212,
+      "decodedBytes": 235300,
+      "sha256": "5b757848bd616b69783cc57cb54d7a49b8a947c4df1ebda0f8047ce6a6a6d28c",
+      "decodedSha256": "d4bcdd8992ff191a5cca208bd571ee67b99eacfc24f456eb4c0bac86e2e4be1a",
+      "routes": 511,
+      "pieces": 512
+    },
+    {
+      "id": "-2:8",
+      "bounds": [
+        -8000,
+        32000,
+        -4000,
+        36000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/-2_8-cd572b111d41.json.gz",
+      "bytes": 14289,
+      "decodedBytes": 61865,
+      "sha256": "cd572b111d41c6a9c2df93aeb0b3f416d2b7d0f7d6e4a4cbe31b8fcf7441eeed",
+      "decodedSha256": "ec49b25beef15fd4b49bf3d96a2f71541e0c0e62b302a53ad883bf86166b4a87",
+      "routes": 76,
+      "pieces": 79
+    },
+    {
+      "id": "-2:9",
+      "bounds": [
+        -8000,
+        36000,
+        -4000,
+        40000.0
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/-2_9-698c0da7749c.json.gz",
+      "bytes": 17553,
+      "decodedBytes": 76643,
+      "sha256": "698c0da7749c667926492ec3e014b1568daa8c34d20ccb4999527e4bc00c5179",
+      "decodedSha256": "92641a0a4844863d9c5f65192f4b16087c29b67c9b2a4b6559729ab1099081ec",
+      "routes": 112,
+      "pieces": 114
+    },
+    {
+      "id": "-1:-10",
+      "bounds": [
+        -4000,
+        -40000.0,
+        0,
+        -36000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/-1_-10-28f7d727347e.json.gz",
+      "bytes": 20703,
+      "decodedBytes": 115506,
+      "sha256": "28f7d727347e920f68aebcc9946e6fb0b0f427ad9d1620a4097eca1d6b182cd0",
+      "decodedSha256": "1fa9e6ae5e1dde38130b55f78156feb081e3e323b14a0d8dd66b75c6369219b9",
+      "routes": 303,
+      "pieces": 304
+    },
+    {
+      "id": "-1:-9",
+      "bounds": [
+        -4000,
+        -36000,
+        0,
+        -32000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/-1_-9-c76e8c638934.json.gz",
+      "bytes": 2416,
+      "decodedBytes": 12347,
+      "sha256": "c76e8c638934036ef15bebb7e13b37cc981b0af921fd765332191344af33acde",
+      "decodedSha256": "eaccea3db88ee2889d502de792199eb0210c4f6e92a124032a535f25881320ba",
+      "routes": 31,
+      "pieces": 31
+    },
+    {
+      "id": "-1:-3",
+      "bounds": [
+        -4000,
+        -12000,
+        0,
+        -8000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/-1_-3-0978b04919d0.json.gz",
+      "bytes": 2174,
+      "decodedBytes": 9409,
+      "sha256": "0978b04919d0ddc0d5f40c2e1729d2b4421f4224a9403e4bd10ace2671a6581e",
+      "decodedSha256": "2e98f236e9c2a43d1dc203be2c355c9ce6fbe53df082c7cc4b00fe0395065cee",
+      "routes": 19,
+      "pieces": 19
+    },
+    {
+      "id": "-1:-2",
+      "bounds": [
+        -4000,
+        -8000,
+        0,
+        -4000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/-1_-2-dd2a43fc4c81.json.gz",
+      "bytes": 5254,
+      "decodedBytes": 26125,
+      "sha256": "dd2a43fc4c81fc3e1c61b7715ccdf5216684a2a4a43d75b151cc9187dd3426d6",
+      "decodedSha256": "cf56c8dec8a7cfb6276537922e20a2c35d1fa1d8024c1a850c25cff39da96d8a",
+      "routes": 61,
+      "pieces": 61
+    },
+    {
+      "id": "-1:0",
+      "bounds": [
+        -4000,
+        0,
+        0,
+        4000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/-1_0-0aa298914845.json.gz",
+      "bytes": 11362,
+      "decodedBytes": 68240,
+      "sha256": "0aa298914845bdcc69a4b801be2ed156bcb1b3353084d178b6f69b3da281afaf",
+      "decodedSha256": "44c92bba6d1d243cbd0e7ab021dc981556eb733ce7f55bfbbe08ba36bb85ffb8",
+      "routes": 213,
+      "pieces": 213
+    },
+    {
+      "id": "-1:1",
+      "bounds": [
+        -4000,
+        4000,
+        0,
+        8000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/-1_1-072586f974b6.json.gz",
+      "bytes": 95845,
+      "decodedBytes": 535608,
+      "sha256": "072586f974b6eeb8e4b50b93826a72e99833bcff7c0b37dedf1a6b45915814c5",
+      "decodedSha256": "7c30da116e7c2a02b1046bd023bf00e4a237b54e7be8ed4f89c32717c2e09097",
+      "routes": 1504,
+      "pieces": 1504
+    },
+    {
+      "id": "-1:2",
+      "bounds": [
+        -4000,
+        8000,
+        0,
+        12000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/-1_2-de6120d36c4b.json.gz",
+      "bytes": 79510,
+      "decodedBytes": 449937,
+      "sha256": "de6120d36c4b5291db6b16b3a60bf0bf8ae1b30450ea593286460f1b7f222f2b",
+      "decodedSha256": "7b040a3e023f485b894fc180a11a066759611d90ef681bed5f5f44d4adbd7d44",
+      "routes": 1269,
+      "pieces": 1270
+    },
+    {
+      "id": "-1:3",
+      "bounds": [
+        -4000,
+        12000,
+        0,
+        16000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/-1_3-665dd4806fbe.json.gz",
+      "bytes": 76138,
+      "decodedBytes": 438476,
+      "sha256": "665dd4806fbed91658a05376b56826f81bac6818e563340b08f3e3f7e6fb0988",
+      "decodedSha256": "f06769bcf2a8eac583e23000d077de268a0827a98c59bf015f20dd44a5412c96",
+      "routes": 1298,
+      "pieces": 1298
+    },
+    {
+      "id": "-1:4",
+      "bounds": [
+        -4000,
+        16000,
+        0,
+        20000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/-1_4-8b97aff37fb9.json.gz",
+      "bytes": 100055,
+      "decodedBytes": 519856,
+      "sha256": "8b97aff37fb91df8727d54446dfffe454b3c6e761040abcad7a6c7261c6a5466",
+      "decodedSha256": "ba46ff0a7fef18e206e2521cead9c5f5caf67562512d29c98bb82989e1b81f1d",
+      "routes": 1272,
+      "pieces": 1276
+    },
+    {
+      "id": "-1:5",
+      "bounds": [
+        -4000,
+        20000,
+        0,
+        24000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/-1_5-afe7ec83f8eb.json.gz",
+      "bytes": 63739,
+      "decodedBytes": 325374,
+      "sha256": "afe7ec83f8eb6fbfe8e6a7aef8a86305cc9a445632617759216db5907d8b66f1",
+      "decodedSha256": "d086fbe350f4b25e3655c5684dd92f3b10663a79212a2cfe0029b739a8766d64",
+      "routes": 754,
+      "pieces": 757
+    },
+    {
+      "id": "-1:6",
+      "bounds": [
+        -4000,
+        24000,
+        0,
+        28000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/-1_6-bc6fe14bb799.json.gz",
+      "bytes": 38746,
+      "decodedBytes": 180386,
+      "sha256": "bc6fe14bb799558ae7a5061c02d91ac8fb6e5462d6e469455a92de0662c792be",
+      "decodedSha256": "22bf9841a6475b687ff048c4692dbd88e80d5c200ebf0739d5504fcd5313f407",
+      "routes": 325,
+      "pieces": 328
+    },
+    {
+      "id": "-1:7",
+      "bounds": [
+        -4000,
+        28000,
+        0,
+        32000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/-1_7-be4d20594269.json.gz",
+      "bytes": 29914,
+      "decodedBytes": 132663,
+      "sha256": "be4d2059426946482c8d0f4a87447b7a08e20ff55d04c26bba3f2a76137ea13b",
+      "decodedSha256": "7b5829703385c9b3cbf91dc708b3cc759bb78c1a3812e4d6bb2b4a388df2d7de",
+      "routes": 206,
+      "pieces": 207
+    },
+    {
+      "id": "-1:8",
+      "bounds": [
+        -4000,
+        32000,
+        0,
+        36000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/-1_8-06414e9f381e.json.gz",
+      "bytes": 15900,
+      "decodedBytes": 82816,
+      "sha256": "06414e9f381eda635b1bb714d8a42ed786e2c37e75478c5f29ee6ba3edcfd3b7",
+      "decodedSha256": "d034a5f656c5ddab2cb2dfb26ec0bb4cf1ab4e7315a86450bccc96a1089cede2",
+      "routes": 203,
+      "pieces": 203
+    },
+    {
+      "id": "-1:9",
+      "bounds": [
+        -4000,
+        36000,
+        0,
+        40000.0
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/-1_9-5c8579ed2747.json.gz",
+      "bytes": 1274,
+      "decodedBytes": 4614,
+      "sha256": "5c8579ed27478d50158c10c1df69402083728392d66a78a287a448445dca6aa1",
+      "decodedSha256": "d98952539827af5725a04f49efe0aa6e6ee4d2f0bbb4bdfaaabeae938fb0b211",
+      "routes": 7,
+      "pieces": 7
+    },
+    {
+      "id": "0:-10",
+      "bounds": [
+        0,
+        -40000.0,
+        4000,
+        -36000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/0_-10-dd47a2c30e37.json.gz",
+      "bytes": 40003,
+      "decodedBytes": 194367,
+      "sha256": "dd47a2c30e3759ec301e4fc73e5f8b4ac89e3188ed8876e69b2b5f7cd0841a90",
+      "decodedSha256": "131d122285f6710f751cbb1dda9959f5adeaad37033133eca9ca4fd58e62403a",
+      "routes": 390,
+      "pieces": 390
+    },
+    {
+      "id": "0:-9",
+      "bounds": [
+        0,
+        -36000,
+        4000,
+        -32000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/0_-9-15518138e8a4.json.gz",
+      "bytes": 32736,
+      "decodedBytes": 164526,
+      "sha256": "15518138e8a42ff631d46a005d0f71322f858c52c987ca87eec57cd64a62ccf1",
+      "decodedSha256": "e4de65669c88e30362223d6da34fe264c254345bda4112ac73087cdf5c0dffa0",
+      "routes": 362,
+      "pieces": 363
+    },
+    {
+      "id": "0:-8",
+      "bounds": [
+        0,
+        -32000,
+        4000,
+        -28000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/0_-8-f2fca37b81b2.json.gz",
+      "bytes": 1594,
+      "decodedBytes": 6463,
+      "sha256": "f2fca37b81b29d92f8f194b497370907bcfa275b5ab04e3848aef826864f404c",
+      "decodedSha256": "63c99ff0b34e45a591d39fe8bc7b4f476dfbb7aaa9a58a53d9cc48932efe31cc",
+      "routes": 13,
+      "pieces": 13
+    },
+    {
+      "id": "0:-4",
+      "bounds": [
+        0,
+        -16000,
+        4000,
+        -12000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/0_-4-ed469c760297.json.gz",
+      "bytes": 7007,
+      "decodedBytes": 34834,
+      "sha256": "ed469c760297b02ebfed39f11748728168c8678c359a938b2f33756b0ef8aaee",
+      "decodedSha256": "8acc2557de496ef0c6d8611580e80f2083b5d33293a8d456d6af45713f34c988",
+      "routes": 87,
+      "pieces": 87
+    },
+    {
+      "id": "0:-3",
+      "bounds": [
+        0,
+        -12000,
+        4000,
+        -8000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/0_-3-e1884170b555.json.gz",
+      "bytes": 28632,
+      "decodedBytes": 146786,
+      "sha256": "e1884170b555a264fb9e9aa8c1c896aacd151e4b5eb4c47f67585ff2775ac214",
+      "decodedSha256": "adc78f34f13ea18e5d698749bb66f5a78d4943e5656fd7dc1dc1e8a916d90f8c",
+      "routes": 359,
+      "pieces": 359
+    },
+    {
+      "id": "0:-2",
+      "bounds": [
+        0,
+        -8000,
+        4000,
+        -4000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/0_-2-d71887737e67.json.gz",
+      "bytes": 3931,
+      "decodedBytes": 20815,
+      "sha256": "d71887737e6783d6e26da67d69f2e267e0f93f2044814d46935804993471de36",
+      "decodedSha256": "382a9513b606120fcc4ba85aac9a4c34f639dc41852388b791828c25acae3c91",
+      "routes": 59,
+      "pieces": 60
+    },
+    {
+      "id": "0:0",
+      "bounds": [
+        0,
+        0,
+        4000,
+        4000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/0_0-534f0a1feb7c.json.gz",
+      "bytes": 5492,
+      "decodedBytes": 26585,
+      "sha256": "534f0a1feb7cbe99be552f09d1bb339899129b5cdbb714c09ebf8d2745d176e8",
+      "decodedSha256": "8f0193f83ab8a01f7b151bbe3617539adc0a6b9f4424f2d7f76f9d738098363f",
+      "routes": 57,
+      "pieces": 57
+    },
+    {
+      "id": "0:1",
+      "bounds": [
+        0,
+        4000,
+        4000,
+        8000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/0_1-aaf818dcbc51.json.gz",
+      "bytes": 96815,
+      "decodedBytes": 500749,
+      "sha256": "aaf818dcbc51170401853ecc8b8537fdcdc98586891eafae60bd827dcd9cd8d4",
+      "decodedSha256": "519653db32d2ec975f680728e8625cf574318938bfa930111950ae87a41a4cd5",
+      "routes": 1263,
+      "pieces": 1263
+    },
+    {
+      "id": "0:2",
+      "bounds": [
+        0,
+        8000,
+        4000,
+        12000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/0_2-5ec0caaf9df7.json.gz",
+      "bytes": 93376,
+      "decodedBytes": 517247,
+      "sha256": "5ec0caaf9df715a483b42979913c735e34a6c883618d276a61d9b4b3242770ab",
+      "decodedSha256": "bc9d06a0ff90fc6b74c20da09c1e87df48d585035ef7f2fff4c0433c2cffd631",
+      "routes": 1494,
+      "pieces": 1494
+    },
+    {
+      "id": "0:3",
+      "bounds": [
+        0,
+        12000,
+        4000,
+        16000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/0_3-92c3e22b4443.json.gz",
+      "bytes": 87933,
+      "decodedBytes": 471930,
+      "sha256": "92c3e22b444301694e82ccfde3a7a3b475c76ea0cad0e205f9d5ca9ee603268b",
+      "decodedSha256": "cb8333b689933100c63309b623a2bb46d4355b0cb8097e89648512c42d56b494",
+      "routes": 1252,
+      "pieces": 1256
+    },
+    {
+      "id": "0:4",
+      "bounds": [
+        0,
+        16000,
+        4000,
+        20000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/0_4-e6019139bc98.json.gz",
+      "bytes": 113134,
+      "decodedBytes": 567168,
+      "sha256": "e6019139bc9808d7db85c3e34b773cd6e50e815435ff3c3e526e6191951547e1",
+      "decodedSha256": "8a16561c4bb1ff04a523d02da0fd35c8228ad876353a65291b6ce202e13462d0",
+      "routes": 1269,
+      "pieces": 1274
+    },
+    {
+      "id": "0:5",
+      "bounds": [
+        0,
+        20000,
+        4000,
+        24000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/0_5-3c47de804974.json.gz",
+      "bytes": 59436,
+      "decodedBytes": 310082,
+      "sha256": "3c47de804974de34f1c23cd9f67f087bb7e090fa7ed28e91d3a9b2aa5470a81e",
+      "decodedSha256": "d36fe45449d6e67343c10d857b7d89e70203ad382d98c164bef67c967b33232a",
+      "routes": 727,
+      "pieces": 730
+    },
+    {
+      "id": "0:6",
+      "bounds": [
+        0,
+        24000,
+        4000,
+        28000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/0_6-725c9928472e.json.gz",
+      "bytes": 82563,
+      "decodedBytes": 437364,
+      "sha256": "725c9928472e830cf82f8919069d232970f847f897f122c6dda9e4ef986cd73f",
+      "decodedSha256": "fad0f33e164bdaa5334651b7ca11702db139e41881e3c4cee00bdaef5b929de7",
+      "routes": 1092,
+      "pieces": 1094
+    },
+    {
+      "id": "0:7",
+      "bounds": [
+        0,
+        28000,
+        4000,
+        32000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/0_7-9f9f76d91c66.json.gz",
+      "bytes": 33217,
+      "decodedBytes": 158909,
+      "sha256": "9f9f76d91c66af083e55dd4a11be5d24775ee443b42dcf1bc80da5b3f4b079c2",
+      "decodedSha256": "c3b471d677839ac0e7d00064193dbe0ecf07e0a1ab546e66b2154476d0fc8ec8",
+      "routes": 311,
+      "pieces": 314
+    },
+    {
+      "id": "0:8",
+      "bounds": [
+        0,
+        32000,
+        4000,
+        36000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/0_8-257963d4e6da.json.gz",
+      "bytes": 10765,
+      "decodedBytes": 57439,
+      "sha256": "257963d4e6da2020a173f1aa7df07d0e401ea01c86fbe3437c7b21730e44c8a0",
+      "decodedSha256": "c77c50174bd8ba89d13db2eb2428d17c6cf5af91b767cbdd3ff8f5f93ba0c05c",
+      "routes": 142,
+      "pieces": 142
+    },
+    {
+      "id": "1:-10",
+      "bounds": [
+        4000,
+        -40000.0,
+        8000,
+        -36000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/1_-10-2e370b4ed2f9.json.gz",
+      "bytes": 28194,
+      "decodedBytes": 131266,
+      "sha256": "2e370b4ed2f99100275b48678c8a6474ea0c234fffa4156a01188df1277f8657",
+      "decodedSha256": "3753a5313fe793b278817397604bf17591a330744af7baac9e0133667efefa9b",
+      "routes": 220,
+      "pieces": 221
+    },
+    {
+      "id": "1:-9",
+      "bounds": [
+        4000,
+        -36000,
+        8000,
+        -32000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/1_-9-1533e5342b41.json.gz",
+      "bytes": 44412,
+      "decodedBytes": 228743,
+      "sha256": "1533e5342b41e3f911ab4c2f0a3820fd602f38f8385ca42b5e91044bbf540af4",
+      "decodedSha256": "23ff297614ce3ddd9da16b58de6f911c3ffab8cdca443bd1f82d483b1142418b",
+      "routes": 525,
+      "pieces": 526
+    },
+    {
+      "id": "1:-8",
+      "bounds": [
+        4000,
+        -32000,
+        8000,
+        -28000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/1_-8-6910b1db6534.json.gz",
+      "bytes": 7135,
+      "decodedBytes": 34682,
+      "sha256": "6910b1db6534fc01903e47a338824cc3cde6311fadd05bae2f5fea6a551d1487",
+      "decodedSha256": "7cf54db754053652b27fcdbce9644161dd713993d2547fa403a9458a4e24c305",
+      "routes": 70,
+      "pieces": 70
+    },
+    {
+      "id": "1:-7",
+      "bounds": [
+        4000,
+        -28000,
+        8000,
+        -24000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/1_-7-528047af3ce3.json.gz",
+      "bytes": 3476,
+      "decodedBytes": 16938,
+      "sha256": "528047af3ce3cac267900522a760aad1d89b0466861c2d8e7ef9f5380da8587a",
+      "decodedSha256": "ce261349cf67aaa512a2d6334b88c42144078c09d17b4cf47bd930c9dcb0007c",
+      "routes": 33,
+      "pieces": 33
+    },
+    {
+      "id": "1:-5",
+      "bounds": [
+        4000,
+        -20000,
+        8000,
+        -16000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/1_-5-c214713304b8.json.gz",
+      "bytes": 476,
+      "decodedBytes": 1416,
+      "sha256": "c214713304b86d28d2796763a8168a14ba37ac5a1fab4da08c040a29a6074699",
+      "decodedSha256": "eb7e87f5fc54bfeb343e223dcd7673d6ca9498ce4fed8f42358d2ead69d63194",
+      "routes": 4,
+      "pieces": 4
+    },
+    {
+      "id": "1:-4",
+      "bounds": [
+        4000,
+        -16000,
+        8000,
+        -12000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/1_-4-64bbb5e92f70.json.gz",
+      "bytes": 12413,
+      "decodedBytes": 65520,
+      "sha256": "64bbb5e92f70c86373415a953b4c9d1785a5819328852d6282b5387e003b34ff",
+      "decodedSha256": "454eb8f5503a6f8b30fd1765587ab3b663cff8c5a773742dcd33a3dba283b610",
+      "routes": 184,
+      "pieces": 184
+    },
+    {
+      "id": "1:-3",
+      "bounds": [
+        4000,
+        -12000,
+        8000,
+        -8000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/1_-3-1ec0940e9d8a.json.gz",
+      "bytes": 18711,
+      "decodedBytes": 91619,
+      "sha256": "1ec0940e9d8afe15f4d3376b73324225509103f84e7e0e2e39626223157ae441",
+      "decodedSha256": "56c42aee2419c7cdaeb1eace4271d3235d0557440f7e8eb7bcfb581a26cb6eff",
+      "routes": 207,
+      "pieces": 207
+    },
+    {
+      "id": "1:-2",
+      "bounds": [
+        4000,
+        -8000,
+        8000,
+        -4000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/1_-2-1fa96c271832.json.gz",
+      "bytes": 12338,
+      "decodedBytes": 62737,
+      "sha256": "1fa96c2718327ecab66152509f653904e08b8ca0d3efdf42c90e3173b2744d66",
+      "decodedSha256": "b43103bf35721440fea887d5bffbc17673928612e743e7dc6513c7dd1900b7ed",
+      "routes": 168,
+      "pieces": 168
+    },
+    {
+      "id": "1:-1",
+      "bounds": [
+        4000,
+        -4000,
+        8000,
+        0
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/1_-1-ace256634768.json.gz",
+      "bytes": 56565,
+      "decodedBytes": 292184,
+      "sha256": "ace2566347687401065d20b591a814f3488c09c276370b64f9d22880ef8e38ba",
+      "decodedSha256": "2e2b70c83e9c034266304a14d12c845cce6647785d687f555658286bc040396a",
+      "routes": 736,
+      "pieces": 736
+    },
+    {
+      "id": "1:0",
+      "bounds": [
+        4000,
+        0,
+        8000,
+        4000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/1_0-ad97237e8964.json.gz",
+      "bytes": 96207,
+      "decodedBytes": 491277,
+      "sha256": "ad97237e89644ec061b002b96f5d705b3162a28da6b6066cd03cd4e4b4c31f20",
+      "decodedSha256": "16ee022703e75c136a8d83cafe8907a8270cfbaf044f355db10812b6c0465fff",
+      "routes": 1235,
+      "pieces": 1236
+    },
+    {
+      "id": "1:1",
+      "bounds": [
+        4000,
+        4000,
+        8000,
+        8000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/1_1-12cc2d0e984f.json.gz",
+      "bytes": 123475,
+      "decodedBytes": 643786,
+      "sha256": "12cc2d0e984f932f9b2c8e31574cc5c831ae6f89851216b246c75979611bc16f",
+      "decodedSha256": "f96bce9c3d05dfa5592285b9efc0f4efa8defe1aacc84913d35d6704f53cee11",
+      "routes": 1677,
+      "pieces": 1679
+    },
+    {
+      "id": "1:2",
+      "bounds": [
+        4000,
+        8000,
+        8000,
+        12000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/1_2-4897c2ff4fbd.json.gz",
+      "bytes": 100438,
+      "decodedBytes": 520708,
+      "sha256": "4897c2ff4fbde8c6ffe8bd920b5ec9659e3f4d56db13586dbc4611caf90d1c64",
+      "decodedSha256": "e305d3e7af543e237a62c11df80cd7cfced985add89cc7d1240e9603a55add66",
+      "routes": 1374,
+      "pieces": 1377
+    },
+    {
+      "id": "1:3",
+      "bounds": [
+        4000,
+        12000,
+        8000,
+        16000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/1_3-62617eb2db56.json.gz",
+      "bytes": 84819,
+      "decodedBytes": 455192,
+      "sha256": "62617eb2db562072d2e02f9cb66fbb083e21090ea4b96a830be31a58907fe41e",
+      "decodedSha256": "58efa94e52f975d74d8721398eaf363a11b149a228ea63bff8cd4354f5658510",
+      "routes": 1172,
+      "pieces": 1173
+    },
+    {
+      "id": "1:4",
+      "bounds": [
+        4000,
+        16000,
+        8000,
+        20000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/1_4-5cb892cd724f.json.gz",
+      "bytes": 54123,
+      "decodedBytes": 271880,
+      "sha256": "5cb892cd724f98d578cae4ab3ca311f7266f2b4d6f7b8ff883f6b8152e0130d6",
+      "decodedSha256": "00117df4806cf8f6dcbba50b81d23c8a53a0130c3eef62e973b9600fa8021b3d",
+      "routes": 603,
+      "pieces": 604
+    },
+    {
+      "id": "1:5",
+      "bounds": [
+        4000,
+        20000,
+        8000,
+        24000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/1_5-ec7e7f92aee8.json.gz",
+      "bytes": 71055,
+      "decodedBytes": 371617,
+      "sha256": "ec7e7f92aee8b88b2b3c759ed911234bf3b28dd20485ec765e615ca071264b30",
+      "decodedSha256": "ce6dab7c8af57839a1720baad19c58095a0291d61ff7fb1205c3c12d56325976",
+      "routes": 903,
+      "pieces": 907
+    },
+    {
+      "id": "1:6",
+      "bounds": [
+        4000,
+        24000,
+        8000,
+        28000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/1_6-5e581fbb8219.json.gz",
+      "bytes": 7924,
+      "decodedBytes": 37350,
+      "sha256": "5e581fbb8219bec5c5b196199f164c5d10db6fa9c384c8d5ede0644996fd1ad6",
+      "decodedSha256": "76d18d7f9c3dbe854f8564668a30135844b898b5bb16e8bd2b2d650b288cda8a",
+      "routes": 65,
+      "pieces": 65
+    },
+    {
+      "id": "1:7",
+      "bounds": [
+        4000,
+        28000,
+        8000,
+        32000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/1_7-e3a9874f4d50.json.gz",
+      "bytes": 1960,
+      "decodedBytes": 8302,
+      "sha256": "e3a9874f4d50cbd3de65ecf6027a9b2378df6ea8cdb712f4d7f08f6c0c82c51c",
+      "decodedSha256": "7387eb57b44f9029249903ae9c74012f468c575b2c04fafc9a284f5119e21b47",
+      "routes": 15,
+      "pieces": 15
+    },
+    {
+      "id": "2:-10",
+      "bounds": [
+        8000,
+        -40000.0,
+        12000,
+        -36000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/2_-10-cd4fd23c1709.json.gz",
+      "bytes": 65750,
+      "decodedBytes": 351719,
+      "sha256": "cd4fd23c1709fe217d4fca6b09aea68decf7a294d7705b5e32197ecd27acd96c",
+      "decodedSha256": "b95a680037a9bd9238d76bfb625b892f1a86ea6b6073bede847dc3d51be31b74",
+      "routes": 853,
+      "pieces": 857
+    },
+    {
+      "id": "2:-9",
+      "bounds": [
+        8000,
+        -36000,
+        12000,
+        -32000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/2_-9-bc4835bff921.json.gz",
+      "bytes": 24008,
+      "decodedBytes": 130881,
+      "sha256": "bc4835bff921836cc8b626fdc5874ca29a780e1490f5e861ac1c4f0f4b325de6",
+      "decodedSha256": "9988f6767f84d29e159baaad2c745d474fe619db24015f874ec785d423bf1fb2",
+      "routes": 343,
+      "pieces": 344
+    },
+    {
+      "id": "2:-7",
+      "bounds": [
+        8000,
+        -28000,
+        12000,
+        -24000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/2_-7-8dd1d8ad20d2.json.gz",
+      "bytes": 242,
+      "decodedBytes": 347,
+      "sha256": "8dd1d8ad20d2ec635122d9de6f2f831f0f898297d044bb65df40e5f3f0c9b519",
+      "decodedSha256": "7181c97eb6d4833bff59553ba4414172b824ac12b69a62db364ca97f9423fa1d",
+      "routes": 1,
+      "pieces": 1
+    },
+    {
+      "id": "2:-5",
+      "bounds": [
+        8000,
+        -20000,
+        12000,
+        -16000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/2_-5-28fcdeb42761.json.gz",
+      "bytes": 4627,
+      "decodedBytes": 27379,
+      "sha256": "28fcdeb42761fb3167745313995c3d0150190d41d27249b05e5513ad1d741c94",
+      "decodedSha256": "adad97ebfee637b7515e011b7e12e4bba3084c4398a005979e48252b7cdcf726",
+      "routes": 89,
+      "pieces": 89
+    },
+    {
+      "id": "2:-4",
+      "bounds": [
+        8000,
+        -16000,
+        12000,
+        -12000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/2_-4-c252fd8f0bfe.json.gz",
+      "bytes": 88022,
+      "decodedBytes": 496061,
+      "sha256": "c252fd8f0bfe7c80fa542ea1e0d6e2a481669a98c2462f740968036dc3acc4bd",
+      "decodedSha256": "143fdf8dbb397185e2387c26bf9e3fd91741216372e01febdac8b76aeafe9ec9",
+      "routes": 1467,
+      "pieces": 1467
+    },
+    {
+      "id": "2:-3",
+      "bounds": [
+        8000,
+        -12000,
+        12000,
+        -8000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/2_-3-9fa2477cbeb3.json.gz",
+      "bytes": 92689,
+      "decodedBytes": 506312,
+      "sha256": "9fa2477cbeb38dd08a00c24acb3e208619fd17f9bfe8e67b483ffa7beb02bcae",
+      "decodedSha256": "18faa85ccab7f5a1a7a3f847a36b290bbb754bdbb3d09fe8699f9efd2921d650",
+      "routes": 1383,
+      "pieces": 1384
+    },
+    {
+      "id": "2:-2",
+      "bounds": [
+        8000,
+        -8000,
+        12000,
+        -4000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/2_-2-0fc08802c337.json.gz",
+      "bytes": 125540,
+      "decodedBytes": 700521,
+      "sha256": "0fc08802c3372ada0d9c136f417c3cd83ceb0db636d7f0278e6a508ae1c36666",
+      "decodedSha256": "5ab9404794343bae27e94a5909d2433876443061b603b51b2ad639d9695aacea",
+      "routes": 2035,
+      "pieces": 2036
+    },
+    {
+      "id": "2:-1",
+      "bounds": [
+        8000,
+        -4000,
+        12000,
+        0
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/2_-1-02bdb6d7cf2b.json.gz",
+      "bytes": 133008,
+      "decodedBytes": 699583,
+      "sha256": "02bdb6d7cf2b40aaa4f26cd11e6ab9d3551b90698e01f25c6465ac2958906fbc",
+      "decodedSha256": "0daceb5ce051176c7641cea3029874a6c369b667a6adb24fb76e8519d111225a",
+      "routes": 1815,
+      "pieces": 1819
+    },
+    {
+      "id": "2:0",
+      "bounds": [
+        8000,
+        0,
+        12000,
+        4000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/2_0-4b6c91f12ac2.json.gz",
+      "bytes": 147155,
+      "decodedBytes": 771003,
+      "sha256": "4b6c91f12ac222082c583c143954046b1ecc391a89f117fd9441ccb40649d3a8",
+      "decodedSha256": "f8f384d26313097bd0d906476ebe5c918fd1d4e9bf057dfd6fcc3fd499155d2c",
+      "routes": 2033,
+      "pieces": 2036
+    },
+    {
+      "id": "2:1",
+      "bounds": [
+        8000,
+        4000,
+        12000,
+        8000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/2_1-7e21c1080d6c.json.gz",
+      "bytes": 126783,
+      "decodedBytes": 631913,
+      "sha256": "7e21c1080d6cd6b7206cb0eb6eeb1b9b18698eb5b1eb2b0ea41defd324e84429",
+      "decodedSha256": "3934f1f1f559717520743f93b7e659d7bd04795a456be16823af1030645ee81d",
+      "routes": 1577,
+      "pieces": 1578
+    },
+    {
+      "id": "2:2",
+      "bounds": [
+        8000,
+        8000,
+        12000,
+        12000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/2_2-1afc45bfed0d.json.gz",
+      "bytes": 115177,
+      "decodedBytes": 581341,
+      "sha256": "1afc45bfed0d7b083ec2b39910f4d755bdfdac6d80db200589941b37d79c86cf",
+      "decodedSha256": "c590a710fa9d66d6d921b4183b8af5e2293970a60097d71a7d1ab5c44864953d",
+      "routes": 1407,
+      "pieces": 1409
+    },
+    {
+      "id": "2:3",
+      "bounds": [
+        8000,
+        12000,
+        12000,
+        16000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/2_3-07267f15bb9b.json.gz",
+      "bytes": 31674,
+      "decodedBytes": 150687,
+      "sha256": "07267f15bb9b45e03eb15784795fa78a1e614f903b53f7faf9edf28d28c34816",
+      "decodedSha256": "bfedf8a81e81ee1937166bb66ed09d84da62b2087b35f6dbdd1181e649255737",
+      "routes": 314,
+      "pieces": 318
+    },
+    {
+      "id": "2:4",
+      "bounds": [
+        8000,
+        16000,
+        12000,
+        20000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/2_4-f0a8bc32a3dc.json.gz",
+      "bytes": 9873,
+      "decodedBytes": 46908,
+      "sha256": "f0a8bc32a3dc4667ef165aab185a1a1be473b5fac4b84d1c60f7b3076ea23df5",
+      "decodedSha256": "20eaa62fef5394d6b8a3d60f1abb6401927ad61af31f9e63d33ca7a36ad957ad",
+      "routes": 94,
+      "pieces": 95
+    },
+    {
+      "id": "2:5",
+      "bounds": [
+        8000,
+        20000,
+        12000,
+        24000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/2_5-2b790f2f52f5.json.gz",
+      "bytes": 8656,
+      "decodedBytes": 37469,
+      "sha256": "2b790f2f52f586441b966000e2b6cc6971c47d55c2c90a5f5f4051b3b1de7981",
+      "decodedSha256": "e9d21c22bffe59a617b75731c1915e34703b9e286669c8dba0769896b0265197",
+      "routes": 50,
+      "pieces": 50
+    },
+    {
+      "id": "2:7",
+      "bounds": [
+        8000,
+        28000,
+        12000,
+        32000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/2_7-7b765974ee43.json.gz",
+      "bytes": 2305,
+      "decodedBytes": 10055,
+      "sha256": "7b765974ee437d115a78e925402d316d5d43066124c5d62a04c3381f56c9e70f",
+      "decodedSha256": "8d7b76800331919ee80664b6ae12e47260371c288ecf512602d062720af010d4",
+      "routes": 19,
+      "pieces": 19
+    },
+    {
+      "id": "2:8",
+      "bounds": [
+        8000,
+        32000,
+        12000,
+        36000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/2_8-763d68725279.json.gz",
+      "bytes": 11238,
+      "decodedBytes": 57183,
+      "sha256": "763d68725279d09112f26f0fae0c47ce9a571c217ad4a18eb7b454bc4786cf1e",
+      "decodedSha256": "9ec8839df99431d305df79ebd95b922db96d8a7c36ef35423fb5540cb1bc7af1",
+      "routes": 135,
+      "pieces": 135
+    },
+    {
+      "id": "2:9",
+      "bounds": [
+        8000,
+        36000,
+        12000,
+        40000.0
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/2_9-b29d725cdb1d.json.gz",
+      "bytes": 5996,
+      "decodedBytes": 27725,
+      "sha256": "b29d725cdb1da50e37d655c806d252b3f58dafa3795c0746f31cd42749bc7285",
+      "decodedSha256": "cda81e1ac37c7add9b33db88968ef9fb00165624d9a0aacdacc54d44d7b0a77c",
+      "routes": 57,
+      "pieces": 57
+    },
+    {
+      "id": "3:-10",
+      "bounds": [
+        12000,
+        -40000.0,
+        16000,
+        -36000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/3_-10-c1c7f248deef.json.gz",
+      "bytes": 79865,
+      "decodedBytes": 432243,
+      "sha256": "c1c7f248deefba187d53af59bba556b76b0577e5f88141e8091d7a89d90f0a2e",
+      "decodedSha256": "219154c0b2c2f3419e451366b7faa723b382285cdbed3171b62c026e848f8e7c",
+      "routes": 1083,
+      "pieces": 1086
+    },
+    {
+      "id": "3:-9",
+      "bounds": [
+        12000,
+        -36000,
+        16000,
+        -32000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/3_-9-e7be5a959d3a.json.gz",
+      "bytes": 29771,
+      "decodedBytes": 172712,
+      "sha256": "e7be5a959d3a5d316ca876460ee35680500c698135f7c0b9013da97a8a7cd8b2",
+      "decodedSha256": "1ac1962ccafa9f6d19b82634dbebf79cb0fae6f670c99dc91a00322b7c6da5a7",
+      "routes": 491,
+      "pieces": 492
+    },
+    {
+      "id": "3:-5",
+      "bounds": [
+        12000,
+        -20000,
+        16000,
+        -16000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/3_-5-12d6a24ebd99.json.gz",
+      "bytes": 8015,
+      "decodedBytes": 45997,
+      "sha256": "12d6a24ebd996debae53f02c07a433450eaba14c9db9d7eb32f4a37fc7f5d2ca",
+      "decodedSha256": "f5afdbabf605c0df765a2b821ca25b01c738fa0086c35f1452cdbf238fbf89b6",
+      "routes": 141,
+      "pieces": 141
+    },
+    {
+      "id": "3:-4",
+      "bounds": [
+        12000,
+        -16000,
+        16000,
+        -12000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/3_-4-255f50b129ef.json.gz",
+      "bytes": 88718,
+      "decodedBytes": 453514,
+      "sha256": "255f50b129efdba58b1913e7037ddbfc5cce639e73fc8df9ce1b3f4f9dcb8bf5",
+      "decodedSha256": "5724e73da24a471ba65c6eaccde7a6dfcb269a20f44f46e23019111c7a638d58",
+      "routes": 1171,
+      "pieces": 1171
+    },
+    {
+      "id": "3:-3",
+      "bounds": [
+        12000,
+        -12000,
+        16000,
+        -8000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/3_-3-5923523597c1.json.gz",
+      "bytes": 99969,
+      "decodedBytes": 523384,
+      "sha256": "5923523597c156dcbe3f9bcba7c90e154575d85f4b37c9b79807b9faeaf67a71",
+      "decodedSha256": "a4b7693707001584939f1c42559f9a06dc7207bfc4e8f449aca292d9c08d3695",
+      "routes": 1378,
+      "pieces": 1378
+    },
+    {
+      "id": "3:-2",
+      "bounds": [
+        12000,
+        -8000,
+        16000,
+        -4000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/3_-2-4ac404afd64a.json.gz",
+      "bytes": 97037,
+      "decodedBytes": 535694,
+      "sha256": "4ac404afd64a830bbd84a861c71c1bb3f71e69a72d13a90bb24b3144612c5ba5",
+      "decodedSha256": "73f7b378205f0c003777550d86f63aff2a23a27b0e6e5638e92bee0bba5f92df",
+      "routes": 1493,
+      "pieces": 1493
+    },
+    {
+      "id": "3:-1",
+      "bounds": [
+        12000,
+        -4000,
+        16000,
+        0
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/3_-1-1737ce11a1cb.json.gz",
+      "bytes": 103095,
+      "decodedBytes": 544481,
+      "sha256": "1737ce11a1cbf39048fcdd31f116130d542a578e77cdbc27a85062631474a943",
+      "decodedSha256": "3774879eaad7791042ed2288b09d4ddc4aa3f08379b2856f561454bffeb273e2",
+      "routes": 1420,
+      "pieces": 1424
+    },
+    {
+      "id": "3:0",
+      "bounds": [
+        12000,
+        0,
+        16000,
+        4000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/3_0-c83a77a1cef6.json.gz",
+      "bytes": 141112,
+      "decodedBytes": 751945,
+      "sha256": "c83a77a1cef665db26ced5c13335a4c7f132de8371e320c82e7a46c6347014bb",
+      "decodedSha256": "0e81f4f1c392d3c23585e3cbcaa44dbb765997758377619df35e7857aebc92b4",
+      "routes": 2082,
+      "pieces": 2084
+    },
+    {
+      "id": "3:1",
+      "bounds": [
+        12000,
+        4000,
+        16000,
+        8000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/3_1-6f5db2d8385a.json.gz",
+      "bytes": 139249,
+      "decodedBytes": 716613,
+      "sha256": "6f5db2d8385a0cf421ea127e8c6092a14e6c2a65a9f8e78af5dc5ea5de8f839b",
+      "decodedSha256": "6fd3b271efd688927fd2ff53fec7bb822cadae01604d947598fa1d13800cf3fe",
+      "routes": 1869,
+      "pieces": 1871
+    },
+    {
+      "id": "3:2",
+      "bounds": [
+        12000,
+        8000,
+        16000,
+        12000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/3_2-55dce62bb9e5.json.gz",
+      "bytes": 48638,
+      "decodedBytes": 252890,
+      "sha256": "55dce62bb9e5eead4d29e7f830082744382971d804c7b61a9140708aecc20ab9",
+      "decodedSha256": "e71970043bcf50131372b7450707b293882a7e6f2e181296b4474dcf10683c90",
+      "routes": 639,
+      "pieces": 640
+    },
+    {
+      "id": "3:3",
+      "bounds": [
+        12000,
+        12000,
+        16000,
+        16000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/3_3-62bddb60721f.json.gz",
+      "bytes": 87686,
+      "decodedBytes": 443145,
+      "sha256": "62bddb60721fa311f8ba1ce532ff82509081b132a3d4021217563692817fd9d7",
+      "decodedSha256": "7709ffedb7ec0327c5ace8094d59e434585b49eb0af59a1aab93b2b7350a1c7e",
+      "routes": 1101,
+      "pieces": 1103
+    },
+    {
+      "id": "3:4",
+      "bounds": [
+        12000,
+        16000,
+        16000,
+        20000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/3_4-d02c5a9b252e.json.gz",
+      "bytes": 28084,
+      "decodedBytes": 138643,
+      "sha256": "d02c5a9b252e636bab3dac82dbb26ac15129ad451ce8be416d227fc4561742f4",
+      "decodedSha256": "a834eb9d811a09b71a76115bb62b02a08af994c1f0e10f793a11e4f6a490b177",
+      "routes": 334,
+      "pieces": 334
+    },
+    {
+      "id": "3:5",
+      "bounds": [
+        12000,
+        20000,
+        16000,
+        24000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/3_5-5acf422c5a26.json.gz",
+      "bytes": 27544,
+      "decodedBytes": 148694,
+      "sha256": "5acf422c5a267b9a70de86c350c4abcdc17ebe22a38dcf0674c73e179545b5d1",
+      "decodedSha256": "854fef98fd42cbce2f19653059ae552a03484cda458a9a67879c8702f89e7379",
+      "routes": 395,
+      "pieces": 396
+    },
+    {
+      "id": "3:6",
+      "bounds": [
+        12000,
+        24000,
+        16000,
+        28000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/3_6-f3906988ac44.json.gz",
+      "bytes": 45500,
+      "decodedBytes": 241145,
+      "sha256": "f3906988ac449acaf0b7dbfe70bc0bcdd5c790795d796d03a7bcf609c86537aa",
+      "decodedSha256": "337a2ae13a5e022972cb8902b6292e976d4b8b62714d977e50b1652e09e43b46",
+      "routes": 663,
+      "pieces": 664
+    },
+    {
+      "id": "3:7",
+      "bounds": [
+        12000,
+        28000,
+        16000,
+        32000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/3_7-b18800f71301.json.gz",
+      "bytes": 72238,
+      "decodedBytes": 363457,
+      "sha256": "b18800f71301c4449f62ea84a64b7b5302d7a00c4dce60fee0b591bc2c05fdcf",
+      "decodedSha256": "bb179b9a20bfb48a77d36ee46a7d9e817df6a7b7ab8497daa2d5f5477c5c75a4",
+      "routes": 881,
+      "pieces": 881
+    },
+    {
+      "id": "3:8",
+      "bounds": [
+        12000,
+        32000,
+        16000,
+        36000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/3_8-eda30803b46e.json.gz",
+      "bytes": 87295,
+      "decodedBytes": 448964,
+      "sha256": "eda30803b46e9918e063a4e61783dc9adf541b20f35877b340f2b80d17a98278",
+      "decodedSha256": "1ba8635016d9e40e65a42eef221d503fcc51de8296b649c64cfc0199dd51a198",
+      "routes": 1102,
+      "pieces": 1108
+    },
+    {
+      "id": "3:9",
+      "bounds": [
+        12000,
+        36000,
+        16000,
+        40000.0
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/3_9-dbc1ade51033.json.gz",
+      "bytes": 115718,
+      "decodedBytes": 574667,
+      "sha256": "dbc1ade5103323fa0f833d6224307f29d64a574f689e6387f2d3de5685e3bfb9",
+      "decodedSha256": "42745f8d6c0b03feca2a7cc0f7e965522772fbad791ed5e0373763e4abf47212",
+      "routes": 1303,
+      "pieces": 1307
+    },
+    {
+      "id": "4:-10",
+      "bounds": [
+        16000,
+        -40000.0,
+        20000,
+        -36000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/4_-10-bb87c57aaffb.json.gz",
+      "bytes": 71923,
+      "decodedBytes": 394506,
+      "sha256": "bb87c57aaffb9ecc0da711e23a534cc14541f0d65bd3ec7ee744cc0f30430fa8",
+      "decodedSha256": "fbcd675aa16703c4a596e31681a5465a82a4d1adfb2d25b5c01c046acb2fa54f",
+      "routes": 1028,
+      "pieces": 1033
+    },
+    {
+      "id": "4:-9",
+      "bounds": [
+        16000,
+        -36000,
+        20000,
+        -32000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/4_-9-d113445e1b6d.json.gz",
+      "bytes": 3087,
+      "decodedBytes": 14263,
+      "sha256": "d113445e1b6dfd4f8571de2e16879c06b12b3224483a54d8b02d540e5d7c5963",
+      "decodedSha256": "3cf973485e9c300bf5633148e7b592823837df859c27e4f494f53a8035395174",
+      "routes": 30,
+      "pieces": 30
+    },
+    {
+      "id": "4:-7",
+      "bounds": [
+        16000,
+        -28000,
+        20000,
+        -24000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/4_-7-c60bb1a2f670.json.gz",
+      "bytes": 851,
+      "decodedBytes": 3668,
+      "sha256": "c60bb1a2f670cbae24109c8a95b75910f920ab73aef1959be88d074dfccca4be",
+      "decodedSha256": "b20d689c22ecf0c3a20aa968116b1934ee2434a96fe87fd968dbc05aa37ac10a",
+      "routes": 12,
+      "pieces": 12
+    },
+    {
+      "id": "4:-6",
+      "bounds": [
+        16000,
+        -24000,
+        20000,
+        -20000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/4_-6-d69af704e1e3.json.gz",
+      "bytes": 18707,
+      "decodedBytes": 100969,
+      "sha256": "d69af704e1e31a40d63681ac812d7fd964071cacbefc0a4818402169c54684a2",
+      "decodedSha256": "c38aaeae4d4e69ffcc738c27c48e64cf224a8a2d935399d17e87cb20c92a8210",
+      "routes": 275,
+      "pieces": 276
+    },
+    {
+      "id": "4:-5",
+      "bounds": [
+        16000,
+        -20000,
+        20000,
+        -16000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/4_-5-8c9b09e1e032.json.gz",
+      "bytes": 43028,
+      "decodedBytes": 221583,
+      "sha256": "8c9b09e1e0324117732cef13cc462ab40ea3e25a8a4ea86b400a3d3837ba9227",
+      "decodedSha256": "1f3cc652b0419c92b8c52675dad86498dd243404cf1135f809d27daab249641c",
+      "routes": 564,
+      "pieces": 564
+    },
+    {
+      "id": "4:-4",
+      "bounds": [
+        16000,
+        -16000,
+        20000,
+        -12000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/4_-4-80d780fdd370.json.gz",
+      "bytes": 68056,
+      "decodedBytes": 338513,
+      "sha256": "80d780fdd370edd6837f4bb36907286349bfa35d4fad8cc74e3adb0922287988",
+      "decodedSha256": "8ab25af8eca1cb84b7e84a81d7c24567645de0396c627f25e4e7820165a03bc3",
+      "routes": 853,
+      "pieces": 853
+    },
+    {
+      "id": "4:-3",
+      "bounds": [
+        16000,
+        -12000,
+        20000,
+        -8000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/4_-3-fdacbaedd1df.json.gz",
+      "bytes": 82644,
+      "decodedBytes": 426338,
+      "sha256": "fdacbaedd1dfe4eb24c99cbb1717784a00d6c279d81ab30b630e6f25275838a2",
+      "decodedSha256": "0f28d2264d93115afdb6b9905062c408ea2c0c1e541d8b92e68456ccff0c30fa",
+      "routes": 1122,
+      "pieces": 1122
+    },
+    {
+      "id": "4:-2",
+      "bounds": [
+        16000,
+        -8000,
+        20000,
+        -4000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/4_-2-ea0b11d404ad.json.gz",
+      "bytes": 123894,
+      "decodedBytes": 675698,
+      "sha256": "ea0b11d404ad26f8d8fa2284d9c35d61fb6cb7ff0868a88066ca66ec2f69a4ae",
+      "decodedSha256": "c21d3bc6de64a4aba7526022bd4d390cb723adf47c4a371aca88673cbe275299",
+      "routes": 2017,
+      "pieces": 2017
+    },
+    {
+      "id": "4:-1",
+      "bounds": [
+        16000,
+        -4000,
+        20000,
+        0
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/4_-1-6d1ad8ccba5a.json.gz",
+      "bytes": 105952,
+      "decodedBytes": 574772,
+      "sha256": "6d1ad8ccba5af2c03cc21c4e7ec048df943de02b665d509cdabed1c9c58c3a9a",
+      "decodedSha256": "08c68e8fbf9adec8f6b1ca9a045c3f84e16d8988a72cdb224fe98b04ef89848f",
+      "routes": 1652,
+      "pieces": 1654
+    },
+    {
+      "id": "4:0",
+      "bounds": [
+        16000,
+        0,
+        20000,
+        4000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/4_0-349cbc2ed22a.json.gz",
+      "bytes": 130120,
+      "decodedBytes": 682027,
+      "sha256": "349cbc2ed22a5ece88a90a42abae119b656a22cc7ebdd32d966d37bfcd02168a",
+      "decodedSha256": "17051927ad66b2936e4fae22fe3a3039cfbb9fe5286b28ee8b923ca3253cc7f0",
+      "routes": 1874,
+      "pieces": 1878
+    },
+    {
+      "id": "4:1",
+      "bounds": [
+        16000,
+        4000,
+        20000,
+        8000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/4_1-6fa8aa8dbd66.json.gz",
+      "bytes": 82786,
+      "decodedBytes": 410320,
+      "sha256": "6fa8aa8dbd662d194fa7682e3e74a9995d871f5de7288cbcfaee23c64697a69c",
+      "decodedSha256": "d4198001bea8dcb30dc3d0080066f4b2d6345660a7e149ccd27135eedacd3b73",
+      "routes": 1012,
+      "pieces": 1013
+    },
+    {
+      "id": "4:2",
+      "bounds": [
+        16000,
+        8000,
+        20000,
+        12000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/4_2-3c6d3b709b04.json.gz",
+      "bytes": 71899,
+      "decodedBytes": 392753,
+      "sha256": "3c6d3b709b04a30073d791885638a513605f57d91c96bd7fe0ab2bace84b973f",
+      "decodedSha256": "0db7d8b49873f73d73ff1ecb360d9a0ca5bc36c7b79ecb1755345bc4993fc227",
+      "routes": 1163,
+      "pieces": 1163
+    },
+    {
+      "id": "4:3",
+      "bounds": [
+        16000,
+        12000,
+        20000,
+        16000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/4_3-d3304bfc4998.json.gz",
+      "bytes": 161460,
+      "decodedBytes": 840892,
+      "sha256": "d3304bfc49984c0ef65a1d606b339a6fc6c44c152dbf927fd6ce13d3e175b10b",
+      "decodedSha256": "b1bb4c1c3e28495b5808ea4b53ea67366d5e1ef747c22a9d17a19c105c8de6d0",
+      "routes": 2269,
+      "pieces": 2272
+    },
+    {
+      "id": "4:4",
+      "bounds": [
+        16000,
+        16000,
+        20000,
+        20000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/4_4-4844345cede2.json.gz",
+      "bytes": 144800,
+      "decodedBytes": 796387,
+      "sha256": "4844345cede26b7e9b9b842a810d3e9cbea903f6dbaee8f15059724db4e21798",
+      "decodedSha256": "8318a7fdd2aaa6961fc00f90beaebb069fc61eff93b2c43934e2261cc431fed2",
+      "routes": 2252,
+      "pieces": 2252
+    },
+    {
+      "id": "4:5",
+      "bounds": [
+        16000,
+        20000,
+        20000,
+        24000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/4_5-ec2061f3abe7.json.gz",
+      "bytes": 118507,
+      "decodedBytes": 614390,
+      "sha256": "ec2061f3abe715788b8784eb9a384172b9266323230f6cb8af147b9dec3bab12",
+      "decodedSha256": "3d5eea8f2a0cb731c1b19609ff20c49d1192af1150d8be9217f8704148ae4825",
+      "routes": 1617,
+      "pieces": 1617
+    },
+    {
+      "id": "4:6",
+      "bounds": [
+        16000,
+        24000,
+        20000,
+        28000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/4_6-357c38e2d1c4.json.gz",
+      "bytes": 128912,
+      "decodedBytes": 648212,
+      "sha256": "357c38e2d1c4b6afdc7199ca8e79e686118504add56f94e4a600ee8cfb294063",
+      "decodedSha256": "48fd989c5511115c04729d98928e13017b49636ae5ca60614dd3da0c5e21a927",
+      "routes": 1578,
+      "pieces": 1583
+    },
+    {
+      "id": "4:7",
+      "bounds": [
+        16000,
+        28000,
+        20000,
+        32000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/4_7-19bacc6f34b5.json.gz",
+      "bytes": 71851,
+      "decodedBytes": 354496,
+      "sha256": "19bacc6f34b5b938e7063e3885786e9d945658456d182f2bb22d7cce23542350",
+      "decodedSha256": "07886d8a8a1524ab571ffdc11c49809a6261d5c19858fbfbd06810039cb26761",
+      "routes": 797,
+      "pieces": 800
+    },
+    {
+      "id": "4:8",
+      "bounds": [
+        16000,
+        32000,
+        20000,
+        36000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/4_8-a737553aca94.json.gz",
+      "bytes": 68853,
+      "decodedBytes": 343786,
+      "sha256": "a737553aca944191285a45c222a4da833bd848dfb5482e27cbe3a00919782676",
+      "decodedSha256": "6515962982c6c3d49a01042a399a1d3eea54177395ec77bf1301d6880888a215",
+      "routes": 785,
+      "pieces": 790
+    },
+    {
+      "id": "4:9",
+      "bounds": [
+        16000,
+        36000,
+        20000,
+        40000.0
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/4_9-dcdaa165bdc9.json.gz",
+      "bytes": 89671,
+      "decodedBytes": 426203,
+      "sha256": "dcdaa165bdc9f53f30728ef99bd97011f8f65761cef8c706e10a46ae73b2fbaf",
+      "decodedSha256": "4b7114ea4fc8a35121227fd3b6c57b002f1a2163c3dcb8693bf25c29d0cff575",
+      "routes": 881,
+      "pieces": 883
+    },
+    {
+      "id": "5:-10",
+      "bounds": [
+        20000,
+        -40000.0,
+        24000,
+        -36000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/5_-10-0b64bf767d98.json.gz",
+      "bytes": 19781,
+      "decodedBytes": 107016,
+      "sha256": "0b64bf767d9850e8700b011e3b64fdedf878b807d94f4fabe8742369128d3336",
+      "decodedSha256": "695b5c18c88f021ebd1baf8c6f098303f75d731172aa750b8ff425fa583e0d80",
+      "routes": 275,
+      "pieces": 275
+    },
+    {
+      "id": "5:-8",
+      "bounds": [
+        20000,
+        -32000,
+        24000,
+        -28000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/5_-8-fbce9511cf5a.json.gz",
+      "bytes": 23470,
+      "decodedBytes": 125855,
+      "sha256": "fbce9511cf5a673584e3cb7d457c146b17191095b27c4653c8acb450d900b5f1",
+      "decodedSha256": "295ad37043375a0834fc4fdcd1791091a7085f4251f9196337d0d7053984c4ce",
+      "routes": 341,
+      "pieces": 341
+    },
+    {
+      "id": "5:-7",
+      "bounds": [
+        20000,
+        -28000,
+        24000,
+        -24000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/5_-7-dd1301363cc1.json.gz",
+      "bytes": 72778,
+      "decodedBytes": 384505,
+      "sha256": "dd1301363cc142a1660a841343be65984d930d740ee7cf3b479885ebe4d21202",
+      "decodedSha256": "5f8eda3713449b5a2cd60741e855e7c3fb8431f03c22ba7722eb53831f23e5c4",
+      "routes": 980,
+      "pieces": 981
+    },
+    {
+      "id": "5:-6",
+      "bounds": [
+        20000,
+        -24000,
+        24000,
+        -20000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/5_-6-b09d46787eeb.json.gz",
+      "bytes": 90001,
+      "decodedBytes": 461537,
+      "sha256": "b09d46787eebe449f42a84262f2c06bc97dd42b3c6b7831cda16525799413bb6",
+      "decodedSha256": "0e7572a2ea9831e3f43b7c6a6ce5744d4b087a8d5081b3cf74c2425ea98ae6c8",
+      "routes": 1140,
+      "pieces": 1143
+    },
+    {
+      "id": "5:-5",
+      "bounds": [
+        20000,
+        -20000,
+        24000,
+        -16000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/5_-5-abe112186e25.json.gz",
+      "bytes": 115486,
+      "decodedBytes": 593214,
+      "sha256": "abe112186e250a7f12398f67b5272c54ff41aa66f4600c44b04f4d412fa467e6",
+      "decodedSha256": "191b018ac43dbffec1a6f35eb04e9545170d94383aa84c20f4ff2719db454316",
+      "routes": 1489,
+      "pieces": 1490
+    },
+    {
+      "id": "5:-4",
+      "bounds": [
+        20000,
+        -16000,
+        24000,
+        -12000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/5_-4-494f80dbfc4c.json.gz",
+      "bytes": 49649,
+      "decodedBytes": 246662,
+      "sha256": "494f80dbfc4c057684028c669b9d337f45e09b7443227b423304f8ced9658acb",
+      "decodedSha256": "ae154804fe678e1db0e56b7186cca446c90ea6bdb8c5b72cee3ecabb6fe5df2c",
+      "routes": 574,
+      "pieces": 574
+    },
+    {
+      "id": "5:-3",
+      "bounds": [
+        20000,
+        -12000,
+        24000,
+        -8000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/5_-3-b03155aca57e.json.gz",
+      "bytes": 7566,
+      "decodedBytes": 37681,
+      "sha256": "b03155aca57e2ff3b28cf6565be89600713af761a20d103fdc1a7a9f24c26e0f",
+      "decodedSha256": "459820106b1db1aea103c43b0a9be3fd338bbf2fce5ecef8419cca7be0ab8124",
+      "routes": 92,
+      "pieces": 92
+    },
+    {
+      "id": "5:-2",
+      "bounds": [
+        20000,
+        -8000,
+        24000,
+        -4000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/5_-2-b77093109ba7.json.gz",
+      "bytes": 57298,
+      "decodedBytes": 314556,
+      "sha256": "b77093109ba70d62eacfb3b180128368df6845725d4a8281cbbd363052181f5f",
+      "decodedSha256": "7e57b949d7fd5fc36345cfd9f5e1c4ad2441972136558a0515477f6b9ecbbbd7",
+      "routes": 937,
+      "pieces": 938
+    },
+    {
+      "id": "5:-1",
+      "bounds": [
+        20000,
+        -4000,
+        24000,
+        0
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/5_-1-d1bc89cbce74.json.gz",
+      "bytes": 127830,
+      "decodedBytes": 736299,
+      "sha256": "d1bc89cbce7490a163ba469944877a576ab87df95f49d289a61962efe4462249",
+      "decodedSha256": "b34e9ff3fed9edc8fec24007704f937cfe05221efb7d04fd3580c2d6eca762fb",
+      "routes": 2296,
+      "pieces": 2296
+    },
+    {
+      "id": "5:0",
+      "bounds": [
+        20000,
+        0,
+        24000,
+        4000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/5_0-c822dceae0e5.json.gz",
+      "bytes": 124716,
+      "decodedBytes": 715700,
+      "sha256": "c822dceae0e587312f623c5524ce9a341644f074037876aa42b5b1ed17e9e755",
+      "decodedSha256": "010da39f8f7db937d21736f286dfcaf88026c6e45bf0429516b23792613d39df",
+      "routes": 2291,
+      "pieces": 2291
+    },
+    {
+      "id": "5:1",
+      "bounds": [
+        20000,
+        4000,
+        24000,
+        8000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/5_1-a5661bd7483d.json.gz",
+      "bytes": 107973,
+      "decodedBytes": 576850,
+      "sha256": "a5661bd7483d5d54d2566667b2e42d27c4cd9fd243ae5a3966d0ad432a2a4d3b",
+      "decodedSha256": "595e2f20d13e415d6ffb66c65c55f119645bc0f18766e5144e910c78af56e72d",
+      "routes": 1636,
+      "pieces": 1637
+    },
+    {
+      "id": "5:2",
+      "bounds": [
+        20000,
+        8000,
+        24000,
+        12000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/5_2-fb135de2aef7.json.gz",
+      "bytes": 169190,
+      "decodedBytes": 895022,
+      "sha256": "fb135de2aef799d149db00f2db40850099e0d9eb6f0deae8c77bb3927072ecba",
+      "decodedSha256": "aff88a8174c7be41b34dfb46a754f3189ab6697081e589dbbbb2cc04525260e2",
+      "routes": 2569,
+      "pieces": 2571
+    },
+    {
+      "id": "5:3",
+      "bounds": [
+        20000,
+        12000,
+        24000,
+        16000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/5_3-ce09bb06cb3b.json.gz",
+      "bytes": 149012,
+      "decodedBytes": 797953,
+      "sha256": "ce09bb06cb3b3338de9d605273c6b0cda469eb35c4e2f1d773d359a3bd0d8b1c",
+      "decodedSha256": "3410a588a0d2a5dfbe275db898039bd87367bc2d08ba14db20f665bcebf45247",
+      "routes": 2237,
+      "pieces": 2237
+    },
+    {
+      "id": "5:4",
+      "bounds": [
+        20000,
+        16000,
+        24000,
+        20000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/5_4-b539f5d3e12e.json.gz",
+      "bytes": 121597,
+      "decodedBytes": 613867,
+      "sha256": "b539f5d3e12e8601772c0249dcbfa567f12b1b26fdd14fc1a1478c1b2e445729",
+      "decodedSha256": "532a4246277e1ea89ae7d3562aaac148b672ec1d4e76bab9a0ab6c12cf24e7d3",
+      "routes": 1525,
+      "pieces": 1528
+    },
+    {
+      "id": "5:5",
+      "bounds": [
+        20000,
+        20000,
+        24000,
+        24000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/5_5-5a2304be57c7.json.gz",
+      "bytes": 136292,
+      "decodedBytes": 696030,
+      "sha256": "5a2304be57c736fd8142e1046aa6537a524dc31ee0c342660f9927be1d60a361",
+      "decodedSha256": "872da27bb40625497e91056b942c9e4c5dd63924f5f849b0f48c31e018c9967a",
+      "routes": 1809,
+      "pieces": 1813
+    },
+    {
+      "id": "5:6",
+      "bounds": [
+        20000,
+        24000,
+        24000,
+        28000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/5_6-0b7f0e2fe891.json.gz",
+      "bytes": 140441,
+      "decodedBytes": 719582,
+      "sha256": "0b7f0e2fe89149ca859578e6209c843de7b6f97596bd1cdc3e3eaada3b73fff9",
+      "decodedSha256": "09376b30e9198ca64c93cdc4cba10ea350cb7b5913baa68ee5d889e2baec9f8f",
+      "routes": 1786,
+      "pieces": 1789
+    },
+    {
+      "id": "5:7",
+      "bounds": [
+        20000,
+        28000,
+        24000,
+        32000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/5_7-9373ea69ead0.json.gz",
+      "bytes": 121421,
+      "decodedBytes": 617003,
+      "sha256": "9373ea69ead09c17e5cb96843c8c14cf04f90d0bd3c8d8bd0f809bd725017829",
+      "decodedSha256": "abac74aef083e1f9a354cfd84e0c46204976891a1a79a2b036700d45cb4a65d6",
+      "routes": 1481,
+      "pieces": 1483
+    },
+    {
+      "id": "5:8",
+      "bounds": [
+        20000,
+        32000,
+        24000,
+        36000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/5_8-78cce364f249.json.gz",
+      "bytes": 92768,
+      "decodedBytes": 461742,
+      "sha256": "78cce364f249bf31f1a368910af2fd4c38bf602772f2bd5539d0976d2598a1ac",
+      "decodedSha256": "724994a539ea804b7a223ad5e5b36c680b8be92803df4716c1198a3f6bdc38ce",
+      "routes": 1083,
+      "pieces": 1083
+    },
+    {
+      "id": "5:9",
+      "bounds": [
+        20000,
+        36000,
+        24000,
+        40000.0
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/5_9-4d25d7d4f089.json.gz",
+      "bytes": 122531,
+      "decodedBytes": 644666,
+      "sha256": "4d25d7d4f089ab93ca78bfbd36320a9a5eeb3ab05922651a028e7b213aabc6e7",
+      "decodedSha256": "d14968b9365a084420440a43041de69775f7ddf003fb754686fe23dc031969f0",
+      "routes": 1701,
+      "pieces": 1707
+    },
+    {
+      "id": "6:-10",
+      "bounds": [
+        24000,
+        -40000.0,
+        28000,
+        -36000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/6_-10-861b187bfc68.json.gz",
+      "bytes": 26086,
+      "decodedBytes": 141883,
+      "sha256": "861b187bfc686774285d0a1a63c8bd9e8383f1ea934b89481523f40dcce12ce2",
+      "decodedSha256": "43c1c3e9f38dfe88789e86501d3c366153c7c712b202990e9211f631959e430e",
+      "routes": 402,
+      "pieces": 402
+    },
+    {
+      "id": "6:-9",
+      "bounds": [
+        24000,
+        -36000,
+        28000,
+        -32000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/6_-9-eb215d561f48.json.gz",
+      "bytes": 33520,
+      "decodedBytes": 180789,
+      "sha256": "eb215d561f487aaf4293c3f176d951f27ea859fb6bef8f5b1a8c40edb793b6a3",
+      "decodedSha256": "cc93708c6bf9f31c6c2db69d0e7858fc4cd87015a6ec8826466dc5dc9bb69f14",
+      "routes": 488,
+      "pieces": 489
+    },
+    {
+      "id": "6:-8",
+      "bounds": [
+        24000,
+        -32000,
+        28000,
+        -28000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/6_-8-155f32edb7a0.json.gz",
+      "bytes": 88259,
+      "decodedBytes": 448730,
+      "sha256": "155f32edb7a085b174db2c2de24f8a8bb27ffd612e133e6771ae47c1d94acce9",
+      "decodedSha256": "81db4e22c441e4df39c63418211f46350eb027d308c63c60228006ac19533ab0",
+      "routes": 1105,
+      "pieces": 1109
+    },
+    {
+      "id": "6:-7",
+      "bounds": [
+        24000,
+        -28000,
+        28000,
+        -24000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/6_-7-0fa565443df9.json.gz",
+      "bytes": 46226,
+      "decodedBytes": 239337,
+      "sha256": "0fa565443df98c4761164e1e105febaa446b4a202cd330b11998449017a8f34c",
+      "decodedSha256": "80c48bf438c30ef8df82881b9a836daf52a26b108c6331747d2b115958678412",
+      "routes": 616,
+      "pieces": 616
+    },
+    {
+      "id": "6:-6",
+      "bounds": [
+        24000,
+        -24000,
+        28000,
+        -20000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/6_-6-8f9ad46a7579.json.gz",
+      "bytes": 82708,
+      "decodedBytes": 423002,
+      "sha256": "8f9ad46a7579aa1cfd0309e51c66d113836e0fb1bca22f4124ff9ef9dcf2d1cc",
+      "decodedSha256": "1f1c98578aad7eed1426e94f0a58678f9f83ee9c62616c485f4f9e79a589276f",
+      "routes": 1045,
+      "pieces": 1050
+    },
+    {
+      "id": "6:-5",
+      "bounds": [
+        24000,
+        -20000,
+        28000,
+        -16000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/6_-5-dec21c1ac86d.json.gz",
+      "bytes": 100168,
+      "decodedBytes": 520407,
+      "sha256": "dec21c1ac86d580635e7cddf290514d49f38a9ab237b17418ca552b7a780f6d0",
+      "decodedSha256": "7bea6a74418fc4f10092a344133a7f11075a7b415617facebedede7abcc9647c",
+      "routes": 1317,
+      "pieces": 1319
+    },
+    {
+      "id": "6:-4",
+      "bounds": [
+        24000,
+        -16000,
+        28000,
+        -12000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/6_-4-1feb9eae61b1.json.gz",
+      "bytes": 60879,
+      "decodedBytes": 337478,
+      "sha256": "1feb9eae61b10c9c6906c3a03477db6777c25e3e4b08d0f9402a3670fc0509ab",
+      "decodedSha256": "b1cf6ce707b3eb89980a728cb2f2c4856c2da66c2ad2e5ea285c5fa4fdd35247",
+      "routes": 973,
+      "pieces": 974
+    },
+    {
+      "id": "6:-3",
+      "bounds": [
+        24000,
+        -12000,
+        28000,
+        -8000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/6_-3-548f3ac05ea6.json.gz",
+      "bytes": 83808,
+      "decodedBytes": 439618,
+      "sha256": "548f3ac05ea68c883c5df83ac547260173715c7412a412d35e985d39b73cba12",
+      "decodedSha256": "5cb2720d91c9b08e207ea170696a2c00e1e986da275774ac3178ba8e266ad71e",
+      "routes": 1194,
+      "pieces": 1195
+    },
+    {
+      "id": "6:-2",
+      "bounds": [
+        24000,
+        -8000,
+        28000,
+        -4000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/6_-2-c66186cc4ef5.json.gz",
+      "bytes": 148493,
+      "decodedBytes": 804350,
+      "sha256": "c66186cc4ef50537b58e73fb58708e33e35761ff2ade87b1aeab7f1db1211e64",
+      "decodedSha256": "59b21ae08614d487eb9c13894e62aa9f439f577a2d64d146ab49913d4d1dfe29",
+      "routes": 2328,
+      "pieces": 2332
+    },
+    {
+      "id": "6:-1",
+      "bounds": [
+        24000,
+        -4000,
+        28000,
+        0
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/6_-1-51958d3ead3b.json.gz",
+      "bytes": 108625,
+      "decodedBytes": 586180,
+      "sha256": "51958d3ead3b1152f0c307791ec4a58f51938fdceb247a523e9be8fcdf7acb3d",
+      "decodedSha256": "17d2bec9bd031edf1bd2b8befd20c843b1718f4c0376977a22906f4ece270e08",
+      "routes": 1648,
+      "pieces": 1650
+    },
+    {
+      "id": "6:0",
+      "bounds": [
+        24000,
+        0,
+        28000,
+        4000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/6_0-a9eb31c6f03f.json.gz",
+      "bytes": 107659,
+      "decodedBytes": 588100,
+      "sha256": "a9eb31c6f03f1a2a68c1c116d783b80e7728448f1e85889cb75eca3aac6e6761",
+      "decodedSha256": "5b71cf5f45c4f6f07dcd6546aa7e3226cf0ab5c4191e3e3098513fbddbf00b33",
+      "routes": 1723,
+      "pieces": 1724
+    },
+    {
+      "id": "6:1",
+      "bounds": [
+        24000,
+        4000,
+        28000,
+        8000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/6_1-2c0851afbcf6.json.gz",
+      "bytes": 91216,
+      "decodedBytes": 542215,
+      "sha256": "2c0851afbcf63e46a1e1f0b6e124b9b544799a1721cbbdc5d3b32f051f506faf",
+      "decodedSha256": "9ae7f0459a6cda9ccb10b19e06fd375349d27563b8ee9e0c60f1cd6f5cf4c12a",
+      "routes": 1693,
+      "pieces": 1699
+    },
+    {
+      "id": "6:2",
+      "bounds": [
+        24000,
+        8000,
+        28000,
+        12000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/6_2-d925bdb414e3.json.gz",
+      "bytes": 142114,
+      "decodedBytes": 736607,
+      "sha256": "d925bdb414e3af50d8dac7f8863ca89cbb7b5a4bd46b507de49634638e307a80",
+      "decodedSha256": "1055f2e21e5ef566059f1b82f1595d61ddbacbaf3529cdeb6a4ade702633756f",
+      "routes": 1956,
+      "pieces": 1956
+    },
+    {
+      "id": "6:3",
+      "bounds": [
+        24000,
+        12000,
+        28000,
+        16000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/6_3-f9ff54561490.json.gz",
+      "bytes": 65304,
+      "decodedBytes": 330997,
+      "sha256": "f9ff5456149067e1049124b0320ca46de297176a4f172a570b91d3158cb2905a",
+      "decodedSha256": "ddac4cae75acd31851b33e25f2c700f606e414cb13b2923ec14e21c54e9121b3",
+      "routes": 820,
+      "pieces": 821
+    },
+    {
+      "id": "6:4",
+      "bounds": [
+        24000,
+        16000,
+        28000,
+        20000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/6_4-b6d5b8fb6a15.json.gz",
+      "bytes": 59697,
+      "decodedBytes": 285651,
+      "sha256": "b6d5b8fb6a1563bb72384bee85f75978f296db14aba3946ca7a610f6705ea238",
+      "decodedSha256": "29ea98a566b55f0d51542ad4f30f8e9b32a01576dc78d6a9786bb7a8916c673e",
+      "routes": 610,
+      "pieces": 612
+    },
+    {
+      "id": "6:5",
+      "bounds": [
+        24000,
+        20000,
+        28000,
+        24000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/6_5-fdcd74469739.json.gz",
+      "bytes": 82769,
+      "decodedBytes": 444364,
+      "sha256": "fdcd744697395b750a65cba2a3b78ce97e62da57d04bb08636f6b5888c9293f4",
+      "decodedSha256": "61ad1e33fa107c653cd83f1b8d421c1218e6dd6d88bc2f5c39e5614b4e45f0f8",
+      "routes": 1204,
+      "pieces": 1205
+    },
+    {
+      "id": "6:6",
+      "bounds": [
+        24000,
+        24000,
+        28000,
+        28000
+      ],
+      "path": "assets/cities/jfk/traffic-region-v1/6_6-069c05c08529.json.gz",
+      "bytes": 100061,
+      "decodedBytes": 515495,
+      "sha256": "069c05c085292e6a0c4269b8bce792a441e934afe47b4ac592764f10bc79246e",
+      "decodedSha256": "9570f84cdee0f49c971cf265b79e0569c0a6a9d6b16c349ad5ce3266afc56354",
+      "routes": 1278,
+      "pieces": 1281
+    },
+    {
+      "id": "6:7",
+      "bounds": [
+        24000,
+        28000,
+        28000,
+        32000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/6_7-562845bfaf72.json.gz",
+      "bytes": 85561,
+      "decodedBytes": 411341,
+      "sha256": "562845bfaf72707ce0cb15df1c231a9eaf06fe6d657b8c8a8835af98ac59990e",
+      "decodedSha256": "80262462887ea73975b6b209790b5b5cca39d0f0df3bddea7834a6418313602f",
+      "routes": 864,
+      "pieces": 867
+    },
+    {
+      "id": "6:8",
+      "bounds": [
+        24000,
+        32000,
+        28000,
+        36000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/6_8-d69704bc6f95.json.gz",
+      "bytes": 63144,
+      "decodedBytes": 315043,
+      "sha256": "d69704bc6f954fb76f3e9dd1305ffc82c2a22f44d966514918026932b2f165cf",
+      "decodedSha256": "4f1b0dda6d951c0a13fded9d8f07b3e81547b545c552b93f29e094931ccff84d",
+      "routes": 707,
+      "pieces": 714
+    },
+    {
+      "id": "6:9",
+      "bounds": [
+        24000,
+        36000,
+        28000,
+        40000.0
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/6_9-a24ac9f042ad.json.gz",
+      "bytes": 117559,
+      "decodedBytes": 607552,
+      "sha256": "a24ac9f042adafeb58b95c9ab77c4c9d6ec354cbde94400fc6ca0fa0ae9959b2",
+      "decodedSha256": "64c5201e3507b0ecde43a8d96409122db135e78ee9f160b06d1fe37da24d41f1",
+      "routes": 1535,
+      "pieces": 1543
+    },
+    {
+      "id": "7:-10",
+      "bounds": [
+        28000,
+        -40000.0,
+        32000,
+        -36000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/7_-10-cd8c99a0c4d1.json.gz",
+      "bytes": 64112,
+      "decodedBytes": 335098,
+      "sha256": "cd8c99a0c4d153d9974d08a8f8baeb7b629853e7a26c8a6a181f868e198aad6f",
+      "decodedSha256": "29edd361dcacd7d21ff4048c85c1d5d92880d4052d5c70fe17555c04fe9fdb36",
+      "routes": 898,
+      "pieces": 902
+    },
+    {
+      "id": "7:-9",
+      "bounds": [
+        28000,
+        -36000,
+        32000,
+        -32000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/7_-9-cf26d7e57d19.json.gz",
+      "bytes": 111946,
+      "decodedBytes": 574704,
+      "sha256": "cf26d7e57d199bd10bef0926a955413361b2dc9af12070daa4afc106d2a7fa60",
+      "decodedSha256": "4aded196505bb86509b79b54f6082f6fc54ed0edca0fc925970b96d5bcb66397",
+      "routes": 1472,
+      "pieces": 1483
+    },
+    {
+      "id": "7:-8",
+      "bounds": [
+        28000,
+        -32000,
+        32000,
+        -28000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/7_-8-6ca4b2eb138d.json.gz",
+      "bytes": 40627,
+      "decodedBytes": 218158,
+      "sha256": "6ca4b2eb138df28e3412ae79c739aa86c75cf35aba04c0d7c530c724d80c4b99",
+      "decodedSha256": "2db7b1752d38a63008ec71ca42f33d36cf3bfe6183859b2472bc24ee68dcfb1b",
+      "routes": 605,
+      "pieces": 607
+    },
+    {
+      "id": "7:-7",
+      "bounds": [
+        28000,
+        -28000,
+        32000,
+        -24000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/7_-7-2c4b26f48190.json.gz",
+      "bytes": 55534,
+      "decodedBytes": 306302,
+      "sha256": "2c4b26f481907b49685ee900512d9740807dadb14bf9c3d2371346f3080c4fb2",
+      "decodedSha256": "e3de704c8d234f2f02ef0f9b28b1155163ab9cd9cfbc2227e670bff651370bd1",
+      "routes": 854,
+      "pieces": 856
+    },
+    {
+      "id": "7:-6",
+      "bounds": [
+        28000,
+        -24000,
+        32000,
+        -20000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/7_-6-09e44fdaecd0.json.gz",
+      "bytes": 25316,
+      "decodedBytes": 127655,
+      "sha256": "09e44fdaecd05d703edde37618eb5693ef41a9cf7ca9e553ff9d880a112e2a6a",
+      "decodedSha256": "b1df93d1d28eff8cd5e350402e2e091187ab7650e195c105b554cca649754638",
+      "routes": 336,
+      "pieces": 338
+    },
+    {
+      "id": "7:-5",
+      "bounds": [
+        28000,
+        -20000,
+        32000,
+        -16000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/7_-5-9285152559f6.json.gz",
+      "bytes": 61084,
+      "decodedBytes": 322055,
+      "sha256": "9285152559f671c2a41c8eb6315cfc13ba6a23b9a74e1196ebce7f3b5ef4918b",
+      "decodedSha256": "03cb2f0e4ff83d1d419c066a49fb7b4e9f1f1ffd32e8a0d3601060d03785068c",
+      "routes": 873,
+      "pieces": 878
+    },
+    {
+      "id": "7:-4",
+      "bounds": [
+        28000,
+        -16000,
+        32000,
+        -12000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/7_-4-ef2aaf52d70b.json.gz",
+      "bytes": 35596,
+      "decodedBytes": 176753,
+      "sha256": "ef2aaf52d70b9aa10fd1b30ddc3cd140a55666d2a863d335012639574771edea",
+      "decodedSha256": "92f81c4f779349de1398df027cc7965ec87bf6eb7ed96c25b0c8561468316ab2",
+      "routes": 418,
+      "pieces": 418
+    },
+    {
+      "id": "7:-3",
+      "bounds": [
+        28000,
+        -12000,
+        32000,
+        -8000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/7_-3-3266da0d7739.json.gz",
+      "bytes": 59791,
+      "decodedBytes": 296362,
+      "sha256": "3266da0d773924815de9215abeebb5765703da74065ab1d3030aa2e6f11ddf06",
+      "decodedSha256": "b09e71bb0e34817802bfa102f8de9f38c26d534c82e4b7a113aaf6a6ba5e52f2",
+      "routes": 730,
+      "pieces": 733
+    },
+    {
+      "id": "7:-2",
+      "bounds": [
+        28000,
+        -8000,
+        32000,
+        -4000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/7_-2-5e461e058e08.json.gz",
+      "bytes": 64831,
+      "decodedBytes": 318481,
+      "sha256": "5e461e058e0846fe72b266b5ade259c760353b80489d554aa83c748efa994d5c",
+      "decodedSha256": "ac5508767b5a9f8013400b64d8db0a1624f024156f1c00c329a0fcfc5846cac9",
+      "routes": 778,
+      "pieces": 780
+    },
+    {
+      "id": "7:-1",
+      "bounds": [
+        28000,
+        -4000,
+        32000,
+        0
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/7_-1-7c89c540efdf.json.gz",
+      "bytes": 49434,
+      "decodedBytes": 256370,
+      "sha256": "7c89c540efdf5e22edcd21e1aa563e45228bb65fb95adfa83e1f9d3d42fdabe1",
+      "decodedSha256": "aac52f7512b222b3e5e423802322a8a651e88f4cfd4b4e5a5fdadb1c87e5edd1",
+      "routes": 678,
+      "pieces": 681
+    },
+    {
+      "id": "7:0",
+      "bounds": [
+        28000,
+        0,
+        32000,
+        4000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/7_0-a739f3caaf0f.json.gz",
+      "bytes": 96926,
+      "decodedBytes": 515550,
+      "sha256": "a739f3caaf0fb64bf836e011497da4bc2617aaca1718196903e963af706406da",
+      "decodedSha256": "ae3cc232ce3af5b5399e3cf5c4acf4af133e306bb640d0af36c2212293090366",
+      "routes": 1431,
+      "pieces": 1434
+    },
+    {
+      "id": "7:1",
+      "bounds": [
+        28000,
+        4000,
+        32000,
+        8000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/7_1-ddd42772f978.json.gz",
+      "bytes": 74488,
+      "decodedBytes": 404082,
+      "sha256": "ddd42772f97816b5314949850a06256d59c6524fdf91581d78a32bc1d8f84ae0",
+      "decodedSha256": "314d90329e2b1cf1155036899f5de5674738a4d339886cab6f0e165c7c9051ea",
+      "routes": 1137,
+      "pieces": 1142
+    },
+    {
+      "id": "7:2",
+      "bounds": [
+        28000,
+        8000,
+        32000,
+        12000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/7_2-b0cff5a08dac.json.gz",
+      "bytes": 120582,
+      "decodedBytes": 614600,
+      "sha256": "b0cff5a08dacc9db665e78179231b95baae75050d4f762f232f860bedf6c3a13",
+      "decodedSha256": "d9957b99fcdaa7b0b3b79eb99c28ded11514f018925a970240dd4750fc2fc086",
+      "routes": 1552,
+      "pieces": 1557
+    },
+    {
+      "id": "7:3",
+      "bounds": [
+        28000,
+        12000,
+        32000,
+        16000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/7_3-749f2c0c0a26.json.gz",
+      "bytes": 117729,
+      "decodedBytes": 626455,
+      "sha256": "749f2c0c0a268818b6c359fb403bafbd368a01d50d9f8a762eae342e3db4459c",
+      "decodedSha256": "035c9183633e31cbd76c261c163adc12254b0f24cb8683ac2d6316d0055d1b41",
+      "routes": 1673,
+      "pieces": 1680
+    },
+    {
+      "id": "7:4",
+      "bounds": [
+        28000,
+        16000,
+        32000,
+        20000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/7_4-5cb38e2a1e9b.json.gz",
+      "bytes": 70391,
+      "decodedBytes": 383895,
+      "sha256": "5cb38e2a1e9b815bb977fadca3317bc32ad6da7b09080c5de87dbe4224be8178",
+      "decodedSha256": "ea5e056cbef0ec32c0b727aa47bce87acc2c1b969a4f00329c38a64cd5a59cb6",
+      "routes": 1014,
+      "pieces": 1019
+    },
+    {
+      "id": "7:5",
+      "bounds": [
+        28000,
+        20000,
+        32000,
+        24000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/7_5-a23a958554da.json.gz",
+      "bytes": 45941,
+      "decodedBytes": 228978,
+      "sha256": "a23a958554da92c368631129ef71ad08d0d80b486a65add134a28f869cc8251a",
+      "decodedSha256": "7924c3eccdf51b7a460864805d04bbecde5526bbf86e9fe47c3af32541475a9d",
+      "routes": 509,
+      "pieces": 512
+    },
+    {
+      "id": "7:6",
+      "bounds": [
+        28000,
+        24000,
+        32000,
+        28000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/7_6-fd9fcd957438.json.gz",
+      "bytes": 24219,
+      "decodedBytes": 106471,
+      "sha256": "fd9fcd957438b9cdf79997345ba20fada42e2182dc0e96acf64222e3fec09421",
+      "decodedSha256": "7fe0a8faa929888ef638d161a9ac915f1baa70ec72157f1bba9339725e089f98",
+      "routes": 183,
+      "pieces": 184
+    },
+    {
+      "id": "7:7",
+      "bounds": [
+        28000,
+        28000,
+        32000,
+        32000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/7_7-44834e8a5fdc.json.gz",
+      "bytes": 35384,
+      "decodedBytes": 172305,
+      "sha256": "44834e8a5fdc20cf87c5d6970eec77000285f86dc92135c6ad2371abdc908a16",
+      "decodedSha256": "7bd6f84bd9dedfc18b1060b72b2ea70578d1c91c2f106e31fb30d84fe7122afa",
+      "routes": 377,
+      "pieces": 379
+    },
+    {
+      "id": "7:8",
+      "bounds": [
+        28000,
+        32000,
+        32000,
+        36000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/7_8-e2bb384f5cc2.json.gz",
+      "bytes": 45257,
+      "decodedBytes": 225321,
+      "sha256": "e2bb384f5cc288803aa96bee61a261190b2dd36a969cb46b56feb74479301a41",
+      "decodedSha256": "e528b84fab0acfb6cbb6dbc36cb30a690da10d6bbcbd27038a5c46458183a621",
+      "routes": 524,
+      "pieces": 524
+    },
+    {
+      "id": "7:9",
+      "bounds": [
+        28000,
+        36000,
+        32000,
+        40000.0
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/7_9-03532d8e4a1b.json.gz",
+      "bytes": 62600,
+      "decodedBytes": 326740,
+      "sha256": "03532d8e4a1b0ef5cf0773486bdbf83f8f1ae59e5f8a2d73a29f8fa9a0c6d490",
+      "decodedSha256": "6594be5ac6eaded7feb71fa9124c7aa27d8d76dbb0a4b5b38bacb1caee314171",
+      "routes": 847,
+      "pieces": 851
+    },
+    {
+      "id": "8:-10",
+      "bounds": [
+        32000,
+        -40000.0,
+        36000,
+        -36000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/8_-10-91c6e63a807b.json.gz",
+      "bytes": 58261,
+      "decodedBytes": 299247,
+      "sha256": "91c6e63a807baa05684a784b8b61d4ba4d042c7699c6bc3ede44845df15eeb9a",
+      "decodedSha256": "98deb82e6286aa9a107e853483548cffe7527c2d2b98445ae80d6b038013f78e",
+      "routes": 704,
+      "pieces": 708
+    },
+    {
+      "id": "8:-9",
+      "bounds": [
+        32000,
+        -36000,
+        36000,
+        -32000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/8_-9-792b68a7a3fa.json.gz",
+      "bytes": 148805,
+      "decodedBytes": 768572,
+      "sha256": "792b68a7a3faf926a8f225189712c1b6e8be50e0425cf7e1be370116cfea1409",
+      "decodedSha256": "693cc070b0d30672e75d3f47a3364c397fd65a60bb733e54ede4941c4e057c0e",
+      "routes": 1954,
+      "pieces": 1961
+    },
+    {
+      "id": "8:-8",
+      "bounds": [
+        32000,
+        -32000,
+        36000,
+        -28000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/8_-8-cccef47d3924.json.gz",
+      "bytes": 99590,
+      "decodedBytes": 549318,
+      "sha256": "cccef47d392410b2b859449dee26f678495bb793adcf862febdccaff05833a39",
+      "decodedSha256": "1ae4b62494706e97d93521e1d66f086f8003d42bbe63bf475d4d52b346777210",
+      "routes": 1546,
+      "pieces": 1553
+    },
+    {
+      "id": "8:-7",
+      "bounds": [
+        32000,
+        -28000,
+        36000,
+        -24000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/8_-7-795ba651afb7.json.gz",
+      "bytes": 92603,
+      "decodedBytes": 531207,
+      "sha256": "795ba651afb71b0ffb6ae118af8190e5a0a3015ad5a41ebeedf9d3d1eeb1c785",
+      "decodedSha256": "3d22858f199c993584d54490769445d06ffa4f34d8465449e0908c9b0c1dd147",
+      "routes": 1599,
+      "pieces": 1604
+    },
+    {
+      "id": "8:-6",
+      "bounds": [
+        32000,
+        -24000,
+        36000,
+        -20000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/8_-6-5327e7b9d5d9.json.gz",
+      "bytes": 86322,
+      "decodedBytes": 493044,
+      "sha256": "5327e7b9d5d9f91a87cf84f44aeeec571fb3f7f62158f8a2d7ce7db2eefc085d",
+      "decodedSha256": "5ece37aff59ad885b056ce31f73fba636a3e4f5b8b2476ca85c0b4b57d9e1cea",
+      "routes": 1465,
+      "pieces": 1470
+    },
+    {
+      "id": "8:-5",
+      "bounds": [
+        32000,
+        -20000,
+        36000,
+        -16000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/8_-5-0e6aafb21a80.json.gz",
+      "bytes": 119253,
+      "decodedBytes": 682812,
+      "sha256": "0e6aafb21a80851aa37e40b748383fbcaaad37e4ce376f7cbf7b9592c4902409",
+      "decodedSha256": "54768c2e0b619955f1aaa3767c3c5a0d7d36626a723ac5d4418eb2b2c7e366d2",
+      "routes": 2088,
+      "pieces": 2089
+    },
+    {
+      "id": "8:-4",
+      "bounds": [
+        32000,
+        -16000,
+        36000,
+        -12000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/8_-4-82c5c13f9bf1.json.gz",
+      "bytes": 172233,
+      "decodedBytes": 846920,
+      "sha256": "82c5c13f9bf100734ecd1b71a862e6982be52c919a13239907cd8adc89add70d",
+      "decodedSha256": "54d50cea2a9bc040976cff8f65443fadb5c3a0c62fad5f15ab9e8d925cc7f87e",
+      "routes": 2024,
+      "pieces": 2027
+    },
+    {
+      "id": "8:-3",
+      "bounds": [
+        32000,
+        -12000,
+        36000,
+        -8000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/8_-3-a519e0faf906.json.gz",
+      "bytes": 142305,
+      "decodedBytes": 774915,
+      "sha256": "a519e0faf90624553d84605c4fd2d5e736e5da3d0f8bd794b3f6e9da5a7ae6ee",
+      "decodedSha256": "26cd203c1ab097ac8d9e91905c21394a9f5837468173f1a66a37559e4fefbd55",
+      "routes": 2245,
+      "pieces": 2247
+    },
+    {
+      "id": "8:-2",
+      "bounds": [
+        32000,
+        -8000,
+        36000,
+        -4000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/8_-2-9c3e0eee18f1.json.gz",
+      "bytes": 87877,
+      "decodedBytes": 480656,
+      "sha256": "9c3e0eee18f1d8b5f0dccbe420ec2d96d99da6420f2951a631f2436842a074e5",
+      "decodedSha256": "af3ac447579b3d48ccf7cb06cda11024f7a77d65532241b4c7f108b7b40baaa3",
+      "routes": 1401,
+      "pieces": 1401
+    },
+    {
+      "id": "8:-1",
+      "bounds": [
+        32000,
+        -4000,
+        36000,
+        0
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/8_-1-9c3b74924114.json.gz",
+      "bytes": 65317,
+      "decodedBytes": 351207,
+      "sha256": "9c3b74924114137a5e8f30bbe60173b98abf84e53fd4195c7203f48321bfeaea",
+      "decodedSha256": "a98e59f24722ec3f5c2904f3696d61c06dab553df3d33bc55400c51624f78a7f",
+      "routes": 937,
+      "pieces": 938
+    },
+    {
+      "id": "8:0",
+      "bounds": [
+        32000,
+        0,
+        36000,
+        4000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/8_0-52d908f41890.json.gz",
+      "bytes": 106620,
+      "decodedBytes": 569558,
+      "sha256": "52d908f41890d6bab1b0b54e4b8a9682fafd6ce5350c130d7c40175eaf9930fc",
+      "decodedSha256": "53f7b95e5ab1a5396414e2f47872883c2a95895298d0c5d356abee71b789a9aa",
+      "routes": 1560,
+      "pieces": 1563
+    },
+    {
+      "id": "8:1",
+      "bounds": [
+        32000,
+        4000,
+        36000,
+        8000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/8_1-0802d88cf57d.json.gz",
+      "bytes": 87806,
+      "decodedBytes": 490543,
+      "sha256": "0802d88cf57d825cab1a7665e8597d96287d23d128c687c1cc1477d5a1556321",
+      "decodedSha256": "7b03b419c596d9facadd708a5b77d062ae4eabb6fbeb908a572a6a42ff688e7e",
+      "routes": 1421,
+      "pieces": 1427
+    },
+    {
+      "id": "8:2",
+      "bounds": [
+        32000,
+        8000,
+        36000,
+        12000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/8_2-211fbae30b3d.json.gz",
+      "bytes": 140573,
+      "decodedBytes": 816990,
+      "sha256": "211fbae30b3de8ba72ed44dc05596646a6dd2a51403653bfe001302c1c03c897",
+      "decodedSha256": "e42981605df745b69ab06667b1a318b9b40ab01e9cc2c78be7aeed82f3d80652",
+      "routes": 2548,
+      "pieces": 2550
+    },
+    {
+      "id": "8:3",
+      "bounds": [
+        32000,
+        12000,
+        36000,
+        16000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/8_3-04d9f30a29ca.json.gz",
+      "bytes": 99667,
+      "decodedBytes": 564238,
+      "sha256": "04d9f30a29ca43de8e0329f16e83e77dedfe6a5239c240603a20e62045c214d2",
+      "decodedSha256": "cfb8f7526ca4d775874fd15da8f426ce734ae9f16fd0b0be0a6de0e59ada7e0a",
+      "routes": 1612,
+      "pieces": 1614
+    },
+    {
+      "id": "8:4",
+      "bounds": [
+        32000,
+        16000,
+        36000,
+        20000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/8_4-95b7e457ebf8.json.gz",
+      "bytes": 66958,
+      "decodedBytes": 393354,
+      "sha256": "95b7e457ebf89ec1960632709d1ec566c1181b9344741f335fec2f87228ddf8b",
+      "decodedSha256": "90b76289ced671941cadacf86812c4d3354a485895871145b29d2c1f349ddda5",
+      "routes": 1179,
+      "pieces": 1181
+    },
+    {
+      "id": "8:5",
+      "bounds": [
+        32000,
+        20000,
+        36000,
+        24000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/8_5-e6bd569da7de.json.gz",
+      "bytes": 44382,
+      "decodedBytes": 245134,
+      "sha256": "e6bd569da7dea2e4e90b9d37d44c11f092f786a60c504afc1879ffe21cb90f7a",
+      "decodedSha256": "2b562d7938e1c70a0b83d4d263cc366680cd3d3fe80bf226ac51be0b2cd621e4",
+      "routes": 696,
+      "pieces": 697
+    },
+    {
+      "id": "8:6",
+      "bounds": [
+        32000,
+        24000,
+        36000,
+        28000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/8_6-a7578a80c424.json.gz",
+      "bytes": 66508,
+      "decodedBytes": 365410,
+      "sha256": "a7578a80c4247949b7a8dffc2e11beb663ad3853edff1665f762d9c0af2d87fb",
+      "decodedSha256": "43f6bc0d52804775cda59b574a03f5561b09c6b690e1d5394f01c35932614f3e",
+      "routes": 1005,
+      "pieces": 1006
+    },
+    {
+      "id": "8:7",
+      "bounds": [
+        32000,
+        28000,
+        36000,
+        32000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/8_7-7259cd51b3e6.json.gz",
+      "bytes": 70315,
+      "decodedBytes": 342003,
+      "sha256": "7259cd51b3e6e1068648874b4f1c5da0621cbe32d5fcc69424ef8e76ed88325d",
+      "decodedSha256": "5eb59eb8d24423135cf45b1fe20d1960359fc0ea366ac8e4729f674d5582e2c1",
+      "routes": 754,
+      "pieces": 755
+    },
+    {
+      "id": "8:8",
+      "bounds": [
+        32000,
+        32000,
+        36000,
+        36000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/8_8-bd536d463947.json.gz",
+      "bytes": 9230,
+      "decodedBytes": 38173,
+      "sha256": "bd536d46394734348c6e0fc71d6faf7b0f8b86c1db09a947d1716c2d5db96d98",
+      "decodedSha256": "c92e742b062e20f3844287e0074f8ac08dbd72e15d06b5659fa1faaa57386de0",
+      "routes": 52,
+      "pieces": 52
+    },
+    {
+      "id": "8:9",
+      "bounds": [
+        32000,
+        36000,
+        36000,
+        40000.0
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/8_9-497359effa79.json.gz",
+      "bytes": 2078,
+      "decodedBytes": 10909,
+      "sha256": "497359effa7938b4d35aeb7edf5b4b01a88aa3fee0019ec8ff635bb3bfbb900f",
+      "decodedSha256": "1e6187f0e75a41e92ff92da75f12df5435e09a379dd5db87aa98f094f90bafab",
+      "routes": 32,
+      "pieces": 32
+    },
+    {
+      "id": "9:-10",
+      "bounds": [
+        36000,
+        -40000.0,
+        40000.0,
+        -36000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/9_-10-ffed3d8ac937.json.gz",
+      "bytes": 2590,
+      "decodedBytes": 13299,
+      "sha256": "ffed3d8ac937310d24aa0253dd2d0caec518c062b96072ff46143d3997e1df96",
+      "decodedSha256": "89a5453323af9d1f1e9534e9b30c3c635180589ce564264e48f2ef4ba65cf8c7",
+      "routes": 40,
+      "pieces": 40
+    },
+    {
+      "id": "9:-9",
+      "bounds": [
+        36000,
+        -36000,
+        40000.0,
+        -32000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/9_-9-88f1839271e3.json.gz",
+      "bytes": 58762,
+      "decodedBytes": 330437,
+      "sha256": "88f1839271e30b7462e0a6936dc9ea38a855142126fe9a82b63909ace2dc2e34",
+      "decodedSha256": "59d3caa832ca00354d8b0f0355a2b655e7ebcaaa2ef7e380d5b5e8dbfcbeb719",
+      "routes": 946,
+      "pieces": 952
+    },
+    {
+      "id": "9:-8",
+      "bounds": [
+        36000,
+        -32000,
+        40000.0,
+        -28000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/9_-8-78294bbc607d.json.gz",
+      "bytes": 66801,
+      "decodedBytes": 367738,
+      "sha256": "78294bbc607ddc4773be211350a3610e98a1e8f1cc739691a18f68d0e8fb8551",
+      "decodedSha256": "6f6239ff1d38569235d4741027e2524bb4f1bbdcf81373a36ce23c529c08cfc4",
+      "routes": 1007,
+      "pieces": 1012
+    },
+    {
+      "id": "9:-7",
+      "bounds": [
+        36000,
+        -28000,
+        40000.0,
+        -24000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/9_-7-048c6b60b28b.json.gz",
+      "bytes": 79468,
+      "decodedBytes": 434845,
+      "sha256": "048c6b60b28bb138c4c70cd5ff4703b7f9bac46632dd0a0b82e8313faf0d0abe",
+      "decodedSha256": "bdcbaaaee3a581b5b0457b27aa9af9d1ca37173a77c4f86b3026bb769e251dc3",
+      "routes": 1198,
+      "pieces": 1199
+    },
+    {
+      "id": "9:-6",
+      "bounds": [
+        36000,
+        -24000,
+        40000.0,
+        -20000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/9_-6-bcdcb35f2115.json.gz",
+      "bytes": 90231,
+      "decodedBytes": 501927,
+      "sha256": "bcdcb35f2115795512ffa58d5297ec43a8dcc436c6536c829a6b110abbc31562",
+      "decodedSha256": "0e397fd5d799913fdce7cd4cc1bda0dc0fa6876fbaa5aa830014c69d94fbe4cf",
+      "routes": 1442,
+      "pieces": 1445
+    },
+    {
+      "id": "9:-5",
+      "bounds": [
+        36000,
+        -20000,
+        40000.0,
+        -16000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/9_-5-346c4781bdaa.json.gz",
+      "bytes": 114031,
+      "decodedBytes": 618409,
+      "sha256": "346c4781bdaa68fd805c4b18e749c401601ac66c44135c93129712f89459e093",
+      "decodedSha256": "c8ad31235e827d3d1412255f54fdc0527229ce92241746fc97b6f1afc9e25eaa",
+      "routes": 1711,
+      "pieces": 1715
+    },
+    {
+      "id": "9:-4",
+      "bounds": [
+        36000,
+        -16000,
+        40000.0,
+        -12000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/9_-4-e9884b5509c1.json.gz",
+      "bytes": 134087,
+      "decodedBytes": 719599,
+      "sha256": "e9884b5509c160351ee34f9f552696714ce8b7c5049cbc8f2d14270183e8f2bf",
+      "decodedSha256": "04e0c30288e5f8ba0ddd6523cd1b73b468dc6acb0e758a54feda78c4b179ccc3",
+      "routes": 2004,
+      "pieces": 2011
+    },
+    {
+      "id": "9:-3",
+      "bounds": [
+        36000,
+        -12000,
+        40000.0,
+        -8000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/9_-3-c87da3560f6d.json.gz",
+      "bytes": 134352,
+      "decodedBytes": 731142,
+      "sha256": "c87da3560f6d5024e9416bbc0f840d45f2822963a39fb7cd22b06ff62c463ac1",
+      "decodedSha256": "9fa3316356177bb958dcb19084b42c1c87da798371010c9fe471dbd59bff9da4",
+      "routes": 2113,
+      "pieces": 2115
+    },
+    {
+      "id": "9:-2",
+      "bounds": [
+        36000,
+        -8000,
+        40000.0,
+        -4000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/9_-2-c9cff363c6b6.json.gz",
+      "bytes": 113732,
+      "decodedBytes": 599056,
+      "sha256": "c9cff363c6b6cd5fe2ba062b27ee7861da45a443d4a80e5d718bf11973fedfee",
+      "decodedSha256": "a5d9c2fc571c0c795361105021eae1b4bbdd61c98b183c96c5855e0fe2ed8ee2",
+      "routes": 1664,
+      "pieces": 1669
+    },
+    {
+      "id": "9:-1",
+      "bounds": [
+        36000,
+        -4000,
+        40000.0,
+        0
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/9_-1-e1678807c05f.json.gz",
+      "bytes": 91029,
+      "decodedBytes": 501676,
+      "sha256": "e1678807c05f5f1e9e2d218a21005786fa2d48433e1681c2bc04a604ccbadaa4",
+      "decodedSha256": "820f6c0b79b5bf2478c4f6dd83497cc612f1db7ff42611687b63db7c855cfcc3",
+      "routes": 1451,
+      "pieces": 1455
+    },
+    {
+      "id": "9:0",
+      "bounds": [
+        36000,
+        0,
+        40000.0,
+        4000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/9_0-eed5f6bf6b96.json.gz",
+      "bytes": 105180,
+      "decodedBytes": 586804,
+      "sha256": "eed5f6bf6b964cc1c228a5dd53a9df7f29278584f6873f6389449522f2eac294",
+      "decodedSha256": "a11751cf3986d0bd6a48ec274f482b195d53b32790a9a8d20c85e2a57b837dee",
+      "routes": 1702,
+      "pieces": 1704
+    },
+    {
+      "id": "9:1",
+      "bounds": [
+        36000,
+        4000,
+        40000.0,
+        8000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/9_1-a3bcfbc14537.json.gz",
+      "bytes": 108862,
+      "decodedBytes": 624354,
+      "sha256": "a3bcfbc1453788b016b2dd1598a6c8fbbcbc15f1f04d606de790e6cdbb5c1a45",
+      "decodedSha256": "477d6fbde9d8d9b14557e5f018d67772c3bf948cae97aa065b0126973cc1ce31",
+      "routes": 1901,
+      "pieces": 1903
+    },
+    {
+      "id": "9:2",
+      "bounds": [
+        36000,
+        8000,
+        40000.0,
+        12000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/9_2-28f7d08d61b4.json.gz",
+      "bytes": 127321,
+      "decodedBytes": 719471,
+      "sha256": "28f7d08d61b4533e9e99fad32b5f2011d87857f43d899580ee466b4897a3344d",
+      "decodedSha256": "943b4a2f68468a1a6c7ab05538c70d64cecdd63c7f3b4d9fc6fd3e6abdf95a0e",
+      "routes": 2146,
+      "pieces": 2150
+    },
+    {
+      "id": "9:3",
+      "bounds": [
+        36000,
+        12000,
+        40000.0,
+        16000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/9_3-baf35b90f938.json.gz",
+      "bytes": 133927,
+      "decodedBytes": 716686,
+      "sha256": "baf35b90f9381b2578cebcc85725e7ca4659ef7704d80cc9470fcb4121bd6b5d",
+      "decodedSha256": "18a8c8ffd0e7df6b8b9ef46487799a3929f50cc92bec29b3c5e3a323526205f8",
+      "routes": 1946,
+      "pieces": 1953
+    },
+    {
+      "id": "9:4",
+      "bounds": [
+        36000,
+        16000,
+        40000.0,
+        20000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/9_4-ac92f608b2da.json.gz",
+      "bytes": 73779,
+      "decodedBytes": 405212,
+      "sha256": "ac92f608b2da9fd83c37713a0a3e8cea4ba6b9b480618a32cff0957057bbfa1a",
+      "decodedSha256": "0919daf0e7a36c9654ade164142c3bfe7f744f3c636b4459fce895cec48e8567",
+      "routes": 1108,
+      "pieces": 1109
+    },
+    {
+      "id": "9:5",
+      "bounds": [
+        36000,
+        20000,
+        40000.0,
+        24000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/9_5-fb5bed9775ad.json.gz",
+      "bytes": 63059,
+      "decodedBytes": 358229,
+      "sha256": "fb5bed9775ad3804de36de3928c15b20532bd2592f817283e0e48a3793ea9787",
+      "decodedSha256": "67b3973b2391429dcddf3b9a62805e72fca9b930968af2d8ba96c8eab1d21298",
+      "routes": 1039,
+      "pieces": 1042
+    },
+    {
+      "id": "9:6",
+      "bounds": [
+        36000,
+        24000,
+        40000.0,
+        28000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/9_6-2226c31aabc3.json.gz",
+      "bytes": 43657,
+      "decodedBytes": 222391,
+      "sha256": "2226c31aabc31ee2e7144875533e97beb7ef01c2ee1022012d3bb7ded3882900",
+      "decodedSha256": "de476dea6ebb87bcf0a1d678da8aad26f59b95fd0b9ed3ea5b680cfd5fc49a85",
+      "routes": 513,
+      "pieces": 517
+    },
+    {
+      "id": "9:7",
+      "bounds": [
+        36000,
+        28000,
+        40000.0,
+        32000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/9_7-cdf73c404518.json.gz",
+      "bytes": 55639,
+      "decodedBytes": 278554,
+      "sha256": "cdf73c404518fe3bce5401baa06edadce20e10d8abb7f4530951178c68d642c5",
+      "decodedSha256": "1030bed7a2917e88edfe472bfe2664b8ce944a139a3db6b35a78672e5aeaef19",
+      "routes": 626,
+      "pieces": 629
+    },
+    {
+      "id": "9:8",
+      "bounds": [
+        36000,
+        32000,
+        40000.0,
+        36000
+      ],
+      "path": "assets/cities/new-york/traffic-region-v1/9_8-105eb120eb1d.json.gz",
+      "bytes": 3558,
+      "decodedBytes": 15036,
+      "sha256": "105eb120eb1d2a306153dbe100619d74dcf36f8c72ff9486b48e2c0b805d7f62",
+      "decodedSha256": "8c9fbe72f1e9a29db2efb2b07cb37d127d40a7e7e3e9b37b9e57e417c46be308",
+      "routes": 26,
+      "pieces": 26
+    }
+  ],
+  "counts": {
+    "primary": 16491,
+    "secondary": 19537,
+    "residential": 88178,
+    "tertiary": 14538,
+    "motorway_link": 7027,
+    "motorway": 7336,
+    "unclassified": 3472,
+    "trunk_link": 1416,
+    "primary_link": 1213,
+    "service": 73990,
+    "secondary_link": 864,
+    "tertiary_link": 602,
+    "living_street": 153,
+    "trunk": 2989
+  },
+  "provenance": {
+    "source": "https://download.geofabrik.de/north-america/us/new-york/new-york-261120.osm.pbf",
+    "sha256": "f36fd79b6305ea0709e3c228e668e6b35752127e4e7735266eae2284a855ee72",
+    "snapshot": "2026-11-20 cached extract",
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors",
+    "estimates": "Source motor roads; missing lanes/speeds/widths and bridge clearances use the airport traffic defaults. Regional flow is estimated visual traffic, not measured demand. Original full way identities and distance intervals avoid resetting routes at tile seams.",
+    "sources": [
+      {
+        "region": "New York",
+        "source": "https://download.geofabrik.de/north-america/us/new-york/new-york-261120.osm.pbf",
+        "snapshot": "2026-11-20",
+        "sha256": "f36fd79b6305ea0709e3c228e668e6b35752127e4e7735266eae2284a855ee72",
+        "license": "ODbL-1.0"
+      },
+      {
+        "region": "New Jersey",
+        "source": "https://download.geofabrik.de/north-america/us/new-jersey/new-jersey-261120.osm.pbf",
+        "snapshot": "2026-11-20",
+        "sha256": "31d1b4d9ee0d3ad2abb9a54e4b7a5991e2b95c7708a1d36959f5de2b09f7fb23",
+        "license": "ODbL-1.0"
+      }
+    ]
+  },
+  "identity": "836766128a0b71cccff5dddd7380b0c51beb1c155ef3d96bb6269acaa1228484"
+}

@@ -1,3 +1,4 @@
+import lga from '../airports/data/lga-arrival.json' with {type:'json'};
 import daxing from '../airports/data/daxing-arrival.json' with {type:'json'};
 import xiaoshan from '../airports/data/xiaoshan-arrival.json' with {type:'json'};
 import changi from '../airports/data/changi-arrival.json' with {type:'json'};
@@ -9,7 +10,7 @@ import {KT,RAD,wrap} from '../sim/constants.js';
 import {centerControls} from '../sim/controls.js';
 import {queueRadio,clearRadioEvents,repeatRadio} from '../comms/radio.js';
 import {preparedAtTouchdown} from './arrival.js';
-export const ARRIVAL_TAXI={daxing,xiaoshan,changi,kansai,jfk,lax};
+export const ARRIVAL_TAXI={lga,daxing,xiaoshan,changi,kansai,jfk,lax};
 // Give the pilot time to take over wheel braking after landing cleanup and
 // after runway exit. Brief speed excursions are not sustained taxi speeding.
 export const TAXI_IN_SPEED=Object.freeze({grace:8,reminderDelay:3});
@@ -21,7 +22,7 @@ function cancelUnsentSpeedReminder(s){
  if(s.radio.pending.some(line=>line.event==='ground-speed'&&line.role==='tower'))s.radio.pending=s.radio.pending.filter(line=>line.event!=='ground-speed');
 }
 export function initializeTaxiIn(s,score){
- if(!s.airline?.cruiseSkipped||!s.landed||s.goAround||s.result||s.ground?.arrival||s.airData.groundSpeed*KT>18||s.throttle>.025)return false;
+ if(!(s.airline?.arrivalReached||s.airline?.cruiseSkipped)||!s.landed||s.goAround||s.result||s.ground?.arrival||s.airData.groundSpeed*KT>18||s.throttle>.025)return false;
  const pack=ARRIVAL_TAXI[s.airportId],available=pack.exits.filter(e=>e.z<s.z-55);
  const forward=available.filter(e=>e.points.slice(1).find(p=>distance(p,e.points[0])>25)?.z<e.z+20);
  const exit=forward[0]||available[0]||pack.exits.filter(e=>e.z<s.z+30).at(-1);

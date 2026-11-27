@@ -9,8 +9,8 @@ import {REGION_MODEL_REVISION,selectRegionalTiles,regionalTileId,loadRegionalMan
 
 const pause=()=>new Promise(r=>setTimeout(r,0));
 function validGeometry(a,m){return !!a&&Number.isFinite(m?.maxY)&&Array.isArray(m?.obstacles)&&m.obstacles.every(o=>['cx','cz','angle','width','depth','baseY','topY'].every(k=>Number.isFinite(o[k]))&&o.width>0&&o.depth>0&&o.topY>=o.baseY)&&['roadGround','roadDecks','roadConcrete','roadPaint'].every(k=>a[k] instanceof Float32Array&&a[k].length%9===0&&a[k].every(Number.isFinite))&&a.roadPaintDistance instanceof Float32Array&&a.roadPaintDistance.length===a.roadPaint.length/3&&a.roadPaintDistance.every(Number.isFinite)&&a.roadPaintTint instanceof Float32Array&&a.roadPaintTint.length===a.roadPaint.length&&a.roadPaintTint.every(Number.isFinite);}
-export async function loadRegionalTraffic({root,airport,cache,isCurrent=()=>true,onChange=()=>{},camera,clock,onProgress=()=>{}}){
- const manifest=await loadRegionalManifest(airport,`assets/cities/${airport.id}/traffic-region-v1.json`,cache),terrainKey=trafficHash(JSON.stringify([airport.data.dem,airport.grading,airport.elevationM])),namespace=`${airport.id}:regional-roads:${REGION_MODEL_REVISION}:${manifest.identity}:${terrainKey}`;
+export async function loadRegionalTraffic({root,airport,cache,sourceCache=cache,isCurrent=()=>true,onChange=()=>{},camera,clock,onProgress=()=>{}}){
+ const manifest=await loadRegionalManifest(airport,airport.region?.regionalTrafficManifestPath||`assets/cities/${airport.id}/traffic-region-v1.json`,sourceCache),terrainKey=trafficHash(JSON.stringify([airport.data.dem,airport.grading,airport.elevationM,...(airport.region?[airport.region.revision]:[])])),namespace=`${airport.id}:regional-roads:${REGION_MODEL_REVISION}:${manifest.identity}:${terrainKey}`;
  const group=new THREE.Group();group.name=airport.id+'-regional-traffic';root.add(group);
  const entries=new Map(),pending=new Map(),tiers=new Map(),routeRefs=new Map(),routes=new Map(),wanted=new Set(),failures=new Map(),heightAt=(x,z)=>surfaceHeight(x,z,airport.id),recordById=new Map(manifest.tiles.map(t=>[t.id,t])),position={x:camera?.position.x??manifest.center[0],y:camera?.position.y??0,z:camera?.position.z??manifest.center[1]};
  let disposed=false,active=0,revision=0,lastFocus='',unavailable=0,cacheHits=0,index=null,indexDirty=true,lastUsed=0;
@@ -27,7 +27,7 @@ export async function loadRegionalTraffic({root,airport,cache,isCurrent=()=>true
  async function prepare(record,tier){
   const previous=entries.get(record.id),e={record,tier,ready:false,used:++lastUsed,routeIds:[]};if(!previous)entries.set(record.id,e);pending.set(record.id,e);active++;
   try{
-   const tile=await loadRegionalTile(record,airport,cache,current);if(!current())return;
+   const tile=await loadRegionalTile(record,airport,sourceCache,current);if(!current())return;
    const include=r=>tier==='full'||!['residential','unclassified','living_street','service'].includes(r.kind),key=record.id+'/'+tier;
    for(const r of tile.routes){if(!include(r))continue;if(!routes.has(r.id)){const prepared=prepareRegionalRoute(r,airport,manifest,heightAt,{lazyLanes:true});routes.set(r.id,prepared);flow.add(prepared);}routeRefs.set(r.id,(routeRefs.get(r.id)||0)+1);e.routeIds.push(r.id);}
    let arrays=await cache.getArrays(namespace,key+'/prepared',{isCurrent:current}),metadata=await cache.get(namespace,key+'/metadata');

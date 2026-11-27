@@ -15,9 +15,9 @@ export function routeMapBounds(points,focus){
  const unwrapped=unwrap(points,points[0][0]),xs=unwrapped.map(p=>p[0]),ys=unwrapped.map(p=>p[1]),minX=Math.min(...xs),maxX=Math.max(...xs),minY=Math.min(...ys),maxY=Math.max(...ys),padX=Math.max(7,(maxX-minX)*.12),padY=Math.max(6,(maxY-minY)*.18);
  return{west:minX-padX,east:maxX+padX,south:Math.max(-90,minY-padY),north:Math.min(90,maxY+padY)};
 }
-export function placeMapLabels(markers,width,height){
+export function placeMapLabels(markers,width,height,{widthFor=()=>35,heightFor=()=>15}={}){
  const occupied=markers.map(p=>({left:p.x-8,right:p.x+8,top:p.y-8,bottom:p.y+8})),labels={};
- for(const m of markers){const w=35,h=15,candidates=[[12,-9],[12,19],[-47,-9],[-47,19],[-17,-19],[-17,29],[20,5],[-55,5]];let best;
+ for(const m of markers){const w=widthFor(m),h=heightFor(m),candidates=[[12,-9],[12,h+4],[-w-12,-9],[-w-12,h+4],[-w/2,-h-4],[-w/2,h+14],[20,5],[-w-20,5],[12,-h-22],[-w-12,h+24]];let best;
   for(const[dx,dy]of candidates){const x=Math.max(2,Math.min(width-w-2,m.x+dx)),y=Math.max(h,Math.min(height-2,m.y+dy)),box={left:x-2,right:x+w+2,top:y-h,bottom:y+3},overlaps=occupied.filter(o=>box.left<o.right&&box.right>o.left&&box.top<o.bottom&&box.bottom>o.top).length;if(!best||overlaps<best.overlaps)best={x,y,box,overlaps};if(!overlaps)break;}
   labels[m.id]={x:best.x,y:best.y};occupied.push(best.box);
  }

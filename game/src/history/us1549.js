@@ -1,6 +1,8 @@
+import {resolveAircraft} from '../aircraft/catalog.js';
+import {aircraftDefinition} from '../aircraft/registry.js';
 import {US1549_PROFILE as P} from './us1549-profile.js';
 import {eventProject,eventWaterAt,eventHudsonAt,eventHeading,eventGroundMSL,eventSurface,eventRunways,runwayAt,isHistorical,eventUnproject,eventWaterCurrent} from './event-world.js';
-import {G,KT,FT,RAD,AIRFRAME,clamp,wrap,massOf,moveToward} from '../sim/constants.js';
+import {G,KT,FT,RAD,SEA_LEVEL_DENSITY,clamp,wrap,massOf,moveToward} from '../sim/constants.js';
 import {refreshAirData,setMotion,trimAlpha,liftMaximum,configurationDrag} from '../sim/aerodynamics.js';
 import {setWeather} from '../sim/weather.js';
 import {stepEngines} from '../sim/engines.js';
@@ -13,15 +15,15 @@ import {updateRadio,clearRadioEvents} from '../comms/radio.js';
 import {initializeHistoricalComms,updateHistoricalComms,historicalDecisionSpeech,historicalHandoverSpeech} from './comms.js';
 import {selectedHistoricalRunway,runwayKey,runwayGeometry,runwayInterceptHeading} from './navigation.js';
 import {historicalDecisionSeed,orderHistoricalOptions,historicalDecisionPoints} from './decisions.js';
-import {AIRCRAFT_CONTACTS} from '../aircraft/contact-anchors.js';
+import {aircraftContacts} from '../aircraft/contact-anchors.js';
 export {isHistorical};
 const event=(s,type,data={})=>s.mission.events.push({type,time:s.time,controlSource:s.historical.controlSource,...data});
 export const historyHeight=s=>Math.max(0,s.y-P.water.levelMSL)*FT;
 export function historyReferenceSpeed(s,{approach=false}={}){
  const cd=P.aerodynamics.cleanDrag+configurationDrag(s)+2*P.aerodynamics.failedEngineDrag;
- const max=liftMaximum(s.flapPosition,s.aerodynamics),stall=Math.sqrt(2*massOf(s)*G/(AIRFRAME.seaDensity*AIRFRAME.wingArea*max))*KT;
+ const max=liftMaximum(s.flapPosition,s.aerodynamics,aircraftDefinition(s)),stall=Math.sqrt(2*massOf(s)*G/(SEA_LEVEL_DENSITY*aircraftDefinition(s).airframe.wingArea*max))*KT;
  if(approach){const flare=!selectedHistoricalRunway(s)&&s.historical?.manualTarget!=='free'?clamp((250-historyHeight(s))/200,0,1):0;return stall*(1.18-.12*flare);}
- return Math.sqrt(2*massOf(s)*G/(AIRFRAME.seaDensity*AIRFRAME.wingArea*Math.sqrt(cd/P.aerodynamics.inducedDrag)))*KT;
+ return Math.sqrt(2*massOf(s)*G/(SEA_LEVEL_DENSITY*aircraftDefinition(s).airframe.wingArea*Math.sqrt(cd/P.aerodynamics.inducedDrag)))*KT;
 }
 export function selectHistoricalTarget(s,target){
  const h=s.historical;if(!h||h.controlSource!=='player'||s.result||s.water||h.alternate)return false;
@@ -32,6 +34,7 @@ export function selectHistoricalTarget(s,target){
 export const historicalApproach=s=>s.historical.controlSource==='player'&&(selectedHistoricalRunway(s)?s.flapPosition>.01: s.historical.manualTarget!=='free'&&historyHeight(s)<800);
 export function initializeHistorical(s,{mode='guided',practice=false,finalApproach=false,decisionSeed=historicalDecisionSeed(),...voices}={}){
  const p=eventProject(P.initial.longitude,P.initial.latitude);
+ s.aircraft=resolveAircraft(P.aircraft);
  Object.assign(s,{airportId:'us1549',mode:'historical',scenario:'historical',weight:P.initial.massTonnes,gear:false,gearPosition:0,flaps:0,flapPosition:0,autoPilot:false,autoThrust:false,autoThrustActive:false,apprArmed:false,locCaptured:false,gsCaptured:false,flightDirector:mode==='guided',airborne:true,landed:false,throttle:0,reverse:false,spoilersArmed:false,spoilersDeployed:false,autoBrake:'OFF',autoBrakeActive:false,gates:[],spokenHeights:[],ground:null,airline:null,arrival:null,route:null,goAround:false,water:null,impact:null,result:null,phase:'crew-decision',x:p.x,z:p.z,y:eventGroundMSL(p.x,p.z)+P.initial.heightAGLFt/FT,verticalSpeed:P.initial.climbMps,pitch:0,roll:0,yaw:0,pitchRate:0,rollRate:0,yawRate:0,time:0});
  mode=mode==='challenge'?'challenge':'guided';
  s.historical={id:P.id,revision:P.revision,mode,earlyTakeover:practice,controlSource:practice?'player':'copilot',manualTarget:practice?'free':null,strategy:'hold',heldHeading:(P.initial.headingTrue-eventHeading)*RAD,node:practice?'manual':'priority',decisionSeed:decisionSeed>>>0,decisionExposure:{gearSeconds:0,steepSeconds:0,waitSeconds:0},selected:[],assessments:[],executionEvidence:[],skipped:[],manualSeconds:0,energyError:0,configurationSeconds:0,airborneSeconds:0,decisionAt:0,handedOverAt:practice?0:null,handedOverHeight:practice?historyHeight(s):null};
@@ -58,7 +61,7 @@ export function estimateCandidate(s,r){
  const dx=r.a.x-s.x,dz=r.a.z-s.z,distance=Math.hypot(dx,dz),bearing=Math.atan2(dx,-dz),angle=Math.abs(wrap(bearing-s.airData.groundTrack));
  // Model a 32-degree emergency intercept at best-glide speed. The straight
  // distance already contains the turn's chord; do not add the full arc twice.
- const speed=Math.max(40,historyReferenceSpeed(s)/KT/Math.sqrt(s.airData.density/AIRFRAME.seaDensity)),bank=32*RAD,radius=speed*speed/(G*Math.tan(bank));
+ const speed=Math.max(40,historyReferenceSpeed(s)/KT/Math.sqrt(s.airData.density/SEA_LEVEL_DENSITY)),bank=32*RAD,radius=speed*speed/(G*Math.tan(bank));
  const turnDistance=radius*angle,chord=2*radius*Math.sin(angle/2),alignment=radius*Math.abs(wrap(r.heading-bearing))*.35;
  const ratio=1/(2*Math.sqrt((P.aerodynamics.cleanDrag+configurationDrag(s)+.022*s.gearPosition+2*P.aerodynamics.failedEngineDrag)*P.aerodynamics.inducedDrag));
  const windAlong=(s.airData.wind.x*dx+s.airData.wind.z*dz)/Math.max(distance,1),groundFactor=clamp((speed+windAlong)/speed,.5,1.4);
@@ -183,7 +186,7 @@ function alternateRollout(s,input,dt){
  const noseSteer=clamp(s.stickRoll+s.controls.rudder,-1,1)*.08*clamp(speed/20,0,1);s.yawRate+=(noseSteer-s.yawRate)*Math.min(1,dt*5);s.yaw+=s.yawRate*dt;
  s.pitch=moveToward(s.pitch,0,dt*.035);s.roll=moveToward(s.roll,0,dt*.06);s.pitchRate=s.rollRate=0;
  // Wheel normal reactions constrain the grounded gear to the shared runway.
- const pose={x:0,y:0,z:0,pitch:s.pitch,roll:s.roll,yaw:s.yaw};s.y=r.elevationM+.02-Math.min(...AIRCRAFT_CONTACTS.main.map(p=>probePosition(pose,p).y));refreshAirData(s);
+ const pose={x:0,y:0,z:0,pitch:s.pitch,roll:s.roll,yaw:s.yaw};s.y=r.elevationM+.02-Math.min(...aircraftContacts(s).main.map(p=>probePosition(pose,p).y));refreshAirData(s);
  const dx=r.b.x-r.a.x,dz=r.b.z-r.a.z,u=((s.x-r.a.x)*dx+(s.z-r.a.z)*dz)/(r.length*r.length),cross=((s.x-r.a.x)*dz-(s.z-r.a.z)*dx)/r.length;
  if(Math.abs(cross)>r.widthM/2||u<0||u>1){failHistory(s,'备降滑跑偏离跑道');return;}
  if(s.airData.groundSpeed<.5){s.result={success:true,physicalSuccess:true,levelCleared:false,title:`${r.airport} ${r.id} 安全备降 · 哈德逊河目标未完成`,detail:'已记录实际备降与停稳；本关的哈德逊河迫降目标未完成，不授予本关星级。',score:0};event(s,'alternate-landing-complete',landing);}

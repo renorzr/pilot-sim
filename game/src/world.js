@@ -2,11 +2,13 @@ import {airportShotContext} from './replay/shot-context.js';
 import {createReplayDetailLayer} from './replay/replay-details.js';
 import {createLoadingProgress}from './loading-progress.js';
 import {loadAircraftVisual} from './aircraft/visual.js';
+import {aircraftIdentity} from './aircraft/catalog.js';
 import {FlightCameraRig} from './views/camera-rig.js';
 import {cameraObstacles} from './views/camera-obstacles.js';
 import {placeAircraft} from './views/aircraft-pose.js';
 import {createContactShadow} from './views/contact-shadow.js';
 import {createViewState} from './views/view-state.js';
+import {createEnrouteGround} from './views/enroute-ground.js';
 import {cityRay}from './terrain/city-obstacles.js';
 import {surfaceHeight} from './terrain/heightfield.js';
 import {departureOf} from './missions/ground.js';
@@ -42,7 +44,7 @@ export function createWorld(host, onReady, onError, airportId='training',onProgr
   const label=()=>renderer.domElement.setAttribute('aria-label',t('实时 3D 机场外景'));
   label();const stopLanguage=subscribeLanguage(label);
   const scene = new THREE.Scene();
-  const hasMappedCity=['lax','xiaoshan','changi','jfk','kansai','daxing','us1549'].includes(airportId);
+  const hasMappedCity=['lax','xiaoshan','changi','jfk','lga','kansai','daxing','us1549'].includes(airportId);
   let cityActive=activate;
   let dirty = true, lastView = '',skyTexture=null,disposed=false,aircraft=null,aircraftReady=false,texturesReady=false,readyReported=false,lastAnimationTime=null,visualOffset=0,replayDetails=null,city=null,cityReady=!hasMappedCity,cityTerrain=null;
   const progress=createLoadingProgress(value=>{if(!disposed)onProgress(value);},{hasCity:hasMappedCity});progress.update('assets',0);
@@ -64,7 +66,17 @@ export function createWorld(host, onReady, onError, airportId='training',onProgr
   loading.onProgress=(_url,completed,total)=>progress.update('assets',completed/total);
   loading.onLoad = () => { dirty = true;texturesReady=true;progress.update('assets',1);reportReady(); };
   loading.onError = (url) => { loadError = true; onError('场景素材加载失败，请刷新页面重试。'); console.error('Asset load failed:', url); };
-  loadAircraftVisual({THREE,loadingManager:loading}).then(visual=>{if(disposed){visual.dispose();return;}aircraft=visual;replayDetails=createReplayDetailLayer(aircraft,{onChange:()=>{dirty=true;}});scene.add(aircraft.group);aircraftReady=true;progress.update('aircraft',1);dirty=true;reportReady();}).catch(error=>{if(!disposed){loadError=true;onError('飞机模型加载失败，请刷新页面重试。');console.error('Aircraft asset load failed:',error);}});
+  let aircraftKey='',aircraftSerial=0,aircraftLoad;
+  function requestAircraft(appearance=airport.aircraft){
+    const key=aircraftIdentity(appearance);if(key===aircraftKey)return;
+    aircraftKey=key;const serial=++aircraftSerial;aircraftReady=false;readyReported=false;if(aircraft)aircraft.group.visible=false;
+    aircraftLoad=loadAircraftVisual({THREE,loadingManager:loading,renderer,appearance}).then(visual=>{
+      if(disposed||serial!==aircraftSerial){visual.dispose();return;}
+      replayDetails?.dispose();aircraft?.dispose();aircraft=visual;lastAnimationTime=null;
+      replayDetails=createReplayDetailLayer(aircraft,{onChange:()=>{dirty=true;}});scene.add(aircraft.group);aircraftReady=true;progress.update('aircraft',1);dirty=true;reportReady();
+    }).catch(error=>{if(!disposed&&serial===aircraftSerial){loadError=true;onError('飞机模型加载失败，请刷新页面重试。');console.error('Aircraft asset load failed:',error);}});
+  }
+  requestAircraft();
   const loader = new THREE.TextureLoader(loading);
   function texture(url, repeatX = 1, repeatY = 1) {
     const t = loader.load(siteUrl(url));
@@ -272,7 +284,7 @@ export function createWorld(host, onReady, onError, airportId='training',onProgr
     parts.forEach(g=>g.dispose());
   }
 
-  if(hasMappedCity)(airportId==='us1549'?import('./history/nyc-city.js').then(m=>m.loadHistoricalCity):airportId==='lax'?import('./airports/lax-city-world.js').then(m=>m.loadLaxCity):airportId==='xiaoshan'?import('./airports/xiaoshan-city-world.js').then(m=>m.loadXiaoshanCity):airportId==='changi'?import('./airports/changi-city-world.js').then(m=>m.loadChangiCity):airportId==='jfk'?import('./airports/jfk-city-world.js').then(m=>m.loadJfkCity):airportId==='kansai'?import('./airports/kansai-city-world.js').then(m=>m.loadKansaiCity):import('./airports/daxing-city-world.js').then(m=>m.loadDaxingCity)).then(loadCity=>loadCity({scene,terrain:cityTerrain,airport,camera,loadingManager:loading,onProgress:detail=>progress.update('city',detail.fraction,detail),isCurrent:()=>!disposed,onChange:()=>{dirty=true;},maxAnisotropy:renderer.capabilities.getMaxAnisotropy()})).then(value=>{if(disposed){value.dispose();return;}city=value;if(cityActive)city.activate?.();cityReady=true;dirty=true;reportReady();}).catch(error=>{if(!disposed){loadError=true;onError('城市场景加载失败，请刷新页面重试。');console.error('City scene load failed:',error);}});
+  if(hasMappedCity)(airportId==='us1549'?import('./history/nyc-city.js').then(m=>m.loadHistoricalCity):airportId==='lax'?import('./airports/lax-city-world.js').then(m=>m.loadLaxCity):airportId==='xiaoshan'?import('./airports/xiaoshan-city-world.js').then(m=>m.loadXiaoshanCity):airportId==='changi'?import('./airports/changi-city-world.js').then(m=>m.loadChangiCity):['jfk','lga'].includes(airportId)?import('./airports/jfk-city-world.js').then(m=>m.loadJfkCity):airportId==='kansai'?import('./airports/kansai-city-world.js').then(m=>m.loadKansaiCity):import('./airports/daxing-city-world.js').then(m=>m.loadDaxingCity)).then(loadCity=>loadCity({scene,terrain:cityTerrain,airport,camera,loadingManager:loading,onProgress:detail=>progress.update('city',detail.fraction,detail),isCurrent:()=>!disposed,onChange:()=>{dirty=true;},maxAnisotropy:renderer.capabilities.getMaxAnisotropy()})).then(value=>{if(disposed){value.dispose();return;}city=value;if(cityActive)city.activate?.();cityReady=true;dirty=true;reportReady();}).catch(error=>{if(!disposed){loadError=true;onError('城市场景加载失败，请刷新页面重试。');console.error('City scene load failed:',error);}});
 
   const historyEffects=airport.event?createHistoricalEffects(scene):null;
   const contactShadow=createContactShadow(scene);
@@ -291,18 +303,23 @@ export function createWorld(host, onReady, onError, airportId='training',onProgr
   const rainGeometry=new THREE.BufferGeometry();rainGeometry.setAttribute('position',new THREE.BufferAttribute(rainData,3));
   const rainMaterial=new THREE.LineBasicMaterial({color:'#c1d4df',transparent:true,opacity:0,depthWrite:false});
   const rain=new THREE.LineSegments(rainGeometry,rainMaterial);camera.add(rain);scene.add(camera);
-  const cloudSky=new THREE.Color('#82919c');
+  const cloudSky=new THREE.Color('#82919c'),enrouteGround=realAirport&&!airport.event?createEnrouteGround(scene,airport):null;
   return {
     activate(){cityActive=true;city?.activate?.();},
     deactivate(){cityActive=false;city?.deactivate?.();},
-    settled:()=>city?.settled?.()??Promise.resolve(),
+    settled:()=>Promise.all([aircraftLoad,city?.settled?.()]),
+    aircraftReady:()=>aircraftReady&&!loadError,
+    relativeCamera:()=>cameraRig.relativePose(),
+    seedContinuousCamera:(pose,s,angle,view)=>{cameraRig.seedRelative(pose,s,angle,view);dirty=true;},
     update(s,motion=sampleCabinMotion(s),{cinematic=false,cinematicTime=null,cruise=null,replay=null,history=null,view=defaultView,dt=.016}={}) {
       if(disposed)return;
+      requestAircraft(s.aircraft??airport.aircraft);
+      enrouteGround?.update(s);
       const animationDt=lastAnimationTime===null?0:Math.max(0,Math.min(.1,s.time-lastAnimationTime));
-      if(aircraft){lastAnimationTime=s.time;replayDetails?.beforeBase();aircraft.update(s,animationDt);visualOffset=placeAircraft(aircraft.group,s,aircraft.anchors,surfaceHeight);aircraft.group.visible=cinematic||view.mode!=='cockpit';}
+      if(aircraft&&aircraftReady){lastAnimationTime=s.time;replayDetails?.beforeBase();aircraft.update(s,animationDt);visualOffset=placeAircraft(aircraft.group,s,aircraft.anchors,surfaceHeight);aircraft.group.visible=cinematic||view.mode!=='cockpit';}
       const cameraChanged=cameraRig.update(s,view,dt,{motion,cinematic,cinematicTime,cruise,replay,history,airport,visualOffset});
-      historyEffects?.update(s,history);
-      replayDetails?.update(replay?cameraRig.replayShot?.part??'aircraft':null,s,animationDt);
+      historyEffects?.update(s,history,{sampleState:replay?.sampleState});
+      if(aircraftReady)replayDetails?.update(replay?cameraRig.replayShot?.part??'aircraft':null,s,animationDt);
       city?.update(camera,{time:s.time,presentationTime:cinematicTime??cruise?.elapsed??null,position:{x:s.x,y:s.y,z:s.z},velocity:s.velocity});
       const key=[history?.elapsed,replay?.elapsed,replay?.index,replay?.panel,cinematic,cinematicTime,view.mode,view.revision,view.resetSerial,s.time,s.x,s.y,s.z,s.pitch,s.yaw,s.roll,s.weather.visibility,s.weather.rain,s.weather.overcast,motion.x,motion.y,motion.roll,motion.cameraY].join(',');
       if(!dirty&&key===lastView&&!cameraChanged)return;
@@ -323,9 +340,9 @@ export function createWorld(host, onReady, onError, airportId='training',onProgr
     },
     viewStats() {const stats=cameraRig.stats();return{...stats,distance:stats.mode.startsWith('cruise-')?stats.aircraftDistance:camera.position.distanceTo(new THREE.Vector3(...stats.target)),visualOffset};},
     aircraftStats() {return aircraft?{...aircraft.stats(),position:aircraft.group.position.toArray(),rotation:[aircraft.group.rotation.x,aircraft.group.rotation.y,aircraft.group.rotation.z],visible:aircraft.group.visible}:null;},
-    stats() { return { calls:renderer.info.render.calls,triangles:renderer.info.render.triangles,city:city?.stats()??null,replayDetails:replayDetails?.stats()??null }; },
+    stats() { return { calls:renderer.info.render.calls,triangles:renderer.info.render.triangles,city:city?.stats()??null,replayDetails:replayDetails?.stats()??null,historyEffects:historyEffects?.stats()??null }; },
     dispose() {
-      stopLanguage();disposed=true;resizeObserver.disconnect();contactShadow.dispose();historyEffects?.dispose();replayDetails?.dispose();aircraft?.dispose();city?.dispose();
+      stopLanguage();disposed=true;resizeObserver.disconnect();contactShadow.dispose();historyEffects?.dispose();replayDetails?.dispose();aircraft?.dispose();city?.dispose();enrouteGround?.dispose();
       const geometries=new Set(sourceGeometries), materials=new Set(), textures=new Set();
       scene.traverse(o=>{if(o.geometry)geometries.add(o.geometry);if(o.material){for(const m of Array.isArray(o.material)?o.material:[o.material])materials.add(m);}});
       materials.forEach(m=>{for(const value of Object.values(m))if(value?.isTexture)textures.add(value);m.dispose();});

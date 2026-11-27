@@ -1,3 +1,4 @@
+import {resolveAircraft,aircraftIdentity} from '../aircraft/catalog.js';
 // Session-only flight data. Never serialise this recorder into browser storage.
 // 20 Hz samples are taken inside the physics loop, including accelerated flight.
 export const RECORDING_HZ=20;
@@ -21,19 +22,28 @@ const strings=['mode','phase','ground.stage','engines.0.status','engines.1.statu
 const historyNumeric=['water.damage','water.flooding','water.waterSpeed','water.supportN','water.dragN','water.evacuationSeconds','water.firstImpact.time','water.firstImpact.pitch','water.firstImpact.roll','water.firstImpact.alpha','water.firstImpact.ias','water.firstImpact.sinkMps','water.firstImpact.waterSpeed','historical.crew.birdAt','water.elapsed','water.firstImpact.waterBeta','water.firstImpact.massTonnes','historical.alternate.touchdown.time','historical.alternate.touchdown.ias','historical.alternate.touchdown.sinkMps','historical.alternate.touchdown.pitch','historical.alternate.touchdown.roll'];
 const historyStrings=['historical.controlSource','historical.strategy','historical.node','historical.manualTarget','historical.alternate.airport','historical.alternate.runway','water.phase','water.firstImpact.part'];
 const historyPaths=[...historyNumeric,...historyStrings],historyParts=historyPaths.map(p=>p.split('.'));
+const routePaths=['airline.navigation.geo.longitude','airline.navigation.geo.latitude','airline.navigation.kind','airline.phase','airline.continuous','airline.arrivalMode'],routeParts=routePaths.map(p=>p.split('.'));
 const paths=[...numeric,...booleans,...strings],parts=paths.map(p=>p.split('.'));
+// Keep the existing twin-engine packed columns readable. Additional engines
+// use an optional segment-local channel instead of changing old frame strides.
+const extraEngineNumeric=['spool','n1','thrustN','command','health','lever','maxThrustN'];
+const extraEngineFields=[...extraEngineNumeric,'status'];
 const motionFields=['pitch','yaw','roll','gearPosition','airborne'].map(k=>[k,paths.indexOf(k)]);
 const get=(s,path)=>{let v=s;for(const key of path)v=v?.[key];return v;};
 function put(s,path,value){let o=s;for(let i=0;i<path.length-1;i++){const k=path[i];o=o[k]??=(/^\d+$/.test(path[i+1])?[]:{});}o[path.at(-1)]=value;}
 const anglePaths=new Set(['pitch','yaw','roll','weather.wind.directionDeg']);
 function mix(a,b,u,angle,degree=false){if(!Number.isFinite(a)||!Number.isFinite(b))return a;if(angle){const period=degree?360:Math.PI*2;return a+(((b-a+period/2)%period+period)%period-period/2)*u;}return a+(b-a)*u;}
-function baseState(s){return{airportId:s.airportId||'training',levelId:s.levelId,...(s.historical?{historical:structuredClone(s.historical),aerodynamics:structuredClone(s.aerodynamics)}:{}),weather:structuredClone(s.weather),engines:[{},{}],controls:{},airData:{},velocity:{},systems:structuredClone(s.systems),radio:{language:s.radio?.language,pilotVoice:s.radio?.pilotVoice,towerVoice:s.radio?.towerVoice,towerVoices:structuredClone(s.radio?.towerVoices||{}),active:null,pending:[],history:[],fired:{}},callouts:[],calloutSequence:0,result:null};}
-function signals(s){return{time:s.time,x:s.x,y:s.y,z:s.z,airportId:s.airportId,airborne:s.airborne,landed:s.landed,goAround:s.goAround,roll:s.roll,phase:s.phase,water:s.water?.phase,faults:s.mission?.events?.length||0,turn:s.airline?.navigation?.index,gates:s.gates?.length||0,impact:!!s.impact,radio:s.radio?.active?.id??null,callout:s.calloutSequence||0,issuedAt:s.atc?.issuedAt};}
+function baseState(s){return{airportId:s.airportId||'training',levelId:s.levelId,...(s.aircraft?{aircraft:resolveAircraft(s.aircraft)}:{}),...(s.airline?{airline:{origin:s.airline.origin,destination:s.airline.destination,profile:structuredClone(s.airline.profile),navigation:{}}}:{}),...(s.historical?{historical:structuredClone(s.historical),aerodynamics:structuredClone(s.aerodynamics)}:{}),weather:structuredClone(s.weather),engines:structuredClone(s.engines||[{},{}]),controls:{},airData:{},velocity:{},systems:structuredClone(s.systems),radio:{language:s.radio?.language,pilotVoice:s.radio?.pilotVoice,towerVoice:s.radio?.towerVoice,copilotVoice:s.radio?.copilotVoice,towerVoices:structuredClone(s.radio?.towerVoices||{}),active:null,pending:[],history:[],fired:{}},callouts:[],calloutSequence:0,result:null};}
+function signals(s){return{aircraftKey:aircraftIdentity(s.aircraft),engineCount:s.engines?.length??0,time:s.time,x:s.x,y:s.y,z:s.z,airportId:s.airportId,airborne:s.airborne,landed:s.landed,goAround:s.goAround,roll:s.roll,phase:s.phase,water:s.water?.phase,faults:s.mission?.events?.length||0,turn:s.airline?.navigation?.index,gates:s.gates?.length||0,impact:!!s.impact,radio:radioIdentity(s),alerts:s.alerts?.revision,engineCauses:engineCauses(s),callout:s.calloutSequence||0,issuedAt:s.atc?.issuedAt};}
+const radioIdentity=s=>[s.radio?.active?.id,s.radio?.active?.clip,s.radio?.active?.started,JSON.stringify(s.radio?.active?.audioSource||null),s.radio?.language,s.radio?.pilotVoice,s.radio?.copilotVoice,s.radio?.towerVoice,JSON.stringify(s.radio?.towerVoices||{})].join('|');
+const engineCauses=s=>(s.engines||[]).map(e=>e.damageCause||'').join('|');
+function preceding(events,time){let lo=0,hi=events.length;while(lo<hi){const mid=(lo+hi)>>>1;if(events[mid].time<=time)lo=mid+1;else hi=mid;}return events[lo-1];}
 export class FlightRecording{
  constructor(){this.seed=Math.floor(Math.random()*4294967296);this.segments=[];this.spans=[];this.events=[];this.timeline=[];this.attempt=1;this.sealed=false;this.dictionary=[null];this.words=new Map();this.previous=null;}
  startSegment(s,reason='start'){
   if(this.sealed)return null;
-  const segment={id:this.segments.length,airportId:s.airportId||'training',attempt:this.attempt,reason,base:baseState(s),chunks:[],count:0,start:s.time,end:s.time};
+  const segment={id:this.segments.length,airportId:s.airportId||'training',attempt:this.attempt,reason,base:baseState(s),audio:{radio:[],alerts:[],engines:[]},chunks:[],count:0,start:s.time,end:s.time};
+  segment.extraEngineParts=Array.from({length:Math.max(0,(s.engines?.length||0)-2)},(_,i)=>extraEngineFields.map(k=>['engines',String(i+2),k])).flat();
   this.segments.push(segment);this.spans.push({segment:segment.id,until:Infinity});this.previous=null;this.lastTurn=undefined;this.current=segment;this.write(s);return segment;
  }
  retry(s){
@@ -58,6 +68,11 @@ export class FlightRecording{
   if(!same&&!row)seg.chunks.push({precise:new Float64Array(CHUNK*precise.length),values:new Float32Array(CHUNK*paths.length)});
   const chunk=seg.chunks.at(-1),source={...s,recordedInput:s.historical?s.recordedInput:input||s.recordedInput};
   if(s.historical){chunk.history??=new Float32Array(CHUNK*historyPaths.length);historyPaths.forEach((k,i)=>{const v=get(source,historyParts[i]);chunk.history[row*historyPaths.length+i]=i>=historyNumeric.length?this.word(v):v??NaN;});}
+  if(s.airline){chunk.route??=new Float64Array(CHUNK*routePaths.length);routeParts.forEach((path,i)=>{const v=get(source,path);chunk.route[row*routePaths.length+i]=i<2?v??NaN:i===4?Number(!!v):this.word(v);});}
+  if(seg.extraEngineParts?.length){
+   const stride=seg.extraEngineParts.length;chunk.extraEngines??=new Float32Array(CHUNK*stride);
+   seg.extraEngineParts.forEach((path,i)=>{const v=get(source,path);chunk.extraEngines[row*stride+i]=path[2]==='status'?this.word(v):v??NaN;});
+  }
   precise.forEach((k,i)=>{chunk.precise[row*precise.length+i]=s[k];});
   paths.forEach((k,i)=>{const value=get(source,parts[i]);chunk.values[row*paths.length+i]=i>=numeric.length+booleans.length?this.word(value):i>=numeric.length?Number(!!value):value===undefined||value===null?NaN:value;});
   if(!same)seg.count++;seg.end=s.time;
@@ -66,12 +81,14 @@ export class FlightRecording{
  observe(s,input){
   if(this.sealed)return;
   let p=this.previous;
-  const jumped=p&&(s.airportId!==p.airportId||s.time<p.time-1e-6||s.time-p.time>1||Math.hypot(s.x-p.x,s.y-p.y,s.z-p.z)>Math.max(200,(s.time-p.time)*500));
+  const jumped=p&&(aircraftIdentity(s.aircraft)!==p.aircraftKey||(s.engines?.length??0)!==p.engineCount||s.airportId!==p.airportId||s.time<p.time-1e-6||s.time-p.time>1||Math.hypot(s.x-p.x,s.y-p.y,s.z-p.z)>Math.max(200,(s.time-p.time)*500));
   if(!this.current||jumped){this.startSegment(s,jumped?'skip':'start');p=null;}
   // Sparse context accompanies the numeric trajectory for a future full player.
   // Clip planning deliberately ignores radio/callout metadata.
-  const metadata=(type,data)=>this.timeline.push({type,segment:this.current.id,attempt:this.attempt,time:s.time,data:structuredClone(data)});
-  if((s.radio?.active?.id??null)!==(p?.radio??null))metadata('radio',{line:s.radio?.active??null,language:s.radio?.language,pilotVoice:s.radio?.pilotVoice,towerVoice:s.radio?.towerVoice,towerVoices:s.radio?.towerVoices||{}});
+  const metadata=(type,data)=>{const e={type,segment:this.current.id,attempt:this.attempt,time:s.time,data:structuredClone(data)};this.timeline.push(e);this.current.audio?.[type]?.push(e);};
+  if(radioIdentity(s)!==p?.radio)metadata('radio',{line:s.radio?.active??null,language:s.radio?.language,pilotVoice:s.radio?.pilotVoice,towerVoice:s.radio?.towerVoice,copilotVoice:s.radio?.copilotVoice,towerVoices:s.radio?.towerVoices||{}});
+  if(s.alerts?.revision!==p?.alerts)metadata('alerts',s.alerts??null);
+  if(!p||engineCauses(s)!==p.engineCauses)metadata('engines',(s.engines||[]).map(e=>({damageCause:e.damageCause})));
   if((s.calloutSequence||0)>(p?.callout||0))metadata('callouts',s.callouts.filter(c=>c.id>(p?.callout||0)));
   if((s.mission?.events?.length||0)>(p?.faults||0))metadata('mission',s.mission.events.slice(p?.faults||0));
   if(s.atc?.issuedAt!==p?.issuedAt)metadata('clearance',s.atc?.clearance??null);
@@ -109,8 +126,22 @@ export class FlightRecording{
    if(v!==null&&(typeof v!=='number'||Number.isFinite(v)))put(s,parts[i],v);
   });
   if(seg.base.historical){for(let i=0;i<historyPaths.length;i++){const channel=index=>seg.chunks[Math.floor(index/CHUNK)].history?.[index%CHUNK*historyPaths.length+i];let v=channel(a);v=i>=historyNumeric.length?this.dictionary[v]??null:mix(v,channel(b),u,false);if(v!==null&&v!==undefined&&(typeof v!=='number'||Number.isFinite(v)))put(s,historyParts[i],v);}}
+  if(seg.base.airline){routeParts.forEach((path,i)=>{const read=index=>seg.chunks[Math.floor(index/CHUNK)].route?.[index%CHUNK*routePaths.length+i];let v=i<2?mix(read(a),read(b),u,false):i===4?!!read(a):this.dictionary[read(a)]??null;if(v!==null&&v!==undefined&&(typeof v!=='number'||Number.isFinite(v)))put(s,path,v);});}
+  if(seg.extraEngineParts?.length){
+   const stride=seg.extraEngineParts.length;
+   seg.extraEngineParts.forEach((path,i)=>{const read=index=>seg.chunks[Math.floor(index/CHUNK)].extraEngines?.[index%CHUNK*stride+i],v=path[2]==='status'?this.dictionary[read(a)]??null:mix(read(a),read(b),u,false);if(v!==null&&v!==undefined&&(typeof v!=='number'||Number.isFinite(v)))put(s,path,v);});
+  }
   if(!s.touchdown?.time&&s.touchdown?.time!==0)delete s.touchdown;
   if(!s.water?.phase)delete s.water;
+  for(const type of ['radio','alerts','engines']){
+   // Older exported sessions have only the sparse timeline. Cache its index once.
+   seg.audio??=Object.fromEntries(['radio','alerts','engines'].map(k=>[k,this.timeline.filter(e=>e.segment===seg.id&&e.type===k)]));
+   const e=preceding(seg.audio[type]||[],s.time);if(!e)continue;
+   if(type==='radio'){const {line,...cast}=structuredClone(e.data);s.radio={...s.radio,...cast,active:line};}
+   else if(type==='alerts')s.alerts=structuredClone(e.data);
+   else e.data.forEach((v,i)=>Object.assign(s.engines[i],v));
+  }
+  s.replayAudio={segment:seg.id,attempt:seg.attempt};
   return s;
  }
  // Low-cost trajectory traversal for whole-flight discovery. It never clones
@@ -120,5 +151,5 @@ export class FlightRecording{
   for(let i=0;i<seg.count;i++){const chunk=seg.chunks[Math.floor(i/CHUNK)],c=chunk.precise,k=i%CHUNK*precise.length,time=c[k];if(time<start)continue;if(time>end)break;last={time,x:c[k+1],y:c[k+2],z:c[k+3]};if(motion)for(const[name,index]of motionFields){const v=chunk.values[i%CHUNK*paths.length+index];last[name]=name==='airborne'?!!v:Number.isFinite(v)?v:0;}if(time+1e-6>=next){yield last;next=time+interval;last=null;}}
   if(last)yield last;
  }
- stats(){return{hz:RECORDING_HZ,frames:this.segments.reduce((n,s)=>n+s.count,0),bytes:this.segments.reduce((n,s)=>n+s.chunks.reduce((m,c)=>m+c.precise.byteLength+c.values.byteLength+(c.history?.byteLength||0),0),0),duration:this.segments.reduce((n,s)=>n+s.end-s.start,0),attempts:this.attempt,sealed:this.sealed,replaySpans:this.spans.map(s=>({segment:s.segment,until:Number.isFinite(s.until)?s.until:null})),timelineEvents:this.timeline.length,segments:this.segments.map(({id,airportId,attempt,reason,count,start,end})=>({id,airportId,attempt,reason,count,start,end})),events:this.events.map(e=>({...e}))};}
+ stats(){return{hz:RECORDING_HZ,frames:this.segments.reduce((n,s)=>n+s.count,0),bytes:this.segments.reduce((n,s)=>n+s.chunks.reduce((m,c)=>m+c.precise.byteLength+c.values.byteLength+(c.history?.byteLength||0)+(c.extraEngines?.byteLength||0)+(c.route?.byteLength||0),0),0),duration:this.segments.reduce((n,s)=>n+s.end-s.start,0),attempts:this.attempt,sealed:this.sealed,replaySpans:this.spans.map(s=>({segment:s.segment,until:Number.isFinite(s.until)?s.until:null})),timelineEvents:this.timeline.length,segments:this.segments.map(({id,airportId,attempt,reason,count,start,end})=>({id,airportId,attempt,reason,count,start,end})),events:this.events.map(e=>({...e}))};}
 }

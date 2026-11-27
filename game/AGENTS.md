@@ -34,9 +34,12 @@ All paths below are relative to this file.
   notes: provenance, licensing, native resolution and rebuilding.
 - [Aircraft notes](src/aircraft/ASSET.md) and [FCU layout](src/views/fcu-layout.json):
   authored model and shared cockpit layout geometry.
+- [Aircraft foundation](../docs/AIRCRAFT-FOUNDATION.md): versioned definitions,
+  shared runtime, system adapters, model authoring and compatibility rules.
 - Camera/presentation behavior: `src/views/`; radio cast, timing and effects:
   `src/comms/`; persistent scenery caches: `src/airports/`. Read the relevant
   implementation and regression tests before changing those behaviors.
+- Reusable radio phrases and authoring: [Radio phrases](../docs/RADIO-PHRASES.md).
 
 ## Lasting user preferences
 
@@ -56,13 +59,19 @@ All paths below are relative to this file.
 - Keep Chinese/English UI and recorded radio aligned. Radio delivery should be
   natural, restrained and brisk. Use the approved cast and VHF treatment documented
   in Assets and implemented in `src/comms/`, with separate clean safety callouts.
+- Use shared recorded phrases for routine radio. Keep callsigns whole, preserve
+  continuing/ending intonation, and review new phrase boundaries before reuse.
 - Pilot speech is dry in cockpit view and uses live VHF in exterior views;
   controllers always use VHF. View changes must not restart an active recording.
   Use unfiltered pilot sources rather than trying to undo baked radio filtering.
 - Keep one pilot per flight and choose controllers independently per airport;
   origin and destination may share a controller, but neither matches the pilot.
-- At departure-altitude flight skips, request and clear a climb to cruise altitude;
-  do not claim the aircraft has already reached cruise. Keep captions and audio aligned.
+- Historical recreations use fixed captain and first-officer casting for each
+  scenario, inspired by the real crew. Retain those roles across retries and
+  language changes; ordinary missions keep their own voice selection rules.
+- Match route dialogue to the actual clearance: short terminal transfers do not
+  request a long-haul cruise level, and a climb clearance does not mean cruise
+  altitude has been reached. Keep captions and audio aligned.
 - Transition dialogue keeps normal playback speed. Let it finish, with subtitles,
   under black when it outlasts the camera; do not hurry it to fit the animation.
 
@@ -88,8 +97,11 @@ All paths below are relative to this file.
   hosting and GitHub Pages subpaths both work. Preserve the hosting adapter's
   build outputs and tests when changing packaging.
 - Never ship missing speech lines or silently substitute speakers. Publish audio,
-  measured durations and content/version identities together. Credentials stay
-  in backend process memory, outside source, browser code, arguments and media.
+  measured durations and content/version identities together. Fish credentials
+  default to the local plaintext `../.secrets/fish-audio.key` (Git-ignored, mode
+  600); generation scripts read it through `../ops/fish_credentials.py`. Keep
+  credentials outside tracked source, public assets, browser code, arguments,
+  logs and media.
 - A fresh checkout must test/build without historical QA files, local backups,
   credentials or live data downloads. Large runtime files are reconstructed from
   the checked-in parts via `ops/large-assets.mjs`; retain source/license notices.

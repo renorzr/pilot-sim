@@ -19,6 +19,9 @@ design-qa.md
 /public/assets/lax-city-world-*.js
 /public/assets/*-city-world-*.js
 /public/assets/nyc-city-*.js
+/public/assets/new-york-city-*.js
+/public/assets/basis_transcoder-*.js
+/public/assets/basis_transcoder-*.wasm
 /public/assets/maps/daxing-source.json
 
 # Reconstructed from checked-in 32 MiB parts by ops/large-assets.mjs.
@@ -30,6 +33,7 @@ design-qa.md
 /public/assets/cities/**/*.restore-*
 
 # Local credentials and machine-specific environment
+/.secrets/
 .env
 .env.*
 !.env.example

@@ -1,3 +1,4 @@
+import {scenerySourceId,sceneryCacheId,validateSceneryFrame} from '../regions/scenery-source.js';
 import {siteUrl} from '../urls.js';
 import {lanePath,resampleRoadPath,roadPath,sampleRoadPath,TRAFFIC_PROFILES} from './road-data.js';
 
@@ -10,17 +11,17 @@ export function selectRegionalTiles(manifest,position,velocity={x:0,z:0}){
  return manifest.tiles.filter(t=>distance(t,position)<REGION_ACTIVE_RADIUS+1000||distance(t,ahead)<REGION_ACTIVE_RADIUS).sort((a,b)=>distance(a,position)-distance(b,position)).slice(0,28);
 }
 export async function loadRegionalManifest(airport,path,cache){
- const namespace=airport.id+':images:1',key='manifest/'+siteUrl(path),valid=m=>m?.schema===1&&m.airportId===airport.id&&m.tileSize===REGION_TILE_SIZE&&/^[a-f0-9]{64}$/.test(m.identity)&&Array.isArray(m.tiles)&&m.tiles.every(t=>t.bounds?.length===4&&t.bounds.every(Number.isFinite)&&t.path.startsWith('assets/cities/'+airport.id+'/traffic-region-v1/'));
+ const namespace=sceneryCacheId(airport)+':images:1',key='manifest/'+siteUrl(path),valid=m=>m?.schema===1&&m.airportId===scenerySourceId(airport)&&m.tileSize===REGION_TILE_SIZE&&/^[a-f0-9]{64}$/.test(m.identity)&&Array.isArray(m.tiles)&&m.tiles.every(t=>t.bounds?.length===4&&t.bounds.every(Number.isFinite)&&(airport.region?.trafficTilePrefixes||['assets/cities/'+airport.id+'/traffic-region-v1/']).some(prefix=>t.path.startsWith(prefix)));
  let value;try{const r=await fetch(siteUrl(path),{cache:'no-cache'});if(!r.ok)throw Error('Regional road metadata unavailable');value=await r.json();if(!valid(value))throw Error('Invalid regional road metadata');cache.put(namespace,key,value);}catch(e){value=await cache.get(namespace,key);if(!valid(value))throw e;}
- const p=airport.unproject(0,0),d=(value.frame.heading-airport.runway.heading)*Math.PI/180;if(Math.abs(p.longitude-value.frame.threshold[0])>1e-7||Math.abs(p.latitude-value.frame.threshold[1])>1e-7||Math.abs(Math.atan2(Math.sin(d),Math.cos(d)))>1e-5)throw Error('Regional road frame mismatch');return value;
+ validateSceneryFrame(airport,value.frame,'Regional road');return value;
 }
 export async function loadRegionalTile(record,airport,cache,isCurrent=()=>true){
- const namespace=airport.id+':images:1',key='regional-roads/'+record.sha256;
+ const namespace=sceneryCacheId(airport)+':images:1',key='regional-roads/'+record.sha256;
  async function decode(blob){
   if(!(blob instanceof Blob)||![record.bytes,record.decodedBytes].includes(blob.size))throw Error('Incomplete regional road source');
   const buffer=await blob.arrayBuffer(),head=new Uint8Array(buffer,0,2),packed=head[0]===31&&head[1]===139,sha=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',buffer)),n=>n.toString(16).padStart(2,'0')).join('');if(sha!==(packed?record.sha256:record.decodedSha256))throw Error('Regional road checksum mismatch');
   const raw=packed?await new Response(blob.stream().pipeThrough(new DecompressionStream('gzip'))).arrayBuffer():buffer;if(raw.byteLength!==record.decodedBytes)throw Error('Incomplete decoded regional roads');const t=JSON.parse(new TextDecoder().decode(raw));
-  if(t.schema!==1||t.airportId!==airport.id||t.id!==record.id||!Array.isArray(t.routes)||!Array.isArray(t.pieces)||t.routes.length!==record.routes)throw Error('Invalid regional road tile');
+  if(t.schema!==1||t.airportId!==scenerySourceId(airport)||t.id!==record.id||!Array.isArray(t.routes)||!Array.isArray(t.pieces)||t.routes.length!==record.routes)throw Error('Invalid regional road tile');
   for(const r of t.routes)if(!TRAFFIC_PROFILES[r.kind]||!r.id||r.points.length<2||r.points.some(p=>p.length!==3||!p.every(Number.isFinite))||r.width<3||r.width>40||![0,1,-1].includes(r.oneway)||!Number.isInteger(r.forward)||r.forward<1||r.forward>5||!Number.isInteger(r.backward)||r.backward<0||r.backward>5)throw Error('Invalid regional road route');
   for(const [i,a,b]of t.pieces)if(!t.routes[i]||!Number.isFinite(a)||!Number.isFinite(b)||a<0||b<=a)throw Error('Invalid regional road interval');return t;
  }

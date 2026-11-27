@@ -10,4 +10,4 @@ for(const airport of AIRPORTS){
  for(const f of features){assert(isWoodland(f));assert(f.geometry.length>=2);for(const p of[f.geometry,...(f.holes||[])].flat())assert(p.length===2&&p.every(Number.isFinite));if(f.geometry.length>=4&&f.geometry[0].every((v,i)=>v===f.geometry.at(-1)[i]))closed++;}
  assert(closed>0,airport.id+' needs closed woodland areas');
 }
-console.log('Woodland source coverage: six airports; attributed LAX derivative and finite source rings verified.');
+console.log('Woodland source coverage: seven airports; attributed LAX derivative and finite source rings verified.');

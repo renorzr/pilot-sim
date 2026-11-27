@@ -1,2 +1,2 @@
-import {loadMappedCity}from './mapped-city-world.js';
-export function loadJfkCity(options){return loadMappedCity({...options,buildingManifestPath:'assets/cities/jfk/buildings-v1.json',imageryManifestPath:'assets/cities/jfk/imagery-v1.json',trafficManifestPath:'assets/cities/jfk/traffic-v1.json'});}
+import {loadNewYorkCity} from '../regions/new-york-city.js';
+export function loadJfkCity(options){return loadNewYorkCity(options);}

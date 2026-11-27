@@ -1,0 +1,30 @@
+{
+  "version": "a320-uv1",
+  "size": 2048,
+  "padding": 16,
+  "regions": {
+    "fuselage-left": [32, 32, 1984, 448],
+    "fuselage-right": [32, 512, 1984, 448],
+    "tail-left": [32, 1024, 416, 640],
+    "tail-right": [480, 1024, 416, 640],
+    "engine-left": [960, 1024, 480, 224],
+    "engine-right": [1504, 1024, 480, 224],
+    "wingtip-left": [960, 1312, 480, 288],
+    "wingtip-right": [1504, 1312, 480, 288],
+    "wing-left-top": [32, 1728, 464, 288],
+    "wing-left-bottom": [528, 1728, 464, 288],
+    "wing-right-top": [1040, 1728, 464, 288],
+    "wing-right-bottom": [1536, 1728, 464, 288]
+  },
+  "coordinates": "SVG pixels from top left; Blender UV v=1-y/size, exported glTF v=y/size (texture flipY=false). Left/right are aircraft-local. Nose is left on left-side panels and right on right-side panels.",
+  "domains": {
+    "fuselageZ": [-16.5, 21.07],
+    "tailZ": [12, 20.2],
+    "tailY": [1.7, 9],
+    "engineZ": [-4.96, -1.32],
+    "wingX": [1.3, 16.9],
+    "wingZ": [-3.2, 6.8],
+    "wingtipZ": [4.8, 6.9],
+    "wingtipY": [-0.25, 2.4]
+  }
+}

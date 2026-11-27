@@ -1,9 +1,11 @@
 """Generate self-hosted original US1549 speech; resumable, content addressed.
-Fish credentials are accepted on hidden stdin only; the free model is mandatory.
+Fish credentials default to the ignored local file; the free model is mandatory.
 The English cast preserves Guy/Aria and adds Andrew for the first officer.
 """
 import argparse, asyncio, hashlib, json, pathlib, subprocess, sys, urllib.request
 import edge_tts
+from fish_credentials import load_fish_credential
+
 ROOT=pathlib.Path(__file__).resolve().parents[1]
 SCRIPT=ROOT/'game/src/history/radio-script.json'
 MANIFEST=ROOT/'game/src/history/voice-assets.json'
@@ -20,7 +22,7 @@ def write_manifest(m):
  tmp=MANIFEST.with_suffix('.tmp');tmp.write_text(json.dumps(m,ensure_ascii=False,indent=2)+'\n');tmp.replace(MANIFEST)
 async def main():
  ap=argparse.ArgumentParser();ap.add_argument('--language',choices=['zh','en'],action='append');ap.add_argument('--cast',choices=['approved','edge'],default='approved');ap.add_argument('--fish-stdin',action='store_true');ap.add_argument('--voice',action='append');args=ap.parse_args()
- credential=sys.stdin.readline().strip() if args.fish_stdin else None
+ credential=load_fish_credential(stdin=args.fish_stdin)
  script=json.loads(SCRIPT.read_text());m=json.loads(MANIFEST.read_text());sem=asyncio.Semaphore(2)
  langs=args.language or ['en'];jobs=[]
  for lang in langs:
@@ -41,7 +43,7 @@ async def main():
      try:
       if profile:await asyncio.wait_for(edge_tts.Communicate(text,**profile).save(str(raw)),45)
       else:
-       if not credential:raise RuntimeError('Missing Fish credential on hidden stdin')
+       if not credential:raise RuntimeError('Missing Fish credential: .secrets/fish-audio.key or --fish-stdin')
        def fish():
         payload=json.dumps({'text':'[自然、镇定、简短的机组通话] '+text,'reference_id':REFERENCES[voice],'format':'mp3','mp3_bitrate':128,'normalize':True,'latency':'normal'},ensure_ascii=False).encode()
         req=urllib.request.Request('https://api.fish.audio/v1/tts',data=payload,headers={'Authorization':'Bearer '+credential,'Content-Type':'application/json','model':'s2.1-pro-free'})

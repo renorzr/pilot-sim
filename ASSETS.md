@@ -39,7 +39,7 @@ including +/- actions, mode indicators and the vertical stick arrangement.
 
 ## Speech
 
-Speech is self-hosted as mono MP3 at 24 kHz / 48 kbps:
+Whole-line speech sources are self-hosted as mono MP3 at 24 kHz / 48 kbps:
 
 - `public/assets/radio/` and `en/` retain base/legacy dialogue and the shared
   English height/safety callouts. Historical files remain available to open sessions.
@@ -72,6 +72,15 @@ Runtime playback is entirely self-hosted. Web Audio adds radio band limiting,
 compression, distortion, gated static and PTT clicks; clean safety calls have
 priority. Engine, wind, rolling, reverse-volume and contact effects are
 procedurally synthesized in `game/src/audio/soundscape.js`.
+
+Routine gameplay radio uses shared phrase recipes in
+`game/src/comms/phrase-catalogue.json`, authored from the existing approved
+performances and the accepted audition takes. Phrase WAVs and independent donor
+recordings are under `public/assets/radio/phrases/`. Runtime PCM assembly keeps
+the original actor and speech rate, then applies the existing live effects. Old
+whole takes remain available as complete fallbacks. New recipes can generate a
+whole fallback from shared phrases without another recording. See
+[Radio phrases](docs/RADIO-PHRASES.md) for authoring, validation and cache limits.
 
 ## Daxing airport scene
 
@@ -160,14 +169,19 @@ Network totals: 401 MP3 clips (211 Chinese/shared, 190 English).
 
 ## Flyable exterior aircraft
 
-`public/assets/aircraft/skyline-320.glb` is an original, code-authored model with
-YUNJI AIR livery, distributed under MIT. It follows A320 proportions with
-estimated surface details; no commercial aircraft model or airline logo is
-bundled. The approximately 1.46 MB self-contained GLB has 60,192 triangles,
-11 materials and independently animated systems. Native Blender preview,
-geometry metadata, validation results, rebuild commands and joint contracts
-are documented in [the aircraft asset notes](game/src/aircraft/ASSET.md).
-The runtime loads it from the same host, respecting the project URL prefix.
+`public/assets/aircraft/skyline-320-uv1.glb` is the original code-authored airframe
+with stable UVs, named animation joints and selectable sharklet/small-fence
+wingtips. External, mipmapped KTX2 paint atlases supply the original YUNJI AIR
+appearance and period-inspired US Airways N106US markings for Flight 1549. Only
+the chosen livery and resolution are loaded. The geometry remains an authored
+approximation; no commercial aircraft mesh or third-party paint texture is used.
+The older `skyline-320.glb` remains available to existing sessions.
+
+UV layout, source SVG/PNG artwork, versioned runtime assets, the self-hosted Basis
+transcoder, exact rebuilding steps and measured rendering budgets are documented
+in [the aircraft asset notes](game/src/aircraft/ASSET.md). Historical identity uses
+the [FAA's aircraft photograph and Flight 1549 account](https://www.faa.gov/lessonslearned/transportairplane/accidents/N160US).
+Decoder and historical-marking notices appear in [third-party notices](THIRD_PARTY_NOTICES.md).
 
 ## LAX city imagery and landmarks
 
@@ -374,8 +388,9 @@ hash before tests/builds. Runtime playback is self-hosted with no API request.
 ### Regional woodland scenery
 
 Original code-authored crown/trunk templates and procedural foliage shading are
-shared across the six mapped airport regions. Five airports reuse their pinned
-OSM woodland features; LAX ships a source-coordinate woodland derivative under
+shared across the six mapped airport regions. JFK and US1549 additionally
+share the NYC vegetation derivative described below; the other airport packs
+retain their pinned OSM features. LAX ships a source-coordinate woodland derivative under
 ODbL from the same attributed Los Angeles extract. No purchased tree models or
 external runtime imagery service are used. Positions within woodland areas,
 missing heights and inferred canopy appearance are visual estimates. See
@@ -386,6 +401,18 @@ missing heights and inferred canopy appearance are visual estimates. See
 The self-hosted road networks at LAX, Xiaoshan, Changi, JFK, Kansai and Daxing are OpenStreetMap derivatives (© OpenStreetMap contributors, [ODbL 1.0](https://www.openstreetmap.org/copyright)), extracted from the pinned BBBike Los Angeles and Geofabrik regional PBFs already used by the airport packs. Source way/node IDs, retained tags, checksums, estimated bridge heights and traffic assumptions are distributed with `public/assets/cities/<airport>/traffic-v1.json` and its compressed source database. Five shared vehicle models are original programmatic geometry; no third-party vehicle models are used. See [road data and runtime notes](game/src/airports/data/ROAD-TRAFFIC.md) for coverage, rebuilding, caching and limitations.
 
 Regional traffic additionally uses `traffic-region-v1.json` and the immutable source tiles in `public/assets/cities/<airport>/traffic-region-v1/`. They preserve original OpenStreetMap way identities and source attribution under ODbL 1.0; the JFK regional network includes both pinned New York and New Jersey PBFs. Road/lane geometry, shared vehicles and their motion are generated by the project.
+
+The shared NYC derivative at `public/assets/cities/new-york/` includes
+31,704 clipped forest/park/garden polygons, distributed as a compressed source
+with checksum/provenance metadata, plus 275 regional road tiles. It uses the same
+pinned New York and New Jersey snapshots/hashes as the JFK building pack under
+ODbL 1.0. Unchanged road tiles and NAIP/river masks are referenced at their original
+paths. Park canopy coverage, road/path clearances, tree positions/sizes and car
+flows are estimates; this modern source is not a surveyed 2009 reconstruction.
+The shared, offline-prepared tree array pack references these same inputs and
+uses one MSL placement with per-scene datum offsets. Winter branch/evergreen
+geometry is original project code. See the shared NYC
+section in [Development](docs/DEVELOPMENT.md#shared-new-york-region) for rebuilds.
 
 ## US Airways 1549 historical scenario
 
@@ -443,3 +470,80 @@ To regenerate, install `ops/requirements-tts.txt`, run
 `node ops/check-failure-audio.mjs`. Upgrade the mix profile identity when
 changing DSP. Ordinary checkout tests/builds use the bundled media and do not
 call a synthesis service or require credentials.
+
+### Fixed historical crew and successful water rescue
+
+US1549 captain and first-officer casting is fixed in
+`game/src/history/crew-cast.json`: Chinese H / G and English Guy / Andrew.
+The established synthetic actors were selected for a restrained, lower captain
+and a distinct, brighter procedural first officer, with public interviews as
+casting references ([Sullenberger, 2009](https://abcnews.com/video/47427104/),
+[Skiles, 2009](https://charlierose.com/videos/14176)). This is an artistic
+casting direction, not a measured voice match or a voice clone. These existing
+actors remain available to ordinary missions; historical retries and language
+changes keep the same role mapping. Controllers remain separate from both crew.
+
+`game/src/history/rescue-script.json` and `rescue-assets.json` define original
+successful-ditching field reports, dispatch and responding units. They reuse
+the emergency cast in `game/src/failure/cast.json`, the selected controller's
+existing rescue call and the fixed first officer's existing closing line.
+Eight 19-second mixes cover both languages, eligible controllers and controlled /
+damaged survival. The active source/mix set is about 1.5 MiB. Synthetic distant
+shore sirens, water wash and approaching boat engines fade under the dry closing
+line. Other transmissions have individual radio band-limiting, distortion,
+carrier noise and squelch; dispatch contains a short interference burst.
+The scene confirms flotation and evacuation in progress, without inventing an
+all-passengers-rescued outcome. Rebuild with `ops/generate-rescue-audio.py` using
+the existing TTS requirements, then run `node ops/check-rescue-audio.mjs`.
+
+### Historical opening dialogue and bird-ingestion effects
+
+`history/opening-script.json` / `opening-assets.json` contain six normal
+departure calls for the fixed captain and eligible controllers. Chinese calls
+join approved same-actor performances: the existing Cactus 1549 prefix and the
+routine planned-route dialogue, omitting the unrelated fictional callsign.
+The manifest preserves every source fingerprint and measured excerpt range.
+English retains the existing Guy/Aria profiles. All clips play at normal speed;
+no real accident audio or new cloned voices are used. Regenerate with
+`ops/generate-history-opening.py`, then validate with
+`node ops/check-history-opening.mjs`.
+
+`audio/bird-strike.js` synthesizes original low-frequency, closely spaced dull
+strikes followed by two decelerating engine-shaft layers and fading airflow.
+Its bounded stereo buffer is prepared during normal climbing, resumes at the
+current flight-time offset after pause and remains continuous across the cockpit
+cut. It does not replace the established engine bed or change engine physics.
+`history/engine-smoke.js` adds one bounded, camera-facing instanced puff system
+at the shared authored nacelle anchors. The gray ingestion trails fade over time,
+use no bitmap assets, and never enter collision geometry or recorded state.
+
+Historical upper-Hudson water: OSM tidal-water relations
+[1845135](https://www.openstreetmap.org/relation/1845135),
+[14141926](https://www.openstreetmap.org/relation/14141926), and
+[17066325](https://www.openstreetmap.org/relation/17066325), © OpenStreetMap
+contributors / ODbL-1.0. Pinned source XML, versions and hashes are retained under
+`ops/assets/us1549-water/` and `game/src/history/tidal-water.json`. The derived
+river faces and event-only masks retain source banks/islands and use the existing
+MSL-zero water model. Source modern shorelines are a historical scenery estimate.
+`public/assets/cities/us1549/imagery-river-v1.json` references the existing JFK
+NAIP photographs without copying or changing them; its two new masks are rebuilt
+by `ops/build-us1549-water.py` and checked offline by `ops/check-us1549-water.mjs`.
+
+LGA operations use the local `game/src/airports/data/lga.json` supplement from the
+same pinned Geofabrik New York source and OurAirports (ODbL/public domain). NYC
+photography, buildings, woodland and road payloads remain shared. Terminal details,
+holding/alignment offsets and radar-vector extent are game estimates; see
+[LGA source notes](game/src/airports/data/LGA.md). No new third-party aircraft or
+terminal model was introduced.
+
+## Original A380 exterior
+
+`public/assets/aircraft/skyline-380-uv1.glb` and the YUNJI A380 paint atlases are
+original code-authored game assets. The Blender template, independent UV contract,
+paint generator, references, dimensions and limitations are documented in
+[A380 notes](docs/A380.md). No external aircraft mesh or airline paint is bundled.
+
+The continuous-flight fallback reuses the bundled Natural Earth land polygons
+(`world-land.json`) as a coarse, locally generated land/sea texture beyond the
+authored airport DEMs. It adds no external service or higher-resolution source.
+See [continuous flight](docs/CONTINUOUS-FLIGHT.md) for coverage limits.

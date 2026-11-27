@@ -41,6 +41,8 @@ def main():
     parser.add_argument('--output', type=Path)
     parser.add_argument('--radius', type=float, default=6000)
     parser.add_argument('--regional', action='store_true', help='Export spatially tiled roads across the full city terrain')
+    parser.add_argument('--extent', type=float, default=30000, help='Regional half extent in the shared source frame')
+    parser.add_argument('--reuse-regional-manifest', type=Path, help='Reuse identical immutable source tiles instead of copying them')
     args = parser.parse_args()
     runway_id, default_pbf, driving_side, snapshot = CONFIG[args.airport]
     args.pbf = args.pbf or Path(default_pbf)

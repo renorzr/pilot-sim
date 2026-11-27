@@ -1,0 +1,162 @@
+{
+  "schema": 1,
+  "clips": {
+    "zh": {
+      "e": {
+        "us1549-opening-0": {
+          "path": "assets/radio/us1549/opening/e-tower-d12093a82c51a511.mp3",
+          "duration": 3.36,
+          "bytes": 20397,
+          "sha256": "d12093a82c51a5111e0da9bfe8b13998e00d3cc685ddfe96161e9cd1d695d2e8",
+          "voice": "e",
+          "role": "tower",
+          "text": "Cactus 1549，离场正常，按计划航路飞行。",
+          "channel": "vhf",
+          "provider": "approved-same-actor-excerpts",
+          "sources": [
+            {
+              "path": "assets/radio/us1549/zh/e/us1549-lga-0-e3cfdd77a4f2374d.mp3",
+              "sha256": "e3cfdd77a4f2374d5b8c7977f2f3ebfb17077cbba85f0fae37d098d6e6d0cde6",
+              "range": [
+                0,
+                1.625
+              ]
+            },
+            {
+              "path": "assets/radio/pilots/e/airline-cruise-ready-0-27623b9e25d9b618.mp3",
+              "sha256": "27623b9e25d9b6186a3db02f0f77b597a3c5e7b29e95666b64df90933436a67b",
+              "range": [
+                0.765583,
+                2.52
+              ]
+            }
+          ]
+        }
+      },
+      "j": {
+        "us1549-opening-0": {
+          "path": "assets/radio/us1549/opening/j-tower-4fef4f78a2a872e3.mp3",
+          "duration": 4.656,
+          "bytes": 28173,
+          "sha256": "4fef4f78a2a872e3272bcb065df254beca2caa35f21bb62a6be1cd8604276d02",
+          "voice": "j",
+          "role": "tower",
+          "text": "Cactus 1549，离场正常，按计划航路飞行。",
+          "channel": "vhf",
+          "provider": "approved-same-actor-excerpts",
+          "sources": [
+            {
+              "path": "assets/radio/us1549/zh/j/us1549-lga-0-6d2edb6f3303a27b.mp3",
+              "sha256": "6d2edb6f3303a27be0ea03f44651bd47c7da3001287eb630daaaa14cc85adbe4",
+              "range": [
+                0,
+                1.9135799999999998
+              ]
+            },
+            {
+              "path": "assets/radio/pilots/j/airline-cruise-ready-0-254ebd5242b65e55.mp3",
+              "sha256": "254ebd5242b65e55e09f53aa22527abe7e92c013dc25a5eb3312a864d33afd9c",
+              "range": [
+                1.18129,
+                3.912
+              ]
+            }
+          ]
+        }
+      },
+      "xiaoxiao": {
+        "us1549-opening-0": {
+          "path": "assets/radio/us1549/opening/xiaoxiao-tower-5da5cebcf46adf31.mp3",
+          "duration": 4.392,
+          "bytes": 26589,
+          "sha256": "5da5cebcf46adf319dba850534fa166aa073146f5195322249a0f1a451075e90",
+          "voice": "xiaoxiao",
+          "role": "tower",
+          "text": "Cactus 1549，离场正常，按计划航路飞行。",
+          "channel": "vhf",
+          "provider": "approved-same-actor-excerpts",
+          "sources": [
+            {
+              "path": "assets/radio/us1549/zh/xiaoxiao/us1549-lga-0-c3520b2e47b1bbdb.mp3",
+              "sha256": "c3520b2e47b1bbdbb0294406274933e999ea64ef386776141c861c23737ca5c6",
+              "range": [
+                0,
+                1.78467
+              ]
+            },
+            {
+              "path": "assets/radio/pilots/xiaoxiao/airline-cruise-ready-0-405a77de11944c69.mp3",
+              "sha256": "405a77de11944c69506272d9e560d593e59c65420380d7c19df02e21ed86acfc",
+              "range": [
+                1.25208,
+                3.84
+              ]
+            }
+          ]
+        }
+      },
+      "h": {
+        "us1549-opening-1": {
+          "path": "assets/radio/us1549/opening/h-pilot-25fa9bdf6d5da690.mp3",
+          "duration": 2.88,
+          "bytes": 17517,
+          "sha256": "25fa9bdf6d5da6906ab8b99b8dcd14462527fa47ccee65420592e589f38994ba",
+          "voice": "h",
+          "role": "pilot",
+          "text": "按计划航路，Cactus 1549。",
+          "channel": "vhf",
+          "provider": "approved-same-actor-excerpts",
+          "sources": [
+            {
+              "path": "assets/radio/pilots/h/airline-cruise-ready-1-clean-16b2e41a39dc8180.mp3",
+              "sha256": "16b2e41a39dc8180dfe638457408d1cc03b6f878c1893555f5d6bfa19ff3f7bf",
+              "range": [
+                0,
+                0.942125
+              ]
+            },
+            {
+              "path": "assets/radio/us1549/zh/h/us1549-lga-0-0aac05aa5a6300c1.mp3",
+              "sha256": "0aac05aa5a6300c1011e61451933e6f8c62eb5741b4db1901cd474a5f391c74c",
+              "range": [
+                0,
+                1.8676199999999998
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "en": {
+      "aria": {
+        "us1549-opening-0": {
+          "path": "assets/radio/us1549/opening/aria-tower-12edb2e56d2cf4f9.mp3",
+          "duration": 5.424,
+          "bytes": 32781,
+          "sha256": "12edb2e56d2cf4f97a55bcba163b5b880f75f50f7c5280080c7c3101152f34d1",
+          "voice": "aria",
+          "role": "tower",
+          "text": "Cactus fifteen forty-nine, departure looks normal. Continue on your planned route.",
+          "channel": "vhf",
+          "provider": "edge-tts",
+          "referenceId": "en-US-AriaNeural"
+        }
+      },
+      "guy": {
+        "us1549-opening-1": {
+          "path": "assets/radio/us1549/opening/guy-pilot-e2a586c0c49a5101.mp3",
+          "duration": 3.288,
+          "bytes": 19965,
+          "sha256": "e2a586c0c49a5101a121c7a6cbe9334b76b5b1faa1486c3658e0fce862ba1815",
+          "voice": "guy",
+          "role": "pilot",
+          "text": "Continuing on the planned route, Cactus fifteen forty-nine.",
+          "channel": "vhf",
+          "provider": "edge-tts",
+          "referenceId": "en-US-GuyNeural"
+        }
+      }
+    }
+  },
+  "version": "34dc06cf52112a4dc0b2"
+}

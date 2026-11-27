@@ -1,11 +1,13 @@
+import {aircraftDefinition,DEFAULT_DEFINITION} from '../aircraft/registry.js';
 import * as THREE from 'three';
 const rotation=new THREE.Euler(0,0,0,'YXZ'),point=new THREE.Vector3();
 // Authored Skyline 320 coordinates, inside the captain's front windshield.
 // The flight reference is aft of the cockpit and can be submerged while afloat.
-export const COCKPIT_EYE=Object.freeze({x:-.55,y:2.3,z:-13.4});
+export const COCKPIT_EYE=DEFAULT_DEFINITION.geometry.cockpitEye;
 export function placeCockpitCamera(camera,s,{visualOffset=0,motion={}}={}){
+ const eye=aircraftDefinition(s).geometry.cockpitEye;
  rotation.set(s.pitch,-s.yaw,-s.roll,'YXZ');
- point.set(COCKPIT_EYE.x+(motion.x||0)*4,COCKPIT_EYE.y+(motion.cameraY||0),COCKPIT_EYE.z+(motion.y||0)*2).applyEuler(rotation);
+ point.set(eye.x+(motion.x||0)*4,eye.y+(motion.cameraY||0),eye.z+(motion.y||0)*2).applyEuler(rotation);
  camera.position.set(s.x+point.x,s.y+visualOffset+point.y,s.z+point.z);
  camera.rotation.set(s.pitch-.021+(motion.cameraPitch||0),-s.yaw,-s.roll+(motion.roll||0),'YXZ');
 }

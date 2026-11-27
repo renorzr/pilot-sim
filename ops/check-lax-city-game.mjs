@@ -1,10 +1,11 @@
+import {chooseAirportPractice} from './airport-selection.mjs';
 import assert from'node:assert/strict';
 import{writeFile}from'node:fs/promises';
 import{connect}from'./cdp.mjs';
 const b=await connect(process.argv[2]||'http://127.0.0.1:18083/',1280,800),samples={};
 const tap=async(code,key)=>{await b.key(code,key);await b.key(code,key,'keyUp');};
 async function clean(){assert.deepEqual(await b.evaluate('window.__flightSim.missingTranslations()'),[]);assert.deepEqual(await b.evaluate('document.body.innerText.split("\\n").filter(x=>/\\p{Script=Han}/u.test(x))'),[]);}
-async function level(id){await b.click('[data-stage-id="airline"]');await b.click('[data-airline-mode="practice"]');await b.evaluate('document.querySelector('+JSON.stringify('[data-level-id="'+id+'"]')+').scrollIntoView({block:"nearest"})');await b.evaluate('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))');await b.click('[data-level-id="'+id+'"]');await b.waitFor('document.querySelector('+JSON.stringify('[data-level-id="'+id+'"]')+').classList.contains("selected")');await b.evaluate('document.querySelector(".enter-level").scrollIntoView({block:"nearest"})');await b.click('.enter-level');await b.waitFor('!!document.querySelector(".flight-card .primary-button")&&!document.querySelector(".flight-card .primary-button").disabled',120000);}
+async function level(id){await chooseAirportPractice(b,id);await b.waitFor('!!document.querySelector(".flight-card .primary-button")&&!document.querySelector(".flight-card .primary-button").disabled',120000);}
 try{
  await b.send('Network.enable');await b.send('Network.setBlockedURLs',{urls:['https://*']});
  await b.waitFor('!!window.__flightSim&&!!document.querySelector(".stage-tabs")',90000);if(await b.evaluate('document.documentElement.lang!=="en"'))await b.click('.language-switch');await level('lax-takeoff');await b.click('[data-view-mode="cockpit"]');await b.click('.flight-card .primary-button');await b.waitFor('window.__flightSim.snapshot().time>.1',60000);await b.screenshot('qa/lax-preview.png');await tap('KeyP','p');await clean();samples.departure=await b.evaluate('({state:window.__flightSim.snapshot(),stats:window.__flightSim.stats()})');assert(samples.departure.stats.city?.landmarks.length>=10);await b.screenshot('qa/lax-city-airport-overview.png');

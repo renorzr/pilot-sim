@@ -3,7 +3,7 @@
 **[Play online](https://renorzr.github.io/pilot-sim/) · [简体中文](README.zh-CN.md) · [MIT License](LICENSE)**
 
 An A320-inspired airliner game for the browser: cockpit and exterior views, live instruments,
-real-time 3D scenery, simplified flight physics and 13 progressively harder lessons.
+real-time 3D scenery, simplified flight physics and 16 training exercises across A320 and A380.
 Switch the entire interface **and pilot/tower recordings** between Chinese and English. Chinese voices are selected from E, G, H, J and Xiaoxiao. One pilot stays with the flight; departure and destination controllers are selected independently and may match each other, while remaining different from the pilot. Pilots sound dry inside the cockpit and use live VHF outside; controllers always use VHF. English retains its existing voice profiles.
 
 ![Cockpit, instruments and English radio captions](docs/images/cockpit.png)
@@ -14,11 +14,15 @@ buildings/procedures. It is not a certified simulator or an aircraft operating g
 
 ## Three stages
 
-- **Flight Training**: the existing 13 lessons and their saved scores.
-- **Airline Operations**: Six airports — Beijing Daxing, Hangzhou Xiaoshan, Singapore Changi, Osaka Kansai, New York Kennedy and Los Angeles — connected by 30 directional flights on an offline world map, plus 12 standalone airport practices.
+- **Flight Training**: 13 A320 lessons and 3 A380 exercises, with aircraft labels and saved scores.
+- **Airline Operations**: Seven airports — Beijing Daxing, Hangzhou Xiaoshan, Singapore Changi, Osaka Kansai, New York Kennedy, Los Angeles and New York LaGuardia — connected by 42 directional flights on an offline world map, plus 14 standalone airport practices.
 - **Historical Scenarios**: US Airways 1549 — make crew decisions after a bird strike, take control for a continuous Hudson River ditching, then maintain flotation for evacuation. Guided/challenge modes and unscored final-approach practice have separate records. Includes original bilingual crew recordings and marked opening/rescue presentations.
 
-Choose departure and destination on a Pacific-centred world map. Great-circle
+Flights and airport practices share one Pacific-centred world map. Select a
+city, then choose an airport from a dropdown if several are available; a city
+with one airport selects it directly. Pick two airports in sequence to set departure and destination; the next
+pair starts a new route. The airport card opens takeoff/approach practice.
+Selection keeps the map view fixed. Great-circle
 routes cross the date line correctly; route focus includes polar arcs. Flights
 start at a real stand with an airport aerial view and automatic crew preparation.
 Taxi manually or skip to the runway-external holding point; entry, lineup and
@@ -31,21 +35,22 @@ takeoff still require separate clearances and manual control.
 | Singapore Changi | WSSS / SIN | 02L |
 | Osaka Kansai | RJBB / KIX | 06R |
 | New York Kennedy | KJFK / JFK | 22R |
+| New York LaGuardia | KLGA / LGA | 04 |
 | Los Angeles | KLAX / LAX | 25R |
 
 In a positive climb, retract the gear; above 500 ft select CL with L. Follow
 ND/FD along runway heading, then turn onto the destination route at the safe
-turn point. Pass the departure waypoints in order: after the last point, cruise
-skips automatically once departure is stable at the displayed clearance altitude.
-If not yet stable, maintain the outbound track until it is; guidance continues
-forward. **Skip cruise early** remains available once stable. After the destination showcase, arrive from the origin city direction
-at 210 kt, with gear up and flaps 0. Follow the arrival route to final, then arm
-APPR, configure and land. A go-around continues the same flight. Vacate at taxi
-speed and follow ground navigation to the assigned real stand, or choose
-**Skip remaining taxi** after clearing the runway. The crew handles shutdown;
-the flight ends on stand. AP1 is optional. Long cruise/most descent and optional
-taxi skips are explicit game transitions. Airport routes are simplified game
-procedures, not published SID/STAR or operational airport charts.
+turn point. Complete the initial departure in order, then continue flying to the
+destination. Short transfers such as LGA–JFK retain terminal clearance; longer
+routes climb, cruise and descend under ND/FD guidance. **Skip remaining flight**
+is an optional player action once stable. Destination scenery prepares in the
+background; a continuous arrival preserves the aircraft's physical state and
+camera. Follow the arrival route to final, arm APPR, configure and land. A
+go-around continues the same flight. Vacate at taxi speed and follow ground
+navigation to the assigned stand, or choose **Skip remaining taxi** after
+clearing the runway. The crew handles shutdown; the flight ends on stand. AP1 is
+optional. Routes are simplified game procedures rather than operational charts.
+[Continuous flight and current scenery limitations](docs/CONTINUOUS-FLIGHT.md).
 
 Airline Operations also monitors sustained route deviations: beyond4 km for120 simulation seconds,8 km for45 seconds, or12 km for15 seconds fails the flight. The ATC panel shows distance and remaining time; normal fly-by turns have a grace period and terrain avoidance takes priority.
 
@@ -53,7 +58,7 @@ Airport showcases play in both cockpit and exterior views. Standalone airport
 landing practice starts with a 10-second preview while flight physics stays
 paused. Pause or skip the preview, then return to your selected camera view.
 
-All six airports use real runway endpoints, OSM footprints and Mapzen/USGS terrain.
+All seven airports use real runway endpoints, OSM footprints and Mapzen/USGS terrain.
 Building detail and navigation procedures are simplified. Headings are true and
 altitudes are heights above the airport. Data keep their own licenses; see the
 [pack notes](game/src/airports/data/README.md) and
@@ -95,6 +100,9 @@ when cloning or copying the project, particularly on Windows.
 | 11 | Engine-out return | Handle a takeoff engine failure and return on the remaining engine |
 | 12 | Approach windshear | Escape or avoid the encounter, return and land |
 | 13 | Dual-engine glide | Manage energy and configuration for an unpowered landing |
+| 14 | A380 four-engine takeoff | Manage heavy-aircraft rotation and climb |
+| 15 | A380 approach and landing | Configure early, flare and stop with inboard reverse |
+| 16 | A380 one engine inoperative | Maintain a stable climb with three engines |
 
 All lessons are selectable. Recommendations, best scores and stars are saved in
 this browser. Landing lessons require a final runway landing and full stop;
@@ -225,7 +233,7 @@ curated ground route, two practices and 40 bilingual dialogue clips. See the
 [Kansai](game/src/airports/data/KANSAI.md), [JFK](game/src/airports/data/JFK.md) and
 [LAX](game/src/airports/data/LAX.md) data notes for source geometry, licenses and
 modelling estimates. All other runway strips remain scenery. The game uses a
-direct-distance cruise-time estimate and an explicit transition; fuel and
+continuous geographic navigation and an optional explicit transition; fuel and
 long-haul range are not modelled.
 
 ## Los Angeles city scenery
@@ -327,21 +335,28 @@ processed IndexedDB caches reuse the shared city pipeline.
 
 ## Cruise-cut presentation
 
-Manual and automatic cruise cuts use the selected B camera: cut overhead,
+Player-requested cruise cuts use the selected B camera: cut overhead,
 follow for one second, then smoothly roll into a close upward view and fade
 at 8.5–9.5 seconds. The aircraft retains its actual pose, measured velocity,
 configuration and current airport scenery. Game inputs are locked during the
 transition; recorded pilot/ATC dialogue finishes before fade. Destination
-preparation begins when cruise-skip conditions first qualify, with small corner
+preparation begins when the flight is selected, with small corner
 progress text. Full black holds until the destination showcase is ready, then
 the airport introduction resumes with the player's selected view preserved.
 
 ## Source-mapped woodlands
 
-All six mapped airport regions now include volumetric woodland scenery from OSM
+All seven mapped airports now include volumetric woodland scenery from OSM
 forest boundaries. Original shared tree models use stable estimated placement,
 heights and image-derived colours, with spatial LOD and processed-data caching.
 Airport surfaces, roads, water and building envelopes stay clear; tree contact
 and camera avoidance use the same source stands independently of visual LOD.
 This pass covers mapped woodland areas, rather than every street or garden tree.
 [Sources and implementation](game/src/airports/data/WOODLANDS.md).
+
+LaGuardia shares NYC scenery with JFK and US1549. Select New York on the map,
+then choose JFK or LGA from its airport dropdown. [LGA sources and operations](game/src/airports/data/LGA.md).
+
+## A380 Aircraft Practice
+
+Flight Training includes A380-800 takeoff, approach/landing and one-engine-inoperative climb exercises. Its original double-deck exterior has four engines and 22 wheels, with reverse on the inboard engines only. It uses its own handling preset and the shared simplified cockpit. See [A380 notes](docs/A380.md).

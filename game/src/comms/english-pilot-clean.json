@@ -719,7 +719,77 @@
       "bytes": 19389,
       "sha256": "410dbfbc839b347d3d5f08f18d42dedbdd42486ed1940574e0a6c504148e798e",
       "file": "xiaoshan-final-0-clean-410dbfbc839b347d.mp3"
+    },
+    "lga-preparation-0": {
+      "text": "LaGuardia Ground, Skyline three two zero, stand five. Request pushback and start.",
+      "duration": 4.728,
+      "bytes": 28605,
+      "sha256": "c20ee2a37969bdcf17734c2c3928cc60e8c184e2e90a9ba18439dc77f0de8035",
+      "file": "lga-preparation-0-clean-c20ee2a37969bdcf.mp3"
+    },
+    "lga-taxi-1": {
+      "text": "Taxi via the marked route. Hold short of zero four, Skyline three two zero.",
+      "duration": 4.176,
+      "bytes": 25293,
+      "sha256": "6424bd01449312dfd81bc76270f719f6b7ecb0722048ce32cf317c57385970aa",
+      "file": "lga-taxi-1-clean-6424bd01449312df.mp3"
+    },
+    "lga-holding-0": {
+      "text": "Skyline three two zero, stopped at the holding point, runway zero four.",
+      "duration": 3.192,
+      "bytes": 19389,
+      "sha256": "bce8a29279bd9a69278331cb945b6eee03dca116e7d35bed70710f285ac3bb6a",
+      "file": "lga-holding-0-clean-bce8a29279bd9a69.mp3"
+    },
+    "lga-lineup-1": {
+      "text": "Zero four, line up and wait, Skyline three two zero.",
+      "duration": 2.544,
+      "bytes": 15501,
+      "sha256": "f6511763b1aaad63707bd4362b7adce1104d0e4bdd2263ee3ff9b6ecb2b2ba4f",
+      "file": "lga-lineup-1-clean-f6511763b1aaad63.mp3"
+    },
+    "lga-ground-speed-1": {
+      "text": "Reducing taxi speed, Skyline three two zero.",
+      "duration": 2.304,
+      "bytes": 14061,
+      "sha256": "4188d22aa3a251567e3488b0d1a633977120028a961e342c24d54b8e9a2f9bf0",
+      "file": "lga-ground-speed-1-clean-4188d22aa3a25156.mp3"
+    },
+    "lga-ground-stop-1": {
+      "text": "Stopping immediately, Skyline three two zero.",
+      "duration": 2.064,
+      "bytes": 12621,
+      "sha256": "e7e79632dbfc8a8e82c38d3f82e357475868ebaf29b7e2145d650575e37a21e8",
+      "file": "lga-ground-stop-1-clean-e7e79632dbfc8a8e.mp3"
+    },
+    "lga-takeoff-1": {
+      "text": "Runway zero four, cleared for takeoff, Skyline three two zero.",
+      "duration": 2.976,
+      "bytes": 18093,
+      "sha256": "628bd562c2c84d97ca88059fa56149b477ab028a0ee08838949957c1937678de",
+      "file": "lga-takeoff-1-clean-628bd562c2c84d97.mp3"
+    },
+    "lga-approach-0": {
+      "text": "LaGuardia Tower, Skyline three two zero, approaching runway zero four.",
+      "duration": 3.408,
+      "bytes": 20685,
+      "sha256": "0c5159c340300c2686b86dd3efddcef36d18af6da8d2ca648c2d3904ab547df2",
+      "file": "lga-approach-0-clean-0c5159c340300c26.mp3"
+    },
+    "lga-reapproach-1": {
+      "text": "Left turn for another approach, runway zero four, Skyline three two zero.",
+      "duration": 3.384,
+      "bytes": 20541,
+      "sha256": "5e10352894e53594d92ab024acfeb3ff9467df3d6de0257a1fe1c8fa18713d2e",
+      "file": "lga-reapproach-1-clean-5e10352894e53594.mp3"
+    },
+    "lga-final-0": {
+      "text": "LaGuardia Tower, Skyline three two zero, final runway zero four.",
+      "duration": 3.312,
+      "bytes": 20109,
+      "sha256": "b3576c7f7f1713e7c1b183c051094699709d35b1991d01c6651c9a47c6687869",
+      "file": "lga-final-0-clean-b3576c7f7f1713e7.mp3"
     }
   },
-  "version": "d3bb14685d9f3369aa24"
+  "version": "4b0b4881f0033d84e60b"
 }

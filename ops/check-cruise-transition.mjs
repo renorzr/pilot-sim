@@ -1,3 +1,4 @@
+import{chooseMapAirport}from'./airport-selection.mjs';
 import assert from 'node:assert/strict';
 import{writeFile,readFile}from'node:fs/promises';
 import{connect}from'./cdp.mjs';
@@ -13,12 +14,13 @@ async function stick(pitch,roll){box=await b.evaluate('(()=>{const r=document.qu
 async function throttle(value){const pct=Math.round(clamp(value,0,.18)*100);if(pct===lastThrottle)return;await release();const r=await b.evaluate('(()=>{const r=document.querySelector("#throttle").getBoundingClientRect();return{x:r.x,y:r.y,w:r.width,h:r.height,thumb:document.querySelector(".stage").dataset.activeView!=="cockpit"?15:document.querySelector(".stage").getBoundingClientRect().width*.0175}})()');const x=r.x+r.w/2,y=r.y+r.thumb/2+(r.h-r.thumb)*(1-pct/18);await b.send('Input.dispatchMouseEvent',{type:'mousePressed',x,y,button:'left',buttons:1,clickCount:1});await b.send('Input.dispatchMouseEvent',{type:'mouseReleased',x,y,button:'left',buttons:0,clickCount:1});lastThrottle=pct;}
 async function brake(on){if(on===braking)return;await b.key('Space',' ',on?'keyDown':'keyUp');braking=on;}
 try{
+ assert.equal(cutMode,'manual','Cruise skips are player-requested. Use check-airline.mjs continuous for uninterrupted flight.');
  await b.send('Network.enable');await b.send('Fetch.enable',{patterns:[{urlPattern:'*assets/cities/daxing/imagery-v1.json*',requestStage:'Request'}]});
  if(!existingTarget){
  await b.waitFor('!!window.__flightSim&&!!document.querySelector(".stage-tabs")',90000);
  if(await b.evaluate('document.documentElement.lang!=="en"'))await click('.language-switch');
  await b.send('Emulation.setDeviceMetricsOverride',{width:800,height:500,deviceScaleFactor:.5,mobile:false});
- await click('[data-stage-id="airline"]');const airportCodes={changi:'SIN',kansai:'KIX',lax:'LAX',jfk:'JFK',xiaoshan:'HGH',daxing:'PKX'};for(const id of[origin,'daxing']){const index=await b.evaluate('[...document.querySelectorAll(".airport-choice-buttons button")].findIndex(b=>b.textContent.startsWith('+JSON.stringify(airportCodes[id])+'))');assert(index>=0);await click('.airport-choice-buttons button:nth-child('+(index+1)+')');}assert.equal(await b.evaluate('document.querySelector(".route-endpoint:nth-of-type(3) strong")?.textContent'),'PKX');await click('.enter-flight');
+ await click('[data-stage-id="airline"]');await click('[data-route-slot="origin"]');await chooseMapAirport(b,origin);await click('[data-route-slot="destination"]');await chooseMapAirport(b,'daxing');await click('.enter-flight');
  await b.waitFor('!!document.querySelector(".flight-card .primary-button")&&!document.querySelector(".flight-card .primary-button").disabled',300000);await click('[data-view-mode="'+viewMode+'"]');await b.send('Emulation.setDeviceMetricsOverride',{width:480,height:300,deviceScaleFactor:.5,mobile:false});await click('.flight-card .primary-button');
  await b.waitFor('window.__flightSim.snapshot().ground.stage==="taxi"',180000);await click('.skip-taxi');await b.waitFor('window.__flightSim.snapshot().ground.stage==="holding"',60000);
  await b.send('Emulation.setDeviceMetricsOverride',{width:480,height:300,deviceScaleFactor:.5,mobile:false});
@@ -59,7 +61,7 @@ try{
    }
    await sleep(80);continue;
   }
-  if(transitionSeen){report.arrival=await snap();assert.equal(report.arrival.airportId,'daxing');assert.equal(report.arrival.airline.cruiseSkipMode,cutMode==='manual'?'manual':'automatic');assert.equal(await b.evaluate('window.__flightSim.viewStats().selection.mode'),viewMode);assert.equal(await b.evaluate('window.__flightSim.viewStats().mode'),'intro');await b.screenshot('qa/cruise-'+cutMode+'-arrival.png');break;}
+  if(transitionSeen){report.arrival=await snap();assert.equal(report.arrival.airportId,'daxing');assert.equal(report.arrival.airline.cruiseSkipMode,'manual');assert.equal(await b.evaluate('window.__flightSim.viewStats().selection.mode'),viewMode);assert.equal(await b.evaluate('window.__flightSim.viewStats().mode'),'intro');await b.screenshot('qa/cruise-'+cutMode+'-arrival.png');break;}
   if(await b.evaluate('window.__uiCruisePilot?.active')){
    if(s.autoPilot&&!heldFast){await b.send('Input.dispatchMouseEvent',{type:'mouseReleased',x:240,y:150,button:'left',buttons:0,clickCount:1});fastPoint=await b.evaluate('(()=>{const r=document.querySelector(".fast-forward-button").getBoundingClientRect();return{x:r.x+r.width/2,y:r.y+r.height/2}})()');await b.send('Input.dispatchMouseEvent',{type:'mousePressed',...fastPoint,button:'left',buttons:1,clickCount:1});await b.send('Input.dispatchMouseEvent',{type:'mouseMoved',x:fastPoint.x,y:fastPoint.y-55,button:'left',buttons:1});heldFast=true;}
    if(Math.floor(s.time/30)!==lastLog){lastLog=Math.floor(s.time/30);console.log('Flight',Math.round(s.time),Math.round((s.y-2.8)*3.28084),'ft',Math.round(s.speed*1.94384),'kt',s.ground?.stage);}
@@ -73,12 +75,12 @@ try{
    }else{await release();await brake(true);}
   }else{
    await brake(false);
-   if(!s.airborne){if(s.throttle<.9)await tap('KeyT','t');await stick(kt>=125&&s.pitch<.2?1:0,clamp(-s.x*.035-s.velocity.x*.12-s.yaw*.8,-.5,.5));}
+   if(!s.airborne){if(s.throttle<.9)await tap('KeyT','t');await stick(kt>=125&&s.pitch<.2?1:0,clamp(-s.x*.035-s.velocity.x*.12-Math.atan2(Math.sin(s.yaw),Math.cos(s.yaw))*.8,-.5,.5));}
    else{
     if(s.verticalSpeed>.5&&s.gear)await tap('KeyG','g');if(ra>500&&s.throttle>.845)await tap('KeyL','l');
     if(ra>200&&!s.autoPilot){await release();await tap('KeyA','a');}else if(!s.autoPilot)await stick(clamp((s.guidance.pitch-s.pitch)*8-s.pitchRate*3,-.5,.5),clamp((s.guidance.roll-s.roll)*3-s.rollRate*2,-.4,.4));
     if(!heldFast&&s.autoPilot&&ra>1100){await release();fastPoint=await b.evaluate('(()=>{const r=document.querySelector(".fast-forward-button").getBoundingClientRect();return{x:r.x+r.width/2,y:r.y+r.height/2}})()');await b.send('Input.dispatchMouseEvent',{type:'mousePressed',...fastPoint,button:'left',buttons:1,clickCount:1});await b.send('Input.dispatchMouseEvent',{type:'mouseMoved',x:fastPoint.x,y:fastPoint.y-70,button:'left',buttons:1});heldFast=true;}
-    if(cutMode==='manual'&&canSkipCruise(s)){eligibleAt||=Date.now();if(Date.now()-eligibleAt>1000){await release();if(heldFast)await b.send('Input.dispatchMouseEvent',{type:'mouseReleased',...fastPoint,button:'left',buttons:0,clickCount:1});await click('.skip-cruise');}}
+    if(canSkipCruise(s)){eligibleAt||=Date.now();if(Date.now()-eligibleAt>1000){await release();if(heldFast)await b.send('Input.dispatchMouseEvent',{type:'mouseReleased',...fastPoint,button:'left',buttons:0,clickCount:1});await click('.skip-cruise');}}
    }
   }
   if(Math.floor(s.time/30)!==lastLog){lastLog=Math.floor(s.time/30);console.log('Flight',Math.round(s.time),Math.round(ra),'ft',Math.round(kt),'kt');}
@@ -96,7 +98,7 @@ try{
  }
  assert(source.find(f=>f.transition.phase==='black')?.transition.elapsed<10.1,'B must reach black within10 seconds, independently of speech or destination loading');
  for(const f of source)assert.equal(f.audio.radioPlaybackRate,1,'Transition radio must stay at normal speed');
- assert(frames.some(f=>f.dialogue?.includes('request climb')));assert(frames.some(f=>f.dialogue?.includes('Climb to flight level')));assert(frames.some(f=>f.audio.radioSrc?.includes('airline-cruise-climb-0')));assert(frames.some(f=>f.audio.radioSrc?.includes('airline-cruise-climb-1')));assert(frames.some(f=>f.audio.radioSrc?.includes('airline-cruise-climb-2')));
+ assert(frames.some(f=>f.dialogue?.includes('request climb')));assert(frames.some(f=>f.dialogue?.includes('Climb to flight level')));assert(frames.some(f=>f.audio.radioClip?.includes('airline-cruise-climb-0')));assert(frames.some(f=>f.audio.radioClip?.includes('airline-cruise-climb-1')));assert(frames.some(f=>f.audio.radioClip?.includes('airline-cruise-climb-2')));
  for(const f of frames.filter(f=>f.transition.committed&&f.transition.phase==='black')){assert.equal(f.transition.opacity,1);assert.equal(f.time,f.previewStarted);assert(['rgb(0, 0, 0)','rgba(0, 0, 0, 1)'].includes(f.colour));}
  if(viewMode==='exterior')assert.deepEqual(first.camera.selection,report.trace.before.camera.selection);
  assert.deepEqual(await b.evaluate('window.__flightSim.missingTranslations()'),[]);assert.deepEqual(await b.evaluate('document.body.innerText.split("\\n").filter(x=>/\\p{Script=Han}/u.test(x))'),[]);

@@ -1,3 +1,4 @@
+import {chooseAirportPractice} from './airport-selection.mjs';
 import assert from 'node:assert/strict';
 import {writeFile} from 'node:fs/promises';
 import {connect} from './cdp.mjs';
@@ -7,7 +8,7 @@ async function click(selector){await b.evaluate('document.querySelector('+JSON.s
 try{
  await b.waitFor('!!window.__flightSim&&!!document.querySelector(".stage-tabs")',90000);
  await b.send('Emulation.setDeviceMetricsOverride',{width:960,height:600,deviceScaleFactor:.6,mobile:false});
- await click('[data-stage-id="airline"]');await click('[data-airline-mode="practice"]');await click('[data-level-id="'+airport+'-landing"]');await click('.enter-level');
+ await chooseAirportPractice(b,airport+'-landing');
  await b.waitFor('!!document.querySelector(".flight-card .primary-button")&&!document.querySelector(".flight-card .primary-button").disabled&&window.__flightSim.stats()?.city?.airportId==='+JSON.stringify(airport)+'&&window.__flightSim.stats().city.woodlandStats.estimatedTrees>1000',300000);
  report.before=await b.evaluate('window.__flightSim.snapshot()');report.stats=await b.evaluate('window.__flightSim.stats()');assert.equal(report.before.airportId,airport);assert(report.stats.city.woodlandStats.estimatedTrees>1000);
  await click('[data-view-mode="exterior"]');await click('.flight-card .primary-button');

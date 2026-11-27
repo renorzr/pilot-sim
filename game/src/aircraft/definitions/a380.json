@@ -1,0 +1,1666 @@
+{
+  "schemaVersion": 1,
+  "id": "a380",
+  "version": 1,
+  "family": "a380",
+  "name": "Airbus A380-800",
+  "description": "Original game model with Airbus published overall dimensions and nominal thrust. Synthetic handling, simplified shared cockpit and game-calibrated speeds; not certified performance or manufacturer control laws.",
+  "defaultAppearance": {
+    "model": "a380",
+    "variant": "wingtip-fence",
+    "livery": "yunji-a380",
+    "assetVersion": 1,
+    "liveryVersion": 1,
+    "uvLayout": "a380-uv1",
+    "definitionVersion": 1
+  },
+  "airframe": {
+    "wingArea": 845,
+    "yawInertia": 200000000,
+    "referenceHeight": 6,
+    "minimumMassKg": 150000,
+    "rudderMomentFactor": 4.2
+  },
+  "aerodynamics": {
+    "liftSlope": 5.6,
+    "liftZeroBase": 0.26,
+    "liftZeroPerFlap": 0.14,
+    "liftMaxBase": 1.45,
+    "liftMaxPerFlap": 0.25,
+    "cleanDrag": 0.021,
+    "flapDragPerNotch": 0.009,
+    "gearDrag": 0.022,
+    "inducedDrag": 0.038,
+    "sideslipDrag": 0.7,
+    "failedEngineDrag": 0.004,
+    "stallDrag": 0
+  },
+  "engines": [
+    {
+      "id": 0,
+      "key": "1",
+      "side": "left",
+      "maxThrustN": 311400,
+      "yawArmM": 24.3,
+      "audioPan": -0.88,
+      "reverseAvailable": false
+    },
+    {
+      "id": 1,
+      "key": "2",
+      "side": "left",
+      "maxThrustN": 311400,
+      "yawArmM": 12.8,
+      "audioPan": -0.4,
+      "reverseAvailable": true
+    },
+    {
+      "id": 2,
+      "key": "3",
+      "side": "right",
+      "maxThrustN": 311400,
+      "yawArmM": -12.8,
+      "audioPan": 0.4,
+      "reverseAvailable": true
+    },
+    {
+      "id": 3,
+      "key": "4",
+      "side": "right",
+      "maxThrustN": 311400,
+      "yawArmM": -24.3,
+      "audioPan": 0.88,
+      "reverseAvailable": false
+    }
+  ],
+  "propulsion": {
+    "densityExponent": 0.7,
+    "runningTimeConstant": 3.2,
+    "failedTimeConstant": 2.1,
+    "idleN1": 25,
+    "n1Range": 73,
+    "windmillGain": 0.12,
+    "windmillMaxN1": 12,
+    "reverseCommand": 0.5,
+    "reverseFactor": -0.65,
+    "limitedCapacityRatio": 0.8
+  },
+  "controls": {
+    "law": "rate-servo-v1",
+    "pitchCommandRate": 0.055,
+    "rollCommandRate": 0.22,
+    "apPitchGain": 1.8,
+    "apRollGain": 2,
+    "pitchTimeConstant": 0.38,
+    "rollTimeConstant": 0.32,
+    "pitchMin": -0.3,
+    "pitchMax": 0.4,
+    "rollMax": 1.0471975511965976,
+    "bankReturnThreshold": 0.5759586531581288,
+    "bankReturnRate": 0.09,
+    "authorityMinSpeed": 20,
+    "authoritySpeedRange": 30
+  },
+  "thrust": {
+    "law": "detent-autothrust-v1",
+    "idleThreshold": 0.025,
+    "climbLever": 0.78,
+    "autoLeverMax": 0.845,
+    "autoCommandMax": 0.92,
+    "fullThreshold": 0.975,
+    "takeoverThreshold": 0.985,
+    "takeoverTolerance": 0.07,
+    "speedLimitedLever": 0.71,
+    "taxiLeverMax": 0.18,
+    "detents": [
+      {
+        "id": "IDLE",
+        "value": 0
+      },
+      {
+        "id": "CL",
+        "value": 0.78,
+        "tolerance": 0.065
+      },
+      {
+        "id": "FLX",
+        "value": 0.9,
+        "tolerance": 0.035
+      },
+      {
+        "id": "TOGA",
+        "value": 1
+      }
+    ]
+  },
+  "flaps": {
+    "labels": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "FULL"
+    ],
+    "limitsKt": [
+      350,
+      263,
+      222,
+      196,
+      182
+    ],
+    "angles": [
+      0,
+      0.12,
+      0.28,
+      0.43,
+      0.61
+    ],
+    "rate": 0.16,
+    "landingConfigurations": [
+      3,
+      4
+    ],
+    "allowedLandingConfigurations": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "defaultLandingConfiguration": 4,
+    "vappKt": [
+      215,
+      185,
+      170,
+      155,
+      150
+    ],
+    "managedSpeedKt": [
+      235,
+      210,
+      185,
+      160,
+      150
+    ],
+    "managedVappAlways": [
+      4
+    ],
+    "managedVappAtLanding": [
+      3
+    ]
+  },
+  "gear": {
+    "rate": 0.11,
+    "extensionLimitKt": 250,
+    "lights": 5
+  },
+  "operations": {
+    "defaultMassTonnes": 450,
+    "rotationSpeedKt": 150,
+    "takeoffSpeedKt": 205,
+    "goAroundSpeedKt": 205,
+    "arrivalSpeedKt": 220,
+    "glideCleanSpeedKt": 205,
+    "glideFlapSpeedKt": 185,
+    "selectedSpeedRangeKt": [
+      145,
+      280
+    ],
+    "apMinimumHeightFt": 200,
+    "minimumSpeedMarginKt": 5,
+    "minimumSpeedPerFlapKt": 7.5,
+    "autoBrakeModes": [
+      "OFF",
+      "LOW",
+      "MED"
+    ],
+    "takeoffAssessmentKt": [
+      150,
+      250
+    ],
+    "engineOutAssessmentKt": [
+      155,
+      250
+    ],
+    "goAroundAssessmentKt": [
+      160,
+      240
+    ],
+    "rotationPitchRad": 0.18,
+    "engineOutMinThrustN": 100000
+  },
+  "capabilities": {
+    "autoThrustAvailable": true,
+    "apAvailable": true,
+    "fdAvailable": true,
+    "ils": {
+      "localizer": true,
+      "glideSlope": true
+    }
+  },
+  "cockpit": {
+    "adapter": "a380-v1",
+    "fcuLayout": "a320-fcu-v1",
+    "framePath": "assets/cockpit-frame-fcu.svg",
+    "title": "\u4e91\u9645 / A380 FLIGHT EXPERIENCE",
+    "engineGaugeCenters": [
+      65,
+      194,
+      65,
+      194
+    ],
+    "controlsClass": "a320-controls",
+    "engineGaugeRadius": 29,
+    "engineGaugeNumberSize": 22,
+    "engineGaugeRows": [
+      77,
+      77,
+      143,
+      143
+    ],
+    "engineGaugeLabels": [
+      38,
+      38,
+      105,
+      105
+    ],
+    "configurationLayout": {
+      "line": 174,
+      "gear": 194,
+      "gearLights": 211,
+      "flaps": 237,
+      "spoilers": 262,
+      "autobrake": 286,
+      "footer": 308
+    }
+  },
+  "geometry": {
+    "contacts": {
+      "main": [
+        {
+          "x": -7.22,
+          "y": -6,
+          "z": 5.25
+        },
+        {
+          "x": -6.38,
+          "y": -6,
+          "z": 5.25
+        },
+        {
+          "x": -7.22,
+          "y": -6,
+          "z": 6.949999999999999
+        },
+        {
+          "x": -6.38,
+          "y": -6,
+          "z": 6.949999999999999
+        },
+        {
+          "x": 6.38,
+          "y": -6,
+          "z": 5.25
+        },
+        {
+          "x": 7.22,
+          "y": -6,
+          "z": 5.25
+        },
+        {
+          "x": 6.38,
+          "y": -6,
+          "z": 6.949999999999999
+        },
+        {
+          "x": 7.22,
+          "y": -6,
+          "z": 6.949999999999999
+        },
+        {
+          "x": -3.02,
+          "y": -6,
+          "z": 9.1
+        },
+        {
+          "x": -2.18,
+          "y": -6,
+          "z": 9.1
+        },
+        {
+          "x": -3.02,
+          "y": -6,
+          "z": 10.5
+        },
+        {
+          "x": -2.18,
+          "y": -6,
+          "z": 10.5
+        },
+        {
+          "x": -3.02,
+          "y": -6,
+          "z": 11.9
+        },
+        {
+          "x": -2.18,
+          "y": -6,
+          "z": 11.9
+        },
+        {
+          "x": 2.18,
+          "y": -6,
+          "z": 9.1
+        },
+        {
+          "x": 3.02,
+          "y": -6,
+          "z": 9.1
+        },
+        {
+          "x": 2.18,
+          "y": -6,
+          "z": 10.5
+        },
+        {
+          "x": 3.02,
+          "y": -6,
+          "z": 10.5
+        },
+        {
+          "x": 2.18,
+          "y": -6,
+          "z": 11.9
+        },
+        {
+          "x": 3.02,
+          "y": -6,
+          "z": 11.9
+        }
+      ],
+      "nose": [
+        {
+          "x": -0.36,
+          "y": -6,
+          "z": -25.8
+        },
+        {
+          "x": 0.36,
+          "y": -6,
+          "z": -25.8
+        }
+      ],
+      "wing": [
+        {
+          "x": -39.9,
+          "y": 5.2,
+          "z": 18.5
+        },
+        {
+          "x": 39.9,
+          "y": 5.2,
+          "z": 18.5
+        }
+      ],
+      "water": [
+        {
+          "id": "belly",
+          "x": 0,
+          "y": -3.7,
+          "z": 10,
+          "area": 50
+        },
+        {
+          "id": "main-0",
+          "x": -7.22,
+          "y": -6,
+          "z": 5.25,
+          "area": 0.6,
+          "gear": true
+        },
+        {
+          "id": "main-1",
+          "x": -6.38,
+          "y": -6,
+          "z": 5.25,
+          "area": 0.6,
+          "gear": true
+        },
+        {
+          "id": "main-2",
+          "x": -7.22,
+          "y": -6,
+          "z": 6.949999999999999,
+          "area": 0.6,
+          "gear": true
+        },
+        {
+          "id": "main-3",
+          "x": -6.38,
+          "y": -6,
+          "z": 6.949999999999999,
+          "area": 0.6,
+          "gear": true
+        },
+        {
+          "id": "main-4",
+          "x": 6.38,
+          "y": -6,
+          "z": 5.25,
+          "area": 0.6,
+          "gear": true
+        },
+        {
+          "id": "main-5",
+          "x": 7.22,
+          "y": -6,
+          "z": 5.25,
+          "area": 0.6,
+          "gear": true
+        },
+        {
+          "id": "main-6",
+          "x": 6.38,
+          "y": -6,
+          "z": 6.949999999999999,
+          "area": 0.6,
+          "gear": true
+        },
+        {
+          "id": "main-7",
+          "x": 7.22,
+          "y": -6,
+          "z": 6.949999999999999,
+          "area": 0.6,
+          "gear": true
+        },
+        {
+          "id": "main-8",
+          "x": -3.02,
+          "y": -6,
+          "z": 9.1,
+          "area": 0.6,
+          "gear": true
+        },
+        {
+          "id": "main-9",
+          "x": -2.18,
+          "y": -6,
+          "z": 9.1,
+          "area": 0.6,
+          "gear": true
+        },
+        {
+          "id": "main-10",
+          "x": -3.02,
+          "y": -6,
+          "z": 10.5,
+          "area": 0.6,
+          "gear": true
+        },
+        {
+          "id": "main-11",
+          "x": -2.18,
+          "y": -6,
+          "z": 10.5,
+          "area": 0.6,
+          "gear": true
+        },
+        {
+          "id": "main-12",
+          "x": -3.02,
+          "y": -6,
+          "z": 11.9,
+          "area": 0.6,
+          "gear": true
+        },
+        {
+          "id": "main-13",
+          "x": -2.18,
+          "y": -6,
+          "z": 11.9,
+          "area": 0.6,
+          "gear": true
+        },
+        {
+          "id": "main-14",
+          "x": 2.18,
+          "y": -6,
+          "z": 9.1,
+          "area": 0.6,
+          "gear": true
+        },
+        {
+          "id": "main-15",
+          "x": 3.02,
+          "y": -6,
+          "z": 9.1,
+          "area": 0.6,
+          "gear": true
+        },
+        {
+          "id": "main-16",
+          "x": 2.18,
+          "y": -6,
+          "z": 10.5,
+          "area": 0.6,
+          "gear": true
+        },
+        {
+          "id": "main-17",
+          "x": 3.02,
+          "y": -6,
+          "z": 10.5,
+          "area": 0.6,
+          "gear": true
+        },
+        {
+          "id": "main-18",
+          "x": 2.18,
+          "y": -6,
+          "z": 11.9,
+          "area": 0.6,
+          "gear": true
+        },
+        {
+          "id": "main-19",
+          "x": 3.02,
+          "y": -6,
+          "z": 11.9,
+          "area": 0.6,
+          "gear": true
+        },
+        {
+          "id": "nose-0",
+          "x": -0.36,
+          "y": -6,
+          "z": -25.8,
+          "area": 0.4,
+          "gear": true
+        },
+        {
+          "id": "nose-1",
+          "x": 0.36,
+          "y": -6,
+          "z": -25.8,
+          "area": 0.4,
+          "gear": true
+        }
+      ]
+    },
+    "cockpitEye": {
+      "x": -0.85,
+      "y": 1.5,
+      "z": -27.7
+    },
+    "waterMoments": {
+      "pitchInertia": 200000000,
+      "rollInertia": 87500000,
+      "yawInertia": 200000000,
+      "pitchControlMoment": 16250000,
+      "rollControlMoment": 10000000
+    },
+    "cityEnvelope": {
+      "margin": 45,
+      "predictionHorizontal": 44,
+      "predictionVertical": 25,
+      "wingStations": [
+        -39,
+        -24,
+        -12,
+        12,
+        24,
+        39
+      ],
+      "wingMargin": 1.5,
+      "longitudinalStations": [
+        -30,
+        37
+      ],
+      "longitudinalMargin": 3,
+      "centerMargin": 6,
+      "historicalExtra": [
+        {
+          "x": 0,
+          "y": 18.1,
+          "z": 35
+        },
+        {
+          "x": 0,
+          "y": 4.65,
+          "z": 0
+        }
+      ]
+    },
+    "terrainEnvelope": {
+      "wingStations": [
+        -39,
+        39
+      ],
+      "wingMargin": 1.5,
+      "forwardStation": 30,
+      "forwardMargin": 3,
+      "centerMargin": 6
+    },
+    "silhouette": [
+      [
+        0,
+        0,
+        -32
+      ],
+      [
+        0,
+        3.65,
+        40.7
+      ],
+      [
+        0,
+        18.1,
+        35
+      ],
+      [
+        -39.9,
+        5.2,
+        18.5
+      ],
+      [
+        39.9,
+        5.2,
+        18.5
+      ],
+      [
+        -15,
+        4,
+        37
+      ],
+      [
+        15,
+        4,
+        37
+      ],
+      [
+        -3.55,
+        -3.65,
+        -15
+      ],
+      [
+        3.55,
+        4.65,
+        -15
+      ],
+      [
+        -3.55,
+        4.65,
+        20
+      ],
+      [
+        3.55,
+        -3.65,
+        20
+      ],
+      [
+        -24.3,
+        -1.6,
+        1.5
+      ],
+      [
+        -12.8,
+        -2.3,
+        -6
+      ],
+      [
+        12.8,
+        -2.3,
+        -6
+      ],
+      [
+        24.3,
+        -1.6,
+        1.5
+      ]
+    ],
+    "focus": {
+      "aircraft": [
+        0,
+        1,
+        2
+      ],
+      "tail": [
+        0,
+        12.5,
+        34
+      ]
+    },
+    "engineEffects": [
+      {
+        "x": -24.3,
+        "y": -1.6,
+        "z": 1.5
+      },
+      {
+        "x": -12.8,
+        "y": -2.3,
+        "z": -6
+      },
+      {
+        "x": 12.8,
+        "y": -2.3,
+        "z": -6
+      },
+      {
+        "x": 24.3,
+        "y": -1.6,
+        "z": 1.5
+      }
+    ],
+    "focusRig": {
+      "mainRetractionAngle": 1.66,
+      "mainPivotX": 7.1,
+      "mainPivotY": -1,
+      "mainPivotZ": 6.1,
+      "mainOffsetX": -0.3,
+      "tyreOffsetX": 0.42,
+      "mainOffsetY": -4.3,
+      "noseRetractionAngle": 1.74,
+      "nosePivotY": -2,
+      "nosePivotZ": -24,
+      "noseOffsetY": -3.48,
+      "noseOffsetZ": -1.8,
+      "steeringAngle": 0.56,
+      "tyreOffsetZ": 0.85
+    },
+    "selfOccluders": {
+      "shell": {
+        "min": [
+          -3.3,
+          -3.2,
+          -29
+        ],
+        "max": [
+          3.3,
+          4.4,
+          26
+        ]
+      },
+      "engines": [
+        {
+          "min": [
+            -26.35,
+            -3.65,
+            -1.9
+          ],
+          "max": [
+            -22.25,
+            0.44999999999999973,
+            5.8
+          ]
+        },
+        {
+          "min": [
+            -14.850000000000001,
+            -4.35,
+            -9.4
+          ],
+          "max": [
+            -10.75,
+            -0.25,
+            -1.7000000000000002
+          ]
+        },
+        {
+          "min": [
+            10.75,
+            -4.35,
+            -9.4
+          ],
+          "max": [
+            14.850000000000001,
+            -0.25,
+            -1.7000000000000002
+          ]
+        },
+        {
+          "min": [
+            22.25,
+            -3.65,
+            -1.9
+          ],
+          "max": [
+            26.35,
+            0.44999999999999973,
+            5.8
+          ]
+        }
+      ]
+    },
+    "shadow": {
+      "extent": 110,
+      "ellipse": [
+        0,
+        4.35,
+        3.9,
+        36.35
+      ],
+      "polygons": [
+        [
+          [
+            -3,
+            -8
+          ],
+          [
+            -39.9,
+            16
+          ],
+          [
+            -39.9,
+            19
+          ],
+          [
+            -3,
+            10
+          ],
+          [
+            3,
+            10
+          ],
+          [
+            39.9,
+            19
+          ],
+          [
+            39.9,
+            16
+          ],
+          [
+            3,
+            -8
+          ]
+        ],
+        [
+          [
+            -1,
+            27
+          ],
+          [
+            -15,
+            36
+          ],
+          [
+            -15,
+            38
+          ],
+          [
+            15,
+            38
+          ],
+          [
+            15,
+            36
+          ],
+          [
+            1,
+            27
+          ]
+        ]
+      ]
+    }
+  },
+  "visual": {
+    "assetVersions": {
+      "1": {
+        "path": "assets/aircraft/skyline-380-uv1.glb?v=1",
+        "root": "Skyline380",
+        "uvLayout": "a380-uv1",
+        "paintMaterial": "Livery paint a380-uv1"
+      }
+    },
+    "defaultVariant": "wingtip-fence",
+    "variants": {
+      "wingtip-fence": {
+        "nodes": [
+          "Wingtip_fence_L",
+          "Wingtip_fence_R"
+        ]
+      }
+    },
+    "detailGroups": [
+      "Vertical stabilizer",
+      "Horizontal stabilizer L",
+      "Horizontal stabilizer R"
+    ],
+    "details": {
+      "wheel": [
+        "MainGear_L",
+        "MainGear_R",
+        "BodyGear_L",
+        "BodyGear_R",
+        "NoseGear"
+      ],
+      "tail": [
+        "Vertical stabilizer",
+        "Horizontal stabilizer L",
+        "Horizontal stabilizer R",
+        "Rudder",
+        "Elevator_L",
+        "Elevator_R"
+      ]
+    },
+    "rig": {
+      "transforms": [
+        {
+          "node": "MainGear_L",
+          "axis": "z",
+          "signal": "retractedGear",
+          "scale": 1.66,
+          "offset": 0,
+          "property": "rotation",
+          "visible": {
+            "signal": "gearPosition",
+            "above": 0.005
+          }
+        },
+        {
+          "node": "MainDoor_L",
+          "axis": "z",
+          "signal": "gearDoor",
+          "scale": -1.2,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "MainDoor_L",
+          "axis": "z",
+          "signal": "gearPosition",
+          "scale": -0.06,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "NoseDoor_L",
+          "axis": "z",
+          "signal": "gearDoor",
+          "scale": -1.25,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "NoseDoor_L",
+          "axis": "z",
+          "signal": "gearPosition",
+          "scale": -0.06,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "Flap_L_0",
+          "axis": "x",
+          "signal": "flapAngle",
+          "scale": 1,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "Flap_L_0",
+          "axis": "y",
+          "signal": "flapPosition",
+          "scale": -0.018,
+          "offset": 0,
+          "property": "position"
+        },
+        {
+          "node": "Flap_L_0",
+          "axis": "z",
+          "signal": "flapPosition",
+          "scale": 0.045,
+          "offset": 0,
+          "property": "position"
+        },
+        {
+          "node": "Flap_L_1",
+          "axis": "x",
+          "signal": "flapAngle",
+          "scale": 1,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "Flap_L_1",
+          "axis": "y",
+          "signal": "flapPosition",
+          "scale": -0.018,
+          "offset": 0,
+          "property": "position"
+        },
+        {
+          "node": "Flap_L_1",
+          "axis": "z",
+          "signal": "flapPosition",
+          "scale": 0.045,
+          "offset": 0,
+          "property": "position"
+        },
+        {
+          "node": "Slat_L",
+          "axis": "y",
+          "signal": "slatFraction",
+          "scale": -0.08,
+          "offset": 0,
+          "property": "position"
+        },
+        {
+          "node": "Slat_L",
+          "axis": "z",
+          "signal": "slatFraction",
+          "scale": -0.16,
+          "offset": 0,
+          "property": "position"
+        },
+        {
+          "node": "Slat_L",
+          "axis": "x",
+          "signal": "slatFraction",
+          "scale": -0.14,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "Aileron_L",
+          "axis": "x",
+          "signal": "roll",
+          "scale": 0.28,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "Elevator_L",
+          "axis": "x",
+          "signal": "pitch",
+          "scale": -0.35,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "Spoiler_L_0",
+          "axis": "x",
+          "signal": "spoiler",
+          "scale": -0.95,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "Spoiler_L_1",
+          "axis": "x",
+          "signal": "spoiler",
+          "scale": -0.95,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "Spoiler_L_2",
+          "axis": "x",
+          "signal": "spoiler",
+          "scale": -0.95,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "MainGear_R",
+          "axis": "z",
+          "signal": "retractedGear",
+          "scale": -1.66,
+          "offset": 0,
+          "property": "rotation",
+          "visible": {
+            "signal": "gearPosition",
+            "above": 0.005
+          }
+        },
+        {
+          "node": "MainDoor_R",
+          "axis": "z",
+          "signal": "gearDoor",
+          "scale": 1.2,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "MainDoor_R",
+          "axis": "z",
+          "signal": "gearPosition",
+          "scale": 0.06,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "NoseDoor_R",
+          "axis": "z",
+          "signal": "gearDoor",
+          "scale": 1.25,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "NoseDoor_R",
+          "axis": "z",
+          "signal": "gearPosition",
+          "scale": 0.06,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "Flap_R_0",
+          "axis": "x",
+          "signal": "flapAngle",
+          "scale": 1,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "Flap_R_0",
+          "axis": "y",
+          "signal": "flapPosition",
+          "scale": -0.018,
+          "offset": 0,
+          "property": "position"
+        },
+        {
+          "node": "Flap_R_0",
+          "axis": "z",
+          "signal": "flapPosition",
+          "scale": 0.045,
+          "offset": 0,
+          "property": "position"
+        },
+        {
+          "node": "Flap_R_1",
+          "axis": "x",
+          "signal": "flapAngle",
+          "scale": 1,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "Flap_R_1",
+          "axis": "y",
+          "signal": "flapPosition",
+          "scale": -0.018,
+          "offset": 0,
+          "property": "position"
+        },
+        {
+          "node": "Flap_R_1",
+          "axis": "z",
+          "signal": "flapPosition",
+          "scale": 0.045,
+          "offset": 0,
+          "property": "position"
+        },
+        {
+          "node": "Slat_R",
+          "axis": "y",
+          "signal": "slatFraction",
+          "scale": -0.08,
+          "offset": 0,
+          "property": "position"
+        },
+        {
+          "node": "Slat_R",
+          "axis": "z",
+          "signal": "slatFraction",
+          "scale": -0.16,
+          "offset": 0,
+          "property": "position"
+        },
+        {
+          "node": "Slat_R",
+          "axis": "x",
+          "signal": "slatFraction",
+          "scale": -0.14,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "Aileron_R",
+          "axis": "x",
+          "signal": "roll",
+          "scale": -0.28,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "Elevator_R",
+          "axis": "x",
+          "signal": "pitch",
+          "scale": -0.35,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "Spoiler_R_0",
+          "axis": "x",
+          "signal": "spoiler",
+          "scale": -0.95,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "Spoiler_R_1",
+          "axis": "x",
+          "signal": "spoiler",
+          "scale": -0.95,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "Spoiler_R_2",
+          "axis": "x",
+          "signal": "spoiler",
+          "scale": -0.95,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "NoseGear",
+          "axis": "x",
+          "signal": "retractedGear",
+          "scale": 1.74,
+          "offset": 0,
+          "property": "rotation",
+          "visible": {
+            "signal": "gearPosition",
+            "above": 0.005
+          }
+        },
+        {
+          "node": "NoseSteering",
+          "axis": "y",
+          "signal": "steer",
+          "scale": -0.56,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "Rudder",
+          "axis": "y",
+          "signal": "rudder",
+          "scale": 0.38,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "BodyGear_L",
+          "axis": "z",
+          "signal": "retractedGear",
+          "scale": 1.4,
+          "offset": 0,
+          "property": "rotation",
+          "visible": {
+            "signal": "gearPosition",
+            "above": 0.005
+          }
+        },
+        {
+          "node": "Reverse_2",
+          "axis": "z",
+          "property": "position",
+          "signal": "reverse1",
+          "scale": 0.8
+        },
+        {
+          "node": "Reverse_3",
+          "axis": "z",
+          "property": "position",
+          "signal": "reverse2",
+          "scale": 0.8
+        },
+        {
+          "node": "BodyGear_R",
+          "axis": "z",
+          "signal": "retractedGear",
+          "scale": -1.4,
+          "offset": 0,
+          "property": "rotation",
+          "visible": {
+            "signal": "gearPosition",
+            "above": 0.005
+          }
+        },
+        {
+          "node": "BodyDoor_L",
+          "axis": "z",
+          "signal": "gearDoor",
+          "scale": -1.2,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "BodyDoor_L",
+          "axis": "z",
+          "signal": "gearPosition",
+          "scale": -0.06,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "BodyDoor_R",
+          "axis": "z",
+          "signal": "gearDoor",
+          "scale": 1.2,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "BodyDoor_R",
+          "axis": "z",
+          "signal": "gearPosition",
+          "scale": 0.06,
+          "offset": 0,
+          "property": "rotation"
+        }
+      ],
+      "fans": [
+        {
+          "engine": 0,
+          "node": "Fan_1",
+          "axis": "z",
+          "key": "1"
+        },
+        {
+          "engine": 1,
+          "node": "Fan_2",
+          "axis": "z",
+          "key": "2"
+        },
+        {
+          "engine": 2,
+          "node": "Fan_3",
+          "axis": "z",
+          "key": "3"
+        },
+        {
+          "engine": 3,
+          "node": "Fan_4",
+          "axis": "z",
+          "key": "4"
+        }
+      ],
+      "fanRate": 85,
+      "wheelRadius": 0.7,
+      "wheels": [
+        {
+          "node": "Wheel_0",
+          "scale": 1
+        },
+        {
+          "node": "Wheel_1",
+          "scale": 1
+        },
+        {
+          "node": "Wheel_2",
+          "scale": 1
+        },
+        {
+          "node": "Wheel_3",
+          "scale": 1
+        },
+        {
+          "node": "Wheel_4",
+          "scale": 1
+        },
+        {
+          "node": "Wheel_5",
+          "scale": 1
+        },
+        {
+          "node": "Wheel_6",
+          "scale": 1
+        },
+        {
+          "node": "Wheel_7",
+          "scale": 1
+        },
+        {
+          "node": "Wheel_8",
+          "scale": 1
+        },
+        {
+          "node": "Wheel_9",
+          "scale": 1
+        },
+        {
+          "node": "Wheel_10",
+          "scale": 1
+        },
+        {
+          "node": "Wheel_11",
+          "scale": 1
+        },
+        {
+          "node": "Wheel_12",
+          "scale": 1
+        },
+        {
+          "node": "Wheel_13",
+          "scale": 1
+        },
+        {
+          "node": "Wheel_14",
+          "scale": 1
+        },
+        {
+          "node": "Wheel_15",
+          "scale": 1
+        },
+        {
+          "node": "Wheel_16",
+          "scale": 1
+        },
+        {
+          "node": "Wheel_17",
+          "scale": 1
+        },
+        {
+          "node": "Wheel_18",
+          "scale": 1
+        },
+        {
+          "node": "Wheel_19",
+          "scale": 1
+        },
+        {
+          "node": "Wheel_20",
+          "scale": 1.346153846153846
+        },
+        {
+          "node": "Wheel_21",
+          "scale": 1.346153846153846
+        }
+      ],
+      "lamps": [
+        {
+          "node": "Beacon_top",
+          "kind": "beacon"
+        },
+        {
+          "node": "Beacon_bottom",
+          "kind": "beacon"
+        },
+        {
+          "node": "Strobe_L",
+          "kind": "strobe"
+        },
+        {
+          "node": "Strobe_R",
+          "kind": "strobe"
+        },
+        {
+          "node": "Landing_L",
+          "kind": "landing"
+        },
+        {
+          "node": "Landing_R",
+          "kind": "landing"
+        }
+      ]
+    },
+    "cameraScale": 1.65
+  },
+  "authoring": {
+    "template": "a380",
+    "uvContract": "ops/assets/aircraft/a380-uv1.json",
+    "fuselageStations": [
+      [
+        -32,
+        0.025,
+        0.04,
+        0.0
+      ],
+      [
+        -31.5,
+        0.65,
+        0.65,
+        0.0
+      ],
+      [
+        -30.5,
+        1.5,
+        1.4,
+        0.1
+      ],
+      [
+        -29,
+        2.5,
+        2.4,
+        0.3
+      ],
+      [
+        -27,
+        3.18,
+        3.5,
+        0.5
+      ],
+      [
+        -24,
+        3.5,
+        4.1,
+        0.5
+      ],
+      [
+        -21,
+        3.55,
+        4.15,
+        0.5
+      ],
+      [
+        20,
+        3.55,
+        4.15,
+        0.5
+      ],
+      [
+        24,
+        3.35,
+        3.8,
+        0.8
+      ],
+      [
+        28,
+        2.8,
+        3.1,
+        1.25
+      ],
+      [
+        32,
+        2.0,
+        2.35,
+        1.9
+      ],
+      [
+        36,
+        1.15,
+        1.5,
+        2.7
+      ],
+      [
+        39,
+        0.4,
+        0.65,
+        3.35
+      ],
+      [
+        40.7,
+        0.01,
+        0.02,
+        3.65
+      ]
+    ],
+    "wingStations": [
+      [
+        3,
+        -8,
+        10,
+        -1.5
+      ],
+      [
+        8,
+        -6.6,
+        10.6,
+        -1.1
+      ],
+      [
+        14,
+        -3,
+        12,
+        -0.55
+      ],
+      [
+        23,
+        3,
+        15,
+        0.3
+      ],
+      [
+        32,
+        10.5,
+        17.5,
+        1.7
+      ],
+      [
+        39.6,
+        16,
+        18.8,
+        3.0
+      ]
+    ],
+    "dimensionsM": {
+      "length": 72.7,
+      "span": 79.8,
+      "tailHeightAboveGround": 24.1
+    },
+    "engineMounts": [
+      {
+        "x": -24.3,
+        "y": -1.6,
+        "z": 1.5
+      },
+      {
+        "x": -12.8,
+        "y": -2.3,
+        "z": -6
+      },
+      {
+        "x": 12.8,
+        "y": -2.3,
+        "z": -6
+      },
+      {
+        "x": 24.3,
+        "y": -1.6,
+        "z": 1.5
+      }
+    ]
+  },
+  "sound": {
+    "frequencyScale": 0.78,
+    "fanGainScale": 0.55
+  }
+}

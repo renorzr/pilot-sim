@@ -103,6 +103,16 @@
         "pilot",
         "爬升至三万三千英尺，云际三二零。"
       ]
+    ],
+    "enroute-continue": [
+      [
+        "tower",
+        "云际三二零，按计划航路飞行。"
+      ],
+      [
+        "pilot",
+        "按计划航路，云际三二零。"
+      ]
     ]
   },
   "en": {
@@ -209,6 +219,16 @@
         "pilot",
         "Climb to flight level three three zero, Skyline three two zero."
       ]
+    ],
+    "enroute-continue": [
+      [
+        "tower",
+        "Skyline three two zero, continue on the planned route."
+      ],
+      [
+        "pilot",
+        "Continuing on the planned route, Skyline three two zero."
+      ]
     ]
   },
   "durations": {
@@ -233,7 +253,9 @@
       "airline-parked-1": 2.952,
       "airline-cruise-climb-0": 4.272,
       "airline-cruise-climb-1": 4.944,
-      "airline-cruise-climb-2": 3.312
+      "airline-cruise-climb-2": 3.312,
+      "airline-enroute-continue-0": 2.232,
+      "airline-enroute-continue-1": 1.8
     },
     "en": {
       "airline-departure-climb-0": 5.472,
@@ -256,8 +278,10 @@
       "airline-parked-1": 4.296,
       "airline-cruise-climb-0": 3.936,
       "airline-cruise-climb-1": 6.12,
-      "airline-cruise-climb-2": 3.528
+      "airline-cruise-climb-2": 3.528,
+      "airline-enroute-continue-0": 2.688,
+      "airline-enroute-continue-1": 2.352
     }
   },
-  "version": "214ec2b0e1a2caae31f6"
+  "version": "7da98685e7fae389246b"
 }

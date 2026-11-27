@@ -1,0 +1,24 @@
+{
+  "uvLayout": "a380-uv1",
+  "liveries": {
+    "yunji-a380": {
+      "revision": 1,
+      "textures": {
+        "2048": {
+          "path": "assets/aircraft/liveries/yunji-a380/v1/paint-2048.ktx2",
+          "sha256": "90c702dc0ee358f6e88f995a65d6c3ebb4d3cc9c160c956ae73142cda30925a2",
+          "bytes": 46666,
+          "width": 2048,
+          "height": 2048
+        },
+        "4096": {
+          "path": "assets/aircraft/liveries/yunji-a380/v1/paint-4096.ktx2",
+          "sha256": "87c6d19654a005739cc15fdfaf5531fe6b42fe2fee536f5e1dc05e3b569011b9",
+          "bytes": 87630,
+          "width": 4096,
+          "height": 4096
+        }
+      }
+    }
+  }
+}

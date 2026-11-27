@@ -1,11 +1,11 @@
-import {WATER_ENTRY_TARGETS as T} from '../sim/water-contact.js';
+import {waterEntryTargets} from '../sim/water-contact.js';
 import {KT,FT,RAD,wrap} from '../sim/constants.js';
 import {eventWaterCurrent,eventWaterAt} from './event-world.js';
 import {historyReferenceSpeed,historicalApproach} from './us1549.js';
 
 // Presentation only. No controls, state changes, extra assessment or score.
 export function ditchingGuide(s){
- const h=s.historical;if(!h||s.result||h.alternate)return null;
+ const h=s.historical;if(!h||s.result||h.alternate)return null;const T=waterEntryTargets(s);
  const impact=s.water?.firstImpact,height=Math.max(0,(s.y-(s.water?.level||0))*FT);
  if(!impact&&(h.controlSource!=='player'||!(h.manualTarget==='river'||h.manualTarget==='free'&&height<800&&eventWaterAt(s.x,s.z))))return null;
  const phase=impact?'contact':height<=100?'entry':height<=800?'approach':'glide',active=phase==='entry'||phase==='contact';

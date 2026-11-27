@@ -9,9 +9,9 @@ let sequence=0;
 // continues along its measured inertial velocity; the assessed flight stays
 // frozen at the qualified cut until the source scene is completely black.
 export function createCruiseTransition(flight,{automatic=false}={}){
- if(!canSkipCruise(flight))return null;
+ if(automatic||!canSkipCruise(flight))return null;
  const source={...flight},radio=createRadio({pilotVoice:flight.radio.pilotVoice,towerVoice:flight.radio.towerVoice,towerVoices:flight.radio.towerVoices,airportId:flight.airportId});radio.language=flight.radio.language;
- queueRadio({...source,radio},'cruise-climb');
+ queueRadio({...source,radio},flight.airline.profile?.short||flight.radio.fired['cruise-climb']?'enroute-continue':'cruise-climb');
  // Speech keeps its normal tempo independently of the camera. If necessary,
  // finish the exchange under black before replacing the source airport.
  radio.presentationRate=1;
@@ -55,7 +55,7 @@ export function advanceCruiseTransition(p,dt,{ready=false,visible=true,media=nul
 export function commitCruiseTransition(p,flight){
  if(!p?.active||p.phase!=='black'||p.opacity!==1||p.committed||!canSkipCruise(flight))return false;
  if(p.radio.active||p.radio.pending.length||p.source.time+p.elapsed<p.radio.readyAt)return false;
- flight.radio.history.push(...p.radio.history);flight.radio.history=flight.radio.history.slice(-12);flight.radio.fired['cruise-climb']=true;
+ flight.radio.history.push(...p.radio.history);flight.radio.history=flight.radio.history.slice(-12);Object.assign(flight.radio.fired,p.radio.fired);
  if(!skipCruise(flight,{automatic:p.automatic}))return false;
  p.committed=true;return true;
 }

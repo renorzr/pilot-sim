@@ -1,0 +1,1256 @@
+{
+  "schemaVersion": 1,
+  "id": "a320",
+  "version": 1,
+  "family": "a320",
+  "name": "Skyline 320",
+  "description": "Original game coefficients and keyboard rate servos, migrated without retuning. Not manufacturer performance data or certified control laws.",
+  "defaultAppearance": {
+    "model": "a320",
+    "variant": "sharklet",
+    "livery": "yunji",
+    "assetVersion": 1,
+    "liveryVersion": 1,
+    "uvLayout": "a320-uv1",
+    "definitionVersion": 1
+  },
+  "airframe": {
+    "wingArea": 122.6,
+    "yawInertia": 4400000,
+    "referenceHeight": 2.8,
+    "minimumMassKg": 10000
+  },
+  "aerodynamics": {
+    "liftSlope": 5.8,
+    "liftZeroBase": 0.3,
+    "liftZeroPerFlap": 0.175,
+    "liftMaxBase": 1.45,
+    "liftMaxPerFlap": 0.25,
+    "cleanDrag": 0.022,
+    "flapDragPerNotch": 0.008,
+    "gearDrag": 0.022,
+    "inducedDrag": 0.043,
+    "sideslipDrag": 0.7,
+    "failedEngineDrag": 0.008,
+    "stallDrag": 0
+  },
+  "engines": [
+    {
+      "id": 0,
+      "key": "L",
+      "side": "left",
+      "maxThrustN": 120000,
+      "yawArmM": 5.5,
+      "audioPan": -0.65
+    },
+    {
+      "id": 1,
+      "key": "R",
+      "side": "right",
+      "maxThrustN": 120000,
+      "yawArmM": -5.5,
+      "audioPan": 0.65
+    }
+  ],
+  "propulsion": {
+    "densityExponent": 0.7,
+    "runningTimeConstant": 1.8,
+    "failedTimeConstant": 1.2,
+    "idleN1": 25,
+    "n1Range": 73,
+    "windmillGain": 0.12,
+    "windmillMaxN1": 12,
+    "reverseCommand": 0.5,
+    "reverseFactor": -0.65,
+    "limitedCapacityRatio": 0.65
+  },
+  "controls": {
+    "law": "rate-servo-v1",
+    "pitchCommandRate": 0.09,
+    "rollCommandRate": 0.36,
+    "apPitchGain": 1.8,
+    "apRollGain": 2,
+    "pitchTimeConstant": 0.14,
+    "rollTimeConstant": 0.12,
+    "pitchMin": -0.3,
+    "pitchMax": 0.4,
+    "rollMax": 1.0471975511965976,
+    "bankReturnThreshold": 0.5759586531581288,
+    "bankReturnRate": 0.12,
+    "authorityMinSpeed": 20,
+    "authoritySpeedRange": 30
+  },
+  "thrust": {
+    "law": "detent-autothrust-v1",
+    "idleThreshold": 0.025,
+    "climbLever": 0.78,
+    "autoLeverMax": 0.845,
+    "autoCommandMax": 0.92,
+    "fullThreshold": 0.975,
+    "takeoverThreshold": 0.985,
+    "takeoverTolerance": 0.07,
+    "speedLimitedLever": 0.71,
+    "taxiLeverMax": 0.18,
+    "detents": [
+      {
+        "id": "IDLE",
+        "value": 0
+      },
+      {
+        "id": "CL",
+        "value": 0.78,
+        "tolerance": 0.065
+      },
+      {
+        "id": "FLX",
+        "value": 0.9,
+        "tolerance": 0.035
+      },
+      {
+        "id": "TOGA",
+        "value": 1
+      }
+    ]
+  },
+  "flaps": {
+    "labels": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "FULL"
+    ],
+    "limitsKt": [
+      350,
+      230,
+      200,
+      185,
+      177
+    ],
+    "angles": [
+      0,
+      0.12,
+      0.28,
+      0.43,
+      0.61
+    ],
+    "rate": 0.22,
+    "landingConfigurations": [
+      3,
+      4
+    ],
+    "allowedLandingConfigurations": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "defaultLandingConfiguration": 4,
+    "vappKt": [
+      180,
+      165,
+      165,
+      150,
+      145
+    ],
+    "managedSpeedKt": [
+      215,
+      180,
+      160,
+      150,
+      145
+    ],
+    "managedVappAlways": [
+      4
+    ],
+    "managedVappAtLanding": [
+      3
+    ]
+  },
+  "gear": {
+    "rate": 0.15,
+    "extensionLimitKt": 250,
+    "lights": 3
+  },
+  "operations": {
+    "defaultMassTonnes": 64,
+    "rotationSpeedKt": 125,
+    "takeoffSpeedKt": 185,
+    "goAroundSpeedKt": 185,
+    "arrivalSpeedKt": 210,
+    "glideCleanSpeedKt": 185,
+    "glideFlapSpeedKt": 165,
+    "selectedSpeedRangeKt": [
+      125,
+      250
+    ],
+    "apMinimumHeightFt": 200,
+    "minimumSpeedMarginKt": 5,
+    "minimumSpeedPerFlapKt": 7.5,
+    "autoBrakeModes": [
+      "OFF",
+      "LOW",
+      "MED"
+    ]
+  },
+  "capabilities": {
+    "autoThrustAvailable": true,
+    "apAvailable": true,
+    "fdAvailable": true,
+    "ils": {
+      "localizer": true,
+      "glideSlope": true
+    }
+  },
+  "cockpit": {
+    "adapter": "a320-v1",
+    "fcuLayout": "a320-fcu-v1",
+    "framePath": "assets/cockpit-frame-fcu.svg",
+    "title": "云际 / A320 FLIGHT EXPERIENCE",
+    "engineGaugeCenters": [
+      65,
+      194
+    ],
+    "controlsClass": "a320-controls"
+  },
+  "geometry": {
+    "contacts": {
+      "main": [
+        {
+          "x": -2.85,
+          "y": -2.8,
+          "z": 2.5
+        },
+        {
+          "x": -2.35,
+          "y": -2.8,
+          "z": 2.5
+        },
+        {
+          "x": 2.35,
+          "y": -2.8,
+          "z": 2.5
+        },
+        {
+          "x": 2.85,
+          "y": -2.8,
+          "z": 2.5
+        }
+      ],
+      "nose": [
+        {
+          "x": -0.24,
+          "y": -2.8,
+          "z": -12.3
+        },
+        {
+          "x": 0.24,
+          "y": -2.8,
+          "z": -12.3
+        }
+      ],
+      "wing": [
+        {
+          "x": -17.9,
+          "y": 2.28,
+          "z": 6
+        },
+        {
+          "x": 17.9,
+          "y": 2.28,
+          "z": 6
+        }
+      ],
+      "water": [
+        {
+          "id": "belly-aft",
+          "x": 0,
+          "y": -0.93,
+          "z": 10.9,
+          "area": 12
+        },
+        {
+          "id": "belly-mid",
+          "x": 0,
+          "y": -1.17,
+          "z": 2.6,
+          "area": 18
+        },
+        {
+          "id": "belly-front",
+          "x": 0,
+          "y": -0.93,
+          "z": -11.8,
+          "area": 10
+        },
+        {
+          "id": "engine-left",
+          "x": -5.35,
+          "y": -2.12,
+          "z": -4.38,
+          "area": 2.6
+        },
+        {
+          "id": "engine-right",
+          "x": 5.35,
+          "y": -2.12,
+          "z": -4.38,
+          "area": 2.6
+        },
+        {
+          "id": "wing-left",
+          "x": -16.7,
+          "y": 0.6,
+          "z": 5.6,
+          "area": 2
+        },
+        {
+          "id": "wing-right",
+          "x": 16.7,
+          "y": 0.6,
+          "z": 5.6,
+          "area": 2
+        },
+        {
+          "id": "main-0",
+          "x": -2.85,
+          "y": -2.8,
+          "z": 2.5,
+          "area": 0.45,
+          "gear": true
+        },
+        {
+          "id": "main-1",
+          "x": -2.35,
+          "y": -2.8,
+          "z": 2.5,
+          "area": 0.45,
+          "gear": true
+        },
+        {
+          "id": "main-2",
+          "x": 2.35,
+          "y": -2.8,
+          "z": 2.5,
+          "area": 0.45,
+          "gear": true
+        },
+        {
+          "id": "main-3",
+          "x": 2.85,
+          "y": -2.8,
+          "z": 2.5,
+          "area": 0.45,
+          "gear": true
+        },
+        {
+          "id": "nose-gear-0",
+          "x": -0.24,
+          "y": -2.8,
+          "z": -12.3,
+          "area": 0.35,
+          "gear": true
+        },
+        {
+          "id": "nose-gear-1",
+          "x": 0.24,
+          "y": -2.8,
+          "z": -12.3,
+          "area": 0.35,
+          "gear": true
+        }
+      ]
+    },
+    "cockpitEye": {
+      "x": -0.55,
+      "y": 2.3,
+      "z": -13.4
+    },
+    "waterMoments": {
+      "pitchInertia": 8000000,
+      "rollInertia": 3500000,
+      "yawInertia": 8000000,
+      "pitchControlMoment": 650000,
+      "rollControlMoment": 400000
+    },
+    "cityEnvelope": {
+      "margin": 21,
+      "predictionHorizontal": 20,
+      "predictionVertical": 12,
+      "wingStations": [
+        -17,
+        -8,
+        8,
+        17
+      ],
+      "wingMargin": 0.5,
+      "longitudinalStations": [
+        -15,
+        15
+      ],
+      "longitudinalMargin": 1,
+      "centerMargin": 2.8,
+      "historicalExtra": [
+        {
+          "x": 0,
+          "y": 8.96,
+          "z": 18
+        },
+        {
+          "x": 0,
+          "y": 3,
+          "z": 0
+        }
+      ]
+    },
+    "terrainEnvelope": {
+      "wingStations": [
+        -17,
+        17
+      ],
+      "wingMargin": 0.5,
+      "forwardStation": 15,
+      "forwardMargin": 1,
+      "centerMargin": 2.8
+    },
+    "silhouette": [
+      [
+        0,
+        0,
+        -16.5
+      ],
+      [
+        0,
+        2,
+        21.07
+      ],
+      [
+        0,
+        8.96,
+        17
+      ],
+      [
+        -17.9,
+        2.28,
+        6
+      ],
+      [
+        17.9,
+        2.28,
+        6
+      ],
+      [
+        -5.95,
+        1.73,
+        17.4
+      ],
+      [
+        5.95,
+        1.73,
+        17.4
+      ],
+      [
+        -1.8,
+        -1,
+        -10
+      ],
+      [
+        1.8,
+        -1,
+        -10
+      ],
+      [
+        -1.8,
+        3,
+        8
+      ],
+      [
+        1.8,
+        3,
+        8
+      ],
+      [
+        -5.35,
+        -2.1,
+        -5.1
+      ],
+      [
+        5.35,
+        -2.1,
+        -5.1
+      ]
+    ],
+    "focus": {
+      "aircraft": [
+        0,
+        1,
+        0
+      ],
+      "tail": [
+        0,
+        5.5,
+        17.7
+      ]
+    },
+    "engineEffects": [
+      {
+        "x": -5.35,
+        "y": -2.12,
+        "z": -4.38
+      },
+      {
+        "x": 5.35,
+        "y": -2.12,
+        "z": -4.38
+      }
+    ],
+    "focusRig": {
+      "mainRetractionAngle": 1.66,
+      "mainPivotX": 3,
+      "mainPivotY": -0.5,
+      "mainPivotZ": 2.5,
+      "mainOffsetX": -0.4,
+      "tyreOffsetX": 0.25,
+      "mainOffsetY": -1.65,
+      "noseRetractionAngle": 1.74,
+      "nosePivotY": -0.45,
+      "nosePivotZ": -11.5,
+      "noseOffsetY": -1.95,
+      "noseOffsetZ": -0.8,
+      "steeringAngle": 0.56
+    },
+    "selfOccluders": {
+      "shell": {
+        "min": [
+          -1.65,
+          -1.35,
+          -15.5
+        ],
+        "max": [
+          1.65,
+          1.4,
+          12
+        ]
+      },
+      "engines": [
+        {
+          "min": [
+            -6.35,
+            -2.1,
+            -5.1
+          ],
+          "max": [
+            -4.35,
+            0.1,
+            -0.7
+          ]
+        },
+        {
+          "min": [
+            4.35,
+            -2.1,
+            -5.1
+          ],
+          "max": [
+            6.35,
+            0.1,
+            -0.7
+          ]
+        }
+      ]
+    },
+    "shadow": {
+      "extent": 51.2,
+      "ellipse": [
+        0,
+        2.25,
+        2.2,
+        18.8
+      ],
+      "polygons": [
+        [
+          [
+            -2,
+            -5
+          ],
+          [
+            -17.9,
+            4
+          ],
+          [
+            -17.9,
+            6
+          ],
+          [
+            -2,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            17.9,
+            6
+          ],
+          [
+            17.9,
+            4
+          ],
+          [
+            2,
+            -5
+          ]
+        ],
+        [
+          [
+            -1,
+            12
+          ],
+          [
+            -6.5,
+            17
+          ],
+          [
+            -6.5,
+            18
+          ],
+          [
+            6.5,
+            18
+          ],
+          [
+            6.5,
+            17
+          ],
+          [
+            1,
+            12
+          ]
+        ]
+      ]
+    }
+  },
+  "visual": {
+    "assetVersions": {
+      "1": {
+        "path": "assets/aircraft/skyline-320-uv1.glb?v=1",
+        "root": "Skyline320",
+        "uvLayout": "a320-uv1",
+        "paintMaterial": "Livery paint a320-uv1"
+      }
+    },
+    "defaultVariant": "sharklet",
+    "variants": {
+      "sharklet": {
+        "nodes": [
+          "Wingtip_sharklet_L",
+          "Wingtip_sharklet_R"
+        ]
+      },
+      "wingtip-fence": {
+        "nodes": [
+          "Wingtip_fence_L",
+          "Wingtip_fence_R"
+        ],
+        "contacts": {
+          "wing": [
+            {
+              "x": -17.05,
+              "y": 1.37,
+              "z": 6.12
+            },
+            {
+              "x": 17.05,
+              "y": 1.37,
+              "z": 6.12
+            }
+          ]
+        }
+      }
+    },
+    "detailGroups": [
+      "Vertical stabilizer",
+      "Horizontal stabilizer L",
+      "Horizontal stabilizer R"
+    ],
+    "details": {
+      "wheel": [
+        "MainGear_L",
+        "MainGear_R",
+        "NoseGear"
+      ],
+      "tail": [
+        "Vertical stabilizer",
+        "Horizontal stabilizer L",
+        "Horizontal stabilizer R",
+        "Rudder",
+        "Elevator_L",
+        "Elevator_R"
+      ]
+    },
+    "rig": {
+      "transforms": [
+        {
+          "node": "MainGear_L",
+          "axis": "z",
+          "signal": "retractedGear",
+          "scale": 1.66,
+          "offset": 0,
+          "property": "rotation",
+          "visible": {
+            "signal": "gearPosition",
+            "above": 0.005
+          }
+        },
+        {
+          "node": "MainDoor_L",
+          "axis": "z",
+          "signal": "gearDoor",
+          "scale": -1.2,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "MainDoor_L",
+          "axis": "z",
+          "signal": "gearPosition",
+          "scale": -0.06,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "NoseDoor_L",
+          "axis": "z",
+          "signal": "gearDoor",
+          "scale": -1.25,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "NoseDoor_L",
+          "axis": "z",
+          "signal": "gearPosition",
+          "scale": -0.06,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "Flap_L_0",
+          "axis": "x",
+          "signal": "flapAngle",
+          "scale": 1,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "Flap_L_0",
+          "axis": "y",
+          "signal": "flapPosition",
+          "scale": -0.018,
+          "offset": 0,
+          "property": "position"
+        },
+        {
+          "node": "Flap_L_0",
+          "axis": "z",
+          "signal": "flapPosition",
+          "scale": 0.045,
+          "offset": 0,
+          "property": "position"
+        },
+        {
+          "node": "Flap_L_1",
+          "axis": "x",
+          "signal": "flapAngle",
+          "scale": 1,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "Flap_L_1",
+          "axis": "y",
+          "signal": "flapPosition",
+          "scale": -0.018,
+          "offset": 0,
+          "property": "position"
+        },
+        {
+          "node": "Flap_L_1",
+          "axis": "z",
+          "signal": "flapPosition",
+          "scale": 0.045,
+          "offset": 0,
+          "property": "position"
+        },
+        {
+          "node": "Slat_L",
+          "axis": "y",
+          "signal": "slatFraction",
+          "scale": -0.08,
+          "offset": 0,
+          "property": "position"
+        },
+        {
+          "node": "Slat_L",
+          "axis": "z",
+          "signal": "slatFraction",
+          "scale": -0.16,
+          "offset": 0,
+          "property": "position"
+        },
+        {
+          "node": "Slat_L",
+          "axis": "x",
+          "signal": "slatFraction",
+          "scale": -0.14,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "Aileron_L",
+          "axis": "x",
+          "signal": "roll",
+          "scale": 0.28,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "Elevator_L",
+          "axis": "x",
+          "signal": "pitch",
+          "scale": -0.35,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "Spoiler_L_0",
+          "axis": "x",
+          "signal": "spoiler",
+          "scale": -0.95,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "Spoiler_L_1",
+          "axis": "x",
+          "signal": "spoiler",
+          "scale": -0.95,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "Spoiler_L_2",
+          "axis": "x",
+          "signal": "spoiler",
+          "scale": -0.95,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "Reverse_L",
+          "axis": "z",
+          "signal": "reverse0",
+          "scale": 0.5,
+          "offset": 0,
+          "property": "position"
+        },
+        {
+          "node": "MainGear_R",
+          "axis": "z",
+          "signal": "retractedGear",
+          "scale": -1.66,
+          "offset": 0,
+          "property": "rotation",
+          "visible": {
+            "signal": "gearPosition",
+            "above": 0.005
+          }
+        },
+        {
+          "node": "MainDoor_R",
+          "axis": "z",
+          "signal": "gearDoor",
+          "scale": 1.2,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "MainDoor_R",
+          "axis": "z",
+          "signal": "gearPosition",
+          "scale": 0.06,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "NoseDoor_R",
+          "axis": "z",
+          "signal": "gearDoor",
+          "scale": 1.25,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "NoseDoor_R",
+          "axis": "z",
+          "signal": "gearPosition",
+          "scale": 0.06,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "Flap_R_0",
+          "axis": "x",
+          "signal": "flapAngle",
+          "scale": 1,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "Flap_R_0",
+          "axis": "y",
+          "signal": "flapPosition",
+          "scale": -0.018,
+          "offset": 0,
+          "property": "position"
+        },
+        {
+          "node": "Flap_R_0",
+          "axis": "z",
+          "signal": "flapPosition",
+          "scale": 0.045,
+          "offset": 0,
+          "property": "position"
+        },
+        {
+          "node": "Flap_R_1",
+          "axis": "x",
+          "signal": "flapAngle",
+          "scale": 1,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "Flap_R_1",
+          "axis": "y",
+          "signal": "flapPosition",
+          "scale": -0.018,
+          "offset": 0,
+          "property": "position"
+        },
+        {
+          "node": "Flap_R_1",
+          "axis": "z",
+          "signal": "flapPosition",
+          "scale": 0.045,
+          "offset": 0,
+          "property": "position"
+        },
+        {
+          "node": "Slat_R",
+          "axis": "y",
+          "signal": "slatFraction",
+          "scale": -0.08,
+          "offset": 0,
+          "property": "position"
+        },
+        {
+          "node": "Slat_R",
+          "axis": "z",
+          "signal": "slatFraction",
+          "scale": -0.16,
+          "offset": 0,
+          "property": "position"
+        },
+        {
+          "node": "Slat_R",
+          "axis": "x",
+          "signal": "slatFraction",
+          "scale": -0.14,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "Aileron_R",
+          "axis": "x",
+          "signal": "roll",
+          "scale": -0.28,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "Elevator_R",
+          "axis": "x",
+          "signal": "pitch",
+          "scale": -0.35,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "Spoiler_R_0",
+          "axis": "x",
+          "signal": "spoiler",
+          "scale": -0.95,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "Spoiler_R_1",
+          "axis": "x",
+          "signal": "spoiler",
+          "scale": -0.95,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "Spoiler_R_2",
+          "axis": "x",
+          "signal": "spoiler",
+          "scale": -0.95,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "Reverse_R",
+          "axis": "z",
+          "signal": "reverse1",
+          "scale": 0.5,
+          "offset": 0,
+          "property": "position"
+        },
+        {
+          "node": "NoseGear",
+          "axis": "x",
+          "signal": "retractedGear",
+          "scale": 1.74,
+          "offset": 0,
+          "property": "rotation",
+          "visible": {
+            "signal": "gearPosition",
+            "above": 0.005
+          }
+        },
+        {
+          "node": "NoseSteering",
+          "axis": "y",
+          "signal": "steer",
+          "scale": -0.56,
+          "offset": 0,
+          "property": "rotation"
+        },
+        {
+          "node": "Rudder",
+          "axis": "y",
+          "signal": "rudder",
+          "scale": 0.38,
+          "offset": 0,
+          "property": "rotation"
+        }
+      ],
+      "fans": [
+        {
+          "engine": 0,
+          "node": "Fan_L",
+          "axis": "z",
+          "key": "L"
+        },
+        {
+          "engine": 1,
+          "node": "Fan_R",
+          "axis": "z",
+          "key": "R"
+        }
+      ],
+      "fanRate": 115,
+      "wheelRadius": 0.65,
+      "wheels": [
+        {
+          "node": "MainWheels_L",
+          "scale": 1
+        },
+        {
+          "node": "MainWheels_R",
+          "scale": 1
+        },
+        {
+          "node": "NoseWheels",
+          "scale": 1.625
+        }
+      ],
+      "lamps": [
+        {
+          "node": "Beacon_top",
+          "kind": "beacon"
+        },
+        {
+          "node": "Beacon_bottom",
+          "kind": "beacon"
+        },
+        {
+          "node": "Strobe_L",
+          "kind": "strobe"
+        },
+        {
+          "node": "Strobe_R",
+          "kind": "strobe"
+        },
+        {
+          "node": "Landing_L",
+          "kind": "landing"
+        },
+        {
+          "node": "Landing_R",
+          "kind": "landing"
+        }
+      ]
+    }
+  },
+  "authoring": {
+    "template": "a320",
+    "uvContract": "ops/assets/aircraft/uv1.json",
+    "fuselageStations": [
+      [
+        -16.5,
+        0.015,
+        0.018,
+        -0.35
+      ],
+      [
+        -16.2,
+        0.48,
+        0.4,
+        -0.25
+      ],
+      [
+        -15.72,
+        0.98,
+        0.86,
+        -0.05
+      ],
+      [
+        -15.02,
+        1.37,
+        1.29,
+        0.08
+      ],
+      [
+        -14.15,
+        1.71,
+        1.68,
+        0.16
+      ],
+      [
+        -13.05,
+        1.93,
+        1.93,
+        0.18
+      ],
+      [
+        -11.8,
+        1.975,
+        1.98,
+        0.18
+      ],
+      [
+        10.9,
+        1.975,
+        1.98,
+        0.18
+      ],
+      [
+        12.7,
+        1.87,
+        1.88,
+        0.23
+      ],
+      [
+        14.2,
+        1.61,
+        1.67,
+        0.36
+      ],
+      [
+        16.1,
+        1.16,
+        1.23,
+        0.57
+      ],
+      [
+        18,
+        0.66,
+        0.76,
+        0.84
+      ],
+      [
+        19.6,
+        0.27,
+        0.37,
+        1.06
+      ],
+      [
+        20.6,
+        0.07,
+        0.13,
+        1.16
+      ],
+      [
+        21.07,
+        0.005,
+        0.008,
+        1.17
+      ]
+    ],
+    "wingStations": [
+      [
+        1.3,
+        -3.2,
+        3.0,
+        -0.43
+      ],
+      [
+        4,
+        -2,
+        3.3,
+        -0.24
+      ],
+      [
+        8,
+        0,
+        4,
+        0.04
+      ],
+      [
+        12,
+        2,
+        4.9,
+        0.33
+      ],
+      [
+        16.7,
+        4.9,
+        6.3,
+        0.69
+      ]
+    ],
+    "dimensionsM": {
+      "length": 37.57,
+      "span": 35.8,
+      "tailHeightAboveGround": 11.76
+    }
+  },
+  "water": {
+    "entryTargets": {
+      "referenceMass": 68.5,
+      "iasMinKt": 120,
+      "iasMaxKt": 135,
+      "waterMaxKt": 135,
+      "sinkMaxMps": 1.5,
+      "pitchMinDeg": 8,
+      "pitchMaxDeg": 11,
+      "rollMaxDeg": 2,
+      "slipMaxDeg": 2,
+      "flap": 2
+    }
+  }
+}

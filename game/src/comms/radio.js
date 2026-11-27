@@ -10,6 +10,7 @@ import englishPilotClean from './english-pilot-clean.json' with {type:'json'};
 import {siteUrl} from '../urls.js';
 import {chooseRadioVoices,radioVoiceFor,voiceClip} from './pilot-voices.js';
 import {historicalClip,historicalClipUrl} from '../history/media.js';
+import {radioPhrasePlan} from './phrases.js';
 const dialogue=(s,key)=>{
  if(s.airline&&RADIO_PACKS.airline.zh[key])return{lines:RADIO_PACKS.airline.zh[key],prefix:'airline-'};
  const pack=AIRPORT_RADIO[s.airportId];if(pack?.zh[key])return{lines:pack.zh[key],prefix:s.airportId+'-'};
@@ -25,6 +26,7 @@ export function createRadio({airportId,destinationId,towerVoices={},destinationT
 }
 export const radioClipDuration=(id,language,voice=null)=>{
  if(id.startsWith('us1549-'))return(historicalClip(id,language,voice)?.duration??5)+.2;
+ const phrase=radioPhrasePlan(id,language,voice);if(phrase)return phrase.budget+.2;
  const selected=language==='zh'?voiceClip(voice,id):null;
  return(selected?.clean?.duration||selected?.duration||(language==='en'&&englishPilotClean.clips[id]?.duration)||clipPack(id)?.durations[language]?.[id]||(language==='en'?englishDurations:durations)[id]||5)+.2;
 };
@@ -32,7 +34,7 @@ const clipDuration=radioClipDuration;
 export function setRadioLanguage(s,language){
  const r=s.radio;if(!r||!['en','zh'].includes(language)||r.language===language)return;
  r.language=language;
- if(r.active){r.active.started=s.time;r.active.until=s.time+clipDuration(r.active.clip,language,radioVoiceFor(r,r.active.role));}
+ if(r.active){r.active.started=s.time;r.active.until=s.time+clipDuration(r.active.clip,language,r.active.speakerVoice??radioVoiceFor(r,r.active.role));}
 }
 function enqueue(s,key,priority=0,ttl=60){
  const r=s.radio;if(!r||!dialogue(s,key).lines)return false;
@@ -41,7 +43,7 @@ function enqueue(s,key,priority=0,ttl=60){
   r.pending=r.pending.filter(line=>(line.priority||0)>priority);r.active=null;r.readyAt=s.time+(priority>=3?2.6:priority===2?1.5:.35);
  }
  const custom=dialogue(s,key);
- const lines=custom.lines.map(([role,text],i)=>({clip:`${custom.prefix}${key}-${i}`,event:key,role,text,priority,emergency:emergencyLevels[key]||null,expires:s.time+ttl}));
+ const lines=custom.lines.map(([role,text],i)=>({clip:`${custom.prefix}${key}-${i}`,event:key,role,text,speakerVoice:radioVoiceFor(r,role),priority,emergency:emergencyLevels[key]||null,expires:s.time+ttl}));
  r.pending.push(...lines);r.pending.sort((a,b)=>(b.priority||0)-(a.priority||0));return true;
 }
 export function queueRadio(s,key,priority=false){
@@ -68,7 +70,7 @@ export function updateRadio(s){
  const r=s.radio;if(!r)return;
  if(r.active&&s.time>=r.active.until){r.history.push(r.active);if(r.history.length>12)r.history.shift();r.active=null;r.readyAt=s.time+.55;}
  r.pending=r.pending.filter(line=>!line.expires||line.expires>s.time);
- if(!r.active&&r.pending.length&&s.time>=r.readyAt){const line=r.pending.shift();r.active={...line,id:++r.sequence,started:s.time,until:s.time+clipDuration(line.clip,r.language,radioVoiceFor(r,line.role))};}
+ if(!r.active&&r.pending.length&&s.time>=r.readyAt){const line=r.pending.shift();r.active={...line,id:++r.sequence,started:s.time,until:s.time+clipDuration(line.clip,r.language,line.speakerVoice??radioVoiceFor(r,line.role))};}
 }
 export function calloutClip(text=''){
  const fixed={'Autopilot on':'ap-on','Autopilot off':'ap-off','Go around':'go-around','Positive climb':'positive','Wind shear, wind shear, wind shear':'wind-shear','Engine one failure':'engine-one','All engines failure':'all-engines','Minimum':'minimum','Landing checklist complete':'checklist','Terrain ahead':'terrain','Terrain, terrain, pull up':'pull-up','Stall, stall':'stall'};
@@ -81,6 +83,7 @@ let speechVersion=0;for(const char of JSON.stringify(script)+JSON.stringify(dura
 let englishSpeechVersion=0;for(const char of JSON.stringify(englishScript)+JSON.stringify(englishDurations))englishSpeechVersion=(Math.imul(englishSpeechVersion,31)+char.charCodeAt(0))>>>0;
 export const clipUrl=(id,language='zh',voice=null,variant='radio')=>{
  if(id.startsWith('us1549-'))return historicalClipUrl(id,language,voice);
+ const composed=radioPhrasePlan(id,language,voice);if(composed?.source.kind==='assembled')return siteUrl(`${composed.source.file}?v=${composed.source.sha256.slice(0,16)}`);
  const selected=language==='zh'&&!id.startsWith('call-')?voiceClip(voice,id):null;
  if(selected){const item=variant==='clean'&&selected.clean?selected.clean:selected;return siteUrl(`assets/radio/pilots/${voice}/${item.file}?v=${item.sha256.slice(0,16)}`);}
  if(language==='en'&&variant==='clean'&&englishPilotClean.clips[id]){const item=englishPilotClean.clips[id];return siteUrl(`assets/radio/en/pilots/${item.file}?v=${item.sha256.slice(0,16)}`);}

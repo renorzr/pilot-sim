@@ -15,3 +15,9 @@ test('programmatic button focus clears immediately, including SVG buttons, while
 test('development and production JSX runtimes both enforce the button policy',()=>{
  for(const element of[jsx('button',{children:'+'}),jsxDEV('button',{children:'−'},undefined,false,undefined,undefined)]){assert.equal(element.props.tabIndex,-1);assert.equal(typeof element.props.onMouseDown,'function');assert.equal(typeof element.props.onFocus,'function');}
 });
+
+test('menu controls can retain native focus for accessible keyboard selection',()=>{
+ const focus=()=>{},props={'data-menu-focus':true,tabIndex:0,onFocus:focus};
+ assert.equal(buttonInteractionProps('button',props),props);
+ assert.equal(buttonInteractionProps('g',{...props,role:'button'}).tabIndex,0);
+});

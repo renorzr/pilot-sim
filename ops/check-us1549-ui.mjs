@@ -10,6 +10,8 @@ const url=process.argv[2]||'http://127.0.0.1:18097/',mode=process.argv[3]||'full
 const isReturn=mode==='return'||mode==='return-formal';
 const b=await connect(url,800,500,existing),report={mode,target:b.target.id,startedAt:new Date().toISOString()};
 await mkdir(output,{recursive:true});
+const checkRescue=process.env.PILOT_QA_CHECK_RESCUE==='1';
+if(checkRescue){await b.send('Page.addScriptToEvaluateOnNewDocument',{source:`(()=>{window.__qaAudioContexts=[];const connect=AudioNode.prototype.connect;AudioNode.prototype.connect=function(destination,...args){const result=connect.call(this,destination,...args),context=this.context;if(destination===context.destination){if(!context.__qaCapture){context.__qaCapture=context.createMediaStreamDestination();window.__qaAudioContexts.push(context);}connect.call(this,context.__qaCapture);}return result;};})()`});await b.send('Page.navigate',{url});}
 const snapshot=()=>b.evaluate('window.__flightSim.snapshot()'),tap=async(code,key)=>{await b.key(code,key);await b.key(code,key,'keyUp');};
 async function click(selector){await b.evaluate(`document.querySelector(${JSON.stringify(selector)})?.scrollIntoView({block:'nearest'})`);await b.click(selector);}
 async function overhead(){
@@ -32,6 +34,7 @@ try{
  await click('[data-view-mode=exterior]');
  report.initialHistoryProgress=await b.evaluate('localStorage.getItem("pilot-sim.history.us1549.v1")');
  const seed=await snapshot();report.seed={time:seed.time,x:seed.x,y:seed.y,z:seed.z,voices:[seed.radio.pilotVoice,seed.radio.towerVoice,seed.radio.copilotVoice]};
+ assert.equal(seed.radio.pilotVoice,'h');assert.equal(seed.radio.copilotVoice,'g');assert(!['h','g'].includes(seed.radio.towerVoice));
  await click('.briefing-card .primary-button');
  if(mode!=='practice'){
   await b.waitFor('document.querySelector(".historical-presentation")&&window.__flightSim.airportPresentation()?.elapsed>.25',60000);
@@ -95,8 +98,18 @@ try{
  if(!isReturn){
  await b.waitFor('!!document.querySelector(".historical-presentation")&&window.__flightSim.airportPresentation().kind==="history-rescue"',30000);
  if(await b.evaluate('!!window.__us1549Raster')){report.rasterSuppressedDuringFlight=true;await b.evaluate('window.__us1549Raster.suppressed=false');}
- const frozen=await snapshot();await click('.history-presentation-pause');await b.waitFor('!window.__flightSim.snapshot().playing');const rescueTime=await b.evaluate('window.__flightSim.airportPresentation().elapsed');await new Promise(r=>setTimeout(r,250));assert.equal(await b.evaluate('window.__flightSim.airportPresentation().elapsed'),rescueTime);assert.equal((await snapshot()).time,frozen.time);assert.deepEqual((await snapshot()).result,frozen.result);
- await b.screenshot(output+'/'+mode+'-rescue.png');await click('.skip-intro');
+ const frozen=await snapshot();
+ if(checkRescue){
+  await b.evaluate(`(()=>{const c=window.__qaAudioContexts[0],rec=new MediaRecorder(c.__qaCapture.stream,{mimeType:'audio/webm;codecs=opus'}),chunks=[];rec.ondataavailable=e=>{if(e.data.size)chunks.push(e.data)};rec.start(200);window.__stopRescueRecording=()=>new Promise(resolve=>{rec.onstop=()=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result.split(',')[1]);reader.readAsDataURL(new Blob(chunks,{type:'audio/webm'}));};rec.stop();});window.__rescueSamples=[];window.__rescueTimer=setInterval(()=>{const api=window.__flightSim;window.__rescueSamples.push({media:api.audioStats().rescue,time:api.snapshot().time,p:api.airportPresentation()?.elapsed,caption:document.querySelector('.radio-caption')?.innerText});},80);})()`);
+  await b.waitFor('window.__flightSim.audioStats().rescue.rms>.001&&window.__flightSim.audioStats().rescue.activeVoices.some(v=>v.profile==="dispatch")',30000);
+ }
+ await click('.history-presentation-pause');await b.waitFor('!window.__flightSim.snapshot().playing');const rescueTime=await b.evaluate('window.__flightSim.airportPresentation().elapsed'),audioTime=await b.evaluate('window.__flightSim.audioStats().rescue.elapsed');await new Promise(r=>setTimeout(r,250));assert.equal(await b.evaluate('window.__flightSim.airportPresentation().elapsed'),rescueTime);assert.equal(await b.evaluate('window.__flightSim.audioStats().rescue.elapsed'),audioTime);assert.equal((await snapshot()).time,frozen.time);assert.deepEqual((await snapshot()).result,frozen.result);
+ await b.screenshot(output+'/'+mode+'-rescue.png');
+ if(checkRescue){
+  const key=await b.evaluate('window.__flightSim.airportPresentation().key');await click('.language-switch');await b.waitFor('window.__flightSim.airportPresentation().key!=='+JSON.stringify(key));assert(!await b.evaluate('window.__flightSim.snapshot().playing'));await click('.language-switch');await b.waitFor('window.__flightSim.airportPresentation().key==='+JSON.stringify(key));
+  await click('.history-presentation-pause');await b.waitFor('!window.__flightSim.airportPresentation().active',40000);report.rescueSamples=await b.evaluate('window.__rescueSamples');await b.evaluate('clearInterval(window.__rescueTimer)');const audio=await b.evaluate('window.__stopRescueRecording()');await writeFile(output+'/'+mode+'-rescue-audio.webm',Buffer.from(audio,'base64'));
+  for(const profile of['field','dispatch','responder','intercom'])assert(report.rescueSamples.some(s=>s.media.rms>.001&&s.media.activeVoices.some(v=>v.profile===profile)),profile+' audio missing');assert(report.rescueSamples.every(s=>s.time===frozen.time));assert(report.rescueSamples.filter(s=>s.media.rms>.001).every(s=>s.media.rate===1));report.rescueAudio=await b.evaluate('window.__flightSim.audioStats().rescue');assert.equal(report.rescueAudio.id,null);report.rescueVerified=true;
+ }else{await click('.skip-intro');assert.equal(await b.evaluate('window.__flightSim.audioStats().rescue.id'),null);}
  }
  await b.waitFor('!!document.querySelector(".history-result")&&!!window.__flightSim.replay()',30000);
  report.language=language;report.audio=await b.evaluate('window.__us1549Audio');report.recording=await b.evaluate('window.__flightSim.recording()');report.pilot=await b.evaluate('window.__us1549Pilot.samples');report.progress=await b.evaluate('({history:localStorage.getItem("pilot-sim.history.us1549.v1"),normal:localStorage.getItem("pilot-sim.levels.v1")})');

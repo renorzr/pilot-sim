@@ -1,0 +1,14 @@
+{
+  "id": "us1549-crew-v1",
+  "zh": {"pilot":"h","copilot":"g"},
+  "en": {"pilot":"guy","copilot":"andrew"},
+  "direction": {
+    "pilot":"Mature, restrained lower male register; concise and composed.",
+    "copilot":"A distinct, slightly brighter male register; direct and procedural."
+  },
+  "references": [
+    {"person":"Chesley Sullenberger","url":"https://abcnews.com/video/47427104/"},
+    {"person":"Jeffrey Skiles","url":"https://charlierose.com/videos/14176"}
+  ],
+  "castingNote":"Existing synthetic actors selected for general vocal character and delivery; not voice clones or historical recordings."
+}

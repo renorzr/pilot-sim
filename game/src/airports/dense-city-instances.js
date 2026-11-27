@@ -34,7 +34,7 @@ export function createCityInstances(data,tile,lod,material){
  }
  function* sourceIndices(){for(const t of tile.members||[tile])for(let i=t.start;i<t.start+t.count;i++)yield i;}
  for(const i of sourceIndices()){
-  const b=data.building(i,false),f=buildingFrame(b);
+  const b=data.building(i,false);if(b.height<=0)continue;const f=buildingFrame(b);
   if(lod===1){
    if(repeatedHome(b,f)){const styles=data.manifest?.architecture?.homeRoofStyles;add(b,f,b.height>=13?'flat':styles?.length?styles[b.seed%styles.length]:b.seed%5===0?'flat':b.seed%3===0?'gable':'hip');}
    else if((b.ringCount??b.rings.length)===1&&f.fill>.93&&b.height<(data.manifest?.architecture?.flatTemplateMaxHeight??35)&&Math.max(f.width,f.depth)<150)add(b,f);

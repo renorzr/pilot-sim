@@ -1,6 +1,6 @@
 """Generate complete E/G/H Chinese pilot packs without touching live radio.
 
-The credential is read once from hidden stdin. API responses and intermediate
+The credential defaults to the ignored local .secrets/fish-audio.key file. API responses and intermediate
 audio stay in qa/; the reviewed manifest/assets can then be published together.
 """
 import argparse
@@ -15,6 +15,8 @@ import threading
 import time
 import urllib.error
 import urllib.request
+
+from fish_credentials import load_fish_credential
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 STAGE = ROOT / 'qa/fish-pilot-production'
@@ -64,13 +66,11 @@ def direction(voice, signal):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--model', choices=['s2.1-pro', 's2.1-pro-free'], default=MODEL)
+    parser.add_argument('--fish-stdin', action='store_true')
     args = parser.parse_args()
     for folder in ['raw', 'render', 'assets']:
         (STAGE / folder).mkdir(parents=True, exist_ok=True)
-    print('Ready for Fish credential on hidden stdin.', flush=True)
-    key = sys.stdin.readline().strip()
-    if not key:
-        raise SystemExit('Missing credential')
+    key = load_fish_credential(stdin=args.fish_stdin, required=True)
     lines = pilot_lines()
     references = ROOT / 'ops/assets/pilot-voices'
     signal_manifest = json.loads((references / 'manifest.json').read_text())

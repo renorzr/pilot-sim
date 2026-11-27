@@ -1,3 +1,4 @@
+import {chooseAirportPractice} from './airport-selection.mjs';
 import assert from 'node:assert/strict';
 import {writeFile}from 'node:fs/promises';
 import {connect}from './cdp.mjs';
@@ -11,7 +12,7 @@ async function throttle(value){const pct=Math.round(clamp(value,0,.18)*100);if(p
 async function brake(on){if(on===braking)return;await b.key('Space',' ',on?'keyDown':'keyUp');braking=on;}
 async function english(){if(await b.evaluate('document.documentElement.lang!=="en"'))await b.click('.language-switch');assert.deepEqual(await b.evaluate('document.body.innerText.split("\\n").filter(s=>/\\p{Script=Han}/u.test(s))'),[]);assert.deepEqual(await b.evaluate('window.__flightSim.missingTranslations()'),[]);}
 try{
- await b.waitFor('!!window.__flightSim&&!!document.querySelector(".stage-tabs")',60000);await b.click('[data-stage-id="airline"]');await b.click('[data-airline-mode="practice"]');await b.click('[data-level-id="daxing-takeoff"]');await b.evaluate('document.querySelector(".enter-level").scrollIntoView({block:"nearest"})');await b.click('.enter-level');await b.waitFor('!!document.querySelector(".flight-card .primary-button")&&!document.querySelector(".flight-card .primary-button").disabled',60000);await b.evaluate('document.querySelector(".flight-card .primary-button").scrollIntoView({block:"nearest"})');await b.click('.flight-card .primary-button');
+ await b.waitFor('!!window.__flightSim&&!!document.querySelector(".stage-tabs")',60000);await chooseAirportPractice(b,'daxing-takeoff');await b.waitFor('!!document.querySelector(".flight-card .primary-button")&&!document.querySelector(".flight-card .primary-button").disabled',60000);await b.evaluate('document.querySelector(".flight-card .primary-button").scrollIntoView({block:"nearest"})');await b.click('.flight-card .primary-button');
  await b.waitFor('window.__flightSim.snapshot().time>2');await tap('KeyP','p');samples.intro=await snap();await b.screenshot('qa/ground-intro.png');await english();await b.screenshot('qa/ground-intro-en.png');await b.click('.skip-intro');await tap('KeyP','p');
  await b.waitFor('window.__flightSim.snapshot().ground.stage==="taxi"',60000);await tap('KeyP','p');await english();await b.screenshot('qa/ground-taxi-en.png');samples.taxi=await snap();assert(!samples.taxi.ground.entryCleared);await tap('KeyT','t');assert.equal((await snap()).throttle,0);
  await b.send('Emulation.setDeviceMetricsOverride',{width:844,height:390,deviceScaleFactor:1,mobile:false});await b.screenshot('qa/ground-mobile.png');await b.send('Emulation.setDeviceMetricsOverride',{width:480,height:300,deviceScaleFactor:1,mobile:false});box=null;

@@ -1,0 +1,779 @@
+{
+  "schema": 1,
+  "profile": "water-rescue-v1",
+  "speech": {
+    "zh": {
+      "field-controlled": {
+        "path": "assets/radio/rescue/zh-field-controlled-30940d4d000eff0b.mp3",
+        "duration": 3.984,
+        "bytes": 24141,
+        "sha256": "30940d4d000eff0b4e7a93dc44c58ec62e06404cf003469b6aa8c09399279c79",
+        "voice": "xiaoxiao",
+        "referenceId": "zh-CN-XiaoxiaoNeural",
+        "role": "police",
+        "text": "指挥中心，飞机保持漂浮，正在组织撤离。",
+        "provider": "edge-tts"
+      },
+      "field-damaged": {
+        "path": "assets/radio/rescue/zh-field-damaged-95f13296441bf96c.mp3",
+        "duration": 4.608,
+        "bytes": 27885,
+        "sha256": "95f13296441bf96cd3f39c5e97d5672ec9176a56c13c761eddc2f531aa67863f",
+        "voice": "xiaoxiao",
+        "referenceId": "zh-CN-XiaoxiaoNeural",
+        "role": "police",
+        "text": "指挥中心，飞机有损伤，保持漂浮，请尽快接应。",
+        "provider": "edge-tts"
+      },
+      "response": {
+        "path": "assets/radio/rescue/zh-response-8223f12da418f109.mp3",
+        "duration": 3.864,
+        "bytes": 23421,
+        "sha256": "8223f12da418f109c91851a9b10b0f058952afa92709924f0dabbf02e58b7b41",
+        "voice": "yunjian",
+        "referenceId": "zh-CN-YunjianNeural",
+        "role": "marine",
+        "text": "水警三号收到，正在接近，准备接应。",
+        "provider": "edge-tts"
+      },
+      "dispatch": {
+        "path": "assets/radio/rescue/zh-dispatch-2987012cb76b22a6.mp3",
+        "duration": 5.736,
+        "bytes": 34653,
+        "sha256": "2987012cb76b22a6cb4b3d160765f89d7d8215d5537e2414810bf9d0e693d9ac",
+        "voice": "yunxi",
+        "referenceId": "zh-CN-YunxiNeural",
+        "role": "dispatch",
+        "text": "水警三号、救援二组，前往河面接应。岸上救护待命。",
+        "provider": "edge-tts"
+      }
+    },
+    "en": {
+      "field-controlled": {
+        "path": "assets/radio/rescue/en-field-controlled-c6f77517b7ad8eef.mp3",
+        "duration": 3.6,
+        "bytes": 21837,
+        "sha256": "c6f77517b7ad8eef1bcb68b98a5e72f2f85d5ebc65a332a25057cdefc742ff9e",
+        "voice": "andrew",
+        "referenceId": "en-US-AndrewNeural",
+        "role": "police",
+        "text": "Dispatch, aircraft afloat. Evacuation under way.",
+        "provider": "edge-tts"
+      },
+      "field-damaged": {
+        "path": "assets/radio/rescue/en-field-damaged-4dc68f46f9272dc3.mp3",
+        "duration": 4.056,
+        "bytes": 24573,
+        "sha256": "4dc68f46f9272dc393ae2334cc9bc8576a426f4efb9821c94f33ea5661cda2c6",
+        "voice": "andrew",
+        "referenceId": "en-US-AndrewNeural",
+        "role": "police",
+        "text": "Dispatch, aircraft damaged but afloat. Request assistance.",
+        "provider": "edge-tts"
+      },
+      "dispatch": {
+        "path": "assets/radio/rescue/en-dispatch-011debfd79468a88.mp3",
+        "duration": 5.592,
+        "bytes": 33789,
+        "sha256": "011debfd79468a88c5661f8dd11b4f9f5d770c0aa923c22beabf8a4f998e60f1",
+        "voice": "guy",
+        "referenceId": "en-US-GuyNeural",
+        "role": "dispatch",
+        "text": "Marine three, rescue two, assist the aircraft. Medics stand by.",
+        "provider": "edge-tts"
+      },
+      "response": {
+        "path": "assets/radio/rescue/en-response-4b59c1a87cd6ee31.mp3",
+        "duration": 4.224,
+        "bytes": 25581,
+        "sha256": "4b59c1a87cd6ee312fdcec1f2d6a6d8feaf78f5868354f02707e6f8cce11e323",
+        "voice": "aria",
+        "referenceId": "en-US-AriaNeural",
+        "role": "marine",
+        "text": "Marine three copies. Approaching to assist.",
+        "provider": "edge-tts"
+      }
+    }
+  },
+  "sources": {
+    "assets/radio/us1549/zh/e/us1549-rescue-0-54b5422c76b6ec5e.mp3": {
+      "duration": 2.256,
+      "bytes": 13773,
+      "sha256": "54b5422c76b6ec5eabf9e5512c53eb23395ab328015c2b9a410d616c61f69e77",
+      "path": "assets/radio/us1549/zh/e/us1549-rescue-0-54b5422c76b6ec5e.mp3",
+      "text": "救援船正在接近，保持联络。",
+      "role": "tower",
+      "channel": "vhf",
+      "provider": "s2.1-pro-free",
+      "referenceId": "41aafb356afe4d46925ab37fbb588c79",
+      "voice": "e"
+    },
+    "assets/radio/rescue/zh-field-controlled-30940d4d000eff0b.mp3": {
+      "path": "assets/radio/rescue/zh-field-controlled-30940d4d000eff0b.mp3",
+      "duration": 3.984,
+      "bytes": 24141,
+      "sha256": "30940d4d000eff0b4e7a93dc44c58ec62e06404cf003469b6aa8c09399279c79",
+      "voice": "xiaoxiao",
+      "referenceId": "zh-CN-XiaoxiaoNeural",
+      "role": "police",
+      "text": "指挥中心，飞机保持漂浮，正在组织撤离。",
+      "provider": "edge-tts"
+    },
+    "assets/radio/rescue/zh-dispatch-2987012cb76b22a6.mp3": {
+      "path": "assets/radio/rescue/zh-dispatch-2987012cb76b22a6.mp3",
+      "duration": 5.736,
+      "bytes": 34653,
+      "sha256": "2987012cb76b22a6cb4b3d160765f89d7d8215d5537e2414810bf9d0e693d9ac",
+      "voice": "yunxi",
+      "referenceId": "zh-CN-YunxiNeural",
+      "role": "dispatch",
+      "text": "水警三号、救援二组，前往河面接应。岸上救护待命。",
+      "provider": "edge-tts"
+    },
+    "assets/radio/rescue/zh-response-8223f12da418f109.mp3": {
+      "path": "assets/radio/rescue/zh-response-8223f12da418f109.mp3",
+      "duration": 3.864,
+      "bytes": 23421,
+      "sha256": "8223f12da418f109c91851a9b10b0f058952afa92709924f0dabbf02e58b7b41",
+      "voice": "yunjian",
+      "referenceId": "zh-CN-YunjianNeural",
+      "role": "marine",
+      "text": "水警三号收到，正在接近，准备接应。",
+      "provider": "edge-tts"
+    },
+    "assets/radio/us1549/zh/g/us1549-closing-0-fdd65d6b34c05901.mp3": {
+      "duration": 3.744,
+      "bytes": 22701,
+      "sha256": "fdd65d6b34c0590195a04a89ee2918b87703865c23e884f5a7693d53006be4ee",
+      "path": "assets/radio/us1549/zh/g/us1549-closing-0-fdd65d6b34c05901.mp3",
+      "text": "飞机保持漂浮，救援接应正在进行。",
+      "role": "copilot",
+      "channel": "intercom",
+      "provider": "s2.1-pro-free",
+      "referenceId": "0a86f2f473514783a93b37dad673613e",
+      "voice": "g"
+    },
+    "assets/radio/rescue/zh-field-damaged-95f13296441bf96c.mp3": {
+      "path": "assets/radio/rescue/zh-field-damaged-95f13296441bf96c.mp3",
+      "duration": 4.608,
+      "bytes": 27885,
+      "sha256": "95f13296441bf96cd3f39c5e97d5672ec9176a56c13c761eddc2f531aa67863f",
+      "voice": "xiaoxiao",
+      "referenceId": "zh-CN-XiaoxiaoNeural",
+      "role": "police",
+      "text": "指挥中心，飞机有损伤，保持漂浮，请尽快接应。",
+      "provider": "edge-tts"
+    },
+    "assets/radio/us1549/zh/j/us1549-rescue-0-505880a3a818090d.mp3": {
+      "duration": 2.904,
+      "bytes": 17661,
+      "sha256": "505880a3a818090dde28c3f5234c349d3a8c03351b9c692fca8ef29e68517046",
+      "path": "assets/radio/us1549/zh/j/us1549-rescue-0-505880a3a818090d.mp3",
+      "text": "救援船正在接近，保持联络。",
+      "role": "tower",
+      "channel": "vhf",
+      "provider": "s2.1-pro-free",
+      "referenceId": "048222d36be842f199ec8ac71993dce4",
+      "voice": "j"
+    },
+    "assets/radio/us1549/zh/xiaoxiao/us1549-rescue-0-37be7d552ea320d9.mp3": {
+      "duration": 2.688,
+      "bytes": 16365,
+      "sha256": "37be7d552ea320d9cab4c3c3c6661b319d82f8c1ade77467527798389afb83c3",
+      "path": "assets/radio/us1549/zh/xiaoxiao/us1549-rescue-0-37be7d552ea320d9.mp3",
+      "text": "救援船正在接近，保持联络。",
+      "role": "tower",
+      "channel": "vhf",
+      "provider": "edge-tts",
+      "referenceId": "zh-CN-XiaoxiaoNeural",
+      "voice": "xiaoxiao"
+    },
+    "assets/radio/us1549/en/aria/us1549-rescue-0-53193116489cfc52.mp3": {
+      "duration": 4.032,
+      "bytes": 24429,
+      "sha256": "53193116489cfc52c721bc4ea7ec568169fcd4c9d1c3480d90c04c1cb500ea7c",
+      "path": "assets/radio/us1549/en/aria/us1549-rescue-0-53193116489cfc52.mp3",
+      "text": "Rescue boats are approaching. Remain on frequency.",
+      "role": "tower",
+      "channel": "vhf",
+      "provider": "edge-tts",
+      "referenceId": "en-US-AriaNeural",
+      "voice": "aria"
+    },
+    "assets/radio/rescue/en-field-controlled-c6f77517b7ad8eef.mp3": {
+      "path": "assets/radio/rescue/en-field-controlled-c6f77517b7ad8eef.mp3",
+      "duration": 3.6,
+      "bytes": 21837,
+      "sha256": "c6f77517b7ad8eef1bcb68b98a5e72f2f85d5ebc65a332a25057cdefc742ff9e",
+      "voice": "andrew",
+      "referenceId": "en-US-AndrewNeural",
+      "role": "police",
+      "text": "Dispatch, aircraft afloat. Evacuation under way.",
+      "provider": "edge-tts"
+    },
+    "assets/radio/rescue/en-dispatch-011debfd79468a88.mp3": {
+      "path": "assets/radio/rescue/en-dispatch-011debfd79468a88.mp3",
+      "duration": 5.592,
+      "bytes": 33789,
+      "sha256": "011debfd79468a88c5661f8dd11b4f9f5d770c0aa923c22beabf8a4f998e60f1",
+      "voice": "guy",
+      "referenceId": "en-US-GuyNeural",
+      "role": "dispatch",
+      "text": "Marine three, rescue two, assist the aircraft. Medics stand by.",
+      "provider": "edge-tts"
+    },
+    "assets/radio/rescue/en-response-4b59c1a87cd6ee31.mp3": {
+      "path": "assets/radio/rescue/en-response-4b59c1a87cd6ee31.mp3",
+      "duration": 4.224,
+      "bytes": 25581,
+      "sha256": "4b59c1a87cd6ee312fdcec1f2d6a6d8feaf78f5868354f02707e6f8cce11e323",
+      "voice": "aria",
+      "referenceId": "en-US-AriaNeural",
+      "role": "marine",
+      "text": "Marine three copies. Approaching to assist.",
+      "provider": "edge-tts"
+    },
+    "assets/radio/us1549/en/andrew/us1549-closing-0-0417b49c5b6f9475.mp3": {
+      "duration": 3.744,
+      "bytes": 22701,
+      "sha256": "0417b49c5b6f9475ce2d8be377c9cd20477a3ded6e8c684862bd5972c1a70518",
+      "path": "assets/radio/us1549/en/andrew/us1549-closing-0-0417b49c5b6f9475.mp3",
+      "text": "The aircraft remains afloat. Rescue assistance is under way.",
+      "role": "copilot",
+      "channel": "intercom",
+      "provider": "edge-tts",
+      "referenceId": "en-US-AndrewNeural",
+      "voice": "andrew"
+    },
+    "assets/radio/rescue/en-field-damaged-4dc68f46f9272dc3.mp3": {
+      "path": "assets/radio/rescue/en-field-damaged-4dc68f46f9272dc3.mp3",
+      "duration": 4.056,
+      "bytes": 24573,
+      "sha256": "4dc68f46f9272dc393ae2334cc9bc8576a426f4efb9821c94f33ea5661cda2c6",
+      "voice": "andrew",
+      "referenceId": "en-US-AndrewNeural",
+      "role": "police",
+      "text": "Dispatch, aircraft damaged but afloat. Request assistance.",
+      "provider": "edge-tts"
+    }
+  },
+  "mixes": {
+    "zh": {
+      "e.controlled": {
+        "path": "assets/radio/rescue/zh-mix-e.controlled-b574a66ff7afefc4.mp3",
+        "duration": 19.056,
+        "bytes": 152685,
+        "sha256": "b574a66ff7afefc4736bd3f48c1fbcc1a4d1d216cf421f6949522d56f2240ebb",
+        "outcome": "controlled",
+        "events": [
+          {
+            "id": "tower",
+            "at": 0.3,
+            "voice": "e",
+            "role": "tower",
+            "text": "救援船正在接近，保持联络。",
+            "duration": 2.256,
+            "profile": "vhf",
+            "sourcePath": "assets/radio/us1549/zh/e/us1549-rescue-0-54b5422c76b6ec5e.mp3",
+            "sourceSha256": "54b5422c76b6ec5eabf9e5512c53eb23395ab328015c2b9a410d616c61f69e77"
+          },
+          {
+            "id": "field",
+            "at": 2.0,
+            "voice": "xiaoxiao",
+            "role": "police",
+            "text": "指挥中心，飞机保持漂浮，正在组织撤离。",
+            "duration": 3.984,
+            "profile": "field",
+            "sourcePath": "assets/radio/rescue/zh-field-controlled-30940d4d000eff0b.mp3",
+            "sourceSha256": "30940d4d000eff0b4e7a93dc44c58ec62e06404cf003469b6aa8c09399279c79"
+          },
+          {
+            "id": "dispatch",
+            "at": 5.8,
+            "voice": "yunxi",
+            "role": "dispatch",
+            "text": "水警三号、救援二组，前往河面接应。岸上救护待命。",
+            "duration": 5.736,
+            "profile": "dispatch",
+            "sourcePath": "assets/radio/rescue/zh-dispatch-2987012cb76b22a6.mp3",
+            "sourceSha256": "2987012cb76b22a6cb4b3d160765f89d7d8215d5537e2414810bf9d0e693d9ac"
+          },
+          {
+            "id": "response",
+            "at": 11.086,
+            "voice": "yunjian",
+            "role": "marine",
+            "text": "水警三号收到，正在接近，准备接应。",
+            "duration": 3.864,
+            "profile": "responder",
+            "sourcePath": "assets/radio/rescue/zh-response-8223f12da418f109.mp3",
+            "sourceSha256": "8223f12da418f109c91851a9b10b0f058952afa92709924f0dabbf02e58b7b41"
+          },
+          {
+            "id": "closing",
+            "at": 14.6,
+            "voice": "g",
+            "role": "copilot",
+            "text": "飞机保持漂浮，救援接应正在进行。",
+            "duration": 3.744,
+            "profile": "intercom",
+            "sourcePath": "assets/radio/us1549/zh/g/us1549-closing-0-fdd65d6b34c05901.mp3",
+            "sourceSha256": "fdd65d6b34c0590195a04a89ee2918b87703865c23e884f5a7693d53006be4ee"
+          }
+        ]
+      },
+      "e.damaged": {
+        "path": "assets/radio/rescue/zh-mix-e.damaged-7b3c410c7a479d4e.mp3",
+        "duration": 19.368,
+        "bytes": 155181,
+        "sha256": "7b3c410c7a479d4e686b55f0eddbe00de87b47c820c06840bf61a34db0991b83",
+        "outcome": "damaged",
+        "events": [
+          {
+            "id": "tower",
+            "at": 0.3,
+            "voice": "e",
+            "role": "tower",
+            "text": "救援船正在接近，保持联络。",
+            "duration": 2.256,
+            "profile": "vhf",
+            "sourcePath": "assets/radio/us1549/zh/e/us1549-rescue-0-54b5422c76b6ec5e.mp3",
+            "sourceSha256": "54b5422c76b6ec5eabf9e5512c53eb23395ab328015c2b9a410d616c61f69e77"
+          },
+          {
+            "id": "field",
+            "at": 2.0,
+            "voice": "xiaoxiao",
+            "role": "police",
+            "text": "指挥中心，飞机有损伤，保持漂浮，请尽快接应。",
+            "duration": 4.608,
+            "profile": "field",
+            "sourcePath": "assets/radio/rescue/zh-field-damaged-95f13296441bf96c.mp3",
+            "sourceSha256": "95f13296441bf96cd3f39c5e97d5672ec9176a56c13c761eddc2f531aa67863f"
+          },
+          {
+            "id": "dispatch",
+            "at": 6.108,
+            "voice": "yunxi",
+            "role": "dispatch",
+            "text": "水警三号、救援二组，前往河面接应。岸上救护待命。",
+            "duration": 5.736,
+            "profile": "dispatch",
+            "sourcePath": "assets/radio/rescue/zh-dispatch-2987012cb76b22a6.mp3",
+            "sourceSha256": "2987012cb76b22a6cb4b3d160765f89d7d8215d5537e2414810bf9d0e693d9ac"
+          },
+          {
+            "id": "response",
+            "at": 11.394,
+            "voice": "yunjian",
+            "role": "marine",
+            "text": "水警三号收到，正在接近，准备接应。",
+            "duration": 3.864,
+            "profile": "responder",
+            "sourcePath": "assets/radio/rescue/zh-response-8223f12da418f109.mp3",
+            "sourceSha256": "8223f12da418f109c91851a9b10b0f058952afa92709924f0dabbf02e58b7b41"
+          },
+          {
+            "id": "closing",
+            "at": 14.908,
+            "voice": "g",
+            "role": "copilot",
+            "text": "飞机保持漂浮，救援接应正在进行。",
+            "duration": 3.744,
+            "profile": "intercom",
+            "sourcePath": "assets/radio/us1549/zh/g/us1549-closing-0-fdd65d6b34c05901.mp3",
+            "sourceSha256": "fdd65d6b34c0590195a04a89ee2918b87703865c23e884f5a7693d53006be4ee"
+          }
+        ]
+      },
+      "j.controlled": {
+        "path": "assets/radio/rescue/zh-mix-j.controlled-cedecafa0eb97364.mp3",
+        "duration": 19.056,
+        "bytes": 152685,
+        "sha256": "cedecafa0eb97364b44c57e70cb095080a59aa1d0481d10b1907961e9387fb58",
+        "outcome": "controlled",
+        "events": [
+          {
+            "id": "tower",
+            "at": 0.3,
+            "voice": "j",
+            "role": "tower",
+            "text": "救援船正在接近，保持联络。",
+            "duration": 2.904,
+            "profile": "vhf",
+            "sourcePath": "assets/radio/us1549/zh/j/us1549-rescue-0-505880a3a818090d.mp3",
+            "sourceSha256": "505880a3a818090dde28c3f5234c349d3a8c03351b9c692fca8ef29e68517046"
+          },
+          {
+            "id": "field",
+            "at": 2.0,
+            "voice": "xiaoxiao",
+            "role": "police",
+            "text": "指挥中心，飞机保持漂浮，正在组织撤离。",
+            "duration": 3.984,
+            "profile": "field",
+            "sourcePath": "assets/radio/rescue/zh-field-controlled-30940d4d000eff0b.mp3",
+            "sourceSha256": "30940d4d000eff0b4e7a93dc44c58ec62e06404cf003469b6aa8c09399279c79"
+          },
+          {
+            "id": "dispatch",
+            "at": 5.8,
+            "voice": "yunxi",
+            "role": "dispatch",
+            "text": "水警三号、救援二组，前往河面接应。岸上救护待命。",
+            "duration": 5.736,
+            "profile": "dispatch",
+            "sourcePath": "assets/radio/rescue/zh-dispatch-2987012cb76b22a6.mp3",
+            "sourceSha256": "2987012cb76b22a6cb4b3d160765f89d7d8215d5537e2414810bf9d0e693d9ac"
+          },
+          {
+            "id": "response",
+            "at": 11.086,
+            "voice": "yunjian",
+            "role": "marine",
+            "text": "水警三号收到，正在接近，准备接应。",
+            "duration": 3.864,
+            "profile": "responder",
+            "sourcePath": "assets/radio/rescue/zh-response-8223f12da418f109.mp3",
+            "sourceSha256": "8223f12da418f109c91851a9b10b0f058952afa92709924f0dabbf02e58b7b41"
+          },
+          {
+            "id": "closing",
+            "at": 14.6,
+            "voice": "g",
+            "role": "copilot",
+            "text": "飞机保持漂浮，救援接应正在进行。",
+            "duration": 3.744,
+            "profile": "intercom",
+            "sourcePath": "assets/radio/us1549/zh/g/us1549-closing-0-fdd65d6b34c05901.mp3",
+            "sourceSha256": "fdd65d6b34c0590195a04a89ee2918b87703865c23e884f5a7693d53006be4ee"
+          }
+        ]
+      },
+      "j.damaged": {
+        "path": "assets/radio/rescue/zh-mix-j.damaged-87dfbc53ce4dcc14.mp3",
+        "duration": 19.368,
+        "bytes": 155181,
+        "sha256": "87dfbc53ce4dcc14e9dc32bd03f193c218d9799b8c74b4b8f6fb500f57cc8818",
+        "outcome": "damaged",
+        "events": [
+          {
+            "id": "tower",
+            "at": 0.3,
+            "voice": "j",
+            "role": "tower",
+            "text": "救援船正在接近，保持联络。",
+            "duration": 2.904,
+            "profile": "vhf",
+            "sourcePath": "assets/radio/us1549/zh/j/us1549-rescue-0-505880a3a818090d.mp3",
+            "sourceSha256": "505880a3a818090dde28c3f5234c349d3a8c03351b9c692fca8ef29e68517046"
+          },
+          {
+            "id": "field",
+            "at": 2.0,
+            "voice": "xiaoxiao",
+            "role": "police",
+            "text": "指挥中心，飞机有损伤，保持漂浮，请尽快接应。",
+            "duration": 4.608,
+            "profile": "field",
+            "sourcePath": "assets/radio/rescue/zh-field-damaged-95f13296441bf96c.mp3",
+            "sourceSha256": "95f13296441bf96cd3f39c5e97d5672ec9176a56c13c761eddc2f531aa67863f"
+          },
+          {
+            "id": "dispatch",
+            "at": 6.108,
+            "voice": "yunxi",
+            "role": "dispatch",
+            "text": "水警三号、救援二组，前往河面接应。岸上救护待命。",
+            "duration": 5.736,
+            "profile": "dispatch",
+            "sourcePath": "assets/radio/rescue/zh-dispatch-2987012cb76b22a6.mp3",
+            "sourceSha256": "2987012cb76b22a6cb4b3d160765f89d7d8215d5537e2414810bf9d0e693d9ac"
+          },
+          {
+            "id": "response",
+            "at": 11.394,
+            "voice": "yunjian",
+            "role": "marine",
+            "text": "水警三号收到，正在接近，准备接应。",
+            "duration": 3.864,
+            "profile": "responder",
+            "sourcePath": "assets/radio/rescue/zh-response-8223f12da418f109.mp3",
+            "sourceSha256": "8223f12da418f109c91851a9b10b0f058952afa92709924f0dabbf02e58b7b41"
+          },
+          {
+            "id": "closing",
+            "at": 14.908,
+            "voice": "g",
+            "role": "copilot",
+            "text": "飞机保持漂浮，救援接应正在进行。",
+            "duration": 3.744,
+            "profile": "intercom",
+            "sourcePath": "assets/radio/us1549/zh/g/us1549-closing-0-fdd65d6b34c05901.mp3",
+            "sourceSha256": "fdd65d6b34c0590195a04a89ee2918b87703865c23e884f5a7693d53006be4ee"
+          }
+        ]
+      },
+      "xiaoxiao.controlled": {
+        "path": "assets/radio/rescue/zh-mix-xiaoxiao.controlled-28202696b8089d84.mp3",
+        "duration": 19.056,
+        "bytes": 152685,
+        "sha256": "28202696b8089d8461cfadebc8c2719bd472b90a2bfa6439ec552b81044a04bb",
+        "outcome": "controlled",
+        "events": [
+          {
+            "id": "tower",
+            "at": 0.3,
+            "voice": "xiaoxiao",
+            "role": "tower",
+            "text": "救援船正在接近，保持联络。",
+            "duration": 2.688,
+            "profile": "vhf",
+            "sourcePath": "assets/radio/us1549/zh/xiaoxiao/us1549-rescue-0-37be7d552ea320d9.mp3",
+            "sourceSha256": "37be7d552ea320d9cab4c3c3c6661b319d82f8c1ade77467527798389afb83c3"
+          },
+          {
+            "id": "field",
+            "at": 2.0,
+            "voice": "xiaoxiao",
+            "role": "police",
+            "text": "指挥中心，飞机保持漂浮，正在组织撤离。",
+            "duration": 3.984,
+            "profile": "field",
+            "sourcePath": "assets/radio/rescue/zh-field-controlled-30940d4d000eff0b.mp3",
+            "sourceSha256": "30940d4d000eff0b4e7a93dc44c58ec62e06404cf003469b6aa8c09399279c79"
+          },
+          {
+            "id": "dispatch",
+            "at": 5.8,
+            "voice": "yunxi",
+            "role": "dispatch",
+            "text": "水警三号、救援二组，前往河面接应。岸上救护待命。",
+            "duration": 5.736,
+            "profile": "dispatch",
+            "sourcePath": "assets/radio/rescue/zh-dispatch-2987012cb76b22a6.mp3",
+            "sourceSha256": "2987012cb76b22a6cb4b3d160765f89d7d8215d5537e2414810bf9d0e693d9ac"
+          },
+          {
+            "id": "response",
+            "at": 11.086,
+            "voice": "yunjian",
+            "role": "marine",
+            "text": "水警三号收到，正在接近，准备接应。",
+            "duration": 3.864,
+            "profile": "responder",
+            "sourcePath": "assets/radio/rescue/zh-response-8223f12da418f109.mp3",
+            "sourceSha256": "8223f12da418f109c91851a9b10b0f058952afa92709924f0dabbf02e58b7b41"
+          },
+          {
+            "id": "closing",
+            "at": 14.6,
+            "voice": "g",
+            "role": "copilot",
+            "text": "飞机保持漂浮，救援接应正在进行。",
+            "duration": 3.744,
+            "profile": "intercom",
+            "sourcePath": "assets/radio/us1549/zh/g/us1549-closing-0-fdd65d6b34c05901.mp3",
+            "sourceSha256": "fdd65d6b34c0590195a04a89ee2918b87703865c23e884f5a7693d53006be4ee"
+          }
+        ]
+      },
+      "xiaoxiao.damaged": {
+        "path": "assets/radio/rescue/zh-mix-xiaoxiao.damaged-7ec04aedb93be105.mp3",
+        "duration": 19.368,
+        "bytes": 155181,
+        "sha256": "7ec04aedb93be10538e9eeddb88a2923b9d19d46c76484230c555bef5ea739e2",
+        "outcome": "damaged",
+        "events": [
+          {
+            "id": "tower",
+            "at": 0.3,
+            "voice": "xiaoxiao",
+            "role": "tower",
+            "text": "救援船正在接近，保持联络。",
+            "duration": 2.688,
+            "profile": "vhf",
+            "sourcePath": "assets/radio/us1549/zh/xiaoxiao/us1549-rescue-0-37be7d552ea320d9.mp3",
+            "sourceSha256": "37be7d552ea320d9cab4c3c3c6661b319d82f8c1ade77467527798389afb83c3"
+          },
+          {
+            "id": "field",
+            "at": 2.0,
+            "voice": "xiaoxiao",
+            "role": "police",
+            "text": "指挥中心，飞机有损伤，保持漂浮，请尽快接应。",
+            "duration": 4.608,
+            "profile": "field",
+            "sourcePath": "assets/radio/rescue/zh-field-damaged-95f13296441bf96c.mp3",
+            "sourceSha256": "95f13296441bf96cd3f39c5e97d5672ec9176a56c13c761eddc2f531aa67863f"
+          },
+          {
+            "id": "dispatch",
+            "at": 6.108,
+            "voice": "yunxi",
+            "role": "dispatch",
+            "text": "水警三号、救援二组，前往河面接应。岸上救护待命。",
+            "duration": 5.736,
+            "profile": "dispatch",
+            "sourcePath": "assets/radio/rescue/zh-dispatch-2987012cb76b22a6.mp3",
+            "sourceSha256": "2987012cb76b22a6cb4b3d160765f89d7d8215d5537e2414810bf9d0e693d9ac"
+          },
+          {
+            "id": "response",
+            "at": 11.394,
+            "voice": "yunjian",
+            "role": "marine",
+            "text": "水警三号收到，正在接近，准备接应。",
+            "duration": 3.864,
+            "profile": "responder",
+            "sourcePath": "assets/radio/rescue/zh-response-8223f12da418f109.mp3",
+            "sourceSha256": "8223f12da418f109c91851a9b10b0f058952afa92709924f0dabbf02e58b7b41"
+          },
+          {
+            "id": "closing",
+            "at": 14.908,
+            "voice": "g",
+            "role": "copilot",
+            "text": "飞机保持漂浮，救援接应正在进行。",
+            "duration": 3.744,
+            "profile": "intercom",
+            "sourcePath": "assets/radio/us1549/zh/g/us1549-closing-0-fdd65d6b34c05901.mp3",
+            "sourceSha256": "fdd65d6b34c0590195a04a89ee2918b87703865c23e884f5a7693d53006be4ee"
+          }
+        ]
+      }
+    },
+    "en": {
+      "aria.controlled": {
+        "path": "assets/radio/rescue/en-mix-aria.controlled-0b6433846789728c.mp3",
+        "duration": 19.272,
+        "bytes": 154413,
+        "sha256": "0b6433846789728c33270240d1e5143ad893367a6bbb445a893bcf19e11487c3",
+        "outcome": "controlled",
+        "events": [
+          {
+            "id": "tower",
+            "at": 0.3,
+            "voice": "aria",
+            "role": "tower",
+            "text": "Rescue boats are approaching. Remain on frequency.",
+            "duration": 4.032,
+            "profile": "vhf",
+            "sourcePath": "assets/radio/us1549/en/aria/us1549-rescue-0-53193116489cfc52.mp3",
+            "sourceSha256": "53193116489cfc52c721bc4ea7ec568169fcd4c9d1c3480d90c04c1cb500ea7c"
+          },
+          {
+            "id": "field",
+            "at": 2.0,
+            "voice": "andrew",
+            "role": "police",
+            "text": "Dispatch, aircraft afloat. Evacuation under way.",
+            "duration": 3.6,
+            "profile": "field",
+            "sourcePath": "assets/radio/rescue/en-field-controlled-c6f77517b7ad8eef.mp3",
+            "sourceSha256": "c6f77517b7ad8eef1bcb68b98a5e72f2f85d5ebc65a332a25057cdefc742ff9e"
+          },
+          {
+            "id": "dispatch",
+            "at": 5.8,
+            "voice": "guy",
+            "role": "dispatch",
+            "text": "Marine three, rescue two, assist the aircraft. Medics stand by.",
+            "duration": 5.592,
+            "profile": "dispatch",
+            "sourcePath": "assets/radio/rescue/en-dispatch-011debfd79468a88.mp3",
+            "sourceSha256": "011debfd79468a88c5661f8dd11b4f9f5d770c0aa923c22beabf8a4f998e60f1"
+          },
+          {
+            "id": "response",
+            "at": 10.942,
+            "voice": "aria",
+            "role": "marine",
+            "text": "Marine three copies. Approaching to assist.",
+            "duration": 4.224,
+            "profile": "responder",
+            "sourcePath": "assets/radio/rescue/en-response-4b59c1a87cd6ee31.mp3",
+            "sourceSha256": "4b59c1a87cd6ee312fdcec1f2d6a6d8feaf78f5868354f02707e6f8cce11e323"
+          },
+          {
+            "id": "closing",
+            "at": 14.816,
+            "voice": "andrew",
+            "role": "copilot",
+            "text": "The aircraft remains afloat. Rescue assistance is under way.",
+            "duration": 3.744,
+            "profile": "intercom",
+            "sourcePath": "assets/radio/us1549/en/andrew/us1549-closing-0-0417b49c5b6f9475.mp3",
+            "sourceSha256": "0417b49c5b6f9475ce2d8be377c9cd20477a3ded6e8c684862bd5972c1a70518"
+          }
+        ]
+      },
+      "aria.damaged": {
+        "path": "assets/radio/rescue/en-mix-aria.damaged-0e2738868796a1fb.mp3",
+        "duration": 19.272,
+        "bytes": 154413,
+        "sha256": "0e2738868796a1fb7d9514ed3e84cf97d71b4a7a978088be3c39aa304bc320d9",
+        "outcome": "damaged",
+        "events": [
+          {
+            "id": "tower",
+            "at": 0.3,
+            "voice": "aria",
+            "role": "tower",
+            "text": "Rescue boats are approaching. Remain on frequency.",
+            "duration": 4.032,
+            "profile": "vhf",
+            "sourcePath": "assets/radio/us1549/en/aria/us1549-rescue-0-53193116489cfc52.mp3",
+            "sourceSha256": "53193116489cfc52c721bc4ea7ec568169fcd4c9d1c3480d90c04c1cb500ea7c"
+          },
+          {
+            "id": "field",
+            "at": 2.0,
+            "voice": "andrew",
+            "role": "police",
+            "text": "Dispatch, aircraft damaged but afloat. Request assistance.",
+            "duration": 4.056,
+            "profile": "field",
+            "sourcePath": "assets/radio/rescue/en-field-damaged-4dc68f46f9272dc3.mp3",
+            "sourceSha256": "4dc68f46f9272dc393ae2334cc9bc8576a426f4efb9821c94f33ea5661cda2c6"
+          },
+          {
+            "id": "dispatch",
+            "at": 5.8,
+            "voice": "guy",
+            "role": "dispatch",
+            "text": "Marine three, rescue two, assist the aircraft. Medics stand by.",
+            "duration": 5.592,
+            "profile": "dispatch",
+            "sourcePath": "assets/radio/rescue/en-dispatch-011debfd79468a88.mp3",
+            "sourceSha256": "011debfd79468a88c5661f8dd11b4f9f5d770c0aa923c22beabf8a4f998e60f1"
+          },
+          {
+            "id": "response",
+            "at": 10.942,
+            "voice": "aria",
+            "role": "marine",
+            "text": "Marine three copies. Approaching to assist.",
+            "duration": 4.224,
+            "profile": "responder",
+            "sourcePath": "assets/radio/rescue/en-response-4b59c1a87cd6ee31.mp3",
+            "sourceSha256": "4b59c1a87cd6ee312fdcec1f2d6a6d8feaf78f5868354f02707e6f8cce11e323"
+          },
+          {
+            "id": "closing",
+            "at": 14.816,
+            "voice": "andrew",
+            "role": "copilot",
+            "text": "The aircraft remains afloat. Rescue assistance is under way.",
+            "duration": 3.744,
+            "profile": "intercom",
+            "sourcePath": "assets/radio/us1549/en/andrew/us1549-closing-0-0417b49c5b6f9475.mp3",
+            "sourceSha256": "0417b49c5b6f9475ce2d8be377c9cd20477a3ded6e8c684862bd5972c1a70518"
+          }
+        ]
+      }
+    }
+  },
+  "version": "62e040bd749caf65a4f6"
+}

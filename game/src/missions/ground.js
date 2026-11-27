@@ -1,3 +1,4 @@
+import lgaDeparture from '../airports/data/lga-departure.json' with {type:'json'};
 import kansaiDeparture from '../airports/data/kansai-departure.json' with {type:'json'};
 import jfkDeparture from '../airports/data/jfk-departure.json' with {type:'json'};
 import laxDeparture from '../airports/data/lax-departure.json' with {type:'json'};
@@ -10,7 +11,7 @@ import {centerControls} from '../sim/controls.js';
 import {queueRadio,repeatRadio,clearRadioEvents} from '../comms/radio.js';
 
 export const DEPARTURE=departure;
-const departures={daxing:departure,xiaoshan:xiaoshanDeparture,changi:changiDeparture,kansai:kansaiDeparture,jfk:jfkDeparture,lax:laxDeparture};
+const departures={lga:lgaDeparture,daxing:departure,xiaoshan:xiaoshanDeparture,changi:changiDeparture,kansai:kansaiDeparture,jfk:jfkDeparture,lax:laxDeparture};
 export const departureOf=s=>departures[typeof s==='string'?s:s?.airportId];
 export const groundActive=s=>!!s.ground&&!s.ground.takeoffCleared&&!s.airborne;
 export const groundFrozen=s=>groundActive(s)&&['gate','leaving','skip','parking','parked'].includes(s.ground.stage);

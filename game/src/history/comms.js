@@ -69,14 +69,18 @@ export function updateHistoricalComms(s,dt){
  }
  if(!h.finalPractice){
   if(c.birdAt===undefined)c.birdAt=s.time;
-  queueHistorical(s,'bird',{priority:80,ttl:12});
-  if(s.time>=.7)queueHistorical(s,'mayday',{priority:70,ttl:35});
-  if(s.time>=3&&c.relight==='not-started'){c.power='apu-starting';c.relight='attempting';queueHistorical(s,'power',{priority:25,ttl:14});}
-  if(s.time>=8&&c.power==='apu-starting')c.power='apu-available';
-  if(s.time>=18&&c.relight==='attempting'){c.relight='no-thrust-recovered';queueHistorical(s,'restart',{priority:35,ttl:16});}
+  const sinceBird=s.time-c.birdAt;
+  if(sinceBird<3.6)r.readyAt=Math.max(r.readyAt,c.birdAt+3.6);
+  if(sinceBird>=3.6&&s.engines.some(e=>e.status==='failed'&&e.spool<.6))queueHistorical(s,'bird',{priority:80,ttl:16});
+  if(sinceBird>=8&&(r.fired['us1549:bird']||h.controlSource==='player'))queueHistorical(s,'mayday',{priority:70,ttl:35});
+  if(sinceBird>=3&&c.relight==='not-started'){c.power='apu-starting';c.relight='attempting';}
+  if(sinceBird>=12&&r.fired['us1549:mayday'])queueHistorical(s,'power',{priority:25,ttl:25});
+  if(sinceBird>=8&&c.power==='apu-starting')c.power='apu-available';
+  if(sinceBird>=18&&c.relight==='attempting')c.relight='no-thrust-recovered';
+  if(sinceBird>=22&&c.relight==='no-thrust-recovered')queueHistorical(s,'restart',{priority:24,ttl:25});
  }
  if(h.controlSource==='copilot'){
-  if(!h.execution&&h.node==='lga')queueHistorical(s,'lga',{priority:48,ttl:18});
+  if(r.fired['us1549:mayday']&&!h.execution&&h.node==='lga')queueHistorical(s,'lga',{priority:48,ttl:18});
   if(h.node==='alternatives'&&s.y*FT>800&&h.assessments.some(a=>a.margin> -250))queueHistorical(s,'alternatives',{priority:38,ttl:16});
  }else{
   const alt=s.y*FT,eta=s.verticalSpeed<-.5?s.y/-s.verticalSpeed:Infinity;

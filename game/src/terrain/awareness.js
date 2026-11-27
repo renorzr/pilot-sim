@@ -22,6 +22,7 @@ export function runwayArrival(s){
  return contactZ<=60&&contactZ>=-RUNWAY.length-100;
 }
 export function predictTerrain(s,heightAt=(x,z)=>surfaceHeight(x,z,s)){
+ const RUNWAY=runwayOf(s);
  const ground=heightAt(s.x,s.z),clearance=terrainRadioAltitude(s),speed=s.airData.groundSpeed;
  const landingCorridor=runwayArrival(s);
  let closest=Infinity,impact=Infinity,peak=ground,caution=false,urgent=false;

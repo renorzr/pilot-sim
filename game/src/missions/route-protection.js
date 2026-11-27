@@ -33,6 +33,7 @@ export function routeProtectionDistance(s,p=s.routeProtection){
   return{key,distance:segmentDistance(s,origin,{x:origin.x+Math.sin(s.goAroundHeading)*1000,z:origin.z-Math.cos(s.goAroundHeading)*1000},{ray:true})};
  }
  const r=s.route?.active?s.route:s.airline.navigation;
+ if(r?.kind==='enroute')return{key:`${s.airportId}:enroute:${r.holding?'hold':'route'}`,distance:Math.abs(r.crossTrack)};
  const key=r?.active?`${s.airportId}:return:${s.mission?.goAroundCount||0}:${r.index}`:r&&!r.complete?`${s.airportId}:${r.kind}:${r.index}`:`${s.airportId}:final`;
  const turn=p?.legKey!==key||s.time-p.legSince<40;
  if(r&&(r.active||!r.complete))return{key,distance:legDistance(s,r,turn)};

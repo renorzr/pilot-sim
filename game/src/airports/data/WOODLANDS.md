@@ -66,3 +66,23 @@ contact ownership and all six source regions. `ops/check-woodlands.mjs` validate
 the shipped source derivative and is included in the build. Visual checks should
 include side, overhead and distant views under the game's lighting, plus cold
 and warm loads, and normal physical takeoff/landing with woodland contacts active.
+
+## Shared NYC extension
+
+JFK and US1549 use the canonical `new-york/woodlands-v1.json` manifest and its
+compressed, checksummed source. It combines pinned NY/NJ forest polygons and
+park/garden cover estimates across an 80 km frame, retaining source tags and
+holes while clearing water, mapped roads/paths, sport areas and aerodromes.
+Park occupancy is a deterministic .32 estimate; it does not label every lawn as
+a forest. The historical profile uses bare deciduous branches and evergreen
+crowns. Shared source blobs use the region cache; per-scene prepared arrays keep
+height datums separate, and a processed cache hit skips raw source decompression.
+Source forest dimensions and local coverage remain physical approximations.
+
+The NYC pack also includes offline-generated MSL stand arrays (`trees-v1-*.bin.gz`),
+with source/DEM/frame/building/imagery identities. Both profiles share this packed
+source and shift only their scene height datum on restoration. Winter/summer
+geometry stays a renderer choice. This avoids a large first-load scan; source
+polygons remain a fallback and the normal build validates all packed identities.
+Rebuild with `node ops/build-nyc-tree-models.mjs` after updating the source metadata;
+Pillow supplies colour samples from the existing local NAIP images.

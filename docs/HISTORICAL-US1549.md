@@ -4,11 +4,11 @@
 
 正式入口为“历史重现 → 全美航空 1549”。关卡位于 `game/src/history/`，水上受力位于 `game/src/sim/water-contact.js`。已接入连续机组决策、正式手动交接、引导/挑战、提前接管与末进近练习、原创中英机组录音、开场/救援演出、独立成绩和实际记录回放。
 
-- 起点依据雷达表插值并转换 AGL/MSL；事件世界复用 JFK 自托管 NAIP/建筑源，水平坐标一致，水位为 MSL 0。LGA/TEB 目标、桥梁和示意船只使用共享渲染/碰撞几何。TEB 仅提供所需跑道表示，不宣称完整机场精模覆盖。
+- 起点依据雷达表插值并转换 AGL/MSL；历史关与 JFK 航线关共用纽约区域地景、原始数据缓存、航片/建筑、河岸、水面、植被及道路车流，历史关另用冬季树木和年代轮廓调整；水平坐标一致，历史水位为 MSL 0。LGA/TEB 目标、桥梁和示意船只使用共享渲染/碰撞几何。TEB 仅提供所需跑道表示，不宣称完整机场精模覆盖。
 - 双发损伤不可恢复；副驾驶和玩家分别通过正常控制推进同一物理状态。有效决策需要实际执行证据，正式接管不补能量或瞬移。提前接管及末段练习不能恢复正式资格。
 - 水上探针来自原模型的共享 `aircraft/contact-anchors.js`。机腹、发动机、机翼与收放轮参与首次接触、损伤、浮力、阻力和力矩计算；不借用轮胎摩擦、反推或普通跑道通关，也不锁定水面高度。
 - 282 条录音共 5.03 MiB。中文保持 E/G/H/J/晓晓，英语 Guy/Aria/Andrew；机长、副驾驶、空管角色分开，角色跨重试保持。正常语速，MAYDAY 为连续同人三遍。来源、文本、时长、哈希见 `voice-assets.json`；运行时不需要服务凭据。
-- 约 12 秒开场和救援演出使用独立视觉副本与时钟，可暂停/跳过，明确标注演出及时间压缩。正式记录从鸟击开始，在物理结果时封存；救援船和演出不会改写接触、结果或录制轨迹。
+- 开场先展示约 12 秒正常爬升与塔台通话，在封面机外场景展示鸟击，再让真实飞行运行 2 秒后切驾驶舱。约 19 秒救援使用独立视觉副本与时钟，可暂停/跳过，并标注时间压缩。正式记录从鸟击开始，在物理结果时封存；救援船和演出不会改写接触、结果或录制轨迹。
 - 引导/挑战按模式、版本保存独立最佳成绩；练习不更新正式历史成绩、普通训练记录或星级。轨迹仅保存在本次会话内，可选水上记录通道保留既有回放列布局。
 
 版本 3 的调校验收位于忽略提交的 `qa/us1549-v3/`；此前版本 2 的 95 分正式试飞和 5.9 m/s 练习记录保存在 `qa/us1549-m3/`，仅作旧版对照，不代表版本 3 的成功边界。版本 3 已通过完整回归；完整中文浏览器试飞以约 137 kt、2.66 m/s 入水并完成漂浮撤离，得 86 分，记录在 `qa/us1549-v3/full-browser.json`。实际浏览器返场在 LGA 22 以约 133 kt、1.77 m/s 接地，并在跑道内停稳，记录在 `qa/us1549-v3/return-browser.json`。首个拉平偏晚、下降率约 4.65 m/s 的失败尝试单独保留为对照，未放宽判定。当前单测增加 `game/tests/us1549-tuning.test.mjs`，检查收紧后的损伤/评分、气动能量、双向跑道、导航意图和控制输入返场。浏览器验收仍通过题卡、键盘、原生选择控件和捕获的侧杆输入完成，不设置飞机姿态、速度或成功结果。软件 GPU 下的长航段可仅在 QA 中暂停光栅绘制；完整地景碰撞、物理、UI 和音频继续运行，截图恢复绘制。 另通过 844×390 横屏触控检查，确认紧凑导航选择器和驾驶舱起落架按钮均可点击，且正式成绩仍保留。
@@ -111,9 +111,9 @@
 
 ### 3.2 开场与进入决策
 
-约 12 秒展示冬季纽约、正在正常爬升的飞机、驾驶舱仪表和发动机声音。画面明确标注“开场演示”，保留“跳过开场”。演示结束回到玩家此前选定的机内或机外视角，在鸟击发生时进入决策阶段，副驾驶继续操纵。
+封面先展示约 12 秒冬季纽约、正常爬升的飞机和固定音色的正常塔台互答；鸟群随后从机头方向掠入两台发动机。鸟击在机外封面场景发生，显示短暂灰烟，播放沉闷撞击和双发降转音效。鸟击后继续机外观察 2 秒，再直接切驾驶舱并开放决策。画面明确标注开场；“跳过开场”略过正常爬升部分，保留最后的两秒鸟击窗口。
 
-演示与跳过都进入同一个经校准的鸟击起点，不额外赠送高度、速度或提前转弯机会。决策与飞行记录从该起点开始。演示若使用实时飞行，也通过正常物理和自动操纵推进，不能用相机轨迹反向写入飞机运动。
+正常爬升使用独立视觉副本，其积分轨迹仅在副本中对齐经校准的鸟击位置。鸟击时启用真实历史飞行，从时间 0 开始记录；机外观察的两秒由同一物理与副驾驶控制逐步积分。切驾驶舱不重置飞机、发动机、无线电或记录。完整观看和跳过均进入相同的两秒后状态，不额外赠送高度、速度或提前转弯机会。
 
 鸟群、短促撞击声、一次受限颠簸、两台发动机参数下降建立故障感。机内可听到副驾驶报告“双发推力下降，我保持操纵”。界面显示“副驾驶操纵 · 等待你的处置指令”，随后给出第一道简短选择题。题卡为不遮挡仪表的半透明组件，不强制暂停。
 
@@ -358,7 +358,7 @@ flowchart TD
 
 保留现有中英切换和已批准音色。一次尝试内固定玩家代表的机长声音；副驾驶使用另一固定声音；主要空管也固定且避免与同一场景的驾驶舱角色混淆。操纵权交接不改变人物音色，重试不无故换人。
 
-中文可从现有五种音色中分配三个主要角色。英文保留现有飞行员与空管音色，新增副驾驶声音属于独立的录音制作与试听验收项，不能假定现有双角色素材已经覆盖；未完成前不得宣称完整英文机组录音已交付。
+机长和副驾驶按角色固定：中文 H / G，英文 Guy / Andrew；参照真实机组的表达气质选用现有音色。空管从与两名机组不同的可用音色中选择。英文使用已录制的 Guy / Aria / Andrew 三人组，机长和副驾驶分别固定为 Guy / Andrew。完整中英录音、时长和音色映射随资源清单发布。
 
 飞行员对空管的发话在机内使用干声，在机外使用实时 VHF；空管始终使用 VHF。副驾驶是驾驶舱内部协作，不能套用空管滤波；客舱广播使用独立的轻量 PA 处理。切换视角时仅改变正确角色的效果，不重启录音。
 
@@ -592,3 +592,70 @@ flowchart TD
 - [项目物理说明](../PHYSICS.md)、[架构与开发](DEVELOPMENT.md)、[现有回放机制](REPLAY.md)：可复用能力与当前边界。
 
 资料核对日期：2026-11-24。新增地图、影像、录音与模型在实现时继续进入项目原有资产来源和第三方声明，不在本关偷偷引入运行时外部地图或 TTS 服务。
+
+### Recognition and sound timing
+
+The initial observational crew report waits at least 3.6 seconds after ingestion
+and requires failed engines with falling spool. Initial dialogue is held through
+that reaction interval; Mayday becomes eligible after 8 seconds, and the power
+report after 12 seconds. APU/restart state still advances independently of speech;
+the later restart report does not repair engines. Existing approved performances
+are reused without changing actors or accelerating recordings.
+
+The generic aural-alert system also applies here: dual failure uses an intermittent
+electronic cue until acknowledgement. This is a restrained game abstraction, not
+a complete reproduction of A320 ECAM classifications. Reference for the delay and
+intermittent chime cadence: NTSB AAR-10/03, Appendix B, 15:27:11.4 ingestion,
+15:27:15 rollback observation, and later single chimes including the approximately
+5.7-second repetition beginning 15:27:30.
+
+### Upper Hudson water coverage
+
+The event world adds pinned OSM tidal-water relations 1845135, 14141926 and
+17066325 to the marine shoreline. These preserve actual bank/island outlines
+north of the Harlem mouth through the selected Tappan Zee reach. This uses
+modern source geography as a historical scenery estimate. The shared New York region now uses these tidal faces for both JFK operations
+and the historical profile. Water masks and contact classification share the
+same polygons; the historical scene keeps the zero-MSL datum and JFK applies
+its airport-relative offset.
+
+The supplement also qualifies as Hudson water for mission assessment. Entry
+speed, sink rate, pitch, damage and practice/completion requirements are unchanged.
+Other land and inland reservoirs are not converted to sea-level water.
+
+`tidal-water.json` contains the additional source faces after subtracting existing
+marine water, avoiding duplicate coplanar water meshes. The event imagery manifest
+reuses every original NAIP image and supplies separate, content-addressed masks.
+Masks use their own geographic bounds, including river coverage beyond the photo
+extent. Stored photography can be reused; changed masks cannot inherit old pixels.
+
+Rebuild offline from the checked-in compressed OSM snapshots with
+`python ops/build-us1549-water.py` in a geography environment with Shapely, NumPy,
+Rasterio and Pillow. Normal test/build only runs `ops/check-us1549-water.mjs`,
+which checks snapshot/derived-geometry/mask identities, physical water sections,
+land holes and preservation of the photography. No runtime map service is used.
+
+### Water wake and spray
+
+Below **20 feet (6.096 m)** above the water datum, fast flight over source water
+creates a faint white surface disturbance. This is visual airflow wash; it never
+sets water contact. Actual `water.firstImpact` starts the much denser foam and
+low side spray. Emission strength follows actual water-relative speed and the
+initial impact; it stops as the hull slows. Previously emitted foam stays in world
+space, drifts with the river current, widens sideways and fades over up to eight
+seconds. Shore cells are checked conservatively against the same source water.
+
+Two bounded instanced quad layers with procedural soft edges/noise replace the
+old aircraft-relative circles. No new bitmap assets or fluid simulation are used.
+Their clocks use simulation time, so pause freezes the wake. Replay cuts rebuild
+recent emissions from the same recorded segment/attempt; they do not infer a
+straight wake behind a banked or turning aircraft. Retrying or seeking discards
+unrelated emissions. Aircraft motion, water damage and scoring are unchanged.
+
+## Event aircraft appearance
+
+The profile pins A320 UV1 geometry, the small wingtip-fence variant and the
+versioned `us-airways-n106us-2009` paint atlas. Intro, live flight, retries, final
+practice, rescue and replay preserve that identity. Paint uses one external
+KTX2 atlas; ordinary flights retain YUNJI AIR and sharklets. Model construction
+and precise layout/rebuild contracts are in [the aircraft notes](../game/src/aircraft/ASSET.md).

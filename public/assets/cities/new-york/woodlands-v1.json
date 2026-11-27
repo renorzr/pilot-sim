@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "regionId": "new-york",
+  "extent": 40000,
+  "frame": {
+    "runway": "22R",
+    "threshold": {
+      "longitude": -73.764702,
+      "latitude": 40.6488
+    },
+    "heading": 210.6104709446215
+  },
+  "provenance": {
+    "sources": [
+      {
+        "region": "New York",
+        "source": "https://download.geofabrik.de/north-america/us/new-york/new-york-261120.osm.pbf",
+        "snapshot": "2026-11-20",
+        "sha256": "f36fd79b6305ea0709e3c228e668e6b35752127e4e7735266eae2284a855ee72",
+        "bytes": 499207558,
+        "license": "ODbL-1.0",
+        "attribution": "© OpenStreetMap contributors / ODbL"
+      },
+      {
+        "region": "New Jersey",
+        "source": "https://download.geofabrik.de/north-america/us/new-jersey/new-jersey-261120.osm.pbf",
+        "snapshot": "2026-11-20",
+        "sha256": "31d1b4d9ee0d3ad2abb9a54e4b7a5991e2b95c7708a1d36959f5de2b09f7fb23",
+        "bytes": 165553438,
+        "license": "ODbL-1.0",
+        "attribution": "© OpenStreetMap contributors / ODbL"
+      }
+    ],
+    "license": "ODbL-1.0",
+    "attribution": "© OpenStreetMap contributors",
+    "derivation": "Source forest/wood and park/garden polygons, retaining source tags. Boundaries clipped to the shared NYC region and cleared around mapped water, sports areas, aerodromes and roads/paths. Park canopy coverage (.32), clearance widths, stand positions, tree sizes and species fallbacks are visual estimates, not a survey or a 2009 land-cover reconstruction."
+  },
+  "path": "assets/cities/new-york/woodlands-v1.source.json.gz",
+  "features": 31704,
+  "parkEstimates": 12981,
+  "bytes": 6156106,
+  "decodedBytes": 23565435,
+  "sha256": "d6cb5e326b986f502679315c1abd56e83dba0d1fd2a7ebea43695171f9274acd",
+  "decodedSha256": "fcd7bb83108a7ee76f96a9d63de233867783a72e5fe9e06b38c50f5f3695cc9f",
+  "prepared": {
+    "version": 1,
+    "path": "assets/cities/new-york/trees-v1-b3accf0f1118.bin.gz",
+    "bytes": 16400835,
+    "decodedBytes": 23265212,
+    "sha256": "b3accf0f111802c47e6beaf3020b9b3be512603bb3d061c6b65ce017ed2a2242",
+    "decodedSha256": "753ffe330c0f88bdffb4cc892ba551fefd04ba6c8894d634ed173bcc4c4a62ce",
+    "inputs": {
+      "region": "new-york",
+      "revision": 2,
+      "source": "d6cb5e326b986f502679315c1abd56e83dba0d1fd2a7ebea43695171f9274acd",
+      "buildings": "9fdd5894c5fc70b64d6c8a22f3d07073c9e9ed9d3825b0300e03767336776a0b",
+      "overview": "7b1121d360204a7b34b857822c111224e3c1261afeddc8499a1a12ec0fb224c5",
+      "regional": "473a7f4feb106ac6a6e8de750c8f79d02633fac09953a8b03cda0da45831588f",
+      "key": "6317e5fa"
+    },
+    "stands": 396333,
+    "trees": 1188999
+  }
+}

@@ -17,6 +17,7 @@ directly with the registry's true runway bearing.
 | Airport/runway | Initial segment | Source |
 | --- | --- | --- |
 | LAX 25R | HDG 251°M to 640 ft MSL; direct DOCKR, at/below 3000 ft; HDG 236°M | [FAA ORCKA FIVE, cycle 2611](https://aeronav.faa.gov/d-tpp/2611/00237ORCKA_C.PDF), [FAA CIFP 2026-10-29](https://aeronav.faa.gov/upload_313-d/cifp/CIFP_261029.zip) |
+| LGA 04 | HDG 044°M to 500 ft MSL, then climbing left turn to HDG 360°M, maintain 5000 ft; radar extent is simulated | [FAA LAGUARDIA SEVEN, cycle 2612](https://aeronav.faa.gov/d-tpp/2612/00289LAGUARDIA_C.PDF) |
 | JFK 22R | HDG 224°M followed by a simulated radar clearance; cleared to 5000 ft MSL | [FAA KENNEDY FIVE, cycle 2611](https://aeronav.faa.gov/d-tpp/2611/00610KENNEDY_C.PDF) |
 | Changi 02L | MOLVO at/above 2000 ft MSL, left to ATRUM; initial clearance 3000 ft, maximum 230 kt | [CAAS AIP 2026-09-03 archive, AROSO 3E chart dated 2024-10-31](https://aim-sg.caas.gov.sg/aim-content/uploads/aip/17-SEP-2026/AIP/2026-09-03-000000/pdf/SG-AD-2-WSSS-AD-2-WSSS-SID-11-to-11.1.pdf) |
 | Xiaoshan 07 | HDG 069°M to 150 m MSL, right direct HC503 at/above 500 m, then toward HC502 or HC504 | CAAC original [coding table 0C-2](https://chart.wuhanqing.cn/Terminal/ZSHC-杭州萧山/ZSHC-0C-2-DATABASE%20CODING%20TABLE.pdf), [waypoint list](https://chart.wuhanqing.cn/Terminal/ZSHC-杭州萧山/ZSHC-0W-1-WAYPOINT%20LIST.pdf); effective 2025-10-29 1600Z, mirrored archive |
@@ -90,12 +91,14 @@ instruments. The visual speed reminder deliberately has no invented audio clip.
 Manual cruise-climb requests require ordered initial segments, the current
 final segment's track (not the city great-circle bearing), clearance altitude,
 three seconds stable and the existing gear/flap/engine/terrain checks.
-Automatic transition additionally requires the initial segment endpoint to be
-passed. It does not assert completion of the full SID or arrival at cruise
-altitude. Existing cinematics, loading and climb-request dialogue continue.
+Default continuous flight additionally requires the initial segment endpoint to
+be passed and flaps fully retracted. This does not assert completion of the full
+SID or arrival at cruise altitude. Short terminal transfers retain terminal
+clearance; longer flights request climb before continuing. Only a player request
+starts the skip cinematic. See [continuous flight](CONTINUOUS-FLIGHT.md).
 
 `tests/departures.test.mjs` checks source coordinates, MSL conversions, turn
 gates, restrictions, heading/track differences and translations. The physical
-30-route checks in `tests/auto-cruise.test.mjs` verify ordered captures through
+42-route checks in `tests/auto-cruise.test.mjs` verify ordered captures through
 the public controls, including observed crossing heights and speeds; end-to-end
 city-flight tests also retain real arrival, landing and parking assessment.

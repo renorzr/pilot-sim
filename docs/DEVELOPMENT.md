@@ -32,6 +32,9 @@ sessions continue to work; they are not needed in a source checkout.
 - `flight.js` orchestrates fixed 100 Hz simulation ticks and public controls.
 - `sim/` separates air data, forces, actuators, engine availability, weather and
   guidance. AP and FD use attitude demands, not position or velocity assignment.
+- `aircraft/` owns immutable versioned definitions, system/cockpit adapters,
+  resource identities and declarative visual rigs. See
+  [Aircraft foundation](AIRCRAFT-FOUNDATION.md) for model authoring and extension.
 - `missions/` owns deterministic faults, continuous circuit/return geometry,
   actual touchdown preparation and whole-lesson completion.
 - `terrain/` shares the rendered mesh with swept collision and terrain alerts.
@@ -40,6 +43,25 @@ sessions continue to work; they are not needed in a source checkout.
   strings, failure state and stored achievement identities stay canonical.
 
 See [PHYSICS.md](../PHYSICS.md) for equations, conventions and model boundaries.
+
+## Airline map selection
+
+`AirlineSelect.jsx` combines city-to-city flights and airport practice on one
+map. Airport picks alternate between origin and destination, starting with origin.
+Two map picks form a route without separate confirmation; endpoint fields can
+explicitly select which end to replace. A multi-airport dropdown preserves the
+current slot until a concrete airport is selected. Practice opens its
+briefing directly. The selected route, focused airport and explicitly chosen map
+bounds survive a practice visit through the local planner UI preference; flight
+recordings remain in memory only.
+
+Airports keep their concrete IDs for missions, routes and records. Registry
+`cityId` groups airports into one city marker, with optional `cityLocation` for
+the marker position. A single airport resolves immediately; a city containing
+several airports opens a keyboard-accessible dropdown and requires an explicit
+choice. Adding a second airport requires its own scenery and missions as usual;
+there are no placeholder airports in the shipped registry. City and endpoint
+selection never automatically zoom or recenter the map.
 
 ## Browser checks
 
@@ -58,6 +80,8 @@ folder automatically and use real keyboard/pointer inputs for flight checks.
 
 ```bash
 node ops/check-bilingual.mjs http://127.0.0.1:5173/
+node ops/check-airline-map.mjs http://127.0.0.1:5173/
+node ops/check-airline-city-picker.mjs
 node ops/check-original-engine.mjs http://127.0.0.1:5173/
 node ops/check-aircraft-sounds.mjs http://127.0.0.1:5173/
 node ops/check-arrival-motion.mjs http://127.0.0.1:5173/ menu
@@ -87,11 +111,15 @@ Existing clips are included, so generation is optional. To regenerate them,
 install FFmpeg/ffprobe and the Python requirements:
 
 The five-speaker Chinese pilot/controller cast uses
-`ops/generate-radio-cast.py`. Run it in a terminal with input echo disabled
-and pass the Fish credential on stdin, never in an argument or environment
-file. New Fish requests use the free tier; approved files and cached takes
+`ops/generate-radio-cast.py`. Fish generators default to the local plaintext
+`.secrets/fish-audio.key` file (one key, optional trailing newline), resolved
+relative to the repository by `ops/fish_credentials.py`. The directory is Git-ignored
+and stays outside `public/`; use mode 700 for the directory and 600 for the file.
+Read it locally when Fish access is needed; never print or copy it into logs,
+tracked files or browser assets. Explicit `--fish-stdin` remains available for
+stdin input and takes precedence over the file. New Fish requests use the free tier; approved files and cached takes
 are reused. It stages the complete manifest/audio under `qa/radio-cast/`. Next run
-`ops/generate-pilot-clean.py` with the same hidden-stdin credential convention:
+`ops/generate-pilot-clean.py` with the same local-file credential convention:
 it reuses original Chinese takes and exports unfiltered pilot variants and
 `qa/radio-climb/english-pilot-clean.json`. Runtime uses those pilot sources in
 both views, switching the Web Audio dry/VHF gain paths without reloading media.
@@ -353,6 +381,60 @@ then rebuild the Chinese cast and dry pilot variants.
 camera/flight samples and delays the destination request to verify black holding.
 Its browser-side pilot uses DOM control events, never flight pose/state setters.
 
+## Shared New York region
+
+JFK/LGA operations and US1549 use `regions/new-york.js` and the common
+`loadNewYorkCity` pipeline. The 80 km region has one horizontal source frame,
+shared buildings/photography/tidal masks/vegetation/road sources, and separate
+scene IDs, active-airport rules, height datums and prepared geometry. City IDs
+in the menu do not determine scenery ownership. LGA is a separate operational airport under the same New York menu city.
+
+LGA's flight frame follows runway 04. `regions/runway-city.js` leaves source
+arrays canonical and bridges camera, parent transforms, photographic roof UVs
+and live contact queries into that frame. The rendered terrain is the same
+canonical triangular mesh transformed into the runway frame; contact samples
+that grid rather than resampling a rotated DEM. Airport grading includes both
+operational airports. See [LGA data notes](../game/src/airports/data/LGA.md).
+The released vegetation manifest is retained; revision 3 uses `woodlands-v2.json`.
+
+Raw imagery, decoded building arrays and compressed road/vegetation sources use
+the `new-york` IndexedDB owner. Prepared geometry stays under each scene owner;
+pruning one variant cannot delete another variant or shared sources. Existing
+per-scene decoded building caches migrate into the common source cache. Historical
+skyline suppression and winter branch/crown rendering remain profile choices.
+`new-york-city-data.js` shifts archived building bases into the scene datum and
+lowers floating bases onto the updated bank grid, using the same records for
+rendering/contact and preserving original source arrays and building heights.
+
+Tree positions/colours/heights are prepared offline into one checksummed MSL
+array pack, shared by the two profiles. Runtime adjusts the scene datum and
+restores typed arrays instead of regenerating approximately 1.19 million trees.
+Source-polygon generation remains a checked fallback; processed cache hits skip
+both the source polygons and prepared-pack transfer.
+
+The canonical manifests are under `public/assets/cities/new-york/`; immutable
+photography, masks and unchanged road tiles retain their existing paths. Road
+streaming follows the aircraft, with at most 28 wanted/32 resident tiles, a
+bounded fleet and distance-based minor-road detail. Winter trees use shared 3D
+branches at all LODs and retain evergreen crowns. Forest placement is sourced;
+park cover, individual positions/heights and traffic volumes are estimates.
+
+Offline data rebuilds use the NY/NJ PBF identities already recorded in the JFK
+building pack:
+
+```bash
+python ops/build-nyc-woodlands.py --new-york <ny.osm.pbf> --new-jersey <nj.osm.pbf>
+python ops/build-airport-traffic.py --airport jfk --regional --extent 40000 --output public/assets/cities/new-york/traffic-v1.json --pbf <ny.osm.pbf> --supplemental-pbf <nj.osm.pbf> --reuse-regional-manifest public/assets/cities/jfk/traffic-region-v1.json
+node ops/build-nyc-region-metadata.mjs
+node ops/build-nyc-tree-models.mjs
+node ops/check-nyc-region.mjs
+```
+
+The Python rebuild needs osmium, Shapely and Pillow; ordinary build/test uses the bundled
+compressed derivatives and the offline Node validator. Read-only telemetry adds
+`city.regionId`, `city.season` and `city.sharedSourceCache` alongside the existing
+forest and traffic statistics.
+
 ## Source-mapped woodlands
 
 Mapped cities load `woodland-world.js` alongside the shared building renderer.
@@ -384,8 +466,7 @@ normal success and failure results through actual flight controls.
 
 ## Historical US1549 scenario
 
-[Scenario design and acceptance notes](HISTORICAL-US1549.md) describe the separate
-historical world, crew decisions, continuous manual handover and water dynamics.
+[Scenario design and acceptance notes](HISTORICAL-US1549.md) describe the historical scene profile over the shared NYC region, crew decisions, continuous manual handover and water dynamics.
 `game/src/history/` owns the scenario, its bilingual crew script, independent
 progress and marked presentation scenes. `sim/water-contact.js` owns swept first
 contact, hydrostatic/hydrodynamic forces, damage, flooding and evacuation state.
@@ -431,3 +512,58 @@ voice overlap/normal speed, fixed failure evidence, black/captions, small-screen
 controls and failure-first replay. Long flight segments suppress raster draws
 only; source collision/scenery, dynamics, UI and audio remain active. Captures
 restore rendering. All evidence belongs under ignored `qa/`.
+
+Successful water-rescue coverage is in `tests/rescue-media.test.mjs`; media and
+source/role identities are verified by `ops/check-rescue-audio.mjs` during builds
+and flight tests. Set `PILOT_QA_CHECK_RESCUE=1` and `PILOT_QA_NO_RASTER=1` when
+running `ops/check-us1549-ui.mjs <url> practice` to fly a real final approach,
+record the actual rescue output, and verify all voice parts, pause, language
+switching, frozen results and natural transition into highlights. Without that
+flag the same real flight checks the skip path. No standalone public review page
+is generated.
+
+`tests/history-opening.test.mjs` checks normal cover dialogue, source-state
+isolation, the real two-second post-strike trajectory, skip/pause behavior,
+bounded smoke and the synthetic impact/wind-down spectrum. Run
+`PILOT_CDP_URL=... PILOT_QA_LANG=zh node ops/check-history-opening-ui.mjs <url>`
+(or `en`) for real-menu browser evidence: recorded radio/SFX output, bird/smoke
+capture, paused impact, automatic cockpit handover and the shortened opening.
+The checker observes real scene/effect statistics and sends normal controls;
+it does not assign aircraft motion, engine faults or outcomes. Software-GPU
+runs suppress raster calls between captures while keeping simulation, contact,
+scene updates and audio active. Captures restore rendering and invalidate the
+viewport before sampling the actual frame.
+
+### Aural fault lifecycle
+
+`sim/alerts.js` maintains bounded active alert state and acknowledgement revisions
+inside the physics step, including historical flight. Failed engines are distinct
+from deliberately switched-off engines. A single-engine/system caution chimes once;
+dual failure uses a short electronic cue at 5.7-second intervals. C or the dedicated
+alert button acknowledges current cues without repairing faults or confirming an
+unrelated checklist. New/escalating faults can chime again. Existing stall/terrain
+voice warnings retain priority; speech ducks the electronic cue.
+
+`audio/alerts.js` synthesizes a shared small mono buffer and allows one active cue.
+It follows simulation/recorded time, stops for pause/mute/results, and releases its
+source on disposal. This simplified alert scheme is not an aircraft ECAM trainer.
+Regression coverage: `tests/alerts-replay.test.mjs`.
+
+The historical NYC water supplement and its reproducible masks are documented in
+[HISTORICAL-US1549](HISTORICAL-US1549.md#upper-hudson-water-coverage).
+`isSeaLevelWater` selects marine water and explicitly marked source tidal faces;
+JFK and US1549 share the NYC tidal supplement and water masks, with each scene
+applying its own MSL offset. `loadMappedCity` maps each water mask through its own bounds instead
+of assuming photograph and mask extents coincide. Check the upstream water
+contact fixture and mask pixels before publishing water-source changes. Native
+upstream flight QA uses `ops/check-upstream-hudson-ui.mjs`, which reads telemetry
+and sends normal sidestick/key controls, never flight/result setters.
+
+## Continuous-flight checks
+
+`ops/check-airline.mjs <url> continuous lga-jfk exterior` uses native menus and
+controls for an uninterrupted flight. The old `auto-cruise` browser mode has
+been replaced by `continuous`. `ops/check-cruise-transition.mjs <url> manual`
+checks the optional player-requested cinematic. See
+[continuous flight](CONTINUOUS-FLIGHT.md) for state handoff, coverage and
+simulation regressions.

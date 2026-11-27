@@ -1,3 +1,4 @@
+import {chooseAirportPractice} from './airport-selection.mjs';
 // Actual UI and network throttling; never changes flight state through debug APIs.
 import assert from 'node:assert/strict';
 import {writeFile}from 'node:fs/promises';
@@ -7,8 +8,7 @@ const settle=()=>b.evaluate('new Promise(r=>requestAnimationFrame(()=>requestAni
 async function click(selector){await b.evaluate(`document.querySelector(${JSON.stringify(selector)}).scrollIntoView({block:'nearest'})`);await settle();await b.send('Input.dispatchMouseEvent',{type:'mouseMoved',...await b.evaluate(`(()=>{const r=document.querySelector(${JSON.stringify(selector)}).getBoundingClientRect();return{x:r.x+r.width/2,y:r.y+r.height/2}})()`)});await new Promise(r=>setTimeout(r,250));await b.click(selector);await settle();}
 async function choose(id){
  if(!await b.evaluate('!!document.querySelector(".level-select")'))await click('.level-menu-button');
- await click('[data-stage-id="airline"]');await b.waitFor('!!document.querySelector("[data-airline-mode=practice]")');await click('[data-airline-mode="practice"]');
- await b.waitFor(`!!document.querySelector('[data-level-id="${id}"]')`);await click(`[data-level-id="${id}"]`);await click('.enter-level');
+ await chooseAirportPractice(b,id);
 }
 const throttle=rate=>b.send('Network.emulateNetworkConditions',{offline:false,latency:30,downloadThroughput:rate,uploadThroughput:rate,connectionType:'wifi'});
 const errors=()=>b.events.filter(e=>e.method==='Runtime.exceptionThrown'||e.method==='Runtime.consoleAPICalled'&&e.params.type==='error'||e.method==='Log.entryAdded'&&e.params.entry.level==='error');

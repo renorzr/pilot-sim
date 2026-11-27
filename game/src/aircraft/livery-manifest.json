@@ -1,0 +1,44 @@
+{
+  "uvLayout": "a320-uv1",
+  "revision": 1,
+  "liveries": {
+    "yunji": {
+      "revision": 1,
+      "textures": {
+        "2048": {
+          "path": "assets/aircraft/liveries/yunji/v1/paint-2048.ktx2",
+          "sha256": "7f9b8c311f03ce184bd635ee02fe6a2be660ca6414728d549bbd4d8ac8b8b86a",
+          "bytes": 31201,
+          "width": 2048,
+          "height": 2048
+        },
+        "4096": {
+          "path": "assets/aircraft/liveries/yunji/v1/paint-4096.ktx2",
+          "sha256": "d68072a11e7cae972935a289c569a7ba51dfd0cb1c42a8fee22d3afd4f257d25",
+          "bytes": 55949,
+          "width": 4096,
+          "height": 4096
+        }
+      }
+    },
+    "us-airways-n106us-2009": {
+      "revision": 1,
+      "textures": {
+        "2048": {
+          "path": "assets/aircraft/liveries/us-airways-n106us-2009/v1/paint-2048.ktx2",
+          "sha256": "c12685a9cb0dd850032a80cb4f1c55199b567926a27f3ddbadd357e404abf283",
+          "bytes": 40182,
+          "width": 2048,
+          "height": 2048
+        },
+        "4096": {
+          "path": "assets/aircraft/liveries/us-airways-n106us-2009/v1/paint-4096.ktx2",
+          "sha256": "cc7dfb701eafef89705ed535c51ac5d07443f22e63c84b941d605ee66671be7e",
+          "bytes": 74949,
+          "width": 4096,
+          "height": 4096
+        }
+      }
+    }
+  }
+}

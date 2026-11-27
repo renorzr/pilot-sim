@@ -1,4 +1,4 @@
-import {LEVELS,ALL_MISSIONS,getLevel,starsFor} from './catalog.js';
+import {TRAINING_MISSIONS,ALL_MISSIONS,getLevel,starsFor} from './catalog.js';
 const KEY='pilot-sim.levels.v1';
 export function normalizeProgress(value){
  const levels={};
@@ -7,7 +7,7 @@ export function normalizeProgress(value){
 }
 export function loadProgress(storage){try{return normalizeProgress(JSON.parse(storage.getItem(KEY)));}catch{return normalizeProgress(null);}}
 export function saveProgress(storage,progress){try{storage.setItem(KEY,JSON.stringify(normalizeProgress(progress)));return true;}catch{return false;}}
-export const recommendedLevel=progress=>LEVELS.find(l=>!progress.levels[l.id])||LEVELS[0];
+export const recommendedLevel=progress=>TRAINING_MISSIONS.find(l=>!progress.levels[l.id])||TRAINING_MISSIONS[0];
 export function recordResult(progress,s){
  if(s.historical)return progress;
  if(!getLevel(s.levelId)||!s.result?.success||!s.result.levelCleared||s.mission?.practice||!Number.isFinite(s.result.score))return progress;

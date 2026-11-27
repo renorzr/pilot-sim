@@ -327,12 +327,12 @@ def compact_scenery(osm):
     osm['features']=kept
     osm['scenerySelection']={'airportBuildingBoundary':boundary['id'],'nearbyDetailBounds':[40.58,-73.89,40.70,-73.70],'note':'Airport aeroways and buildings; nearby principal roads and larger land/water features. No urban house extrusion.'}
 
-def departure_data(pack):
-    fs=pack['osm']['features'];runway=next(r for r in pack['runways'] if any(e['id']=='22R' for e in r['ends']));a=next(e for e in runway['ends'] if e['id']=='22R');b=next(e for e in runway['ends'] if e['id']!='22R');rad=math.pi/180;lx=6378137*rad*math.cos(a['latitude']*rad);lz=6378137*rad;E=(b['longitude']-a['longitude'])*lx;N=(b['latitude']-a['latitude'])*lz;heading=math.atan2(E,N);c=math.cos(heading);s=math.sin(heading)
+def departure_data(pack, airport_id='jfk', active_runway='22R', side=1, entry_min_ratio=2):
+    fs=pack['osm']['features'];runway=next(r for r in pack['runways'] if any(e['id']==active_runway for e in r['ends']));a=next(e for e in runway['ends'] if e['id']==active_runway);b=next(e for e in runway['ends'] if e['id']!=active_runway);rad=math.pi/180;lx=6378137*rad*math.cos(a['latitude']*rad);lz=6378137*rad;E=(b['longitude']-a['longitude'])*lx;N=(b['latitude']-a['latitude'])*lz;heading=math.atan2(E,N);c=math.cos(heading);s=math.sin(heading)
     def proj(p):
-        e=(p[0]-a['longitude'])*lx;n=(p[1]-a['latitude'])*lz;return(e*c-n*s,-e*s-n*c)
+        e=(p[0]-a['longitude'])*lx;n=(p[1]-a['latitude'])*lz;return(side*(e*c-n*s),-e*s-n*c)
     def inv(p):
-        x,z=p;return(a['longitude']+(x*c-z*s)/lx,a['latitude']+(-x*s-z*c)/lz)
+        x,z=p;x*=side;return(a['longitude']+(x*c-z*s)/lx,a['latitude']+(-x*s-z*c)/lz)
     def dist(p,q):return math.hypot(p[0]-q[0],p[1]-q[1])
     def along(p,a,b):
         d=(b[0]-a[0],b[1]-a[1]);u=max(0,min(1,((p[0]-a[0])*d[0]+(p[1]-a[1])*d[1])/max(1e-9,d[0]**2+d[1]**2)));q=(a[0]+d[0]*u,a[1]+d[1]*u);return dist(p,q),u,q
@@ -346,7 +346,7 @@ def departure_data(pack):
         A,B=S['a'],S['b']
         if min(A[0],B[0])<110<max(A[0],B[0]) and abs(B[0]-A[0])>1:
             u=(110-A[0])/(B[0]-A[0]);q=(110,A[1]+(B[1]-A[1])*u)
-            if -650<q[1]<-80 and abs(B[0]-A[0])>abs(B[1]-A[1])*2:candidates.append((abs(q[1]+170),S,u,q))
+            if -650<q[1]<-80 and abs(B[0]-A[0])>abs(B[1]-A[1])*entry_min_ratio:candidates.append((abs(q[1]+170),S,u,q))
     assert candidates,'No source runway-entry taxiway found'
     _,entrySeg,holdU,hold=min(candidates,key=lambda t:t[0]);entrySeg['u'].append(holdU)
     # Native source intersections normally share OSM nodes. Add exact geometric
@@ -403,12 +403,18 @@ def departure_data(pack):
     route=[point(start,standway['id'],ref)]
     while n!=goal:
         j,f=prev[n];route.append(point(positions[j],f['id'],f['tags'].get('ref') or 'TAXI'));n=j
-    route[-1].update(name='22R HOLD',kind='game-holding-point');entrySource=entrySeg['f'];z=hold[1];arcStart=(50,z);center=(50,z-50);entry=[point(hold,entrySource['id'],'22R HOLD','game-holding-point'),point(arcStart,entrySource['id'],entrySource['tags'].get('ref') or 'ENTRY','source-entry-alignment')]
+    route[-1].update(name=active_runway+' HOLD',kind='game-holding-point');entrySource=entrySeg['f'];z=hold[1];arcStart=(50,z);center=(50,z-50);entry=[point(hold,entrySource['id'],active_runway+' HOLD','game-holding-point'),point(arcStart,entrySource['id'],entrySource['tags'].get('ref') or 'ENTRY','source-entry-alignment')]
     for i in range(1,9):
-        t=i*math.pi/16;entry.append(point((50-50*math.sin(t),z-50+50*math.cos(t)),'OurAirports:04L/22R','22R','game-lineup-arc'))
-    lineupZ=z-100;entry.append(point((0,lineupZ),'OurAirports:04L/22R','22R','runway-centerline'));holdYaw=math.atan2(entry[1]['x']-hold[0],-(entry[1]['z']-hold[1]));startYaw=math.atan2(route[1]['x']-route[0]['x'],-(route[1]['z']-route[0]['z']))
+        t=i*math.pi/16;entry.append(point((50-50*math.sin(t),z-50+50*math.cos(t)),'OurAirports:'+'/'.join(e['id'] for e in runway['ends']),active_runway,'game-lineup-arc'))
+    lineupZ=z-100;entry.append(point((0,lineupZ),'OurAirports:'+'/'.join(e['id'] for e in runway['ends']),active_runway,'runway-centerline'));holdYaw=math.atan2(entry[1]['x']-hold[0],-(entry[1]['z']-hold[1]));startYaw=math.atan2(route[1]['x']-route[0]['x'],-(route[1]['z']-route[0]['z']))
     length=lambda points:sum(math.hypot(b['x']-a['x'],b['z']-a['z']) for a,b in zip(points,points[1:]));lon,lat=inv(nose)
-    return{'schemaVersion':1,'airportId':'jfk','runwayId':'22R','coordinateFrame':'Metres in active22R tangent frame: x runway-right, z approach side, y above threshold; yaw0 follows runway forward(-z).','stand':{'ref':ref,'sourceId':standway['id'],'longitude':lon,'latitude':lat,'x':round(cg[0],3),'z':round(cg[1],3),'yaw':standYaw,'nose':{'x':round(nose[0],3),'z':round(nose[1],3)},'cgSetbackM':15,'note':'Actual OSM parking lead-in nose endpoint; gameCG sits15m back along source lead-in.'},'handoff':{'x':round(start[0],3),'z':round(start[1],3),'yaw':startYaw,'sourceId':standway['id'],'note':'Automatic crew departure abstracts pushback; handoff is the actual source stand lead-in/taxiway connection.'},'taxiPoints':route,'hold':{'x':round(hold[0],3),'z':round(hold[1],3),'yaw':holdYaw,'sourceId':entrySource['id'],'isPublishedHoldingPosition':False,'note':'GameCG holding point on source entrytaxiway, outside protectedstrip with15m noseclearance.'},'entryPoints':entry,'lineup':{'x':0,'z':round(lineupZ,3),'yaw':0,'sourceId':'OurAirports:04L/22R','remainingRunwayM':round(math.hypot(E,N)+lineupZ,3)},'taxiDistanceM':round(length(route),3),'entryDistanceM':round(length(entry),3),'routeReferences':list(dict.fromkeys([ref]+[p['name'] for p in route[1:-1]]+['22R'])),'sourceFeatureIds':list(dict.fromkeys([standway['id']]+[p['sourceId'] for p in route[1:]])),'sources':[{'name':'OpenStreetMap contributors','license':'ODbL-1.0','licenseUrl':'https://opendatacommons.org/licenses/odbl/1-0/','dataFile':'jfk.json'},{'name':'OurAirports','license':'Unlicense / public domain','dataFile':'jfk.json'}],'notes':['Curated game departure follows real source stand and connected taxiway vertices; this is not a published current taxi clearance.','Source taxi/OurAirports centerline mismatch is bridged by a clearly synthetic50m radiusalignmentarc and50mstraightsegment before the finalstop.','The holdingCG is110m from the activeaxis; entry and takeoff require separate clearances. Optionaltaxiskipnevergrantsrunwayentry.']}
+    result={'schemaVersion':1,'airportId':airport_id,'runwayId':active_runway,'coordinateFrame':f'Metres in active{active_runway} tangent frame: x runway-right, z approach side, y above threshold; yaw0 follows runway forward(-z).','stand':{'ref':ref,'sourceId':standway['id'],'longitude':lon,'latitude':lat,'x':round(cg[0],3),'z':round(cg[1],3),'yaw':standYaw,'nose':{'x':round(nose[0],3),'z':round(nose[1],3)},'cgSetbackM':15,'note':'Actual OSM parking lead-in nose endpoint; gameCG sits15m back along source lead-in.'},'handoff':{'x':round(start[0],3),'z':round(start[1],3),'yaw':startYaw,'sourceId':standway['id'],'note':'Automatic crew departure abstracts pushback; handoff is the actual source stand lead-in/taxiway connection.'},'taxiPoints':route,'hold':{'x':round(hold[0],3),'z':round(hold[1],3),'yaw':holdYaw,'sourceId':entrySource['id'],'isPublishedHoldingPosition':False,'note':'GameCG holding point on source entrytaxiway, outside protectedstrip with15m noseclearance.'},'entryPoints':entry,'lineup':{'x':0,'z':round(lineupZ,3),'yaw':0,'sourceId':'OurAirports:'+'/'.join(e['id'] for e in runway['ends']),'remainingRunwayM':round(math.hypot(E,N)+lineupZ,3)},'taxiDistanceM':round(length(route),3),'entryDistanceM':round(length(entry),3),'routeReferences':list(dict.fromkeys([ref]+[p['name'] for p in route[1:-1]]+[active_runway])),'sourceFeatureIds':list(dict.fromkeys([standway['id']]+[p['sourceId'] for p in route[1:]])),'sources':[{'name':'OpenStreetMap contributors','license':'ODbL-1.0','licenseUrl':'https://opendatacommons.org/licenses/odbl/1-0/','dataFile':airport_id+'.json'},{'name':'OurAirports','license':'Unlicense / public domain','dataFile':airport_id+'.json'}],'notes':['Curated game departure follows real source stand and connected taxiway vertices; this is not a published current taxi clearance.','Source taxi/OurAirports centerline mismatch is bridged by a clearly synthetic50m radiusalignmentarc and50mstraightsegment before the finalstop.','The holdingCG is110m from the activeaxis; entry and takeoff require separate clearances. Optionaltaxiskipnevergrantsrunwayentry.']}
+
+    def restore(value):
+        if isinstance(value,list):return [restore(v) for v in value]
+        if not isinstance(value,dict):return value
+        return {k:(v*side if k in {'x','yaw'} and isinstance(v,(int,float)) else restore(v)) for k,v in value.items()}
+    return restore(result)
 
 
 def validate_data(pack,departure=None):

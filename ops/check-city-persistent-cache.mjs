@@ -1,3 +1,4 @@
+import {chooseAirportPractice} from './airport-selection.mjs';
 import assert from 'node:assert/strict';
 import {writeFile}from 'node:fs/promises';
 import {connect}from './cdp.mjs';
@@ -14,8 +15,7 @@ async function open({block=false,deny=false}={}){
  if(await b.evaluate('document.documentElement.lang!=="en"'))await click('.language-switch');
 }
 async function airport(id){
- await click('[data-stage-id="airline"]');await b.waitFor('!!document.querySelector("[data-airline-mode=practice]")');await click('[data-airline-mode="practice"]');await b.waitFor(`!!document.querySelector('[data-level-id="${id}-takeoff"]')`);await click(`[data-level-id="${id}-takeoff"]`);
- const started=Date.now();await click('.enter-level');
+ const started=Date.now();await chooseAirportPractice(b,`${id}-takeoff`);
  await b.waitFor('!!document.querySelector(".flight-card .primary-button")&&!document.querySelector(".flight-card .primary-button").disabled',300000);
  await b.waitFor('window.__flightSim.stats().city.pendingDetails===0&&window.__flightSim.stats().city.persistentCache.pendingWrites===0',120000);
  const elapsedMs=Date.now()-started,result=await b.evaluate('({city:window.__flightSim.stats().city,time:window.__flightSim.snapshot().time,phases:window.__cachePhases,missing:window.__flightSim.missingTranslations()})');

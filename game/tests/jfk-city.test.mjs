@@ -1,3 +1,4 @@
+import {newYorkCityData,NEW_YORK_GROUND_MARGIN} from '../src/regions/new-york-city-data.js';
 import test from'node:test';
 import assert from'node:assert/strict';
 import{readFile}from'node:fs/promises';
@@ -15,8 +16,8 @@ import{flyLevel}from'./pilot.mjs';
 const root=new URL('../../public/assets/cities/jfk/',import.meta.url),manifest=JSON.parse(await readFile(new URL('buildings-v1.json',root))),compressed=await readFile(new URL('../../public/'+manifest.path,import.meta.url)),raw=gunzipSync(compressed),data=decodeDenseCity(raw.buffer.slice(raw.byteOffset,raw.byteOffset+raw.byteLength),manifest),imagery=JSON.parse(await readFile(new URL('imagery-v1.json',root))),sha=b=>createHash('sha256').update(b).digest('hex');
 test('JFK includes full regional NY/NJ source coverage, actual high-rise heights and courtyard topology',()=>{
  assert.equal(manifest.airportId,'jfk');assert.equal(sha(compressed),manifest.sha256);assert.equal(sha(raw),manifest.geometrySha256);assert.equal(compressed.length,manifest.bytes);assert.equal(raw.length,manifest.uncompressedBytes);assert.equal(manifest.provenance.osm.snapshot,'2026-11-20');assert.equal(manifest.provenance.osm.sources.length,2);assert(data.count>500000);assert.equal(manifest.sourceCounts.osm,data.count);assert.equal(manifest.tiles.reduce((n,t)=>n+t.count,0),data.count);assert(manifest.heightSources.tagged+manifest.heightSources.levels>50000);
- const ids=new Set(),kinds=new Set();let courtyards=0,distant=0,tall=0,maxHeight=0;
- for(let i=0;i<data.count;i++){const b=data.building(i,false);assert(!ids.has(b.id));ids.add(b.id);assert(/^(way|relation)\//.test(b.id));assert(b.height>0&&b.height<900);assert(!seaAt('jfk',b.cx,b.cz));kinds.add(b.kind);if(b.ringCount>1)courtyards++;if(Math.hypot(b.cx,b.cz)>10000)distant++;if(b.height>50)tall++;maxHeight=Math.max(maxHeight,b.height);
+ const grounded=newYorkCityData(data,JFK),ids=new Set(),kinds=new Set();let courtyards=0,distant=0,tall=0,maxHeight=0;
+ for(let i=0;i<data.count;i++){const b=grounded.building(i,false);assert(data.building(i,false).baseY-b.baseY<=NEW_YORK_GROUND_MARGIN);assert(!ids.has(b.id));ids.add(b.id);assert(/^(way|relation)\//.test(b.id));assert(b.height>0&&b.height<900);assert(!seaAt('jfk',b.cx,b.cz));kinds.add(b.kind);if(b.ringCount>1)courtyards++;if(Math.hypot(b.cx,b.cz)>10000)distant++;if(b.height>50)tall++;maxHeight=Math.max(maxHeight,b.height);
   if(i%101===0){assert(b.frame.width>0&&b.frame.depth>0&&b.frame.fill>0);assert(b.baseY<=surfaceHeight(b.cx,b.cz,'jfk')+.01);for(const r of data.rings(i))assert([...r].every(Number.isFinite));}
  }
  assert.equal(kinds.size,3);assert(courtyards>100&&distant>100000&&tall>1000&&maxHeight>300);

@@ -1,132 +1,136 @@
-# Skyline 320 exterior asset
+# Skyline 320 exterior and interchangeable paint
 
-An original, code-authored airliner exterior for the game's external cameras.
-It uses A320-with-Sharklet proportions, but is not manufacturer CAD and is not
-an engineering or flight-training model. It has the original midnight-blue /
-ocean-teal **YUNJI AIR** livery and no third-party airline logo.
+The original code-authored A320-proportioned airframe has one stable UV layout,
+external paint atlases and selectable wingtip geometry. It is an authored game
+model, not manufacturer CAD or an engineering/training model.
 
-## Files and rebuild
+The [aircraft foundation](../../../docs/AIRCRAFT-FOUNDATION.md) describes shared
+runtime adapters, model construction helpers and version compatibility. The
+current definition is `definitions/a320.json`; `rig.js` executes its declarative
+animation bindings. `ops/aircraft/a320.py` owns the model-specific template.
+The independent [A380 exterior and systems](../../../docs/A380.md) use their own
+definition, template and UV/paint contract through the same runtime.
 
-- `public/assets/aircraft/skyline-320.glb`: self-contained runtime GLB. No
-  external textures, fonts, model service or network credentials are needed.
-- `public/assets/aircraft/skyline-320-preview.png`: native Blender daylight
-  rendering of the same original source geometry.
-- `skyline-320-metadata.json` and `skyline-320-validation.json`: dimension,
-  contact and geometry/joint verification results.
-- `ops/build-aircraft.py`: full original geometry authoring script.
-- `game/src/aircraft/visual.js`: loader, semantic material batching and visual
-  actuator updates. It never assigns aircraft physics position, velocity,
-  capability, failure, result or mission state.
+## Runtime contract
 
-Rebuild with Blender **4.0.2** and the system DejaVu Sans Bold font:
+- `public/assets/aircraft/skyline-320-uv1.glb`: texture-free geometry with named
+  animation joints, UVs, sharklets and small wingtip fences. Only the selected
+  wingtip meshes enter the static airframe batch. UVs and animation joints are
+  preserved during batching.
+- `game/src/aircraft/catalog.js`: model/layout/version validation, immutable
+  appearance identity, local resource URLs and texture size selection.
+- `game/src/aircraft/livery-manifest.json`: generated dimensions, SHA-256 and
+  byte sizes, matching `public/assets/aircraft/liveries/manifest.json`.
+- `public/assets/aircraft/liveries/<id>/v1/paint-{2048,4096}.ktx2`: one complete
+  opaque colour atlas per size. Only the selected size/livery is loaded.
+- `public/assets/aircraft/basis/three-0.187.0/`: pinned, self-hosted decoder.
+- The older `skyline-320.glb` is retained for existing sessions and baseline
+  comparisons. New flights use the UV1 asset.
+
+`loadAircraftVisual({THREE, renderer, loadingManager, appearance})` loads the
+model and atlas before exposing the visual. It detects GPU compression support,
+sets sRGB colour sampling and anisotropic filtering, and owns the loaded
+resources. Every atlas is disposed once, including failed/stale loads. Source
+SVG/PNG files are authoring resources and are not requested during play.
+
+The ordinary appearance is `a320 / sharklet / yunji`. The 1549 profile declares
+`a320 / wingtip-fence / us-airways-n106us-2009`. The flight state and each replay
+segment retain independent copies of model, geometry variant, livery, model
+version, livery version and UV layout. Intro, retries, final practice and rescue
+copy that same appearance. A world also honours the recorded state when replaying,
+replacing a previous aircraft only after the new resources finish loading. Late
+loads for a disposed/replaced world are released.
+
+The returned visual has `group`, `update`, `stats`, `anchors`, `appearance`,
+`detailParts` and `dispose`. Its update changes visual actuators only, never
+physics position, velocity, capability, failures or mission assessment.
+
+## Stable UV template and artwork
+
+`ops/assets/aircraft/uv1.json` is the packing contract. Atlas rectangles use a
+2048-square authoring space, with gutters between islands. A 4096 output scales
+that exact layout; it does not unwrap or repack the model. The labelled
+`public/assets/aircraft/liveries/a320-uv1-template.svg` is for painting new liveries.
+
+- Fuselage left and right occupy separate half-circumference strips. The seam
+  follows the crown/belly; titles and registration read correctly on both sides.
+- Fin and rudder use the same aircraft-space projection, so a line continues
+  over the hinge while each surface retains its animation.
+- Engines and wingtips have separate left/right islands. Wing upper and lower
+  surfaces have independent islands; flaps/slats/ailerons keep their source-space
+  coordinates when deployed. Gear doors follow the fuselage paint.
+- Glass, lamps, tyres, bare metal and mechanical parts retain separate materials.
+- Airline titles, registration, cheatlines and tail motifs are painted into the
+  atlas, rather than built from lettering/logo meshes. No runtime font is needed.
+
+`ops/build-aircraft-liveries.py` authors the original YUNJI AIR appearance and a
+period-inspired N106US paint reproduction. Historical colours and insignia are
+redrawn approximations from the aircraft photograph on the
+[FAA Flight 1549 page](https://www.faa.gov/lessonslearned/transportairplane/accidents/N160US).
+No reference photograph or third-party aircraft texture is bundled. The small
+wingtip fences replace the modern sharklets for that scenario. Engine geometry,
+glazing and other detailed construction remain authored visual estimates.
+
+To add an event on the same model, paint against UV1, add immutable/versioned
+atlas resources and their manifest entries, and declare the appearance in the
+event profile. Geometry differences require a structural variant; another
+aircraft type requires its own geometry, UV contract and performance preset.
+Never overwrite released atlas versions or repack UV1: introduce a new version
+and retain the previous catalog entry/resources for recordings and open sessions.
+
+## Rebuilding and verification
+
+A normal checkout builds/tests using the checked-in assets, without Blender,
+CairoSVG, downloads or historical QA files. Authoring requires Blender 4.0.2,
+Python CairoSVG/Pillow (DejaVu Sans installed), and KTX-Software `toktx` 4.4.2:
 
 ```sh
-blender -b --python ops/build-aircraft.py
-node ops/build-aircraft-check.mjs
+python3 ops/build-aircraft-liveries.py --toktx /path/to/toktx
+blender -b --python ops/build-aircraft.py -- --model a320 --output-dir /tmp/aircraft-review
+node ops/build-aircraft-check.mjs /tmp/aircraft-review/skyline-320-uv1.glb
+node --test game/tests/aircraft-visual.test.mjs game/tests/aircraft-livery.test.mjs
 ```
 
-For staged inspection before replacing the served asset, pass
-`-- --output-dir /tmp/aircraft-review` to Blender, then pass the absolute GLB
-path to `ops/build-aircraft-check.mjs`. Validation is saved beside that GLB.
+The Blender source generates geometry first, exports the texture-free GLB, then
+binds the external PNG for its preview. `--preview-livery us-airways-n106us-2009`
+selects historical paint/fences for the preview; `--skip-preview` omits rendering.
+Review staged geometry before replacing the served version. The generated
+metadata and validation JSON accompany that model. Binaries and fonts used only
+for authoring are not distributed; the decoder's Apache-2.0 notice is retained.
 
-The font is used to turn the original livery words into triangles at authoring
-time; no font software is distributed in the runtime asset. All mesh geometry,
-livery design and code in this bundle were authored for this repository. They
-are distributed under its MIT License. No third-party aircraft model or
-reference photograph is bundled.
+## Coordinate frame, contacts and actuators
 
-## Proportions and coordinate frame
+Metres, X right, Y up, nose -Z. Length is 37.57 m, sharklet span 35.80 m,
+small-fence span about 34.10 m, tail height 11.76 m above level ground. The common
+root has longitudinal bounds -16.5…21.07 m and gear-down Y bounds -2.8…8.96 m.
+These are game geometry estimates, not a claim about a certified mass centre.
 
-The reference proportions are length **37.57 m**, Sharklet span **35.80 m** and
-tail height **11.76 m** above level ground. See the official
-[Airbus A320ceo characteristics](https://www.aircraft.airbus.com/en/aircraft/a320-family/a320ceo).
-Individual sections, hinges, cockpit glazing, nacelles, gear and structural
-subdivisions are visual estimates, not manufacturer construction drawings.
+`contact-anchors.js` shares main/nose tyre and water-contact anchors. Wingtip
+presentation anchors match the selected structural variant. Changing paint does
+not modify contact, flight dynamics, damage or scoring. The pressure-shell belly
+is Y=-0.93 m; the wrapping fairing reaches -1.17 m, 0.24 m below it. The existing
+12-degree ground-rotation clearance and cockpit-eye checks still apply. Captain
+eye is X=-0.55, Y=2.30, Z=-13.40 m, following the same physical attitude and visual
+root correction as the exterior, including during flotation.
 
-The wing/body fairing wraps the lower pressure shell with a shallow, smoothly
-tapered envelope. Its maximum width is 4.36 m and its bottom is Y = −1.17 m,
-only 0.24 m below the pressure-shell belly. These are authored visual dimensions,
-not Airbus specifications. The fairing uses body enamel; main-gear doors and
-narrow bay seams follow the lower wing skin instead of hanging below it.
-The fuselage belly also uses the same white enamel, with the navy/teal side
-cheatlines retained above it.
+Named joints retain independent gear, doors, steering, wheels, flap pairs,
+slats, spoilers, ailerons, elevators, rudder, fans, reversers and lights. Gear and
+flaps use actual actuator positions. AP surfaces use actual control commands.
+Fans use independent actual N1; failed engines cannot gain working thrust or
+reverse from their visuals. Simulation time controls flashes and pause freezes
+fan/wheel animation. Original engine sound and the cockpit artwork are unchanged.
 
-The GLB is in metres with X to the aircraft's right, Y up and forward −Z. Its
-longitudinal bounds are −16.5…21.07 m, lateral bounds −17.9…17.9 m, and its
-vertical bounds with extended gear are −2.8…8.96 m. The root is the existing
-game flight reference, not a claim about the aircraft's certified mass centre.
-At a game reference height of 2.8 m, all extended tyre bottoms touch zero.
+## Rendering budget
 
-Contact anchors exported by `AIRCRAFT_CONTACTS` / `visual.anchors`:
+The ordinary model has 59,560 triangles; the fence variant has 59,486, compared
+with the original 60,192. Both have 10 materials. A matched browser geometry
+fixture with all lamps visible measures 60 submissions, versus 61 for the old
+asset. Shadow and scenery calls remain separate from that comparison.
 
-- Main tyres: X = −2.85, −2.35, +2.35, +2.85; Y = −2.8; Z = +2.5.
-- Nose tyres: X = ±0.24; Y = −2.8; Z = −12.3.
-- Sharklet references: X = ±17.9; Y = 2.28; Z = 6.
-
-During a ground rotation, the renderer needs to raise the *visual* root enough
-to keep transformed main contacts on the shared terrain. This does not change
-flight state. A native vertex check finds 0.0508 m minimum body/wing/nacelle
-clearance at 12° nose-up after this main-contact correction, before any game
-pavement elevation. Tyres are rounded; their exact tangent differs from the
-resting bottom anchors by less than 0.02 m at that angle.
-
-The cockpit camera uses the authored captain eye at X = −0.55 m, Y = 2.30 m,
-Z = −13.40 m (`views/aircraft-pose.js`). Its forward ray passes through the
-model's front glazing. The eye follows the same pitch/roll/yaw and visual root
-correction as the exterior model, including during flotation. It is not placed
-at the flight reference or clamped above water; genuine cockpit submersion is
-still represented. Cabin head motion is applied in aircraft-local coordinates.
-
-## Loader and animation contract
-
-```js
-const aircraft = await loadAircraftVisual({THREE, loadingManager});
-scene.add(aircraft.group); // Add after world static batching.
-aircraft.update(flightState, deltaSeconds);
-// The caller sets group world position / pitch / yaw / roll.
-aircraft.dispose();
-```
-
-`createAircraftVisual({THREE,scene})` accepts an already-parsed GLTF scene for
-native Node geometry fixtures. Returned fields are `group`, `update`, `stats`,
-`anchors` and `dispose`.
-
-Named nodes retain separate hinges for main and nose gear, gear doors, nose
-steering, wheels, flap pairs, leading-edge slats, six spoilers, two ailerons,
-elevators, rudder, fans, reverser sleeves, beacons, strobes and landing lights.
-Static pieces are merged by material *within* these semantic groups so moving
-parts remain independent. The world's earlier static merge must not flatten
-this hierarchy.
-
-Batching also separates incompatible vertex attribute layouts and storage
-formats. Authored UV channels, tangents and vertex colours survive merging;
-parts without UVs remain separate from UV-mapped parts. The current GLB has
-positions and normals only. This loader support does not generate a UV unwrap
-or add texture artwork to that asset.
-
-- Gear uses actual `gearPosition`, and flaps/slats use actual `flapPosition`.
-- Manual surfaces read stick/rudder commands. AP surfaces use the existing
-  actuator commands (`pitchCommand / .09`, `rollCommand / .36`).
-- Spoilers use actual deployment, separate from arming.
-- Fans use independent actual N1. The displayed angular rate is deliberately
-  reduced for rendering; it is not a physical RPM simulation. Failed/off fans
-  can windmill when actual air data supplies nonzero N1.
-- Reverser sleeves require selected reverse, real ground landing state, IDLE,
-  a running corresponding engine and actual negative thrust. A failed engine
-  does not produce a working reverser or gain thrust from this asset.
-- Flash timing uses simulation time. Fan/wheel motion requires advancing
-  simulation time and positive delta; pause freezes them.
-- No smoke or fire is fabricated for a generic failed engine.
-
-## Validation and rendering budget
-
-The frozen asset has **60,192 triangles**, **11 shared materials** and about
-**58 gear-down mesh submissions** after semantic batching. All uploaded
-positions/normals and node transforms are finite. There are no external image
-payloads; the GLB is approximately 1.46 MB.
-
-Native checks cover declared extents, all required joints, gear and flap
-transit, AP surface signs, independent fan and reverse states, paused fan
-motion, absence of writes to flight state, and 12° ground-rotation clearance.
-The actual game render budget additionally depends on airport scenery,
-shadows, camera frustum and hidden parts.
+Default paint is 2K. 4K is selected only for high resolution desktop-sized views
+when the renderer supports it. In the checked Chromium/SwiftShader BC7 path the
+2K mip chain occupies 5,592,432 bytes (5.33 MiB); 4K occupies 22,369,648 bytes
+(21.33 MiB). GPU formats/fallbacks and device frame rates vary. PNG download size
+is not a GPU-memory estimate. The 2K KTX2 downloads are approximately 31 KB for
+YUNJI and 40 KB for N106US, plus the decoder on its first use. Repeated swaps and
+release return the fixture's texture/geometry counts to baseline.

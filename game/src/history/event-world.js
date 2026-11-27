@@ -1,3 +1,4 @@
+import {createPolygonMask} from '../airports/polygon-mask.js';
 import {US1549_PROFILE as P} from './us1549-profile.js';
 import {airportOf,seaAt} from '../airports/registry.js';
 import {terrainHeight} from '../terrain/heightfield.js';
@@ -11,9 +12,15 @@ export const eventWaterCurrent=Object.freeze({x:P.water.current.east*Math.cos(cu
 export const isHistorical=s=>s?.historical?.id===P.id;
 export const eventProject=(lon,lat)=>airportOf('jfk').project(lon,lat);
 export const eventUnproject=(x,z)=>airportOf('jfk').unproject(x,z);
-export const eventWaterAt=(x,z)=>seaAt('jfk',x,z);
+export const eventWaterAt=(x,z)=>seaAt(eventAirportId,x,z);
+let upperHudsonMask;
+function upperHudsonAt(x,z){
+ upperHudsonMask??=createPolygonMask(airportOf(eventAirportId).data.osm.features.filter(f=>f.tidalSurface&&f.waterbody==='Hudson River').map(f=>({outer:f.geometry.map(q=>eventProject(...q)),holes:(f.holes||[]).map(r=>r.map(q=>eventProject(...q)))})));
+ return upperHudsonMask(x,z);
+}
 export function eventHudsonAt(x,z){
  if(!eventWaterAt(x,z))return false;
+ if(upperHudsonAt(x,z))return true;
  const p=eventUnproject(x,z),knots=[[-73.932,40.907],...P.riverTargets,[-74.026,40.733]];
  // Region qualification is separate from contact. Other source water remains
  // physical water and can be survived, but is not a Hudson mission completion.

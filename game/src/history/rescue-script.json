@@ -1,0 +1,6 @@
+{
+  "field-controlled":{"role":"police","speaker":"field","zh":"指挥中心，飞机保持漂浮，正在组织撤离。","en":"Dispatch, aircraft afloat. Evacuation under way."},
+  "field-damaged":{"role":"police","speaker":"field","zh":"指挥中心，飞机有损伤，保持漂浮，请尽快接应。","en":"Dispatch, aircraft damaged but afloat. Request assistance."},
+  "dispatch":{"role":"dispatch","speaker":"dispatch","zh":"水警三号、救援二组，前往河面接应。岸上救护待命。","en":"Marine three, rescue two, assist the aircraft. Medics stand by."},
+  "response":{"role":"marine","speaker":"responder","zh":"水警三号收到，正在接近，准备接应。","en":"Marine three copies. Approaching to assist."}
+}

@@ -1,11 +1,16 @@
-import {initializeAirline,beforeAirlinePhysics,updateAirline,airlineInstruction,canSkipCruise,canAutoSkipCruise,arrivalPreview} from './missions/airline.js';
+import {updateFlightAlerts,acknowledgeAlerts} from './sim/alerts.js';
+import {resolveAircraft} from './aircraft/catalog.js';
+import {aircraftDefinition,DEFAULT_DEFINITION,flapLabels,flapLimits,nominalThrust} from './aircraft/registry.js';
+import {aircraftThrustDetent,detentLever,landingSpeed,managedApproachSpeed} from './aircraft/systems.js';
+import {initializeAirline,beforeAirlinePhysics,updateAirline,airlineInstruction,canSkipCruise,arrivalPreview} from './missions/airline.js';
 import {initializeHistorical,advanceHistorical,historicalInstruction,historyReferenceSpeed,historicalApproach,isHistorical} from './history/us1549.js';
 import {initializeDeparture,groundActive,groundFrozen,beforeGroundPhysics,afterGroundPhysics,groundInstruction} from './missions/ground.js';
 import {arrivalNavigation,airlineNavigationActive} from './missions/airline-navigation.js';
 import {initializeTaxiIn,beforeTaxiInPhysics,afterTaxiInPhysics,taxiInActive} from './missions/taxi-in.js';
 import {updateRouteProtection} from './missions/route-protection.js';
+import {observeContinuousMotion} from './missions/continuous-route.js';
 import {observeEmergency} from './comms/emergency.js';
-import {runwayOf} from './airports/registry.js';
+import {runwayOf,airportOf} from './airports/registry.js';
 import {createStallWarning,updateStallWarning} from './sim/stall-warning.js';
 import {requiresLanding,startRecovery,updateRecovery} from './missions/recovery.js';
 // Fixed fictional training scenario. Performance values and tolerances are
@@ -32,34 +37,36 @@ export {acknowledgeLevel,toggleAutoThrust};
 export {setMotion} from './sim/aerodynamics.js';
 export {setWeather} from './sim/weather.js';
 export {setEngineStatus} from './sim/engines.js';
-export const FLAPS=['0','1','2','3','FULL'];
-export const FLAP_LIMITS=[350,230,200,185,177];
-export const PHASES={'crew-decision':'副驾驶决策','manual-glide':'手动滑翔','water-contact':'首次水面接触','water-run':'水面减速',afloat:'稳定漂浮',evacuation:'撤离准备',complete:'历史任务完成','runway-exit':'脱离跑道','taxi-in':'到港滑行',parking:'机位关车',parked:'机位停稳',gate:'停机位准备',leaving:'自动离位',taxi:'手动滑行',skip:'略过长滑行',holding:'跑道外等待',lineup:'进入与对正','takeoff-clearance':'等待起飞许可',intercept:'截获进近',configure:'减速与构型',final:'稳定末进近',flare:'拉平与接地',rollout:'着陆滑跑',goaround:'复飞爬升',ready:'起飞准备',climb:'离地爬升',departure:'一边 · 离场',crosswind:'二边 · 侧风边',downwind:'三边 · 下风边',base:'四边 · 基地边'};
-const approachAltitude=z=>RUNWAY.ground+15.24+Math.tan(3*RAD)*z;
-export const radioAltitude=s=>Math.max(0,(s.y-(s.historical?0:RUNWAY.ground))*FT);
-export const minimumSelectableSpeed=s=>s.vapp-5+(s.landingConfig-s.flapPosition)*7.5;
+export const FLAPS=DEFAULT_DEFINITION.flaps.labels;
+export const FLAP_LIMITS=DEFAULT_DEFINITION.flaps.limitsKt;
+export const PHASES={'crew-decision':'副驾驶决策','manual-glide':'手动滑翔','water-contact':'首次水面接触','water-run':'水面减速',afloat:'稳定漂浮',evacuation:'撤离准备',complete:'历史任务完成','runway-exit':'脱离跑道','taxi-in':'到港滑行',parking:'机位关车',parked:'机位停稳',gate:'停机位准备',leaving:'自动离位',taxi:'手动滑行',skip:'略过长滑行',holding:'跑道外等待',lineup:'进入与对正','takeoff-clearance':'等待起飞许可',intercept:'截获进近',configure:'减速与构型',final:'稳定末进近',flare:'拉平与接地',rollout:'着陆滑跑',goaround:'复飞爬升',ready:'起飞准备',enroute:'航路飞行',descent:'到港下降',climb:'离地爬升',departure:'一边 · 离场',crosswind:'二边 · 侧风边',downwind:'三边 · 下风边',base:'四边 · 基地边'};
+const approachAltitude=(z,reference=RUNWAY.ground)=>reference+15.24+Math.tan(3*RAD)*z;
+export const radioAltitude=s=>Math.max(0,(s.y-(s.historical?0:aircraftDefinition(s).airframe.referenceHeight))*FT);
+export const minimumSelectableSpeed=s=>{const o=aircraftDefinition(s).operations;return s.vapp-o.minimumSpeedMarginKt+(s.landingConfig-s.flapPosition)*o.minimumSpeedPerFlapKt;};
 export function targetSpeed(s){
+  const o=aircraftDefinition(s).operations;
   if(isHistorical(s))return historyReferenceSpeed(s,{approach:historicalApproach(s)});
-  if(s.goAround)return s.speedMode==='selected'?s.selectedSpeed:185;
-  if(airlineNavigationActive(s))return s.speedMode==='selected'?s.selectedSpeed:s.airline.navigation.kind==='arrival'?210:185;
+  if(s.goAround)return s.speedMode==='selected'?s.selectedSpeed:o.goAroundSpeedKt;
+  if(airlineNavigationActive(s))return s.speedMode==='selected'?s.selectedSpeed:s.airline.navigation.kind==='arrival'?o.arrivalSpeedKt:s.airline.navigation.kind==='enroute'?((s.y-runwayOf(s).ground)*FT+airportOf(s).elevationM*FT<12000?240:270):o.takeoffSpeedKt;
   if(s.route?.active)return s.speedMode==='selected'?s.selectedSpeed:routeSpeed(s);
-  if(s.mission?.kind==='dual-glide')return s.flapPosition>=.5?165:185;
+  if(s.mission?.kind==='dual-glide')return s.flapPosition>=.5?o.glideFlapSpeedKt:o.glideCleanSpeedKt;
   if(s.systems?.flapsJammed&&s.speedMode!=='selected')return s.vapp;
-  if(s.mode==='takeoff')return s.speedMode==='selected'?s.selectedSpeed:185;
-  return s.speedMode==='selected'?s.selectedSpeed:[215,180,160,s.landingConfig===3?s.vapp:150,s.vapp][s.flaps];
+  if(s.mode==='takeoff')return s.speedMode==='selected'?s.selectedSpeed:o.takeoffSpeedKt;
+  return s.speedMode==='selected'?s.selectedSpeed:managedApproachSpeed(s);
 }
-export const thrustDetent=s=>s.reverse?'REV':s.throttle<.025?'IDLE':Math.abs(s.throttle-.78)<.065?'CL':Math.abs(s.throttle-.90)<.035?'FLX':s.throttle>.975?'TOGA':'MAN';
+export const thrustDetent=aircraftThrustDetent;
 export const aoaFor=trimAlpha;
 
 export function createFlight(mode='landing',options={}){
-  const level=getLevel(options.levelId);
+  const level=getLevel(options.levelId),appearance=resolveAircraft(options.aircraft??(level?{model:level.aircraftModel??'a320'}:undefined)),definition=aircraftDefinition(appearance);
+  if(level&&definition.id!==(level.aircraftModel??'a320'))throw new Error('Mission is not calibrated for aircraft '+definition.id);
   const airportId=level?.airportId||'training',runway=runwayOf(airportId);
   if(level){mode=level.mode;options={...options,scenario:level.scenario,landingConfig:options.landingConfig??level.landingConfig};}
   const landing=mode==='landing',scenario=options.scenario||'short',full=landing&&scenario==='full';
-  const landingConfig=[1,2,3,4].includes(options.landingConfig)?options.landingConfig:4,vapp=[180,165,165,150,145][landingConfig];
-  const s={mode,scenario,airportId,landingConfig,vapp,weight:options.weight??64,headwind:5,windDirection:runway.heading,
-    systems:createSystems(),radio:createRadio({pilotVoice:options.pilotVoice,towerVoice:options.towerVoice,towerVoices:options.towerVoices,destinationTowerVoice:options.destinationTowerVoice,airportId,destinationId:level?.destination}),atc:createATC(),terrain:createTerrainAwareness(),impact:null,stallWarning:createStallWarning(),cabin:{noseAt:null},weather:createWeather({...options.weather,referenceHeading:runway.heading,wind:{directionDeg:runway.heading,...options.weather?.wind}}),engines:createEngines(),controls:createControls(),velocity:{x:0,y:0,z:0},yawRate:0,clock:{accumulator:0},
-    x:full?180:0,y:full?RUNWAY.ground+3000/FT:landing?approachAltitude(2100):RUNWAY.ground,z:full?18000:landing?2100:-130,
+  const landingConfig=definition.flaps.allowedLandingConfigurations.includes(options.landingConfig)?options.landingConfig:definition.flaps.defaultLandingConfiguration,vapp=landingSpeed(appearance,landingConfig);
+  const s={mode,scenario,airportId,aircraft:{...appearance},landingConfig,vapp,weight:options.weight??level?.massTonnes??definition.operations.defaultMassTonnes,headwind:5,windDirection:runway.heading,
+    systems:createSystems(appearance),radio:createRadio({pilotVoice:options.pilotVoice,towerVoice:options.towerVoice,towerVoices:options.towerVoices,destinationTowerVoice:options.destinationTowerVoice,airportId,destinationId:level?.destination}),atc:createATC(),terrain:createTerrainAwareness(),impact:null,stallWarning:createStallWarning(),cabin:{noseAt:null},weather:createWeather({...options.weather,referenceHeading:runway.heading,wind:{directionDeg:runway.heading,...options.weather?.wind}}),engines:createEngines(0,appearance),controls:createControls(),velocity:{x:0,y:0,z:0},yawRate:0,clock:{accumulator:0},
+    x:full?180:0,y:full?definition.airframe.referenceHeight+3000/FT:landing?approachAltitude(2100,definition.airframe.referenceHeight):definition.airframe.referenceHeight,z:full?18000:landing?2100:-130,
     speed:landing?(full?190:vapp)/KT:0,verticalSpeed:landing&&!full?-3.8:0,
     pitch:0,roll:0,yaw:full?-.012:0,pitchRate:0,rollRate:0,stickPitch:0,stickRoll:0,
     throttle:landing?.78:0,thrust:landing?(full?.36:.43):0,
@@ -73,7 +80,7 @@ export function createFlight(mode='landing',options={}){
     phase:full?'intercept':landing?'final':'ready',maxAltitude:0,warning:'',message:'',messageUntil:0,
     locDeviation:0,glideDeviation:0,guidance:{pitch:0,roll:0},thrustMode:landing?'SPEED':'MAN',
     gates:landing&&!full?[{height:1000,passed:true,issues:[],preset:true},{height:500,passed:true,issues:[],preset:true}]:[],
-    previousRA:full?3000:landing?radioAltitude({y:approachAltitude(2100)}):0,
+    previousRA:full?3000:landing?radioAltitude({y:approachAltitude(2100,definition.airframe.referenceHeight),aircraft:appearance}):0,
     unstableSeconds:0,landingChecklistConfirmed:landing&&!full,callouts:[],calloutSequence:0,spokenHeights:[],
     goAround:false,goAroundHeading:0,goAroundStartAltitude:0,goAroundReason:'',positiveClimbCalled:false,
     checkpoint:null,checkpointLabel:full?'进近起点':landing?'短进近起点':'跑道起点',
@@ -84,8 +91,8 @@ export function createFlight(mode='landing',options={}){
   if(!landing){s.velocity={x:0,y:0,z:0};refreshAirData(s);}
   s.pitch=landing?aoaFor(s)+s.airData.gamma:0;
   refreshAirData(s);
-  const trim=landing?clamp((s.airData.drag+s.weight*1000*9.80665*Math.sin(s.airData.gamma))/(240000*Math.pow(s.airData.density/1.225,.7)),0,1):0;
-  s.engines=createEngines(trim);stepEngines(s,Math.max(targetSpeed(s),minimumSelectableSpeed(s))/KT,0);
+  const trim=landing?clamp((s.airData.drag+s.weight*1000*9.80665*Math.sin(s.airData.gamma))/(nominalThrust(s)*Math.pow(s.airData.density/1.225,definition.propulsion.densityExponent)),0,1):0;
+  s.engines=createEngines(trim,s);stepEngines(s,Math.max(targetSpeed(s),minimumSelectableSpeed(s))/KT,0);
   initializeDeparture(s);if(level)initializeAirline(s,level);refreshAirData(s);
   if(level?.kind==='historical')initializeHistorical(s,options.historical);
   updateNavigation(s);s.atc.clearance=isHistorical(s)?null:clearanceFor(s);s.terrain.clearanceFt=isHistorical(s)?s.y*FT:terrainRadioAltitude(s)*FT;saveCheckpoint(s,s.checkpointLabel);return s;
@@ -94,15 +101,15 @@ export function createFlight(mode='landing',options={}){
 // destination leg's published game entry preset. It is not continuous cruise
 // integration. Failures, mass, practice state and departure evidence survive.
 export function skipCruise(s,{automatic=false}={}){
- if(!canSkipCruise(s))return false;
- const old={levelId:s.levelId,mission:structuredClone(s.mission),airline:structuredClone(s.airline),engines:structuredClone(s.engines),systems:structuredClone(s.systems),time:s.time,language:s.radio.language,pilotVoice:s.radio.pilotVoice,towerVoice:s.radio.towerVoice,towerVoices:structuredClone(s.radio.towerVoices||{}),history:structuredClone(s.radio.history),autoThrust:s.autoThrust,ground:structuredClone(s.ground)};
- const skipped=old.airline.distanceKm/830*3600;
- const arrival=createFlight('landing',{levelId:`${old.airline.destination}-landing`,weight:s.weight,landingConfig:s.landingConfig,pilotVoice:old.pilotVoice,towerVoice:old.towerVoices[old.airline.destination]??old.towerVoice,towerVoices:old.towerVoices});
+ if(automatic||!canSkipCruise(s))return false;
+ const old={aircraft:resolveAircraft(s.aircraft),levelId:s.levelId,mission:structuredClone(s.mission),airline:structuredClone(s.airline),engines:structuredClone(s.engines),systems:structuredClone(s.systems),time:s.time,language:s.radio.language,pilotVoice:s.radio.pilotVoice,towerVoice:s.radio.towerVoice,towerVoices:structuredClone(s.radio.towerVoices||{}),history:structuredClone(s.radio.history),autoThrust:s.autoThrust,ground:structuredClone(s.ground)};
+ const skipped=(old.airline.navigation.kind==='enroute'?(old.airline.navigation.distanceToAirport??old.airline.navigation.remaining)/1000:old.airline.distanceKm)/830*3600;
+ const arrival=createFlight('landing',{levelId:`${old.airline.destination}-landing`,aircraft:old.aircraft,weight:s.weight,landingConfig:s.landingConfig,pilotVoice:old.pilotVoice,towerVoice:old.towerVoices[old.airline.destination]??old.towerVoice,towerVoices:old.towerVoices});
  arrival.levelId=old.levelId;arrival.mission={...old.mission,stableSeconds:0};arrival.systems=old.systems;arrival.engines=old.engines;arrival.ground=null;arrival.time=old.time+skipped;arrival.autoThrust=old.autoThrust&&old.systems.autoThrustAvailable;
- arrival.airline={...old.airline,phase:'arrival-preview',cruiseSkipped:true,cruiseSkipMode:automatic?'automatic':'manual',skippedCruiseSeconds:skipped,departureEvidence:old.ground,departureRouteEvidence:structuredClone(old.airline.navigation),departureCut:{x:s.x,y:s.y,z:s.z,time:old.time},previewStarted:arrival.time,introSkipped:false,stableSeconds:0};
+ arrival.airline={...old.airline,phase:'arrival-preview',arrivalReached:true,arrivalMode:'skipped',cruiseSkipped:true,cruiseSkipMode:'manual',skippedCruiseSeconds:skipped,departureEvidence:old.airline.departureEvidence??old.ground,departureRouteEvidence:old.airline.departureRouteEvidence??structuredClone(old.airline.navigation),departureCut:old.airline.departureCut??{x:s.x,y:s.y,z:s.z,time:old.time},previewStarted:arrival.time,introSkipped:false,stableSeconds:0};
  arrival.airline.navigation=arrivalNavigation(old.airline.origin,old.airline.destination);
  const entry=arrival.airline.navigation.entry;
- Object.assign(arrival,{x:entry.x,z:entry.z,y:RUNWAY.ground+entry.altitude/FT,yaw:entry.yaw,selectedAltitude:entry.altitude,previousRA:entry.altitude,mode:'enroute'});
+ Object.assign(arrival,{x:entry.x,z:entry.z,y:aircraftDefinition(arrival).airframe.referenceHeight+entry.altitude/FT,yaw:entry.yaw,selectedAltitude:entry.altitude,previousRA:entry.altitude,mode:'enroute'});
  arrival.arrival={...arrival.arrival,x:entry.x,z:entry.z,altitude:entry.altitude,heading:entry.yaw/RAD};setMotion(arrival);
  arrival.radio.language=old.language;arrival.radio.history=old.history;arrival.checkpointLabel='目的机场 · 进近前展示';
  refreshAirData(arrival);stepEngines(arrival,arrival.speed,0);queueRadio(arrival,'arrival-brief');saveCheckpoint(arrival,arrival.checkpointLabel);
@@ -119,23 +126,23 @@ export function saveCheckpoint(s,label){
   s.checkpointLabel=label;const{checkpoint,...snapshot}=s;s.checkpoint=structuredClone(snapshot);
 }
 export function restoreCheckpoint(s){
-  if(!s.checkpoint)return createFlight(s.mode,{scenario:s.scenario,landingConfig:s.landingConfig});
-  const restored=structuredClone(s.checkpoint);restored.checkpoint=structuredClone(s.checkpoint);restored.result=null;if(restored.mission)restored.mission.practice=true;if(isHistorical(restored)&&s.historical?.earlyTakeover)restored.historical.earlyTakeover=true;centerStick(restored);return restored;
+  if(!s.checkpoint)return createFlight(s.mode,{aircraft:s.aircraft,scenario:s.scenario,landingConfig:s.landingConfig});
+  const restored=structuredClone(s.checkpoint);restored.checkpoint=structuredClone(s.checkpoint);restored.result=null;restored.aircraft=resolveAircraft(restored.aircraft??airportOf(restored).aircraft);if(restored.mission)restored.mission.practice=true;if(isHistorical(restored)&&s.historical?.earlyTakeover)restored.historical.earlyTakeover=true;centerStick(restored);return restored;
 }
 export function stepFlaps(s,direction=1){
   if(isHistorical(s)&&s.historical.controlSource==='copilot')return false;
   if(groundActive(s)){message(s,s.ground.arrival?'落地后构型由机组自动处理':'滑行阶段已自动准备起飞构型');return false;}
-  if(s.result||arrivalPreview(s))return false;if(s.systems.flapsJammed){message(s,'襟翼卡阻，保持实际构型并按新目标速度进近');return false;}if(holdConfiguration(s)){message(s,'切变中保持当前构型，脱离后再调整襟翼');return false;}const next=clamp(s.flaps+direction,0,4);
+  if(s.result||arrivalPreview(s))return false;if(s.systems.flapsJammed){message(s,'襟翼卡阻，保持实际构型并按新目标速度进近');return false;}if(holdConfiguration(s)){message(s,'切变中保持当前构型，脱离后再调整襟翼');return false;}const next=clamp(s.flaps+direction,0,flapLabels(s).length-1);
   if(next===s.flaps)return false;
-  if(next>s.flaps&&s.speed*KT>FLAP_LIMITS[next]){message(s,`先减速至 ${FLAP_LIMITS[next]} kt 以下，再放 CONF ${FLAPS[next]}`);return false;}
-  s.flaps=next;message(s,`襟翼选择 CONF ${FLAPS[next]} · 等待到位`);return true;
+  if(next>s.flaps&&s.speed*KT>flapLimits(s)[next]){message(s,`先减速至 ${flapLimits(s)[next]} kt 以下，再放 CONF ${flapLabels(s)[next]}`);return false;}
+  s.flaps=next;message(s,`襟翼选择 CONF ${flapLabels(s)[next]} · 等待到位`);return true;
 }
 export function toggleGear(s){
   if(isHistorical(s)&&s.historical.controlSource==='copilot')return false;
   if(s.result||arrivalPreview(s))return false;
   if(holdConfiguration(s)){message(s,'切变中保持当前构型，脱离后再调整起落架');return false;}
   if(s.gear&&!s.airborne){message(s,'地面保持起落架放下');return false;}
-  if(!s.gear&&s.speed*KT>250){message(s,'先减速至 250 kt 以下再放起落架');return false;}
+  if(!s.gear&&s.speed*KT>aircraftDefinition(s).gear.extensionLimitKt){message(s,'先减速至 250 kt 以下再放起落架');return false;}
   s.gear=!s.gear;message(s,s.gear?'起落架放下中 · 等待三绿灯':'起落架收起中');return true;
 }
 export function toggleApproach(s){
@@ -152,7 +159,7 @@ export function toggleAP(s){
   if(!s.systems.apAvailable){message(s,'自动驾驶不可用，保持手飞');return;}
   if(!s.airborne){message(s,'离地后可接通自动驾驶');return;}
   if(!s.autoPilot&&holdConfiguration(s)){message(s,'切变中保持手飞并跟随 FD，脱离后可接通 AP1');return;}
-  if(!s.autoPilot&&radioAltitude(s)<200&&!s.goAround){message(s,'200 英尺以下由你手动完成着陆');return;}
+  if(!s.autoPilot&&radioAltitude(s)<aircraftDefinition(s).operations.apMinimumHeightFt&&!s.goAround){message(s,'200 英尺以下由你手动完成着陆');return;}
   s.autoPilot=!s.autoPilot;if(s.autoPilot)s.flightDirector=true;
   emit(s,s.autoPilot?'AP1 接通 · 跟随引导':'AP1 断开 · 手动操纵',s.autoPilot?'Autopilot on':'Autopilot off');
 }
@@ -160,20 +167,20 @@ export function setDetent(s,detent){
   if(isHistorical(s)&&s.historical.controlSource==='copilot')return false;
   if(s.result||arrivalPreview(s))return;
   if(groundActive(s)&&detent!=='IDLE'){message(s,'等待起飞许可');return;}
-  s.throttle={IDLE:0,CL:.78,FLX:.90,TOGA:1}[detent]??s.throttle;s.reverse=false;transferManualThrust(s,s.throttle,true);
+  s.throttle=detentLever(s,detent)??s.throttle;s.reverse=false;transferManualThrust(s,s.throttle,true);
   if(detent==='TOGA'&&s.mode==='landing'&&(s.airborne||s.landed))beginGoAround(s);
 }
 export function setLever(s,value){
   if(isHistorical(s)&&s.historical.controlSource==='copilot')return false;
-  if(s.result||groundFrozen(s)||arrivalPreview(s))return;s.throttle=clamp(value,0,groundActive(s)?.18:1);s.reverse=false;transferManualThrust(s,s.throttle);
-  if(s.throttle>.985&&s.mode==='landing'&&(s.airborne||s.landed)&&!s.goAround)beginGoAround(s);
+  if(s.result||groundFrozen(s)||arrivalPreview(s))return;s.throttle=clamp(value,0,groundActive(s)?aircraftDefinition(s).thrust.taxiLeverMax:1);s.reverse=false;transferManualThrust(s,s.throttle);
+  if(s.throttle>aircraftDefinition(s).thrust.takeoverThreshold&&s.mode==='landing'&&(s.airborne||s.landed)&&!s.goAround)beginGoAround(s);
 }
-export function cycleAutoBrake(s){if(!s.result)s.autoBrake=['OFF','LOW','MED'][(['OFF','LOW','MED'].indexOf(s.autoBrake)+1)%3];}
+export function cycleAutoBrake(s){if(s.result)return;const modes=aircraftDefinition(s).operations.autoBrakeModes;s.autoBrake=modes[(modes.indexOf(s.autoBrake)+1)%modes.length];}
 export function toggleReverse(s){
   if(s.result||arrivalPreview(s))return;
   if(!s.landed){message(s,'反推仅可接地后使用');return;}
   if(s.engines.every(e=>e.status!=='running')){message(s,'没有可用反推，使用轮刹车减速');return;}
-  if(s.throttle>.025){message(s,'先将推力杆收到 IDLE，再选择反推');return;}
+  if(s.throttle>aircraftDefinition(s).thrust.idleThreshold){message(s,'先将推力杆收到 IDLE，再选择反推');return;}
   s.reverse=!s.reverse;
 }
 export function beginGoAround(s,reason='主动复飞'){
@@ -199,11 +206,11 @@ export function landingChecks(s){
     {key:'speed',label:`速度 ${s.vapp} kt`,ok:kt>=s.vapp-5&&kt<=s.vapp+15},
     {key:'path',label:s.route?.inFinal?'航线 / 下滑路径':!s.systems.ils.localizer?'目视航迹 / 下滑路径':'航向道 / 下滑道',ok:(s.route?.inFinal&&s.scenario!=='full'||!s.systems.ils.localizer||s.apprArmed&&s.locCaptured&&s.gsCaptured)&&Math.abs(s.locDeviation)<.4&&Math.abs(s.glideDeviation)<.6},
     {key:'gear',label:'起落架三绿灯',ok:s.gearPosition>.98},
-    {key:'flaps',label:`襟翼 CONF ${FLAPS[s.landingConfig]}`,ok:Math.abs(s.flapPosition-s.landingConfig)<.05},
+    {key:'flaps',label:`襟翼 CONF ${flapLabels(s)[s.landingConfig]}`,ok:Math.abs(s.flapPosition-s.landingConfig)<.05},
     {key:'descent',label:'下降率 / 坡度',ok:s.verticalSpeed<-.2&&s.verticalSpeed>-5.1&&Math.abs(s.roll)<10*RAD},
   ];
 }
-export function confirmAction(s){if(s.mission?.triggered&&(s.mission.fault||s.mission.kind==='engine-out')&&!s.mission.acknowledged)return acknowledgeLevel(s);return confirmChecklist(s);}
+export function confirmAction(s){const silenced=acknowledgeAlerts(s);if(s.mission?.triggered&&(s.mission.fault||s.mission.kind==='engine-out')&&!s.mission.acknowledged)return acknowledgeLevel(s);return silenced||confirmChecklist(s);}
 export function confirmChecklist(s){
   const missing=[];
   if(s.gearPosition<.98)missing.push('起落架');
@@ -214,8 +221,8 @@ export function confirmChecklist(s){
 }
 function updateNavigation(s){
   s.locDeviation=Math.atan2(s.x,Math.max(s.z+runwayOf(s).length,200))/(2.5*RAD);
-  s.glideDeviation=Math.atan2(s.y-approachAltitude(s.z),Math.max(s.z+350,350))/(.7*RAD);
-  computeGuidance(s,approachAltitude);
+  s.glideDeviation=Math.atan2(s.y-approachAltitude(s.z,aircraftDefinition(s).airframe.referenceHeight),Math.max(s.z+350,350))/(.7*RAD);
+  computeGuidance(s,z=>approachAltitude(z,aircraftDefinition(s).airframe.referenceHeight));
 }
 function fail(s,title,detail){s.result={success:false,title,detail};}
 function scoreLanding(s){
@@ -248,34 +255,35 @@ function updateApproach(s,dt){
       emit(s,height===20?'20 英尺 · RETARD · 收到 IDLE':height===30?'30 英尺 · 后拉侧杆开始拉平':`${height} 英尺`,words[height],height<=30?'action':'info');
     }
   }
-  if(s.autoPilot&&ra<200){s.autoPilot=false;emit(s,'AP1 断开 · 接管侧杆完成着陆','Autopilot off','action');}
+  if(s.autoPilot&&ra<aircraftDefinition(s).operations.apMinimumHeightFt){s.autoPilot=false;emit(s,'AP1 断开 · 接管侧杆完成着陆','Autopilot off','action');}
   s.previousRA=ra;
   if(s.landed){s.warning='';return;}
   const failedGate=s.gates.find(g=>!g.passed);
   s.warning=monitor&&ra>=50&&ra<500&&issues.length?'进近不稳定 · T 复飞':s.speed*KT<s.vapp-8?'速度偏低 · 检查推力':
     s.verticalSpeed< -6?'下降过快 · 轻按 ↓ 后拉抬头':ra<700&&s.gearPosition<.98?'起落架未到位 · G 放下':
-    s.speed*KT>FLAP_LIMITS[Math.ceil(s.flapPosition)]&&s.flapPosition>.1?'襟翼速度超限 · 减速':'';
+    s.speed*KT>flapLimits(s)[Math.ceil(s.flapPosition)]&&s.flapPosition>.1?'襟翼速度超限 · 减速':'';
 }
 
 export function advanceFlight(s,input,dt,options){
-  const RUNWAY=runwayOf(s);
+ if(s.result||dt<=0)return;
+ const result=advanceFlightStep(s,input,dt,options);updateFlightAlerts(s);return result;
+}
+function advanceFlightStep(s,input,dt,options){
+  let RUNWAY=runwayOf(s);
   if(s.result||dt<=0)return;dt=clamp(dt,0,.05);s.time+=dt;
   if(isHistorical(s))return advanceHistorical(s,input,dt,{emit});
   refreshAirData(s);
   const groundCheckpoint=(state,label)=>{refreshAirData(state);saveCheckpoint(state,label);};
-  if(beforeAirlinePhysics(s,{checkpoint:groundCheckpoint,dt})){updateRadio(s);return;}
-  if(canAutoSkipCruise(s)){
-    if(!options?.onCruiseSkip){skipCruise(s,{automatic:true});return;}
-    if(options.onCruiseSkip(s,{automatic:true}))return 'cruise-transition';
-  }
+  if(beforeAirlinePhysics(s,{checkpoint:groundCheckpoint,dt,canEnterArrival:options?.canEnterArrival})){updateRadio(s);return;}
+  RUNWAY=runwayOf(s);refreshAirData(s);
   if(beforeTaxiInPhysics(s,dt)){stepEngines(s,0,dt);refreshAirData(s);updateRadio(s);updateAirline(s,dt,{checkpoint:groundCheckpoint});return;}
   if(beforeGroundPhysics(s,dt,{checkpoint:groundCheckpoint})){stepEngines(s,0,dt);refreshAirData(s);updateNavigation(s);updateRadio(s);return;}
-  if(!groundActive(s)&&!s.airline?.cruiseSkipped&&!s.radio.fired.takeoff&&!s.radio.fired.approach&&!s.radio.fired['circuit-takeoff'])queueRadio(s,s.airborne?'approach':s.route?'circuit-takeoff':'takeoff');
+  if(!groundActive(s)&&!s.airline?.arrivalReached&&!s.airline?.cruiseSkipped&&!s.radio.fired.takeoff&&!s.radio.fired.approach&&!s.radio.fired['circuit-takeoff'])queueRadio(s,s.airborne?'approach':s.route?'circuit-takeoff':'takeoff');
   beforeLevelPhysics(s,{emit,checkpoint:saveCheckpoint,dt});
   if(input.throttle)setLever(s,s.throttle+input.throttle*dt*.22);
   s.brake=Boolean(input.brake);updateStick(s,input,dt);
-  if(!s.systems.flapsJammed)s.flapPosition=moveToward(s.flapPosition,s.flaps,dt*.22);
-  s.gearPosition=moveToward(s.gearPosition,s.gear?1:0,dt*.15);
+  if(!s.systems.flapsJammed)s.flapPosition=moveToward(s.flapPosition,s.flaps,dt*aircraftDefinition(s).flaps.rate);
+  s.gearPosition=moveToward(s.gearPosition,s.gear?1:0,dt*aircraftDefinition(s).gear.rate);
   updateNavigation(s);
   if(s.autoPilot&&(Math.abs(s.stickPitch)>.16||Math.abs(s.stickRoll)>.16||Math.abs(s.controls.rudder)>.16)){
     s.autoPilot=false;emit(s,'手动输入 · AP1 已断开','Autopilot off','action');
@@ -285,7 +293,7 @@ export function advanceFlight(s,input,dt,options){
   s.thrustMode=s.systems.thrustLocked?'THR LK':s.autoThrustActive?(s.throttle<.71?'SPEED LMT':'SPEED'):detent==='TOGA'?'MAN TOGA':detent==='FLX'?'MAN FLX':detent==='IDLE'?'IDLE':'MAN THR';
   const previous={x:s.x,y:s.y,z:s.z,pitch:s.pitch,roll:s.roll,yaw:s.yaw};
   if(groundActive(s)){s.stickPitch=0;s.pitch=s.roll=s.pitchRate=s.rollRate=0;s.spoilersArmed=false;s.autoBrake='OFF';}
-  stepAttitude(s,dt);stepDynamics(s,dt);
+  stepAttitude(s,dt);stepDynamics(s,dt);observeContinuousMotion(s,previous);
   afterGroundPhysics(s,previous,dt,{checkpoint:groundCheckpoint});
   afterTaxiInPhysics(s,previous,dt,{checkpoint:groundCheckpoint});
   if(s.result||arrivalPreview(s))return;
@@ -298,7 +306,7 @@ export function advanceFlight(s,input,dt,options){
   updateVisualReferences(s);
   updateExpandedRoute(s,{emit,checkpoint:saveCheckpoint});
   updateNavigation(s);
-  if(s.mode==='takeoff'&&s.airborne&&!s.landed)s.phase='climb';
+  if(s.mode==='takeoff'&&s.airborne&&!s.landed)s.phase=s.airline?.navigation.kind==='enroute'?(s.airline.descentStarted?'descent':'enroute'):'climb';
   s.maxAltitude=Math.max(s.maxAltitude,s.y-RUNWAY.ground);
   if(s.airborne&&s.y<=RUNWAY.ground&&Math.abs(s.x)<RUNWAY.width/2&&s.z<=5&&s.z>=-RUNWAY.length){
     const onRunway=Math.abs(s.x)<RUNWAY.width/2&&s.z<=5&&s.z>=-RUNWAY.length;
@@ -313,7 +321,7 @@ export function advanceFlight(s,input,dt,options){
   if(!groundActive(s)&&!s.airborne&&s.airData.groundSpeed>3&&Math.abs(s.x)>RUNWAY.width/2)fail(s,'滑出跑道','小幅操纵方向保持中心线，使用刹车减速。');
   if(!groundActive(s)&&!s.airborne&&s.z< -RUNWAY.length&&s.airData.groundSpeed>8)fail(s,'冲出跑道','及时收至 IDLE，确认扰流板、自动刹车或反推工作。');
   if(s.landed&&!s.goAround&&!s.result&&!taxiInActive(s)){
-    if(s.airline?.cruiseSkipped){if(initializeTaxiIn(s,scoreLanding(s)))groundCheckpoint(s,'着陆完成 · 手动脱离跑道');}
+    if(s.airline?.arrivalReached||s.airline?.cruiseSkipped){if(initializeTaxiIn(s,scoreLanding(s)))groundCheckpoint(s,'着陆完成 · 手动脱离跑道');}
     else if(s.airData.groundSpeed<.6){s.velocity.x=s.velocity.z=0;refreshAirData(s);s.result={success:true,title:'平安落地',detail:s.gates.some(g=>!g.passed)?'已停稳。下次在稳定检查点前完成构型与速度调整。':'从进近、构型检查到接地停稳，你完成了整段飞行。',score:scoreLanding(s)};}
   }
   if(s.goAround&&!s.result){
@@ -352,7 +360,7 @@ export function getInstruction(s){
   if(s.warning)return s.warning;
   if(s.messageUntil>s.time)return s.message;
   if(s.goAround){
-    if(s.landed){if(s.brake)return '触地复飞 · 松开空格 / 刹车按钮，保持跑道方向';if(s.speed*KT<125)return '触地复飞 · TOGA 加速，保持中线，125 kt 后再抬轮';return s.pitch>.19?'保持约 12° 姿态，等待离地 · 正爬升后再收轮':'触地复飞 · ↓ 后拉抬轮，离地正爬升后 G 收轮';}
+    if(s.landed){if(s.brake)return '触地复飞 · 松开空格 / 刹车按钮，保持跑道方向';if(s.speed*KT<aircraftDefinition(s).operations.rotationSpeedKt)return '触地复飞 · TOGA 加速，保持中线，125 kt 后再抬轮';return s.pitch>.19?'保持约 12° 姿态，等待离地 · 正爬升后再收轮':'触地复飞 · ↓ 后拉抬轮，离地正爬升后 G 收轮';}
     if(s.verticalSpeed<1)return 'TOGA · 后拉侧杆，跟随 SRS 爬升指引';
     if(s.gear)return '正爬升 · G 收起落架';
     if(s.flaps>1)return 'Shift + F 逐档收襟翼，保持爬升';
@@ -360,17 +368,17 @@ export function getInstruction(s){
     if(s.touchAndGo?.active&&s.touchAndGo.coastalTurn)return s.airportId!=='training'?`触地复飞 · 按 FD 左转，继续爬升至 ${s.selectedAltitude} ft`:`触地复飞 · 按 FD 左转海侧，继续爬升至 ${s.selectedAltitude} ft`;
     return `保持复飞航向，继续爬升至 ${s.selectedAltitude} ft`;
   }
-  if(s.landed){if(s.throttle>.025)return '接地 · 推力杆收到 IDLE';if(!s.spoilersDeployed)return 'B 预位扰流板 · 空格刹车';if(!s.reverse&&s.speed*KT>70)return 'V 开启反推，保持跑道中心';return s.speed*KT<70&&s.reverse?'低于 70 kt · V 收反推，继续制动':'保持中线，刹车至完全停稳';}
-  if(s.mode==='takeoff'){if(s.airborne)return s.gear?'正爬升 · G 收起落架':'松键回杆，保持爬升';return s.speed*KT<125?'推力杆 FLX / TOGA · 保持跑道中心':s.pitch>.19?'松键保持约 12° 姿态 · 等待离地':'达到起飞速度 · 按 ↓ 后拉至约 12°';}
+  if(s.landed){if(s.throttle>aircraftDefinition(s).thrust.idleThreshold)return '接地 · 推力杆收到 IDLE';if(!s.spoilersDeployed)return 'B 预位扰流板 · 空格刹车';if(!s.reverse&&s.speed*KT>70)return 'V 开启反推，保持跑道中心';return s.speed*KT<70&&s.reverse?'低于 70 kt · V 收反推，继续制动':'保持中线，刹车至完全停稳';}
+  if(s.mode==='takeoff'){if(s.airborne)return s.gear?'正爬升 · G 收起落架':'松键回杆，保持爬升';return s.speed*KT<aircraftDefinition(s).operations.rotationSpeedKt?'推力杆 FLX / TOGA · 保持跑道中心':s.pitch>(aircraftDefinition(s).operations.rotationPitchRad??.19)?(aircraftDefinition(s).operations.rotationPitchRad?'松键保持当前姿态 · 等待离地':'松键保持约 12° 姿态 · 等待离地'):`达到起飞速度 · 按 ↓ 后拉至约 ${Math.round((aircraftDefinition(s).operations.rotationPitchRad??(12*RAD))/RAD)}°`;}
   const ra=radioAltitude(s),nm=s.z/NM;
-  if(ra<30)return s.throttle>.025?'轻按 ↓ 拉平 · 推力收到 IDLE':'保持拉平姿态，准备主轮接地';
+  if(ra<30)return s.throttle>aircraftDefinition(s).thrust.idleThreshold?'轻按 ↓ 拉平 · 推力收到 IDLE':'保持拉平姿态，准备主轮接地';
   if(ra<200)return '手动操纵 · 跟随指引，30 英尺开始拉平';
   if(!s.apprArmed)return 'I / APPR 预位进近 · 按指引截获 ILS';
   if(!s.locCaptured)return '跟随横向指引，截获航向道';
   if(nm<8&&s.flaps<2)return 'F 放襟翼 CONF 2 · 自动推力按构型减速';
   if(nm<6&&!s.gear)return 'G 放下起落架 · 等待三绿灯';
   if(nm<5&&s.flaps<3)return 'F 放襟翼 CONF 3';
-  if(nm<4&&s.flaps<s.landingConfig)return `F 放襟翼 CONF ${FLAPS[s.landingConfig]}`;
+  if(nm<4&&s.flaps<s.landingConfig)return `F 放襟翼 CONF ${flapLabels(s)[s.landingConfig]}`;
   if(nm<4&&!s.spoilersArmed)return 'B 预位地面扰流板';
   if(nm<4&&s.autoBrake==='OFF')return 'M 选择自动刹车 LOW / MED';
   if(nm<4&&!s.landingChecklistConfirmed)return '确认构型到位，完成着陆检查';
@@ -382,6 +390,7 @@ export function getInstruction(s){
 export function advanceSimulation(s,input,elapsed,options){
   if(s.result||!Number.isFinite(elapsed)||elapsed<=0)return;
   s.clock.accumulator+=Math.min(elapsed,.5);
-  while(s.clock.accumulator>=.01-1e-10&&!s.result){s.clock.accumulator-=.01;const event=advanceFlight(s,input,.01,options);options?.onStep?.(s,input);if(event==='cruise-transition'){s.clock.accumulator=0;return 'cruise-transition';}}
+  const airport=s.airportId;
+  while(s.clock.accumulator>=.01-1e-10&&!s.result){s.clock.accumulator-=.01;const event=advanceFlight(s,input,.01,options);options?.onStep?.(s,input);if(event==='cruise-transition'){s.clock.accumulator=0;return 'cruise-transition';}if(s.airportId!==airport)return 'airport-handoff';}
   if(s.result)s.clock.accumulator=0;
 }

@@ -1,3 +1,4 @@
+import {chooseAirportPractice} from './airport-selection.mjs';
 import assert from'node:assert/strict';
 import{writeFile}from'node:fs/promises';
 import{connect}from'./cdp.mjs';
@@ -12,15 +13,7 @@ async function click(selector){
  assert(hit.ok,'Click target occluded: '+selector+' '+JSON.stringify(hit));
  await b.send('Input.dispatchMouseEvent',{type:'mouseMoved',x:hit.x,y:hit.y});await new Promise(r=>setTimeout(r,250));await b.click(selector);await settle();
 }
-async function level(id){
- await b.waitFor('!!document.querySelector(".level-select .stage-tabs")');await settle();
- await click('[data-stage-id="airline"]');await b.waitFor(`document.querySelector('[data-stage-id="airline"]')?.getAttribute("aria-selected")==="true"`);
- await b.waitFor(`!!document.querySelector('[data-airline-mode="practice"]')`);await settle();
- await click('[data-airline-mode="practice"]');await b.waitFor('!!document.querySelector('+JSON.stringify('[data-level-id="'+id+'"]')+')');
- await b.evaluate('document.querySelector('+JSON.stringify('[data-level-id="'+id+'"]')+').scrollIntoView({block:"nearest"})');await settle();
- await b.click('[data-level-id="'+id+'"]');await b.waitFor('document.querySelector('+JSON.stringify('[data-level-id="'+id+'"]')+').classList.contains("selected")');
- await b.evaluate('document.querySelector(".enter-level").scrollIntoView({block:"nearest"})');await settle();await b.click('.enter-level');
- await b.waitFor('!!document.querySelector(".flight-card .primary-button")&&!document.querySelector(".flight-card .primary-button").disabled',120000);
+async function level(id){await chooseAirportPractice(b,id);await b.waitFor('!!document.querySelector(".flight-card .primary-button")&&!document.querySelector(".flight-card .primary-button").disabled',120000);
 }
 
 try{

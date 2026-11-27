@@ -45,7 +45,11 @@ def outside_core(a, b, center, interval):
 
 
 def export_regional(args, airport, ways, project, center, side, provenance, snapshot, source_sha, threshold, heading):
-    root = Path(__file__).resolve().parents[1] / f'public/assets/cities/{args.airport}'
+    root = args.output.parent.resolve()
+    extent = getattr(args, 'extent', EXTENT)
+    prefix = root.relative_to(Path(__file__).resolve().parents[1] / 'public').as_posix()
+    reuse_path = getattr(args, 'reuse_regional_manifest', None)
+    reuse = {t['sha256']: t for t in json.loads(reuse_path.read_text())['tiles']} if reuse_path else {}
     output = root / 'traffic-region-v1'
     output.mkdir(parents=True, exist_ok=True)
     routes, coords, neighbors, lifts, heap = [], {}, collections.defaultdict(list), {}, []
@@ -55,7 +59,7 @@ def export_regional(args, airport, ways, project, center, side, provenance, snap
             continue
         pts = [(round(n[1],7),round(n[2],7)) for n in ns]
         local = [project(*p) for p in pts]
-        if not any(-EXTENT-2000 < x < EXTENT+2000 and -EXTENT-2000 < z < EXTENT+2000 for x,z in local):
+        if not any(-extent-2000 < x < extent+2000 and -extent-2000 < z < extent+2000 for x,z in local):
             continue
         kind = tags['highway']
         default_oneway = kind in ['motorway','motorway_link'] or tags.get('junction') in ['roundabout','circular']
@@ -97,9 +101,9 @@ def export_regional(args, airport, ways, project, center, side, provenance, snap
             length=math.dist(a,b)
             if length<.01:
                 continue
-            for tx in range(max(-8,math.floor(min(a[0],b[0])/SIZE)),min(7,math.floor(max(a[0],b[0])/SIZE))+1):
-                for tz in range(max(-8,math.floor(min(a[1],b[1])/SIZE)),min(7,math.floor(max(a[1],b[1])/SIZE))+1):
-                    bounds=[max(-EXTENT,tx*SIZE),max(-EXTENT,tz*SIZE),min(EXTENT,(tx+1)*SIZE),min(EXTENT,(tz+1)*SIZE)]
+            for tx in range(max(math.floor(-extent/SIZE),math.floor(min(a[0],b[0])/SIZE)),min(math.ceil(extent/SIZE)-1,math.floor(max(a[0],b[0])/SIZE))+1):
+                for tz in range(max(math.floor(-extent/SIZE),math.floor(min(a[1],b[1])/SIZE)),min(math.ceil(extent/SIZE)-1,math.floor(max(a[1],b[1])/SIZE))+1):
+                    bounds=[max(-extent,tx*SIZE),max(-extent,tz*SIZE),min(extent,(tx+1)*SIZE),min(extent,(tz+1)*SIZE)]
                     interval=clip_segment(a,b,bounds)
                     if interval:
                         for u,v in outside_core(a,b,center,interval):
@@ -120,14 +124,17 @@ def export_regional(args, airport, ways, project, center, side, provenance, snap
                 continue
             if not counted:
                 counts[r['kind']]+=1; counted=True
-            tile=tiles.setdefault((tx,tz),{'schema':1,'airportId':args.airport,'id':f'{tx}:{tz}','bounds':[max(-EXTENT,tx*SIZE),max(-EXTENT,tz*SIZE),min(EXTENT,(tx+1)*SIZE),min(EXTENT,(tz+1)*SIZE)],'routes':[],'pieces':[]})
+            tile=tiles.setdefault((tx,tz),{'schema':1,'airportId':args.airport,'id':f'{tx}:{tz}','bounds':[max(-extent,tx*SIZE),max(-extent,tz*SIZE),min(extent,(tx+1)*SIZE),min(extent,(tz+1)*SIZE)],'routes':[],'pieces':[]})
             i=len(tile['routes']);tile['routes'].append(record);tile['pieces'].extend([[i,a,b] for a,b in intervals])
     records=[]
     for (tx,tz),tile in sorted(tiles.items()):
         raw=(json.dumps(tile,ensure_ascii=False,separators=(',',':'))+'\n').encode();packed=gzip.compress(raw,compresslevel=9,mtime=0)
-        sha=hashlib.sha256(packed).hexdigest();name=f'{tx}_{tz}-{sha[:12]}.json.gz';(output/name).write_bytes(packed)
-        records.append({'id':tile['id'],'bounds':tile['bounds'],'path':f'assets/cities/{args.airport}/traffic-region-v1/{name}','bytes':len(packed),'decodedBytes':len(raw),'sha256':sha,'decodedSha256':hashlib.sha256(raw).hexdigest(),'routes':len(tile['routes']),'pieces':len(tile['pieces'])})
-    manifest={'schema':1,'airportId':args.airport,'bounds':[-EXTENT,-EXTENT,EXTENT,EXTENT],'tileSize':SIZE,'innerRadiusM':INNER,'center':list(center),'frame':{'threshold':threshold,'heading':heading},'drivingSide':side,'bridgeDeckReference':'airport' if args.airport=='kansai' else 'terrain','tiles':records,'counts':dict(counts),'provenance':{'source':provenance['url'],'sha256':source_sha,'snapshot':snapshot+' cached extract','license':'ODbL-1.0','attribution':'© OpenStreetMap contributors','estimates':'Source motor roads; missing lanes/speeds/widths and bridge clearances use the airport traffic defaults. Regional flow is estimated visual traffic, not measured demand. Original full way identities and distance intervals avoid resetting routes at tile seams.'}}
+        sha=hashlib.sha256(packed).hexdigest();name=f'{tx}_{tz}-{sha[:12]}.json.gz'
+        previous=reuse.get(sha)
+        if not previous:(output/name).write_bytes(packed)
+        tile_path=previous['path'] if previous else f'{prefix}/traffic-region-v1/{name}'
+        records.append({'id':tile['id'],'bounds':tile['bounds'],'path':tile_path,'bytes':len(packed),'decodedBytes':len(raw),'sha256':sha,'decodedSha256':hashlib.sha256(raw).hexdigest(),'routes':len(tile['routes']),'pieces':len(tile['pieces'])})
+    manifest={'schema':1,'airportId':args.airport,'bounds':[-extent,-extent,extent,extent],'tileSize':SIZE,'innerRadiusM':INNER,'center':list(center),'frame':{'threshold':threshold,'heading':heading},'drivingSide':side,'bridgeDeckReference':'airport' if args.airport=='kansai' else 'terrain','tiles':records,'counts':dict(counts),'provenance':{'source':provenance['url'],'sha256':source_sha,'snapshot':snapshot+' cached extract','license':'ODbL-1.0','attribution':'© OpenStreetMap contributors','estimates':'Source motor roads; missing lanes/speeds/widths and bridge clearances use the airport traffic defaults. Regional flow is estimated visual traffic, not measured demand. Original full way identities and distance intervals avoid resetting routes at tile seams.'}}
     if 'regionalSources' in provenance:
         manifest['provenance']['sources'] = provenance['regionalSources']
     manifest['identity']=hashlib.sha256(json.dumps(manifest,sort_keys=True,separators=(',',':')).encode()).hexdigest()

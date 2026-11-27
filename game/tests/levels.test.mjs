@@ -26,7 +26,7 @@ function trigger(id){
 test('13 ordered levels include a continuous single-engine return, weather and selected failures',()=>{
  assert.equal(LEVELS.length,13);assert.equal(new Set(LEVELS.map(l=>l.id)).size,13);
  LEVELS.forEach((l,i)=>{assert.equal(l.order,i+1);if(i)assert(l.difficulty>=LEVELS[i-1].difficulty);const s=createFlight(null,{levelId:l.id});assert.equal(s.levelId,l.id);assert.equal(s.mission.kind,l.kind);assert(!s.result);});
- assert.equal(getLevel('engine-out').kind,'engine-return');assert.equal(nextLevel('dual-glide'),null);assert.equal(nextLevel('missing'),null);
+ assert.equal(getLevel('engine-out').kind,'engine-return');assert.equal(nextLevel('dual-glide').id,'a380-takeoff');assert.equal(nextLevel('missing'),null);
 });
 for(const l of LEVELS)test(`whole-level flight: ${l.id}`,()=>{
  const s=flyLevel(createFlight(null,{levelId:l.id}));assert(s.result?.levelCleared,JSON.stringify({id:l.id,result:s.result,phase:s.phase,route:s.route?.index}));

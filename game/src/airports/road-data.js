@@ -1,3 +1,4 @@
+import {scenerySourceId,validateSceneryFrame} from '../regions/scenery-source.js';
 import {surfaceHeight} from '../terrain/heightfield.js';
 
 export const ROAD_DATA_REVISION=2;
@@ -38,9 +39,9 @@ export function lanePath(road,reverse,offset,heightAt,trimEnds=true){
  return roadPath(points);
 }
 export function validateRoadSource(source,airport){
- if(source?.schema!==1||source.airportId!==airport.id||!Array.isArray(source.nodes)||!Array.isArray(source.edges)||!Array.isArray(source.ground)||!source.fingerprint)throw Error('Invalid road source');
+ if(source?.schema!==1||source.airportId!==scenerySourceId(airport)||!Array.isArray(source.nodes)||!Array.isArray(source.edges)||!Array.isArray(source.ground)||!source.fingerprint)throw Error('Invalid road source');
  if(source.drivingSide!==undefined&&!['left','right'].includes(source.drivingSide))throw Error('Invalid road driving side');
- const p=airport.unproject(0,0),delta=(source.frame.heading-airport.runway.heading)*Math.PI/180;if(Math.abs(source.frame.threshold[0]-p.longitude)>1e-7||Math.abs(source.frame.threshold[1]-p.latitude)>1e-7||Math.abs(Math.atan2(Math.sin(delta),Math.cos(delta)))>.001*Math.PI/180)throw Error('Road frame mismatch');
+ validateSceneryFrame(airport,source.frame,'Road');
  for(const n of source.nodes)if(n.length<5||!n.slice(0,4).every(Number.isFinite))throw Error('Invalid road node');
  for(const e of source.edges)if(!TRAFFIC_PROFILES[e.kind]||!Array.isArray(e.nodes)||e.nodes.length<2||e.nodes.some(i=>!Number.isSafeInteger(i)||!source.nodes[i])||![0,1,-1].includes(e.oneway)||!Number.isFinite(e.width)||e.width<3||e.width>40||!Number.isSafeInteger(e.forward)||e.forward<1||e.forward>8||!Number.isSafeInteger(e.backward)||e.backward<0||e.backward>8||!e.oneway&&!e.backward)throw Error('Invalid road edge');
  return source;

@@ -8,7 +8,7 @@ export const createATC=()=>({clearance:null,phaseKey:null,issuedAt:0,deviation:n
 function nominalClearance(s){
  if(s.goAround){const coast=s.touchAndGo?.active&&s.touchAndGo.coastalTurn;return{key:coast?'goaround-coastal':'goaround',kind:'heading',turnGrace:coast?55:6,heading:(runwayHeading(s)+s.goAroundHeading/RAD+360)%360,altitude:s.selectedAltitude,climb:true,label:coast?(s.airportId!=='training'?'触地复飞 · 左侧爬升':'触地复飞 · 左转海侧爬升'):'复飞 · 跑道方向'};}
  const target=airlineTarget(s);
- if(target){const n=s.airline.navigation;return{key:`airline-${n.kind}-${n.index}`,kind:'airline-route',altitude:target.altitude,minMSL:target.minMSL,maxMSL:target.maxMSL,speedLimit:target.speedLimit,elevationFt:n.elevationFt||0,climb:n.kind==='departure',turnGrace:n.kind==='departure'&&n.index>0?75:40,label:`${target.name} · 按 ND 航路和高度飞行`};}
+ if(target){const n=s.airline.navigation;return{key:`airline-${n.kind}-${n.index}`,kind:'airline-route',altitude:target.altitude,minMSL:target.minMSL,maxMSL:target.maxMSL,speedLimit:target.speedLimit,elevationFt:n.elevationFt||0,climb:n.kind==='departure'||n.kind==='enroute',turnGrace:n.kind==='departure'&&n.index>0?75:40,label:`${target.name} · 按 ND 航路和高度飞行`};}
  if(s.route?.active){
   const r=s.route,leg=r.points[r.index];
   return{key:`route-${r.index}`,kind:r.inFinal?'approach':'route',altitude:r.inFinal?null:leg.alt,leg:r.index,climb:r.index===0,label:r.inFinal?'五边 · 对正跑道':`${leg.name} · ${s.airportId!=='training'?'左侧返场':'海侧航线'}`};
@@ -19,7 +19,7 @@ function nominalClearance(s){
 }
 export function clearanceFor(s){const c=nominalClearance(s);return s.atc?.terrainFloorFt?{...c,altitude:Math.max(c.altitude||0,s.atc.terrainFloorFt),climb:true,label:'地形避让 · 临时安全高度'}:c;}
 function deviationFor(s,c){
- const altitude=(s.y-RUNWAY.ground)*FT;
+ const altitude=(s.y-runwayOf(s).ground)*FT;
  if(c.kind==='airline-route'){
   const t=airlineTarget(s);if(t&&Math.abs(t.cross)>2500)return{type:'route',text:'偏离航班航路 · 根据 ND 修正航迹',clip:'atc-route'};
   // A visual speed instruction uses no mismatched or missing speech asset.
@@ -67,7 +67,7 @@ export function updateATC(s,dt){
   if(a.deviation?.type!==deviation.type)a.seconds=0;
   a.seconds+=dt;a.deviation=deviation;
   if(a.seconds>=6&&s.time-a.lastSent>=25){
-   if(!deviation.clip||repeatRadio(s,deviation.clip,{priority:1})){a.lastSent=s.time;a.notified=!!deviation.clip;a.violations.push({type:deviation.type,time:s.time,altitude:(s.y-RUNWAY.ground)*FT});if(a.violations.length>30)a.violations.shift();}
+   if(!deviation.clip||repeatRadio(s,deviation.clip,{priority:1})){a.lastSent=s.time;a.notified=!!deviation.clip;a.violations.push({type:deviation.type,time:s.time,altitude:(s.y-runwayOf(s).ground)*FT});if(a.violations.length>30)a.violations.shift();}
   }
  }else{
   a.seconds=0;

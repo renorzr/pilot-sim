@@ -6,6 +6,7 @@ const fix=(id,latitude,longitude,extra={})=>({kind:'fix',id,name:id,latitude,lon
 const altitude=(headingMag,variation,altitudeMSL,extra={})=>({kind:'altitude',name:'按航向爬升',headingMag,headingTrue:headingMag+variation,altitudeMSL,...extra});
 const vector=(headingMag,variation,distance,extra={})=>({kind:'vector',name:'雷达引导',headingMag,headingTrue:headingMag+variation,distance,simulated:true,...extra});
 export const DEPARTURE_SOURCES=Object.freeze({
+ lga:{edition:'FAA AIRAC 2612',url:'https://aeronav.faa.gov/d-tpp/2612/00289LAGUARDIA_C.PDF'},
  lax:{edition:'FAA AIRAC 2611',url:'https://aeronav.faa.gov/d-tpp/2611/00237ORCKA_C.PDF',coordinates:'https://aeronav.faa.gov/upload_313-d/cifp/CIFP_261029.zip'},
  jfk:{edition:'FAA AIRAC 2611',url:'https://aeronav.faa.gov/d-tpp/2611/00610KENNEDY_C.PDF'},
  changi:{edition:'CAAS AIP 2026-09-03; chart 2024-10-31',url:'https://aim-sg.caas.gov.sg/aim-content/uploads/aip/17-SEP-2026/AIP/2026-09-03-000000/pdf/SG-AD-2-WSSS-AD-2-WSSS-SID-11-to-11.1.pdf'},
@@ -21,6 +22,10 @@ export function initialDeparture(airport,destinationCourse){
    fix('DOCKR',33+55/60+54.64/3600,-(118+27/60+29.17/3600),{maxMSL:3000,flyOver:true}),
    // ORCKA's published heading; duration/distance of radar guidance is a game clearance.
    vector(236,12,7000,{turn:'left'}),
+  ]};
+  case 'lga':return{...common,id:'LGA7-Bronx-initial',name:'04 · LAGUARDIA SEVEN Bronx 初始离场',clearanceMSL:5000,legs:[
+   altitude(44,-12.6,500),
+   vector(360,-12.6,14000,{name:'Bronx Climb · 雷达引导',turn:'left'}),
   ]};
   case 'jfk':return{...common,id:'JFK5-initial',name:'22R · KENNEDY FIVE 初始离场',clearanceMSL:5000,legs:[
    vector(224,-13,12000,{name:'起飞后保持航向'}),

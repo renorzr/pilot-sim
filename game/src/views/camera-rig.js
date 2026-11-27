@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import {aircraftDefinition} from '../aircraft/registry.js';
 import {surfaceHeight}from '../terrain/heightfield.js';
 import {aircraftSelfBlocked} from '../replay/shot-geometry.js';
 import {settingVisible} from '../replay/setting-shots.js';
@@ -6,9 +7,12 @@ import {replayCameraPose} from '../replay/replay-camera.js';
 import {sampleCruiseCamera}from './cruise-camera-track.js';
 import {historicalCamera} from '../history/presentation.js';
 import {placeCockpitCamera} from './aircraft-pose.js';
+import {rotateFlightVector} from '../missions/route-geography.js';
 const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
 export class FlightCameraRig{
  constructor(camera,{heightAt=surfaceHeight,obstruction=()=>null}={}){this.camera=camera;this.heightAt=heightAt;this.obstruction=obstruction;this.position=new THREE.Vector3();this.target=new THREE.Vector3();this.initialized=false;this.failedReplayShots=new Set();this.replaySession=null;this.lastReset=-1;this.lastPose=null;this.adjusted=false;this.mode='cockpit';this.look=new THREE.Vector3();this.lastOrigin=new THREE.Vector3();}
+ relativePose(){if(this.mode!=='exterior'||!this.lastPose)return null;const p=new THREE.Vector3(this.lastPose.x,this.lastPose.y,this.lastPose.z),vector=v=>({x:v.x,y:v.y,z:v.z});return{offset:vector(this.camera.position.clone().sub(p)),target:vector(this.target.clone().sub(p)),fov:this.camera.fov};}
+ seedRelative(pose,state,angle,view){if(!pose)return;const offset=rotateFlightVector(pose.offset,angle),target=rotateFlightVector(pose.target,angle);this.position.set(state.x+offset.x,state.y+offset.y,state.z+offset.z);this.target.set(state.x+target.x,state.y+target.y,state.z+target.z);this.camera.position.copy(this.position);this.camera.fov=pose.fov;this.camera.up.set(0,1,0);this.camera.lookAt(this.target);this.lastOrigin.set(state.x,state.y+1.1,state.z);this.lastPose={x:state.x,y:state.y,z:state.z,time:state.time,airportId:state.airportId};this.lastReset=view.resetSerial;this.initialized=true;}
  constrain(origin,desired,s,{clearance=2.5,minSeparation=42,segmented=false}={}){
   const result=desired.clone();
   // Sample the shared physical terrain along the camera sight line. Only the
@@ -57,7 +61,7 @@ export class FlightCameraRig{
   else if(view.mode==='cockpit'){
    camera.clearViewOffset();camera.fov=36;placeCockpitCamera(camera,s,{motion,visualOffset});this.initialized=false;
   }else{
-   camera.fov=43;camera.setViewOffset(camera.aspect*1000,1000,camera.aspect*40,70,camera.aspect*1000,1000);const origin=new THREE.Vector3(s.x,s.y+visualOffset+1.1,s.z),angle=-s.yaw+view.azimuth,elevation=view.elevation,radius=view.distance;
+   camera.fov=43;camera.setViewOffset(camera.aspect*1000,1000,camera.aspect*40,70,camera.aspect*1000,1000);const origin=new THREE.Vector3(s.x,s.y+visualOffset+1.1,s.z),angle=-s.yaw+view.azimuth,elevation=view.elevation,radius=view.distance*(aircraftDefinition(s).visual.cameraScale??1);
    const desired=new THREE.Vector3(origin.x+Math.sin(angle)*Math.cos(elevation)*radius,origin.y+Math.sin(elevation)*radius,origin.z+Math.cos(angle)*Math.cos(elevation)*radius),safe=this.constrain(origin,desired,s);
    const teleported=!this.lastPose||Math.hypot(s.x-this.lastPose.x,s.y-this.lastPose.y,s.z-this.lastPose.z)>1000||this.lastPose.airportId!==s.airportId||s.time<this.lastPose.time;
    if(!this.initialized||view.resetSerial!==this.lastReset||teleported){this.position.copy(safe);this.target.copy(origin);this.initialized=true;}

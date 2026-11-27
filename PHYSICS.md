@@ -35,7 +35,8 @@ integrates forces, refreshes air data and evaluates the mission.
 
 | Module | Responsibility |
 | --- | --- |
-| `game/src/sim/constants.js` | Units, coordinates, mass, synthetic airframe parameters |
+| `game/src/sim/constants.js` | Units, coordinates, active mass and compatibility aliases |
+| `game/src/aircraft/registry.js` | Immutable versioned performance, geometry and system definitions |
 | `weather.js` | Wind vector, density, deterministic gust/shear fields, runway friction |
 | `aerodynamics.js` | Relative air velocity, IAS/TAS/groundspeed, angle of attack, sideslip, lift/drag, trim estimate |
 | `engines.js` | Independent engine status, spool delay, N1, thrust, available capacity and asymmetric moment |
@@ -62,9 +63,11 @@ and gust amplitude are metres/second; the configured steady wind is knots.
   approximation); compressibility, pitot errors and temperature are omitted.
 - `verticalSpeed`: derived world vertical velocity. Wind affects relative
   airflow; an updraft does not instantaneously teleport vertical velocity.
-- `engines[0/1]`: left/right status (`running`, `off`, `failed`), health,
+- `engines[]`: definition-ordered status (`running`, `off`, `failed`), health,
   optional individual lever override, command, spool, illustrative N1 and
   signed thrust in newtons. `thrust` is a derived aggregate for compatibility.
+  The shipped A320 has left/right engines at indices 0/1. Engine layout, capacity,
+  moment arms and audio positions belong to the active definition.
 - `controls`: rudder demand/trim/applied position, default assistance and
   pitch/roll rate commands. Q/E command rudder; assistance yields to manual
   pedal input. The help panel allows assistance to be disabled.
@@ -478,16 +481,19 @@ with both engines available and no terrain alert. The city great-circle bearing
 is retained for cruise/arrival geometry, not used as the initial departure
 heading. Rejected requests never move the aircraft.
 
-The automatic cut additionally requires the actual initial-segment endpoint
-crossing with all prior visits in order. If conditions are not yet met, guidance
-continues forward without chasing a passed fix. Existing finite-segment route
-protection still limits prolonged overflight. Early manual requests remain
-available once the final initial segment is established and safe. Departure-turn
-ATC reminders allow75 seconds; route-failure grace remains40 seconds.
+Normal departure completion requires the actual initial-segment endpoint
+crossing with all prior visits in order. It starts continuous geographic flight,
+not a cut. Actual force-integrated horizontal displacement advances the spherical
+route. Long routes receive climb and descent targets; short terminal transfers
+retain the initial clearance. Within destination coverage, a coordinate-frame
+rebase preserves geographic position, MSL, velocity, body rates, controls, time,
+weather and failures. The accepted warmed destination world is required before
+this handoff; otherwise physical flight continues under holding guidance.
 
-The labelled cruise cut omits long cruise/most descent and changes the airport
-frame. An automatic cut discards the remaining accelerated frame, clears held
-controls and fast-forward, and pauses physics until destination assets load.
+Only an explicit player request performs the labelled cruise cut and its camera
+presentation. It pauses physics while destination assets load and uses remaining
+rather than original distance for an en-route time estimate. There is no automatic
+cut. [Implementation and limitations](docs/CONTINUOUS-FLIGHT.md).
 The clean210 kt destination entry is28 km from the runway threshold on
 the origin-city radial; its incoming track uses the destination great-circle
 terminal bearing, not the departure bearing. Terrain-sampled arrival legs arc
@@ -529,7 +535,7 @@ A height below the airport reference alone does not create a runway touchdown. T
 
 ## Global airport frames and coastline performance
 
-Six airport frames use independent runway endpoints, DEMs and coastline derivatives. Thirty directed city flights retain their local-frame departure evidence and require a configured destination landing; direct-distance cruise-time estimation remains an explicit transition with no fuel/range model. The Pacific-centred world map unwraps longitudes, clips source land at its seam and samples great-circle arcs, including polar paths. Map geometry never controls aircraft dynamics.
+Six airport frames use independent runway endpoints, DEMs and coastline derivatives. Directed city flights retain their local-frame departure evidence and require a configured destination landing; continuous geographic flight and an optional remaining-distance skip share that evidence. There is no fuel/range model. The Pacific-centred world map unwraps longitudes, clips source land at its seam and samples great-circle arcs, including polar paths. Map geometry never controls aircraft dynamics.
 
 Marine masks cache shoreline edges in horizontal bands and reject island holes by their bounds. This preserves the original point-in-polygon decisions while avoiding a full traversal of tens of thousands of coastline vertices for each terrain vertex. Shared triangle collision and GPWS still use the same airport-specific grid. Independent source coastline derivatives use length-weighted offshore/onshore votes to classify closed faces, retaining real island and mainland geometry.
 

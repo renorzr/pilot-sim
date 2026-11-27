@@ -6,7 +6,7 @@ import {createFlight,advanceFlight,advanceSimulation,setDetent,setLever,stepFlap
 import {DEPARTURE,groundActive,groundFrozen,skipTaxi,skipAirportIntro}from '../src/missions/ground.js';
 import {groundPilot}from './ground-pilot.mjs';
 import {pilotInput}from './pilot.mjs';
-import {setRadioLanguage,clipUrl}from '../src/comms/radio.js';
+import {setRadioLanguage,clipUrl,radioClipDuration}from '../src/comms/radio.js';
 import radio from '../src/comms/ground-radio.json' with{type:'json'};
 import {normalizeProgress}from '../src/missions/progress.js';
 import {refreshAirData}from '../src/sim/aerodynamics.js';
@@ -60,7 +60,7 @@ test('taxi speeding triggers an ATC reminder and sustained excessive speed ends 
 });
 test('ground radio uses bilingual recordings, measured timing and the normal radio DSP URLs',async()=>{
  for(const lang of['zh','en'])for(const[key,lines]of Object.entries(radio[lang]))for(let i=0;i<lines.length;i++){const id=`ground-${key}-${i}`;assert((await stat(new URL(`../../public/assets/radio/${lang==='en'?'en/':''}${id}.mp3`,import.meta.url))).size>1000);assert(radio.durations[lang][id]>0);assert(!/\p{Script=Han}/u.test(t(lines[i][1],'en')));assert(clipUrl(id,lang).includes(radio.version));}
- const s=create();advanceFlight(s,{},.02);assert.equal(s.radio.active.clip,'ground-preparation-0');setRadioLanguage(s,'en');assert(Math.abs(s.radio.active.until-(s.time+(englishPilotClean.clips[s.radio.active.clip]?.duration??radio.durations.en[s.radio.active.clip])+.2))<1e-8);until(s,s=>s.ground.stage==='taxi');assert(s.time>12);
+ const s=create();advanceFlight(s,{},.02);assert.equal(s.radio.active.clip,'ground-preparation-0');setRadioLanguage(s,'en');assert(Math.abs(s.radio.active.until-(s.time+radioClipDuration(s.radio.active.clip,'en')))<1e-8);until(s,s=>s.ground.stage==='taxi');assert(s.time>12);
 });
 test('old runway-only Daxing scores expire without affecting training or landing records',()=>{
  const p=normalizeProgress({levels:{takeoff:{bestScore:90},'daxing-takeoff':{bestScore:95},'daxing-landing':{bestScore:92}}});assert(!p.levels['daxing-takeoff']);assert.equal(p.levels.takeoff.bestScore,90);assert.equal(p.levels['daxing-landing'].bestScore,92);

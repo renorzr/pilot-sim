@@ -1,5 +1,6 @@
 import {preloadHistoricalSpeech} from './history/media.js';
-import {createHistoricalRescue,historicalPresentationVisual} from './history/presentation.js';
+import {createHistoricalRescue,historicalPresentationVisual,skipHistoricalPrelude} from './history/presentation.js';
+import {preloadRescueAudio,switchRescueLanguage,rescueLine} from './history/rescue-media.js';
 import {HistoricalPresentationOverlay} from './history/PresentationOverlay.jsx';
 import {createFailurePrelude,advanceFailurePrelude,finishFailurePrelude,pauseFailurePrelude,failureStatus,failureKind,preloadFailureAudio,switchFailureLanguage} from './failure/presentation.js';
 import {FailureOverlay} from './failure/FailureOverlay.jsx';
@@ -7,6 +8,7 @@ import {HistoryPanel} from './history/HistoryPanel.jsx';
 import {loadHistoricalProgress,recordHistoricalResult,saveHistoricalProgress} from './history/progress.js';
 import {prepareReplayScenery} from './replay/replay-scenery.js';
 import {FlightRecording} from './replay/flight-recording.js';
+import {aircraftIdentity} from './aircraft/catalog.js';
 import {createReplay,replayClip,advanceReplay,changeReplayClip,replayFrame,replayStatus} from './replay/highlights.js';
 import {ReplayControls} from './replay/ReplayControls.jsx';
 import {createAirportWorldManager}from './views/airport-world-manager.js';
@@ -24,9 +26,9 @@ import {AirplaneLanding,AirplaneTakeoff,ArrowCounterClockwise,ArrowsOut,CheckCir
 import {createFlight,adjustStick,centerStick,getInstruction,radioAltitude,stepFlaps,toggleGear,toggleAP,toggleApproach,setDetent,cycleAutoBrake,toggleReverse,beginGoAround,confirmChecklist,restoreCheckpoint,acknowledgeLevel,confirmAction,toggleAutoThrust} from './flight.js';
 import {createWorld} from './world.js';
 import {EngineAudio} from './audio.js';
-import {Instruments} from './Instruments.jsx';
-import {FCU,AircraftControls,ProcedurePanel,Briefing} from './CockpitPanels.jsx';
-import {FCU_FRAME_ASSET} from './views/fcu-layout.js';
+import {Instruments,FCU,AircraftControls} from './aircraft/cockpits.jsx';
+import {ProcedurePanel,Briefing} from './CockpitPanels.jsx';
+import {cockpitFrameAsset} from './views/fcu-layout.js';
 import {StickReadout} from './StickReadout.jsx';
 import {FastForwardButton} from './FastForwardButton.jsx';
 import {advanceAtRate} from './sim/time-acceleration.js';
@@ -66,11 +68,16 @@ export function App(){
   const[cabinScale,setCabinScale]=useState(()=>{try{const v=localStorageSafe()?.getItem('pilot-sim.cabin-motion');if(v!==null&&v!==undefined&&[0,.35,1].includes(Number(v)))return Number(v);}catch{}return window.matchMedia('(prefers-reduced-motion: reduce)').matches?0:1;}),cabinScaleRef=useRef(cabinScale),cockpitRig=useRef(null),lastMotion=useRef(null);
   function cycleCabin(){if(cruise.current?.active)return;const next=cabinScale===1?.35:cabinScale===.35?0:1;cabinScaleRef.current=next;setCabinScale(next);try{localStorageSafe()?.setItem('pilot-sim.cabin-motion',String(next));}catch{}}
   const publish=useCallback(()=>setState({...flight.current}),[]);
-  useEffect(()=>{setRadioLanguage(flight.current,language);if(presentation.current?.visual)setRadioLanguage(presentation.current.visual,language);if(switchFailureLanguage(failure.current,language,sound.current?.failurePlaybackState())){sound.current?.prepareFailure(failure.current);setFailureState(failureStatus(failure.current));}publish();},[language,publish]);
+  useEffect(()=>{setRadioLanguage(flight.current,language);if(presentation.current?.visual)setRadioLanguage(presentation.current.visual,language);if(switchRescueLanguage(presentation.current,language,sound.current?.rescuePlaybackState()))sound.current?.prepareRescue(presentation.current);if(switchFailureLanguage(failure.current,language,sound.current?.failurePlaybackState())){sound.current?.prepareFailure(failure.current);setFailureState(failureStatus(failure.current));}publish();},[language,publish]);
   useEffect(()=>{preloadHistoricalSpeech(flight.current);},[state.levelId,language]);
+  useEffect(()=>{preloadRescueAudio(flight.current);},[state.levelId,language]);
   useEffect(()=>{preloadFailureAudio(flight.current);},[state.levelId,language]);
   const resetRate=useCallback(()=>{rate.current=1;rateOrigin.current=null;setTimeScale(1);setFastForwardReset(n=>n+1);},[]);
-  const handleAirportChange=useCallback(()=>{
+  const handleAirportChange=useCallback(({continuous=false}={})=>{
+    if(continuous){
+      const worlds=worldManager.current,pose=worlds?.current()?.view.relativeCamera?.(),next=worlds?.useAirport(flight.current.airportId,{retainPrevious:true});
+      next?.view.seedContinuousCamera?.(pose,flight.current,flight.current.airline.frameHandoff.angle,viewState.current);setLoaded(worlds.ready());setError('');return;
+    }
     resetCameraTransition(viewState.current);setLoaded(false);setLoadingProgress({stage:'assets',percent:0});setError('');
     lastSpoken.current=0;resetRate();sound.current?.resetSpeech();
     cameraPointers.current.clear();keys.current.clear();touch.current={};pointerStick.current=null;centerStick(flight.current);
@@ -112,12 +119,13 @@ export function App(){
     const previousAirport=worldManager.current?.current()?.id??flight.current.airportId;
     resetCameraTransition(viewState.current);cameraPointers.current.clear();
     const previous=flight.current,preserve=previous.levelId===levelId?{pilotVoice:previous.radio.pilotVoice,towerVoice:previous.radio.towerVoice,towerVoices:previous.radio.towerVoices,copilotVoice:previous.radio.copilotVoice}:{};
-    flight.current=createFlight(mode,{levelId,...preserve,historical:options.historical?{...preserve,...options.historical}:previous.historical?{mode:previous.historical.mode,...preserve}:undefined,landingConfig:options.landingConfig??(levelId===previous.levelId?previous.landingConfig:undefined)});
+    flight.current=createFlight(mode,{levelId,...preserve,aircraft:options.aircraft??(previous.levelId===levelId?previous.aircraft:undefined),historical:options.historical?{...preserve,...options.historical}:previous.historical?{mode:previous.historical.mode,...preserve}:undefined,landingConfig:options.landingConfig??(levelId===previous.levelId?previous.landingConfig:undefined)});
+    if(aircraftIdentity(previous.aircraft)!==aircraftIdentity(flight.current.aircraft)){setLoaded(false);setLoadingProgress({stage:'aircraft',percent:0});setError('');autoStart=false;}
     recording.current=new FlightRecording();if(!flight.current.historical||flight.current.mission.practice)recording.current.observe(flight.current);replay.current?.director?.dispose?.();replay.current=null;setReplayState(null);setResultPanel(true);
     worldManager.current?.retainDestination(flight.current.airline?.destination);setPrefetchProgress(null);
     if(previousAirport!==flight.current.airportId){handleAirportChange();autoStart=false;}
-    presentation.current=createAirportPresentation(flight.current);setPresenting(!!presentation.current?.active);startedRef.current=autoStart;
     setRadioLanguage(flight.current,getLanguage());
+    presentation.current=createAirportPresentation(flight.current);setPresenting(!!presentation.current?.active);startedRef.current=autoStart;
     setShowLevels(false);
     lastSpoken.current=0;sound.current?.resetSpeech();resetRate();setState({...flight.current});setStarted(autoStart);setHelp(false);updatePlaying(autoStart);if(autoStart)sound.current?.start().catch(()=>{});
   },[updatePlaying,resetRate,handleAirportChange]);
@@ -128,7 +136,7 @@ export function App(){
     presentation.current=null;setPresenting(false);startedRef.current=true;
     flight.current=restoreCheckpoint(flight.current);recording.current.retry(flight.current);replay.current?.director?.dispose?.();replay.current=null;setReplayState(null);setResultPanel(true);if(worldManager.current?.current()?.id!==flight.current.airportId)handleAirportChange();setRadioLanguage(flight.current,getLanguage());lastSpoken.current=flight.current.calloutSequence;sound.current?.resetSpeech();resetRate();setState({...flight.current});setStarted(true);setHelp(false);updatePlaying(true);sound.current?.start().catch(()=>{});
   },[updatePlaying,resetRate,handleAirportChange]);
-  const skipIntro=useCallback(()=>{if(cruise.current?.active)return;if(finishAirportPresentation(presentation.current)){const kind=presentation.current.kind;setPresenting(false);keys.current.clear();touch.current={};pointerStick.current=null;centerStick(flight.current);if(kind==='history-intro')recording.current.observe(flight.current);if(kind==='history-rescue'){running.current=false;setPlaying(false);sound.current?.resetSpeech();}publish();}else act(skipAirportIntro);},[act,publish]);
+  const skipIntro=useCallback(()=>{if(cruise.current?.active)return;if(presentation.current?.kind==='history-intro'){skipHistoricalPrelude(presentation.current);publish();return;}if(finishAirportPresentation(presentation.current)){const kind=presentation.current.kind;setPresenting(false);keys.current.clear();touch.current={};pointerStick.current=null;centerStick(flight.current);if(kind==='history-rescue'){running.current=false;setPlaying(false);sound.current?.resetSpeech();}publish();}else act(skipAirportIntro);},[act,publish]);
   const openLevels=useCallback(()=>{if(cruise.current?.active)return;skipFailure();updatePlaying(false);setHelp(false);setShowLevels(true);},[updatePlaying,skipFailure]);
   useEffect(()=>{if(state.result?.levelCleared&&state.historical){setHistoryProgress(previous=>{const p=recordHistoricalResult(previous,state);saveHistoricalProgress(localStorageSafe(),p);return p;});}if(state.result?.levelCleared){setProgress(previous=>{const updated=recordResult(previous,state);saveProgress(localStorageSafe(),updated);return updated;});}},[state.result,state.levelId]);
   const toggleResult=useCallback(()=>setResultPanel(v=>!v),[]);
@@ -158,17 +166,17 @@ export function App(){
         if(black&&commitCruiseTransition(p,flight.current)){recording.current.observe(flight.current);handleAirportChange();setState({...flight.current});}
         if(event==='done'){cruise.current=null;setCruiseFrame(null);keys.current.clear();touch.current={};pointerStick.current=null;centerStick(flight.current);}
         if(p.committed&&worlds.current()?.error&&now>=retryAt){retryAt=now+10000;setError('');setLoaded(false);worlds.retry();}
-      }else if(advanceAirportPresentation(presentation.current,dt,running.current&&worlds.ready())){
-        if(!presentation.current.active){setPresenting(false);keys.current.clear();touch.current={};pointerStick.current=null;centerStick(flight.current);if(presentation.current.kind==='history-intro')recording.current.observe(flight.current);if(presentation.current.kind==='history-rescue'){running.current=false;setPlaying(false);}}
+      }else if(advanceAirportPresentation(presentation.current,dt,running.current&&worlds.ready()&&!document.hidden&&!window.matchMedia('(orientation: portrait)').matches,{media:sound.current?.rescuePlaybackState(),flight:flight.current,onStep:s=>recording.current.observe(s)})){
+        if(!presentation.current.active){setPresenting(false);keys.current.clear();touch.current={};pointerStick.current=null;centerStick(flight.current);if(presentation.current.kind==='history-intro'){recording.current.observe(flight.current);setViewMode(viewState.current,'cockpit');resetCameraTransition(viewState.current);setViewModeUI('cockpit');}if(presentation.current.kind==='history-rescue'){running.current=false;setPlaying(false);}}
       }else if(running.current&&worlds.ready()){
         if(rateOrigin.current==='keyboard'&&(radioAltitude(flight.current)<1000||flight.current.goAround))resetRate();
         const k=keys.current,t=touch.current,input={pitch:(k.has('ArrowDown')||t.down?1:0)-(k.has('ArrowUp')||t.up?1:0),steer:(k.has('ArrowRight')||t.right?1:0)-(k.has('ArrowLeft')||t.left?1:0),throttle:(k.has('KeyW')?1:0)-(k.has('KeyS')?1:0),brake:k.has('Space')||t.brake,precision:k.has('ShiftLeft')||k.has('ShiftRight'),rudder:(k.has('KeyE')?1:0)-(k.has('KeyQ')?1:0),stick:pointerStick.current};
         const wasGroundFrozen=groundFrozen(flight.current)||arrivalPreview(flight.current),previousAirport=flight.current.airportId;
-        advanceAtRate(flight.current,input,dt,rate.current,{onCruiseSkip:beginCruise,onStep:(s,input)=>recording.current.observe(s,input)});
-        if(previousAirport!==flight.current.airportId){handleAirportChange();setState({...flight.current});}
+        advanceAtRate(flight.current,input,dt,rate.current,{canEnterArrival:id=>worlds.prepared()?.id===id&&worlds.prepared()?.ready&&worlds.prepared()?.warmed,onStep:(s,input)=>recording.current.observe(s,input)});
+        if(previousAirport!==flight.current.airportId){handleAirportChange({continuous:flight.current.airline?.arrivalMode==='continuous'});setState({...flight.current});}
         if(wasGroundFrozen&&!groundFrozen(flight.current)&&!arrivalPreview(flight.current)){keys.current.clear();touch.current={};pointerStick.current=null;centerStick(flight.current);}
         if(rateOrigin.current==='keyboard'&&(radioAltitude(flight.current)<=1000||flight.current.goAround))resetRate();
-        if(flight.current.result){const rescue=presentation.current?.kind!=='history-rescue'?createHistoricalRescue(flight.current):null;if(rescue){presentation.current=rescue;setPresenting(true);}else{running.current=false;setPlaying(false);}resetRate();centerStick(flight.current);keys.current.clear();touch.current={};pointerStick.current=null;setState({...flight.current});}
+        if(flight.current.result){const rescue=presentation.current?.kind!=='history-rescue'?createHistoricalRescue(flight.current):null;if(rescue){presentation.current=rescue;sound.current?.prepareRescue(rescue);setPresenting(true);}else{running.current=false;setPlaying(false);}resetRate();centerStick(flight.current);keys.current.clear();touch.current={};pointerStick.current=null;setState({...flight.current});}
       }
       if(flight.current.result&&!replay.current&&!(presentation.current?.active&&presentation.current.kind==='history-rescue')){
         recording.current.observe(flight.current);replay.current=createReplay(recording.current,{airportId:worlds.current()?.id,background:true,preferFailure:!flight.current.result.success});setResultPanel(true);setReplayState({...replayStatus(replay.current),opacity:replayFrame(replay.current)?.opacity??1});sound.current?.resetSpeech();
@@ -185,13 +193,13 @@ export function App(){
         const visible=!document.hidden&&!window.matchMedia('(orientation: portrait)').matches,f=failure.current;
         if(f?.active){advanceFailurePrelude(f,dt,{visible,replayReady:!r.planning&&!r.loading,media:sound.current?.failurePlaybackState()});sound.current?.updateFailure(f,visible);}
         advanceReplay(r,f?.active&&(f.paused||f.revealElapsed<=0)?0:dt,{ready:worlds.ready(),visible});
-        if(oldIndex!==r.index&&!failure.current?.active)sound.current?.resetSpeech();
+        // Recorded-time discontinuities are handled by the audio cursor; camera cuts do not reset speech.
         replayVisual=replayFrame(r);
       }
       p=cruise.current;
-      // Eligibility starts a single background load, even if the player keeps
-      // flying to the terminal waypoint instead of choosing the early skip.
-      if(!r&&!p?.committed&&canSkipCruise(flight.current)){
+      // Prepare the destination from flight selection for either a continuous
+      // handoff or an optional player-requested skip.
+      if(!r&&!p?.committed&&flight.current.airline&&!flight.current.airline.arrivalReached&&!flight.current.airline.cruiseSkipped){
         const prepared=worlds.prepared();
         if(prepared?.error&&now>=retryAt){retryAt=now+10000;worlds.retainDestination(null);}
         worlds.prefetch(flight.current.airline.destination);
@@ -200,18 +208,20 @@ export function App(){
       if(!r&&prepared?.ready&&!prepared.warmed&&!prepared.warming){const preview=createFlight(null,{levelId:prepared.id==='us1549'?'history-us1549':prepared.id+'-landing'});worlds.warmPrepared(preview,{cinematic:true,cinematicTime:0,view:viewState.current,dt:0});}
       const motion=sampleCabinMotion(flight.current,cabinScaleRef.current);lastMotion.current=motion;
       if(cockpitRig.current)cockpitRig.current.style.transform=`translate(${motion.x*100}cqw,${motion.y*100}cqw) rotate(${motion.roll}rad) scale(var(--cockpit-overscan))`;
-      const historyVisual=startedRef.current?historicalPresentationVisual(presentation.current):null,historyFrame=historyVisual?{kind:presentation.current.kind,elapsed:presentation.current.elapsed,duration:presentation.current.duration}:null,visual=cruiseVisualFlight(p)||historyVisual,renderState=replayVisual?.state||visual||flight.current,cinematic=!replayVisual&&!visual&&startedRef.current&&airportPresentationActive(flight.current,presentation.current),cinematicTime=presentation.current?.active?presentation.current.elapsed:null,renderView=replayVisual||visual?{...viewState.current,mode:'exterior'}:viewState.current;
+      const historyVisual=startedRef.current||presentation.current?.kind==='history-intro'?historicalPresentationVisual(presentation.current):null,historyFrame=historyVisual?{kind:presentation.current.kind,elapsed:presentation.current.elapsed,duration:presentation.current.duration,strikeAt:presentation.current.strikeAt}:null,visual=cruiseVisualFlight(p)||historyVisual,renderState=replayVisual?.state||visual||flight.current,cinematic=!replayVisual&&!visual&&startedRef.current&&airportPresentationActive(flight.current,presentation.current),cinematicTime=presentation.current?.active?presentation.current.elapsed:null,renderView=replayVisual||visual?{...viewState.current,mode:'exterior'}:viewState.current;
       const opaqueFailure=failure.current?.active&&failure.current.opacity>=.999;
-      if(!r?.planning&&(!r||replaying&&worlds.current()?.id===renderState.airportId)&&(!opaqueFailure||r?.loading))worlds.update(renderState,replayVisual?{}:motion,{cinematic,cinematicTime,history:historyFrame,cruise:visual&&!historyVisual?p:null,replay:replayVisual?{...replayVisual.shot,panel:replayUI.current.resultPanel}:null,view:renderView,dt});
+      if(!r?.planning&&(!r||replaying&&worlds.current()?.id===renderState.airportId)&&(!opaqueFailure||r?.loading))worlds.update(renderState,replayVisual?{}:motion,{cinematic,cinematicTime,history:historyFrame,cruise:visual&&!historyVisual?p:null,replay:replayVisual?{...replayVisual.shot,panel:replayUI.current.resultPanel,sampleState:time=>r.recording.sample(replayVisual.clip.segment,time)}:null,view:renderView,dt});
       const cameraStats=worlds.current()?.view.viewStats?.(),audible=!document.hidden&&!window.matchMedia('(orientation: portrait)').matches&&(replayVisual?!r.paused&&!r.loading:historyVisual?running.current&&worlds.ready():visual?true:!p?.active&&running.current&&worlds.ready());
       const failureAudible=!failure.current?.active||failure.current.revealElapsed>0&&!failure.current.paused;
-      sound.current?.update(renderState,audible&&failureAudible,p?.active?1:rate.current,{...(failure.current?.active?{duck:.25}:{}),replay:!!r,exterior:!!r||!!visual||!cinematic&&viewState.current.mode!=='cockpit',radioExterior:!!visual||cinematic||viewState.current.mode!=='cockpit',distance:cameraStats?.distance??viewState.current.distance,pan:Math.cos(viewState.current.azimuth)});
-      if(now-lastUi>33&&(r||running.current||p?.active||flight.current.time!==lastPublished)){lastUi=now;lastPublished=flight.current.time;if(!r)setState({...flight.current});else{setReplayState({...replayStatus(r),error:worlds.current()?.error||'',opacity:replayVisual?.opacity??1});setFailureState(failureStatus(failure.current));}if(p?.active)setCruiseFrame({phase:p.phase,elapsed:p.elapsed,opacity:p.opacity,committed:p.committed,radio:p.radio.active});}
+      const rescueActive=!!historyVisual&&presentation.current.kind==='history-rescue';
+      sound.current?.update(renderState,audible&&failureAudible,r||p?.active?1:rate.current,{...(rescueActive?{rescue:true,duck:.3}:{}),...(failure.current?.active?{duck:.25}:{}),replay:!!r,exterior:!!r||!!visual||!cinematic&&viewState.current.mode!=='cockpit',radioExterior:!!visual||cinematic||viewState.current.mode!=='cockpit',distance:cameraStats?.distance??viewState.current.distance,pan:Math.cos(viewState.current.azimuth)});
+      sound.current?.updateRescue(rescueActive?presentation.current:null,audible&&rescueActive);
+      if(now-lastUi>33&&(r||running.current||p?.active||flight.current.time!==lastPublished)){lastUi=now;lastPublished=flight.current.time;if(!r)setState({...flight.current});else{setReplayState({...replayStatus(r),error:worlds.current()?.error||'',opacity:replayVisual?.opacity??1,radio:replayVisual?.state.radio});setFailureState(failureStatus(failure.current));}if(p?.active)setCruiseFrame({phase:p.phase,elapsed:p.elapsed,opacity:p.opacity,committed:p.committed,radio:p.radio.active});}
       frame=requestAnimationFrame(tick);
     }
     frame=requestAnimationFrame(tick);
     window.__flightSim={failurePresentation:()=>failureStatus(failure.current),replayDirector:()=>replay.current?.director?.stats()??null,recording:()=>recording.current.stats(),replay:()=>replayStatus(replay.current),snapshot:()=>{const{checkpoint,...s}=flight.current;return{...s,playing:running.current,timeScale:rate.current};},airportPresentation:()=>presentation.current?{...presentation.current}:null,cruiseTransition:()=>cruise.current?{phase:cruise.current.phase,elapsed:cruise.current.elapsed,opacity:cruise.current.opacity,committed:cruise.current.committed}:null,prefetch:()=>{const p=worlds.prepared();return p?{airportId:p.id,ready:p.ready&&p.warmed,dataReady:p.ready,error:p.error,progress:p.progress,warmed:p.warmed}:null;},stats:()=>worlds.current()?.view.stats?.(),viewStats:()=>({...worlds.current()?.view.viewStats?.(),selection:{...viewState.current}}),aircraftStats:()=>worlds.current()?.view.aircraftStats?.(),audioStats:()=>sound.current?.stats(),motionStats:()=>lastMotion.current,missingTranslations};
-    return()=>{alive=false;cancelAnimationFrame(frame);replay.current?.director?.dispose?.();sound.current?.stopFailure();worlds.dispose();worldManager.current=null;sound.current?.cancelSpeech();delete window.__flightSim;};
+    return()=>{alive=false;cancelAnimationFrame(frame);replay.current?.director?.dispose?.();sound.current?.stopFailure();sound.current?.stopRescue();worlds.dispose();worldManager.current=null;sound.current?.cancelSpeech();delete window.__flightSim;};
   },[resetRate,handleAirportChange,beginCruise]);
   useEffect(()=>()=>{sound.current?.dispose();sound.current=null;},[]);
   useEffect(()=>{
@@ -262,13 +272,14 @@ export function App(){
   };
   const rescuing=started&&!showLevels&&!help&&presenting&&presentation.current?.active&&presentation.current.kind==='history-rescue';
   const intro=started&&!showLevels&&!help&&!state.result&&(airportIntro(state)||presenting);
+  const historyCover=!started&&!showLevels&&!help&&presentation.current?.active&&presentation.current.kind==='history-intro';
   useEffect(()=>{const el=scenery.current?.parentElement?.querySelector('.external-camera-input');if(!el)return;const wheel=e=>{e.preventDefault();if(cruise.current?.active)return;zoomView(viewState.current,e.deltaY);};el.addEventListener('wheel',wheel,{passive:false});return()=>el.removeEventListener('wheel',wheel);},[viewMode,showLevels,help,intro]);
-  const displayRadio=historicalPresentationVisual(presentation.current)?.radio||state.radio;
+  const displayRadio=replayState?.radio||historicalPresentationVisual(presentation.current)?.radio||state.radio;
   const resultActive=!!state.result&&!showLevels&&!rescuing,cutsceneActive=!!cruiseFrame,callout=state.callouts.at(-1),showCard=!cutsceneActive&&!showLevels&&!playing&&!help&&!state.result&&(!started||viewMode==='cockpit'&&!intro),level=getLevel(state.levelId),wind=windReadout(state.airData.wind,runwayHeading(state));
   const attributionAirport=resultActive?(replayState?.airportId??state.airportId):state.airportId;
   const ground=groundActive(state),destinationProgress=cruiseFrame?.committed?{...loadingProgress,airportId:state.airline?.destination,error}:prefetchProgress;
   const blockTransitionInput=e=>{if(cruise.current?.active){e.preventDefault();e.stopPropagation();}};
-  return <main className="sim-shell"><div onClickCapture={blockTransitionInput} onPointerDownCapture={blockTransitionInput} data-cruise-transition={cruiseFrame?.phase} className={`stage ${resultActive?'result-active':''} ${cutsceneActive?'cruise-active':''} ${intro||rescuing?'ground-cinematic':''} ${viewMode!=='cockpit'?'view-exterior':''} ${viewMode==='exterior'&&externalInstruments?'instruments-expanded':''}`} data-active-view={viewMode} inert={portrait}>
+  return <main className="sim-shell"><div onClickCapture={blockTransitionInput} onPointerDownCapture={blockTransitionInput} data-cruise-transition={cruiseFrame?.phase} className={`stage ${resultActive?'result-active':''} ${cutsceneActive?'cruise-active':''} ${intro||rescuing||historyCover?'ground-cinematic':''} ${viewMode!=='cockpit'?'view-exterior':''} ${viewMode==='exterior'&&externalInstruments?'instruments-expanded':''}`} data-active-view={viewMode} inert={portrait}>
     {cutsceneActive&&<div ref={cutsceneOverlay} className="cruise-cutscene" role="status" aria-label="爬升至巡航高度 · 航程略过" data-phase={cruiseFrame.phase} style={{backgroundColor:`rgba(0,0,0,${cruiseFrame.opacity})`}}>
       {!cruiseFrame.committed&&cruiseFrame.radio&&<aside className="cruise-radio" style={{opacity:cruiseFrame.phase==='black'?1:1-cruiseFrame.opacity}}><small>{cruiseFrame.radio.role==='tower'?'空管':'飞行员'}</small><p>{cruiseFrame.radio.text}</p></aside>}
       <DestinationProgress progress={destinationProgress}/>
@@ -278,18 +289,19 @@ export function App(){
     <button className="language-switch" onClick={()=>setLanguage(language==='zh'?'en':'zh')} aria-label={language==='zh'?'Switch to English':'Switch to Chinese'} title={language==='zh'?'English interface and radio':'Chinese interface and radio'}>{language==='zh'?'EN':'ZH'}</button>
     <div className="scenery" ref={scenery}/>
     {resultActive&&<div className="replay-fade" aria-hidden="true" style={{opacity:Math.max(replayState?.opacity??1,failureState?.active?failureState.opacity:0)}}/>}
-    {resultActive&&<div className="replay-utilities"><button className="icon-button" onClick={toggleSound} aria-label={muted?'开启声音':'静音'}>{muted?<SpeakerSlash/>:<SpeakerHigh/>}</button><button className="icon-button" onClick={fullscreen} aria-label="全屏"><ArrowsOut/></button></div>}{!resultActive&&viewMode!=='cockpit'&&!showLevels&&!help&&!intro&&!rescuing&&<div className="external-camera-input" {...orbitPointers} aria-label="机外镜头操作区"/>}{!resultActive&&viewMode==='cockpit'&&<div className="cockpit-rig" ref={cockpitRig}><img className="cockpit-frame" src={FCU_FRAME_ASSET} alt="" draggable="false"/><Instruments state={state}/>    <FCU state={state} onAction={act} physical/>
+    {resultActive&&<div className="replay-utilities"><button className="icon-button" onClick={toggleSound} aria-label={muted?'开启声音':'静音'}>{muted?<SpeakerSlash/>:<SpeakerHigh/>}</button><button className="icon-button" onClick={fullscreen} aria-label="全屏"><ArrowsOut/></button></div>}{!resultActive&&viewMode!=='cockpit'&&!showLevels&&!help&&!intro&&!rescuing&&<div className="external-camera-input" {...orbitPointers} aria-label="机外镜头操作区"/>}{!resultActive&&viewMode==='cockpit'&&<div className="cockpit-rig" ref={cockpitRig}><img className="cockpit-frame" src={cockpitFrameAsset(state)} alt="" draggable="false"/><Instruments state={state}/>    <FCU state={state} onAction={act} physical/>
     <AircraftControls state={state} onAction={act} brakePointer={pointer('brake')}/>
 </div>}
-    {!resultActive&&!showLevels&&!help&&!rescuing&&<ViewSelector mode={viewMode} onSelect={selectView} expanded={externalInstruments} onToggle={()=>setExternalInstruments(v=>!v)}/>}
+    {!resultActive&&!showLevels&&!help&&!intro&&!rescuing&&<ViewSelector mode={viewMode} onSelect={selectView} expanded={externalInstruments} onToggle={()=>setExternalInstruments(v=>!v)}/>}
     {!resultActive&&viewMode!=='cockpit'&&!showLevels&&!help&&!intro&&!rescuing&&<ExternalView state={state} onAction={act} brakePointer={pointer('brake')} expanded={externalInstruments} stick={<StickReadout ground={ground} pitch={state.stickPitch} roll={state.stickRoll} pointer={stickPointer}/>}/>}
     {!resultActive&&viewMode==='cockpit'&&!showLevels&&!help&&!intro&&!rescuing&&<div className="cockpit-stick-panel"><StickReadout ground={ground} pitch={state.stickPitch} roll={state.stickRoll} pointer={stickPointer}/></div>}
     {!resultActive&&!rescuing&&<header className="toolbar"><div className="mode-switch level-toolbar"><button className="selected level-menu-button" onClick={openLevels} aria-label="选择关卡"><ListChecks/><span>关卡</span></button><span className="current-level-title">{String(level.order).padStart(2,'0')} · {level.title}{state.mission?.practice&&<small> · 阶段练习</small>}</span></div>
     <div className={`instruction ${state.warning||state.mission?.alert||state.terrain?.level||state.routeProtection?.warning||state.atc?.deviation&&(state.atc.seconds>=6||state.atc.terrainPriority)?'caution':''}`} role="status">{state.warning?<Warning weight="fill"/>:<span className="status-dot"/>}<span>{getInstruction(state)}</span></div>
     <div className="toolbar-actions"><button className={`icon-button ${showProcedure?'active':''}`} onClick={()=>setShowProcedure(v=>!v)} aria-label="显示或隐藏飞行流程" title="飞行流程"><ListChecks/></button><button className="icon-button" onClick={()=>{updatePlaying(false);setHelp(true);}} aria-label="操作说明" title="操作说明 · H"><Info/></button><button className="icon-button sound-button" onClick={toggleSound} aria-label={muted?'开启声音':'静音'}>{muted?<SpeakerSlash/>:<SpeakerHigh/>}</button><button className="icon-button fullscreen-button" onClick={fullscreen} aria-label="全屏"><ArrowsOut/></button><button className="icon-button pause-button" onClick={pause} disabled={!loaded||!!error||!!state.result} aria-label={playing?'暂停':'继续飞行'}>{playing?<Pause weight="fill"/>:<Play weight="fill"/>}</button></div></header>}
-    {started&&!showLevels&&!help&&!state.result&&!intro&&!rescuing&&showProcedure&&(state.historical?<HistoryPanel state={state} onAction={act}/>:ground?<GroundPanel state={state} onAction={act} onRetry={retryStage}/>:['climb','cruise-ready','arrival'].includes(state.airline?.phase)?<FlightJourneyPanel state={state} onAction={act} onSkipCruise={()=>beginCruise()}/>:state.airline?.phase==='arrival-preview'?null:<ProcedurePanel state={state} onAction={act} onRetry={retryStage}/>)}
+    {started&&!showLevels&&!help&&!state.result&&!intro&&!rescuing&&showProcedure&&(state.historical?<HistoryPanel state={state} onAction={act}/>:ground?<GroundPanel state={state} onAction={act} onRetry={retryStage}/>:['climb','cruise-ready','enroute','enroute-descent','arrival'].includes(state.airline?.phase)?<FlightJourneyPanel state={state} onAction={act} onSkipCruise={()=>beginCruise()}/>:state.airline?.phase==='arrival-preview'?null:<ProcedurePanel state={state} onAction={act} onRetry={retryStage}/>)}
+    {started&&!showLevels&&!help&&!state.result&&!intro&&!rescuing&&state.alerts?.items.some(v=>!v.acknowledged)&&<button className="aural-ack" onClick={()=>act(confirmAction)} aria-label="确认并消除告警声音">{state.alerts.items.filter(v=>!v.acknowledged).map(v=>v.label).join(' · ')} · 确认告警 / C</button>}
     {!state.result&&!showLevels&&started&&callout&&!state.terrain?.level&&state.time-callout.time<5&&!help&&<div className={`callout-banner ${callout.kind}`} aria-live="polite">{callout.text}</div>}
-    {!showLevels&&started&&displayRadio?.active&&!help&&(!state.result||rescuing)&&<aside className={`radio-caption ${displayRadio.active.role} ${displayRadio.active.emergency||''}`}
+    {!showLevels&&started&&displayRadio?.active&&!help&&!rescuing&&(!state.result||!failureState?.active)&&<aside className={`radio-caption ${displayRadio.active.role} ${displayRadio.active.emergency||''}`}
  aria-label="自动无线电通话"><span>{displayRadio.active.role==='copilot'?'副驾驶 · 机内协作':displayRadio.active.role==='pa'?'客舱广播':state.historical?(displayRadio.active.role==='tower'?'纽约空管':'机长 · Cactus 1549'):displayRadio.active.role==='tower'?(state.airportId!=='training'?'塔台 · 场景频道':'塔台 · 118.700'):'飞行员 · 云际320'}<small>{displayRadio.active.emergency==='distress'?'遇险通话':displayRadio.active.emergency==='urgency'?'紧迫通话':'自动通话'}</small></span><p>{displayRadio.active.text}</p></aside>}
     {started&&!showLevels&&!help&&!state.result&&!intro&&!rescuing&&!ground&&state.atc?.clearance&&<aside className={`atc-clearance ${state.atc.terrainPriority?'danger':state.routeProtection?.warning||state.atc.deviation&&state.atc.seconds>=6?'deviation':''}`} aria-label="空管当前许可">
       <span>ATC · 当前许可<small>{state.atc.terrainPriority?'避障优先':'自动通话'}</small></span><strong>{state.atc.clearance.label}</strong>

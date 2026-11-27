@@ -7,7 +7,7 @@ import {DAXING,projectDaxing,unprojectDaxing,runwayOf,runwayHeading} from '../sr
 import {LEVELS,AIRPORT_MISSIONS,nextLevel} from '../src/missions/catalog.js';
 import {terrainHeight,vertexHeight,terrainConfig,surfaceHeight} from '../src/terrain/heightfield.js';
 import {predictTerrain} from '../src/terrain/awareness.js';
-import {queueRadio,updateRadio,setRadioLanguage,clipUrl} from '../src/comms/radio.js';
+import {queueRadio,updateRadio,setRadioLanguage,clipUrl,radioClipDuration} from '../src/comms/radio.js';
 import {loadProgress,recordResult,normalizeProgress,recommendedLevel} from '../src/missions/progress.js';
 import {pilotInput,flyLevel} from './pilot.mjs';
 import daxingRadio from '../src/comms/daxing-radio.json' with {type:'json'};
@@ -19,7 +19,7 @@ test('Daxing mission menu and briefings are fully translated',()=>{
 });
 
 test('Daxing pack retains real source geometry and an independent runway coordinate frame',()=>{
- assert.equal(LEVELS.length,13);assert.equal(AIRPORT_MISSIONS.length,12);assert.equal(DAXING.data.runways.length,4);
+ assert.equal(LEVELS.length,13);assert.equal(AIRPORT_MISSIONS.length,14);assert.equal(DAXING.data.runways.length,4);
  assert(DAXING.data.osm.features.some(f=>f.id==='relation/12731810'&&f.geometry.length>100));
  assert.equal(DAXING.data.dem.heights.length,DAXING.data.dem.columns*DAXING.data.dem.rows);
  const r=DAXING.data.runways.find(r=>r.ends.some(e=>e.id==='17L')),a=r.ends.find(e=>e.id==='17L'),b=r.ends.find(e=>e.id==='35R');
@@ -69,10 +69,10 @@ test('Daxing bilingual recordings match runway and language duration while gener
   const clip=`daxing-${key}-${i}`;assert(daxingRadio.durations[lang][clip]>0);assert((await stat(new URL(`../../public/assets/radio/${lang==='en'?'en/':''}${clip}.mp3`,import.meta.url))).size>1000);
  }
  const s=createFlight(null,{levelId:'daxing-landing'});queueRadio(s,'approach');updateRadio(s);assert.equal(s.radio.active.clip,'daxing-approach-0');assert(!s.radio.active.text.includes('二七'));
- setRadioLanguage(s,'en');assert(Math.abs(s.radio.active.until-(s.time+(englishPilotClean.clips[s.radio.active.clip]?.duration??daxingRadio.durations.en[s.radio.active.clip])+.2))<1e-8);assert(clipUrl(s.radio.active.clip,'en').includes('/en/daxing-approach-0.mp3'));
+ setRadioLanguage(s,'en');assert(Math.abs(s.radio.active.until-(s.time+radioClipDuration(s.radio.active.clip,'en')))<1e-8);assert(clipUrl(s.radio.active.clip,'en').includes('/en/daxing-approach-0.mp3'));
 });
 
 test('airport records do not change training recommendations, counts or next-stage navigation',()=>{
  const p=normalizeProgress({levels:{takeoff:{bestScore:90},'daxing-takeoff':{bestScore:95,revision:2}}});assert.equal(recommendedLevel(p).id,'short-landing');assert.equal(p.levels.takeoff.bestScore,90);assert.equal(p.levels['daxing-takeoff'].bestScore,95);
- assert.equal(nextLevel('daxing-takeoff').id,'daxing-landing');assert.equal(nextLevel('daxing-landing').id,'xiaoshan-takeoff');assert.equal(nextLevel('dual-glide'),null);
+ assert.equal(nextLevel('daxing-takeoff').id,'daxing-landing');assert.equal(nextLevel('daxing-landing').id,'xiaoshan-takeoff');assert.equal(nextLevel('dual-glide').id,'a380-takeoff');
 });

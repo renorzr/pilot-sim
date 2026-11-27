@@ -1,8 +1,9 @@
 """Stage the five Chinese speakers in both roles; never call paid Fish TTS.
 
-Read the credential from hidden stdin. Reuse approved recordings and persist
+Read the credential from the ignored local file (or explicit hidden stdin). Reuse approved recordings and persist
 completed takes so interrupted generation can resume without repeating work.
 """
+import argparse
 import asyncio
 import concurrent.futures
 import hashlib
@@ -17,6 +18,8 @@ import urllib.error
 import urllib.request
 
 import edge_tts
+
+from fish_credentials import load_fish_credential
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 STAGE = ROOT / 'qa/radio-cast'
@@ -99,12 +102,12 @@ def prepare_edge_signals():
 
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--fish-stdin', action='store_true')
+    args = parser.parse_args()
     for folder in ['raw', 'render', 'assets']:
         (STAGE / folder).mkdir(parents=True, exist_ok=True)
-    print('Ready for Fish credential on hidden stdin.', flush=True)
-    key = sys.stdin.readline().strip()
-    if not key:
-        raise SystemExit('Missing credential')
+    key = load_fish_credential(stdin=args.fish_stdin, required=True)
     lines = dialogue_lines()
     previous = json.loads((ROOT / 'game/src/comms/pilot-voices.json').read_text())
     signals = prepare_edge_signals()

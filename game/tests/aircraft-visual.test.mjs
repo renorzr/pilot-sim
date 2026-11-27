@@ -6,7 +6,7 @@ import {GLTFLoader}from 'three/addons/loaders/GLTFLoader.js';
 import {createAircraftVisual,AIRCRAFT_CONTACTS}from '../src/aircraft/visual.js';
 import {createFlight}from '../src/flight.js';
 import {COCKPIT_EYE,placeCockpitCamera}from '../src/views/aircraft-pose.js';
-async function model(){const b=await readFile(new URL('../../public/assets/aircraft/skyline-320.glb',import.meta.url));const gltf=await new GLTFLoader().parseAsync(b.buffer.slice(b.byteOffset,b.byteOffset+b.byteLength),'');return createAircraftVisual({THREE,scene:gltf.scene});}
+async function model(){const b=await readFile(new URL('../../public/assets/aircraft/skyline-320-uv1.glb',import.meta.url));const gltf=await new GLTFLoader().parseAsync(b.buffer.slice(b.byteOffset,b.byteOffset+b.byteLength),'');return createAircraftVisual({THREE,scene:gltf.scene});}
 test('captain eye looks through the authored front windshield rather than the flight reference',async()=>{
  const v=await model();try{
   v.group.updateMatrixWorld(true);const glazing=[];v.group.traverse(o=>{if(o.isMesh&&/glazing/i.test(o.material?.name))glazing.push(o);});

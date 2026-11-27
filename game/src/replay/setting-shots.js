@@ -1,3 +1,4 @@
+import {aircraftDefinition} from '../aircraft/registry.js';
 import {aircraftFocus,aircraftPoint,clamp,projected,viewBasis,smooth} from './shot-geometry.js';
 const add=(a,b)=>a.map((v,i)=>v+b[i]),distance=(a,b)=>Math.hypot(...a.map((v,i)=>v-b[i])),unit=v=>{const n=Math.hypot(...v)||1;return v.map(x=>x/n);};
 const center=s=>aircraftFocus('aircraft',s);
@@ -64,9 +65,9 @@ export function zenithCandidates(clip,states,env){
 }
 // Sparse silhouette points from the authored aircraft bounds. A prefix search
 // and bisection locate first entry, rather than guessing from closest approach.
-const silhouette=[[0,0,-16.5],[0,2,21.07],[0,8.96,17],[-17.9,2.28,6],[17.9,2.28,6],[-5.95,1.73,17.4],[5.95,1.73,17.4],[-1.8,-1,-10],[1.8,-1,-10],[-1.8,3,8],[1.8,3,8],[-5.35,-2.1,-5.1],[5.35,-2.1,-5.1]];
+
 const verticalPose=v=>({position:v.position,target:[v.position[0],v.position[1]+100,v.position[2]],up:v.up,fov:68});
-export function zenithAircraftVisible(s,v,aspect=1.6){const p=verticalPose(v),points=silhouette.map(q=>projected(aircraftPoint(s,q),p,aspect)).filter(q=>q.depth>.3);return points.length>0&&Math.min(...points.map(q=>q.x))<=1&&Math.max(...points.map(q=>q.x))>=-1&&Math.min(...points.map(q=>q.y))<=1&&Math.max(...points.map(q=>q.y))>=-1;}
+export function zenithAircraftVisible(s,v,aspect=1.6){const p=verticalPose(v),points=aircraftDefinition(s).geometry.silhouette.map(q=>projected(aircraftPoint(s,q),p,aspect)).filter(q=>q.depth>.3);return points.length>0&&Math.min(...points.map(q=>q.x))<=1&&Math.max(...points.map(q=>q.x))>=-1&&Math.min(...points.map(q=>q.y))<=1&&Math.max(...points.map(q=>q.y))>=-1;}
 function between(a,b,u){const s={};for(const k of['time','x','y','z','pitch','yaw','roll']){let d=(b[k]||0)-(a[k]||0);if(['pitch','yaw','roll'].includes(k))d=Math.atan2(Math.sin(d),Math.cos(d));s[k]=(a[k]||0)+d*u;}return s;}
 export function zenithEntryTime(states,v,aspect=1.6){
  for(let i=0;i<states.length;i++)if(zenithAircraftVisible(states[i],v,aspect)){if(!i)return states[0].time;let lo=0,hi=1;for(let n=0;n<14;n++){const u=(lo+hi)/2;if(zenithAircraftVisible(between(states[i-1],states[i],u),v,aspect))hi=u;else lo=u;}return states[i-1].time+(states[i].time-states[i-1].time)*hi;}return null;

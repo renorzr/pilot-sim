@@ -1,3 +1,4 @@
+import {aircraftDefinition} from '../aircraft/registry.js';
 import {recoveryInstruction} from './recovery.js';
 import {FT,KT,RAD,RUNWAY,clamp,wrap} from '../sim/constants.js';
 import {setMotion} from '../sim/aerodynamics.js';
@@ -9,13 +10,13 @@ import {preparedAtTouchdown} from './arrival.js';
 import {getLevel} from './catalog.js';
 export const expandedKinds=['circuit','engine-return','crosswind','low-visibility','athr-failure','ils-loss','flap-jam','dual-glide'];
 export const isExpanded=s=>expandedKinds.includes(s.mission?.kind);
-const ra=s=>Math.max(0,(s.y-RUNWAY.ground)*FT);
+const ra=s=>Math.max(0,(s.y-aircraftDefinition(s).airframe.referenceHeight)*FT);
 const goAroundAltitude=s=>getLevel(s.levelId)?.targetAltitude||3000;
 export function initializeExpanded(s,l){
  Object.assign(s.mission,{fault:null,manualSeconds:0,manualTakenOver:false,decisionHeight:null,lateDecision:false,landedHeading:null});
  if(l.initialFlaps!==undefined)s.flaps=s.flapPosition=l.initialFlaps;
  if(l.initialSpeed)s.speed=l.initialSpeed/KT;
- if(l.startAltitude){s.y=RUNWAY.ground+l.startAltitude/FT;s.previousRA=l.startAltitude;}
+ if(l.startAltitude){s.y=aircraftDefinition(s).airframe.referenceHeight+l.startAltitude/FT;s.previousRA=l.startAltitude;}
  if(l.kind==='circuit'||l.kind==='engine-return'){
   s.route=createRoute();s.autoThrust=true;s.selectedAltitude=1500;s.landingChecklistConfirmed=false;s.gates=[];
  }
@@ -67,7 +68,7 @@ export function onExpandedGoAround(s){
 }
 export function glideInfo(s){
  const height=ra(s)/FT,q=s.airData.q,weight=s.weight*1000*9.80665;
- const cl=weight/Math.max(q*122.6,1),cd=.022+.008*s.flapPosition+.022*s.gearPosition+.043*cl*cl+.016;
+ const cl=weight/Math.max(q*aircraftDefinition(s).airframe.wingArea,1),cd=.022+.008*s.flapPosition+.022*s.gearPosition+.043*cl*cl+.016;
  const ratio=cl/Math.max(cd,.01),range=Math.max(0,height-15)*ratio*Math.max(.5,s.airData.groundSpeed/Math.max(s.airData.tas,1));
  return{range,margin:range-Math.max(s.z,0),ratio};
 }
@@ -116,7 +117,7 @@ export function expandedInstruction(s){
   return null;
  }
  if(m.kind==='athr-failure'&&m.triggered){
-  if(s.systems.thrustLocked)return `THR LK · W / S 将推力杆匹配至约 ${Math.round(s.systems.heldCommands.reduce((a,b)=>a+b,0)/2*100)}%`;
+  if(s.systems.thrustLocked)return `THR LK · W / S 将推力杆匹配至约 ${Math.round(s.systems.heldCommands.reduce((a,b)=>a+b,0)/Math.max(1,s.systems.heldCommands.length)*100)}%`;
   if(s.speed*KT>s.vapp+7)return '手动推力 · S 小幅减推力，保持目标速度';
   if(s.speed*KT<s.vapp-5)return '手动推力 · W 小幅加推力，保持目标速度';
  }

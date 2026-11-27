@@ -1,5 +1,6 @@
 import {settingCandidates,settingSidePose,settingGroundPose,settingPairPose,zenithCandidates,settingZenithPose} from './setting-shots.js';
 import {aircraftFocus,aircraftPoint,aircraftVector,clamp,smooth} from './shot-geometry.js';
+import {aircraftDefinition} from '../aircraft/registry.js';
 const registry=new Map();
 export function registerShotTemplate(template){if(!template.id||!template.family||!Number.isFinite(template.interest)||!Number.isFinite(template.cost)||typeof template.pose!=='function'||typeof template.candidates!=='function')throw Error('Invalid replay shot template');if(registry.has(template.id))throw Error('Duplicate replay shot template');registry.set(template.id,template);return()=>registry.delete(template.id);}
 export const shotTemplates=()=>[...registry.values()];
@@ -7,11 +8,11 @@ export const shotTemplate=id=>registry.get(id);
 const distance=(a,b)=>Math.hypot(...a.map((v,i)=>v-b[i])),add=(a,b)=>a.map((v,i)=>v+b[i]);
 const lens=(radius,range,fraction=.4,min=4,max=50)=>clamp(2*Math.atan(radius/(Math.max(1,range)*fraction))*180/Math.PI,min,max);
 function basic(s,shot,env){
- const a=shot.anchor||s,side=shot.side||1,u=smooth(shot.elapsed/Math.max(.1,shot.duration)),yaw=a.yaw||0,right=[Math.cos(yaw),Math.sin(yaw)],back=[-Math.sin(yaw),Math.cos(yaw)],target=aircraftFocus('aircraft',s);let position;
+ const a=shot.anchor||s,side=shot.side||1,u=smooth(shot.elapsed/Math.max(.1,shot.duration)),yaw=a.yaw||0,right=[Math.cos(yaw),Math.sin(yaw)],back=[-Math.sin(yaw),Math.cos(yaw)],target=aircraftFocus('aircraft',s),scale=aircraftDefinition(s).visual.cameraScale??1;let position;
  if(shot.kind==='ground'){const x=a.x+right[0]*145*side+back[0]*30,z=a.z+right[1]*145*side+back[1]*30;position=[x,env.heightAt(x,z,s)+5,z];}
  else if(shot.kind==='tower'){const x=a.x+right[0]*245*side+back[0]*110,z=a.z+right[1]*245*side+back[1]*110;position=[x,Math.max(env.heightAt(x,z,s)+35,a.y-30),z];}
- else{const angle=(.85+u*.35)*side,radius=105+u*35,heading=-s.yaw+angle;position=[s.x+Math.sin(heading)*radius,s.y+32+u*12,s.z+Math.cos(heading)*radius];}
- return{position,target,subject:target,subjectRadius:19,part:'aircraft',phase:shot.kind,fov:lens(19,distance(position,target),.36,5,43),near:.7};
+ else{const angle=(.85+u*.35)*side,radius=(105+u*35)*scale,heading=-s.yaw+angle;position=[s.x+Math.sin(heading)*radius,s.y+(32+u*12)*scale,s.z+Math.cos(heading)*radius];}
+ return{position,target,subject:target,subjectRadius:19*scale,part:'aircraft',phase:shot.kind,fov:lens(19*scale,distance(position,target),.36,5,43),near:.7};
 }
 export function legacyShotPose(s,shot,env){return basic(s,shot,env);}
 for(const [id,kind,family]of[['runway-side','ground','ground'],['airport-observer','tower','ground'],['air-follow','air','air']])registerShotTemplate({id,family,part:'aircraft',interest:kind==='air'?.73:.72,cost:.1,candidates:()=>[-1,1].map(side=>({kind,side})),pose:basic});

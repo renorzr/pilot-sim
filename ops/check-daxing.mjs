@@ -1,3 +1,4 @@
+import {chooseAirportPractice} from './airport-selection.mjs';
 import assert from 'node:assert/strict';
 import {writeFile} from 'node:fs/promises';
 import {connect} from './cdp.mjs';
@@ -8,7 +9,7 @@ const snap=()=>b.evaluate('window.__flightSim.snapshot()'),sleep=ms=>new Promise
 const tap=async(code,key)=>{await b.key(code,key);await b.key(code,key,'keyUp');};
 async function choose(id){
  if(!await b.evaluate('!!document.querySelector(".level-select")'))await b.click('.level-menu-button');
- await b.click('[data-stage-id="airline"]');await b.click('[data-airline-mode="practice"]');await b.click(`[data-level-id="${id}"]`);await b.click('.enter-level');
+ await chooseAirportPractice(b,id);
  await b.waitFor('!!document.querySelector(".flight-card .primary-button")&&!document.querySelector(".flight-card .primary-button").disabled',60000);
 }
 async function noChinese(){const han=await b.evaluate('document.body.innerText.split("\\n").filter(s=>/\\p{Script=Han}/u.test(s))');assert.deepEqual(han,[]);assert.deepEqual(await b.evaluate('window.__flightSim.missingTranslations()'),[]);}
@@ -20,13 +21,13 @@ async function stick(pitch,roll){
 try{
  await b.waitFor('!!window.__flightSim&&!!document.querySelector(".stage-tabs")',60000);
  if(mode==='smoke'){
-  await b.click('[data-stage-id="history"]');assert(await b.evaluate('!!document.querySelector(".history-coming-soon")&&!document.querySelector(".enter-level")'));await b.screenshot('qa/daxing-history.png');
-  await b.click('[data-stage-id="airline"]');await b.click('[data-airline-mode="practice"]');assert.equal(await b.evaluate('document.querySelectorAll("[data-level-id]").length'),4);await b.screenshot('qa/daxing-menu.png');
+  await b.click('[data-stage-id="history"]');assert(await b.evaluate('!!document.querySelector("[data-level-id=history-us1549]")'));await b.screenshot('qa/daxing-history.png');
+  await b.click('[data-stage-id="airline"]');assert.equal(await b.evaluate('document.querySelectorAll("[data-level-id]").length'),2);await b.screenshot('qa/daxing-menu.png');
   for(const id of['daxing-takeoff','daxing-landing']){await choose(id);samples[id]={state:await snap(),stats:await b.evaluate('window.__flightSim.stats()')};assert.equal(samples[id].state.airportId,'daxing');assert(samples[id].stats.calls<80);}
   await b.screenshot('qa/daxing-briefing.png');
   if(await b.evaluate('document.documentElement.lang!=="en"'))await b.click('.language-switch');await noChinese();await b.screenshot('qa/daxing-briefing-en.png');
   await tap('KeyH','h');await b.waitFor('!!document.querySelector(".help-panel")');await noChinese();await b.click('.close-help');await b.click('.level-menu-button');await noChinese();await b.click('[data-stage-id="history"]');await noChinese();await b.click('[data-stage-id="training"]');assert.equal(await b.evaluate('document.querySelectorAll("[data-level-id]").length'),13);await noChinese();
-  await b.send('Emulation.setDeviceMetricsOverride',{width:844,height:390,deviceScaleFactor:1,mobile:false});await b.click('[data-stage-id="airline"]');await b.click('[data-airline-mode="practice"]');await noChinese();await b.screenshot('qa/daxing-mobile.png');
+  await b.send('Emulation.setDeviceMetricsOverride',{width:844,height:390,deviceScaleFactor:1,mobile:false});await b.click('[data-stage-id="airline"]');await noChinese();await b.screenshot('qa/daxing-mobile.png');
   await b.click('[data-stage-id="history"]');await noChinese();await b.screenshot('qa/daxing-history-mobile.png');
  }else{
   await choose(mode==='takeoff'?'daxing-takeoff':'daxing-landing');if(await b.evaluate('document.documentElement.lang!=="zh-CN"'))await b.click('.language-switch');

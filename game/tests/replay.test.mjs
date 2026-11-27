@@ -56,7 +56,7 @@ test('an almost immediate failure holds a recorded frame visibly instead of loop
 });
 test('sparse dialogue, clearance, callout and result context remains separate from clip planning',()=>{
  const r=new FlightRecording(),s=fixture();r.observe(s);s.time=.05;s.radio.active={id:1,clip:'takeoff-0',started:.05,until:3};s.calloutSequence=1;s.callouts=[{id:1,time:.05,text:'ONE HUNDRED'}];s.atc.issuedAt=.05;r.observe(s);s.time=.1;s.result={success:false,title:'test'};r.observe(s);
- assert(r.timeline.some(e=>e.type==='radio'&&e.data.pilotVoice===s.radio.pilotVoice));assert(r.timeline.some(e=>e.type==='callouts'));assert(r.timeline.some(e=>e.type==='clearance'));assert(r.timeline.some(e=>e.type==='result'&&e.data.title==='test'));assert.equal(r.sample(0,.05).radio.active,null);assert(buildHighlights(r).every(c=>c.type!=='radio'));s.radio.active.clip='changed';assert.equal(r.timeline.find(e=>e.type==='radio').data.line.clip,'takeoff-0');
+ assert(r.timeline.some(e=>e.type==='radio'&&e.data.pilotVoice===s.radio.pilotVoice));assert(r.timeline.some(e=>e.type==='callouts'));assert(r.timeline.some(e=>e.type==='clearance'));assert(r.timeline.some(e=>e.type==='result'&&e.data.title==='test'));assert.equal(r.sample(0,.05).radio.active.clip,'takeoff-0');assert(buildHighlights(r).every(c=>c.type!=='radio'));s.radio.active.clip='changed';assert.equal(r.timeline.find(e=>e.type==='radio'&&e.data.line).data.line.clip,'takeoff-0');
 });
 
 // Replay scenery must not inherit the strict all-detail gate used for live

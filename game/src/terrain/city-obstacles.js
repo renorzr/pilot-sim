@@ -1,7 +1,9 @@
+import {aircraftContacts} from '../aircraft/contact-anchors.js';
+import {aircraftDefinition} from '../aircraft/registry.js';
 import {cityLayout}from '../airports/city-layout.js';
 import {footprintEntry}from '../airports/dense-city-data.js';
 import {historicalObstacleCandidates} from '../history/obstacles.js';
-import {WATER_PROBES,probePosition} from '../sim/water-contact.js';
+import {probePosition} from '../sim/water-contact.js';
 const cells=new Map(),size=400;
 const denseCities=new Map();
 const woodlands=new Map();
@@ -36,16 +38,17 @@ export function cityRay(origin,destination,airport='lax',{horizontal=0,vertical=
  for(const o of candidates(origin,destination,horizontal,vertical,airportIdOf(airport),origin.time)){const t=intersect(origin,destination,o,horizontal,vertical);if(t!==null&&(!hit||t<hit.t))hit={t,obstacle:o};}
  if(!hit)return null;return{...hit,distance:Math.hypot(destination.x-origin.x,destination.y-origin.y,destination.z-origin.z)*hit.t,top:hit.obstacle.topY};
 }
-function probes(p,historical=false){
- if(historical)return[...WATER_PROBES.filter(q=>!q.gear||p.gearPosition>=.5),{x:0,y:8.96,z:18},{x:0,y:3.0,z:0}].map(q=>({...probePosition(p,q),margin:.1}));
- const co=Math.cos(p.yaw),si=Math.sin(p.yaw),out=[{x:p.x,y:p.y,z:p.z,margin:2.8}];
- for(const t of[-17,-8,8,17])out.push({x:p.x+t*co,y:p.y-t*Math.sin(p.roll),z:p.z+t*si,margin:.5});
- for(const t of[-15,15])out.push({x:p.x+t*si,y:p.y+t*Math.sin(p.pitch),z:p.z-t*co,margin:1});
+function probes(p,historical=false,source=p){
+ const g=aircraftDefinition(source).geometry.cityEnvelope;
+ if(historical)return[...aircraftContacts(source).water.filter(q=>!q.gear||p.gearPosition>=.5),...g.historicalExtra].map(q=>({...probePosition(p,q),margin:.1}));
+ const co=Math.cos(p.yaw),si=Math.sin(p.yaw),out=[{x:p.x,y:p.y,z:p.z,margin:g.centerMargin}];
+ for(const t of g.wingStations)out.push({x:p.x+t*co,y:p.y-t*Math.sin(p.roll),z:p.z+t*si,margin:g.wingMargin});
+ for(const t of g.longitudinalStations)out.push({x:p.x+t*si,y:p.y+t*Math.sin(p.pitch),z:p.z-t*co,margin:g.longitudinalMargin});
  return out;
 }
 export function sweptCityContact(previous,current){
  if(!supportsCity(current))return null;
- const historical=airportIdOf(current)==='us1549',from=probes(previous,historical),to=probes(current,historical),near=candidates(previous,current,21,21,airportIdOf(current),current.time);let first=null;
+ const historical=airportIdOf(current)==='us1549',from=probes(previous,historical,current),to=probes(current,historical),margin=aircraftDefinition(current).geometry.cityEnvelope.margin,near=candidates(previous,current,margin,margin,airportIdOf(current),current.time);let first=null;
  for(const o of near)for(let i=0;i<from.length;i++){const t=intersect(from[i],to[i],o,from[i].margin,from[i].margin);if(t!==null&&(!first||t<first.t))first={t,o};}
  if(!first)return null;const p={};for(const key of['x','y','z','pitch','roll'])p[key]=previous[key]+(current[key]-previous[key])*first.t;
  p.yaw=previous.yaw+Math.atan2(Math.sin(current.yaw-previous.yaw),Math.cos(current.yaw-previous.yaw))*first.t;
@@ -55,7 +58,7 @@ export function predictCityObstacles(s){
  if(!supportsCity(s))return null;const speed=s.airData.groundSpeed,heading=s.airData.groundTrack;let earliest=Infinity,peak=0,obstacleId=null;
  // This is an obstacle closure envelope, independent of the terrain landing
  // exemption. Roofs stay out of the DEM and cannot change runway radio heights.
- for(const angle of[-.05,0,.05]){const h=heading+angle,end={x:s.x+Math.sin(h)*speed*30,y:s.y+s.velocity.y*30,z:s.z-Math.cos(h)*speed*30},hit=cityRay(s,end,s,{horizontal:20,vertical:12});
+ for(const angle of[-.05,0,.05]){const h=heading+angle,end={x:s.x+Math.sin(h)*speed*30,y:s.y+s.velocity.y*30,z:s.z-Math.cos(h)*speed*30},hit=cityRay(s,end,s,{horizontal:aircraftDefinition(s).geometry.cityEnvelope.predictionHorizontal,vertical:aircraftDefinition(s).geometry.cityEnvelope.predictionVertical});
   if(hit&&hit.t*30<earliest){earliest=hit.t*30;peak=hit.top;obstacleId=hit.obstacle.id;}}
  return Number.isFinite(earliest)?{level:earliest<=15?2:1,timeToImpact:earliest,peakHeight:peak,obstacleId}:null;
 }

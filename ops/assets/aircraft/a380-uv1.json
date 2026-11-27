@@ -1,0 +1,114 @@
+{
+  "version": "a380-uv1",
+  "size": 2048,
+  "padding": 16,
+  "regions": {
+    "fuselage-left": [
+      32,
+      32,
+      1984,
+      448
+    ],
+    "fuselage-right": [
+      32,
+      512,
+      1984,
+      448
+    ],
+    "tail-left": [
+      32,
+      1024,
+      416,
+      640
+    ],
+    "tail-right": [
+      480,
+      1024,
+      416,
+      640
+    ],
+    "engine-left": [
+      960,
+      1024,
+      480,
+      224
+    ],
+    "engine-right": [
+      1504,
+      1024,
+      480,
+      224
+    ],
+    "wingtip-left": [
+      960,
+      1312,
+      480,
+      288
+    ],
+    "wingtip-right": [
+      1504,
+      1312,
+      480,
+      288
+    ],
+    "wing-left-top": [
+      32,
+      1728,
+      464,
+      288
+    ],
+    "wing-left-bottom": [
+      528,
+      1728,
+      464,
+      288
+    ],
+    "wing-right-top": [
+      1040,
+      1728,
+      464,
+      288
+    ],
+    "wing-right-bottom": [
+      1536,
+      1728,
+      464,
+      288
+    ]
+  },
+  "coordinates": "SVG pixels from top left; Blender UV v=1-y/size, exported glTF v=y/size (texture flipY=false). Left/right are aircraft-local. Nose is left on left-side panels and right on right-side panels.",
+  "domains": {
+    "fuselageZ": [
+      -32,
+      40.7
+    ],
+    "tailZ": [
+      24,
+      40
+    ],
+    "tailY": [
+      2,
+      18.1
+    ],
+    "engineZ": [
+      -3.4,
+      4.1
+    ],
+    "wingX": [
+      3,
+      39.9
+    ],
+    "wingZ": [
+      -8,
+      20
+    ],
+    "wingtipZ": [
+      15.8,
+      20
+    ],
+    "wingtipY": [
+      1.7,
+      5.2
+    ]
+  }
+}

@@ -16,7 +16,7 @@ export function createDenseGeometry(data,tile,lod=0,buildingIndices=null){
   const ab=new THREE.Vector3(b[0]-a[0],b[1]-a[1],b[2]-a[2]),ac=new THREE.Vector3(c[0]-a[0],c[1]-a[1],c[2]-a[2]),n=ab.cross(ac).normalize();if(n.y<0)[b,c]=[c,b];const normal=[n.x*(n.y<0?-1:1),Math.abs(n.y),n.z*(n.y<0?-1:1)],start=positions.length/3;for(const p of[a,b,c])vertex(p,normal,color,0,0,kind);indices.push(start,start+1,start+2);
  }
  for(const i of buildingIndices||Array.from({length:tile.count},(_,i)=>tile.start+i)){
-  const b=data.building(i),start=positions.length/3,near=lod===1,all=near?b.rings.map(r=>{const p=[];for(let j=0;j<r.length;j+=2)p.push([r[j],r[j+1]]);return p;}):[simplified(b.rings[0],Math.max(b.width,b.depth)>100||b.height>30?6:4)],outer=all[0],roof=channels(b.roofColor),wall=facadeColor(b,data.manifest?.architecture?.facadePalette),kind=b.kind==='home'?0:b.kind==='industrial'?1:2;
+  const b=data.building(i);if(b.height<=0)continue;const start=positions.length/3,near=lod===1,all=near?b.rings.map(r=>{const p=[];for(let j=0;j<r.length;j+=2)p.push([r[j],r[j+1]]);return p;}):[simplified(b.rings[0],Math.max(b.width,b.depth)>100||b.height>30?6:4)],outer=all[0],roof=channels(b.roofColor),wall=facadeColor(b,data.manifest?.architecture?.facadePalette),kind=b.kind==='home'?0:b.kind==='industrial'?1:2;
   // Small homes get source-footprint hip roofs. Shared internal midpoints
   // make adjoining roof triangles continuous, including concave home plans.
   const pitched=near&&kind===0&&b.height<13&&b.width*b.depth<800&&all.length===1&&b.seed%5!==0,rise=pitched?Math.min(1.7,b.height*.22):0,eave=b.topY-rise,floors=Math.max(1,Math.round((eave-b.baseY)/(kind===1?8:3.2))),floorHeight=(eave-b.baseY)/floors;

@@ -1,9 +1,10 @@
 """Export unfiltered pilot recordings for cockpit playback and live VHF.
 
 Reuse original Chinese takes, preserving the approved same-speaker emergency
-performances. The credential is accepted only on hidden stdin; any missing Fish
+performances. The credential is read from the ignored local file or explicit hidden stdin; any missing Fish
 take uses the free tier. English retains the established Guy voice profile.
 """
+import argparse
 import asyncio
 import concurrent.futures
 import hashlib
@@ -17,6 +18,8 @@ import time
 import urllib.request
 
 import edge_tts
+
+from fish_credentials import load_fish_credential
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 STAGE = ROOT / 'qa/radio-climb'
@@ -40,12 +43,12 @@ def info(path):
 
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--fish-stdin', action='store_true')
+    args = parser.parse_args()
     for name in ['raw', 'clean', 'render']:
         (STAGE / name).mkdir(parents=True, exist_ok=True)
-    print('Ready for Fish credential on hidden stdin.', flush=True)
-    key = sys.stdin.readline().strip()
-    if not key:
-        raise SystemExit('Missing credential')
+    key = load_fish_credential(stdin=args.fish_stdin, required=True)
     pack = json.loads((CAST_STAGE / 'pilot-voices.json').read_text())
     cached = {}
     for folder in [ROOT / 'qa/fish-pilot-voices/raw', CAST_STAGE / 'raw', ROOT / 'qa/fish-pilot-production/raw', STAGE / 'raw']:

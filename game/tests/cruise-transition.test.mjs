@@ -85,11 +85,9 @@ test('buffering and stale ended events cannot cut off a transmission under black
  finishSpeech(p);assert(commitCruiseTransition(p,s));
  const muted=flight(),q=createCruiseTransition(muted);for(let i=0;i<100;i++)advanceCruiseTransition(q,.5,{media:{ended:false,bypass:true}});assert.equal(q.radio.history.length,3);assert(commitCruiseTransition(q,muted));
 });
-test('the browser automatic-cut hook stops a 4x batch at the qualified event while native flight APIs keep their existing behavior',()=>{
- const s=flight();if(!s.autoPilot)toggleAP(s);let p=null;
- for(let i=0;i<1500&&!p&&!s.result;i++)advanceAtRate(s,{},.5,4,{onCruiseSkip:(state,options)=>{p=createCruiseTransition(state,options);return !!p;}});
- assert(p?.automatic);assert.equal(s.airportId,'kansai');assert.equal(s.clock.accumulator,0);assert.equal(s.time,p.source.time);assert(!s.airline.cruiseSkipped);
- toBlack(p);finishSpeech(p);assert(commitCruiseTransition(p,s));assert.equal(s.airline.cruiseSkipMode,'automatic');assert(s.airline.departureRouteEvidence.endPassed);
+test('4x flight never invokes the retired automatic-cut hook; the player can explicitly start the camera',()=>{
+ const s=flight();let automatic=0;advanceAtRate(s,{},.5,4,{onCruiseSkip:()=>{automatic++;return true;}});assert.equal(automatic,0);assert(!s.airline.cruiseSkipped);assert.equal(createCruiseTransition(s,{automatic:true}),null);
+ const p=createCruiseTransition(s);assert(p&&!p.automatic);toBlack(p);finishSpeech(p);assert(commitCruiseTransition(p,s));assert.equal(s.airline.cruiseSkipMode,'manual');
 });
 
 function worldFixture(){

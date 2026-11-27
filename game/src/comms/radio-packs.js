@@ -1,3 +1,4 @@
+import lga from './lga-radio.json' with {type:'json'};
 import daxing from './daxing-radio.json' with {type:'json'};
 import xiaoshan from './xiaoshan-radio.json' with {type:'json'};
 import changi from './changi-radio.json' with {type:'json'};
@@ -6,5 +7,5 @@ import jfk from './jfk-radio.json' with {type:'json'};
 import lax from './lax-radio.json' with {type:'json'};
 import ground from './ground-radio.json' with {type:'json'};
 import airline from './airline-radio.json' with {type:'json'};
-export const AIRPORT_RADIO={daxing,xiaoshan,changi,kansai,jfk,lax};
+export const AIRPORT_RADIO={lga,daxing,xiaoshan,changi,kansai,jfk,lax};
 export const RADIO_PACKS={...AIRPORT_RADIO,ground,airline};

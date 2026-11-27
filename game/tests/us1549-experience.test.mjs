@@ -23,7 +23,7 @@ function fly(s,seconds){for(let i=0;i<seconds*100&&!s.result;i++)advanceFlight(s
 test('all Chinese/English channels resolve approved and distinct speakers with measured recordings',()=>{
  assert(historicalMediaReady('zh')&&historicalMediaReady('en'));
  for(const pilotVoice of['e','g','h','j','xiaoxiao']){
-  const s=start({pilotVoice});assert.equal(s.radio.pilotVoice,pilotVoice);assert.equal(new Set([s.radio.pilotVoice,s.radio.towerVoice,s.radio.copilotVoice]).size,3);
+  const s=start({pilotVoice});assert.equal(s.radio.pilotVoice,'h');assert.equal(s.radio.copilotVoice,'g');assert.equal(new Set([s.radio.pilotVoice,s.radio.towerVoice,s.radio.copilotVoice]).size,3);
   for(const lang of['zh','en'])for(const[event,lines]of Object.entries(historicalRadioScript[lang]))for(const[i,[role,text,channel]]of lines.entries()){
    const id=`us1549-${event}-${i}`,c=historicalClip(id,lang,radioVoiceFor(s.radio,role));assert(c);assert.equal(c.text,text);assert.equal(c.channel,channel);assert.equal(radioClipDuration(id,lang,radioVoiceFor(s.radio,role)),c.duration+.2);
   }
@@ -32,13 +32,13 @@ test('all Chinese/English channels resolve approved and distinct speakers with m
 test('the marked intro integrates only its private normal aircraft and enters the same fault state when skipped',()=>{
  const s=start(),before=structuredClone(s),p=createAirportPresentation(s);assert.equal(p.kind,'history-intro');assert(p.visual.engines.every(e=>e.status==='running'));assert(s.engines.every(e=>e.status==='failed'));
  const initial={...p.visual.velocity};advanceHistoricalPresentation(p,.4,true);assert.notDeepEqual(p.visual.velocity,initial);const pause=structuredClone(p.visual);advanceHistoricalPresentation(p,.5,false);assert.deepEqual(p.visual,pause);
- while(p.active)advanceHistoricalPresentation(p,.17,true);assert(Math.abs(p.visual.time)<.02);assert.deepEqual(s,before);
+ while(p.active)advanceHistoricalPresentation(p,.17,true);assert(Math.abs(p.visual.time-2)<.02);assert.deepEqual(s,before);
  const skipped=createHistoricalIntro(s);assert(finishAirportPresentation(skipped));assert.deepEqual(s,before);assert.equal(createAirportPresentation(start({practice:true,finalApproach:true})),null);
 });
 test('rescue uses a separate clock and cannot change frozen results, evidence, practice flags or recorder',()=>{
  // Presentation fixture: this does not claim physical or browser flight success.
  const s=start({practice:true,finalApproach:true});s.water={phase:'complete',fatal:null,firstImpact:{time:10},waterSpeed:1};s.time=40;s.result={success:true,physicalSuccess:true,levelCleared:false,score:70};
- const r=new FlightRecording();r.observe(s);const before=structuredClone(s),stats=r.stats(),p=createHistoricalRescue(s);assert(p);for(let i=0;i<30;i++)advanceHistoricalPresentation(p,.5,true);assert(!p.active);assert(p.visual.time>s.time);assert.deepEqual(s,before);assert.deepEqual(r.stats(),stats);
+ const r=new FlightRecording();r.observe(s);const before=structuredClone(s),stats=r.stats(),p=createHistoricalRescue(s);assert(p);for(let i=0;i<50;i++)advanceHistoricalPresentation(p,.5,true);assert(!p.active);assert(p.visual.time>s.time);assert.deepEqual(s,before);assert.deepEqual(r.stats(),stats);
  const q=createHistoricalRescue(s);finishAirportPresentation(q);assert.deepEqual(s.result,before.result);assert(s.mission.practice);s.result.success=s.result.physicalSuccess=false;assert.equal(createHistoricalRescue(s),null);
 });
 test('explicit handover precedes any long audio and cancels obsolete airport/command lines',()=>{
@@ -60,7 +60,7 @@ test('relight completion follows actual crew steps and never restores thrust',()
  const s=start();fly(s,3.2);assert.equal(s.historical.crew.relight,'attempting');fly(s,5);assert.equal(s.historical.crew.power,'apu-available');fly(s,10);assert.equal(s.historical.crew.relight,'no-thrust-recovered');assert(s.engines.every(e=>e.thrustN===0&&e.status==='failed'));
 });
 test('language switches retain all three actor identities, flight pose and measured remaining line lifetime',()=>{
- const s=start({pilotVoice:'g',towerVoice:'e',copilotVoice:'j'});fly(s,.02);const identities=[s.radio.pilotVoice,s.radio.towerVoice,s.radio.copilotVoice],pose=motion(s);assert(s.radio.active);
+ const s=start({pilotVoice:'g',towerVoice:'e',copilotVoice:'j'});fly(s,4);const identities=[s.radio.pilotVoice,s.radio.towerVoice,s.radio.copilotVoice],pose=motion(s);assert(s.radio.active);
  setRadioLanguage(s,'en');assert.deepEqual(motion(s),pose);assert.deepEqual([s.radio.pilotVoice,s.radio.towerVoice,s.radio.copilotVoice],identities);const c=historicalClip(s.radio.active.clip,'en',null);assert(Math.abs(s.radio.active.until-s.time-c.duration-.2)<1e-7);
  assert.deepEqual([restoreCheckpoint(s).radio.pilotVoice,restoreCheckpoint(s).radio.towerVoice,restoreCheckpoint(s).radio.copilotVoice],identities);
 });

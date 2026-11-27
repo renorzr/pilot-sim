@@ -1,12 +1,14 @@
 import {G,KT,RAD,clamp,massOf,wrap} from './constants.js';
 import {refreshAirData} from './aerodynamics.js';
-import {AIRCRAFT_CONTACTS} from '../aircraft/contact-anchors.js';
+import {AIRCRAFT_CONTACTS,aircraftContacts} from '../aircraft/contact-anchors.js';
+import {aircraftDefinition,DEFAULT_DEFINITION} from '../aircraft/registry.js';
 // Authored airframe-local metres: x right, y up, z aft, matching aircraft-pose.
 // No runway wheel reaction or tyre friction is used by this model.
 export const WATER_PROBES=AIRCRAFT_CONTACTS.water;
 // Preferred entry/scoring targets, shared with the read-only flight guide.
 // They are not independent survival gates; damage combines the full impact.
-export const WATER_ENTRY_TARGETS=Object.freeze({referenceMass:68.5,iasMinKt:120,iasMaxKt:135,waterMaxKt:135,sinkMaxMps:1.5,pitchMinDeg:8,pitchMaxDeg:11,rollMaxDeg:2,slipMaxDeg:2,flap:2});
+export const WATER_ENTRY_TARGETS=DEFAULT_DEFINITION.water.entryTargets;
+export const waterEntryTargets=source=>{const t=aircraftDefinition(source).water?.entryTargets;if(!t)throw new Error('Aircraft has no calibrated water-entry profile');return t;};
 export function probePosition(s,p){
  const roll=-s.roll,pitch=s.pitch,yaw=-s.yaw,cr=Math.cos(roll),sr=Math.sin(roll),cp=Math.cos(pitch),sp=Math.sin(pitch),cy=Math.cos(yaw),sy=Math.sin(yaw);
  const px=p.x*cr-p.y*sr,py=p.x*sr+p.y*cr,yy=py*cp-p.z*sp,zz=py*sp+p.z*cp;
@@ -21,7 +23,7 @@ export function sweptSurfaceContact(previous,current,{surfaceAt,waterAt,runwayAt
  let first=null;
  const distance=Math.hypot(current.x-previous.x,current.y-previous.y,current.z-previous.z),angle=Math.max(Math.abs(current.pitch-previous.pitch),Math.abs(current.roll-previous.roll));
  const steps=Math.max(1,Math.ceil((distance+angle*20)/1.5));
- for(const p of WATER_PROBES){
+ for(const p of aircraftContacts(current).water){
   if(p.gear&&current.gearPosition<.5)continue;
   const evaluate=t=>{const pose=interpolate(previous,current,t),q=probePosition(pose,p),runway=runwayAt(q.x,q.z),water=!runway&&waterAt(q.x,q.z),height=water?level:runway?.elevationM??surfaceAt(q.x,q.z);return{pose,q,water,runway,height,below:q.y<=height};};
   for(let j=0;j<=steps;j++){
@@ -40,19 +42,19 @@ export function impactDamage(snapshot){
  // Continuous severity: the historical ~3.8 m/s, 9.5°, 125 kt sample is
  // damaged but survivable. These are tunable game estimates, not certification.
  const snag=snapshot.part?.startsWith('wing-')?.22:snapshot.part?.startsWith('engine-')?.14:0;
- const severity=(sink/5.8)**2+(roll/12)**2+(Math.max(0,8-pitch)/8)**2+(Math.max(0,pitch-11.5)/4.5)**2+(Math.max(0,speed-WATER_ENTRY_TARGETS.waterMaxKt)/35)**2+(beta/15)**2+.8*snapshot.gearPosition+snag;
+ const severity=(sink/5.8)**2+(roll/12)**2+(Math.max(0,8-pitch)/8)**2+(Math.max(0,pitch-11.5)/4.5)**2+(Math.max(0,speed-waterEntryTargets(snapshot).waterMaxKt)/35)**2+(beta/15)**2+.8*snapshot.gearPosition+snag;
  return clamp(severity,0,2);
 }
 // Scoring targets are narrower than the damaged-but-survivable envelope.
 export function waterEntryQuality(s){
- const t=WATER_ENTRY_TARGETS,mass=Math.sqrt((s.massTonnes||t.referenceMass)/t.referenceMass),ias=s.ias*KT,pitch=s.pitch/RAD,roll=Math.abs(s.roll)/RAD,beta=Math.abs(s.waterBeta??s.beta)/RAD;
+ const t=waterEntryTargets(s),mass=Math.sqrt((s.massTonnes||t.referenceMass)/t.referenceMass),ias=s.ias*KT,pitch=s.pitch/RAD,roll=Math.abs(s.roll)/RAD,beta=Math.abs(s.waterBeta??s.beta)/RAD;
  const speedCost=(Math.max(0,ias-t.iasMaxKt*mass)/20)**2+(Math.max(0,t.iasMinKt*mass-ias)/12)**2;
  const cost=speedCost+(Math.max(0,s.sinkMps-t.sinkMaxMps)/3.5)**2+(Math.max(0,roll-t.rollMaxDeg)/6)**2+(Math.max(0,t.pitchMinDeg-pitch)/6)**2+(Math.max(0,pitch-t.pitchMaxDeg)/3.5)**2+(Math.max(0,beta-t.slipMaxDeg)/8)**2;
  return{speed:Math.exp(-speedCost),total:Math.exp(-cost)};
 }
 export function beginWaterContact(s,hit,{level=0,current={x:0,z:0}}={}){
  if(s.water)return s.water;
- const a=refreshAirData(s),snapshot={time:hit.time??s.time,position:{x:hit.x,y:hit.y,z:hit.z},point:hit.point,part:hit.part,pitch:s.pitch,roll:s.roll,yaw:s.yaw,alpha:a.alpha,beta:a.beta,waterBeta:wrap(s.yaw-Math.atan2(s.velocity.x-current.x,-(s.velocity.z-current.z))),massTonnes:s.weight,ias:a.ias,groundSpeed:a.groundSpeed,waterSpeed:Math.hypot(s.velocity.x-current.x,s.velocity.z-current.z),sinkMps:Math.max(0,-s.velocity.y),gearPosition:s.gearPosition,flapPosition:s.flapPosition,input:structuredClone(s.recordedInput||{}),velocity:{...s.velocity}};
+ const a=refreshAirData(s),snapshot={aircraft:s.aircraft?{...s.aircraft}:undefined,time:hit.time??s.time,position:{x:hit.x,y:hit.y,z:hit.z},point:hit.point,part:hit.part,pitch:s.pitch,roll:s.roll,yaw:s.yaw,alpha:a.alpha,beta:a.beta,waterBeta:wrap(s.yaw-Math.atan2(s.velocity.x-current.x,-(s.velocity.z-current.z))),massTonnes:s.weight,ias:a.ias,groundSpeed:a.groundSpeed,waterSpeed:Math.hypot(s.velocity.x-current.x,s.velocity.z-current.z),sinkMps:Math.max(0,-s.velocity.y),gearPosition:s.gearPosition,flapPosition:s.flapPosition,input:structuredClone(s.recordedInput||{}),velocity:{...s.velocity}};
  const damage=impactDamage(snapshot);
  s.water={phase:'water-contact',started:s.time,level,current:{...current},firstImpact:snapshot,damage,flooding:0,elapsed:0,stableSeconds:0,evacuationSeconds:0,evacuationAvailable:Math.max(0,100-55*damage),supportN:0,dragN:0,waterSpeed:snapshot.waterSpeed,contacts:[],fatal:damage>=1?'不可生存的入水冲击':null};
  s.autoPilot=s.autoThrust=s.autoThrustActive=false;s.reverse=false;s.autoBrakeActive=false;s.spoilersDeployed=false;s.landed=false;s.airborne=true;s.phase='water-contact';
@@ -62,11 +64,11 @@ export function beginWaterContact(s,hit,{level=0,current={x:0,z:0}}={}){
  return s.water;
 }
 export function stepWaterDynamics(s,dt){
- const w=s.water,m=massOf(s),a=refreshAirData(s);if(!w||dt<=0)return;
+ const w=s.water,m=massOf(s),a=refreshAirData(s),moments=aircraftDefinition(s).geometry.waterMoments;if(!w||dt<=0)return;
  w.elapsed+=dt;if(w.elapsed>.12&&w.phase==='water-contact')w.phase='water-run';
  const rel={x:s.velocity.x-w.current.x,z:s.velocity.z-w.current.z},speed=Math.hypot(rel.x,rel.z),contacts=[];
  let support=0,drag=0,pitchMoment=0,rollMoment=0,yawMoment=0;
- for(const p of WATER_PROBES){
+ for(const p of aircraftContacts(s).water){
   if(p.gear&&s.gearPosition<.5)continue;
   const q=probePosition(s,p),depth=w.level-q.y;if(depth<=0)continue;
   // Local spring/buoyancy + dissipative normal damping. Capped force is a
@@ -87,10 +89,10 @@ export function stepWaterDynamics(s,dt){
  const fy=support+airLift+verticalDrag-m*G;
  s.velocity.x+=fx/m*dt;s.velocity.z+=fz/m*dt;s.velocity.y+=fy/m*dt;
  // Physical moments coexist with diminishing aerodynamic control authority.
- const control=clamp(speed/70,0,1),pitchControl=s.stickPitch*650000*control,rollControl=s.stickRoll*400000*control;
- s.pitchRate+=((pitchMoment+pitchControl)/8000000-s.pitchRate*(2.3+contacts.length*.2))*dt;
- s.rollRate+=((rollMoment+rollControl)/3500000-s.rollRate*(2.8+contacts.length*.2))*dt;
- s.yawRate+=(yawMoment/8000000-s.yawRate*1.5)*dt;
+ const control=clamp(speed/70,0,1),pitchControl=s.stickPitch*moments.pitchControlMoment*control,rollControl=s.stickRoll*moments.rollControlMoment*control;
+ s.pitchRate+=((pitchMoment+pitchControl)/moments.pitchInertia-s.pitchRate*(2.3+contacts.length*.2))*dt;
+ s.rollRate+=((rollMoment+rollControl)/moments.rollInertia-s.rollRate*(2.8+contacts.length*.2))*dt;
+ s.yawRate+=(yawMoment/moments.yawInertia-s.yawRate*1.5)*dt;
  s.pitch+=s.pitchRate*dt;s.roll+=s.rollRate*dt;s.yaw+=s.yawRate*dt;
  for(const k of ['x','y','z'])s[k]+=s.velocity[k]*dt;
  w.supportN=support;w.dragN=drag;w.contacts=contacts;w.waterSpeed=Math.hypot(s.velocity.x-w.current.x,s.velocity.z-w.current.z);
